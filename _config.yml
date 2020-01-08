@@ -3,4 +3,4 @@ remote_theme: pmarsceill/just-the-docs
 color_scheme: nil
 search_enabled: true
 heading_anchors: true
-
+logo: "/static/images/banner.svg"

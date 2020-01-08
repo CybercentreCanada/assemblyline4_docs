@@ -1,11 +1,12 @@
 ---
 layout: default
-title: Services
+title: Run your service
+parent: Build your first service
+grand_parent: Service
 nav_order: 1
-parent: Developer's guide
 ---
 
-# Services development
+# Build your first service
 {: .no_toc }
 
 
