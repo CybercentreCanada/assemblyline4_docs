@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Build your first service
-nav_order: 1
-has_children: true
 parent: Service
+grand_parent: Developer's guide
+nav_order: 1
 ---
 
 # Build your first service
