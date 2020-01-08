@@ -17,6 +17,6 @@ has_children: true
 
 ---
 
-## Design
+## Developer's guide
 
 TODO
