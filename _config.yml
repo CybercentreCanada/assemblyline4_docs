@@ -4,3 +4,7 @@ color_scheme: nil
 search_enabled: true
 heading_anchors: true
 logo: "/static/images/banner.svg"
+# Aux links for the upper right navigation
+aux_links:
+  "Francais":
+    - "https://cybercentrecanada.github.io/assemblyline4_docs_fr/"
