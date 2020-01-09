@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Service client
-parent: Service
+parent: Services
 grand_parent: Design
 nav_order: 2
 ---

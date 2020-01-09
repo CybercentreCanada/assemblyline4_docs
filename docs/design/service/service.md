@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Service
+title: Services
 nav_order: 1
 has_children: true
 parent: Design
