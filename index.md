@@ -20,8 +20,8 @@ Welcome to the [Canadian Centre for Cybersecurity](https://www.cyber.gc.ca/en)'s
 
 AssemblyLine is an open source malware analysis platform released in 2017. It leverage Kubernetes to adapt to many use cases; from a small appliance for supporting manual malware analysis and security teams to large scale entreprise security operation scanning millions of files a day and provide triage capabilities.
 
-AssemblyLine can be easily integrated in your environment using it's powerful restApi and web interfaces. The platform also come with dozens of services which perform deep file analysis and enable integrate with other security platform such as anti-virus, malware detonation sandboxes and threat knowledge bases. Best of all, with a little bit of Python code you can extend it yourself by creating new analysis and integration services.
+AssemblyLine can be easily integrated in your environment using it's powerful restApi and web interfaces. The platform  comes with dozens of services to provide deep file analysis and enable integrate with other security platform such as anti-virus, malware detonation sandboxes and threat knowledge bases. Best of all, with a little bit of Python code you can extend it yourself by creating new analysis and integration services.
 
-Learn mode [here](./docs/overview/features.html), or go directly to getting started to deploy your own AssemblyLine!
+Learn mode [here](./docs/overview/features.html), or go directly to getting started section to deploy your own AssemblyLine!
 
 
