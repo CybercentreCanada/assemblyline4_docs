@@ -1,4 +1,5 @@
 title: "AssemblyLine 4"
+theme: "just-the-docs"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: nil
 search_enabled: true
@@ -6,5 +7,5 @@ heading_anchors: true
 logo: "/static/images/banner.svg"
 # Aux links for the upper right navigation
 aux_links:
-  "Francais":
+  "Français":
     - "https://cybercentrecanada.github.io/assemblyline4_docs_fr/"
