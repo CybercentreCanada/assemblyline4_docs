@@ -75,5 +75,5 @@ has_toc: false
 - Standardized search output
 - Cleanup output of some APIs
 
-[Install Beta](./docs/public_beta/install.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Install Beta](./public_beta/install.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
