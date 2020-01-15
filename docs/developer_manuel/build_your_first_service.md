@@ -1,23 +1,19 @@
 ---
 layout: default
-title: Build your first service
+title: Services
 parent: Developer's manual
 has_children: true
 nav_order: 1
 ---
 
-# Build your first service
+# Run your service
 {: .no_toc }
 
 
-## Table of contents
+## Sub-pages
 {: .no_toc .text-delta }
 
 1. TOC
 {:toc}
 
 ---
-
-## Overview
-
-TODO

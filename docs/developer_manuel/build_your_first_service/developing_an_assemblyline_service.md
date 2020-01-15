@@ -9,9 +9,9 @@ nav_order: 1
 # Developing an AssemblyLine service 
 {: .no_toc }
 
-This guide has been created for developers who are looking to (services)[LINK TO ASSEMBLYLINE SERVICE PAGE] for 
+This guide has been created for developers who are looking to develop [services]() for 
 AssemblyLine. It is aimed for individuals with general software development knowledge and basic Python skills. In-depth 
-knowledge of the AssemblyLine framework is not required to develop an AssemblyLine service. 
+knowledge of the AssemblyLine framework is not required to develop a service. 
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -23,13 +23,14 @@ knowledge of the AssemblyLine framework is not required to develop an AssemblyLi
 
 ## Pre-requisites
 Before getting started, ensure you have the following setup:
-- (AssemblyLine development environment)[LINK]
-- (Python development environment)[LINK] 
+- [AssemblyLine development environment]()
+- [Python development environment]() 
 
 ## Build you first service
 This section will guide you through the bare minimum steps required to create a running, but functionally useless
 service. Each sub-section below outlines the steps required for each of the different files required to create an
- AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for example `tutorial_service`. 
+AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for 
+example `tutorial_service`. 
 
 ### 1. Service Python code
 Create a Python file named `tutorial_service.py` with the following contents.
