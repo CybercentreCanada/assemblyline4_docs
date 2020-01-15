@@ -39,7 +39,9 @@ Install the beta version of the client to get the assemblyline 4 support. The cl
 
 You can instantiate the client using the following snippet of code:
 
-    # The new v4 client will test connection to detect if the server is v3 or v4. You should now use the get_client method to get an instance of the client.
+    # The new v4 client will test connection to detect if the server is v3 or v4. 
+    # You should now use the get_client method to get an instance of the client.
+    
     from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", auth=('user', 'password'))
     

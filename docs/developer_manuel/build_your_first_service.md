@@ -2,6 +2,7 @@
 layout: default
 title: Build your first service
 parent: Developer's manual
+has_children: true
 nav_order: 1
 ---
 
