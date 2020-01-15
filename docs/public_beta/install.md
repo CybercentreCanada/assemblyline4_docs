@@ -33,9 +33,9 @@ We recommend that you run Assemblyline on a system with the following specs:
     8 GB of Ram
     40 GB of disk space
 
-Install docker on your machine: https://docs.docker.com/install/
+Install docker on your machine: [https://docs.docker.com/install/](https://docs.docker.com/install/)
 
-Install docker_compose on your machine: https://docs.docker.com/compose/install/
+Install docker_compose on your machine: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
 ### Download installation files
 
