@@ -25,5 +25,5 @@ AssemblyLine can be easily integrated in your environment using it's powerful re
 Assemblyline 4 is now ready for a public beta. There is still a lot of work to do but this should be stable enough to test and to have a good idea where Assemblyline is going to. This is also a good time to test your current system integration against version 4. 
 
 
-[Get Started with the Beta](./docs/public_beta_1.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Get Started with the Beta](./docs/public_beta.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
