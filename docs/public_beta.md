@@ -17,6 +17,8 @@ has_toc: false
 
 ---
 
+This Beta is intended for testing purposes only. Assemblyline 4 is not ready for production yet.
+
 ## Things to consider before deploying the Public Beta
 
 - Not all services from v3 are available during the Beta
@@ -74,6 +76,10 @@ has_toc: false
     - Statistics
 - Standardized search output
 - Cleanup output of some APIs
+
+## Install the Beta
+
+Want to try out the Beta?
 
 [Install Beta](./public_beta/install.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
