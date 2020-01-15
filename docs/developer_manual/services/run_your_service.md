@@ -28,13 +28,13 @@ can be used to run a single task through the service for testing.
 
 1. Install required packages
 
-    ```
+    ```bash
     sudo apt-get install build-essential libffi-dev python3.7 python3.7-dev python3-pip automake autoconf libtool
     ```
     
 2. Install Assemblyline v4 service package
 
-    ```
+    ```bash
     pip3 install --user assemblyline-v4-service
     ```
     
@@ -44,13 +44,13 @@ can be used to run a single task through the service for testing.
 ### Steps
 1. Ensure the current working directory is the root of the service directory of the service to be run
 
-    ```
+    ```bash
     cd alsvc_<service name>
    ```
    
 2. From a terminal, run the `run_service_once` script, where `<service path>` is the path to the service module and `<file path>` is the path of the file to be processed
 
-    ```
+    ```bash
    python3.7 -m assemblyline_v4_service.dev.run_service_once <service path> <file path>
    ```
    
@@ -60,13 +60,13 @@ can be used to run a single task through the service for testing.
 ### Example of running the ResultSample service
 1. Change working directory to root of the service:
 
-    ```
+    ```bash
    cd assemblyline_result_sample_service
    ```
    
 2. From a terminal, run the `run_service_once` script
 
-    ```
+    ```bash
     python3.7 -m assemblyline_v4_service.dev.run_service_once assemblyline_result_sample_service.result_sample.ResultSample /home/ubuntu/testfile.doc
    ```
    
