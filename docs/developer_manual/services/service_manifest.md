@@ -38,52 +38,62 @@ The table below shows all the elements that the manifest file can contain, inclu
 | version | Keyword | Yes | Version of the service. |
 
 ## Dependency config
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | container | [Docker Config](#docker-config) | Yes | Refer to [docker config](#docker-config) section. |
 | volumes | Mapping of [Persistent Volume](#persistent-volume) | No | Refer to [persistent volume](#persistent-volume) section. |
 
 ## Docker config
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
-| allow_internet_access | Boolean | No <br> Default: `false` | |
-| command | List\[Keyword\] | No | |
+| allow_internet_access | Boolean | No <br> Default: `false` | Should the container be allowed to access the internet? |
+| command | List\[Keyword\] | No | Command that should be run when the container launches. |
 | cpu_cores | Float | No <br> Default: `1.0` | Amount of CPU that should be allocated to the container. |
 | environment | List of [Environment Variable](#environment-variable)  | No | Refer to [environment variable](#environment-variable) section.|
 | image | Keyword | Yes | Complete name of the Docker image with tag to run. |
-| ports | List\[Keyword\] | No | |
+| ports | List\[Keyword\] | No | List of ports to bind from the container. |
 | ram_mb | Integer | No <br> Default: `1024` | Amount of RAM in MB that should be allocated to the container. |
 
 ## Environment variable
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
-| name | Keyword | Yes | |
-| value | Keyword | Yes | |
+| name | Keyword | Yes | Name of the variable.  |
+| value | Keyword | Yes | Value of the variable. |
 
 ## Heuristic
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | attack_id | Enum | No | |
 | classification | Classification | No <br> Default: `Classification.UNRESTRICTED` | |
-| description | Text | Yes | |
-| filetype | Keyword | Yes | |
-| heur_id | Keyword | Yes | |
-| name | Keyword | Yes | |
-| score | Integer | Yes | |
+| description | Text | Yes | Detailed description of the heuristic which addresses the technique used to score. |
+| filetype | Keyword | Yes | Regex of the filetype which applies to this heuristic. |
+| heur_id | Keyword | Yes | Unique ID for identifying the heuristic. |
+| name | Keyword | Yes | Short name for the heuristic. |
+| score | Integer | Yes | Score that should be applied when this heuristic is set. |
 
 ## Persistent volume
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
+| mount_path | Keyword | Yes | Path into the container to mount volume. |
+| capacity | Keyword | Yes | Storage capacity required in bytes. |
+| storage_class | Keyword | Yes | |
 
 ## Submission params
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
-| default | Any | Yes | |
-| name | Keyword | Yes | |
-| type | Enum | Yes | Must be one of: `bool`, `int`, `list`, or `str`. |
-| value | Any | Yes | | 
+| default | Any | Yes | Default value of the parameter. |
+| name | Keyword | Yes | Variable name of the parameter. |
+| type | Enum | Yes | Type of variable. Must be one of: `bool`, `int`, `list`, or `str`. |
+| value | Any | Yes | Value of the variable as configured by the user or the default if not configured. | 
 
 ## Update config
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | generates_signatures | Boolean | No <br> Default: `false` | Should the downloaded files be used to create signatures in the system? |
@@ -93,12 +103,13 @@ The table below shows all the elements that the manifest file can contain, inclu
 | update_interval_seconds | Integer | Yes |  Interval in seconds at which the updater runs. |
 
 ## Update source
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | headers | List of [Environment Variable](#environment-variable) | No | Refer to [environment variable](#environment-variable) section. |
-| name | Keyword | Yes | |
-| password | Keyword | No | |
-| pattern | Keyword | No | |
-| private_key | Keyword | No | |
-| uri | Keyword | Yes | |
-| username | Keyword | No | |
+| name | Keyword | Yes | Unique name of the source. |
+| password | Keyword | No | The password required to access the file. |
+| pattern | Keyword | No | Regex pattern to match against the file names of all downloaded files from this source. This is useful when you want to filter out some files from a repo which contains many files. |
+| private_key | Keyword | No | Key for accessing file or Git repo. |
+| uri | Keyword | Yes | URL of the update file. Some example URL formats are: `git@github.com:sample/sample-repo.git`, `https://file-examples.com/wp-content/uploads/2017/02/zip_2MB.zip`. |
+| username | Keyword | No | The username required to access the file. |
