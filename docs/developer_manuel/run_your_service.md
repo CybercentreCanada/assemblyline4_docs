@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Run your service
-parent: Service
+title: Run your new service
+parent: Build your first service
 grand_parent: Developer's manual
 nav_order: 2
 ---

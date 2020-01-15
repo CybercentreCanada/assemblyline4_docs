@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Build your first service
-parent: Service
-grand_parent: Developer's manual
+parent: Developer's manual
 nav_order: 1
 ---
 
