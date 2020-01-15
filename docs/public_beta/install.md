@@ -41,6 +41,8 @@ Install docker_compose on your machine: [https://docs.docker.com/compose/install
 
 Installation files refered in this documentation are available to download from our Amazon AWS repo.
 
+    wget https://assemblyline-support.s3.amazonaws.com/assemblyline4-beta-1.tar.gz
+
 [Download](https://assemblyline-support.s3.amazonaws.com/assemblyline4-beta-1.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ### Extract installation files
