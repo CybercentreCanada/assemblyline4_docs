@@ -1,0 +1,103 @@
+---
+layout: default
+title: Service manifest
+parent: Build your first service
+grand_parent: Developer's manual
+nav_order: 3
+---
+
+# Service manifest overview
+Every service must have a `service_manifest.yml` file in its root directory. The manifest file presents essential
+information about the service to the Assemblyline core system, information the Assemblyline core system must have before
+it can run the service. 
+
+The table below shows all the elements that the manifest file can contain, including a brief description of each.
+
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| accepts | Keyword | No <br> Default: `.*` | Regexes applied to AssemblyLine style file type string. For example, `.*` will allow the service to accept all types of files. |
+| category | Keyword | No <br> Default: `Static Analysis` | Which category is the service part of? Must be one of: `Antivirus`, `Dynamic Analysis`, `External`, `Extraction`, `Filtering`, `Networking`, or `Static Analysis`. |
+| config | Mapping\[Any\] | No | Dictionary of service configuration variables. The key names can be any Keyword and the value can be of Any type. |
+| default_result_classification | ClassificationString | No <br> Default: `Classification.UNRESTRICTED` | |
+| dependencies | Mapping\[[DependencyConfig](#dependency-config)\] | No | Refer to [dependency config](#dependency-config) section. |
+| description | Text | No <br> Default: `NA` | Detailed description of the service and its features. |
+| disable_cache | Boolean | No <br> Default: `false` | Should the result cache be disabled for this service? Only disable caching for services that will always provide different results each run. |
+| docker_config | [DockerConfig](#docker-config) | Yes | Refer to [docker config](#docker-config) section. |
+| enabled | Boolean | No <br> Default: `false` | Should the service be enabled by default? |
+| file_required | Boolean | | Does the service require access to the file to perform its task? If set to `false`, the service will only have access to the file metadata (e.g. hashes, size, type, etc.). |
+| heuristics | List\[Heuristic\] | No | List of heuristic(s) used in the service for scoring. Refer to [heuristic](#heuristic) section. | 
+| is_external | Boolean | No <br> Default: `false` | Does the service make API calls to other products not part of the AssemblyLine infrastructure (e.g. VirusTotal, ...)? |
+| licence_count | Integer | No <br> Default: `0` | Number of concurrent services allowed to run at the same time. |
+| name | Keyword | Yes | Name of the service. |
+| rejects | Keyword | No <br> Default: <code>empty&#124;metadata/.\*</code>| Regexes applied to AssemblyLine style file type string. For example, <code>empty&#124;metadata/.\*</code> will reject all empty and metadata files. |
+| stage | Keyword | No <br> Default: `CORE` | At which stage should the service run. Must be one of: (1) `FILTER`, (2) `EXTRACT`,  (3) `CORE`, (4) `SECONDARY`, (5) `POST`. Note that stages are executed in the numbered order shown. |
+| submission_params | List\[SubmissionParams\] | No | List of submission param(s) that define parameters that the user can change about the service for each of its scans. Refer to [submission_params](#submission-params) section. |
+| timeout | Integer | No <br> Default: `60` | Maximum execution time the service has before the task is considered to be timed out. |
+| update_config | [UpdateConfig](#update-config) | No | Refer to [update config](#update-config) section. |
+| version | Keyword | Yes | Version of the service. |
+
+## Dependency config
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| container | [DockerConfig](#docker-config) | Yes | Refer to [docker config](#docker-config) section. |
+| volumes | Mapping\[[PersistentVolume](#persistent-volume)\] | No | Refer to [persistent volume](#persistent-volume) section. |
+
+## Docker config
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| allow_internet_access | Boolean | No <br> Default: `false` | |
+| command | List\[Keyword\] | No | |
+| cpu_cores | Float | No <br> Default: `1.0` | Amount of CPU that should be allocated to the container. |
+| environment | List\[[EnvironmentVariable](#environment-variable)\]  | No | Refer to [environment variable](#environment-variable) section.|
+| image | Keyword | Yes | Complete name of the Docker image with tag to run. |
+| ports | List\[Keyword\] | No | |
+| ram_mb | Integer | No <br> Default: `1024` | Amount of RAM in MB that should be allocated to the container. |
+
+## Environment variable
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| name | Keyword | Yes | |
+| value | Keyword | Yes | |
+
+## Heuristic
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| attack_id | Enum | No | |
+| classification | Classification | No <br> Default: `Classification.UNRESTRICTED` | |
+| description | Text | Yes | |
+| filetype | Keyword | Yes | |
+| heur_id | Keyword | Yes | |
+| name | Keyword | Yes | |
+| score | Integer | Yes | |
+
+## Persistent volume
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+
+## Submission params
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| default | Any | Yes | |
+| name | Keyword | Yes | |
+| type | Enum | Yes | Must be one of: `bool`, `int`, `list`, or `str`. |
+| value | Any | Yes | | 
+
+## Update config
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| generates_signatures | Boolean | No <br> Default: `false` | Should the downloaded files be used to create signatures in the system? |
+| method | Enum | Yes | Update method for updating service. Must be either of: `run` or `build`. `run` will run the provided update container and `build` will build the provided dockerfile. |
+| run_options | [DockerConfig](#docker-config) | No | Refer to [docker config](#docker-config) section. |
+| sources | List\[[UpdateSource](#update-source)\] | No | List of source(s) from which updates can be downloaded. Refer to [update source](#update-source) section. |
+| update_interval_seconds | Integer | Yes |  Interval in seconds at which the updater runs. |
+
+## Update source
+| Field name | Value type | Required? | Description |
+|:---|:---|:---|:---|
+| headers | List\[[EnvironmentVariable](#environment-variable)\] | No | Refer to [environment variable](#environment-variable) section. |
+| name | Keyword | Yes | |
+| password | Keyword | No | |
+| pattern | Keyword | No | |
+| private_key | Keyword | No | |
+| uri | Keyword | Yes | |
+| username | Keyword | No | |
