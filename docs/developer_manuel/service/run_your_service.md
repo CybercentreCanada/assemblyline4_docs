@@ -2,7 +2,7 @@
 layout: default
 title: Run your service
 parent: Service
-grand_parent: Developer's guide
+grand_parent: Developer's manual
 nav_order: 2
 ---
 

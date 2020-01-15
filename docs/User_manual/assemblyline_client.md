@@ -1,10 +1,10 @@
----
-layout: default
-title: AssemblyLine client
-nav_order: 1
-parent: User's manual
-has_children: true
----
+#---
+#layout: default
+#title: AssemblyLine client
+#nav_order: 1
+#parent: User's manual
+#has_children: true
+#---
 
 # AssemblyLine client
 The assemblyline client library facilitates issuing requests to AssemblyLine.

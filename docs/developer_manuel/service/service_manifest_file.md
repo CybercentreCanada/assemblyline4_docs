@@ -2,7 +2,7 @@
 layout: default
 title: Service manifest file
 parent: Service
-grand_parent: Developer's guide
+grand_parent: Developer's manual
 nav_order: 3
 ---
 

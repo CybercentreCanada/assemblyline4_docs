@@ -1,9 +1,10 @@
----
-layout: default
-title: System architecture
-nav_order: 5
-has_children: true
----
+#---
+#layout: default
+#title: System architecture
+#nav_order: 5
+#has_children: true
+#has_toc: false
+#---
 
 # System architecture
 {: .no_toc }
