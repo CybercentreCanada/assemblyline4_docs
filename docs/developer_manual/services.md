@@ -3,6 +3,7 @@ layout: default
 title: Services
 parent: Developer's manual
 has_children: true
+has_toc: false
 nav_order: 1
 ---
 

@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Developing an AssemblyLine service 
-parent: Build your first service
+parent: Services
 grand_parent: Developer's manual
 nav_order: 1
+has_toc: false
 ---
 
 # Developing an AssemblyLine service 

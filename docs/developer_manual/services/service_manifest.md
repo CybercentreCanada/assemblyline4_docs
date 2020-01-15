@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Service manifest
-parent: Build your first service
+parent: Services
 grand_parent: Developer's manual
 nav_order: 3
+has_toc: false
 ---
 
 # Service manifest overview

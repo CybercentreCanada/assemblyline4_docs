@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Run your new service
-parent: Build your first service
+parent: Services
 grand_parent: Developer's manual
 nav_order: 2
+has_toc: false
 ---
 
 # Run your service
