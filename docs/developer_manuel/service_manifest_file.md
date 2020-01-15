@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Service manifest file
-parent: Service
+title: Configure your service
+parent: Build your first service
 grand_parent: Developer's manual
-nav_order: 3
+nav_order: 1
 ---
 
 # Service manifest overview
