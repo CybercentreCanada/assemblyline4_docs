@@ -51,11 +51,14 @@ Let's assume you've downloaded the file in your home directory.
 
 ### Configure system
 
-1. Generate a self signed cert for your installation
-    - openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4-beta-1/config/nginx.key -out $HOME/assemblyline4-beta-1/config/nginx.crt -days 365
-2. Edit the default passwords in the following two files:
-    - $HOME/assemblyline4-beta-1/.env
-    - $HOME/assemblyline4-beta-1/config/bootstrap.py
+Generate a self signed cert for your installation
+
+    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4-beta-1/config/nginx.key -out $HOME/assemblyline4-beta-1/config/nginx.crt -days 365
+
+Edit the default passwords in the following two files:
+    
+    $HOME/assemblyline4-beta-1/.env
+    $HOME/assemblyline4-beta-1/config/bootstrap.py
 
 
 ### Run docker_compose file
