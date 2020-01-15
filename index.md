@@ -20,5 +20,10 @@ AssemblyLine 4 is an open source malware analysis platform. It leverage Kubernet
 
 AssemblyLine can be easily integrated in your environment using it's powerful rest API and web interfaces. The platform  comes with dozens of services to provide deep file analysis and enable integration with other security platforms such as anti-virus, malware detonation sandboxes and threat knowledge bases. Best of all, with a little bit of Python code you can extend it yourself by creating new analysis and integration services.
 
-[Install public beta 1](./docs/public_beta_1.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+## Public Beta 1
+
+Assemblyline 4 is now ready for a public beta. There is still a lot of work to do but this should be stable enough to test and to have a good idea where Assemblyline is going to. This is also a good time to test your current system integration against version 4. 
+
+
+[Get Started with the Beta](./docs/public_beta_1.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
