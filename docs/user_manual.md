@@ -28,20 +28,18 @@ To install the client you'll need to make sure the you have the folowing install
     # APT/YUM
     libffi-dev
     libssl-dev
+    
+## Installation
 
-    # pypi
-    pycryptodome
-    requests
-    requests[security]
-    python-baseconv
-    python-socketio[client]
-    socketio-client==0.5.7.4
+Install the beta version of the client to get the assemblyline 4 support. The client will be smart enough to switch between Assemblyline v3 and v4 support depending on which server you connect to.
+
+    pip install assemblyline-client==4.0.0b3
 
 ## Using the client
 
 You can instantiate the client using the following snippet of code:
 
-    # The new v4 client will test connection to detect if the server is v3 or v4. You should now use the get_client method.
+    # The new v4 client will test connection to detect if the server is v3 or v4. You should now use the get_client method to get an instance of the client.
     from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", auth=('user', 'password'))
     
@@ -105,10 +103,9 @@ Instead of using a strait search and getting a page of result, you can use the s
         # Then do stuff with full submission (print for example)
         print(full_submission)
 
-#### Using search parameters
+#### Facetting
 
-##### Version 4
-Version 4 server will support facet query out of the box, no need to learn the Lucene facetting syntax.
+Version 4 server now supports facet query out of the box, no need to learn the Lucene facetting syntax.
     
     c.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
 
