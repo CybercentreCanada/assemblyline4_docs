@@ -38,12 +38,14 @@ The table below shows all the elements that the manifest file can contain, inclu
 | version | Keyword | Yes | Version of the service. |
 
 ## Dependency config
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | container | [Docker Config](#docker-config) | Yes | Refer to [docker config](#docker-config) section. |
 | volumes | Mapping of [Persistent Volume](#persistent-volume) | No | Refer to [persistent volume](#persistent-volume) section. |
 
 ## Docker config
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | allow_internet_access | Boolean | No <br> Default: `false` | |
@@ -55,12 +57,14 @@ The table below shows all the elements that the manifest file can contain, inclu
 | ram_mb | Integer | No <br> Default: `1024` | Amount of RAM in MB that should be allocated to the container. |
 
 ## Environment variable
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | name | Keyword | Yes | |
 | value | Keyword | Yes | |
 
 ## Heuristic
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | attack_id | Enum | No | |
@@ -72,10 +76,15 @@ The table below shows all the elements that the manifest file can contain, inclu
 | score | Integer | Yes | |
 
 ## Persistent volume
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
+| mount_path | Keyword | Yes | Path into the container to mount volume. |
+| capacity | Keyword | Yes | Storage capacity required in bytes. |
+| storage_class | Keyword | Yes | |
 
 ## Submission params
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | default | Any | Yes | |
@@ -84,6 +93,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 | value | Any | Yes | | 
 
 ## Update config
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | generates_signatures | Boolean | No <br> Default: `false` | Should the downloaded files be used to create signatures in the system? |
@@ -93,6 +103,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 | update_interval_seconds | Integer | Yes |  Interval in seconds at which the updater runs. |
 
 ## Update source
+
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | headers | List of [Environment Variable](#environment-variable) | No | Refer to [environment variable](#environment-variable) section. |

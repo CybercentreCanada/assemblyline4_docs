@@ -40,7 +40,7 @@ can be used to run a single task through the service for testing.
     
 3. Add your service development directory path (ie. `/home/ubuntu/alv4_services`) to the PYTHONPATH environment variable
 
-## Using the `run_service_once.py` script
+## Using the *run_service_once* script
 ### Steps
 1. Ensure the current working directory is the root of the service directory of the service to be run
 
