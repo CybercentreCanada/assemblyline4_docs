@@ -20,4 +20,4 @@ has_toc: false
 
 ## Developer's guide
 
-This section of the documentation show you how to develop for Assemblyline 4.
+This section of the documentation show you how to develop for AssemblyLine 4.

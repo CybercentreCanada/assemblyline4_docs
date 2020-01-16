@@ -19,7 +19,7 @@ has_toc: false
 
 ---
 
-To test an Assemblyline service in standalone mode, the
+To test an AssemblyLine service in standalone mode, the
 [run_service_once.py](https://bitbucket.org/cse-assemblyline/alv4_service/src/master/dev/run_service_once.py) script
 can be used to run a single task through the service for testing.
 
@@ -32,7 +32,7 @@ can be used to run a single task through the service for testing.
     sudo apt-get install build-essential libffi-dev python3.7 python3.7-dev python3-pip automake autoconf libtool
     ```
     
-2. Install Assemblyline v4 service package
+2. Install AssemblyLine v4 service package
 
     ```bash
     pip3 install --user assemblyline-v4-service

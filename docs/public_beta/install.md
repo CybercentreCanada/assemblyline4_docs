@@ -22,11 +22,11 @@ has_toc: false
 
 For this first public beta, the only installation we will support is the appliance installation. (This can also be used for service development)
 
-In this setup, Assemblyline 4 will use all the resources available on your machine for it's components. This can be deploy on any machine / VM that can run docker containers. 
+In this setup, AssemblyLine 4 will use all the resources available on your machine for it's components. This can be deploy on any machine / VM that can run docker containers. 
 
 ### Pre-requisites
 
-We recommend that you run Assemblyline on a system with the following specs:
+We recommend that you run AssemblyLine on a system with the following specs:
 
     Any linux distribution with a recent kernel (4.4+)
     4 Cores
@@ -39,7 +39,7 @@ Install docker_compose on your machine: [https://docs.docker.com/compose/install
 
 ### Download installation files
 
-Installation files refered in this documentation are available to download from our Amazon AWS repo. Let's download them to your home directory.
+Installation files referred in this documentation are available to download from our Amazon AWS repo. Let's download them to your home directory.
 
     wget https://assemblyline-support.s3.amazonaws.com/assemblyline4-beta-1.tar.gz -o $HOME/assemblyline4-beta-1.tar.gz
 

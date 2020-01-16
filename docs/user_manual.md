@@ -31,7 +31,7 @@ To install the client you'll need to make sure the you have the folowing install
     
 ## Installation
 
-Install the beta version of the client to get the assemblyline 4 support. The client will be smart enough to switch between Assemblyline v3 and v4 support depending on which server you connect to.
+Install the beta version of the client to get the assemblyline 4 support. The client will be smart enough to switch between AssemblyLine v3 and v4 support depending on which server you connect to.
 
     pip install assemblyline-client==4.0.0b3
 
