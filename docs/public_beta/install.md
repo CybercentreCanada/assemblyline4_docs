@@ -69,28 +69,28 @@ For reference, here are the instructions on docker's website: [https://docs.dock
 
 Installation files referred in this documentation are available to download from our Amazon AWS repo. Let's download them to your home directory.
 
-    wget https://assemblyline-support.s3.amazonaws.com/assemblyline4-beta-1.tar.gz -o $HOME/assemblyline4-beta-1.tar.gz
+    wget https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz -o $HOME/assemblyline4_beta_1.tar.gz
 
-[Download Beta](https://assemblyline-support.s3.amazonaws.com/assemblyline4-beta-1.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Download Beta](https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ### Extract installation files
 
 Let's assume you've downloaded the file in your home directory.
 
-    tar zxvf $HOME/assemblyline4-beta-1.tar.gz
+    tar zxvf $HOME/assemblyline4_beta_1.tar.gz
 
 ### Configure system
 
 Generate a self signed cert for your installation
 
-    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4-beta-1/config/nginx.key -out $HOME/assemblyline4-beta-1/config/nginx.crt -days 365
+    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4_beta_1/config/nginx.key -out $HOME/assemblyline4_beta_1/config/nginx.crt -days 365
 
 Edit the default passwords in the following two files:
     
-    $HOME/assemblyline4-beta-1/.env
-    $HOME/assemblyline4-beta-1/config/bootstrap.py
+    $HOME/assemblyline4_beta_1/.env
+    $HOME/assemblyline4_beta_1/config/bootstrap.py
 
 
 ### Run docker_compose file
 
-    (cd $HOME/assemblyline4-beta-1/ && sudo docker-compose up -d)
+    (cd $HOME/assemblyline4_beta_1/ && sudo docker-compose up -d)
