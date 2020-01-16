@@ -9,7 +9,7 @@ has_toc: false
 
 # Service manifest overview
 Every service must have a `service_manifest.yml` file in its root directory. The manifest file presents essential
-information about the service to the Assemblyline core system, information the Assemblyline core system must have before
+information about the service to the AssemblyLine core system, information the AssemblyLine core system must have before
 it can run the service. 
 
 The table below shows all the elements that the manifest file can contain, including a brief description of each.
@@ -67,7 +67,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
-| attack_id | Enum | No | |
+| attack_id | Enum | No | Mitre's Att&ck matrix ID. |
 | classification | Classification | No <br> Default: `Classification.UNRESTRICTED` | |
 | description | Text | Yes | Detailed description of the heuristic which addresses the technique used to score. |
 | filetype | Keyword | Yes | Regex of the filetype which applies to this heuristic. |

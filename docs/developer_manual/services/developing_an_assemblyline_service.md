@@ -33,7 +33,7 @@ service. Each sub-section below outlines the steps required for each of the diff
 AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for 
 example `tutorial_service`. 
 
-### 1. Service Python code
+### Service Python code
 Create a Python file named `tutorial_service.py` with the following contents.
 ```python
 from assemblyline_v4_service.common.base import ServiceBase
@@ -76,7 +76,7 @@ for task execution. This function is optional to implement.
 The `execute` function is called every time your service receives a new file to scan. This is where you should execute 
 your processing code. In the example above, we will only generate static results for illustration purposes.
 
-### 2. Service manifest YAML
+### Service manifest YAML
 Create a YAML file named `service_manifest.yml` with the following contents.
 ```yaml
 name: TutorialService
@@ -128,20 +128,9 @@ heuristics:
     name: Drops an exe
     score: 1000
     attack_id: T1073
-  - description: This informational heuristic fakes extracting a configuration block
-    filetype: "*"
-    heur_id: 3
-    name: Extraction config information
-    score: 10
-  - description: This suspicious heuristic fakes decoding a configuration block and has an Att&ck ID associated with it
-    filetype: "*"
-    heur_id: 4
-    name: Config decoding
-    score: 100
-    attack_id: T1027
 
 docker_config:
-  image: cccs/assemblyline-service-resultsample:latest
+  image: cccs/assemblyline-service-tutorialsample:latest
   cpu_cores: 1.0
   ram_mb: 1024
 
@@ -159,3 +148,31 @@ update_config:
     command: ["python3", "-m", "assemblyline_core.updater.url_update"]
 ```
 A description of all the valid fields in a `service_manifest.yml` are available [here](service_manifest.md).
+
+### Dockerfile
+Create a Dockerfile file named `Dockerfile` with the following contents.
+```dockerfile
+FROM cccs/assemblyline-v4-service-base:latest
+
+ENV SERVICE_PATH tutorial_service.TutorialService
+
+# Install any service dependencies here
+# For example: RUN apt-get update && apt-get install -y libyaml-dev
+#              RUN pip install utils
+
+# Switch to assemblyline user
+USER assemblyline
+
+# Copy TutorialSample service code
+WORKDIR /opt/al_service
+COPY . .
+```
+
+The Dockerfile is required to build a Docker container. When developing a Docker container for an AssemblyLine service,
+the following must be ensured:
+- The parent image must be `cccs/assemblyline-v4-service-base:latest`.
+- An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
+class which inherits from the `ServiceBase` class.
+- Any dependency installation must be completed as the `root` user, which is set by default in the parent image. Once all 
+dependency installations have been completed, you must should change the user to `assemblyline`.
+- The service code and any dependency files must be copied to the `/opt/al_service` directory.
