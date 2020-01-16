@@ -33,9 +33,37 @@ We recommend that you run Assemblyline on a system with the following specs:
     8 GB of Ram
     40 GB of disk space
 
-Install docker on your machine: [https://docs.docker.com/install/](https://docs.docker.com/install/)
+#### Docker pre-installed on your machine
+Appliance mode will use docker to start assemblyline therefor it will need to be installed on your machine.
 
-Install docker_compose on your machine: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+##### Installation of docker on Ubuntu (Recommended)
+Follow these simple commands to get docker runnning on your machine
+
+    # Add docker repository
+
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agentsoftware-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+    # Install docker
+
+    sudo apt-get update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    sudo docker run hello-world
+
+##### Installation of docker on other linux distro
+
+Follow instructions on Docker's website: [https://docs.docker.com/install/](https://docs.docker.com/install/)
+
+#### Docker-compose pre-installed on your computer
+Installing docker-compose is done the same way on all linux distros. Follow these simple instructions:
+
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+
+For reference, here are the instructions on docker's website: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
 ### Download installation files
 
