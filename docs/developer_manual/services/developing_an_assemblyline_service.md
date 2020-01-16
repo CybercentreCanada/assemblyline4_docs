@@ -45,6 +45,9 @@ class TutorialService(ServiceBase):
 
    def start(self):
        self.log.info(f"start() from {self.service_attributes.name} service called")
+   
+   def get_tool_version(self):
+       return "v1"
 
    def execute(self, request):
        result = Result()
@@ -54,6 +57,9 @@ class TutorialService(ServiceBase):
        text_section.set_heuristic(1)
        
        result.add_section(text_section)
+   
+   def stop(self):
+       self.log.info(f"stop() from {self.service_attributes.name} service called")  
 ```
 
 #### *ServiceBase* class
@@ -72,9 +78,15 @@ to access service related information. The following tables describes all the av
 The `start` function is called when the AssemblyLine service is initiated and should be used to prepare your service 
 for task execution. This function is optional to implement.
 
+#### *get_tool_version* function
+The purpose of the `get_tool_version` function is to the return a string of all the tools used by the service. The tool version should be updated to reflect changes in the service tools, so that AssemblyLine can rescan files on the new service version if they are submitted again.
+
 #### *execute* function
 The `execute` function is called every time your service receives a new file to scan. This is where you should execute 
 your processing code. In the example above, we will only generate static results for illustration purposes.
+
+#### *stop* function
+The `stop` function is called when the AssemblyLine service is stopped and should be used to cleanup your service. This function is optional to implement.
 
 ### Service manifest YAML
 Create a YAML file named `service_manifest.yml` with the following contents.
