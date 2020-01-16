@@ -92,5 +92,10 @@ Edit the default passwords in the following two files:
 
 
 ### Run docker_compose file
+Everytime your run docker-compose commands you must be in the directory were the compose file resides
 
-    (cd $HOME/assemblyline4_beta_1/ && sudo docker-compose up -d)
+    cd $HOME/assemblyline4_beta_1/
+
+Now your can start Assemblyline Beta
+
+    sudo docker-compose up -d
