@@ -88,8 +88,8 @@ Generate a self signed cert for your installation:
 
 Edit the default passwords in the following two files:
     
-    $HOME/assemblyline4_beta_1/.env
-    $HOME/assemblyline4_beta_1/config/bootstrap.py
+    nano $HOME/assemblyline4_beta_1/.env
+    nano $HOME/assemblyline4_beta_1/config/bootstrap.py
 
 
 ### Run docker_compose file
