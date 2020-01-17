@@ -81,9 +81,10 @@ Let's assume you've downloaded the file in your home directory.
 
 ### Configure system
 
-Generate a self signed cert for your installation
+Generate a self signed cert for your installation:
 
-    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4_beta_1/config/nginx.key -out $HOME/assemblyline4_beta_1/config/nginx.crt -days 365
+    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4_beta_1/config/nginx.key -out $HOME/assemblyline4_beta_1/config/nginx.crt -days 365 -subj "/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local"
+
 
 Edit the default passwords in the following two files:
     
