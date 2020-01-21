@@ -11,7 +11,7 @@ has_toc: false
 {: .no_toc }
 
 This guide has been created for developers who are looking to develop [services]() for 
-AssemblyLine. It is aimed for individuals with general software development knowledge and basic Python skills. In-depth 
+AssemblyLine. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth 
 knowledge of the AssemblyLine framework is not required to develop a service. 
 
 ## Table of contents
@@ -27,7 +27,7 @@ Before getting started, ensure you have the following setup:
 - [AssemblyLine development environment]()
 - [Python development environment]() 
 
-## Build you first service
+## Build your first service
 This section will guide you through the bare minimum steps required to create a running, but functionally useless
 service. Each sub-section below outlines the steps required for each of the different files required to create an
 AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for 
@@ -65,9 +65,9 @@ class TutorialService(ServiceBase):
 #### *ServiceBase* class
 The main class of your AssemblyLine service must inherit from the `ServiceBase` class which can be imported from
 `assemblyline_v4_service.common.base`. The `ServiceBase` base class includes many instance variables which can be used
-to access service related information. The following tables describes all the available instance variables.
+to access service related information. The following tables describes all of the available instance variables.
 
-| Variable name | Description |
+| Variable Name | Description |
 |:---|:---|
 | config | Reference to the service parameters containing values updated by the user for service configuration. |
 | log | Reference to the logger. |
@@ -187,10 +187,10 @@ update_config:
     image: cccs/assemblyline_dev:latest
     command: ["python3", "-m", "assemblyline_core.updater.url_update"]
 ```
-A description of all the valid fields in a `service_manifest.yml` are available [here](service_manifest.md).
+A descriptions of all the valid fields in a `service_manifest.yml` are available [here](service_manifest.md).
 
 ### Dockerfile
-Create a Dockerfile file named `Dockerfile` with the following contents.
+Create a Dockerfile file named `Dockerfile` with the following contents:
 ```dockerfile
 FROM cccs/assemblyline-v4-service-base:latest
 
