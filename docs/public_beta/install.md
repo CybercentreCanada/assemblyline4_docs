@@ -40,17 +40,17 @@ Appliance mode will use docker to start assemblyline therefor it will need to be
 Follow these simple commands to get docker runnning on your machine
 
     # Add docker repository
-
     sudo apt-get update
-    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agentsoftware-properties-common
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
     # Install docker
-
     sudo apt-get update
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+    # Test docker installation
     sudo docker run hello-world
 
 ##### Installation of docker on other linux distro
@@ -60,8 +60,12 @@ Follow instructions on Docker's website: [https://docs.docker.com/install/](http
 #### Docker-compose pre-installed on your computer
 Installing docker-compose is done the same way on all linux distros. Follow these simple instructions:
 
+    # Install docker-compose
     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
+    
+    # Test docker-compose installation
+    docker-compose --version
 
 For reference, here are the instructions on docker's website: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
