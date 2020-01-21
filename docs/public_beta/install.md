@@ -7,7 +7,7 @@ has_children: false
 has_toc: false
 ---
 
-# Installing Public Beta 1
+# Installing Public Beta
 {: .no_toc }
 
 ## Table of contents
@@ -26,7 +26,7 @@ In this setup, AssemblyLine 4 will use all the resources available on your machi
 
 ### Pre-requisites
 
-We recommend that you run AssemblyLine on a system with the following specs:
+We recommend that you run AssemblyLine on a system with the following minimal specs:
 
     Any linux distribution with a recent kernel (4.4+)
     4 Cores

@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-# Public beta 1
+# Public beta
 {: .no_toc }
 
 ## Table of contents
@@ -19,12 +19,12 @@ has_toc: false
 
 This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for production yet.
 
-## Things to consider before deploying the Public Beta
+## Before deploying the Public Beta
 
 - Not all services from v3 are available during the Beta
 - There are still outstanding stability issues being worked on
 - Only appliance/dev deployment setup will be available for the Beta
-- The source will only be release once the code is final 
+- The source will be release once the code is final
 - Database schema may still slightly change therefor there will be no upgrade path between Beta, Release Candidates and Final release.
 - Only minimal documentation will be available during the Beta
 
@@ -44,12 +44,12 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 
 ### Containerization
 
-- Designed to be run in the cloud first but also on premise
+- Designed to be run in the cloud or on premise
 - Every components / services are now running in their own container 
     - Service containers do not have access to the database or the file system anymore for added security
     - Since all services have their own container, there will not be service dependency conflicts anymore
 - Docker compose is used for dev and appliance deployment 
-- Kubernetes is used for Cluster deployment
+- Kubernetes is used for cluster deployment
 
 ### Services
     
@@ -70,12 +70,11 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 
 ### APIs
 
-- Added a bunch of new APIs related to search
+- Added a many new APIs related to search
     - Faceting
     - Histogram
     - Statistics
 - Standardized search output
-- Cleanup output of some APIs
 
 ## Install the Beta
 

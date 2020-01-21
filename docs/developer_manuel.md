@@ -9,13 +9,6 @@ has_toc: false
 # Developer's manual
 {: .no_toc }
 
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
 ---
 
 ## Developer's guide
