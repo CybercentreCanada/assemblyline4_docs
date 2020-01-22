@@ -12,4 +12,4 @@ nav_order: 1
 
 ---
 
-AssemblyLine services are responsibles for providing file analysis. Extending the framework is fairly easy with a little bit a Python code, follow the steps to add new analysis functionality.
+AssemblyLine services are responsible for providing file analysis. Extending the framework is fairly easy with a little bit a Python code. Follow the steps to add new analysis functionality.

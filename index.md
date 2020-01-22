@@ -16,9 +16,9 @@ Welcome to the [Canadian Centre for Cybersecurity](https://www.cyber.gc.ca/en)'s
 
 ---
 
-AssemblyLine 4 is an open source malware analysis platform. It leverages Kubernetes and Docker to adapt to many use cases; from a small appliance for supporting manual malware analysis and security teams to large scale enterprise security operation scanning millions of files a day and providing triage capabilities.
+AssemblyLine 4 is an open source malware analysis platform. It leverages Kubernetes and Docker to adapt to many use cases; from a small appliance for supporting manual malware analysis and security teams to large-scale enterprise security operations scanning millions of files a day and providing triage capabilities.
 
-AssemblyLine can be easily integrated in your environment using it's powerful rest API and web interfaces. The platform comes with dozens of services to provide deep file analysis and enable integration with other security platforms such as anti-virus, malware detonation sandboxes and threat knowledge bases. Best of all, with a little bit of Python code you can extend it yourself by creating new analysis and integration services.
+AssemblyLine can be easily integrated in your environment using it's powerful rest API and web interfaces. The platform comes with dozens of services to provide deep file analysis and enable integration with other security platforms such as anti-virus, malware-detonation sandboxes and threat knowledge bases. Best of all, with a little bit of Python code you can extend it yourself by creating new analysis and integration services.
 
 ## Public Beta
 

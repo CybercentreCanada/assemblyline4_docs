@@ -19,11 +19,11 @@ has_toc: false
 ---
 
 # AssemblyLine client
-The assemblyline client library facilitates issuing requests to AssemblyLine.
+The assemblyline-client library facilitates issuing requests to AssemblyLine.
 
 ## Pre-requisites
 
-To install the client you'll need to make sure the you have the folowing installed:
+To install the client you'll need to make sure that you have the following libaries installed:
 
     # APT/YUM
     libffi-dev
@@ -31,7 +31,7 @@ To install the client you'll need to make sure the you have the folowing install
     
 ## Installation
 
-Install the beta version of the client to get the assemblyline 4 support. The client will be smart enough to switch between AssemblyLine v3 and v4 support depending on which server you connect to.
+Install the beta version of the client to get the AssemblyLine 4 support. The client will be smart enough to switch between AssemblyLine v3 and v4 support depending on which server you connect to.
 
     pip install assemblyline-client==4.0.0b3
 
@@ -58,7 +58,7 @@ You can instantiate the client using the following snippet of code:
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
 
-The assemblyline client is fully documented in the docstrings so if you use an interactive client like ipython you can use the help feature.
+The AssemblyLine client is fully documented in the docstrings so if you use an interactive client like iPython you can use the help feature.
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
@@ -90,16 +90,16 @@ To get a key of a given bucket, you simply need to pass it it's ID
 
 #### Using search
 
-You can use the search engine in the client by simply passing a lucene query
+You can use the search engine in the client by simply passing a Lucene query
 
     search_res = al_client.search.submission("submission.submitter:user")
 
 #### Using search iterator
 
-Instead of using a strait search and getting a page of result, you can use the search iterator to go through all results.
+Instead of using a straight search and getting a page of result, you can use the search iterator to go through all of the results.
 
     for submission in al_client.search.stream.submission("submission.submitter:user"):
-        # It only return the indexed fields if you want the full thing you need to go get it
+        # It only returns the indexed fields. If you want the full thing you need to go get it
         full_submission = al_client.submission(submission['submission.sid'])
 
         # Then do stuff with full submission (print for example)
@@ -107,7 +107,7 @@ Instead of using a strait search and getting a page of result, you can use the s
 
 #### Facetting
 
-Version 4 server now supports facet query out of the box, no need to learn the Lucene facetting syntax.
+Version 4 server now supports facet querying out of the box, no need to learn the Lucene facetting syntax.
     
     c.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
 

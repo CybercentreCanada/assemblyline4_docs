@@ -25,7 +25,7 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 - There are still outstanding stability issues being worked on
 - Only appliance/dev deployment setup will be available for the Beta
 - The source will be release once the code is final
-- Database schema may still slightly change therefor there will be no upgrade path between Beta, Release Candidates and Final release.
+- Database schema may still slightly change therefore there will be no upgrade path between Beta, Release Candidates and Final release.
 - Only minimal documentation will be available during the Beta
 
 ## Notable changes to AssemblyLine in version 4
@@ -33,7 +33,7 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 ### Code
 
 - The code base has been completely ported to Python 3. 
-- Python 2 support was removed but we still have a way to run python 2 services if this is absolutely necessary
+- Python 2 support was removed but we still have a way to run Python 2 services if this is absolutely necessary
 
 ### Database
 
@@ -45,8 +45,8 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 ### Containerization
 
 - Designed to be run in the cloud or on premise
-- Every components / services are now running in their own container 
-    - Service containers do not have access to the database or the file system anymore for added security
+- All components / services are now running in their own containers
+    - For added security, service containers do not have access to the database or the file system anymore
     - Since all services have their own container, there will not be service dependency conflicts anymore
 - Docker compose is used for dev and appliance deployment 
 - Kubernetes is used for cluster deployment
@@ -61,16 +61,16 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 
 - Added printable report view
 - Now explicitly saying if the system thinks the file is malicious or not
-- Added feedback loop to the user's of the system can agree or disagree on the scoring of a file
-    - This will be use to build the machine learning model to auto-adjust the score of each heuristics
-- Simplify UI to remove hidden menus
-- Remove Adding/Editing signature in favor of having a signature source management
+- Added feedback loop so that the users of the system can agree or disagree on the scoring of a file
+    - This will be used to build the machine-learning model to auto-adjust the score of each heuristics
+- Simplified UI to remove hidden menus
+- Removed Adding/Editing signature in favor of having a signature source management
     - You can now automatically fetch signature from an external URL or git repository
-- Better support for phones and tablet 
+- Better support for phones and tablets
 
 ### APIs
 
-- Added a many new APIs related to search
+- Added many new APIs related to search
     - Faceting
     - Histogram
     - Statistics
