@@ -73,7 +73,9 @@ For reference, here are the instructions on Docker's website: [https://docs.dock
 
 Installation files referred to in this documentation are available for download from our Amazon AWS repo. Let's download them to your home directory.
 
-    wget https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz -o $HOME/assemblyline4_beta_1.tar.gz
+    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz -o $HOME/assemblyline4_beta_1.tar.gz
+
+Or you can manually download them and put them in the right spot:
 
 [Download Beta](https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
