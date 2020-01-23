@@ -49,7 +49,6 @@ Follow these simple commands to get docker runnning on your machine:
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
     # Install docker
-    sudo apt-get update
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
     # Test docker installation
@@ -75,7 +74,7 @@ For reference, here are the instructions on Docker's website: [https://docs.dock
 
 Download installation files to your home directory:
 
-    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz -o $HOME/assemblyline4_beta_1.tar.gz
+    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz -o $HOME/assemblyline4_beta_1.tar.gz"
 
 Or you can manually download them and put them in the right spot:
 
