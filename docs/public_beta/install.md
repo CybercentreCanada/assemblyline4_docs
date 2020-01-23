@@ -74,7 +74,7 @@ For reference, here are the instructions on Docker's website: [https://docs.dock
 
 Download installation files to your home directory:
 
-    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz -o $HOME/assemblyline4_beta_1.tar.gz"
+    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz" -o $HOME/assemblyline4_beta_1.tar.gz
 
 Or you can manually download them and put them in the right spot:
 
