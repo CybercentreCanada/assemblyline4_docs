@@ -29,7 +29,7 @@ can be used to run a single task through the service for testing.
 1. Install required packages
 
     ```bash
-    sudo apt-get install build-essential libffi-dev python3.7 python3.7-dev python3-pip automake autoconf libtool
+    sudo apt-get install build-essential libffi-dev python3.7 python3.7-dev python3-pip automake autoconf libtool libfuzzy-dev
     ```
     
 2. Install AssemblyLine v4 service package
