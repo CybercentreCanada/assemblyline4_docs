@@ -20,7 +20,7 @@ has_toc: false
 ---
 
 To test an AssemblyLine service in standalone mode, the
-run_service_once module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package
+`run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package
 can be used to run a single task through the service for testing.
 
 ## Setting up dev environment
