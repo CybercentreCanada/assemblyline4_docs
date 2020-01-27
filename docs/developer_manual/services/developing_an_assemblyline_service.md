@@ -10,9 +10,7 @@ has_toc: false
 # Developing an AssemblyLine service 
 {: .no_toc }
 
-This guide has been created for developers who are looking to develop services for 
-AssemblyLine. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth 
-knowledge of the AssemblyLine framework is not required to develop a service. 
+This guide has been created for developers who are looking to develop services for AssemblyLine. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the AssemblyLine framework is not required to develop a service. 
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -25,13 +23,9 @@ knowledge of the AssemblyLine framework is not required to develop a service.
 ## Pre-requisites
 Before getting started, ensure you have the following setup:
 - [AssemblyLine development environment](https://cybercentrecanada.github.io/assemblyline4_docs/docs/public_beta/install.html)
-- Python development environment
 
 ## Build your first service
-This section will guide you through the bare minimum steps required to create a running, but functionally useless
-service. Each sub-section below outlines the steps required for each of the different files required to create an
-AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for 
-example `tutorial_service`. 
+This section will guide you through the bare minimum steps required to create a running, but functionally useless service. Each sub-section below outlines the steps required for each of the different files required to create an AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for example `tutorial_service`. 
 
 ### Service Python code
 Create a Python file named `tutorial_service.py` with the following contents.
@@ -63,9 +57,7 @@ class TutorialService(ServiceBase):
 ```
 
 #### *ServiceBase* class
-The main class of your AssemblyLine service must inherit from the `ServiceBase` class which can be imported from
-`assemblyline_v4_service.common.base`. The `ServiceBase` base class includes many instance variables which can be used
-to access service related information. The following tables describes all of the available instance variables.
+The main class of your AssemblyLine service must inherit from the `ServiceBase` class which can be imported from `assemblyline_v4_service.common.base`. The `ServiceBase` base class includes many instance variables which can be used to access service related information. The following tables describes all of the available instance variables.
 
 | Variable Name | Description |
 |:---|:---|
@@ -75,19 +67,15 @@ to access service related information. The following tables describes all of the
 | working_directory | Returns the directory path which the service can use to temporarily store files during each task execution. |
 
 #### *start* function
-The `start` function is called when the AssemblyLine service is initiated and should be used to prepare your service 
-for task execution. This function is optional to implement.
+The `start` function is called when the AssemblyLine service is initiated and should be used to prepare your service for task execution. This function is optional to implement.
 
 #### *get_tool_version* function
 The purpose of the `get_tool_version` function is to the return a string of all the tools used by the service. The tool version should be updated to reflect changes in the service tools, so that AssemblyLine can rescan files on the new service version if they are submitted again.
 
 #### *execute* function
-The `execute` function is called every time the service receives a new file to scan. This is where you should execute 
-your processing code. In the example above, we only generate static results for illustration purposes.
+The `execute` function is called every time the service receives a new file to scan. This is where you should execute your processing code. In the example above, we only generate static results for illustration purposes.
 
-The `request` object is provided as an input to the `execute` function. The `request` object holds information about the
-task to be processed by the service. The following table describes all the `request` object variables which the service 
-can use. 
+The `request` object is provided as an input to the `execute` function. The `request` object holds information about the task to be processed by the service. The following table describes all the `request` object variables which the service can use. 
 
 | Variable name | Description |
 |:---|:---|
