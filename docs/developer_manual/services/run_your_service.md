@@ -70,4 +70,4 @@ can be used to run a single task through the service for testing.
     python3.7 -m assemblyline_v4_service.dev.run_service_once tutorial_service.TutorialService <path to a file to scan>
    ```
    
-3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>/<name of the file scanned>_tutorialservice`
+3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>_tutorialservice` directory
