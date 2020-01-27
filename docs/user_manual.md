@@ -19,7 +19,7 @@ has_toc: false
 ---
 
 # AssemblyLine client
-The assemblyline-client library facilitates issuing requests to AssemblyLine.
+The assemblyline-client library facilitates issuing requests to AssemblyLine's APIs.
 
 ## Pre-requisites
 
