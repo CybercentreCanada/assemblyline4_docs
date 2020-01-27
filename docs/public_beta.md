@@ -53,7 +53,7 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 
 ### Services
     
-- Get their configuration from a YAML file instead of code
+- Service configuration is now stored in a YAML file instead of code
 - Scoring is now tied to heuristics which will allow us to adjust scoring via Machine learning in the future
 - Added support for Mitre's Att&ck matrix 
 

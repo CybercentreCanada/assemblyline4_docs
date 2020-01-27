@@ -10,7 +10,7 @@ has_toc: false
 # Developing an AssemblyLine service 
 {: .no_toc }
 
-This guide has been created for developers who are looking to develop [services]() for 
+This guide has been created for developers who are looking to develop services for 
 AssemblyLine. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth 
 knowledge of the AssemblyLine framework is not required to develop a service. 
 
@@ -24,8 +24,8 @@ knowledge of the AssemblyLine framework is not required to develop a service.
 
 ## Pre-requisites
 Before getting started, ensure you have the following setup:
-- [AssemblyLine development environment]()
-- [Python development environment]() 
+- [AssemblyLine development environment](https://cybercentrecanada.github.io/assemblyline4_docs/docs/public_beta/install.html)
+- Python development environment
 
 ## Build your first service
 This section will guide you through the bare minimum steps required to create a running, but functionally useless
@@ -91,7 +91,7 @@ can use.
 
 | Variable name | Description |
 |:---|:---|
-| deep_scan | Returns whether the file should be deep scanned or not. |
+| deep_scan | Returns whether the file should be deep scanned or not. Deep scanning usually takes more time and is better suited for file sent manually. |
 | file_contents | Returns the raw bytes content of the file to be scanned. |
 | file_name | Returns the name of the file (as submitted by the user) to be scanned. |
 | file_path | Returns the path to the file to be scanned. The service can use this path directly to access the file. |

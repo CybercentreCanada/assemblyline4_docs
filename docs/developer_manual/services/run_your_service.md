@@ -20,7 +20,7 @@ has_toc: false
 ---
 
 To test an AssemblyLine service in standalone mode, the
-[run_service_once.py](https://bitbucket.org/cse-assemblyline/alv4_service/src/master/dev/run_service_once.py) script
+run_service_once module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package
 can be used to run a single task through the service for testing.
 
 ## Setting up dev environment
@@ -40,15 +40,15 @@ can be used to run a single task through the service for testing.
     
 3. Add your service development directory path (ie. `/home/ubuntu/alv4_services`) to the PYTHONPATH environment variable
 
-## Using the *run_service_once* script
+## Using the *run_service_once* module
 ### Steps
 1. Ensure the current working directory is the root of the service directory of the service to be run
 
     ```bash
-    cd alsvc_<service name>
+    cd <service root directory>
    ```
    
-2. From a terminal, run the `run_service_once` script, where `<service path>` is the path to the service module and `<file path>` is the path of the file to be processed
+2. From a terminal, run the `run_service_once` module, where `<service path>` is the path to the service module and `<file path>` is the path of the file to be processed
 
     ```bash
    python3.7 -m assemblyline_v4_service.dev.run_service_once <service path> <file path>
@@ -57,17 +57,17 @@ can be used to run a single task through the service for testing.
 3. The output of the service (`result.json` and extracted/supplementary files) will be located in a directory where the
    input file is located 
    
-### Example of running the ResultSample service
+### Example of running the Tutorial service
 1. Change working directory to root of the service:
 
     ```bash
-   cd assemblyline_result_sample_service
+   cd <path to the tutorial service directory>
    ```
    
-2. From a terminal, run the `run_service_once` script
+2. From a terminal, run the `run_service_once` module
 
     ```bash
-    python3.7 -m assemblyline_v4_service.dev.run_service_once assemblyline_result_sample_service.result_sample.ResultSample /home/ubuntu/testfile.doc
+    python3.7 -m assemblyline_v4_service.dev.run_service_once tutorial_service.TutorialService <path to a file to scan>
    ```
    
-3. The `results.json` and any extracted/supplementary files will be outputted to `/home/ubuntu/testfile_resultsample`
+3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>/<name of the file scanned>_tutorialservice`

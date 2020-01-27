@@ -109,7 +109,7 @@ Instead of using a straight search and getting a page of result, you can use the
 
 Version 4 server now supports facet querying out of the box, no need to learn the Lucene facetting syntax.
     
-    c.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
+    al_client.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
 
 #### Listen for message instead of querying for data
 

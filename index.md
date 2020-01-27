@@ -11,7 +11,7 @@ has_toc: false
 # AssemblyLine 4
 {: .fs-9 }
 
-Welcome to the [Canadian Centre for Cybersecurity](https://www.cyber.gc.ca/en)'s AssemblyLine project.
+Welcome to the [Canadian Centre for CyberSecurity](https://www.cyber.gc.ca/en)'s AssemblyLine project.
 {: .fs-6 .fw-300 }
 
 ---
