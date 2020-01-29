@@ -51,6 +51,7 @@ class TutorialService(ServiceBase):
        text_section.set_heuristic(1)
        
        result.add_section(text_section)
+       request.result = result
    
    def stop(self):
        self.log.info(f"stop() from {self.service_attributes.name} service called")  
