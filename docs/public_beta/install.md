@@ -58,6 +58,48 @@ Follow these simple commands to get docker runnning on your machine:
 
 Follow instructions on Docker's website: [https://docs.docker.com/install/](https://docs.docker.com/install/)
 
+#### Add your proxy settings to docker (Optional)
+
+Create `$HOME/.docker/config.json` file:
+
+    mkdir -p ~/.docker/
+    nano ~/.docker/config.json
+
+    # Save your proxy settings inside the file
+    {
+        "proxies":
+        {
+            "default":
+            {
+                "httpProxy": "http://<PROXY_ADDRESS>:<PROXY_PORT>/",
+                "httpsProxy": "http://<PROXY_ADDRESS>:<PROXY_PORT>/",
+                "noProxy": "<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,al_ui,al_socketio"
+            }
+        }
+    }
+
+Create systemd proxy setting file for docker:
+
+    nano /etc/systemd/system/docker.service.d/https-proxy.conf
+
+    # Save your proxy settings in the file
+
+    [Service]
+
+    Environment="HTTPS_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "HTTP_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "NO_PROXY=<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,al_ui,al_socketio"
+
+Reload docker and test:
+
+    # Reload docker 
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
+
+    # Test systemd
+    systemctl show --property=Environment docker
+
+    # Test docker containers
+    docker container run --rm busybox env
+
 #### Docker-compose pre-installed on your computer
 Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
 
