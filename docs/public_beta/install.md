@@ -157,7 +157,7 @@ Now you can start Assemblyline Beta
 There is a few things you need to know now that you have an Assemblyline4 instance started
 
 1. The bootstrap process for the first boot may take about 5 minutes to make sure everything is ready. 
-2. The yara service will start in an update state and will pull all yara rules from [https://github.com/Yara-Rules/rules](https://github.com/Yara-Rules/rules). This process is slow right now and pulling all 12000+ rules may take up to 15 minutes. This will be improved in the future to make it faster. This process is repeated automatically every 24 hours to keep the yara rules in sync.
+2. The yara service will start in an update state and will pull all yara rules from [https://github.com/Yara-Rules/rules](https://github.com/Yara-Rules/rules). There are about 12000+ rules to process which will take some time. Also, at the same time, Suricata will pull all 25000+ `emerging threats` signatures. The process of pulling the signatures for those two services can take up to 30 minutes. This will be improved in the future to make it faster. This process is repeated automatically every 24 hours to keep the service rules in sync.
 3. To get access to your beta instance just browse to `https://<IP_OF_YOUR_AL_INSTANCE>`. The default username/password to access the instance is `admin`/`admin`. (Note: If you changed the password in the `bootstrap.py` file, use this password instead)
 
 #### Viewing logs
