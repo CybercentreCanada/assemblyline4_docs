@@ -64,10 +64,35 @@ can be used to run a single task through the service for testing.
    cd <path to the tutorial service directory>
    ```
    
-2. From a terminal, run the `run_service_once` module
+2. Run the `run_service_once` module
 
     ```bash
-    python3.7 -m assemblyline_v4_service.dev.run_service_once tutorial_service.TutorialService <path to a file to scan>
+    python3.7 -m assemblyline_v4_service.dev.run_service_once result_sample.ResultSample <path to a file to scan>
    ```
    
-3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>_tutorialservice` directory
+3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>_resultsample` directory
+
+## Get your service working inside a container
+### Build the service container
+1. Change working directory to root of the service:
+
+    ```bash
+   cd <path to the tutorial service directory>
+   ```
+   
+2. Run the `docker build` command and tag the container with the same name that conatiner name has in your service manifest
+
+    ```bash
+    docker build -t testing/assemblyline-service-resultsample .
+   ```
+
+### Add the container to your deployment
+
+1. Using your web browser, go to the service management page: https://localhost/admin/services.html
+2. Click the `Add service` button
+3. Paste the entire content of the `service_manifest.yaml` file in the text box
+4. Click the `Add` button
+
+Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.
+
+
