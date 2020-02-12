@@ -73,7 +73,7 @@ Create `$HOME/.docker/config.json` file:
             {
                 "httpProxy": "http://<PROXY_ADDRESS>:<PROXY_PORT>/",
                 "httpsProxy": "http://<PROXY_ADDRESS>:<PROXY_PORT>/",
-                "noProxy": "<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,al_ui,al_socketio"
+                "noProxy": "<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,service-server,al_ui,al_socketio"
             }
         }
     }
@@ -86,7 +86,7 @@ Create systemd proxy setting file for docker:
 
     [Service]
 
-    Environment="HTTPS_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "HTTP_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "NO_PROXY=<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,al_ui,al_socketio"
+    Environment="HTTPS_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "HTTP_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "NO_PROXY=<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,service-server,al_ui,al_socketio"
 
 Reload docker and test:
 
