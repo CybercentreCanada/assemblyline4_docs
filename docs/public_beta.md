@@ -37,7 +37,7 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
 
 ### Database
 
-- Riak and SOLR were replaced by Elasticsearch 7.5.1 
+- Riak and SOLR were replaced by Elasticsearch 7.6.0 
 - The database now uses a strict Object data model
 - Underlying data has changed a bit
 - Data archiving has been built-in the system using Elastic ILM 
@@ -75,6 +75,12 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
     - Histogram
     - Statistics
 - Standardized search output
+
+### Authentication
+
+- Added support for webauthn protocol
+- Added generic LDAP authentication 
+- Added support for oAuth with the following providers pre-configured: Google, Microsoft and Auth0
 
 ## Install the Beta
 

@@ -116,11 +116,11 @@ For reference, here are the instructions on Docker's website: [https://docs.dock
 
 Download installation files to your home directory:
 
-    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz" -o $HOME/assemblyline4_beta_1.tar.gz
+    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_2.tar.gz" -o $HOME/assemblyline4_beta_2.tar.gz
 
 Or you can manually download them and put them in the right spot:
 
-[Download Beta](https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_1.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Download Beta](https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_2.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ### Extract installation files
 
@@ -128,25 +128,117 @@ From now on, we will assume you've downloaded the file in your home directory.
 
 Decompress the installation archive:
 
-    tar zxvf $HOME/assemblyline4_beta_1.tar.gz
+    tar zxvf $HOME/assemblyline4_beta_2.tar.gz
 
 ### Configure system
 
 Generate a self-signed cert for your installation:
 
-    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4_beta_1/config/nginx.key -out $HOME/assemblyline4_beta_1/config/nginx.crt -days 365 -subj "/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local"
+    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4_beta_2/config/nginx.key -out $HOME/assemblyline4_beta_2/config/nginx.crt -days 365 -subj "/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local"
 
 
 (`Optional`) Edit the default passwords in the following two files:
     
-    nano $HOME/assemblyline4_beta_1/.env
-    nano $HOME/assemblyline4_beta_1/config/bootstrap.py
+    nano $HOME/assemblyline4_beta_2/.env
+    nano $HOME/assemblyline4_beta_2/config/bootstrap.py
+
+### Authentication (optional)
+
+You are not obligated to use our internal authentificator to authenticate users. You can also use the following two:
+
+#### LDAP Authentication (optional)
+
+You can easily add authentication via your LDAP server by turning on and configuring the LDAP authentication module in the configuration file (`$HOME/assemblyline4_beta_2/config/config.yml`)
+
+Here is a exemple configuration block to add to your configuration file that will allow you to connect to the docker-test-openldap server from: https://github.com/rroemhild/docker-test-openldap
+
+    auth:
+        internal:
+            # Disable internal login, you could also leave it on if you want
+            enabled: false
+        ldap:
+            # Enable LDAP
+            enabled: true
+
+            # DN of the group or the user who will get admin priviledges
+            admin_dn: cn=admin_staff,ou=people,dc=planetexpress,dc=com
+            
+            # Auto-create users if they are missing
+            auto_create: true
+            
+            # Auto-sync LDAP values with the internal DB at each login
+            auto_sync: false
+            
+            # URI to the LDAP server
+            uri: ldaps://<ldap_ip_or_domain>:636
+            
+            # Base DN for the users
+            base: ou=people,dc=planetexpress,dc=com
+            
+            # Field name for the uid
+            uid_field: uid
+            
+            # How the group lookup is queried
+            group_lookup_query: (&(objectClass=Group)(member=%s))
+  
+#### oAuth Authentication (optional)
+
+You can now use an external service provider to authenticate your users by using the oAuth protocol. Simply turn on oAuth authentification by configuring the oAuth authentication module in the configuration file (`$HOME/assemblyline4_beta_2/config/config.yml`)
+
+Here is a exemple configuration block to add to your configuration file that will allow you to connect to all 3 supported oAuth providers:
+
+    auth:
+        internal:
+            # Disable internal login, you could also leave it on if you want
+            enabled: false
+        oauth:
+            # Enable oAuth
+            enabled: true
+
+            # Setup the providers (You can just remove the ones you don't want)
+            providers: 
+                auth0:
+                    # It is safe to auto-create users here 
+                    # because it is your own oAuth tenant
+                    auto_create: true
+                    auto_sync: false
+
+                    # Put your client ID and secret here
+                    client_id: <YOUR_CLIENT_ID>
+                    client_secret: <YOUR_CLIENT_SECRET>
+                    
+                    # Set your tenant name in the following urls
+                    access_token_url: https://<TENANT_NAME>.auth0.com/oauth/token
+                    authorize_url: https://<TENANT_NAME>.auth0.com/authorize
+                    api_base_url: https://<TENANT_NAME>.auth0.com/
+                
+                azure_ad:
+                    # Be careful when you set auto-create here cause if you've
+                    # set your client id to allow everyone, you'll give access
+                    # to anyone that has a microsoft account...
+                    auto_create: false
+                    auto_sync: false
+
+                    # Put your client ID and secret here 
+                    client_id: <YOUR_CLIENT_ID>
+                    client_secret: <YOUR_CLIENT_SECRET>
+
+                google:
+                    # Be careful when you set auto-create here cause if you've
+                    # set your client id to allow everyone, you'll give access
+                    # to anyone that has a google account...
+                    auto_create: false
+                    auto_sync: false
+
+                    # Put your client ID and secret here 
+                    client_id: <YOUR_CLIENT_ID>
+                    client_secret: <YOUR_CLIENT_SECRET>
 
 
 ### Run docker_compose file
 Every time you run docker-compose commands you must be in the directory were the compose file resides.
 
-    cd $HOME/assemblyline4_beta_1/
+    cd $HOME/assemblyline4_beta_2/
 
 Now you can start Assemblyline Beta
 
@@ -166,7 +258,7 @@ There is no logs centralization with this deployment but because everything runs
 To view logs for the core components:
 
     # From your docker-compose directory
-    cd $HOME/assemblyline4_beta_1/
+    cd $HOME/assemblyline4_beta_2/
 
     # View all core-component logs
     sudo docker-compose logs
@@ -195,4 +287,4 @@ Services are not loaded from your docker compose file, they are loaded by a comp
 
 To load the `Assemblyline CLI` you will need to hijack on of the running container. We recommended using the `updater` container.
 
-    sudo docker exec -it assemblyline4_beta_1_al_updater_1 python -m assemblyline.run.cli
+    sudo docker exec -it assemblyline4_beta_2_al_updater_1 python -m assemblyline.run.cli
