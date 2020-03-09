@@ -246,7 +246,7 @@ Now you can start Assemblyline Beta
 
 Install services and `admin` user
 
-    sudo docker-compose -f bootstrap-compose.yaml -d 
+    sudo docker-compose -f bootstrap-compose.yaml up -d 
 
 ### Assemblyline is started, now what? 
 
