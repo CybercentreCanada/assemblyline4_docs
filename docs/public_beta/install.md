@@ -242,10 +242,12 @@ Every time you run docker-compose commands you must be in the directory were the
 
 Now you can start Assemblyline Beta
 
+    sudo docker-compose pull
     sudo docker-compose up -d
 
 Install services and `admin` user
 
+    sudo docker-compose -f bootstrap-compose.yaml pull
     sudo docker-compose -f bootstrap-compose.yaml up -d 
 
 ### Assemblyline is started, now what? 
