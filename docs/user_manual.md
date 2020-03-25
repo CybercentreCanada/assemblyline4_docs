@@ -23,7 +23,7 @@ The assemblyline-client library facilitates issuing requests to AssemblyLine's A
 
 ## Pre-requisites
 
-To install the client you'll need to make sure that you have the following libaries installed:
+To install the client you'll need to make sure that you have the following libraries installed:
 
     # APT/YUM
     libffi-dev
@@ -31,7 +31,9 @@ To install the client you'll need to make sure that you have the following libar
     
 ## Installation
 
-Install the beta version of the client to get the AssemblyLine 4 support. The client will be smart enough to switch between AssemblyLine v3 and v4 support depending on which server you connect to.
+Install the beta version of the client to get the AssemblyLine 4 support. The 
+client will be smart enough to switch between AssemblyLine v3 and v4 support 
+depending on which server you connect to.
 
     pip install assemblyline-client==4.0.0b3
 
@@ -58,7 +60,8 @@ You can instantiate the client using the following snippet of code:
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
 
-The AssemblyLine client is fully documented in the docstrings so if you use an interactive client like iPython you can use the help feature.
+The AssemblyLine client is fully documented in the docstrings so if you use an interactive 
+client like iPython you can use the help feature.
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
@@ -96,7 +99,8 @@ You can use the search engine in the client by simply passing a Lucene query
 
 #### Using search iterator
 
-Instead of using a straight search and getting a page of result, you can use the search iterator to go through all of the results.
+Instead of using a straight search and getting a page of result, you can use the search 
+iterator to go through all of the results.
 
     for submission in al_client.search.stream.submission("submission.submitter:user"):
         # It only returns the indexed fields. If you want the full thing you need to go get it
@@ -105,9 +109,10 @@ Instead of using a straight search and getting a page of result, you can use the
         # Then do stuff with full submission (print for example)
         print(full_submission)
 
-#### Facetting
+#### Faceting
 
-Version 4 server now supports facet querying out of the box, no need to learn the Lucene facetting syntax.
+Version 4 server now supports facet querying out of the box, no need to learn the 
+Lucene faceting syntax.
     
     al_client.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
 
@@ -121,3 +126,9 @@ You can listen on the different message queues and execute a callback on each me
     al_client.socketio.listen_on_dashboard_messages(callback)
 
 **NOTE**: Depending on the volume of data, you might process a ton of messages!
+
+## Structures
+
+Messages 
+
+### 
