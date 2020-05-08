@@ -37,7 +37,10 @@ can be used to run a single task through the service for testing.
     ```bash
     pip3 install --user assemblyline-v4-service
     ```
-    
+    **NOTE** Ubuntu 18.04 defaults to python3.6 may need to run this instead 
+    ```bash
+    python3.7 -m pip install --user assemblyline-v4-service
+    ```
 3. Add your service development directory path (ie. `/home/ubuntu/alv4_services`) to the PYTHONPATH environment variable
 
 ## Using the *run_service_once* module
