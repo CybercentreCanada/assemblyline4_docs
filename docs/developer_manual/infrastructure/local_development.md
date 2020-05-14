@@ -18,6 +18,18 @@ This documentation will show you how to setup you development Virtual Machine fo
 
 For this documentation, we will assume that you are working on a fresh installation of [Ubuntu 18.04 Desktop](http://releases.ubuntu.com/18.04.4/ubuntu-18.04.4-desktop-amd64.iso)
 
+### Update VM
+
+Make sure ubuntu is running the latest software
+
+    sudo apt update
+    sudo apt dist-upgrade
+    sudo snap refresh
+
+Make sure you run updated kernel
+
+    sudo apt install -y linux-image-generic-hwe-18.04
+
 ## Installing pre-requisite softwares
 
 ### Installing Docker
@@ -49,3 +61,7 @@ Installing docker-compose is done the same way on all Linux distros. Follow thes
     docker-compose --version
 
 ### Installing Pycharm
+
+We are using Pycharm Pro to to our development but since you have chosen local dev, you will not need the remote deployment features. Therefor you can use the free Pycharm community edition.
+
+    sudo snap install --classic pycharm-community
