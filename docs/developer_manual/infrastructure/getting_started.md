@@ -2,6 +2,7 @@
 layout: default
 title: Getting Started
 parent: Infrastructure
+grand_parent: Developer's manual
 has_children: false
 has_toc: false
 nav_order: 1
