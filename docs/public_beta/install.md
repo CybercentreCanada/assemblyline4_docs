@@ -104,7 +104,7 @@ Reload docker and test:
 Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
 
     # Install docker-compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     
     # Test docker-compose installation
