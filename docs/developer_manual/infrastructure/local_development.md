@@ -65,3 +65,65 @@ Installing docker-compose is done the same way on all Linux distros. Follow thes
 We are using Pycharm Pro to to our development but since you have chosen local dev, you will not need the remote deployment features. Therefor you can use the free Pycharm community edition.
 
     sudo snap install --classic pycharm-community
+
+## Adding Assemblyline specific configuration 
+
+### Folders
+
+    sudo mkdir -p /etc/assemblyline
+    sudo mkdir -p /var/cache/assemblyline
+    sudo mkdir -p /var/lib/assemblyline
+    sudo mkdir -p /var/log/assemblyline
+
+    sudo chown $USER /etc/assemblyline
+    sudo chown $USER /var/cache/assemblyline
+    sudo chown $USER /var/lib/assemblyline
+    sudo chown $USER /var/log/assemblyline
+
+### Dev default configuration files
+
+    echo "enforce: true" > /etc/assemblyline/classification.yml
+    echo "
+    auth:
+      internal:
+        enabled: true
+
+    core:
+      alerter:
+        delay: 0
+      metrics:
+        apm_server:
+          server_url: http://localhost:8200/
+        elasticsearch:
+          hosts: [http://elastic:devpass@localhost]
+
+    datastore:
+      ilm:
+        indexes:
+          alert:
+            unit: m
+          error:
+            unit: m
+          file:
+            unit: m
+          result:
+            unit: m
+          submission:
+            unit: m
+
+    filestore:
+      cache:
+        - file:///var/cache/assemblyline/
+
+    logging:
+      log_level: INFO
+      log_as_json: false
+
+    ui:
+      audit: false
+      debug: false
+      enforce_quota: false
+      fqdn: 127.0.0.1.nip.io
+    " > /etc/assemblyline/config.yml
+
+**NOTE:** As you can see in the last command we are setting the FQDN to 127.0.0.1.nip.io. NIP.IO is a service that will resolv the first part of the domain **127.0.0.1**.nip.io to it's IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs.
