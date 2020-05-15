@@ -33,6 +33,17 @@ Make sure you run updated kernel
 
 ## Installing pre-requisite softwares
 
+### Install Assemblyline APT dependencies
+
+    sudo apt update
+    sudo apt install -y libffi6 libfuzzy2 libmagic1 build-essential libffi-dev libfuzzy-dev libldap-2.4-2 libsasl2-2 libldap2-dev libsasl2-dev
+
+### Install Python 3.7
+
+Assemblyline 4 works on only python 3.7 and up. Also, the containers that we build target python 3.7 therefor we will install Python 3.7.
+
+    sudo apt install -y python3-venv python3.7 python3.7-dev python3.7-venv
+
 ### Installing Docker
 
 Follow these simple commands to get docker runnning on your machine:
@@ -71,6 +82,8 @@ We are using Pycharm Pro to to our development but since you have chosen local d
 
 ### Folders
 
+Because Assemblyline use it's own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
+
     sudo mkdir -p /etc/assemblyline
     sudo mkdir -p /var/cache/assemblyline
     sudo mkdir -p /var/lib/assemblyline
@@ -82,6 +95,8 @@ We are using Pycharm Pro to to our development but since you have chosen local d
     sudo chown $USER /var/log/assemblyline
 
 ### Dev default configuration files
+
+Here we will create configuration files that matches the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
 
     echo "enforce: true" > /etc/assemblyline/classification.yml
     echo "
@@ -128,3 +143,74 @@ We are using Pycharm Pro to to our development but since you have chosen local d
     " > /etc/assemblyline/config.yml
 
 **NOTE:** As you can see in the last command we are setting the FQDN to 127.0.0.1.nip.io. NIP.IO is a service that will resolv the first part of the domain **127.0.0.1**.nip.io to it's IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs.
+
+## Setup Assmblyline source
+
+### Install git
+
+Since your VM running Unbuntu 18.04 you can just install it with APT:
+
+    sudo apt install -y git
+
+*(Optional)* You should add your desktop SSH keys to your github account to use git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
+### Clone core repositories
+
+    # Create the core working directory
+    mkdir -p ~/git/alv4
+    cd ~/git/alv4
+
+    # Clone repositories using HTTPS if you don't have your github account configured with an SSH key
+    git clone https://github.com/CybercentreCanada/assemblyline-base.git
+    git clone https://github.com/CybercentreCanada/assemblyline-core.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-client.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-server.git
+    git clone https://github.com/CybercentreCanada/assemblyline-ui.git
+    git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
+    
+    # OR Via SSH if you have your ssh id_rsa file configured to your github account
+    git clone git@github.com:CybercentreCanada/assemblyline-base.git 
+    git clone git@github.com:CybercentreCanada/assemblyline-core.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-server.git
+    git clone git@github.com:CybercentreCanada/assemblyline-ui.git
+    git clone git@github.com:CybercentreCanada/assemblyline-v4-service.git
+
+### Setting up Core Virtualenv
+
+    # Directly in the alv4 source directory 
+    cd ~/git/alv4
+
+    # Create the virtualenv and activate it
+    python3.7 -m venv venv
+    source ~/git/alv4/venv/bin/activate
+
+    # Install assemblyline packages with their test dependencies
+    pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
+
+    # Remove assemblyline packages because we will use the live code
+    pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
+
+### Setup Pycharm 
+
+#### Load Alv4 Project
+
+ 1. Load **pycharm-community**
+    - Choose whatever configuration option you want until the **Welcome screen**
+ 2. Click the **Open** button
+ 3. Choose the **~/git/alv4 directory**
+
+ Your python interpreter should already be loaded because pycharm will take ./venv directory as the project interpreter by default. Let it load the interpreter...
+
+#### Setup project structure
+
+ 1. Click **Files** -> **Settings**
+ 2. Select **Project: alv4** -> **Python Structure**
+ 3. For each top level folder (**assemblyline-base**, **assemblyline-core**...)
+    - Click on it
+    - Click **Source**
+ 4. Click **apply** then **OK**
+
+#### Setup link to docker
+
+Pycharm Community edition does not have a Docker integration. Instead you will have to run the docker and docker-compose commands by hand.

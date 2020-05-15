@@ -11,14 +11,23 @@ nav_order: 3
 # Remote development
 {: .no_toc }
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
 ---
+
+**NOTE:** To use this setup, we assume that you have a paid version of **Pycharm Professional** because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](local_development.html) setup instead.
+
 This documentation will show you how to setup your target Virtual Machine for remote development which means that you will run you IDE on your desktop and run the Assemblyline containers on the remote target VM.
 
 ## Operating system 
 
 For this documentation, we will assume that you are working on a fresh installation of [Ubuntu 18.04 Server](http://releases.ubuntu.com/18.04.4/ubuntu-18.04.4-live-server-amd64.iso)
 
-### Update traget VM
+### Update target VM
 
 Make sure ubuntu is running the latest software
 
@@ -39,7 +48,19 @@ Reboot
 
 We need to make sure the remote target has SSH daemon installed for remote debugging
 
+    sudo apt update
     sudo apt install -y ssh
+
+### Install Assemblyline APT dependencies
+
+    sudo apt update
+    sudo apt install -y libffi6 libfuzzy2 libmagic1 build-essential libffi-dev libfuzzy-dev libldap-2.4-2 libsasl2-2 libldap2-dev libsasl2-dev
+
+### Install Python 3.7
+
+Assemblyline 4 works on only python 3.7 and up. Also, the containers that we build target python 3.7 therefor we will install Python 3.7.
+
+    sudo apt install -y python3-venv python3.7 python3.7-dev python3.7-venv
 
 ### Installing docker-compose
 
@@ -129,6 +150,10 @@ The achive file `~/certs/certs.tgz` will have to be transfered to your desktop. 
 
 ### Assemblyline folders
 
+Because Assemblyline use it's own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
+
+    sudo mkdir -p ~/git
+
     sudo mkdir -p /etc/assemblyline
     sudo mkdir -p /var/cache/assemblyline
     sudo mkdir -p /var/lib/assemblyline
@@ -140,6 +165,8 @@ The achive file `~/certs/certs.tgz` will have to be transfered to your desktop. 
     sudo chown $USER /var/log/assemblyline
 
 ### Assemblyline dev configuration files
+
+Here we will create configuration files that matches the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
 
     echo "enforce: true" > /etc/assemblyline/classification.yml
     echo "
@@ -186,3 +213,145 @@ The achive file `~/certs/certs.tgz` will have to be transfered to your desktop. 
     " > /etc/assemblyline/config.yml
 
 **NOTE:** As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolv the first part of the domain **YOUR_IP**.nip.io to it's IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs. You can also replace the fqdn with your DNS name if you have one.
+
+## Setup Python Virtual Environments
+
+We will make two python virtual environments: 
+
+ - One for the core components 
+ - One for services 
+
+ That should be enough to cover most cases. If a service as conflicting dependancies with other, I suggest you create a seperate virtualenv for it when you try to debug it. The core components should all be fine in the same environment.
+
+### Setting up Core Virtualenv
+
+    # Make sure venv dir exist and we are in it 
+    mkdir -p ~/venv
+    cd ~/venv
+
+    # Create the virtualenv and activate it
+    python3.7 -m venv core
+    source ~/venv/core/bin/activate
+
+    # Install assemblyline packages with their test dependencies
+    pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
+
+    # Remove assemblyline packages because we will use the live code
+    pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
+
+### Setting up Service Virtualenv
+
+    # Make sure venv dir exist and we are in it 
+    mkdir -p ~/venv
+    cd ~/venv
+
+    # Create the virtualenv and activate it
+    python3.7 -m venv services
+    source ~/venv/services/bin/activate
+
+    # Install assemblyline python client
+    pip install assemblyline-client --pre
+
+    # Install assemblyline service packages
+    pip install assemblyline-service-client assemblyline-v4-service 
+
+    # Remove assemblyline packages because we will use the live code
+    pip uninstall -y assemblyline assemblyline-core assemblyline-service-client assemblyline-v4-service
+    
+## On your desktop
+
+We are now done setting up the target VM. For the rest of the instructions, we will mainly setup your pycharm IDE to interface with the target VM.
+
+
+### Get your docker certs and install them 
+
+    mkdir -p ~/docker_certs
+    cd ~/docker_certs
+    scp USER_OF_TARGET_VM@IP_OF_TARGET_VM:certs/certs.tgz ~
+    tar zxvf certs.tgz
+    rm certs.tgz
+
+### Install Pycharm 
+
+You can download Pycharm Profesional directly from [jetbrain](https://www.jetbrains.com/pycharm/)'s website but if your desktop is runnning Ubuntu 18.04, you can just install it with snap:
+
+    sudo snap install --classic pycharm-professional
+
+### Install git
+
+You can get git directly from [GIT](https://git-scm.com/downloads)'s website but if your desktop is running Unbuntu 18.04 you can just install it with APT:
+
+    sudo apt install -y git
+
+*(Optional)* You should add your desktop SSH keys to your github account to use git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
+### Clone core repositories
+
+    # Create the core working directory
+    mkdir -p ~/git/alv4
+    cd ~/git/alv4
+
+    # Clone repositories using HTTPS if you don't have your github account configured with an SSH key
+    git clone https://github.com/CybercentreCanada/assemblyline-base.git
+    git clone https://github.com/CybercentreCanada/assemblyline-core.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-client.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-server.git
+    git clone https://github.com/CybercentreCanada/assemblyline-ui.git
+    git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
+    
+    # OR Via SSH if you have your ssh id_rsa file configured to your github account
+    git clone git@github.com:CybercentreCanada/assemblyline-base.git 
+    git clone git@github.com:CybercentreCanada/assemblyline-core.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-server.git
+    git clone git@github.com:CybercentreCanada/assemblyline-ui.git
+    git clone git@github.com:CybercentreCanada/assemblyline-v4-service.git
+
+### Setup Pycharm 
+
+#### Load Alv4 Project
+
+ 1. Load **pycharm-professional**
+    - Choose whatever configuration option you want until the **Welcome screen**
+ 2. Click the **Open** button
+ 3. Choose the **~/git/alv4 directory**
+
+#### Setup remote deployment and interpreter
+
+ 1. Click **Files** -> **Settings**
+ 2. Select **Project: alv4** -> **Python Interpreter**
+ 3. Click the **cog wheel** on the top right -> **Add** 
+ 4. Select **SSH Interpreter** -> **New Configuration**
+    - Host: IP or DNS name of your target VM
+    - Username: username of the user on the target VM
+    - Port: 22 unless you changed it...
+ 5. Click **Next**
+ 6. Put your target VM password in the box, check **Save password** and click **Next**
+ 7. In the next window, do the following: 
+    - For the **interpreter box**, click the little **folder** and select your core venv (**/home/YOUR_TARGET_USER/venv/core/bin/python**)
+    - For the **Sync folders** box, click the little **folder** and for the remote path set the path to: **/home/YOUR_TARGET_USER/git/alv4** then click **OK**
+    - Make sure **Automatically upload files to the server** is checked
+    - Hit **Finish**
+ 8. Click **Ok**
+ 9. Let it load the interpreter and do the transfers
+
+#### Setup project structure
+
+ 1. Click **Files** -> **Settings**
+ 2. Select **Project: alv4** -> **Python Structure**
+ 3. For each top level folder (**assemblyline-base**, **assemblyline-core**...)
+    - Click on it
+    - Click **Source**
+ 4. Select **assemblyline-ui/assemblyline_ui/static/ng-template** then click **Template**
+ 5. Select **assemblyline-ui/assemblyline_ui/static/** then click **Resources**
+ 6. Click **apply** then **OK**
+
+#### Setup link to remote docker
+
+ 1. Click **Files** -> **Settings**
+ 2. Select **build, Execution, Deployment** -> **Docker**
+ 3. Click the little **+** on top left
+ 4. Select **TCP Socket**
+    - In engine API URL put: **https://TARGET_VM_IP:2376**
+    - In Certificates folder, click the little folder and browse to **~/docker_certs** directory
+ 5. Click **OK**
