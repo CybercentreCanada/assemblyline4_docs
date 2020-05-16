@@ -83,7 +83,7 @@ can be used to run a single task through the service for testing.
    cd <path to the tutorial service directory>
    ```
    
-2. Run the `docker build` command and tag the container with the same name that conatiner name has in your service manifest
+2. Run the `docker build` command and tag the container with the same name that container name has in your service manifest
 
     ```bash
     docker build -t testing/assemblyline-service-resultsample .
