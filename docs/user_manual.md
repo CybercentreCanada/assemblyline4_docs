@@ -55,7 +55,7 @@ You can instantiate the client by using the following snippet of code:
     
     al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
 
-    # and if your assemblyline server is using a self-signed cert
+    # and if your Assemblyline server is using a self-signed cert
 
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')

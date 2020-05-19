@@ -37,7 +37,7 @@ can be used to run a single task through the service for testing.
     ```bash
     pip3 install --user assemblyline-v4-service
     ```
-    **NOTE** Ubuntu 18.04 defaults to python3.6 so you may need to run this instead 
+    **NOTE** Ubuntu 18.04 defaults to Python3.6 so you may need to run this instead 
     ```bash
     python3.7 -m pip install --user assemblyline-v4-service
     ```
