@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Use Pycharm
-parent: AssemblyLine
+title: Use PyCharm
+parent: Assemblyline
 grand_parent: Developer's manual
 has_children: false
 has_toc: false
 nav_order: 4
 ---
 
-# Use Pycharm
+# Use PyCharm
 {: .no_toc }
 
 ## Table of contents
@@ -19,7 +19,7 @@ nav_order: 4
 
 ---
 
-Here are some pointers on how to run most of the core components live in Pycharm when either your local or remote development VM is ready.
+Here are some pointers on how to run most of the core components live in PyCharm when either your local or remote development VM is ready.
 
 ## Load docker-compose files
 
@@ -27,7 +27,7 @@ Here are some pointers on how to run most of the core components live in Pycharm
 
 When dependencies are loaded, you can launch any core components and its dependencies should be satisfied. 
 
-#### Load dependencies the Pycharm Pro way
+#### Load dependencies the PyCharm Pro way
 
 1. In your project file viewer
 2. Browse to **assemblyline-base/dev/depends**
@@ -54,11 +54,11 @@ If you close the terminal and the containers keep running, run the following com
 
 ### Core services 
 
-Core services depend on the dependencies docker-compose file. When the core services are loaded you should be able to point a browser at **https://IP_OF_VM** and you'll be greeted with a working version of assemblyline with no services configured. 
+Core services depend on the dependencies in the docker-compose file. When the core services are loaded you should be able to point a browser at **https://IP_OF_VM** and you'll be greeted with a working version of Assemblyline with no services configured. 
 
 *Default admin user credentials are: **admin** / **admin***
 
-#### Load core services the Pycharm Pro way
+#### Load core services the PyCharm Pro way
 
 1. In your project file viewer
 2. Browse to **assemblyline-base/dev/core**
@@ -81,9 +81,9 @@ If you close the terminal and the containers keep running, run the following com
     cd ~/git/alv4/assemblyline-base/dev/core/
     sudo docker-compose down
 
-## Run components live from pycharm
+## Run components live from PyCharm
 
-### Easy to run components (UI as an exemple)
+### Easy to run components (UI as an example)
 
 Most of the core components are going to be as simple as this to run, find the component main file then hit Run or Debug... All core components require you to run the **Minimal Dependencies** docker-compose file prior to launch them.
 
@@ -94,7 +94,7 @@ Most of the core components are going to be as simple as this to run, find the c
 
 ### Complex component (Debugging services live)
 
-The main exception to very easy to run components are debugging services live in the system. Service require you to run two seperate components to process files. The two components talk via named pipes in the /tmp folder. Inside the docker container this is very easy but debugging this live needs requires some sacrifices.
+The main exception to very easy-to-run components are debugging services live in the system. Service require you to run two separate components to process files. The two components talk via named pipes in the /tmp folder. Inside the Docker container this is very easy but debugging this live needs requires some sacrifices.
 
  1. You can only run one at the time
  2. Depending on where you stop them and how you stop them, they don't fully cleanup after themselves.

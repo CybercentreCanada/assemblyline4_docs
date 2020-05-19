@@ -13,7 +13,7 @@ nav_order: 2
 
 ## Service per filetype
 
-AssemblyLine has advanced filetype detection and doesn't rely on file extension
+Assemblyline has advanced filetype detection and doesn't rely on file extension
 {: .label }
 
 | Filetypes | Service |
@@ -48,11 +48,11 @@ AssemblyLine has advanced filetype detection and doesn't rely on file extension
 | MetaPeek | Checks submission metadata for indicators of potential malicious behavior (double file extenstions, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-metapeek)|
 | Oletools | This service extracts metadata, network information and reports anomalies in Microsoft OLE and XML documents using the Python library py-oletools by Philippe Lagadec - http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-oletools)|
 | PDFId | This service extracts metadata from PDFs using Didier Stevens PDFId & PDFParse | [link](https://github.com/CybercentreCanada/assemblyline-service-pdfid)|
-| PEFile | This service extracts attributes (imports, exports, section names, ...) from windows PE files using the python library pefile | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
+| PEFile | This service extracts attributes (imports, exports, section names, ...) from windows PE files using the Python library pefile | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
 | PeePDF | This service uses the Python PeePDF library information from PDFs including JavaScript blocks which it will attempt to deobfuscate, if necessary, for further analysis |[link](https://github.com/CybercentreCanada/assemblyline-service-peepdf) |
 | Suricata | Scan network capture (.pcap) submitted and extracted from analysis |[link](https://github.com/CybercentreCanada/assemblyline-service-suricata) |
 | Swiffer | This service extracts metadata and performs anomaly detection on Adobe Shockwave (.swf) files. | [link](https://github.com/CybercentreCanada/assemblyline-service-swiffer)|
-| TagCheck | YARA signatures on AssemblyLine Tags (build your own signature to hit on specific tags) |[link](https://github.com/CybercentreCanada/assemblyline-service-yara) |
+| TagCheck | YARA signatures on Assemblyline Tags (build your own signature to hit on specific tags) |[link](https://github.com/CybercentreCanada/assemblyline-service-yara) |
 | TorrentSlicer | Extracts information from torrent files. |[link](https://github.com/CybercentreCanada/assemblyline-service-torrentslicer) |
 | Unpacker | This service unpacks UPX packed executables for further analysis |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacker)|
 | ViperMonkey | ViperMonkey is a VBA Emulation engine by http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-vipermonkey)|

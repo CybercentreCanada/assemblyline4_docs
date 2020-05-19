@@ -10,8 +10,8 @@ has_toc: true
 {: .no_toc }
 
 
-This section of the documentation show you how to develop for AssemblyLine 4. 
+This section of the documentation show you how to develop for Assemblyline 4. 
 
 You can choose between the system or service development. 
-* AssemblyLine system include UI, database and all the orchestration. 
+* Assemblyline system include UI, database and all the orchestration. 
 * Services are the components which perform the file analysis.

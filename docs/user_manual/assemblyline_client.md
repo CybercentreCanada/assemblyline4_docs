@@ -1,13 +1,13 @@
 ---
 layout: default
-title: AssemblyLine client
+title: Assemblyline client
 nav_order: 4
 parent: User's manual
 has_children: false
 ---
 
-# AssemblyLine client
-The assemblyline client library facilitates issuing requests using the restapi to AssemblyLine. The client enables you to build scripts to automate various tasks and integrate AssemblyLine with other tools or systems.
+# Assemblyline client
+The Assemblyline client library facilitates issuing requests using the REST API to Assemblyline. The client enables you to build scripts to automate various tasks and integrate Assemblyline with other tools or systems.
 
 ## Pre-requisites
 
@@ -41,12 +41,12 @@ You can instantiate the client using the following snippet of code:
     
     al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
 
-    # and if your assemblyline server is using a self-signed cert
+    # and if your Assemblyline server is using a self-signed cert
 
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
 
-The assemblyline client is fully documented in the docstrings so if you use an interactive client like ipython you can use the help feature.
+The Assemblyline client is fully documented in the docstrings so if you use an interactive client like iPython you can use the help feature.
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
@@ -72,7 +72,7 @@ Submitting a file to the system is as simple as passing the file path.
 
 #### Getting a key
 
-To get a key of a given bucket, you simply need to pass it it's ID.
+To get a key of a given bucket, you simply need to pass it its ID.
 
     submission_details = al_client.submission("4nxrpBePQDLH427aA8m3TZ")
 
@@ -102,7 +102,7 @@ You can pass search parameters for any given query. The following example shows 
     c.search.submission('times.submitted:[NOW-7DAYS TO NOW]', **kwargs)
 
 ##### Version 4
-Version 4 server will support facet query out of the box, no need to learn the Lucene facetting syntax.
+Version 4 server will support facet query out of the box, no need to learn the Lucene faceting syntax.
     
     c.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
 

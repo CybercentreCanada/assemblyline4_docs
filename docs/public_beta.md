@@ -17,7 +17,7 @@ has_toc: false
 
 ---
 
-This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for production yet.
+This Beta is intended for testing purposes only. Assemblyline 4 is not ready for production yet.
 
 ## Before deploying the Public Beta
 
@@ -65,7 +65,7 @@ This Beta is intended for testing purposes only. AssemblyLine 4 is not ready for
     - This will be used to build the machine-learning model to auto-adjust the score of each heuristics
 - Simplified UI to remove hidden menus
 - Removed Adding/Editing signature in favor of having a signature source management
-    - You can now automatically fetch signature from an external URL or git repository
+    - You can now automatically fetch signature from an external URL or Git repository
 - Better support for phones and tablets
 
 ### APIs

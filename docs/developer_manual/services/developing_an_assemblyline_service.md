@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Developing an AssemblyLine service 
+title: Developing an Assemblyline service 
 parent: Services
 grand_parent: Developer's manual
 nav_order: 1
 has_toc: false
 ---
 
-# Developing an AssemblyLine service 
+# Developing an Assemblyline service 
 {: .no_toc }
 
-This guide has been created for developers who are looking to develop services for AssemblyLine. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the AssemblyLine framework is not required to develop a service. 
+This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. 
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -25,7 +25,7 @@ Before getting started, ensure you have the following setup:
 - [Setting up dev environment](./run_your_service.html#setting-up-dev-environment)
 
 ## Build your first service
-This section will guide you through the bare minimum steps required to create a running, but functionally useless service. Each sub-section below outlines the steps required for each of the different files required to create an AssemblyLine service. All files created in the following sub-sections must be placed in a common directory, for example `result_sample`. 
+This section will guide you through the bare minimum steps required to create a running, but functionally useless service. Each sub-section below outlines the steps required for each of the different files required to create an Assemblyline service. All files created in the following sub-sections must be placed in a common directory, for example `result_sample`. 
 
 ### Service Python code
 Create a Python file named `result_sample.py` with the following contents.
@@ -177,7 +177,7 @@ class ResultSample(ServiceBase):
             #     to display a tree view of JSON results.
             #     NB: Use this sparingly! As a service developer you should do your best to include important
             #     results as their own result sections.
-            #     The body argument must be a json dump of a python dictionary
+            #     The body argument must be a json dump of a Python dictionary
             json_body = {
                 "a_str": "Some string",
                 "a_list": ["a", "b", "c"],
@@ -281,7 +281,7 @@ class ResultSample(ServiceBase):
 ```
 
 #### *ServiceBase* class
-The main class of your AssemblyLine service must inherit from the `ServiceBase` class which can be imported from `assemblyline_v4_service.common.base`. The `ServiceBase` base class includes many instance variables which can be used to access service related information. The following tables describes all of the available instance variables.
+The main class of your Assemblyline service must inherit from the `ServiceBase` class which can be imported from `assemblyline_v4_service.common.base`. The `ServiceBase` base class includes many instance variables which can be used to access service related information. The following tables describes all of the available instance variables.
 
 | Variable Name | Description |
 |:---|:---|
@@ -291,10 +291,10 @@ The main class of your AssemblyLine service must inherit from the `ServiceBase` 
 | working_directory | Returns the directory path which the service can use to temporarily store files during each task execution. |
 
 #### *start* function
-The `start` function is called when the AssemblyLine service is initiated and should be used to prepare your service for task execution. This function is optional to implement.
+The `start` function is called when the Assemblyline service is initiated and should be used to prepare your service for task execution. This function is optional to implement.
 
 #### *get_tool_version* function
-The purpose of the `get_tool_version` function is to the return a string of all the tools used by the service. The tool version should be updated to reflect changes in the service tools, so that AssemblyLine can rescan files on the new service version if they are submitted again.
+The purpose of the `get_tool_version` function is to the return a string of all the tools used by the service. The tool version should be updated to reflect changes in the service tools, so that Assemblyline can rescan files on the new service version if they are submitted again.
 
 #### *execute* function
 The `execute` function is called every time the service receives a new file to scan. This is where you should execute your processing code. In the example above, we only generate static results for illustration purposes.
@@ -307,7 +307,7 @@ The `request` object is provided as an input to the `execute` function. The `req
 | file_contents | Returns the raw bytes content of the file to be scanned. |
 | file_name | Returns the name of the file (as submitted by the user) to be scanned. |
 | file_path | Returns the path to the file to be scanned. The service can use this path directly to access the file. |
-| file_type | Returns the AssemblyLine style file type of the file to be scanned. |
+| file_type | Returns the Assemblyline style file type of the file to be scanned. |
 | max_extracted | Returns the max number of files that are allowed to be extracted by a service. By default this is set to 500. |
 | md5 | Returns the MD5 of the file to be scanned. |
 | result | Used to set and get the current result. |
@@ -326,7 +326,7 @@ The following table describes all the `request` object functions which the servi
 | set_service_context | `context`: Service context as string | Set the context of the service which ran the file. For example, if the service ran an AntiVirus engine on the file, then the AntiVirus definition version would be the service context. |
 
 #### *stop* function
-The `stop` function is called when the AssemblyLine service is stopped and should be used to cleanup your service. This function is optional to implement.
+The `stop` function is called when the Assemblyline service is stopped and should be used to cleanup your service. This function is optional to implement.
 
 ### Service manifest YAML
 Create a YAML file named `service_manifest.yml` with the following contents.
@@ -433,7 +433,7 @@ docker_config:
 update_config:
   # update method either run or build
   # run = run the provided update container
-  # build = build the provided dockefile
+  # build = build the provided Dockerfile
   method: run
   # list of source object from where to fetch files for update and what will be the name of those files on disk
   sources:
@@ -441,7 +441,7 @@ update_config:
       name: sample_2mb_file
     - uri: https://file-examples.com/wp-content/uploads/2017/02/zip_5MB.zip
       name: sample_5mb_file
-  # intervale in seconds at which the updater runs
+  # intervals in seconds at which the updater runs
   update_interval_seconds: 300
   # Should the downloaded files be used to create signatures in the system
   generates_signatures: false
@@ -471,7 +471,7 @@ WORKDIR /opt/al_service
 COPY . .
 ```
 
-The Dockerfile is required to build a Docker container. When developing a Docker container for an AssemblyLine service,
+The Dockerfile is required to build a Docker container. When developing a Docker container for an Assemblyline service,
 the following must be ensured:
 - The parent image must be `cccs/assemblyline-v4-service-base:latest`.
 - An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
