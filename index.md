@@ -37,6 +37,6 @@ Learn [more](/docs/overview/how%20it%20works.html) !
 
 
 
-<iframe class="slideshow-iframe" src="/slides/screenshots.html"
+<iframe class="slideshow-iframe" src="https://cybercentrecanada.github.io/assemblyline4_docs/slides/screenshots.html"
 style="width:100%" frameborder="0" scrolling="no" onload="resizeIframe(this)">
 </iframe>
