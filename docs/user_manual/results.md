@@ -7,7 +7,7 @@ has_children: false
 has_toc: false
 ---
 
-# Assemblyline results
+# AssemblyLine results
 {: .no_toc }
 
 
@@ -46,7 +46,7 @@ Tags are important metadata extracted from a file; tag name follow the same nami
     result.sections.tags.network.static.ip;     e.g: All IP extracted staticly will be found with this tag regardless of which service extracted it.
 
 
-All tags registered with the system will be listed under the Help > Searching Help menu of your Assemblyline instance.
+All tags registered with the system will be listed under the Help > Searching Help menu of your AssemblyLine instance.
 
 
 # Score
@@ -95,7 +95,7 @@ Submission details will display submission parameters such as which services wer
 ## Extraction Files Tree
 The file tree section will show a view of all the files that were processed and extracted along with their respective score and file type.
 
-Clicking on the files will reveal Assemblyline's most interesting section the File details page.
+Clicking on the files will reveal AssemblyLine's most interesting section the File details page.
 
 ![](./images/report_files.png)
 <img src="./images/report_files.png" width="725">

@@ -9,7 +9,7 @@ has_children: false
 # Submitting a file for analysis
 
 ## Submission
-Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [restapi](assemblyline_client.html#submit-a-file).
+Submitting a file for analysis is really easy; it can be done directly using the AssemblyLine WebUI. For automation and integration you can use the [restapi](assemblyline_client.html#submit-a-file).
 
 <img src="./images/submit.png" width="725">
 
@@ -38,7 +38,7 @@ Additional submission options are available to:
 
 ## File analysis
 
-Once a file is submitted to Assemblyline, the system will automatically perform multiple check to determine how to best process the file. One of Assemblyline most powerful functionality is its recursive analysis model. Malware and malicous documents often user multiple layers of obfuscation; resursive analysis allow the system to remove these layers and keep analyzing the file. The end results is often a cleartext script or unpacked malware which tradional anti-virus are very effective at detecting.
+Once a file is submitted to AssemblyLine, the system will automatically perform multiple check to determine how to best process the file. One of AssemblyLine most powerful functionality is its recursive analysis model. Malware and malicous documents often user multiple layers of obfuscation; resursive analysis allow the system to remove these layers and keep analyzing the file. The end results is often a cleartext script or unpacked malware which tradional anti-virus are very effective at detecting.
 
 <img src="./images/processing.png" width="725">
 

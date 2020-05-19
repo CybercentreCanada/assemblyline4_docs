@@ -19,10 +19,10 @@ has_children: false
 ---
 
 # Database
-Assemblyline leverages the powerful capabilities of [Elasticsearch](https://www.elastic.co/) making it possible to search for almost anything.
+AssemblyLine leverages the powerful capabilities of [Elasticsearch](https://www.elastic.co/) making it possible to search for almost anything.
 
 ## Document store
-One key concept to understand are indexes of information. This allows Assemblyline to deduplicate most of the results in the system which is why it's able to scale so well. Seaching indexed fields is also very fast.
+One key concept to understand are indexes of information. This allows AssemblyLine to deduplicate most of the results in the system which is why it's able to scale so well. Seaching indexed fields is also very fast.
 
 - There are 5 primary indexes
     - Submissions
@@ -67,7 +67,7 @@ result.sections.tags.av.virus_name:*Emotet*
 ```
 The system support a wide range of search parameter such as wildcards, ranges and regex. The full syntax range can be found under ```Help > Search Help```
 
-Search queries can also be used with the Assemblyline Client to build powerful tradecraft which will run automaticaly as new files gets scanned by the system.
+Search queries can also be used with the AssemblyLine Client to build powerful tradecraft which will run automaticaly as new files gets scanned by the system.
 
 [So is there restApi?](./assemblyline_client.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
