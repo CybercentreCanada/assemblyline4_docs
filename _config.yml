@@ -1,7 +1,7 @@
 title: "AssemblyLine 4"
 theme: "just-the-docs"
 remote_theme: pmarsceill/just-the-docs
-color_scheme: nil
+color_scheme: "nil"
 search_enabled: true
 heading_anchors: true
 logo: "/static/images/banner.svg"
@@ -9,3 +9,14 @@ logo: "/static/images/banner.svg"
 aux_links:
   "Français":
     - "https://cybercentrecanada.github.io/assemblyline4_docs_fr/"
+
+defaults:
+  -
+    scope:
+      path: "_slides"  #__
+    values:
+      layout: "iframe"
+
+collections:
+  slides:
+    output: true
