@@ -7,4 +7,4 @@ has_toc: true
 ---
 # User manual
 
-AssemblyLine support a wide variety of file formats and analysis types. In this section you will learn how to submit a file and understand the analysis report's sections. We will also covers important concepts such as Heuristics, Tags and Scores.
+Assemblyline support a wide variety of file formats and analysis types. In this section you will learn how to submit a file and understand the analysis report's sections. We will also covers important concepts such as Heuristics, Tags and Scores.

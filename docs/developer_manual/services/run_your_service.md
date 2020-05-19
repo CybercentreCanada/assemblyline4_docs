@@ -19,7 +19,7 @@ has_toc: false
 
 ---
 
-To test an AssemblyLine service in standalone mode, the
+To test an Assemblyline service in standalone mode, the
 `run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package
 can be used to run a single task through the service for testing.
 
@@ -32,12 +32,12 @@ can be used to run a single task through the service for testing.
     sudo apt-get install build-essential libffi-dev python3.7 python3.7-dev python3-pip automake autoconf libtool libfuzzy-dev
     ```
     
-2. Install AssemblyLine v4 service package
+2. Install Assemblyline 4 service package
 
     ```bash
     pip3 install --user assemblyline-v4-service
     ```
-    **NOTE** Ubuntu 18.04 defaults to python3.6 may need to run this instead 
+    **NOTE** Ubuntu 18.04 defaults to Python3.6 may need to run this instead 
     ```bash
     python3.7 -m pip install --user assemblyline-v4-service
     ```

@@ -22,11 +22,11 @@ has_toc: false
 
 For this first public beta, the only installation we will support is the appliance installation (This can also be used for service development).
 
-In this setup, AssemblyLine 4 will use all of the resources available on your machine for it's components. This can be deployed on any machine / VM that can run Docker containers. 
+In this setup, Assemblyline 4 will use all of the resources available on your machine for its components. This can be deployed on any machine / VM that can run Docker containers. 
 
 ### Pre-requisites
 
-We recommend that you run AssemblyLine on a system with the following minimal specs:
+We recommend that you run Assemblyline on a system with the following minimal specs:
 
     Any linux distribution with a recent kernel (4.4+)
     4 Cores
@@ -38,27 +38,27 @@ Appliance mode will use Docker to start Assemblyline therefore it will need to b
 
 NOTE: `All instructions that follow need to be performed on the machine where Assemblyline will be installed.`
 
-##### Installation of docker on Ubuntu (Recommended)
-Follow these simple commands to get docker runnning on your machine:
+##### Installation of Docker on Ubuntu (Recommended)
+Follow these simple commands to get Docker running on your machine:
 
-    # Add docker repository
+    # Add Docker repository
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-    # Install docker
+    # Install Docker
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-    # Test docker installation
+    # Test Docker installation
     sudo docker run hello-world
 
 ##### Installation of Docker on other linux distro
 
 Follow instructions on Docker's website: [https://docs.docker.com/install/](https://docs.docker.com/install/)
 
-#### Add your proxy settings to docker (Optional)
+#### Add your proxy settings to Docker (Optional)
 
 Create `$HOME/.docker/config.json` file:
 
@@ -78,7 +78,7 @@ Create `$HOME/.docker/config.json` file:
         }
     }
 
-Create systemd proxy setting file for docker:
+Create systemd proxy setting file for Docker:
 
     nano /etc/systemd/system/docker.service.d/https-proxy.conf
 
@@ -88,16 +88,16 @@ Create systemd proxy setting file for docker:
 
     Environment="HTTPS_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "HTTP_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "NO_PROXY=<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,service-server,al_ui,al_socketio"
 
-Reload docker and test:
+Reload Docker and test:
 
-    # Reload docker 
+    # Reload Docker 
     sudo systemctl daemon-reload
     sudo systemctl restart docker
 
     # Test systemd
     systemctl show --property=Environment docker
 
-    # Test docker containers
+    # Test Docker containers
     docker container run --rm busybox env
 
 #### Docker-compose pre-installed on your computer
@@ -144,13 +144,13 @@ Generate a self-signed cert for your installation:
 
 ### Authentication (optional)
 
-You are not obligated to use our internal authentificator to authenticate users. You can also use the following two:
+You are not obligated to use our internal authenticator to authenticate users. You can also use the following two:
 
 #### LDAP Authentication (optional)
 
 You can easily add authentication via your LDAP server by turning on and configuring the LDAP authentication module in the configuration file (`$HOME/assemblyline4_beta_3/config/config.yml`)
 
-Here is a exemple configuration block to add to your configuration file that will allow you to connect to the docker-test-openldap server from: https://github.com/rroemhild/docker-test-openldap
+Here is a example configuration block to add to your configuration file that will allow you to connect to the docker-test-openldap server from: https://github.com/rroemhild/docker-test-openldap
 
     auth:
         internal:
@@ -183,9 +183,9 @@ Here is a exemple configuration block to add to your configuration file that wil
   
 #### oAuth Authentication (optional)
 
-You can now use an external service provider to authenticate your users by using the oAuth protocol. Simply turn on oAuth authentification by configuring the oAuth authentication module in the configuration file (`$HOME/assemblyline4_beta_3/config/config.yml`)
+You can now use an external service provider to authenticate your users by using the oAuth protocol. Simply turn on oAuth authentication by configuring the oAuth authentication module in the configuration file (`$HOME/assemblyline4_beta_3/config/config.yml`)
 
-Here is a exemple configuration block to add to your configuration file that will allow you to connect to all 3 supported oAuth providers:
+Here is a example configuration block to add to your configuration file that will allow you to connect to all 3 supported oAuth providers:
 
     auth:
         internal:
@@ -213,9 +213,9 @@ Here is a exemple configuration block to add to your configuration file that wil
                     api_base_url: https://<TENANT_NAME>.auth0.com/
                 
                 azure_ad:
-                    # Be careful when you set auto-create here cause if you've
-                    # set your client id to allow everyone, you'll give access
-                    # to anyone that has a microsoft account...
+                    # Be careful when you set auto-create here beecause if you've
+                    # set your client ID to allow everyone, you'll give access
+                    # to anyone that has a Microsoft account...
                     auto_create: false
                     auto_sync: false
 
@@ -224,9 +224,9 @@ Here is a exemple configuration block to add to your configuration file that wil
                     client_secret: <YOUR_CLIENT_SECRET>
 
                 google:
-                    # Be careful when you set auto-create here cause if you've
-                    # set your client id to allow everyone, you'll give access
-                    # to anyone that has a google account...
+                    # Be careful when you set auto-create here because if you've
+                    # set your client ID to allow everyone, you'll give access
+                    # to anyone that has a Google account...
                     auto_create: false
                     auto_sync: false
 
@@ -260,7 +260,7 @@ There is a few things you need to know now that you have an Assemblyline4 instan
 4. To get access to your beta instance just browse to `https://<IP_OF_YOUR_AL_INSTANCE>`. The default username/password to access the instance is `admin`/`admin`. (Note: If you changed the password in the `bootstrap.py` file, use this password instead)
 
 #### Viewing logs
-There is no logs centralization with this deployment but because everything runs on the same box you can leverage docker logging infrastructure.
+There is no logs centralization with this deployment but because everything runs on the same box you can leverage Docker logging infrastructure.
 
 To view logs for the core components:
 
@@ -276,7 +276,7 @@ To view logs for the core components:
     # Tail logs for a core component
     sudo docker-compose logs -f al_ui
 
-Services are not loaded from your docker compose file, they are loaded by a component called `scaler`. To view their logs you must use docker directly.
+Services are not loaded from your docker-compose file, they are loaded by a component called `scaler`. To view their logs you must use Docker directly.
 
     # list all loaded services
     sudo docker ps | grep "\-service\-"
