@@ -24,7 +24,7 @@ has_toc: false
 Welcome to the [Canadian Centre for Cybersecurity](https://www.cyber.gc.ca/en)'s AssemblyLine project.
 {: .fs-6 .fw-300 }
 
-[Get started now](/docs/public_beta.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/CybercentreCanada?q=assemblyline){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Get started now](./docs/public_beta.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [View it on GitHub](https://github.com/CybercentreCanada?q=assemblyline){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
@@ -33,7 +33,7 @@ Build using cloud technologies, it can scale from small to large scale entrepris
 
 AssemblyLine can be easily integrated in your environment using it's powerful restApi and web interfaces. The platform  comes with dozens of services to provide deep file analysis and enable integration with other security platforms such as anti-virus, malware detonation sandboxes and threat knowledge bases. Best of all, with a little bit of Python code you can extend it yourself by creating new analysis and integration services.
 
-Learn [more](/docs/overview/how%20it%20works.html) !
+Learn [more](./docs/overview/how%20it%20works.html) !
 
 
 
