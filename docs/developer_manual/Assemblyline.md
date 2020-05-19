@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Assemblyline
+title: AssemblyLine
 parent: Developer's manual
 has_children: true
 has_toc: false
@@ -26,15 +26,15 @@ Assemblyline uses two following external components to perform its tasks:
 
 | Dependancies | Description | |
 |-|-|-|
-| Docker | Docker is now at the heart of Assemblyline because all it's components are now running as Docker containers. | [https://www.docker.com/](https://www.docker.com/) |
-| Kubernetes | For multi-computer installations, Assemblyline uses kubernetes to deploy the different Docker containers and keep them healty. | [https://kubernetes.io/](https://kubernetes.io/) |
+| Docker | Docker is now at the heart of Assemblyline because all it's components are now running as docker containers. | [https://www.docker.com/](https://www.docker.com/) |
+| Kubernetes | For multi-computer installations, Assemblyline uses kubernetes to deploy the different docker containers and keep them healty. | [https://kubernetes.io/](https://kubernetes.io/) |
 | Helm | Helm is use to easily deploy and maintain our kubernetes instance. | [https://helm.sh/](https://helm.sh/) |
 | Elastic Stack | Assemblyline uses the full elastic stack to store results, logs, metrics and APMs. It consists in the following components: | [https://www.elastic.co/elastic-stack](https://www.elastic.co/elastic-stack) |
 | | Elasticseach | Elasticsearch is used for storing results, logs and metrics of the system. It also provides search capability to Assemblyline. |
 | | Kibana (optional) | Provides dashboards to monitor your Assemblyline cluster |
 | | APM (optional) | Gather Application Performance Metrics so we pinpoint potential performance issues with the system and fix them |
 | | Filebeat (optional) | Gather all the logs for the different components into Elasticsearch to be displayed in Kibana |
-| | Metricbeat (optional) | Gather metrics for the different hosts where the Docker containers are run |
+| | Metricbeat (optional) | Gather metrics for the different hosts where the docker containers are run |
 | Redis | We are using Redis for the queing system, for messaging between the component and as a remote datastructure to keep multiple instances of a given component working in sync. | [https://redis.io/](https://redis.io/) |
 | Nginx | Nginx is used by Assemblyline as a proxy to give access to the user to the different user facing component: UI, API, Socket Server, Kibana. | [https://www.nginx.com/](https://www.nginx.com/) |
 | Minio | For our default file storage, we use minio which perfectly replicates the amazon S3 API and is built to work with kubenetes. | [https://min.io/](https://min.io/) |

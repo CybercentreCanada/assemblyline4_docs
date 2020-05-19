@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Remote development
-parent: Assemblyline
+parent: AssemblyLine
 grand_parent: Developer's manual
 has_children: false
 has_toc: false
@@ -19,7 +19,7 @@ nav_order: 3
 
 ---
 
-**NOTE:** To use this setup, we assume that you have a paid version of **PyCharm Professional** because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](local_development.html) setup instead.
+**NOTE:** To use this setup, we assume that you have a paid version of **Pycharm Professional** because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](local_development.html) setup instead.
 
 This documentation will show you how to setup your target Virtual Machine for remote development which means that you will run you IDE on your desktop and run the Assemblyline containers on the remote target VM.
 
@@ -29,12 +29,12 @@ For this documentation, we will assume that you are working on a fresh installat
 
 ### Update target VM
 
-Make sure Ubuntu is running the latest software
+Make sure ubuntu is running the latest software
 
     sudo apt update
     sudo apt dist-upgrade
 
-Make sure you run an updated kernel
+Make sure you run updated kernel
 
     sudo apt install -y linux-image-generic-hwe-18.04
 
@@ -46,7 +46,7 @@ Reboot
 
 ### Install SSH Daemon
 
-We need to make sure the remote target has an SSH daemon installed for remote debugging
+We need to make sure the remote target has SSH daemon installed for remote debugging
 
     sudo apt update
     sudo apt install -y ssh
@@ -58,7 +58,7 @@ We need to make sure the remote target has an SSH daemon installed for remote de
 
 ### Install Python 3.7
 
-Assemblyline 4 works on only Python 3.7 and up. Also, the containers that we build target Python 3.7 therefore we will install Python 3.7.
+Assemblyline 4 works on only python 3.7 and up. Also, the containers that we build target python 3.7 therefor we will install Python 3.7.
 
     sudo apt install -y python3-venv python3.7 python3.7-dev python3.7-venv
 
@@ -75,24 +75,24 @@ Installing docker-compose is done the same way on all Linux distros. Follow thes
 
 ### Installing Docker
 
-Follow these simple commands to get Docker runnning on your machine:
+Follow these simple commands to get docker runnning on your machine:
 
-    # Add Docker repository
+    # Add docker repository
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-    # Install Docker
+    # Install docker
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-    # Test Docker installation
+    # Test docker installation
     sudo docker run hello-world
 
-#### Securing Docker for remote access
+#### Securing docker for remote access
 
-We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a **static IP** to the remote VM because your cert will only allow connections to that IP.
+We are going to make your docker server accessible from the internet. To make it secure, we need to enable tls authentication in the docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If your planning on using IP, you'll have to set a **static IP** to the remote VM because your cert will only allow conections to that IP.
 
     # Create a cert directory
     mkdir ~/certs
@@ -144,13 +144,13 @@ We are going to make your Docker server accessible from the internet. To make it
     # Create an archive with the client certs
     tar czvf certs.tgz ca.pem cert.pem key.pem
 
-The archive file `~/certs/certs.tgz` will have to be transferred to your desktop. We will use its content to log into the Docker daemon from your desktop.
+The achive file `~/certs/certs.tgz` will have to be transfered to your desktop. We will use its content to log into the docker daemon from your desktop.
 
 ## Adding Assemblyline specific configuration 
 
 ### Assemblyline folders
 
-Because Assemblyline uses it's own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
+Because Assemblyline use it's own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
 
     sudo mkdir -p ~/git
 
@@ -166,7 +166,7 @@ Because Assemblyline uses it's own set of folders inside the core, service-serve
 
 ### Assemblyline dev configuration files
 
-Here we will create configuration files that match the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
+Here we will create configuration files that matches the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
 
     echo "enforce: true" > /etc/assemblyline/classification.yml
     echo "
@@ -212,16 +212,16 @@ Here we will create configuration files that match the default dev docker-compos
       fqdn: `ip route get 8.8.8.8 | grep 8.8.8.8 | awk '{ print $7 }'`.nip.io
     " > /etc/assemblyline/config.yml
 
-**NOTE:** As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolve the first part of the domain **YOUR_IP**.nip.io to it's IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs. You can also replace the FQDN with your DNS name if you have one.
+**NOTE:** As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolv the first part of the domain **YOUR_IP**.nip.io to it's IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs. You can also replace the fqdn with your DNS name if you have one.
 
 ## Setup Python Virtual Environments
 
-We will make two Python virtual environments: 
+We will make two python virtual environments: 
 
  - One for the core components 
  - One for services 
 
- That should be enough to cover most cases. If a service has conflicting dependancies with another, I suggest you create a separate virtualenv for it when you try to debug it. The core components should all be fine in the same environment.
+ That should be enough to cover most cases. If a service as conflicting dependancies with other, I suggest you create a seperate virtualenv for it when you try to debug it. The core components should all be fine in the same environment.
 
 ### Setting up Core Virtualenv
 
@@ -236,7 +236,7 @@ We will make two Python virtual environments:
     # Install assemblyline packages with their test dependencies
     pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
 
-    # Remove Assemblyline packages because we will use the live code
+    # Remove assemblyline packages because we will use the live code
     pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
 
 ### Setting up Service Virtualenv
@@ -249,41 +249,41 @@ We will make two Python virtual environments:
     python3.7 -m venv services
     source ~/venv/services/bin/activate
 
-    # Install Assemblyline Python client
+    # Install assemblyline python client
     pip install assemblyline-client --pre
 
-    # Install Assemblyline service packages
+    # Install assemblyline service packages
     pip install assemblyline-service-client assemblyline-v4-service 
 
-    # Remove Assemblyline packages because we will use the live code
+    # Remove assemblyline packages because we will use the live code
     pip uninstall -y assemblyline assemblyline-core assemblyline-service-client assemblyline-v4-service
     
 ## On your desktop
 
-We are now done setting up the target VM. For the rest of the instructions, we will mainly setup your PyCharm IDE to interface with the target VM.
+We are now done setting up the target VM. For the rest of the instructions, we will mainly setup your pycharm IDE to interface with the target VM.
 
 
-### Get your Docker certs and install them 
+### Get your docker certs and install them 
 
     mkdir -p ~/docker_certs
     cd ~/docker_certs
-    scp USER_OF_TARGET_VM@IP_OF_TARGET_VM:certs/certs.tgz ~/docker-certs/
+    scp USER_OF_TARGET_VM@IP_OF_TARGET_VM:certs/certs.tgz ~
     tar zxvf certs.tgz
     rm certs.tgz
 
-### Install PyCharm 
+### Install Pycharm 
 
-You can download PyCharm Professional directly from [jetbrain](https://www.jetbrains.com/pycharm/)'s website but if your desktop is running Ubuntu 18.04, you can just install it with snap:
+You can download Pycharm Profesional directly from [jetbrain](https://www.jetbrains.com/pycharm/)'s website but if your desktop is runnning Ubuntu 18.04, you can just install it with snap:
 
     sudo snap install --classic pycharm-professional
 
 ### Install git
 
-You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but if your desktop is running Ubuntu 18.04 you can just install it with APT:
+You can get git directly from [GIT](https://git-scm.com/downloads)'s website but if your desktop is running Unbuntu 18.04 you can just install it with APT:
 
     sudo apt install -y git
 
-*(Optional)* You should add your desktop SSH keys to your Github account to use Git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+*(Optional)* You should add your desktop SSH keys to your github account to use git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
 ### Clone core repositories
 
@@ -291,7 +291,7 @@ You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but
     mkdir -p ~/git/alv4
     cd ~/git/alv4
 
-    # Clone repositories using HTTPS if you don't have your Github account configured with an SSH key
+    # Clone repositories using HTTPS if you don't have your github account configured with an SSH key
     git clone https://github.com/CybercentreCanada/assemblyline-base.git
     git clone https://github.com/CybercentreCanada/assemblyline-core.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-client.git
@@ -299,7 +299,7 @@ You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but
     git clone https://github.com/CybercentreCanada/assemblyline-ui.git
     git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
     
-    # OR Via SSH if you have your ssh id_rsa file configured to your Github account
+    # OR Via SSH if you have your ssh id_rsa file configured to your github account
     git clone git@github.com:CybercentreCanada/assemblyline-base.git 
     git clone git@github.com:CybercentreCanada/assemblyline-core.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
@@ -307,7 +307,7 @@ You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but
     git clone git@github.com:CybercentreCanada/assemblyline-ui.git
     git clone git@github.com:CybercentreCanada/assemblyline-v4-service.git
 
-### Setup PyCharm 
+### Setup Pycharm 
 
 #### Load Alv4 Project
 

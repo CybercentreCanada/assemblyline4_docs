@@ -13,7 +13,7 @@ nav_order: 2
 
 ## Service per filetype
 
-Assemblyline has advanced filetype detection and doesn't rely on file extension
+AssemblyLine has advanced filetype detection and doesn't rely on file extension
 {: .label }
 
 | Filetypes | Service |
@@ -52,7 +52,7 @@ Assemblyline has advanced filetype detection and doesn't rely on file extension
 | PeePDF | This service uses the Python PeePDF library information from PDFs including JavaScript blocks which it will attempt to deobfuscate, if necessary, for further analysis |[link](https://github.com/CybercentreCanada/assemblyline-service-peepdf) |
 | Suricata | Scan network capture (.pcap) submitted and extracted from analysis |[link](https://github.com/CybercentreCanada/assemblyline-service-suricata) |
 | Swiffer | This service extracts metadata and performs anomaly detection on Adobe Shockwave (.swf) files. | [link](https://github.com/CybercentreCanada/assemblyline-service-swiffer)|
-| TagCheck | YARA signatures on Assemblyline Tags (build your own signature to hit on specific tags) |[link](https://github.com/CybercentreCanada/assemblyline-service-yara) |
+| TagCheck | YARA signatures on AssemblyLine Tags (build your own signature to hit on specific tags) |[link](https://github.com/CybercentreCanada/assemblyline-service-yara) |
 | TorrentSlicer | Extracts information from torrent files. |[link](https://github.com/CybercentreCanada/assemblyline-service-torrentslicer) |
 | Unpacker | This service unpacks UPX packed executables for further analysis |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacker)|
 | ViperMonkey | ViperMonkey is a VBA Emulation engine by http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-vipermonkey)|

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Assemblyline client
+title: AssemblyLine client
 nav_order: 4
 parent: User's manual
 has_children: false
 ---
 
-# Assemblyline client
-The assemblyline client library facilitates issuing requests using the restapi to Assemblyline. The client enables you to build scripts to automate various tasks and integrate Assemblyline with other tools or systems.
+# AssemblyLine client
+The assemblyline client library facilitates issuing requests using the restapi to AssemblyLine. The client enables you to build scripts to automate various tasks and integrate AssemblyLine with other tools or systems.
 
 ## Pre-requisites
 
@@ -46,7 +46,7 @@ You can instantiate the client using the following snippet of code:
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
 
-The assemblyline client is fully documented in the docstrings so if you use an interactive client like iPython you can use the help feature.
+The assemblyline client is fully documented in the docstrings so if you use an interactive client like ipython you can use the help feature.
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
