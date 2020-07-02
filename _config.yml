@@ -1,7 +1,7 @@
 title: "Assemblyline 4"
 theme: "just-the-docs"
 remote_theme: pmarsceill/just-the-docs
-color_scheme: "nil"
+color_scheme: "orange"
 search_enabled: true
 heading_anchors: true
 logo: "/static/images/banner.svg"
