@@ -9,7 +9,7 @@ has_toc: true
 {: .no_toc }
 
 
-This section of the documentation show you how to administer the Assemblyline 4 system.
+This section of the documentation shows you how to administer the Assemblyline 4 system.
 
 You can choose between administration and configuration.
 * Administration details how to manage the Assemblyline 4 system.
