@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Tag Safelisting
+title: Tag safelisting
 parent: Configuration
 grand_parent: System Administration
-nav_order: 1
+nav_order: 5
 has_toc: false
 ---
 
