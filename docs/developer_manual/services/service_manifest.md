@@ -55,6 +55,8 @@ The table below shows all the elements that the manifest file can contain, inclu
 | image | Keyword | Yes | Complete name of the Docker image with tag to run. |
 | ports | List\[Keyword\] | No | List of ports to bind from the container. |
 | ram_mb | Integer | No <br> Default: `1024` | Amount of RAM in MB that should be allocated to the container. |
+| registry_username | Keyword | No | Required if Docker image is stored on Github packages |
+| registry_password | Keyword | No | Required if Docker image is stored on Github packages |
 
 ## Environment variable
 
