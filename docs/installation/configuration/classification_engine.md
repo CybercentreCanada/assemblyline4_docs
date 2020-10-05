@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Authentication
+title: Classification engine
 parent: Configuration
-grand_parent: System Administration
-nav_order: 2
+grand_parent: Installation
+nav_order: 4
 has_toc: false
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Cluster (kubernetes)
-parent: Deployment
-grand_parent: System Administration
+parent: Deployment types
+grand_parent: Installation
 nav_order: 2
 has_toc: false
 ---

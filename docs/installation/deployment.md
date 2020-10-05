@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Configuration
-parent: System Administration
+title: Deployment types
+parent: Installation
 has_children: true
 has_toc: false
-nav_order: 2
+nav_order: 1
 ---
 
 # Configuration

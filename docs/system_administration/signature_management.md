@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Signature management
-parent: Administration
-grand_parent: System Administration
+parent: System Administration
 nav_order: 1
 has_toc: false
 ---

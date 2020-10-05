@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Appliance
-parent: Deployment
-grand_parent: System Administration
+parent: Deployment types
+grand_parent: Installation
 nav_order: 1
 has_toc: false
 ---

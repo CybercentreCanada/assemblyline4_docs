@@ -2,7 +2,7 @@
 layout: default
 title: Tag safelisting
 parent: Configuration
-grand_parent: System Administration
+grand_parent: Installation
 nav_order: 5
 has_toc: false
 ---

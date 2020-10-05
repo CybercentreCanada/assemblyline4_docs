@@ -2,7 +2,7 @@
 layout: default
 title: Monitoring
 parent: Configuration
-grand_parent: System Administration
+grand_parent: Installation
 nav_order: 3
 has_toc: false
 ---
