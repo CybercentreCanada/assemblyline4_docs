@@ -9,30 +9,52 @@ has_toc: false
 
 # Tag Safelisting
 
-If you have a certain tag value that you want to safelist for every service, then 
-you want to do the following depending on your setup for Assemblyline 4:
+If you have a certain tag value that you want to safelist (ignore certain value so no tag are created) for every service, then 
+you want to do the following.
 
-## Where to Look
-- If you're running a development instance of Assemblyline 4 where the source code from the assemblyline-base repository
-is being used directly then do one of the following:
-  - Open the following default file: `assemblyline-base/assemblyline/common/tag_whitelist.yml`
-  - Override the default file by putting an updated version of `assemblyline-base/assemblyline/common/tag_whitelist.yml`
-  in `/etc/assemblyline/tag_whitelist.yml`
+Your configuration file location will depend on your deployment type:
+
+<table>
+<tr>
+<td style="background-color:#2869e6"><text style="color:white;">Appliance deployment</text></td>
+<td> copy `assemblyline-base/assemblyline/common/tag_whitelist.yml` and update into `/etc/assemblyline/tag_whitelist.yml` </td>
+</tr>
+<tr>
+<td style="background-color:#2869e6"><text style="color:white;">Kubernetes deployment</text></td>
+<td> see <a href="https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml"> Default helm chart</a> </td>
+</tr>
+</table>
+
+<hr>
   
-- If you're running an instance of Assemblyline 4 where you are only using docker-compose, then do the following:
-  - Override the default file used by the container by putting an updated version of `assemblyline-base/assemblyline/common/tag_whitelist.yml`
-  in `/etc/assemblyline/tag_whitelist.yml`
   
-## What to Do
+## Editing the safelist
 - Once you have the file open and ready to edit, the YML is setup in the following way (and this is detailed in the comments within the file as well):
-```
-match:
-  <tag-type>:
-    - <value>
 
-regex:
-  <tag-type>:
-    - <regular expression>
- ```
 - `match` is where you list values for specific tag types that you want to safelist by using a direct string comparison (`==`)
 - `regex` is where you list regular expressions for specific tag types that you want to safelist by using regular expression matching (`.match()`)
+```
+  match:
+    <tag-type>:
+      - <value>
+
+  regex:
+    <tag-type>:
+      - <regular expression>
+```
+
+### Example
+```
+data:
+  tag_whitelist: |
+    match:
+      network.dynamic.domain:
+        - localhost
+
+      network.static.domain:
+        - localhost
+
+    regex:
+      network.dynamic.ip:
+        - (?:127\.|10\.|192\.168|172\.1[6-9]\.|172\.2[0-9]\.|172\.3[01]\.).*
+```

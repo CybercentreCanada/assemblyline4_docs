@@ -9,9 +9,23 @@ has_toc: false
 # ELK Deployment
 When you deploy Assemblyline using Helm, you have the option of pointing logs to an existing ELK stack you're running or having Assemblyline create it's own internal ELK for logging.
 
+Your configuration file location will depend on your deployment type:
+
+<table>
+<tr>
+<td style="background-color:#2869e6"><text style="color:white;">Appliance deployment</text></td>
+<td> edit `$HOME/assemblyline4_beta_4/config/config.yml` </td>
+</tr>
+<tr>
+<td style="background-color:#2869e6"><text style="color:white;">Kubernetes deployment</text></td>
+<td> see <a href="https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml"> Default helm chart</a> </td>
+</tr>
+</table>
+<hr>
+
 # Configuration
 ## Elasticsearch & Kibana
-If you already have an ELK you would like to use for logging, set and provide the necessary details below in your values.yaml:
+If you already have an ELK you would like to use for logging, set and provide the necessary details below in your config file:
 ```
 internalLogging: false
 ...
@@ -21,12 +35,12 @@ loggingUsername: "<external_logging_user>>
 loggingTLSVerify: "full"
 ```
 
-However, if you don't have an existing ELK or would prefer Assemblyline use it's own, then set `internalLogging: true` in your values.yaml.
+However, if you don't have an existing ELK or would prefer Assemblyline use it's own, then set `internalLogging: true` in your config file.
 
 ## Logstash Pipelines
 You can write [custom pipelines](https://www.elastic.co/guide/en/logstash/current/pipeline.html) to help enrich your data when passed through Logstash. 
 
-You can set your custom logstash pipeline under `customLogstashPipeline` in your values.yaml.
+You can set your custom logstash pipeline under `customLogstashPipeline` in your config file.
 
 A simple example using Filebeat, by default there is no custom pipeline:
 ```
