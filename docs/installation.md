@@ -9,4 +9,4 @@ has_toc: true
 {: .no_toc }
 
 
-Install
+<img src="./installation/images/al4.png">
