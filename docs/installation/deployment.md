@@ -12,7 +12,6 @@ nav_order: 1
 
 ---
 
-Configuring the Assemblyline 4 system is fairly easy if you know where to look. This section will detail where to look and what to do in order to configure Assemblyline 4 to fit your needs.
 
 Assemblyline support two deployments type; single host which we call "Appliance" and multi-host or "Cluster". They are the same in terms of analysis capabilities however a cluster deployment can be scaled to scan multiple millions of files per day and offer redundancy and fail over. If you are deploying in the cloud a cluster will be easier to deploy (using cloud kubenetes offerings), however in a lab or to support a incident response team any powerful computer will be able to process thoulsand of files a day.
 
