@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Troubleshooting
-parent: Administration
-grand_parent: System Administration
+parent: System Administration
 nav_order: 3
 has_toc: false
 ---

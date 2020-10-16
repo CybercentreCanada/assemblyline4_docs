@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuration
-parent: System Administration
+parent: Installation
 has_children: true
 has_toc: false
 nav_order: 2

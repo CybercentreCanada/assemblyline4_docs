@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Dashboard
-parent: Administration
-grand_parent: System Administration
+parent: System Administration
 nav_order: 2
 has_toc: false
 ---
