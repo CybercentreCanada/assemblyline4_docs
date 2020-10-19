@@ -72,15 +72,22 @@ Submitting a file to the system is as simple as passing the file path.
 
 #### Getting a key
 
-To get a key of a given bucket, you simply need to pass it its ID.
+To get a key of a given bucket, you simply need to pass it its ID. 
 
     submission_details = al_client.submission("4nxrpBePQDLH427aA8m3TZ")
+
 
 #### Using search
 
 You can use the search engine in the client by simply passing a lucene query.
 
     search_res = al_client.search.submission("submission.submitter:user")
+
+#### Searching different buckets
+
+To search a different bucket simply access a different attribute.
+
+    search_res = al_client.search.file("type:document*")
 
 #### Using search iterator
 
