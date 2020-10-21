@@ -104,9 +104,9 @@ and must match the spelling of the specific signature you are searching for.
 -   Scoring is based on the CCCS YARA specifications for rule metadata, which were created 
 to define and validate the style and format of YARA rule metadata. Assemblyline supports this specification
 natively and will leverage it to provide more context around YARA signature hits. The CCCS YARA specifications 
-for rule metadata categorize samples into 5 different "types" or "groups", each with their own
+for rule metadata categorize samples into 5 different categories, each with their own
 associated score:
--   | malware => 1000 | exploit & tool => 500 | technique => 100 | info => 0 |
+-   | malware = 1000 | exploit & tool = 500 | technique = 100 | info = 0 |
 -   To learn more about this format, please [click here](https://github.com/CybercentreCanada/CCCS-Yara)   
 
 
