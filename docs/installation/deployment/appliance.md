@@ -111,50 +111,11 @@ Installing docker-compose is done the same way on all Linux distros. Follow thes
 
 For reference, here are the instructions on Docker's website: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
-### Download installation files
+### Install an Assemblyline appliance
 
-Download installation files to your home directory:
+Follow the steps here: 
 
-    curl -L "https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_4.tar.gz" -o $HOME/assemblyline4_beta_4.tar.gz
-
-Or you can manually download them and put them in the right spot:
-
-[Download Beta](https://assemblyline-support.s3.amazonaws.com/assemblyline4_beta_4.tar.gz){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-
-### Extract installation files
-
-From now on, we will assume you've downloaded the file in your home directory.
-
-Decompress the installation archive:
-
-    tar zxvf $HOME/assemblyline4_beta_4.tar.gz
-
-### Configure system
-
-Generate a self-signed cert for your installation:
-
-    openssl req -nodes -x509 -newkey rsa:4096 -keyout $HOME/assemblyline4_beta_4/config/nginx.key -out $HOME/assemblyline4_beta_4/config/nginx.crt -days 365 -subj "/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local"
-
-
-(`Optional`) Edit the default passwords in the following two files:
-    
-    nano $HOME/assemblyline4_beta_4/.env
-    nano $HOME/assemblyline4_beta_4/config/bootstrap.py
-
-### Run docker_compose file
-Every time you run docker-compose commands you must be in the directory were the compose file resides.
-
-    cd $HOME/assemblyline4_beta_4/
-
-Now you can start Assemblyline Beta
-
-    sudo docker-compose pull
-    sudo docker-compose up -d
-
-Install services and `admin` user
-
-    sudo docker-compose -f bootstrap-compose.yaml pull
-    sudo docker-compose -f bootstrap-compose.yaml up -d 
+[https://github.com/CybercentreCanada/assemblyline-docker-compose#2-clone-this-repository](https://github.com/CybercentreCanada/assemblyline-docker-compose#2-clone-this-repository)
 
 ### Assemblyline is started, now what? 
 
