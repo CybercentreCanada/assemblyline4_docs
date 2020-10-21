@@ -21,7 +21,7 @@ Your configuration file location will depend on your deployment type:
 </tr>
 <tr>
 <td style="background-color:#2869e6"><text style="color:white;">Cluster deployment</text></td>
-<td> see <a href="https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml"> Default helm chart</a> </td>
+<td> see <a href="https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/object.yaml">Object file</a> </td>
 </tr>
 </table>
 

@@ -6,8 +6,7 @@ nav_order: 3
 has_toc: false
 ---
 
-# Discuss basic log access (docker log, kubectl log)
+# Troubleshooting
 
-# Common issues and troubleshooting
-
-https://groups.google.com/g/cse-cst-assemblyline
+We will update this page with typical issue and solutions.
+Until then, please ask us your questions here: [https://groups.google.com/g/cse-cst-assemblyline](https://groups.google.com/g/cse-cst-assemblyline)
