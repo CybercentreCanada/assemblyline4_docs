@@ -7,7 +7,7 @@ has_toc: false
 nav_order: 1
 ---
 
-# Configuration
+# Appliance vs Cluster
 {: .no_toc }
 
 ---
