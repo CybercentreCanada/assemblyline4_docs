@@ -11,16 +11,16 @@ Adding signature sources to support analysis is very simple and can be done dire
 
 First, navigate to “Source management” through the navbar:
 
-#### <img src="./images/bar.png" width="725">
+#### <img src="./images/bar.PNG" width="725">
 
 ## **Adding a source:**
 Then, to add a signature source, click on the green icon along the right side of the window:
-<img src="./images/source_add.png" width="725">
+<img src="./images/source_add.PNG" width="725">
 
 
 This will bring the user to the window below:
 
-#### <img src="./images/source_config.png" width="725">
+#### <img src="./images/source_config.PNG" width="725">
 
 ### **Required input**
 
@@ -54,7 +54,7 @@ The user may set the frequency with which signature sources are updated in two w
 #### **Option 1 - prior to loading the service**
 
 -   The updater can be configured through the service_manifest.yml, which is located in the root directory of each service.
-#### <img src="./images/root_folder.png" width="500">
+#### <img src="./images/root_folder.PNG" width="500">
 -   The following is an example of the update configuration section of the service_manifest.yml file
 
 ```
@@ -78,26 +78,26 @@ update:config
 #### **Option 2 - once the service has been loaded into Assemblyline**
 
 -   First navigate to User/Administration/Services through the navbar:
-#### <img src="./images/navbar_services.png" width="725">
+#### <img src="./images/navbar_services.PNG" width="725">
 -   Click on the relevant service you wish to update.
 -   Navigate to the "updater" tab.
 -   Input your preferred frequency (in seconds) into the "Update interval" textbox (as seen below).
-#### <img src="./images/updater.png" width="725">
+#### <img src="./images/updater.PNG" width="725">
 -   In this example, the service will pull any signatures from the source that have been updated in the last 1800 seconds. 
 
 ## **Rule Searching**
 
 Assemblyline allows the user to search for signatures in a variety of ways, for example:
 -   Using the navbar, select signature management.
-#### <img src="./images/signature_management.png" width="725">
+#### <img src="./images/signature_management.PNG" width="725">
 -   search for the type of signature you are looking for.
 
 **Note:** although the search categories (i.e. type, source, etc) are not case sensitive, the search parameters are
 and must match the spelling of the specific signature you are searching for.
-#### <img src="./images/search_yara.png" width="725">
+#### <img src="./images/search_yara.PNG" width="725">
 -   You may also search for the signature Name, Source, ID, Revision, Classification, and Status in the same manner.
           Furthermore, multiple search parameters may be submitted at the same time, for example:
-#### <img src="./images/multiple_search.png" width="725">
+#### <img src="./images/multiple_search.PNG" width="725">
 
 ## **Scoring**
 
@@ -126,7 +126,7 @@ There are three different signature states: Deployed, Noisy, and Disabled
 -   Navigate to signature management as referenced in the Rule Searching section.
 -   Search for the applicable rule.
 -   Click on the specific rule, select the "Change State" tab, and choose a new signature state from the drop-down menu./
-#### <img src="./images/change_state.png" width="725">
+#### <img src="./images/change_state.PNG" width="725">
 
 
 
