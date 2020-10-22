@@ -125,7 +125,7 @@ There are three different signature states: Deployed, Noisy, and Disabled
 
 -   Navigate to signature management as referenced in the Rule Searching section.
 -   Search for the applicable rule.
--   Click on the specific rule, select the "Change State" tab, and choose a new signature state from the drop-down menu./
+-   Click on the specific rule, select the "Change State" tab, and choose a new signature state from the drop-down menu.
 #### <img src="./images/change_state.PNG" width="725">
 
 
