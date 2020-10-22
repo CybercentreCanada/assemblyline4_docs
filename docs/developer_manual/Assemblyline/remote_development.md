@@ -328,9 +328,10 @@ You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but
  5. Click **Next**
  6. Put your target VM password in the box, check **Save password** and click **Next**
  7. In the next window, do the following: 
-    - For the **interpreter box**, click the little **folder** and select your core venv (**/home/YOUR_TARGET_USER/venv/core/bin/python**)
-    - For the **Sync folders** box, click the little **folder** and for the remote path set the path to: **/home/YOUR_TARGET_USER/git/alv4** then click **OK**
+    - For the **interpreter box**, click the little **folder** and select your core venv (**/home/YOUR_TARGET_USER/venv/core/bin/python3.7**)
+    - For the **Sync folders** box, click the little **folder** and for the remote path set the path to: **/home/YOUR_TARGET_USER/git/alv4** then click **OK** (ensure target directory has write permissions for all users)
     - Make sure **Automatically upload files to the server** is checked
+    - Make sure  **Execute code using this interpreter with root privileges via sudo** is checked
     - Hit **Finish**
  8. Click **Ok**
  9. Let it load the interpreter and do the transfers
@@ -338,10 +339,10 @@ You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but
 #### Setup project structure
 
  1. Click **Files** -> **Settings**
- 2. Select **Project: alv4** -> **Python Structure**
+ 2. Select **Project: alv4** -> **Project Structure**
  3. For each top level folder (**assemblyline-base**, **assemblyline-core**...)
     - Click on it
-    - Click **Source**
+    - Click **Sources**
  4. Select **assemblyline-ui/assemblyline_ui/static/ng-template** then click **Template**
  5. Select **assemblyline-ui/assemblyline_ui/static/** then click **Resources**
  6. Click **apply** then **OK**
