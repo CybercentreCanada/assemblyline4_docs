@@ -6,8 +6,7 @@ has_children: true
 has_toc: true
 ---
 
-# Installation
----
+<img src="./images/al4.png" width="725">
 
 There are many aspects to deploying an Assemblyline system that should be considered.
 Although there are usually reasonable defaults, one should still be aware.
