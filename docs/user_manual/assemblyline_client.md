@@ -146,7 +146,7 @@ for submission in al_client.search.stream.submission("submission.submitter:user"
 
 Version 4 server will support facet query out of the box, no need to learn the Lucene faceting syntax.
 ```python    
-c.search.facet.submission('submission.submitter', query='times.submitted:[NOW-7DAYS TO NOW]')
+c.search.facet.submission('params.submitter', query='times.submitted:[now/d-7d TO now/d]')
 ```
 ## Listen for message instead of querying for data
 
