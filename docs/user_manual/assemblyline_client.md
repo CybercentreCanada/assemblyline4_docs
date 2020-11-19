@@ -92,7 +92,7 @@ settings = {
         'selected' : [
             'Cuckoo'
         ],
-        resubmit : []               # resubmit if to theses if score > 500
+        'resubmit' : []             # resubmit to these services if initial submission scores > 500
     },
     "notification_queue":"my_callback"  # ONLY for ingest API!
 }
