@@ -74,6 +74,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 | description | Text | Yes | Detailed description of the heuristic which addresses the technique used to score. |
 | filetype | Keyword | Yes | Regex of the filetype which applies to this heuristic. |
 | heur_id | Keyword | Yes | Unique ID for identifying the heuristic. |
+| max_score | Integer | No | The maximum score the heuristic can have. |
 | name | Keyword | Yes | Short name for the heuristic. |
 | score | Integer | Yes | Score that should be applied when this heuristic is set. |
 
