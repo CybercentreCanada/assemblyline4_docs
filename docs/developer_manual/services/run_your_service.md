@@ -75,6 +75,54 @@ can be used to run a single task through the service for testing.
    
 3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>_resultsample` directory
 
+## Using the *run_service* module
+### Use Case
+The following technique is how to hook in a service to an Assemblyline instance without using a Docker container for the service.
+The purpose of this technique is if you wish to avoid Docker container use for your service (if you don't, see 
+[Get your service working inside a container](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/services/run_your_service.html#get-your-service-working-inside-a-container)).
+
+### Prerequisites
+- You will need a virtual machine that is hosting an Assemblyline instance (see [Getting Started](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/Assemblyline/getting_started.html)).
+and depending on your virtual machine, perform the following setup: [Local development](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/Assemblyline/local_development.html) or 
+[Remote development](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/Assemblyline/remote_development.html).
+- You will need to install all packages required by your service in the virtual machine (both pip and apt).
+- You will need to upload the repositories of your service and the assemblyline-service-client to the virtual machine.
+
+### Steps for Running in PyCharm
+1. Set up the Task Handler
+- Right click on `assemblyline-service-client/assemblyline_service_client/task_handler.py` in your project window and select `Create 'task_handler'...`.
+- In the window "Create Run Configuration: 'task_handler'" set the following:
+  - Name: task_handler
+  - Script path: `<your path>/assemblyline-service-client/assemblyline_service_client/task_handler.py`
+  - Python interpreter: `<the Python interpreter on the virtual machine>`
+  - Working directory: `<your path>/assemblyline-service-client/assemblyline_service_client`
+- OK
+
+2. Set up `run_service` for your service
+- Run -> Edit Configurations
+- In the window "Run/Debug Configurations", set the following:
+  - Click the "+"
+  - Select "Python"
+  - Name: <Your service name> via RunService
+  - Module name: `assemblyline_v4_service.run_service`
+  - Environment variables: `<default variables (usually PYTHONBUFFERED=1)>;SERVICE_PATH=<module path to main class in service>`
+  - Python interpreter: `<the Python interpreter on the virtual machine>`
+  - Working directory: `<your path>/assemblyline-service-<service name>`
+- OK
+
+3. Run/debug the `task_handler` run configuration
+- The task handler awaits a service to be registered...
+4. Run/debug the `<Your service name> via RunService` run configuration
+- The service registers with the task handler, task handler exits
+5. Note that the task handler has now registered your service and exited. So you need to 
+run the `task_handler` run configuration once more before you can submit tasks to it via the UI.
+6. Use a web browser to head to the service configuration page at https://<virtual machine IP>>/admin/services.html
+7 You should see your service loaded and disabled. Enable it and submit away!
+
+Note: If you are making changes to your service and loading it into the Assemblyline instance using this technique, 
+you will need to restart the `<Your service name> via RunService` run configuration every time you want your code changes
+updated.
+
 ## Get your service working inside a container
 ### Build the service container
 1. Change working directory to root of the service:
