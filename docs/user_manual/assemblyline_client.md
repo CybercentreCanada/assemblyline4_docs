@@ -92,9 +92,11 @@ settings = {
         'selected' : [
             'Cuckoo'
         ],
-        'resubmit' : []             # resubmit to these services if initial submission scores > 500
+        'resubmit' : [],            # resubmit to these services if initial submission scores > 500
+        'excluded': ['Cuckoo']      # exclude some services
     },
-    "notification_queue":"my_callback"  # ONLY for ingest API!
+    'service_spec': {'Extract': {'password': 'password'}}, @ provide a service parameter (e.g password for extract service)
+    'notification_queue':'my_callback'  # ONLY for ingest API!
 }
 ```
 ### Submit
