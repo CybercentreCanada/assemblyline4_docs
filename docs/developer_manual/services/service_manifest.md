@@ -52,11 +52,10 @@ The table below shows all the elements that the manifest file can contain, inclu
 | command | List\[Keyword\] | No | Command that should be run when the container launches. |
 | cpu_cores | Float | No <br> Default: `1.0` | Amount of CPU that should be allocated to the container. |
 | environment | List of [Environment Variable](#environment-variable)  | No | Refer to [environment variable](#environment-variable) section.|
-| image | Keyword | Yes | Complete name of the Docker image with tag to run. |
+| image | Keyword | Yes | Image name always prepended by ${REGISTRY} or ${PRIVATE_REGISTRY} if image not on dockerhub. Append rest of image path. Do not put a / between rest of image path and registry var. Image name always ends in :$SERVICE_TAG|
 | ports | List\[Keyword\] | No | List of ports to bind from the container. |
 | ram_mb | Integer | No <br> Default: `1024` | Amount of RAM in MB that should be allocated to the container. |
-| registry_username | Keyword | No | Required for authenticated Docker repositories |
-| registry_password | Keyword | No | Required for authenticated Docker repositories |
+
 
 ## Environment variable
 
