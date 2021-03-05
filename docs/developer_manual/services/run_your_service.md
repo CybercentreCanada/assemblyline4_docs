@@ -124,7 +124,20 @@ you will need to restart the `<Your service name> via RunService` run configurat
 updated.
 
 ## Get your service working inside a container
-### Build the service container
+
+### [Create a local registry](https://docs.docker.com/registry/deploying/)
+1. The following command with spawn a registry container on port 5000 of the host:
+   ```bash
+   docker run -d -p 5000:5000 --restart=always --name registry registry:2
+   ```
+2. Setup the PRIVATE_REGISTRY environment variable in the .env file so that it points to your local registry:
+    ```
+    services:
+      image_variables:
+        PRIVATE_REGISTRY: localhost:5000/
+    ```
+
+### Build/Push the service container to your registry
 1. Change working directory to root of the service:
 
     ```bash
@@ -134,14 +147,26 @@ updated.
 2. Run the `docker build` command and tag the container with the same name that container name has in your service manifest
 
     ```bash
-    docker build -t testing/assemblyline-service-resultsample .
+    docker build -t localhost:5000/assemblyline-service-resultsample .
+   ```
+3. Push the container image to your local registry
+
+    ```bash
+    docker push localhost:5000/assemblyline-service-resultsample
    ```
 
 ### Add the container to your deployment
 
 1. Using your web browser, go to the service management page: https://localhost/admin/services.html
 2. Click the `Add service` button
-3. Paste the entire content of the `service_manifest.yaml` file in the text box
+3. Paste the entire content of the `service_manifest.yaml` file in the text box.
+
+    **Note**: Ensure the service manifest's docker images are prefixed with ${PRIVATE_REGISTRY} to make sure it's pulling from your local repository.
+    ```
+    docker_config:
+      image: ${PRIVATE_REGISTRY}assemblyline-service-resultsample:$SERVICE_TAG
+    ```
+
 4. Click the `Add` button
 
 Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.
