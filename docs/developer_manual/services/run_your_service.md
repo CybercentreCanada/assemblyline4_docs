@@ -126,7 +126,7 @@ updated.
 ## Get your service working inside a container
 
 ### Create a private registry
-1. The following link will show you show to setup a private Docker image registry: 
+1. The following link will show you how to setup a private Docker image registry: 
 [Docker Docs - Deploy a registry server](https://docs.docker.com/registry/deploying/)
 
 2. To test your registry setup, try running the following:
