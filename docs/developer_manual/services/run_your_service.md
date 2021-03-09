@@ -134,7 +134,7 @@ updated.
    curl https://<registry_server_name>/v2/_catalog
     ```
    This should return a list of repositories (likely empty if no images have been pushed yet).
-3. Setup the PRIVATE_REGISTRY environment variable in the .env file so that it points to your local registry:
+3. Setup the PRIVATE_REGISTRY environment variable in the .env file so that it points to your private registry:
     ```
     services:
       image_variables:
@@ -153,7 +153,7 @@ updated.
     ```bash
     docker build -t <registry_server_name>/assemblyline-service-resultsample .
    ```
-3. Push the container image to your local registry
+3. Push the container image to your private registry
 
     ```bash
     docker push <registry_server_name>/assemblyline-service-resultsample
@@ -165,7 +165,7 @@ updated.
 2. Click the `Add service` button
 3. Paste the entire content of the `service_manifest.yaml` file in the text box.
 
-    **Note**: Ensure the service manifest's docker images are prefixed with ${PRIVATE_REGISTRY} to make sure it's pulling from your local repository.
+    **Note**: Ensure the service manifest's docker images are prefixed with ${PRIVATE_REGISTRY} to make sure it's pulling from your private repository.
     ```
     docker_config:
       image: ${PRIVATE_REGISTRY}assemblyline-service-resultsample:$SERVICE_TAG
