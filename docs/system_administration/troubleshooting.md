@@ -23,6 +23,10 @@ has_toc: false
     2. Is the host able to reach the docker registry to pull in the image to perform the update?
         1. ```curl https://<docker_registry>/v2/_catalog``` should return a list of repositories.
         2. ```curl https://<docker_registry>/v2/repositories/<image_name>/tags``` should return all tags associated to the image (if found)
+
+3. Updater/Scaler
+    1. Is the updater and/or scaler container even running or in an error state?
+        1. Tail the containers' logs or view them in Kibana if running the full_appliance or equivalent
         
 We will update this page with typical issue and solutions.
 Until then, please ask us your questions here: [https://groups.google.com/g/cse-cst-assemblyline](https://groups.google.com/g/cse-cst-assemblyline)
