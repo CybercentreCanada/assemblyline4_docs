@@ -125,16 +125,20 @@ updated.
 
 ## Get your service working inside a container
 
-### [Create a local registry](https://docs.docker.com/registry/deploying/)
-1. The following command with spawn a registry container on port 5000 of the host:
-   ```bash
-   docker run -d -p 5000:5000 --restart=always --name registry registry:2
-   ```
-2. Setup the PRIVATE_REGISTRY environment variable in the .env file so that it points to your local registry:
+### Create a private registry
+1. The following link will show you show to setup a private Docker image registry: 
+[Docker Docs - Deploy a registry server](https://docs.docker.com/registry/deploying/)
+
+2. To test your registry setup, try running the following:
+    ```
+   curl https://<registry_server_name>/v2/_catalog
+    ```
+   This should return a list of repositories (likely empty if no images have been pushed yet).
+3. Setup the PRIVATE_REGISTRY environment variable in the .env file so that it points to your local registry:
     ```
     services:
       image_variables:
-        PRIVATE_REGISTRY: localhost:5000/
+        PRIVATE_REGISTRY: <registry_server_name>/
     ```
 
 ### Build/Push the service container to your registry
@@ -147,12 +151,12 @@ updated.
 2. Run the `docker build` command and tag the container with the same name that container name has in your service manifest
 
     ```bash
-    docker build -t localhost:5000/assemblyline-service-resultsample .
+    docker build -t <registry_server_name>/assemblyline-service-resultsample .
    ```
 3. Push the container image to your local registry
 
     ```bash
-    docker push localhost:5000/assemblyline-service-resultsample
+    docker push <registry_server_name>/assemblyline-service-resultsample
    ```
 
 ### Add the container to your deployment
