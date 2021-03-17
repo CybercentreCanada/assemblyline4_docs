@@ -78,16 +78,16 @@ There are two distinc api to send a file (or url), submit and ingest.
 Both leverage the following parameters (optional):
 
 ```python
-metadata = {
-        'my_metadata' : 'value'     # any metadata of your liking
-}
-
 settings = { 
     'classification' : 'TLP:A',     # classification
     'description' : 'Hello world',  # file description
+    'name' : 'filename',            # file name
     'deep_scan' : True,             # activate deep scan mode
     'priority' : 100,               # queue priority (higher nb is higher priority)
-    'ignore_cache' : 'false',       # ignore system cache,
+    'ignore_cache' : 'false',       # ignore system cache
+    'metadata' : {
+        'my_metadata' : 'value'     # any metadata of your liking
+    },
     'services' : {                  # selected service list (override user profile)
         'selected' : [
             'Cuckoo','Extract'
@@ -103,7 +103,7 @@ settings = {
 
 Submit accept file and return a submission id, this api is sync; which mean it is a blocking call (slower)
 ```python
-al_client.submit('/path/to/my/file.txt', fname='filename', params=settings, metadata=metadata)
+al_client.submit('/path/to/my/file.txt', fname='filename', params=settings)
 ```
 ### Ingest
 
@@ -111,7 +111,7 @@ Ingest accept a file and return an ingest id, you can provide a callback in the 
 
 It also allow the system to generate alert if the score is higher than 500 and the alert parameter is set to True
 ```python
-al_client.ingest('/path/to/my/file.txt', fname='filename', alert=False, params=settings, metadata=metadata)
+al_client.ingest('/path/to/my/file.txt', fname='filename', alert=False, params=settings)
 ```
 
 ## Getting a key
