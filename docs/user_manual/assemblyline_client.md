@@ -95,8 +95,7 @@ settings = {
         'resubmit' : [],            # resubmit to these services if initial submission scores > 500
         'excluded': ['']      # exclude some services
     },
-    'service_spec': {'Extract': {'password': 'password'}}, # provide a service parameter (e.g password for extract service)
-    'notification_queue':'my_callback'  # ONLY for ingest API!
+    'service_spec': {'Extract': {'password': 'password'}} # provide a service parameter (e.g password for extract service)
 }
 ```
 ### Submit
@@ -111,7 +110,9 @@ Ingest accept a file and return an ingest id, you can provide a callback in the 
 
 It also allow the system to generate alert if the score is higher than 500 and the alert parameter is set to True
 ```python
-al_client.ingest('/path/to/my/file.txt', fname='filename', alert=False, params=settings)
+al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=metadata)
+# If you use a notificaton queue you can get your results with:
+al_client.ingest.get_message("notification_queue_name")
 ```
 
 ## Getting a key
