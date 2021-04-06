@@ -96,7 +96,8 @@ There are two distinct api to send a file (or url), submit and ingest.
 
 Both leverage the
 [SubmissionParams class](https://github.com/CybercentreCanada/assemblyline-base/blob/fc5f8216e7fa59d9421ff626927d9602e5a3430c/assemblyline/odm/models/submission.py#L41). 
-These parameters are optional, and a given subset of them used for submission/ingestion with the Assemblyline client might look like this:
+The main difference in terms of passing these parameters to submit and ingest is alerting: ingest takes `alert` as a parameter in the method call, not within the SubmissionParams dictionary.  
+These submission parameters are optional, and a given subset of them used for submission/ingestion with the Assemblyline client might look like this:
 
 ```python
 settings = { 
