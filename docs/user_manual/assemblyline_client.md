@@ -108,7 +108,7 @@ al_client.submit('/path/to/my/file.txt', fname='filename', params=settings)
 
 Ingest accept a file and return an ingest id, you can provide a callback in the param. This call is async; which mean it is not blocking (very fast)
 
-It also allow the system to generate alert if the score is higher than 500 and the alert parameter is set to True
+It also allow the system to generate alert if the score is 500 or higher and the alert parameter is set to True
 ```python
 al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=metadata)
 # If you use a notificaton queue you can get your results with:
