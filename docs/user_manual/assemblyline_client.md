@@ -186,7 +186,7 @@ al_client.socketio.listen_on_dashboard_messages(callback)
 
 # Incident Response
 When using Assemblyline to respond to a cybersecurity incident, we recommend using the Ingest API.
-There are [commandline interfaces](https://github.com/cccs-kevin/assemblyline_client_scripts) that you can use to assist with this process, but note that these are a heavy work-in-progress.
+There are [commandline interfaces](https://github.com/CybercentreCanada/assemblyline-incident-manager) that you can use to assist with this process, but note that these are a heavy work-in-progress.
 There are also things to note prior to ingestion, and these are the [default ingest values](https://github.com/CybercentreCanada/assemblyline-base/blob/9d4ab5586ff34ae20e3a08e9584776379fc981e9/assemblyline/odm/models/config.py#L377
 ) of Assemblyline. It is important to look at the `"sampling_at"` values, as these are the queue size limits for ingestion. 
 You have to keep your ingestion flow at a rate such that the size of the ingestion queue remains lower than the corresponding priority values, otherwise Assemblyline will skip files.
