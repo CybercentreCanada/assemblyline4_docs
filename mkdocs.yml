@@ -13,7 +13,7 @@ theme:
   favicon: images/favicon.png
   language: en
   palette:
-    - scheme: default
+    - scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
@@ -31,12 +31,12 @@ extra:
   alternate:
     # Switch to English
     - name: English
-      link: <your-site>/en/
+      link: https://cybercentrecanada.github.io/assemblyline4_docs/
       lang: en
 
     # Switch to German
     - name: Français
-      link: <your-site>/fr/
+      link: https://cybercentrecanada.github.io/assemblyline4_docs_fr/
       lang: fr
 
 nav:
@@ -78,3 +78,5 @@ nav:
     
 markdown_extensions:
   - attr_list
+  - pymdownx.highlight
+  - pymdownx.superfences
