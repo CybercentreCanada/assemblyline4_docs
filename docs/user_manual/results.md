@@ -67,7 +67,7 @@ The "Submission Details" button is located at the top of the submission report.
 
 ![Details](./images/report_viewdetails.png)
 
-Submission details will display submission parameters such as which services were selected when the file was submitted, submission [meta data](assemblyline_client.html#submit-a-file). The most important section is the button file section.
+Submission details will display submission parameters such as which services were selected when the file was submitted, submission [meta data](../assemblyline_client#submit-a-file). The most important section is the button file section.
 
 
 ## Extraction Files Tree

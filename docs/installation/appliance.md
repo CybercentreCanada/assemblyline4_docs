@@ -3,7 +3,7 @@
 ## Appliance Installation
 
 In this setup, Assemblyline 4 will use all of the resources available on your machine for its components. This can be deployed on any machine / VM that can run Docker containers. 
-This can also be used for [service development](../../developer_manual/Assemblyline/getting_started.html).
+This can also be used for [service development](../developer_manual/assemblyline/getting_started/).
 
 ### Pre-requisites
 

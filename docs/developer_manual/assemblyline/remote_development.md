@@ -1,6 +1,6 @@
 # Remote development
 
-**NOTE:** To use this setup, we assume that you have a paid version of **PyCharm Professional** because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](local_development.html) setup instead.
+**NOTE:** To use this setup, we assume that you have a paid version of **PyCharm Professional** because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](../local_development) setup instead.
 
 This document will show you how to setup your target Virtual Machine for remote development which means that you will run your IDE on your desktop and run the Assemblyline containers on the remote target VM.
 

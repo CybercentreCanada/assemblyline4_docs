@@ -4,7 +4,7 @@ This guide has been created for developers who are looking to develop services f
 
 ## Pre-requisites
 Before getting started, ensure you have the following setup:
-- [Setting up dev environment](./run_your_service.html#setting-up-dev-environment)
+- [Setting up dev environment](../run_your_service#setting-up-dev-environment)
 
 ## Build your first service
 This section will guide you through the bare minimum steps required to create a running, but functionally useless service. Each sub-section below outlines the steps required for each of the different files required to create an Assemblyline service. All files created in the following sub-sections must be placed in a common directory, for example `result_sample`. 
