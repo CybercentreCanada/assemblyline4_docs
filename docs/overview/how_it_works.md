@@ -1,17 +1,8 @@
----
-layout: default
-title: How it works
-parent: Overview
-nav_order: 1
----
-
 # How it works
-{: .no_toc }
 
 Assemblyline minimizes the number of harmless files that IT practitioners are required to inspect every day, allowing them to collaborate with other users to customize and improve the platform in the process.
 
-
-<img src="./images/al.png" width="725">
+![Steps](./images/al.png)
 
 **A)** Assemblyline works very much like a conveyor belt: files arrive in the system and are triaged in a certain sequence.
 

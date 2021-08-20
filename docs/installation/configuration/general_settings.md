@@ -1,12 +1,3 @@
----
-layout: default
-title: General settings
-parent: Configuration
-grand_parent: Installation
-nav_order: 1
-has_toc: false
----
-
 # General settings
 
 Assemblyline come built in with sensible defaults, there are however some values which might require tweaking for your environment.

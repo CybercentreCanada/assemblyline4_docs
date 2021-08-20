@@ -1,12 +1,3 @@
----
-layout: default
-title: Tag safelisting
-parent: Configuration
-grand_parent: Installation
-nav_order: 5
-has_toc: false
----
-
 # Tag Safelisting
 
 If you have a certain tag value that you want to safelist (ignore certain value so no tag are created) for every service, then 

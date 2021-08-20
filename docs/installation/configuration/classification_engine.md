@@ -1,12 +1,3 @@
----
-layout: default
-title: Classification engine
-parent: Configuration
-grand_parent: Installation
-nav_order: 4
-has_toc: false
----
-
 # Classification engine
 
 Assemblyline has a powerful classification engine which can restrict which user can see submission or results.

@@ -1,17 +1,9 @@
----
-layout: default
-title: Submitting file
-nav_order: 1
-parent: User's manual
-has_children: false
----
-
 # Submitting a file for analysis
 
 ## Submission
-Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](assemblyline_client.html#submit-a-file).
+Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](..assemblyline_client/#submit-a-file).
 
-<img src="./images/submit.png" width="725">
+![File submission](./images/submit.png)
 
 ### Sharing and classification
 
@@ -34,13 +26,11 @@ Additional submission options are available to:
 | Perform deep analysis | Provide maximum deobfuscation - **Highly recommended for known malicious or highly suspicious file to detect highly obfuscated content** |
 | Time to live | Time (in days) before the file is purged from the system |
 
-<img src="./images/submit_options.png" width="725">
+![Submit options](./images/submit_options.png)
 
 ## File analysis
 
 Once a file is submitted to Assemblyline, the system will automatically perform multiple check to determine how to best process the file. One of Assemblyline most powerful functionality is its recursive analysis model. Malware and malicious documents often user multiple layers of obfuscation; recursive analysis allow the system to remove these layers and keep analyzing the file. The end results is often a cleartext script or unpacked malware which traditional anti-virus are very effective at detecting.
 
-<img src="./images/processing.png" width="725">
-
-[Ok! Let's look at results](./results.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+![Submit options](./images/processing.png)
 

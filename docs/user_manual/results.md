@@ -1,23 +1,5 @@
----
-layout: default
-title: Results
-nav_order: 2
-parent: User's manual
-has_children: false
-has_toc: false
----
 
 # Assemblyline results
-{: .no_toc }
-
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 # Heuristics
 
@@ -32,12 +14,11 @@ A heuristic is a feature that is detected by the service performing the analysis
 
 Heuristics are tracked by the system to provide statistics with number of hits and score statistics to help adjusting well performing or under performing heuristics.
 
-<img src="./images/heuristic.png" width="725">
+![Heuristic](./images/heuristic.png)
 
 Heuristics will be shown in the UI and be color coded based on their maliciousness level.
 
-<img src="./images/heuristic2.png" width="725">
-
+![Heuristic](./images/heuristic2.png)
 
 # Tags
 
@@ -68,26 +49,23 @@ The first page that will appear when you view a submission is the submission rep
 ## General information
 At the top you will find important information such as timestamps, file type detected, size, maximum score and various hashes.
 
-<img src="./images/report_gi.png" width="725">
-
+![General information](./images/report_gi.png)
 
 ## Heuristics
 Under this section you will find all the heuristics categorized by maliciousness level and every files associated.
 
-<img src="./images/report_heuristics.png" width="725">
-
+![Heuristics](./images/report_heuristics.png)
 
 ## Attribution
 This section will provide attribution from Yara signatures (if the actor tag is provided in your rule's metadata) and anti-virus virus names.
 For best result follow the Yara rules [CCCS standard](https://github.com/CybercentreCanada/CCCS-Yara).
 
-<img src="./images/report_attribution.png" width="725">
-
+![Attribution](./images/report_attribution.png)
 
 # Submission Details
 The "Submission Details" button is located at the top of the submission report.
 
-<img src="./images/report_viewdetails.png" width="200"/>
+![Details](./images/report_viewdetails.png)
 
 Submission details will display submission parameters such as which services were selected when the file was submitted, submission [meta data](assemblyline_client.html#submit-a-file). The most important section is the button file section.
 
@@ -97,38 +75,33 @@ The file tree section will show a view of all the files that were processed and 
 
 Clicking on the files will reveal Assemblyline's most interesting section the File details page.
 
-![](./images/report_files.png)
-<img src="./images/report_files.png" width="725">
-
+![Files](./images/report_files.png)
 
 # Files Details
 Under the file details section you will find everything about a specific file. Regardless of which submission it came from. 
 
 In the top right corner you will find a series of useful functions
 
-| <img src="./images/icon_related_submission.png" width="50" height="50"/> | Find all related submissions |
-| <img src="./images/icon_download.png" width="50" height="50"/> | Download file ( by default the file will be inserted in the [Cart format](https://pypi.org/project/cart/) ) to prevent accidental self-infection |
-| <img src="./images/icon_fileviewer.png" width="50" height="50"/> | File viewer (Ascii, Strings, Hex view ) <img src="./images/hex.png" width="500">|
-| <img src="./images/icon_resubmit.png" width="50" height="50"/> | Resubmit the file for analysis |
+| ![Related submission](./images/icon_related_submission.png) | Find all related submissions |
+| ![File download](./images/icon_download.png) | Download file ( by default the file will be inserted in the [Cart format](https://pypi.org/project/cart/) ) to prevent accidental self-infection |
+| ![File viewer](./images/icon_fileviewer.png) | File viewer (Ascii, Strings, Hex view ) ![Hex view](./images/hex.png)|
+| ![File resubmittion](./images/icon_resubmit.png) | Resubmit the file for analysis |
 
 ## File Frequency
 This section will give tell you how many time this file has been seen along with a first and last seen. This will be affected by the retention period of the file within the system.
 
-<img src="./images/file_freq.png" width="400">
-
+![File frequency](./images/file_freq.png)
 
 ## File Tags
 This section will include all the tags group by type extracted within this file, this is where you will find IP, URL and many other IoC (indicators of compromise) which you can harvest to support your investigation or use to start a dynamic action (e.g: issue blocks on your firewalls).
 
 If you click on one of the tag it will highlight which service it came from.
 
-<img src="./images/file_tags.png" width="725">
+![File tags](./images/file_tags.png)
 
 ## Service Results
 This section lets you visualize the output of each service along with any heuristics and tags raised. You can also see which services were the source of "extracted files" at the end of each service result. The cached file results are ignored every time a service is updated; if multiple results version are available they will be shown in a drop down which will let you look at older analysis results.
 
 You can expand the details by clicking on a service result section.
 
-![](./images/results_section.png)
-
-[What about searching?](./searching.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+![Result section tags](./images/results_section.png)

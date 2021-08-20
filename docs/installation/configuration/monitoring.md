@@ -1,15 +1,7 @@
----
-layout: default
-title: Monitoring
-parent: Configuration
-grand_parent: Installation
-nav_order: 3
-has_toc: false
----
 # ELK Deployment
 When you deploy Assemblyline using Helm, you have the option of pointing logs to an existing ELK stack you're running or having Assemblyline create it's own internal ELK for logging.
 
-<img src="./images/dashboard-example.png" width="725">
+![Dashboard example](./images/dashboard-example.png)
 
 Your configuration file location will depend on your deployment type:
 

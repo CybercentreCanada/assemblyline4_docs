@@ -1,13 +1,5 @@
----
-layout: default
-title: Service manifest
-parent: Services
-grand_parent: Developer's manual
-nav_order: 3
-has_toc: false
----
+# Service manifest
 
-# Service manifest overview
 Every service must have a `service_manifest.yml` file in its root directory. The manifest file presents essential
 information about the service to the Assemblyline core system, information the Assemblyline core system must have before
 it can run the service. 

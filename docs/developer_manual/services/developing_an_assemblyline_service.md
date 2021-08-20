@@ -1,24 +1,6 @@
----
-layout: default
-title: Developing an Assemblyline service 
-parent: Services
-grand_parent: Developer's manual
-nav_order: 1
-has_toc: false
----
-
 # Developing an Assemblyline service 
-{: .no_toc }
 
 This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. 
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 ## Pre-requisites
 Before getting started, ensure you have the following setup:

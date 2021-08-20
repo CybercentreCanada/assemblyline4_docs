@@ -1,12 +1,3 @@
----
-layout: default
-title: Service list
-parent: Overview
-nav_order: 2
----
-{: .no_toc }
-
-
 # Quick reference
 
 ```Service listing on a system can be found under Help > Service Listing```

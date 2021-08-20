@@ -1,23 +1,4 @@
----
-layout: default
-title: Local development
-parent: Assemblyline
-grand_parent: Developer's manual
-has_children: false
-has_toc: false
-nav_order: 2
----
-
 # Local development
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 This documentation will show you how to setup you development Virtual Machine for local development which means that you will run you IDE inside the virtual machine. This is by far the easiest setup to get working and removes a lot of headaches.
 

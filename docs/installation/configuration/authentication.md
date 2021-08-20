@@ -1,12 +1,3 @@
----
-layout: default
-title: Authentication
-parent: Configuration
-grand_parent: Installation
-nav_order: 2
-has_toc: false
----
-
 # Authentication
 
 Assemblyline comes with a built-in user management database, so no external identity sources is required. 

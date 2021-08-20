@@ -1,23 +1,4 @@
----
-layout: default
-title: Remote development
-parent: Assemblyline
-grand_parent: Developer's manual
-has_children: false
-has_toc: false
-nav_order: 3
----
-
 # Remote development
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 **NOTE:** To use this setup, we assume that you have a paid version of **PyCharm Professional** because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](local_development.html) setup instead.
 

@@ -1,0 +1,80 @@
+site_name: Assemblyline 4
+
+repo_url: https://github.com/CybercentreCanada/assemblyline-helm-chart
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  custom_dir: override
+  static_templates:
+    - 404.html
+  logo: images/favicon.ico
+  favicon: images/favicon.png
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.expand
+
+extra:
+  alternate:
+    # Switch to English
+    - name: English
+      link: <your-site>/en/
+      lang: en
+
+    # Switch to German
+    - name: Français
+      link: <your-site>/fr/
+      lang: fr
+
+nav:
+  - Home: index.md
+  - Overview:
+    - overview/how_it_works.md
+    - overview/servicelist.md
+  - Getting started:
+    - installation/deployment.md
+    - installation/appliance.md
+    - installation/cluster.md
+    - Configuration:
+      - installation/configuration/config_files.md
+      - installation/configuration/general_settings.md
+      - installation/configuration/authentication.md
+      - installation/configuration/classification_engine.md
+      - installation/configuration/monitoring.md
+      - installation/configuration/tag_safelisting.md
+    - System administration:
+      - installation/system_administration/dashboard.md
+      - installation/system_administration/signature_management.md
+      - installation/system_administration/troubleshooting.md
+  - User's manual: 
+    - user_manual/submitting_file.md
+    - user_manual/results.md
+    - user_manual/searching.md
+    - user_manual/assemblyline_client.md
+  - Developer's guide:
+    - Services:
+      - developer_manual/services/developing_an_assemblyline_service.md
+      - developer_manual/services/run_your_service.md
+      - developer_manual/services/service_manifest.md
+    - Assemblyline Core:
+      - developer_manual/assemblyline/getting_started.md
+      - developer_manual/assemblyline/components.md
+      - developer_manual/assemblyline/local_development.md
+      - developer_manual/assemblyline/remote_development.md
+      - developer_manual/assemblyline/use_pycharm.md
+    
+markdown_extensions:
+  - attr_list

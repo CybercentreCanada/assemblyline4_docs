@@ -1,22 +1,4 @@
----
-layout: default
-title: Searching
-nav_order: 3
-parent: User's manual
-has_children: false
----
-
 # Searching
-{: .no_toc }
-
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 # Database
 Assemblyline leverages the powerful capabilities of [Elasticsearch](https://www.elastic.co/) making it possible to search for almost anything.
@@ -46,7 +28,7 @@ This limitation can be worked around using the rest api by performing queries on
 
 # Searching
 
-One quick way to get familiar with search indexes is to use the magnifier icon included in every tag. Clicking the magnifier icon on <img src="./images/magnifier.png" height="50" width="200"/> will build the following query:
+One quick way to get familiar with search indexes is to use the magnifier icon included in every tag. Clicking the magnifier icon on ![Searching](./images/magnifier.png) will build the following query:
 
 ```ruby
 result.sections.tags.av.virus_name:"Trojan-Downloader.VBA.Agent"
@@ -69,7 +51,6 @@ The system support a wide range of search parameter such as wildcards, ranges an
 
 Search queries can also be used with the Assemblyline Client to build powerful tradecraft which will run automatically as new files gets scanned by the system.
 
-[So is there restApi?](./assemblyline_client.html){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 
 

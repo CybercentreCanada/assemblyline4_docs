@@ -1,23 +1,4 @@
----
-layout: default
-title: Use PyCharm
-parent: Assemblyline
-grand_parent: Developer's manual
-has_children: false
-has_toc: false
-nav_order: 4
----
-
 # Use PyCharm
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 Here are some pointers on how to run most of the core components live in PyCharm when either your local or remote development VM is ready.
 

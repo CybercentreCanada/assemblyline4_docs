@@ -1,17 +1,4 @@
----
-layout: default
-title: Getting Started
-parent: Assemblyline
-grand_parent: Developer's manual
-has_children: false
-has_toc: false
-nav_order: 1
----
-
 # Getting Started
-{: .no_toc }
-
----
 
 In this section, we will teach you how to setup your environment for developing on the core components of Assemblyline so that you can debug them and run the code live without needing to create containers.
 

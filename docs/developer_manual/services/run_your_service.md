@@ -1,23 +1,4 @@
----
-layout: default
-title: Run your new service
-parent: Services
-grand_parent: Developer's manual
-nav_order: 2
-has_toc: false
----
-
 # Run your service
-{: .no_toc }
-
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
----
 
 To test an Assemblyline service in standalone mode, the
 `run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package
@@ -124,24 +105,7 @@ you will need to restart the `<Your service name> via RunService` run configurat
 updated.
 
 ## Get your service working inside a container
-
-### Create a private registry
-1. The following link will show you how to setup a private Docker image registry: 
-[Docker Docs - Deploy a registry server](https://docs.docker.com/registry/deploying/)
-
-2. To test your registry setup, try running the following:
-    ```
-   curl https://<registry_server_name>/v2/_catalog
-    ```
-   This should return a list of repositories (likely empty if no images have been pushed yet).
-3. Setup the PRIVATE_REGISTRY environment variable in the .env file so that it points to your private registry:
-    ```
-    services:
-      image_variables:
-        PRIVATE_REGISTRY: <registry_server_name>/
-    ```
-
-### Build/Push the service container to your registry
+### Build the service container
 1. Change working directory to root of the service:
 
     ```bash
@@ -151,26 +115,14 @@ updated.
 2. Run the `docker build` command and tag the container with the same name that container name has in your service manifest
 
     ```bash
-    docker build -t <registry_server_name>/assemblyline-service-resultsample .
-   ```
-3. Push the container image to your private registry
-
-    ```bash
-    docker push <registry_server_name>/assemblyline-service-resultsample
+    docker build -t testing/assemblyline-service-resultsample .
    ```
 
 ### Add the container to your deployment
 
 1. Using your web browser, go to the service management page: https://localhost/admin/services.html
 2. Click the `Add service` button
-3. Paste the entire content of the `service_manifest.yaml` file in the text box.
-
-    **Note**: Ensure the service manifest's docker images are prefixed with ${PRIVATE_REGISTRY} to make sure it's pulling from your private repository.
-    ```
-    docker_config:
-      image: ${PRIVATE_REGISTRY}assemblyline-service-resultsample:$SERVICE_TAG
-    ```
-
+3. Paste the entire content of the `service_manifest.yaml` file in the text box
 4. Click the `Add` button
 
 Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.
