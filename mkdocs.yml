@@ -6,6 +6,7 @@ extra_css:
 
 theme:
   name: material
+  custom_dir: override
   static_templates:
     - 404.html
   logo: images/favicon.ico
