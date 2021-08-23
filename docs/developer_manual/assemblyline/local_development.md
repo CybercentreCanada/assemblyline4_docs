@@ -18,6 +18,10 @@ Make sure you run an updated kernel
 
     sudo apt install -y linux-image-generic-hwe-18.04
 
+Reboot
+
+    sudo reboot
+
 ## Installing pre-requisite software
 
 ### Install Assemblyline APT dependencies

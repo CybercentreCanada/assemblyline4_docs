@@ -471,5 +471,3 @@ After you've completed creating your first service, your `result_sample` directo
 ├── result_sample.py
 └── service_manifest.yml
 ```
-
-You are now ready to [run your service](run_your_service.md). 
