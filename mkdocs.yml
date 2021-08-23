@@ -16,11 +16,11 @@ theme:
     - scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: slate
+        name: Switch to light mode
+    - scheme: default
       toggle:
         icon: material/toggle-switch
-        name: Switch to light mode
+        name: Switch to dark mode
   icon:
     repo: fontawesome/brands/github
   features:
@@ -44,7 +44,12 @@ nav:
   - Overview:
     - overview/how_it_works.md
     - overview/servicelist.md
-  - Getting started:
+  - User's manual: 
+    - user_manual/submitting_file.md
+    - user_manual/results.md
+    - user_manual/searching.md
+    - user_manual/assemblyline_client.md
+  - Installation:
     - installation/deployment.md
     - installation/appliance.md
     - installation/cluster.md
@@ -56,14 +61,8 @@ nav:
       - installation/configuration/monitoring.md
       - installation/configuration/tag_safelisting.md
     - System administration:
-      - installation/system_administration/dashboard.md
       - installation/system_administration/signature_management.md
       - installation/system_administration/troubleshooting.md
-  - User's manual: 
-    - user_manual/submitting_file.md
-    - user_manual/results.md
-    - user_manual/searching.md
-    - user_manual/assemblyline_client.md
   - Developer's guide:
     - Services:
       - developer_manual/services/developing_an_assemblyline_service.md
