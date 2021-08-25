@@ -74,6 +74,7 @@ nav:
       - developer_manual/assemblyline/local_development.md
       - developer_manual/assemblyline/remote_development.md
       - developer_manual/assemblyline/use_pycharm.md
+    - Docs: developer_manual/docs/docs.md
     
 markdown_extensions:
   - attr_list
@@ -81,8 +82,6 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - def_list
-
-markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
