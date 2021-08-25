@@ -1,4 +1,4 @@
-# Installing an Assemblyline cluster
+# Assemblyline cluster
 
 ## Pre-requisites
 

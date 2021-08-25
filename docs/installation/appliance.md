@@ -1,147 +1,141 @@
-# Installing an Assemblyline appliance
+# Assemblyline Appliance
 
-## Appliance Installation
+This is the documentation for an appliance instance of the Assemblyline platform suited for smaller scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
 
-In this setup, Assemblyline 4 will use all of the resources available on your machine for its components. This can be deployed on any machine / VM that can run Docker containers. 
-This can also be used for [service development](../developer_manual/assemblyline/getting_started/).
+## Setup requirements
 
-### Pre-requisites
+Note: The documentation provided here assumes that you are installing your appliance on a Ubuntu based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other linux distributions.
 
-We recommend that you run Assemblyline on a system with the following specs:
+### Install pre-requisites:
 
-    Any linux distribution with a recent kernel (4.4+)
-    32+ Cores
-    64+ GB of Ram
-    1TB+ of disk space
+1. Install microk8s: 
+```
+sudo snap install microk8s --classic
+```
+2. Install microk8s addons:  
+```
+sudo microk8s enable dns ha-cluster ingress storage metrics-server
+```
+3. Install Helm and set it up to use with microk8s:
+```
+sudo snap install helm --classic
+sudo mkdir /var/snap/microk8s/current/bin
+sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
+```
+4. Install git: 
+```
+sudo apt install git
+```
 
-#### Docker pre-installed on your machine
-Appliance mode will use Docker to start Assemblyline therefore it will need to be installed on your machine. 
+### (Optional) Add more nodes!!!
+**Note: This can be done before or after the system is live.**
 
-NOTE: `All instructions that follow need to be performed on the machine where Assemblyline will be installed.`
+From the master node, run:
+```
+sudo microk8s add-node
+```
 
-##### Installation of Docker on Ubuntu (Recommended)
-Follow these simple commands to get Docker running on your machine:
+This will generate a command with a token to be executed on a standby node.
 
-    # Add Docker repository
-    sudo apt-get update
-    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo apt-key fingerprint 0EBFCD88
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+On your standby node, ensure the microk8s ```ha-cluster``` addon is enabled before
+running the command from the master to join the cluster.
 
-    # Install Docker
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+To verify the nodes are connected, run (on any node): 
+```
+sudo microk8s kubectl get nodes
+```
 
-    # Test Docker installation
-    sudo docker run hello-world
+Repeat this process for any additional standby nodes that's to be added.
 
-##### Installation of Docker on other linux distro
+For more details, see: [Clustering with MicroK8s](https://microk8s.io/docs/clustering)
 
-Follow instructions on Docker's website: [https://docs.docker.com/install/](https://docs.docker.com/install/)
+## Get the Assemblyline chart to your computer
 
-#### Add your proxy settings to Docker (Optional)
+### Get the Assemblyline helm charts
 
-Create `$HOME/.docker/config.json` file:
+```
+mkdir ~/git && cd ~/git
+git clone https://github.com/CybercentreCanada/assemblyline-helm-chart.git
+```
 
-    mkdir -p ~/.docker/
-    nano ~/.docker/config.json
+### Create your personal deployment
 
-    # Save your proxy settings inside the file
-    {
-        "proxies":
-        {
-            "default":
-            {
-                "httpProxy": "http://<PROXY_ADDRESS>:<PROXY_PORT>/",
-                "httpsProxy": "http://<PROXY_ADDRESS>:<PROXY_PORT>/",
-                "noProxy": "<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,service-server,al_ui,al_socketio"
-            }
-        }
-    }
+```
+mkdir ~/git/deployment
+cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
+```
 
-Create systemd proxy setting file for Docker:
+### Setup the charts and secrets
 
-    nano /etc/systemd/system/docker.service.d/https-proxy.conf
+The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking.
 
-    # Save your proxy settings in the file
+The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should definitely change them. (NOTE: the secrets are used to setup during bootstrap so make sure you change them before deploy the al chart.)
 
-    [Service]
+## Deploy Assemblyline via Helm:
 
-    Environment="HTTPS_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "HTTP_PROXY=http://<PROXY_ADDRESS>:<PROXY_PORT>/" "NO_PROXY=<YOUR_CUSTOM_PROXY_EXEMPTIONS>,localhost,127.0.0.1,minio,elasticsearch,redis,nginx,al_service_server,service-server,al_ui,al_socketio"
+### Create a namespace for your Assemblyline install
 
-Reload Docker and test:
+For the purpose of this documentation we will use ```al``` as the namespace.
 
-    # Reload Docker 
-    sudo systemctl daemon-reload
-    sudo systemctl restart docker
+```
+sudo microk8s kubectl create namespace al
+```
 
-    # Test systemd
-    systemctl show --property=Environment docker
+### Deploy the secret to the namespace
 
-    # Test Docker containers
-    docker container run --rm busybox env
+```
+sudo microk8s kubectl apply -f ~/git/deployment/secrets.yaml --namespace=al
+```
 
-#### Docker-compose pre-installed on your computer
-Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
+From this point on, you don't need the secrets.yaml file anymore. You should delete it so there is no file on disk containing your passwords.
 
-    # Install docker-compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-    
-    # Test docker-compose installation
-    docker-compose --version
+```
+rm ~/git/deployment/secrets.yaml
+```
 
-For reference, here are the instructions on Docker's website: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+### Finally, let's deploy Assemblyline's chart:
 
-### Install an Assemblyline appliance
+For the purpose of this documentation we will use ```assemblyline``` as the deployment name.
 
-Follow the steps here: 
+```
+sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+```
+## Updating the current deployment
 
-[https://github.com/CybercentreCanada/assemblyline-docker-compose#2-clone-this-repository](https://github.com/CybercentreCanada/assemblyline-docker-compose#2-clone-this-repository)
+### To get the latest chart changes (optional)
+If you want to get the latest changes that we did to the chart, just pull the changes. (This could conflict with the changes you've made so be careful while doing this.)
+```
+cd ~/git/assemblyline-helm-chart && git pull
+```
 
-### Assemblyline is started, now what? 
+### Update the deployment
+Once you have you're Assemblyline chart deployed throught helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
+```
+sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+```
 
-There is a few things you need to know now that you have an Assemblyline4 instance started
+## Quality of life improvements
 
-1. The bootstrap process for the first boot may take about 5 minutes to make sure everything is ready. 
-2. The services will slowly be added to the system while the `bootstrap-compose.yaml` file gets executed.
-3. You do not have to wait 30 minutes anymore to get the list of signatures, this process now only take a minute.
-4. To get access to your beta instance just browse to `https://<IP_OF_YOUR_AL_INSTANCE>`. The default username/password to access the instance is `admin`/`admin`. (Note: If you changed the password in the `bootstrap.py` file, use this password instead)
+### Lens IDE
+If the computer on which your microk8s deployment is install has a desktop interface, I strongly suggest that you use K8s Lens IDE to manage the system
 
-#### Viewing logs
-There is no logs centralization with this deployment but because everything runs on the same box you can leverage Docker logging infrastructure.
+#### Install Lens
+```
+sudo snap install kontena-lens --classic
+```
+#### Configure Lens
+After you run Lens for the first time, click the "Add cluster" menu/button, select the paste as text tab and paste the output of the following command:
+```
+sudo microk8s kubectl config view --raw
+```
 
-To view logs for the core components:
+### Alias to kubectl 
 
-    # From your docker-compose directory
-    cd $HOME/assemblyline4_beta_4/
+Since all is running inside microk8s you can create an alias to the kubectl addon in your bashrc to make your life easier
+```
+alias kubectl='sudo microk8s kubectl --namespace=al'
+```
 
-    # View all core-component logs
-    sudo docker-compose logs
+## Alternative Installations:
 
-    # View logs for specific core component
-    sudo docker-compose logs al_ui
-
-    # Tail logs for a core component
-    sudo docker-compose logs -f al_ui
-
-Services are not loaded from your docker-compose file, they are loaded by a component called `scaler`. To view their logs you must use Docker directly.
-
-    # list all loaded services
-    sudo docker ps | grep "\-service\-"
-
-    # View logs for a specific service
-    sudo docker logs al_YARA_0
-
-    # Tail logs for a sevice 
-    sudo docker logs -f al_YARA_0
-
-    # Going through a big log file using less
-    sudo docker logs al_YARA_0 2>&1 | less
-
-#### Access the Assemblyline CLI
-
-To load the `Assemblyline CLI` you will need to hijack on of the running container. We recommended using the `updater` container.
-
-    sudo docker exec -it assemblyline4_beta_4_al_updater_1 python -m assemblyline.run.cli
-
+We will officially only support microk8s installations for appliances but you can technically install it on any local kubernetes frameworks (k3s, minikube. kind...). That said there will be no documentation for theses setups and you will have to modify the ```values.yaml``` storage classes to fit with your desired framework.
