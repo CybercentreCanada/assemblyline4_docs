@@ -81,8 +81,8 @@ settings = {
     'classification' : 'TLP:A',     # classification
     'description' : 'Hello world',  # file description
     'name' : 'filename',            # file name
-    'deep_scan' : True,             # activate deep scan mode
-    'priority' : 100,               # queue priority (higher nb is higher priority)
+    'deep_scan' : False,            # activate deep scan mode
+    'priority' : 1000,              # queue priority (higher nb is higher priority)
     'ignore_cache' : 'false',       # ignore system cache
     'metadata' : {
         'my_metadata' : 'value'     # any metadata of your liking
