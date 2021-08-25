@@ -49,6 +49,7 @@ nav:
     - user_manual/results.md
     - user_manual/searching.md
     - user_manual/assemblyline_client.md
+  - CLI: CLI/client.md
   - Installation:
     - installation/deployment.md
     - installation/appliance.md
