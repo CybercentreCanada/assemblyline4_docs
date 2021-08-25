@@ -159,11 +159,6 @@ file can be found below.
 NOTE: You can use `=` or `:` as the delimiter between key and value.
 ```
 [auth]
-# There are two main methods of authentication. Choose one:
-# - Certificate
-#   File path to client cert used to connect to server.
-cert = 
-# - User Account
 #   Username for Assemblyline account.
 user = 
 #   There are three methods to authenticate a user account. Choose one:
