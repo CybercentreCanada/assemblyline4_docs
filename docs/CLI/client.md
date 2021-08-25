@@ -96,7 +96,8 @@ settings = {
 
 # You can also specify information which will be store within the submission (e.g where the file was from etc)
 my_metadata = {
-    'my_metadata' : 'value'     # any metadata of your liking
+    'my_metadata' : 'value',     # any metadata of your liking
+    'my_metadata2' : 'value2'     # any metadata of your liking
 }
 ```
 ##### Submit
