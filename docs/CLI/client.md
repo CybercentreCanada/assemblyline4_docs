@@ -84,9 +84,6 @@ settings = {
     'deep_scan' : False,            # activate deep scan mode
     'priority' : 1000,              # queue priority (higher nb is higher priority)
     'ignore_cache' : 'false',       # ignore system cache
-    'metadata' : {
-        'my_metadata' : 'value'     # any metadata of your liking
-    },
     'services' : {                  # selected service list (override user profile)
         'selected' : [
             'Cuckoo','Extract'
@@ -96,12 +93,17 @@ settings = {
     },
     'service_spec': {'Extract': {'password': 'password'}} # provide a service parameter (e.g password for extract service)
 }
+
+# You can also specify information which will be store within the submission (e.g where the file was from etc)
+my_metadata = {
+    'my_metadata' : 'value'     # any metadata of your liking
+}
 ```
 ##### Submit
 
 Submit accept file and return a submission id, this api is sync; which mean it is a blocking call (slower)
 ```python
-al_client.submit('/path/to/my/file.txt', fname='filename', params=settings)
+al_client.submit('/path/to/my/file.txt', fname='filename', params=settings, metadata=my_metadata)
 ```
 ##### Ingest
 
@@ -109,7 +111,7 @@ Ingest accept a file and return an ingest id, you can provide a callback in the 
 
 It also allow the system to generate alert if the score is 500 or higher and the alert parameter is set to True
 ```python
-al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=metadata)
+al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=my_metadata)
 # If you use a notificaton queue you can get your results with:
 al_client.ingest.get_message("notification_queue_name")
 ```
