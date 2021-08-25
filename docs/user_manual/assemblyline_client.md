@@ -64,14 +64,12 @@ Type:      instancemethod
 ## Examples
 
 ### Creating an API Key
-1. Log onto the Assemblyline instance that you have an account with.
-2. Click on your avatar in the top-right corner and select "Manage Account"
-3. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
-4. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
+1. Click on your avatar in the top-right corner and select "Manage account"
+2. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
+3. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
 this Assemblyline instance. Click "Add".
-5. Read the disclaimer that pops up about how this is the only chance that you will have to view this API Key in
-the Assemblyline instance. Copy it somewhere safe so that you can use it later.
-6. Click "Done". Click the X of the API Keys panel. You're done!
+4. Copy it somewhere safe so that you can use it later.
+5. Click "Done".
 
 ### Sending a file
 

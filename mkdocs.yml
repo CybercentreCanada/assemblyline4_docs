@@ -1,6 +1,6 @@
 site_name: Assemblyline 4
 
-repo_url: https://github.com/CybercentreCanada/assemblyline-helm-chart
+repo_url: https://github.com/CybercentreCanada/assemblyline4_docs
 extra_css:
   - stylesheets/extra.css
 

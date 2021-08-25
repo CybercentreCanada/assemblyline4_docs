@@ -63,9 +63,6 @@ The purpose of this technique is if you wish to avoid Docker container use for y
 [Get your service working inside a container](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/services/run_your_service.html#get-your-service-working-inside-a-container)).
 
 ### Prerequisites
-- You will need a virtual machine that is hosting an Assemblyline instance (see [Getting Started](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/Assemblyline/getting_started.html)).
-and depending on your virtual machine, perform the following setup: [Local development](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/Assemblyline/local_development.html) or 
-[Remote development](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/Assemblyline/remote_development.html).
 - You will need to install all packages required by your service in the virtual machine (both pip and apt).
 - You will need to upload the repositories of your service and the assemblyline-service-client to the virtual machine.
 
