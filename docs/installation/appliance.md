@@ -1,4 +1,4 @@
-# Assemblyline Appliance
+# Assemblyline appliance
 
 This is the documentation for an appliance instance of the Assemblyline platform suited for smaller scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
 
@@ -27,7 +27,7 @@ sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
 sudo apt install git
 ```
 
-### (Optional) Add more nodes!!!
+### Adding more nodes (optional) 
 **Note: This can be done before or after the system is live.**
 
 From the master node, run:
