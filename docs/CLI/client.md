@@ -140,15 +140,17 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
         * If you don't need to know about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
     
     ```python
-    ingest_id = al_client.ingest(path='/pathto/file.txt', nq='notification_queue_name', params=settings, metadata=my_meta)
+    ingest_id = al_client.ingest(path='/pathto/file.txt', nq='my_queue_name', params=settings, metadata=my_meta)
 
     # If you use a notificaton queue you can get your asynchronous results with:
     from time import sleep
-    message = al_client.ingest.get_message("notification_queue_name")
-    while not message:
-        message = al_client.ingest.get_message("notification_queue_name")
-        # Poll every second
-        sleep(1)
+    message = None
+    while True:
+        message = al_client.ingest.get_message("my_queue_name")
+        if message is None:
+            sleep(1)    # Poll every second
+        else:
+            do something ...        
     ```
 === "Submit"
     ```python
