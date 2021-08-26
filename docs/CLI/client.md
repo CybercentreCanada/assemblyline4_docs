@@ -14,11 +14,13 @@ install assemblyline_client
 You can instantiate the client using the following snippet of code:
 
 === "User/Password"
+
     ``` python
     from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", auth=('user', 'password'))
     ```
 === "api key"
+
      ``` python
     # Creating an API Key
     # 1. Click on your avatar in the top-right corner and select "Manage account"
@@ -33,6 +35,7 @@ You can instantiate the client using the following snippet of code:
     al_client = get_client("https://localhost:443", apikey=('user', 'key'))
      ```
  === "certificate"
+ 
     ``` python
     from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
@@ -43,7 +46,7 @@ You can instantiate the client using the following snippet of code:
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
     ```
 
-The assemblyline client is fully documented in the docstrings so if you use an interactive client like ipython you can use the help feature.
+--- tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
