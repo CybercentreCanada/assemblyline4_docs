@@ -7,48 +7,11 @@ The assemblyline client library facilitates issuing requests to assemblyline.
 ```
 install assemblyline_client
 ```
-## Using the client
 
-
-
-You can instantiate the client using the following snippet of code:
-
-=== "User/Password"
-
-    ``` python
-    from assemblyline_client import get_client
-    al_client = get_client("https://localhost:443", auth=('user', 'password'))
-    ```
-=== "api key"
-
-     ``` python
-    # Creating an API Key
-    # 1. Click on your avatar in the top-right corner and select "Manage account"
-    # 2. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
-    # 3. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
-         this Assemblyline instance. Click "Add".
-    # 4. Copy it somewhere safe so that you can use it later.
-    # 5. Click "Done".
-    # or with an apikey
-
-    from assemblyline_client import get_client
-    al_client = get_client("https://localhost:443", apikey=('user', 'key'))
-     ```
- === "certificate"
- 
-    ``` python
-    from assemblyline_client import get_client
-    al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
-
-    # and if your assemblyline server is using a self-signed cert
-
-    al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
-    al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
-    ```
-
---- tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
+!!! tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
 
     al_client.search.alert?
+    
     Signature: al_client.search.alert(query, *args, **kwargs)
     Docstring:
     Search alerts with a lucene query.
@@ -62,9 +25,48 @@ You can instantiate the client using the following snippet of code:
     File:      /usr/local/lib/python2.7/dist-packages/assemblyline_client/__init__.py
     Type:      instancemethod
 
+## Connecting to Assemblyline
+
+You can instantiate the client using the following snippet of code:
+
+=== "User/Password"
+
+    ``` python
+    from assemblyline_client import get_client
+    al_client = get_client("https://localhost:443", auth=('user', 'password'))
+    ```
+=== "API Key"
+
+    ``` python
+    # Creating an API Key
+    # Click on your avatar in the top-right corner and select "Manage account"
+    # Scroll down to the bottom to the "Security" section and select "Manage API Keys"
+    # Add the API Key name and select access privileges, click Add.
+    # Copy it somewhere safe so that you can use it later.
+    # Click "Done".
+
+    from assemblyline_client import get_client
+    al_client = get_client("https://localhost:443", apikey=('user', 'key'))
+    ```
+=== "Certificate"
+ 
+    ``` python
+    from assemblyline_client import get_client
+    al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
+    ```
+    # and if your assemblyline server is using a self-signed cert
+
+!!! info "You can provide a certificate or ignore certificate"
+    al_client = get_client(..., verify=False)
+
+    al_client = get_client(..., verify='/path/to/server.crt')
+    
+
 ### Examples
 
-#### Submit a file
+#### Submit a file or URL
+
+!!! "For submitting a URL instead of a file, use the url argument instead of path"
 
 There are two distinct api to send a file (or url), submit and ingest.
 
@@ -102,7 +104,7 @@ my_metadata = {
 
 Submit accept file and return a submission id, this api is sync; which mean it is a blocking call (slower)
 ```python
-al_client.submit('/path/to/my/file.txt', fname='filename', params=settings, metadata=my_metadata)
+al_client.submit(path='/path/to/my/file.txt', fname='filename', params=settings, metadata=my_metadata)
 ```
 ##### Ingest
 
