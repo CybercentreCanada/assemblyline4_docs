@@ -2,53 +2,51 @@
 
 The assemblyline client library facilitates issuing requests to assemblyline.
 
-## Pre-requisites
+## Installing the client
 
-To install the client you'll need to make sure the you have the folowing installed:
-
-    # APT/YUM
-    libffi-dev
-    libssl-dev
-
-    # pypi
-    pycryptodome
-    requests
-    requests[security]
-    python-baseconv
-    python-socketio[client]
-    socketio-client==0.5.7.4
-
-
+```
+install assemblyline_client
+```
 ## Using the client
 
-### Creating an API Key
-1. Click on your avatar in the top-right corner and select "Manage account"
-2. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
-3. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
-this Assemblyline instance. Click "Add".
-4. Copy it somewhere safe so that you can use it later.
-5. Click "Done".
+
 
 You can instantiate the client using the following snippet of code:
 
-    # The new v4 client will test connection to detect if the server is v3 or v4. You should now use the get_client method.
+=== "User/Password"
+
+    ``` python
     from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", auth=('user', 'password'))
+    ```
+=== "api key"
 
+     ``` python
+    # Creating an API Key
+    # 1. Click on your avatar in the top-right corner and select "Manage account"
+    # 2. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
+    # 3. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
+         this Assemblyline instance. Click "Add".
+    # 4. Copy it somewhere safe so that you can use it later.
+    # 5. Click "Done".
     # or with an apikey
 
+    from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", apikey=('user', 'key'))
-
-    # or with a cert
-
+     ```
+ === "certificate"
+ 
+    ``` python
+    from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
 
     # and if your assemblyline server is using a self-signed cert
 
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
+    ```
 
-The assemblyline client is fully documented in the docstrings so if you use an interactive client like ipython you can use the help feature.
+--- tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
@@ -81,12 +79,9 @@ settings = {
     'classification' : 'TLP:A',     # classification
     'description' : 'Hello world',  # file description
     'name' : 'filename',            # file name
-    'deep_scan' : True,             # activate deep scan mode
-    'priority' : 100,               # queue priority (higher nb is higher priority)
+    'deep_scan' : False,            # activate deep scan mode
+    'priority' : 1000,              # queue priority (higher nb is higher priority)
     'ignore_cache' : 'false',       # ignore system cache
-    'metadata' : {
-        'my_metadata' : 'value'     # any metadata of your liking
-    },
     'services' : {                  # selected service list (override user profile)
         'selected' : [
             'Cuckoo','Extract'
@@ -96,12 +91,18 @@ settings = {
     },
     'service_spec': {'Extract': {'password': 'password'}} # provide a service parameter (e.g password for extract service)
 }
+
+# You can also specify information which will be store within the submission (e.g where the file was from etc)
+my_metadata = {
+    'my_metadata' : 'value',     # any metadata of your liking
+    'my_metadata2' : 'value2'     # any metadata of your liking
+}
 ```
 ##### Submit
 
 Submit accept file and return a submission id, this api is sync; which mean it is a blocking call (slower)
 ```python
-al_client.submit('/path/to/my/file.txt', fname='filename', params=settings)
+al_client.submit('/path/to/my/file.txt', fname='filename', params=settings, metadata=my_metadata)
 ```
 ##### Ingest
 
@@ -109,7 +110,7 @@ Ingest accept a file and return an ingest id, you can provide a callback in the 
 
 It also allow the system to generate alert if the score is 500 or higher and the alert parameter is set to True
 ```python
-al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=metadata)
+al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=my_metadata)
 # If you use a notificaton queue you can get your results with:
 al_client.ingest.get_message("notification_queue_name")
 ```
