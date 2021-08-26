@@ -61,12 +61,11 @@ You can instantiate the client using the following snippet of code:
 
     al_client = get_client(..., verify='/path/to/server.crt')
     
+## Examples
 
-### Examples
+### Submit a file or URL
 
-#### Submit a file or URL
-
-!!! "For submitting a URL instead of a file, use the url argument instead of path"
+!!! tip "For submitting a URL instead of a file, use the url argument instead of path"
 
 There are two distinct api to send a file (or url), submit and ingest.
 
@@ -95,31 +94,31 @@ settings = {
 }
 
 # You can also specify information which will be store within the submission (e.g where the file was from etc)
-my_metadata = {
+my_meta = {
     'my_metadata' : 'value',     # any metadata of your liking
     'my_metadata2' : 'value2'     # any metadata of your liking
 }
 ```
-##### Submit
+#### Submit
 
 Submit accept file and return a submission id, this api is sync; which mean it is a blocking call (slower)
 ```python
-al_client.submit(path='/path/to/my/file.txt', fname='filename', params=settings, metadata=my_metadata)
+al_client.submit(path='/pathto/file.txt', fname='fname', params=settings, metadata=my_meta)
 ```
-##### Ingest
+#### Ingest
 
 Ingest accept a file and return an ingest id, you can provide a callback in the param. This call is async; which mean it is not blocking (very fast)
 
 It also allow the system to generate alert if the score is 500 or higher and the alert parameter is set to True
 ```python
-al_client.ingest('/path/to/my/file.txt', fname='filename', nq='notification_queue_name', alert=False, params=settings, metadata=my_metadata)
+al_client.ingest(path='/pathto/file.txt', fname='fname', nq='notification_queue_name', alert=False, params=settings, metadata=my_metadata)
 # If you use a notificaton queue you can get your results with:
 al_client.ingest.get_message("notification_queue_name")
 ```
 
-#### Getting a key
+#### Submission details
 
-To get a key of a given bucket, you simply need to pass it it's ID
+You simply need to pass it it's submission ID
 
     submission_details = al_client.submission("4nxrpBePQDLH427aA8m3TZ")
 
