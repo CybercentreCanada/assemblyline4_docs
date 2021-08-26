@@ -9,7 +9,7 @@ install assemblyline_client
 ```
 
 !!! tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
-
+    ```
     al_client.search.alert?
     
     Signature: al_client.search.alert(query, *args, **kwargs)
@@ -24,7 +24,7 @@ install assemblyline_client
     Returns all results.
     File:      /usr/local/lib/python2.7/dist-packages/assemblyline_client/__init__.py
     Type:      instancemethod
-
+    ```
 ## Connecting to Assemblyline
 
 You can instantiate the client using the following snippet of code:
