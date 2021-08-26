@@ -2,51 +2,46 @@
 
 The assemblyline client library facilitates issuing requests to assemblyline.
 
-## Pre-requisites
+## Installing the client
 
-To install the client you'll need to make sure the you have the folowing installed:
-
-    # APT/YUM
-    libffi-dev
-    libssl-dev
-
-    # pypi
-    pycryptodome
-    requests
-    requests[security]
-    python-baseconv
-    python-socketio[client]
-    socketio-client==0.5.7.4
-
-
+```
+install assemblyline_client
+```
 ## Using the client
 
-### Creating an API Key
-1. Click on your avatar in the top-right corner and select "Manage account"
-2. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
-3. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
-this Assemblyline instance. Click "Add".
-4. Copy it somewhere safe so that you can use it later.
-5. Click "Done".
+
 
 You can instantiate the client using the following snippet of code:
 
-    # The new v4 client will test connection to detect if the server is v3 or v4. You should now use the get_client method.
+=== "User/Password"
+    ``` python
     from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", auth=('user', 'password'))
-
+    ```
+=== "api key"
+     ``` python
+    # Creating an API Key
+    # 1. Click on your avatar in the top-right corner and select "Manage account"
+    # 2. Scroll down to the bottom of this page to the "Security" section and select "Manage API Keys"
+    # 3. Add the API Key name and select whether you want the user of this API Key to Read, Write or Read and Write to
+         this Assemblyline instance. Click "Add".
+    # 4. Copy it somewhere safe so that you can use it later.
+    # 5. Click "Done".
     # or with an apikey
 
+    from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", apikey=('user', 'key'))
-
-    # or with a cert
-
+     ```
+ === "certificate"
+    ``` python
+    from assemblyline_client import get_client
     al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
 
     # and if your assemblyline server is using a self-signed cert
 
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify=False)
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
+    ```
 
 The assemblyline client is fully documented in the docstrings so if you use an interactive client like ipython you can use the help feature.
 
