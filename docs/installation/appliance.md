@@ -26,7 +26,6 @@ sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
 ```
 sudo apt install git
 ```
-
 5. Install ingress controller:
 ```
 sudo microk8s kubectl create ns ingress
