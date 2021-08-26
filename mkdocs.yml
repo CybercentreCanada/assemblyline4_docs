@@ -79,6 +79,7 @@ nav:
 markdown_extensions:
   - attr_list
   - pymdownx.tabbed
+  - pymdownx.details
   - pymdownx.highlight
   - pymdownx.superfences
   - admonition
