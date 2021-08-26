@@ -14,7 +14,7 @@ sudo snap install microk8s --classic
 ```
 2. Install microk8s addons:  
 ```
-sudo microk8s enable dns ha-cluster ingress storage metrics-server
+sudo microk8s enable dns ha-cluster storage metrics-server
 ```
 3. Install Helm and set it up to use with microk8s:
 ```
@@ -25,6 +25,14 @@ sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
 4. Install git: 
 ```
 sudo apt install git
+```
+
+5. Install ingress controller:
+```
+sudo microk8s kubectl create ns ingress
+sudo microk8s helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+sudo microk8s helm repo update
+sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled=true -n ingress
 ```
 
 ### Adding more nodes (optional) 
