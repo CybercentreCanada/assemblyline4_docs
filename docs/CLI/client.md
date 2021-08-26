@@ -12,6 +12,13 @@ pip install assemblyline_client
 
 You can instantiate the client by using the following snippet of Python code:
 
+??? info "When connecting to Assemblyline, you can also provide a certificate for SSL or ignore the certificate error"
+    ``` python
+        al_client = get_client(..., verify='/path/to/server.crt')
+    
+        al_client = get_client(..., verify=False)
+    ```
+
 === "API Key"
     Creating an API Key
 
@@ -38,44 +45,37 @@ You can instantiate the client by using the following snippet of Python code:
     al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
     ```
 
-??? info "When connecting to Assemblyline, you can also provide a certificate for SSL or ignore the certificate error"
+??? tip "The client is fully documented in the docstrings, so that you can use the 'help' feature of IPython or Jupyter Notebook"
     ``` python
-        al_client = get_client(..., verify='/path/to/server.crt')
-    
-        al_client = get_client(..., verify=False)
+        al_client.search.alert?
+        
+        Signature: al_client.search.alert(
+            query,
+            filters=None,
+            fl=None,
+            offset=0,
+            rows=25,
+            sort=None,
+            timeout=None,
+        )
+        Docstring:
+        Search alerts with a lucene query.
+
+        Required:
+        query   : lucene query. (string)
+
+        Optional:
+        filters : Additional lucene queries used to filter the data (list of strings)
+        fl      : List of fields to return (comma separated string of fields)
+        offset  : Offset at which the query items should start (integer)
+        rows    : Number of records to return (integer)
+        sort    : Field used for sorting with direction (string: ex. 'id desc')
+        timeout : Max amount of miliseconds the query will run (integer)
+
+        Returns all results.
+        File:      /usr/local/lib/python3.7/site-packages/assemblyline_client/v4_client/module/search/__init__.py
+        Type:      method
     ```
-
-!!! tip "The client is fully documented in the docstrings, so that you can use the 'help' feature of IPython or Jupyter Notebook"
-``` python
-    al_client.search.alert?
-    
-    Signature: al_client.search.alert(
-        query,
-        filters=None,
-        fl=None,
-        offset=0,
-        rows=25,
-        sort=None,
-        timeout=None,
-    )
-    Docstring:
-    Search alerts with a lucene query.
-
-    Required:
-    query   : lucene query. (string)
-
-    Optional:
-    filters : Additional lucene queries used to filter the data (list of strings)
-    fl      : List of fields to return (comma separated string of fields)
-    offset  : Offset at which the query items should start (integer)
-    rows    : Number of records to return (integer)
-    sort    : Field used for sorting with direction (string: ex. 'id desc')
-    timeout : Max amount of miliseconds the query will run (integer)
-
-    Returns all results.
-    File:      /usr/local/lib/python3.7/site-packages/assemblyline_client/v4_client/module/search/__init__.py
-    Type:      method
-```
 
 ## Examples
 
@@ -137,14 +137,14 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
 
     * By passing the argument `alert=True`, the system will generate an alert if the score is over 500
     * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has completed
-        * If you don't care about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
+        * If you don't need to know about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
     
     ```python
     ingest_id = al_client.ingest(path='/pathto/file.txt', nq='notification_queue_name', params=settings, metadata=my_meta)
 
     # If you use a notificaton queue you can get your asynchronous results with:
     from time import sleep
-    ingest_results = al_client.ingest.get_message("notification_queue_name")
+    message = al_client.ingest.get_message("notification_queue_name")
     while not message:
         ingest_results = al_client.ingest.get_message("notification_queue_name")
         # Poll every second
@@ -191,7 +191,6 @@ submission_results = al_client.search.facet.submission('params.submitter', query
 ```
 
 ## Using the Command Line Tool
-### `al-submit`
 By installing the `assemblyline_client` PIP package, a command line tool `al-submit` is installed.
 In case you don't want to use Python code to interface with the Assemblyline client, you can use this tool instead.
 You can view the user options via `al-submit --help`.
