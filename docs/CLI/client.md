@@ -46,7 +46,7 @@ You can instantiate the client using the following snippet of code:
     al_client = get_client("https://localhost:443", auth=('user', 'password'), verify='/path/to/server.crt')
     ```
 
---- tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
+!!! tip "The client is fully documented in the docstrings so you can use the help feature of ipython or jupyter notebook"
 
     al_client.search.alert?
     Signature: al_client.search.alert(query, *args, **kwargs)
