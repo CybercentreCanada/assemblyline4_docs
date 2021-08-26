@@ -146,7 +146,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
     from time import sleep
     message = al_client.ingest.get_message("notification_queue_name")
     while not message:
-        ingest_results = al_client.ingest.get_message("notification_queue_name")
+        message = al_client.ingest.get_message("notification_queue_name")
         # Poll every second
         sleep(1)
     ```
