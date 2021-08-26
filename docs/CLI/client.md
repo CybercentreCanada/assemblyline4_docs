@@ -162,6 +162,8 @@ submission_details = al_client.submission("4nxrpBePQDLH427aA8m3TZ")
 ```
 
 ### Using search
+!!! tip "More details about [Search](../user_manual/searching.md)"
+
 You can use the search engine in the client by simply passing a Lucene query.
 
 In the following example, we want to retrieve the first page of submissions made by `user`:
