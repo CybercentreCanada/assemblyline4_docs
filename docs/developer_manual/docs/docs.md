@@ -10,7 +10,7 @@ git clone git@github.com:CybercentreCanada/assemblyline4_docs_fr.git
 
 You can render this documentation locally by installing it:
 ```
-pip install mkdocs-material
+sudo pip install mkdocs-material
 ```
 
 You can then serve the current working directory with:
