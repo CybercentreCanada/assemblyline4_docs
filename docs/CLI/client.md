@@ -133,8 +133,9 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
 !!! tip "For submitting a URL instead of a file, use the `url` argument instead of `path`"
 
 === "Ingest"
-    The Ingest API supports two additional functionalities over the Submit API:
+    The Ingest API supports three additional functionalities over the Submit API:
 
+    * The ingest api is for high throughput submission (feeding the system)
     * By passing the argument `alert=True`, the system will generate an alert if the score is over 500
     * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has completed
         * If you don't need to know about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
