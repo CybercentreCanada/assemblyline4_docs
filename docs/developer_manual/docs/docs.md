@@ -5,7 +5,6 @@ This documentation is built using the awesome project: [mkdocs-material](https:/
 The documentation can be cloned from the following two repositories:
 ```
 git clone git@github.com:CybercentreCanada/assemblyline4_docs.git
-git clone git@github.com:CybercentreCanada/assemblyline4_docs_fr.git
 ```
 
 You can render this documentation locally by installing it:
