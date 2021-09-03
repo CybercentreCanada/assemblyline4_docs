@@ -17,3 +17,13 @@
   --md-accent-fg-color--transparent: #a7bbda1a;
   
 }
+
+.md-typeset code {
+  font-size: 13px;
+}
+
+@media only screen and (min-width: 76.25em) {
+  .md-main__inner {
+    max-width: 140em;
+  }
+}
