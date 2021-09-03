@@ -93,6 +93,7 @@ plugins:
           Overview: Tour
           User's manual: Manuel d'utilisateur
           Developer's guide: Guide du développeur
+          Integration: Intégration
 
 markdown_extensions:
   - attr_list
