@@ -10,7 +10,7 @@ theme:
   static_templates:
     - 404.html
   logo: images/favicon.ico
-  favicon: images/favicon.png
+  favicon: images/favicon.ico
   language: en
   palette:
     - scheme: slate
