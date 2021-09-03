@@ -13,11 +13,13 @@ theme:
   favicon: images/favicon.ico
   language: en
   palette:
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
@@ -31,12 +33,12 @@ extra:
   alternate:
     # Switch to English
     - name: English
-      link: https://cybercentrecanada.github.io/assemblyline4_docs/
+      link: ./en/
       lang: en
 
-    # Switch to German
+    # Switch to French
     - name: Français
-      link: https://cybercentrecanada.github.io/assemblyline4_docs_fr/
+      link: ./fr/
       lang: fr
 
 nav:
@@ -75,7 +77,21 @@ nav:
       - developer_manual/assemblyline/remote_development.md
       - developer_manual/assemblyline/use_pycharm.md
     - Docs: developer_manual/docs/docs.md
-    
+
+plugins:
+  - search
+  - i18n:
+      default_language: !ENV [DEFAULT_LANGUAGE, "en"]
+      languages:
+        en: english
+        fr: français
+      nav_translations:
+        fr:
+          Home: Acceuil
+          Overview: Tour
+          User's manual: Manuel d'utilisateur
+          Developer's guide: Guide du développeur
+
 markdown_extensions:
   - attr_list
   - pymdownx.tabbed
