@@ -23,7 +23,7 @@
 }
 
 @media only screen and (min-width: 76.25em) {
-  .md-main__inner {
-    max-width: 140em;
+  .md-grid {
+    max-width: 74rem;
   }
 }
