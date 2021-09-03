@@ -50,7 +50,6 @@ nav:
     - user_manual/submitting_file.md
     - user_manual/results.md
     - user_manual/searching.md
-  - CLI: CLI/client.md
   - Installation:
     - installation/deployment.md
     - installation/appliance.md
@@ -65,6 +64,9 @@ nav:
     - System administration:
       - installation/system_administration/signature_management.md
       - installation/system_administration/troubleshooting.md
+  - Integration: 
+    - integration/python.md
+    - integration/rest.md
   - Developer's guide:
     - Services:
       - developer_manual/services/developing_an_assemblyline_service.md

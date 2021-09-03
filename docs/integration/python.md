@@ -1,6 +1,6 @@
-# Assemblyline Client Library
+# Python Client
 
-The Assemblyline client library facilitates issuing requests to Assemblyline.
+The Assemblyline python client facilitates issuing requests to Assemblyline.
 
 ## Installing the client
 
