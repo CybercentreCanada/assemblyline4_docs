@@ -2,13 +2,15 @@
 
 When it is impossible to integrate your application using the dedicated python client, you can use Assemblyline's RESTful API to perform any tasks that you can think of.
 
+![Key generation](./images/rest.gif){: .center }
+
 ## API documentation
 
-Each instances of Assemblyline comes with it's internal API documentation which can be viewed by browsing to: [https://localhost/help/api](https://localhost/help/api) (Replace localhost by the domain/ip of your deployment)
+Each instances of Assemblyline comes with it's internal API documentation which can be viewed by browsing to: [https://yourdomain/help/api](https://yourdomain/help/api)
 
 ## Connecting to the API
 
-For easy integration, it is recommended that you generate an API KEY for the user who will perform RESTful queries. Otherwise, you will have to build yourself a library which will handle session cookies and XSRF tokens and you probably want something simpler.
+For easy integration, it is recommended that you generate an API KEY for the user who will perform RESTful queries. Otherwise, you will have to build yourself a library which will handle session cookies and XSRF tokens and you probably want something simpler. You will need an [API key](../key_generation)
 
 ### Using the API KEY 
 
@@ -21,7 +23,7 @@ Lets use an hypotetical API KEY to ask the system who we are. (Using the `/api/v
 
 === "CURL"
     ``` shell 
-    curl -X GET "https://localhost/api/v4/user/whoami/" \
+    curl -X GET "https://yourdomain/api/v4/user/whoami/" \
          -H 'x-user: <your_user_id>' \
          -H 'x-apikey: <key_name:randomly_generated_password>' \
          -H 'accept: application/json'
@@ -30,7 +32,7 @@ Lets use an hypotetical API KEY to ask the system who we are. (Using the `/api/v
 === "Javascript (fetch)"
     ``` javascript
     fetch(
-      "https://localhost/api/v4/user/whoami/", 
+      "https://yourdomain/api/v4/user/whoami/", 
       {
         "headers": {
           "accept": "application/json",
@@ -46,7 +48,7 @@ Lets use an hypotetical API KEY to ask the system who we are. (Using the `/api/v
     ``` python
     import requests
     requests.get(
-        "https://localhost/api/v4/user/whoami/", 
+        "https://yourdomain/api/v4/user/whoami/", 
         headers={
             "x-user": "<your_user_id>", 
             "x-apikey": "<key_name:randomly_generated_password>", 
@@ -57,7 +59,7 @@ Lets use an hypotetical API KEY to ask the system who we are. (Using the `/api/v
 
 ## API Gotcha! 
 
-Here is a list of the most common issues user's are facing while using the API.
+!!! tip "Here is a list of the most common issues user's are facing while using the API"
 
 ### Wrong content type
 

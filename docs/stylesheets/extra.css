@@ -27,3 +27,8 @@
     max-width: 74rem;
   }
 }
+
+.center {
+  display: block;
+  margin: 0 auto;
+}

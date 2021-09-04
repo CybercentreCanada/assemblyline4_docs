@@ -67,6 +67,7 @@ nav:
   - Integration:
     - integration/key_generation.md
     - integration/python.md
+    - integration/java.md
     - integration/rest.md
   - Developer's guide:
     - Services:
@@ -104,6 +105,8 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg

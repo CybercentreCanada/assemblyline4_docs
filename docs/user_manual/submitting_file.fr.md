@@ -1,7 +1,7 @@
 # Soumettre un fichier aux fins d’analyse
 
 ## Soumission
-Il est facile de soumettre un fichier aux fins d’analyse. On peut le faire directement à partir de l’interface Web d’Assemblyline. En ce qui concerne l’automatisation et l’intégration, vous pouvez utiliser l’[REST API](https://cybercentrecanada.github.io/assemblyline4_docs/CLI/client/#submit-a-file).
+Il est facile de soumettre un fichier aux fins d’analyse. On peut le faire directement à partir de l’interface Web d’Assemblyline. En ce qui concerne l’automatisation et l’intégration, vous pouvez utiliser l’[REST API](../../integration/python/#submit-a-file-or-url-for-analysis).
 
 ![File submission](./images/submit.png)
 

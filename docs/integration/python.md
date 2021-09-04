@@ -20,29 +20,23 @@ You can instantiate the client by using the following snippet of Python code:
     ```
 
 === "API Key"
-    Creating an API Key
-
-    1. Click on your avatar in the top-right corner of the Assemblyline UI and select "Manage Account"
-    2. Scroll down to the bottom to the "Security" section and select "Manage API Keys"
-    3. Add the API Key name and select access privileges, click Add.
-    4. Copy it somewhere safe so that you can use it later.
-    5. Click "Done".
+    You will need an [API key](../key_generation)
     ``` python
     from assemblyline_client import get_client
-    al_client = get_client("https://localhost:443", apikey=('user', 'key'))
+    al_client = get_client("https://yourdomain:443", apikey=('user', 'key'))
     ```
 === "User/Password"
 
     ``` python
     from assemblyline_client import get_client
-    al_client = get_client("https://localhost:443", auth=('user', 'password'))
+    al_client = get_client("https://yourdomain:443", auth=('user', 'password'))
     ```
 === "Certificate"
  
     ``` python
     from assemblyline_client import get_client
     # and if your Assemblyline server is using a self-signed certificate
-    al_client = get_client("https://localhost:443", cert='/path/to/cert/file.pem')
+    al_client = get_client("https://yourdomain:443", cert='/path/to/cert/file.pem')
     ```
 
 ??? tip "The client is fully documented in the docstrings, so that you can use the 'help' feature of IPython or Jupyter Notebook"

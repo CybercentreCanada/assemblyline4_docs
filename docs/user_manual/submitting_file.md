@@ -1,7 +1,7 @@
 # Submitting a file for analysis
 
 ## Submission
-Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../CLI/client/#submit-a-file).
+Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-or-url-for-analysis).
 
 ![File submission](./images/submit.png)
 
