@@ -64,7 +64,8 @@ nav:
     - System administration:
       - installation/system_administration/signature_management.md
       - installation/system_administration/troubleshooting.md
-  - Integration: 
+  - Integration:
+    - integration/key_generation.md
     - integration/python.md
     - integration/rest.md
   - Developer's guide:
