@@ -10,7 +10,7 @@ Assemblyline minimizes the number of harmless files that IT practitioners are re
 
 **C)** Users can add their own analytics, which we refer to as services, to Assemblyline.
 
-**D)** The services selected by the user in Assemblyline then analyze the files, looking for indications of maliciousness and/or extracting features for further analysis. 
+**D)** The services selected by the user in Assemblyline then analyze the files, looking for indications of maliciousness and/or extracting features for further analysis.
 
 * The system generates alerts about a malicious file at any point during the analysis and assigns the file a score.  
 * The system can also trigger automated defensive systems to kick-in.   
