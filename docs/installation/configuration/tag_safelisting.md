@@ -8,7 +8,7 @@ Your configuration file location will depend on your deployment type:
 <table>
 <tr>
 <td style="background-color:#009c7b"><text style="color:white;">Appliance deployment</text></td>
-<td> copy `assemblyline-base/assemblyline/common/tag_whitelist.yml` and update into `/etc/assemblyline/tag_whitelist.yml` </td>
+<td> copy `assemblyline-base/assemblyline/common/tag_safelist.yml` and update into `/etc/assemblyline/tag_safelist.yml` </td>
 </tr>
 <tr>
 <td style="background-color:#2869e6"><text style="color:white;">Cluster deployment</text></td>
@@ -37,7 +37,7 @@ Your configuration file location will depend on your deployment type:
 ### Example
 ```
 data:
-  tag_whitelist: |
+  tag_safelist: |
     match:
       network.dynamic.domain:
         - localhost
