@@ -5,12 +5,12 @@ This documentation is built using the awesome project: [mkdocs-material](https:/
 The documentation can be cloned from the following two repositories:
 ```
 git clone git@github.com:CybercentreCanada/assemblyline4_docs.git
-git clone git@github.com:CybercentreCanada/assemblyline4_docs_fr.git
 ```
 
 You can render this documentation locally by installing it:
 ```
 sudo pip install mkdocs-material
+sudo pip install mkdocs-static-i18n
 ```
 
 You can then serve the current working directory with:
