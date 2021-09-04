@@ -41,7 +41,7 @@ result.sections.tags.av.virus_name:*Emotet*
 ```
 The system supports a wide range of search parameter such as wildcards, ranges and regex. The full syntax range can be found under ```Help > Search Help```
 
-Search queries can also be used with the [Assemblyline Client](../CLI/client.md) to build powerful tradecraft which can run automatically as new files get scanned by the system.
+Search queries can also be used with the [Assemblyline Client](../../integration/python) to build powerful tradecraft which can run automatically as new files get scanned by the system.
 
 
 

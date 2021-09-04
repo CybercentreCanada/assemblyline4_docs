@@ -49,7 +49,7 @@ result.sections.tags.av.virus_name:*Emotet*
 ```
 Le système prend en charge un large éventail de paramètres de recherche, comme les caractères génériques, les plages et les expressions régulières. Vous trouverez la syntaxe complète dans l’aide sous ```Help > Search Help```.
 
-Les requêtes de recherche peuvent également être utilisées dans le client d’Assemblyline pour instaurer un puissant mécanisme qui s’exécutera automatiquement lorsque de nouveaux fichiers seront analysés par le système.
+Les requêtes de recherche peuvent également être utilisées dans le [client d’Assemblyline](../../integration/python) pour instaurer un puissant mécanisme qui s’exécutera automatiquement lorsque de nouveaux fichiers seront analysés par le système.
 
 
 

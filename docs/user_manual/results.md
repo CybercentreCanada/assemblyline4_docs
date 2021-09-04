@@ -40,11 +40,11 @@ structure to understand exactly what contributed to each score.
 
 ### Score meaning 
 ```
-< 0: safe
-0-299: informational
+-1000: safe
+0 - 299: informational
 300 - 699: suspicious
 700 - 999: highly suspicious
->= 1000 malicious
+>= 1000: malicious
 ```
 The source code for these mappings can be found [here](https://github.com/CybercentreCanada/assemblyline-ui-frontend/blob/a030a6400f56b22e11d38132da45467e7651c0fb/src/helpers/utils.ts#L8-L31).
 

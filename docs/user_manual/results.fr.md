@@ -22,8 +22,10 @@ Les heuristiques s’affichent dans l’interface utilisateur et sont associées
 ## Tags
 Les étiquettes sont d’importantes métadonnées extraites d’un fichier. Leur nom doit respecter la même convention d’affectation que l’espace de noms, ce qui facilite leur organisation et permet de trouver plus facilement une information en particulier dans le système. De plus, les étiquettes sont indexées de manière à générer des résultats à une vitesse étonnante.
 
-    result.sections.tags.network.static.ip;     p. ex. : Cette étiquette peut trouver les adresses IP extraites de manière statique peu importe le service utilisé lors de l’extraction.
-
+```
+# Cette étiquette peut trouver les adresses IP extraites de manière statique peu importe le service utilisé lors de l’extraction.
+result.sections.tags.network.static.ip; 
+```
 
 Toutes les étiquettes enregistrées dans le système s’affichent dans le menu Help [Aide] > Searching Help [Aide à la recherche] de votre instance d’Assemblyline.
 
@@ -35,7 +37,13 @@ Prenons un fichier .zip comme exemple. Le fichier .zip peut avoir obtenu une not
 
 Signification de la note (en supposant que vous exécutez la plupart des services, dont certains antivirus et de bonnes signatures Yara) :
 
-<= -1000 : mis en liste blanche | 0 : aucun trouvé | < 500 : suspect | < 1000 : hautement suspect | < 2000 probablement malveillant | => 2000 malveillant
+```
+-1000: sans dangé
+0 - 299: information
+300 - 699: suspicieux
+700 - 999: très suspicieux
+>= 1000: malicieux
+```
 
 ## Rapport de soumission
 Le rapport de soumission s’affiche sur la première page lorsqu’on consulte une soumission. Il s’agit d’un résumé général que l’analyste peut consulter pour déterminer s’il est justifié de pousser l’analyse plus loin.
