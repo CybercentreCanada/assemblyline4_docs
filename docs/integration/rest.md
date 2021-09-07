@@ -10,52 +10,52 @@ Each instances of Assemblyline comes with it's internal API documentation which 
 
 ## Connecting to the API
 
-For easy integration, it is recommended that you generate an API KEY for the user who will perform RESTful queries. Otherwise, you will have to build yourself a library which will handle session cookies and XSRF tokens and you probably want something simpler. You will need an [API key](../key_generation)
+For easy integration, it is recommended that you generate an [API key](../key_generation) for the user who will perform RESTful queries. Otherwise, you will have to build yourself a library which will handle session cookies and XSRF tokens and you probably want something simpler.
 
-### Using the API KEY 
+### Using the API key
 
-To use your newly you can simply add the `X-USER` and `X-APIKEY` headers to your request and the system will identify you with that key at each requests instead of relying on a session cookie.
+To use your newly create [API key](../key_generation) you can simply add the `X-USER` and `X-APIKEY` headers to your request and the system will identify you with that key at each requests instead of relying on a session cookie.
 
-**Exemple**
+!!! example
 
-Lets use an hypotetical API KEY to ask the system who we are. (Using the `/api/v4/user/whoami/` API)
+    Lets use an hypotetical [API key](../key_generation) to ask the system who we are. (Using the `/api/v4/user/whoami/` API)
 
 
-=== "CURL"
-    ``` shell 
-    curl -X GET "https://yourdomain/api/v4/user/whoami/" \
-         -H 'x-user: <your_user_id>' \
-         -H 'x-apikey: <key_name:randomly_generated_password>' \
-         -H 'accept: application/json'
-    ```
+    === "CURL"
+        ``` shell 
+        curl -X GET "https://yourdomain/api/v4/user/whoami/" \
+            -H 'x-user: <your_user_id>' \
+            -H 'x-apikey: <key_name:randomly_generated_password>' \
+            -H 'accept: application/json'
+        ```
 
-=== "Javascript (fetch)"
-    ``` javascript
-    fetch(
-      "https://yourdomain/api/v4/user/whoami/", 
-      {
-        "headers": {
-          "accept": "application/json",
-          "x-apikey": "<key_name:randomly_generated_password>",
-          "x-user": "<your_user_id>"
-        },
-        "method": "GET"
-      }
-    );
-    ```
-
-=== "Python (requests)"
-    ``` python
-    import requests
-    requests.get(
+    === "Javascript (fetch)"
+        ``` javascript
+        fetch(
         "https://yourdomain/api/v4/user/whoami/", 
-        headers={
-            "x-user": "<your_user_id>", 
-            "x-apikey": "<key_name:randomly_generated_password>", 
-            "accept": "application/json"
+        {
+            "headers": {
+            "accept": "application/json",
+            "x-apikey": "<key_name:randomly_generated_password>",
+            "x-user": "<your_user_id>"
+            },
+            "method": "GET"
         }
-    )
-    ```
+        );
+        ```
+
+    === "Python (requests)"
+        ``` python
+        import requests
+        requests.get(
+            "https://yourdomain/api/v4/user/whoami/", 
+            headers={
+                "x-user": "<your_user_id>", 
+                "x-apikey": "<key_name:randomly_generated_password>", 
+                "accept": "application/json"
+            }
+        )
+        ```
 
 ## API Gotcha! 
 
