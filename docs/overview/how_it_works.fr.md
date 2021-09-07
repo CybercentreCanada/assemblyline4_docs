@@ -2,7 +2,7 @@
 
 Assemblyline réduit le nombre de fichiers anodins que les praticiens de TI doivent vérifier chaque jour, ce qui leur permet de collaborer avec les autres utilisateurs à la personnalisation et l’amélioration de la plateforme.
 
-![Steps](./images/al.png)
+![Steps](./images/how.png)
 
 **A)** Assemblyline fonctionne un peu comme une chaîne de montage : les fichiers arrivent dans le système et font l’objet d’un tri selon une certaine séquence.
 

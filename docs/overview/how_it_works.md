@@ -2,7 +2,7 @@
 
 Assemblyline minimizes the number of harmless files that IT practitioners are required to inspect every day, allowing them to collaborate with other users to customize and improve the platform in the process.
 
-![Steps](./images/al.png)
+![Steps](./images/how.png)
 
 **A)** Assemblyline works very much like a conveyor belt: files arrive in the system and are triaged in a certain sequence.
 

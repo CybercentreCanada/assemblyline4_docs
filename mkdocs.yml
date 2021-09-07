@@ -9,8 +9,8 @@ theme:
   custom_dir: override
   static_templates:
     - 404.html
-  logo: images/favicon.ico
-  favicon: images/favicon.ico
+  logo: images/crane.png
+  favicon: images/crane.png
   language: en
   palette:
     - media: "(prefers-color-scheme: dark)"
