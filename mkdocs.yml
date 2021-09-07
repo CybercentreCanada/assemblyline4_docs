@@ -65,6 +65,7 @@ nav:
       - installation/system_administration/signature_management.md
       - installation/system_administration/troubleshooting.md
   - Integration:
+    - integration/ingestion_method.md
     - integration/key_generation.md
     - integration/python.md
     - integration/java.md
