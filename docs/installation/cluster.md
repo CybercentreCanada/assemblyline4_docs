@@ -2,47 +2,160 @@
 
 ## Pre-requisites
 
-A kubernetes cluster close to the "vanilla" kubernetes product such as Rancher, AKS (Azure), EKS (Amazon), GKE (Google).
+1. A **kubernetes** 1.18+ cluster that has an ingess controller and storage class with read/write many support. Assemblyline is known to work with the following kubernetes cluster:
+    * Rancher
+    * AKS (Azure)
+    * EKS (Amazon)
+    * GKE (Google)
+2. **kubectl** already configured for your cluster on your machine
+3. **helm** already configured for your cluster on your machine
 
-## Cluster Installation
+## Installation
 
-!!! tip "When deployed from this chart an Assemblyline instance must be in its own namespace"
+### 1. Get Assemblyline Helm chart ready
 
-Installation
-------------
+1. Download the latest [Assemblyline helm chart](https://github.com/CybercentreCanada/assemblyline-helm-chart/archive/refs/heads/master.zip)
+2. Unzip it into a directory of your choice which we will refer as `assemblyline-helm-chart` 
+3. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
-More detailed installation instructions, and pre-prepared deployment configurations 
-for specific kubernetes environments should be available in the future.
+### 2. Create the assemblyline namespace
 
-1. Make sure you have an ingress controller, set any values for the
-   `ingressAnnotations`, `tlsSecretName`, and `configuration.ui.fqdn` parameters.
-2. Make sure you have storage classes appropriate for databases and 
-   read-write-multiple mounting. Setup the parameters `redisStorageClass`,
-   `updateStorageClass`, `log-storage.volumeClaimTemplate`,
-   and `datastore.volumeClaimTemplate` to use them.
-3. Decide where you want files stored, set the appropriate URI in 
-   the `configuration.filestore.*` fields.
-4. Enable/disable/configure logging features, (disabled by default).
-5. Create a secret based on this template with appropriate passwords:
+When deploying an Assemblyline instance using our chart, it must be in its own namespace. For the purpose of this documentation, we will use the `al` namespace.
 
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: assemblyline-system-passwords
-type: Opaque
-stringData:
-  datastore-password:
-  logging-password:
-    # If this is the password for backends like azure blob storage, the password may need to be url encoded
-    # if it includes non alphanum characters
-  filestore-password:
-  initial-admin-password:
+``` shell
+kubectl create namespace al
 ```
 
-Parameters
-----------
+### 3. Setup secrets
 
-See [values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml)
+In the `deployment_directory` you've just created, create a `secrets.yaml` file which will contain the different passwords used by Assemblyline.
+
+???+ example "The secrets.yaml file should have the following format"
+ 
+    ``` yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: assemblyline-system-passwords
+    type: Opaque
+    stringData:
+      datastore-password: 
+      logging-password:
+        # If this is the password for backends like azure blob storage, the password may need to be url encoded
+        # if it includes non alphanum characters
+      filestore-password: 
+      initial-admin-password: 
+    ```
+
+!!! tip
+    Here is an example of [secrets.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/appliance/secrets.yaml) file used for appliances deployments.
+
+When you're done setting the different passwords in your `secrets.yaml` file, upload it to your namespace:
+```shell
+kubectl apply -f <deployment_directory>/secrets.yaml --namespace=al
+```
+
+!!! warning
+    From this point on, you will not need the `secret.yaml` file anymore. You should definitely delete it.
+
+### 4. Configure your deployment
+
+In your `deployment_directory`, create a `values.yaml` file which will contain the configuration specific to your deployment.
+
+!!! tip
+    For an exhaustive view of all the possible parameters you can change in the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml) file.
 
 
+These are the strict minimum configuration changes you will need to do: 
+
+1. Setup the ingress controller by changing the values of:
+    * `ingressAnnotations.cert-manager.io/issuer:` (Name of the issuer in K8s. This is for cert validation)
+    * `tlsSecretName` (Name of the TLS cert in k8s. This is for cert validation)
+    * `configuration.ui.fqdn` (Domain name for your al instance).
+2. Setup the storage classes according to your Kubernetes cluster :
+    * `redisStorageClass` (Use SSD backed managed disks)
+    * `log-storage.volumeClaimTemplate.storageClassName` (Use SSD backed managed disks)
+    * `datastore.volumeClaimTemplate.storageClassName` (Use SSD backed managed disks)
+    * `updateStorageClass` (Use standard file sharing disks)
+    * `persistentStorageClass` (Use standard file sharing disks)
+    * `sharedStorageClass` (Use standard file sharing disks)
+3. Decide where you want files stored, set the appropriate URI in the `configuration.filestore.*` fields. You should try to avoid using the internal filestore and use something like Azure blob store, Amazon S3...
+4. Enable/disable/configure logging features, (disabled by default).
+
+???+ example "This is an example values.yaml file to get you started"
+    ```yaml
+    # 1. Setup the ingress controller 
+    ingressAnnotations:
+      kubernetes.io/ingress.class: "nginx"
+      nginx.ingress.kubernetes.io/proxy-body-size: 100M
+      cert-manager.io/issuer: <CHANGE_ME>
+    tlsSecretName: <CHANGE_ME>
+        
+    
+    # 2. Setup the storage classes according to your Kubernetes cluster 
+    redisStorageClass: <CHANGE_ME>
+    datastore:
+      volumeClaimTemplate:
+        storageClassName: <CHANGE_ME>
+    log-storage:
+      volumeClaimTemplate:
+        storageClassName: <CHANGE_ME>
+    updateStorageClass: <CHANGE_ME>
+    persistantStorageClass: <CHANGE_ME>
+    sharedStorageClass: <CHANGE_ME>
+
+    
+    # 3. Decide where you want files stored
+    internalFilestore: false
+    # Un-comment and setup if internal filestore used
+    #filestore:
+    #  persistence:
+    #    size: 500Gi
+    #    StorageClass: <CHANGE_ME>
+
+    
+    # 4. Enable/disable/configure logging features
+    enableLogging: false
+    enableMetrics: false
+    enableAPM: false
+    internalELKStack: false
+    seperateInternalELKStack: false
+    loggingUsername: elastic
+    loggingTLSVerify: "none"
+
+
+    # Internal configuration for assemblyline components. See the assemblyline
+    # administration documentation for more details.
+    # https://cybercentrecanada.github.io/assemblyline4_docs/configuration/config_files/
+    configuration:
+      # 1. Setup the ingress controller
+      submission:
+        max_file_size: 104857600
+      ui:
+        fqdn: "localhost"
+
+      # 3. Decide where you want files stored
+      filestore:
+        cache: ["s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=False"]
+        storage: ["s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=False"]
+      
+      # 4. Enable/disable/configure logging features
+      logging:
+        log_level: WARNING
+    ```
+
+### 5. Deploy your current configuration
+
+Now that you've fully configured your `values.yaml` file, you can simply deploy it via helm by referencing the default assemblyline helm chart.
+
+```shell
+helm install assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+```
+
+## Update your deployment
+
+Once you have your Assemblyline chart deployed throught helm, you can change any values in the `values.yaml` file and upgrade your deployment with the following command:
+
+```shell
+helm upgrade assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+```
