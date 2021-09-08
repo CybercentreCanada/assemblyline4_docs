@@ -1,10 +1,11 @@
-# Assemblyline appliance
+# Appliance installation
 
 This is the documentation for an appliance instance of the Assemblyline platform suited for smaller scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
 
 ## Setup requirements
 
-Note: The documentation provided here assumes that you are installing your appliance on a Ubuntu based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other linux distributions.
+!!! info "Caveat" 
+    The documentation provided here assumes that you are installing your appliance on a Ubuntu based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other linux distributions.
 
 ### Install pre-requisites:
 
@@ -34,27 +35,27 @@ sudo microk8s helm repo update
 sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled=true -n ingress
 ```
 
-### Adding more nodes (optional) 
-**Note: This can be done before or after the system is live.**
+??? note "Adding more nodes (optional)"
+    **Note: This can be done before or after the system is live.**
 
-From the master node, run:
-```
-sudo microk8s add-node
-```
+    From the master node, run:
+    ```
+    sudo microk8s add-node
+    ```
 
-This will generate a command with a token to be executed on a standby node.
+    This will generate a command with a token to be executed on a standby node.
 
-On your standby node, ensure the microk8s ```ha-cluster``` addon is enabled before
-running the command from the master to join the cluster.
+    On your standby node, ensure the microk8s ```ha-cluster``` addon is enabled before
+    running the command from the master to join the cluster.
 
-To verify the nodes are connected, run (on any node): 
-```
-sudo microk8s kubectl get nodes
-```
+    To verify the nodes are connected, run (on any node): 
+    ```
+    sudo microk8s kubectl get nodes
+    ```
 
-Repeat this process for any additional standby nodes that's to be added.
+    Repeat this process for any additional standby nodes that's to be added.
 
-For more details, see: [Clustering with MicroK8s](https://microk8s.io/docs/clustering)
+    For more details, see: [Clustering with MicroK8s](https://microk8s.io/docs/clustering)
 
 ## Get the Assemblyline chart to your computer
 
@@ -76,7 +77,10 @@ cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
 
 The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking.
 
-The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should definitely change them. (NOTE: the secrets are used to setup during bootstrap so make sure you change them before deploy the al chart.)
+The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should definitely change them. 
+
+!!! tip
+    The secrets are used to setup during bootstrap so make sure you change them before deploy the al chart.
 
 ## Deploy Assemblyline via Helm:
 
