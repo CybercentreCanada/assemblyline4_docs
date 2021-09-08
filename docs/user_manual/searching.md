@@ -20,7 +20,7 @@ When you search for something in the Search Bar at the top of the UI, it will ru
 
 !!! tip "You must limit your search criteria to a single bucket; in other words you cannot do JOIN queries with information present in two or more buckets." 
 
-This limitation can be worked around by using the [Assemblyline Client](../CLI/client.md) by performing queries on one bucket and then enriching or narrowing your search by searching for elements in another bucket.
+This limitation can be worked around by using the [Assemblyline Client](../../integration/python/) by performing queries on one bucket and then enriching or narrowing your search by searching for elements in another bucket.
 
 # Searching
 One quick way to get familiar with search indices is to use the magnifying glass icon included in every tag. Clicking the magnifying glass icon on ![Searching](./images/magnifier.png) will build the following query:
