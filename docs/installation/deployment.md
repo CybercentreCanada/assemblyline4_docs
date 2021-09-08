@@ -2,8 +2,8 @@
 
 Assemblyline has two distinctive deployment types:
  
- * Appliance: Single host deployment 
- * Cluster: Multi-host deployment 
+ * **Appliance**: Single host deployment 
+ * **Cluster**: Multi-host deployment 
 
 !!! warning
     Keep in mind that you will need extra hosts for running external resources such as anti-virus products, or sandboxes (such as [Cuckoo Sandbox](https://cuckoosandbox.org/)). Theses complementary products are not mandatory but will greatly complement the static analysis and file extraction performed by Assemblyline.
