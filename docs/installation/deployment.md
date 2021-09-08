@@ -15,7 +15,7 @@ Both deployments are the same in terms of analysis capabilities however a cluste
 !!! tip
     Now that appliances are using kubernetes via microk8s, they can be scale up to a small cluster using multiple machine if needs be. 
 
-### Full features rundown
+### Deployment features rundown
 
 |                                           | Appliance                              | Cluster                                |
 | ----------------------------------------- | -------------------------------------- | -------------------------------------- |
