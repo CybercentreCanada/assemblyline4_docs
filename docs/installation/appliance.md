@@ -120,7 +120,7 @@ cd ~/git/assemblyline-helm-chart && git pull
 ```
 
 ### Update the deployment
-Once you have you're Assemblyline chart deployed throught helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
+Once you have your Assemblyline chart deployed throught helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
 ```
 sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
@@ -147,6 +147,6 @@ Since all is running inside microk8s you can create an alias to the kubectl addo
 alias kubectl='sudo microk8s kubectl --namespace=al'
 ```
 
-## Alternative Installations:
+## Alternative Installations
 
 We will officially only support microk8s installations for appliances but you can technically install it on any local kubernetes frameworks (k3s, minikube. kind...). That said there will be no documentation for theses setups and you will have to modify the ```values.yaml``` storage classes to fit with your desired framework.
