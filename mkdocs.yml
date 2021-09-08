@@ -28,6 +28,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.expand
+    - navigation.top
 
 extra:
   alternate:
@@ -99,6 +100,8 @@ plugins:
           Integration: Intégration
 
 markdown_extensions:
+  - toc:
+      permalink: true
   - attr_list
   - pymdownx.tabbed
   - pymdownx.details
