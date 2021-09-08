@@ -24,7 +24,7 @@ Both deployments are the same in terms of analysis capabilities however a cluste
 | Multiple host installation                | :material-minus-box-outline: Partial   | :material-checkbox-marked-outline: Yes |
 | Easy step by step installation            | :material-checkbox-marked-outline: Yes | :material-checkbox-blank-outline: No   |
 | High volume througput                     | :material-checkbox-blank-outline: No   | :material-checkbox-marked-outline: Yes |
-| Cloud provider support (AKS, EKS, GCK...) | :material-checkbox-blank-outline: No   | :material-checkbox-marked-outline: Yes |
+| Cloud provider support (AKS, EKS, GKE...) | :material-checkbox-blank-outline: No   | :material-checkbox-marked-outline: Yes |
 | Redundancy / Failover support             | :material-checkbox-blank-outline: No   | :material-checkbox-marked-outline: Yes |
 
 ## Installation stack
