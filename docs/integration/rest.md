@@ -2,11 +2,11 @@
 
 When it is impossible to integrate your application using the dedicated python client, you can use Assemblyline's RESTful API to perform any tasks that you can think of.
 
-![Key generation](./images/rest.gif){: .center }
-
 ## API documentation
 
 Each instances of Assemblyline comes with it's internal API documentation which can be viewed by browsing to: [https://yourdomain/help/api](https://yourdomain/help/api)
+
+![API Documentation](./images/rest.gif){: .center }
 
 ## Connecting to the API
 
