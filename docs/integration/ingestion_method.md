@@ -4,14 +4,14 @@ While integrating Assemblyline with other systems, the first thing you will need
 
 Assemblyline give you two options:
 
-1. Synchroneous (Using the Submit API)
-2. Asynchroneous (Using the Ingest API)
+1. Asynchroneous (Using the Ingest API: **/api/v4/ingest/**)
+2. Synchroneous (Using the Submit API: **/api/v4/submit/**)
 
 We will give you here a run down of the different particularities of each method so you can pick the one that fits your needs the best.
 
 ## Asynchroneous ingestion
 
-In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submissions in this mode, you will get assigned a ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view Asynchroneous submission that Assemblyline deems highly suspicious. 
+This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submissions in this mode, you will get assigned a ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view Asynchroneous submission that Assemblyline deems highly suspicious. 
 
 Asynchroneous mode was built to sustain a very large sampleset of files and to help analyst focus on what is really important.
 
