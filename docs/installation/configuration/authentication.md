@@ -98,7 +98,7 @@ The authentication section (`auth:`) of the configuration files contains all the
     ```
 
 !!! tip
-    Refer to the [changing the configuration file](http://127.0.0.1:8000/installation/configuration/config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
+    Refer to the [changing the configuration file](../config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
 
 ## Parameters definition
 
