@@ -1,4 +1,4 @@
-# Tag Safelisting
+# System safelist
 
 If you have a certain tag value that you want to safelist (ignore certain value so no tag are created) for every service, then 
 you want to do the following.

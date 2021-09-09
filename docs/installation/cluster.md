@@ -126,7 +126,7 @@ These are the strict minimum configuration changes you will need to do:
 
     # Internal configuration for assemblyline components. See the assemblyline
     # administration documentation for more details.
-    # https://cybercentrecanada.github.io/assemblyline4_docs/configuration/config_files/
+    # https://cybercentrecanada.github.io/assemblyline4_docs/configuration/config_file/
     configuration:
       # 1. Setup the ingress controller
       submission:

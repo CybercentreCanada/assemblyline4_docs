@@ -41,4 +41,4 @@ Now that you know the difference between the two type of deployment, you can ref
 * [Cluster installation](../cluster)
 
 !!! tip
-    Consider reading the [configuration](../configuration/config_files/) section of the documentation before jumping into the installation instruction. This will help you understand all the different options you can modify in the during the installation process.
+    Consider reading the [configuration](../configuration/config_file/) section of the documentation before jumping into the installation instruction. This will help you understand all the different options you can modify in the during the installation process.

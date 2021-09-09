@@ -113,17 +113,16 @@ sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyli
 ```
 ## Updating the current deployment
 
-### To get the latest chart changes (optional)
-If you want to get the latest changes that we did to the chart, just pull the changes. (This could conflict with the changes you've made so be careful while doing this.)
-```
-cd ~/git/assemblyline-helm-chart && git pull
-```
-
-### Update the deployment
 Once you have your Assemblyline chart deployed throught helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
 ```
 sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
+
+??? tip "(Optional) Get the latest assemblyline-helm-chart"
+    Prior of doing your `helm upgrade` command, you can get the latest changes that we did to the chart by pulling them. (This could conflict with the changes you've made so be careful while doing this.)
+    ```
+    cd ~/git/assemblyline-helm-chart && git pull
+    ```
 
 ## Quality of life improvements
 

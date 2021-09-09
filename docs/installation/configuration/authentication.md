@@ -1,4 +1,4 @@
-# Authentication
+# Authentication section
 
 Assemblyline comes with a built-in user management database, so no external identity sources is required. 
 However in order to facilitate user mangement in larger organisations you can integrate Assemblyline with external identity providers.

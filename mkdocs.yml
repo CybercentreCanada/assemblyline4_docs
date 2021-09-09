@@ -46,25 +46,36 @@ nav:
   - Home: index.md
   - Overview:
     - overview/how_it_works.md
-    - overview/servicelist.md
+    - overview/services.md
+    #- overview/community_services.md
   - User's manual: 
     - user_manual/submitting_file.md
     - user_manual/results.md
     - user_manual/searching.md
+    #- user_manual/dashboard.md
   - Installation:
     - installation/deployment.md
     - installation/appliance.md
     - installation/cluster.md
     - Configuration:
-      - installation/configuration/config_files.md
-      - installation/configuration/general_settings.md
+      - installation/configuration/config_file.md
       - installation/configuration/authentication.md
-      - installation/configuration/classification_engine.md
-      - installation/configuration/monitoring.md
-      - installation/configuration/tag_safelisting.md
+      #- installation/configuration/core.md
+      #- installation/configuration/datasources.md
+      #- installation/configuration/datastore.md
+      #- installation/configuration/filestore.md
+      #- installation/configuration/logging.md
+      #- installation/configuration/services.md
+      #- installation/configuration/submission.md
+      #- installation/configuration/system.md
+      #- installation/configuration/ui.md
+    #- installation/classification_engine.md
+    #- installation/monitoring.md
   - Administration:
-      #- administration/dashboard.md
-      - administration/signature_management.md
+      #- administration/signature_management.md
+      #- administration/service_management.md
+      #- administration/system_safelist.md
+      #- administration/user_management.md
       - administration/troubleshooting.md
   - Integration:
     - integration/ingestion_method.md
