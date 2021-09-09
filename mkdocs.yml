@@ -47,7 +47,7 @@ nav:
   - Overview:
     - overview/how_it_works.md
     - overview/services.md
-    #- overview/community_services.md
+    - overview/community_services.md
   - User's manual: 
     - user_manual/submitting_file.md
     - user_manual/results.md

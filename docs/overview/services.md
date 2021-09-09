@@ -1,5 +1,8 @@
 # Assemblyline services
-Service listing on a system can be found under `Help > Service Listing`
+
+Services currently installed on a system can be found under `Help > Service Listing`. 
+
+This is the list of all the services that are bundled with Assemblyline and that are maintained by the Assemblyline team:
 
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
@@ -24,7 +27,7 @@ Service listing on a system can be found under `Help > Service Listing`
 | PEFile            | Windows binaries | This service extracts attributes (imports, exports, section names, ...) from windows PE files using the [Python library pefile](https://github.com/erocarrera/pefile) | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
 | PeePDF            | PDF | This service uses the [Python PeePDF library](https://github.com/jesparza/peepdf) information from PDFs including JavaScript blocks which it will attempt to deobfuscate, if necessary, for further analysis |[link](https://github.com/CybercentreCanada/assemblyline-service-peepdf) |
 | PixAxe            | Images | Extract text from images | [link](https://github.com/CybercentreCanada/assemblyline-service-pixaxe)|
-| Safelist          | Safelisting | Allow for hash and IoC safelisting, including support for downloading [NSRL](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjaptDzi-7yAhWEdN8KHefxC6oQFnoECAsQAw&url=https%3A%2F%2Fwww.nist.gov%2Fitl%2Fssd%2Fsoftware-quality-group%2Fnational-software-reference-library-nsrl&usg=AOvVaw3I05XBysnEGMtwgozhlm8g) |[link](https://github.com/CybercentreCanada/assemblyline-service-safelist) |
+| Safelist          | Safelisting | Allow for hash, IoC and signature safelisting, including support for downloading [NSRL](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjaptDzi-7yAhWEdN8KHefxC6oQFnoECAsQAw&url=https%3A%2F%2Fwww.nist.gov%2Fitl%2Fssd%2Fsoftware-quality-group%2Fnational-software-reference-library-nsrl&usg=AOvVaw3I05XBysnEGMtwgozhlm8g) |[link](https://github.com/CybercentreCanada/assemblyline-service-safelist) |
 | Sigma             | Eventlog signatures | Scan event logs (e.g from sandbox or a compromised host) using [Sigma](https://github.com/SigmaHQ/sigma)|[link](https://github.com/CybercentreCanada/assemblyline-service-sigma) |
 | Suricata          | Network signatures | Scan network capture (.pcap) submitted and extracted from analysis via [Suricata](https://github.com/OISF/suricata)|[link](https://github.com/CybercentreCanada/assemblyline-service-suricata) |
 | Swiffer           | Adobe Shockwave | This service extracts metadata and performs anomaly detection on Adobe Shockwave (.swf) files | [link](https://github.com/CybercentreCanada/assemblyline-service-swiffer)|
