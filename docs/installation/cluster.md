@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-1. A **kubernetes** 1.18+ cluster that has an ingess controller and storage class with read/write many support. Assemblyline is known to work with the following kubernetes cluster:
+1. A **Kubernetes** 1.18+ cluster that has an ingress controller and storage class with read/write many (RWX) support. Assemblyline is known to work with the following Kubernetes providers:
     * Rancher
     * AKS (Azure)
     * EKS (Amazon)
@@ -48,7 +48,7 @@ In the `deployment_directory` you've just created, create a `secrets.yaml` file 
     ```
 
 !!! tip
-    Here is an example of [secrets.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/appliance/secrets.yaml) file used for appliances deployments.
+    Here is an example of [secrets.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/appliance/secrets.yaml) file used for appliance deployments.
 
 When you're done setting the different passwords in your `secrets.yaml` file, upload it to your namespace:
 ```shell

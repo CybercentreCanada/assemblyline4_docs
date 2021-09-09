@@ -6,14 +6,14 @@ Assemblyline has two distinctive deployment types:
  * **Cluster**: Multi-host deployment 
 
 !!! warning
-    Keep in mind that you will need extra hosts for running external resources such as anti-virus products, or sandboxes (such as [Cuckoo Sandbox](https://cuckoosandbox.org/)). Theses complementary products are not mandatory but will greatly complement the static analysis and file extraction performed by Assemblyline.
+    Keep in mind that you will need extra hosts for running external resources such as anti-virus products, or sandboxes (such as [Cuckoo Sandbox](https://cuckoosandbox.org/)). These complementary products are not mandatory but will greatly complement the static analysis and file extraction performed by Assemblyline.
 
 ## Features
 
-Both deployments are the same in terms of analysis capabilities however a cluster deployment can be scaled to scan multiple millions of files per day and offer redundancy and fail over. If you are deploying in the cloud a cluster will be easier to deploy (using cloud kubenetes offerings), however in a lab or to support a incident response team any powerful computer with an appliance deployment will be able to process thousand of files a day. 
+Both deployments are the same in terms of analysis capabilities however a cluster deployment can be scaled to scan multiple millions of files per day and offer redundancy and fail over. If you are deploying in the cloud, a cluster will be easier to deploy (using cloud Kubernetes offerings). However in a lab or to support a incident response team, any powerful computer with an appliance deployment will be able to process thousands of files a day. 
 
 !!! tip
-    Now that appliances are using kubernetes via microk8s, they can be scale up to a small cluster using multiple machine if needs be. 
+    Now that appliances are using Kubernetes via MicroK8s, they can be scaled up to a small cluster using multiple machines (nodes) if need be. 
 
 ### Deployment features rundown
 
