@@ -63,7 +63,7 @@ nav:
       - installation/configuration/monitoring.md
       - installation/configuration/tag_safelisting.md
   - Administration:
-      - administration/dashboard.md
+      #- administration/dashboard.md
       - administration/signature_management.md
       - administration/troubleshooting.md
   - Integration:
