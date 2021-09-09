@@ -4,25 +4,25 @@ While integrating Assemblyline with other systems, the first thing you will need
 
 Assemblyline give you two options:
 
-1. Asynchroneous (Using the Ingest API: **/api/v4/ingest/**)
-2. Synchroneous (Using the Submit API: **/api/v4/submit/**)
+1. Asynchronous (Using the Ingest API: **/api/v4/ingest/**)
+2. Synchronous (Using the Submit API: **/api/v4/submit/**)
 
 We will give you here a run down of the different particularities of each method so you can pick the one that fits your needs the best.
 
-## Asynchroneous ingestion
+## Asynchronous ingestion
 
-This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submissions in this mode, you will get assigned a ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view Asynchroneous submission that Assemblyline deems highly suspicious. 
+This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submission in this mode, you will get assigned a ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view asynchronous submissions that Assemblyline deems highly suspicious. 
 
-Asynchroneous mode was built to sustain a very large sampleset of files and to help analyst focus on what is really important.
+Asynchronous mode was built to sustain a very large sample set of files and to help analysts focus on what is really important.
 
 ### Benefits and Drawbacks 
 
 !!! success "Benefits"
 
     - [x] Support very large volume of files
-    - [x] No subjected to any quota
-    - [x] Will resort to data sampling if it get overwhelmed with too many files
-    - [x] Allow for alerting perspective to be used 
+    - [x] Not subjected to any quota
+    - [x] Will resort to data sampling if it gets overwhelmed with too many files
+    - [x] Allows for alerting perspective to be used 
     - [x] Does submission level caching if the same file is submitted twice with the same parameters
 
 !!! Failure "Drawbacks"
@@ -33,7 +33,7 @@ Asynchroneous mode was built to sustain a very large sampleset of files and to h
 
 ### Typical use cases
 
-Here are the typical use cases that user's encounter while using the Asynchroneous submission mode in the system.
+Here are the typical use cases that users encounter while using the asynchronous submission mode in the system.
 
 ??? example "Using the Ingest API while reading message from the notification queue"
     
@@ -55,35 +55,35 @@ Here are the typical use cases that user's encounter while using the Asynchroneo
     This is how this works in the backend: 
     ![Alert execution flow](./images/flow_alert.svg){: .center }
 
-## Synchroneous ingestion
+## Synchronous ingestion
 
-In this mode, Assemblyline will start scanning of your file right away and will return you the ID of your submission. You will be able to use thid ID to ask the system if the submission is complete and to pull the results when all the services are done reporting result for that submission.
+In this mode, Assemblyline will start the scanning of your file right away and will return you the ID of your submission. You will be able to use thid ID to ask the system if the submission is complete and to pull the results when all the services are done reporting results for that submission.
 
-This is more suited for very small volume of files and for manual analysis. Files submitted via the User interface are using the synchroneous mode.
+This is more suited for very small volume of files and for manual analysis. Files submitted via the User interface are using the synchronous mode.
 
 ### Benefits and Drawbacks 
 
 !!! success "Benefits"
 
     - [x] Instant scanning
-    - [x] Higher priority then Asynchroneous
-    - [x] Submission garanteed to be processed 
+    - [x] Higher priority than asynchronous
+    - [x] Submission guaranteed to be processed 
     - [x] Metadata searchable for all submissions
 
 !!! Failure "Drawbacks"
 
-    - [ ] Subjected to quota (Default: 5 concurrent submission)
-    - [ ] No suited for high load 
+    - [ ] Subjected to quota (Default: 5 concurrent submissions)
+    - [ ] Not suited for high load 
     - [ ] No submission level caching
     - [ ] Alerting not available
 
 ### Typical use cases
 
-Here are the typical use cases that user's encounter while using the Synchroneous submission mode in the system.
+Here are the typical use cases that user's encounter while using the synchronous submission mode in the system.
 
 ??? example "Using the Submit API waiting for the submission to be done"
     
-    1. The user sends its file for processing and receives and ID for its submission 
+    1. The user sends its file for processing and receives an ID for its submission 
         * API: **/api/v4/submit/**
     2. The user queries the `is completed` API until the system says the submission is completed 
         * API: **/api/v4/submission/is_completed/<ID>/**
