@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Launch Assemblyline Documentation",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/Scripts/mkdocs serve",
+            "options": {
+                "cwd": "${workspaceFolder}/",
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        },
+    ]
+}
