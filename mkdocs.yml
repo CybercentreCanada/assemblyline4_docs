@@ -62,9 +62,10 @@ nav:
       - installation/configuration/classification_engine.md
       - installation/configuration/monitoring.md
       - installation/configuration/tag_safelisting.md
-    - System administration:
-      - installation/system_administration/signature_management.md
-      - installation/system_administration/troubleshooting.md
+  - Administration:
+      - administration/dashboard.md
+      - administration/signature_management.md
+      - administration/troubleshooting.md
   - Integration:
     - integration/ingestion_method.md
     - integration/key_generation.md
