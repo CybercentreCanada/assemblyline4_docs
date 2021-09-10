@@ -178,7 +178,7 @@ Within Kibana, there is the ability to use dashboards to visualize your data int
 You can get our latest exported dashboards directly from the [assemblyline-base](https://github.com/CybercentreCanada/assemblyline-base/tree/master/kibana) source and then use kibana import features to use them in your ELK Stack.
 
 ### Creation
-Dashboards are made up of [Visualizations](https://www.elastic.co/guide/en/kibana/current/visualize.html), and these can come in different forms: graphs, metrics, gauges, tables, maps, etc. 
+[Dashboards](https://www.elastic.co/guide/en/kibana/current/dashboard.html) are made up of visualizations, and these can come in different forms: graphs, metrics, gauges, tables, maps, etc. 
 
 Each visualization requires an index pattern to get the data from and setting a date range, this throws all relevant data within the specified timeframe into a bucket to be used by the visualization.
 
