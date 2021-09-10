@@ -145,32 +145,34 @@ Finally update your deployment using `helm upgrade command`:
 ## Logstash Pipelines
 You can write [custom pipelines](https://www.elastic.co/guide/en/logstash/current/pipeline.html) to help enrich your data when passed through Logstash. 
 
-You can set your custom logstash pipeline under `customLogstashPipeline` in your config file.
+You can set your custom logstash pipeline under `customLogstashPipeline` in your `values.yaml` file of your deployment.
 
-A simple example using Filebeat, by default there is no custom pipeline:
-```yaml
-# Turn on logstash support 
-useLogstash: true
-customLogstashPipeline: |
-  input {
-    beats {
-      port => 5044
-      codec => "json"
-    }
-  }
+!!! example "Partial values.yaml to add a simple logstash pipeline"
+    ```yaml
+    ...
+    # Turn on logstash support 
+    useLogstash: true
+    customLogstashPipeline: |
+      input {
+        beats {
+          port => 5044
+          codec => "json"
+        }
+      }
 
-  filter{
-    mutate { add_field => {"sent_to_logstash" => "True"} }
-  }
+      filter{
+        mutate { add_field => {"sent_to_logstash" => "True"} }
+      }
 
-  output {
-      elasticsearch{
-        hosts => "http://elasticsearch:9200"
-        index => "assemblyline-logs"
-        codec => "json" 
-    }
-  }
-```
+      output {
+          elasticsearch{
+            hosts => "http://elasticsearch:9200"
+            index => "assemblyline-logs"
+            codec => "json" 
+        }
+      }
+    ...
+    ```
 
 ## Kibana Dashboards
 Within Kibana, there is the ability to use dashboards to visualize your data into one consolidated view to make it easier for monitoring, like a hub.
