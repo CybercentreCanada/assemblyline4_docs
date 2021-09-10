@@ -208,7 +208,7 @@ The configuration block at `auth.ldap` allows you to easily add authentication v
 
 Here is a example configuration block to add to your configuration file that will allow you to connect to the docker-test-openldap server from: [https://github.com/rroemhild/docker-test-openldap](https://github.com/rroemhild/docker-test-openldap)
 
-??? example "LDAP auth configuration example"
+??? example "LDAP configuration example"
     ```yaml
     auth:
         internal:
@@ -282,7 +282,7 @@ It has been thoroughly tested with:
 
 Here is an exhaustive configuration block that explains every single parameters from the OAuth configuration block:
 
-??? example "Exhaustive configuration block"
+??? example "Exhaustive OAuth configuration example"
     ```yaml
     auth:
         internal:
@@ -393,7 +393,7 @@ Here is an exhaustive configuration block that explains every single parameters 
 
 Here is an example configuration block that would let you use Auth0 provided that you would change your `client_id` and `client_secret` and that you would change the `tenant_name` to yours:
 
-??? example "Auth0 configuration exemple"
+??? example "Auth0 configuration example"
     ```yaml
     auth:
         internal:
