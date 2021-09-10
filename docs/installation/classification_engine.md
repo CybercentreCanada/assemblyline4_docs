@@ -253,3 +253,38 @@ Use kubectl to apply the `objects.yaml` file to your system:
     ```shell
     kubectl apply -f <deployment_directory>/objects.yaml --namespace=al
     ```
+
+Then you must tell your pods to use the classification engine from the newly created config map. Add the following block to the `values.yaml` or your deployment:
+
+```yaml
+...
+coreEnv:
+  - name: CLASSIFICATION_CONFIGMAP
+    value: assemblyline-extra-config
+  - name: CLASSIFICATION_CONFIGMAP_KEY
+    value: classification
+coreMounts:
+  - name: al-extra-config
+    mountPath: /etc/assemblyline/classification.yml
+    subPath: classification
+coreVolumes:
+  - name: al-extra-config
+    configMap:
+      name: assemblyline-extra-config
+...
+```
+
+Finally update your deployment using `helm upgrade command`:
+
+
+=== "Appliance"
+
+    ```shell
+    sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+    ```
+
+=== "Cluster"
+
+    ```shell
+    helm upgrade assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+    ```
