@@ -1,35 +1,146 @@
-# ELK Deployment
-When you deploy Assemblyline using Helm, you have the option of pointing logs to an existing ELK stack you're running or having Assemblyline create it's own internal ELK for logging.
+# Monitoring with ELK
+
+The Assemblyline helm chart gives you the option of pointing logs to an existing ELK stack or having Assemblyline create it's own internal ELK for logging and metrics.
 
 ![Dashboard example](./images/dashboard-example.png)
 
-Your configuration file location will depend on your deployment type:
+## Elk Stack configuration
 
-<table>
-<tr>
-<td style="background-color:#009c7b"><text style="color:white;">Appliance deployment</text></td>
-<td> edit `./config/config.yml` </td>
-</tr>
-<tr>
-<td style="background-color:#2869e6"><text style="color:white;">Cluster deployment</text></td>
-<td> see <a href="https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml"> Default helm chart</a> </td>
-</tr>
-</table>
-<hr>
+In the `values.yaml` file of your deployment, you can edit the following parameters to configure Assemblyline to send metrics and logs to a specific ELK stack. 
 
-# Configuration
-## Elasticsearch & Kibana
-If you already have an ELK you would like to use for logging, set and provide the necessary details below in your config file:
-```
-internalLogging: false
-...
-loggingHost: <external_logging_host>
-kibanaHost: <external_logging_host/kibana>
-loggingUsername: "<external_logging_user>>
-loggingTLSVerify: "full"
-```
+Choose the type of ELK stack deployment that correspond the best to your setup: 
 
-However, if you don't have an existing ELK or would prefer Assemblyline use it's own, then set `internalLogging: true` in your config file.
+=== "Appliance Internal ELK stack"
+
+    !!! example "Partial values.yaml config for an Appliance internal ELK stack"
+        ```yaml
+        ...
+        # Have Assemblyline send logs to the configured ELK stack
+        enableLogging: true
+
+        # Have Assemblyline send metrics to the configured ELK stack
+        enableMetrics: true
+
+        # This would have Assemblyline send APM metrics to the
+        #  configured ELK stack as well but it is very costly in 
+        #  terms of resources so only turn it on if you really
+        #  need insight on API response time and core components
+        #  operation timing.
+        enableAPM: false
+
+        # We are setting up an internal ELK stack so we can turn that on
+        internalELKStack: true
+        
+        # Because this is an appliance, we will reuse the same elastic
+        #  database used for data to store logs as well
+        seperateInternalELKStack: false
+
+        # The internal ELK stack use elastic as it's base username and
+        #  does not verify TLS
+        loggingUsername: elastic
+        loggingTLSVerify: none
+        ...
+        ```
+
+=== "Cluster Internal ELK stack" 
+
+    !!! example "Partial values.yaml config for a cluster internal ELK stack"
+        ```yaml
+        ...
+        # Have Assemblyline send logs to the configured ELK stack
+        enableLogging: true
+
+        # Have Assemblyline send metrics to the configured ELK stack
+        enableMetrics: true
+
+        # This would have Assemblyline send APM metrics to the
+        #  configured ELK stack as well but it is very costly in 
+        #  terms of resources so only turn it on if you really
+        #  need insight on API response time and core components
+        #  operation timing.
+        enableAPM: false
+
+        # We are setting up an internal ELK stack so we can turn that on
+        internalELKStack: true
+        
+        # Because this is an cluster, we will have Assemblyline spin up 
+        #  a completely different elastic database so the logging does not 
+        #  interfere with the performance of the data
+        seperateInternalELKStack: true
+
+        # The internal ELK stack use elastic as it's base username and
+        #  does not verify TLS
+        loggingUsername: elastic
+        loggingTLSVerify: none
+        ...
+        ```
+
+=== "External ELK stack"
+
+    !!! example "Partial values.yaml config for external ELK stack"
+        ```yaml
+        ...
+        # Have Assemblyline send logs to the configured ELK stack
+        enableLogging: true
+
+        # Have Assemblyline send metrics to the configured ELK stack
+        enableMetrics: true
+
+        # This would have Assemblyline send APM metrics to the
+        #  configured ELK stack as well but it is very costly in 
+        #  terms of resources so only turn it on if you really
+        #  need insight on API response time and core components
+        #  operation timing.
+        enableAPM: false
+
+        # We are setting up an external ELK stack so we will disable 
+        #  those settings
+        internalELKStack: false
+        seperateInternalELKStack: false
+
+        # -- EXTERNAL ELK Stack config -- 
+        # Elastic host were the logs will be shipped to
+        loggingHost: https://<ELK_HOST>:443/
+
+        # Kibana dashboard location
+        kibanaHost: https://<ELK_HOST>:443/kibana
+
+        # Username that will be used to login to the elastic on your 
+        #  ELK stack
+        loggingUsername: <YOUR_ELK_USERNAME>
+
+        # Should you verify TLS on your ELK stack? 
+        loggingTLSVerify: "full"
+
+        # Finally configure al_metrics to save metrics to your stack
+        configuration:
+          core:
+            metrics:
+              elasticsearch:
+                hosts: ["https://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@<ELK_HOST>:443"]
+                # If you're using HTTPS and don't want certificate failures you can put 
+                # your CA here
+                host_certificates: |
+                  -----BEGIN CERTIFICATE-----
+                  ...
+                  -----END CERTIFICATE-----
+
+        ...
+        ```
+
+Finally update your deployment using `helm upgrade command`:
+
+=== "Appliance"
+
+    ```shell
+    sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+    ```
+
+=== "Cluster"
+
+    ```shell
+    helm upgrade assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+    ```
 
 ## Logstash Pipelines
 You can write [custom pipelines](https://www.elastic.co/guide/en/logstash/current/pipeline.html) to help enrich your data when passed through Logstash. 
@@ -37,43 +148,48 @@ You can write [custom pipelines](https://www.elastic.co/guide/en/logstash/curren
 You can set your custom logstash pipeline under `customLogstashPipeline` in your config file.
 
 A simple example using Filebeat, by default there is no custom pipeline:
-```
+```yaml
+# Turn on logstash support 
+useLogstash: true
 customLogstashPipeline: |
-input {
-  beats {
-    port => 5044
-    codec => "json"
+  input {
+    beats {
+      port => 5044
+      codec => "json"
+    }
   }
-}
 
-filter{
-  mutate { add_field => {"sent_to_logstash" => "True"} }
-}
-
-output {
-    elasticsearch{
-      hosts => "http://elasticsearch:9200"
-      index => "assemblyline-logs"
-      codec => "json" 
+  filter{
+    mutate { add_field => {"sent_to_logstash" => "True"} }
   }
-}
+
+  output {
+      elasticsearch{
+        hosts => "http://elasticsearch:9200"
+        index => "assemblyline-logs"
+        codec => "json" 
+    }
+  }
 ```
 
-# Kibana Dashboards
+## Kibana Dashboards
 Within Kibana, there is the ability to use dashboards to visualize your data into one consolidated view to make it easier for monitoring, like a hub.
 
-## Creation
-Dashboards are made up of [Visualizations](https://www.elastic.co/guide/en/kibana/current/visualize.html), and these can come in different forms: graphs, metrics, gauges, tables, maps, etc.
+You can get our latest exported dashboards directly from the [assemblyline-base](https://github.com/CybercentreCanada/assemblyline-base/tree/master/kibana) source and then use kibana import features to use them in your ELK Stack.
+
+### Creation
+Dashboards are made up of [Visualizations](https://www.elastic.co/guide/en/kibana/current/visualize.html), and these can come in different forms: graphs, metrics, gauges, tables, maps, etc. 
 
 Each visualization requires an index pattern to get the data from and setting a date range, this throws all relevant data within the specified timeframe into a bucket to be used by the visualization.
 
 Dashboards can also be imported/exported for use across different ELKs **but** requires dependencies like index patterns for them to function out of the box, otherwise requires editing the dashboard file.
 
-## Navigation
+### Navigation
 All dashboards give you the ability of filtering your data, similar to what you will find under the Discover tab of Kibana.
 This will allow you to filter a certain dashboard based on a query you give.
 
 Example: You have a dashboard that contains a metric that counts all the logs on record. You can filter this dashboard to only display logs where the status is "ERROR" or "WARNING" with a query like:
 
-    log.status: "ERROR" or log.status: "WARNING"
-    
+```
+log.status: "ERROR" or log.status: "WARNING"
+```
