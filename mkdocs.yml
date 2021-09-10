@@ -69,7 +69,7 @@ nav:
       #- installation/configuration/submission.md
       #- installation/configuration/system.md
       #- installation/configuration/ui.md
-    #- installation/classification_engine.md
+    - installation/classification_engine.md
     #- installation/monitoring.md
   - Administration:
       #- administration/signature_management.md
