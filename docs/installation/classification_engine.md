@@ -256,23 +256,24 @@ Use kubectl to apply the `objects.yaml` file to your system:
 
 Then you must tell your pods to use the classification engine from the newly created config map. Add the following block to the `values.yaml` or your deployment:
 
-```yaml
-...
-coreEnv:
-  - name: CLASSIFICATION_CONFIGMAP
-    value: assemblyline-extra-config
-  - name: CLASSIFICATION_CONFIGMAP_KEY
-    value: classification
-coreMounts:
-  - name: al-extra-config
-    mountPath: /etc/assemblyline/classification.yml
-    subPath: classification
-coreVolumes:
-  - name: al-extra-config
-    configMap:
-      name: assemblyline-extra-config
-...
-```
+???+ example "Partial values.yaml to load the custom classification.yml file"
+    ```yaml
+    ...
+    coreEnv:
+      - name: CLASSIFICATION_CONFIGMAP
+        value: assemblyline-extra-config
+      - name: CLASSIFICATION_CONFIGMAP_KEY
+        value: classification
+    coreMounts:
+      - name: al-extra-config
+        mountPath: /etc/assemblyline/classification.yml
+        subPath: classification
+    coreVolumes:
+      - name: al-extra-config
+        configMap:
+          name: assemblyline-extra-config
+    ...
+    ```
 
 Finally update your deployment using `helm upgrade command`:
 
