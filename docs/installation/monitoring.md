@@ -185,11 +185,6 @@ Each visualization requires an index pattern to get the data from and setting a 
 Dashboards can also be imported/exported for use across different ELKs **but** requires dependencies like index patterns for them to function out of the box, otherwise requires editing the dashboard file.
 
 ### Navigation
-All dashboards give you the ability of filtering your data, similar to what you will find under the Discover tab of Kibana.
-This will allow you to filter a certain dashboard based on a query you give.
+All dashboards give you the ability of filtering your data, similar to what you will find under the Discover tab of Kibana. This will allow you to filter a certain dashboard based on a query you give.
 
-Example: You have a dashboard that contains a metric that counts all the logs on record. You can filter this dashboard to only display logs where the status is "ERROR" or "WARNING" with a query like:
-
-```
-log.status: "ERROR" or log.status: "WARNING"
-```
+If you want more info about using kibana's filtering and navigation feature, check the [explore your data](https://www.elastic.co/guide/en/kibana/current/discover.html) documentation.
