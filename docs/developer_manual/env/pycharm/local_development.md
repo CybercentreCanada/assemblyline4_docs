@@ -1,0 +1,242 @@
+# Local development
+
+This documentation will show you how to setup you development Virtual Machine for local development using the Pycharm Community Edition IDE (This would also work with Pycharm Professional). It this setup, you will run your IDE inside the virtual machine where the Assemblyline containers are running. This is by far the easiest setup to get Pycharm working and removes a lot of headaches.
+
+## Operating system 
+
+For this documentation, we will assume that you are working on a fresh installation of [Ubuntu 20.04 Desktop](https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-desktop-amd64.iso).
+
+### Update VM
+
+Make sure Ubuntu is running the latest software
+```shell
+sudo apt update
+sudo apt dist-upgrade
+sudo snap refresh
+```
+
+Reboot if needed
+```shell
+sudo reboot
+```
+
+## Installing pre-requisite software
+
+### Install Assemblyline APT dependencies
+
+```shell
+sudo apt update
+sudo apt-get install -yy libfuzzy2 libmagic1 libldap-2.4-2 libsasl2-2 build-essential libffi-dev libfuzzy-dev libldap2-dev libsasl2-dev libssl-dev
+```
+
+### Install Python 3.9
+
+Assemblyline 4 containers are now all built on Python 3.9 therefore we will install Python 3.9.
+
+```shell
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:deadsnakes/ppa
+sudo apt-get install -yy python3-venv python3.9 python3.9-dev python3.9-venv libffi7
+```
+
+### Installing Docker
+
+Follow these simple commands to get Docker running on your machine:
+```shell
+# Add Docker repository
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# Install Docker
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+
+# Test Docker installation
+sudo docker run hello-world
+```
+### Installing docker-compose
+
+Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
+```shell
+# Install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Test docker-compose installation
+docker-compose --version
+```
+
+### Installing PyCharm
+
+Lets install the desired pycharm version. The professional version is not needed but if you have a licence you can definitely use it.
+
+=== "Pycharm Community"
+
+    ```shell
+    sudo snap install --classic pycharm-community
+    ```
+
+=== "Pycharm Professional"
+
+    ```shell
+    sudo snap install --classic pycharm-professional
+    ```
+
+## Adding Assemblyline specific configuration 
+
+### Data directories
+
+Because Assemblyline uses its own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
+
+```shell
+sudo mkdir -p /etc/assemblyline
+sudo mkdir -p /var/cache/assemblyline
+sudo mkdir -p /var/lib/assemblyline
+sudo mkdir -p /var/log/assemblyline
+
+sudo chown $USER /etc/assemblyline
+sudo chown $USER /var/cache/assemblyline
+sudo chown $USER /var/lib/assemblyline
+sudo chown $USER /var/log/assemblyline
+```
+
+### Dev default configuration files
+
+Here we will create configuration files that match the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
+
+```shell
+echo "enforce: true" > /etc/assemblyline/classification.yml
+echo "
+auth:
+  internal:
+    enabled: true
+
+core:
+  alerter:
+    delay: 0
+  metrics:
+    apm_server:
+      server_url: http://localhost:8200/
+    elasticsearch:
+      hosts: [http://elastic:devpass@localhost]
+
+datastore:
+  ilm:
+    indexes:
+      alert:
+        unit: m
+      error:
+        unit: m
+      file:
+        unit: m
+      result:
+        unit: m
+      submission:
+        unit: m
+
+filestore:
+  cache:
+    - file:///var/cache/assemblyline/
+
+logging:
+  log_level: INFO
+  log_as_json: false
+
+ui:
+  audit: false
+  debug: false
+  enforce_quota: false
+  fqdn: 127.0.0.1.nip.io
+" > /etc/assemblyline/config.yml
+```
+
+!!! tip 
+    As you can see in the last command we are setting the FQDN to 127.0.0.1.nip.io. NIP.IO is a service that will resolve the first part of the domain **127.0.0.1**.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs.
+
+## Setup Assemblyline source
+
+### Install git
+
+Since your VM running Ubuntu 20.04 you can just install it with APT:
+
+```shell
+sudo apt install -y git
+```
+
+!!! tip 
+    You should add your desktop SSH keys to your Github account to use Git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
+### Clone core repositories
+
+Create the core working directory
+```shell
+mkdir -p ~/git/alv4
+cd ~/git/alv4
+```
+
+Clone Assemblyline's repositories
+
+=== "Git via SSH"
+    Use SSH if you have your SSH id_rsa file configured to your Github account
+    ```shell
+    git clone git@github.com:CybercentreCanada/assemblyline-base.git 
+    git clone git@github.com:CybercentreCanada/assemblyline-core.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-server.git
+    git clone git@github.com:CybercentreCanada/assemblyline-ui.git
+    git clone git@github.com:CybercentreCanada/assemblyline-v4-service.git
+    ```
+
+=== "Git via HTTPS"
+    Use HTTPS if you don't have your Github account configured with an SSH key
+    ```shell
+    git clone https://github.com/CybercentreCanada/assemblyline-base.git
+    git clone https://github.com/CybercentreCanada/assemblyline-core.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-client.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-server.git
+    git clone https://github.com/CybercentreCanada/assemblyline-ui.git
+    git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
+    ```
+
+### Setting up Core Virtualenv
+
+```shell
+# Directly in the alv4 source directory 
+cd ~/git/alv4
+
+# Create the virtualenv and activate it
+python3.9 -m venv venv
+source ~/git/alv4/venv/bin/activate
+
+# Install Assemblyline packages with their test dependencies
+pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
+
+# Remove Assemblyline packages because we will use the live code
+pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
+```
+
+## Setup PyCharm 
+
+### Load ALv4 Project
+
+ 1. Load **pycharm**
+    - Choose whatever configuration option you want until the **Welcome screen**
+ 2. Click the **Open** button
+ 3. Choose the **~/git/alv4 directory**
+
+ Your Python interpreter should already be loaded because PyCharm will take ./venv directory as the project interpreter by default. Let it load the interpreter...
+
+### Setup project structure
+
+ 1. Click **Files** -> **Settings**
+ 2. Select **Project: alv4** -> **Python Structure**
+ 3. For each top level folder (**assemblyline-base**, **assemblyline-core**...)
+    - Click on it
+    - Click **Source**
+ 4. Click **apply** then **OK**
+
+## Use Pycharm
+
+Now that your Local development VM is setup you should read the [use Pycharm](../use_pycharm) doucmentation to get you started.

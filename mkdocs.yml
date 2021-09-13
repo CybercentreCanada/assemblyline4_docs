@@ -48,7 +48,7 @@ nav:
     - overview/how_it_works.md
     - overview/services.md
     - overview/community_services.md
-  - User's manual: 
+  - User's manual:
     - user_manual/submitting_file.md
     - user_manual/results.md
     - user_manual/searching.md
@@ -84,17 +84,22 @@ nav:
     - integration/java.md
     - integration/rest.md
   - Developer's guide:
+    - Setup Environment:
+      - developer_manual/env/getting_started.md
+      - VSCode:
+        - developer_manual/env/vscode/setup_script.md
+        - developer_manual/env/vscode/use_vscode.md
+      - Pycharm:
+        - developer_manual/env/pycharm/local_development.md
+        - developer_manual/env/pycharm/remote_development.md
+        - developer_manual/env/pycharm/use_pycharm.md
     - Services:
       - developer_manual/services/developing_an_assemblyline_service.md
       - developer_manual/services/run_your_service.md
       - developer_manual/services/service_manifest.md
-    - Assemblyline Core:
-      - developer_manual/assemblyline/getting_started.md
-      - developer_manual/assemblyline/components.md
-      - developer_manual/assemblyline/local_development.md
-      - developer_manual/assemblyline/remote_development.md
-      - developer_manual/assemblyline/use_pycharm.md
-    - Docs: developer_manual/docs/docs.md
+    - Core Components: developer_manual/core/components.md
+    - Frontend: developer_manual/frontend/frontend.md
+    - Documentation: developer_manual/docs/docs.md
 
 plugins:
   - search
