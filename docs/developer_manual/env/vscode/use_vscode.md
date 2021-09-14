@@ -81,7 +81,7 @@ The core components docker compose tasks run every single Assemblyline core comp
 * Ingester
 
 !!! tip
-    If you are wondering what each components does, you should read the [Core components](../../../core/components) which gives a brief description of every single one of them.
+    If you are wondering what each components does, you should read the [Infrastructure](../../../core/infrastructure) documentation which gives a brief description of every single one of them.
 
 The core components tasks will also add two test user to the system:
 
@@ -124,24 +124,102 @@ The configured launch targets have been pre-fixed with category to help you iden
 * Service - Service Live debugging
 * UI - Assemblyline API Servers
 
-!!! tip
-    If you are wondering what each components does, you should read the [Core components](../../../core/components) which gives a brief description of every single one of them.
-
 !!! warning
     To be able to successfully run these components, you will have to run at minimum the [Dependencies (Basic)](#dependencies) tasks
 
 ### Core, Service Server and UI
 
-TBD
+The core, service server and UI categories of launch targets are mostly self-explanatory. They will launch in debug mode any of the core components from the system.
 
-### CLI
+!!! tip
+    If you are wondering what each components does, you should read the [Infrastructure](../../../core/infrastructure) which gives a brief description of every single one of them.
 
-TBD
+#### CLI - Command Line Interface
 
-### Data components
+This launch target from the core category launches an interactive console that will let perform specific task in the system. You can use the `help` command to find out which each possible commands are.
 
-TBD
+![console](./images/console.png)
+
+!!! warning
+    The commands that are found in this interactive console can be very dangerous and most of them should not be run on a production system.
+
+### Data Launch target
+
+The launch targets in the data category are used to create random data in the system.
+
+#### Create default users
+
+This launch target will generate the same default user as the [Core components tasks](#core-components) does:
+
+| uid   | password | is_admin | apikey       |
+| ----- | -------- | -------- | ------------ |
+| user  | user     | no       | devkey:user  |
+| admin | admin    | yes      | devkey:admin |
+
+#### Generate random data
+
+In addition of creating the default users, this task will also use the random data generator to fill the different indexes of the system with data that has been randomly generated. This is especially useful when testing APIs or Frontend which require you to have data in the different indices.
 
 ### Running live services
 
-TBD
+Running services in a live Assemblyline system is the most important thing to know while building a service. It will allow you to send files via the User interface and put breakpoints in your service to catch files as they come throught for processing.
+
+To run a service live in the system you will need to launch two components:
+
+* Task Handler
+* Your service
+
+!!! warning
+    Here are a few things to consider before running a service live in debug mode:
+
+    1. You need to start not only the [Dependencies (Basic)](#dependencies) task but also the [Core components](#core-components) task will have to be started to ensure files get to your service.
+    2. You can only have **one** Task handler launch target running at the time therefor can only debug one service at the time. Task handler communicate with the service via fixed named in the `/tmp` directory which is the reason for that limitation.
+    3. The first time you start a service, you'll have to start task handler and your service twice because the service stop itself after registering in the DB.
+    4. You should launch your service from the VSCode window pointing to your services git folder (`~/git/services`) and for it to exist, you should have ran the `setup_script.sh` with the `-s` options.
+
+#### Create a launch target for your service
+
+To add a launch target for your service, you will have to modify the `.vscode/launch.json` file in your `~/git/services` directory. You can mimic the Safelist launch target as a baseline.
+
+!!! example "Demo Safelist launch target"
+    ```json
+    ...
+        {
+            "name": "[Service] Safelist - LIVE",
+            "type": "python",
+            "request": "launch",
+            "module": "assemblyline_v4_service.run_service",
+            "env": {
+                "SERVICE_PATH": "safelist.Safelist"
+            },
+            "console": "internalConsole",
+            "cwd": "${workspaceFolder}/assemblyline-service-safelist"
+        },
+    ...
+    ```
+
+The only three thing you will have to change for launching your service are the following
+
+1. The name so you can pick it from the list later
+2. The environment variable `SERVICE_PATH`. This should be the python path to the service class relative to your current working directory.
+3. The current working directory. This should be the directory were you service code is, a new directory you create for you service inside the `~/git/services` folder.
+
+#### Launch the service
+
+Launching the service will take place again in the VSCode window dedicated to services. From the `Run/Debug` quick access side bar, you will launch the `Task handler` first then the launch target for your service that you've just created.
+
+![Service Exec](./images/service_ex.png)
+
+Your service should now be running in live mode!
+
+## Running Tests
+
+After running the setup script for VSCode, the testing interface from the VSCode python extension will show in your quick access side menu and will present you with all available unit tests. You can then simply click the test or group of test you want to run and hit the `play` button to run the tests.
+
+!!! warning
+    Do not forget to first launch the appropriate [Pytest Dependency](#pytest-dependencies) from the tasks otherwise all the tests will fail.
+
+![Tests](./images/tests.png)
+
+!!! Bug "No tests available?"
+    If the testing interface is not showing any tests, load up the ['UI and All' Pytest Dependency](#pytest-dependencies) task hit the reload tests button.
