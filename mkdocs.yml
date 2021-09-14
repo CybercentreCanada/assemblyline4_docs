@@ -97,7 +97,7 @@ nav:
       - developer_manual/services/developing_an_assemblyline_service.md
       - developer_manual/services/run_your_service.md
       - developer_manual/services/service_manifest.md
-    - Core Components: developer_manual/core/components.md
+    - Infrastructure: developer_manual/core/infrastructure.md
     - Frontend: developer_manual/frontend/frontend.md
     - Documentation: developer_manual/docs/docs.md
 

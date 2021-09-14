@@ -1,12 +1,12 @@
 # Infrastructure
 
-This section of the documentation will explain you how to setup your environment to make changes to Assemblyline's infrastructure and core components. 
+This section gives you a complete overview of all the different components of Assemblyline so you have a better idea of what they are used for.
 
 ## Dependencies
 
-Assemblyline uses two following external components to perform its tasks:
+The components listed here are external dependencies used by Assemblyline:
 
-| Dependencies | Description | |
+| Dependency | Description | |
 |-|-|-|
 | Docker | Docker is now at the heart of Assemblyline because all its components are now running as Docker containers. | [https://www.docker.com/](https://www.docker.com/) |
 | Kubernetes | For multi-computer installations, Assemblyline uses kubernetes to deploy the different Docker containers and keep them healthy. | [https://kubernetes.io/](https://kubernetes.io/) |
@@ -21,7 +21,9 @@ Assemblyline uses two following external components to perform its tasks:
 | Nginx | Nginx is used by Assemblyline as a proxy to give access to the user to the different user facing component: UI, API, Socket Server, Kibana. | [https://www.nginx.com/](https://www.nginx.com/) |
 | Minio | For our default file storage, we use Minio which perfectly replicates the Amazon S3 API and is built to work with Kubernetes. | [https://min.io/](https://min.io/) |
 
-## Components
+## Core Components
+
+The components listed here are Assemblyline made processes that perform various tasks in the system:
 
 | Core components | Description | Link |
 |-----------------|-------------|----|
