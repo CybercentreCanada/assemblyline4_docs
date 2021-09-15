@@ -3,7 +3,7 @@
 This section of the service documentation will show you how to run your service in 3 different ways:
 
 1. Standalone mode directly on a file
-2. Live code on an Assemblyline sytem
+2. Live code on an Assemblyline system
 3. Production container on an Assemblyline system
 
 !!! important
