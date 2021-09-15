@@ -202,7 +202,7 @@ The only three thing you will have to change for launching your service are the 
 
 1. The name of the launch target so you can pick it from the list later
 2. The environment variable `SERVICE_PATH`. This should be the python path to the service class relative to your current working directory.
-3. The current working directory. This should be the directory were you service code is, a new directory you create for you service inside the `~/git/services` folder.
+3. The current working directory. This should be the directory were your service code is, a new directory you've create for your service inside the `~/git/services` folder.
 
 #### Launch the service
 
