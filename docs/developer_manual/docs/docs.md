@@ -28,5 +28,4 @@ cd assemblyline4_docs
 mkdocs serve
 ```
 
-Alternatively, if you are using VSCode, you can the pre-configured task: `Launch Assemblyline Documention`
-
+Alternatively, if you are using VSCode, you can launch the pre-configured task: `Launch Assemblyline Documention`

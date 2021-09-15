@@ -29,6 +29,8 @@ We have two IDEs for you to pick from, both of which support local and remote de
 
 This is our recommended IDE since it is free and very easy to setup. Most of Assemblyline team has moved to this IDE and we use a mix of local and remote development with it. Once your done installing your VM, you can follow the instructions to get VSCode up and running using our simple [setup script](../vscode/setup_script).
 
+For instruction on how to use VSCode, refer to the [use VSCode](../vscode/use_vscode) documentation.
+
 ### Pycharm
 
 This IDE is much more robust in terms python development but the setup is a lot harder to get right too. There is both a paid and free alternative of this IDE. The free community edition of pycharm will allow you to do local develpment only and you will have to run the dependencies by hand using docker-compose. Were as the paid version, pycharm professional will let you manage docker dependencies inside the IDE and do remote development.

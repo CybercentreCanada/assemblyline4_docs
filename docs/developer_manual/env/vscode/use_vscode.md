@@ -1,10 +1,10 @@
 # Use VSCode
 
-Once the setup script is run, your installation of VSCode will be entirely ready to run and debug any components of Assemblyline and most launch targets are already pre-configured. This page will point you in the right direction to perform some of the more common task that you'll have to do.
+Once your done running the [setup script](../setup_script), your installation of VSCode will be entirely ready to run and debug any components of Assemblyline and most launch targets are already pre-configured. This page will point you in the right direction to perform some of the more common task that you'll have to do.
 
 ## Running Tasks
 
-After all recommended packaged are install in VSCode, the task button on the side bar should be revealed and will give you a quick access to the most important tasks in the system.
+After all recommended extensions are done installing in VSCode, the task button on the side bar should be revealed and will give you a quick access to the most important tasks in the system.
 
 ![Task Explorer](./images/task_explorer.png)
 
@@ -23,7 +23,7 @@ Container tasks execute one specific container in the system. Two of theses task
 
 #### Frontend
 
-The Frontend task is used to run the User Interface of assemblyline. It is only useful for when you launch the Assemblyline API Server in debug mode and are **NOT** using the ```core components``` task. Assemblyline's frontend is now built in Reactjs and is served via ```NPM serve``` which is why it is not part of this setup. Refer to the [frontend development](../../../frontend/frontend) page for more info on how to do development on Assemblyline frontend.
+The Frontend task is used to run the User Interface of Assemblyline. It is only useful for when you launch the Assemblyline API Server in debug mode and are **NOT** using the ```core components``` task. Assemblyline's frontend is now built in ReactJS and is served via ```NPM serve``` which is why it is not part of this setup. Refer to the [frontend development](../../../frontend/frontend) page for more info on how to do development on Assemblyline frontend.
 
 #### ResultSample
 
@@ -92,7 +92,7 @@ The core components tasks will also add two test user to the system:
 
 #### Scaler and Updater
 
-This task is an extra core component task that will launch updater and scaler. This task requires you to run one of the denpendency task as well as the core components task to run properly. Scaler and updater have been seperated from the core components task because they interfere with running services live in the system. You are unlikely to ever run this task unless you work on a issue loading container from scaler or updater.
+This task is an extra core component task that will launch updater and scaler. This task requires you to run one of the `denpendency` task as well as the `core components` task to run properly. Scaler and updater have been seperated from the core components task because they interfere with running services live in the system. You are unlikely to ever run this task unless you work on a issue loading container from scaler or updater.
 
 #### Services
 
@@ -102,10 +102,10 @@ This task will register all services to the system and allow them to be instanci
 
 The pytest dependencies tasks are used to setup the environement properly to be able to run the tests like if your were building the packages. There are 4 possible dependencies for the tests:
 
-* Base - To run the tests for the assemblyline-base repo
-* Core - To run the tests for the assemblyline-core repo
-* Service Server - To run the tests for the assemblyline-service-server repo
-* UI or All - To run the tests for the assemblyline-ui repo or any other repos for that matter
+* Base - To run the tests for the `assemblyline-base` repo
+* Core - To run the tests for the `assemblyline-core` repo
+* Service Server - To run the tests for the `assemblyline-service-server` repo
+* UI or All - To run the tests for the `assemblyline-ui` repo or any other repos for that matter
 
 !!! tip
     In most case, if you are running tests you can use ```UI or All``` tasks because all the tests will work with it but you might want to use the other tasks to save on resources and on dependency loading time.
@@ -162,7 +162,7 @@ In addition of creating the default users, this task will also use the random da
 
 ### Running live services
 
-Running services in a live Assemblyline system is the most important thing to know while building a service. It will allow you to send files via the User interface and put breakpoints in your service to catch files as they come throught for processing.
+Running services in a live Assemblyline dev environment is the most important thing to know while building a service. It will allow you to send files via the user interface and put breakpoints in your service to catch files as they come throught for processing.
 
 To run a service live in the system you will need to launch two components:
 
@@ -172,8 +172,8 @@ To run a service live in the system you will need to launch two components:
 !!! warning
     Here are a few things to consider before running a service live in debug mode:
 
-    1. You need to start not only the [Dependencies (Basic)](#dependencies) task but also the [Core components](#core-components) task will have to be started to ensure files get to your service.
-    2. You can only have **one** Task handler launch target running at the time therefor can only debug one service at the time. Task handler communicate with the service via fixed named in the `/tmp` directory which is the reason for that limitation.
+    1. You need to start both the [Dependencies (Basic)](#dependencies) and the [Core components](#core-components) tasks before starting your service to ensure that it will receive files.
+    2. You can only have **one** Task handler instance running at the time therefor can only debug one service at the time. Task handler communicate with the service via fixed named pipes in the `/tmp` directory which is the reason for that limitation.
     3. The first time you start a service, you'll have to start task handler and your service twice because the service stop itself after registering in the DB.
     4. You should launch your service from the VSCode window pointing to your services git folder (`~/git/services`) and for it to exist, you should have ran the `setup_script.sh` with the `-s` options.
 
@@ -200,7 +200,7 @@ To add a launch target for your service, you will have to modify the `.vscode/la
 
 The only three thing you will have to change for launching your service are the following
 
-1. The name so you can pick it from the list later
+1. The name of the launch target so you can pick it from the list later
 2. The environment variable `SERVICE_PATH`. This should be the python path to the service class relative to your current working directory.
 3. The current working directory. This should be the directory were you service code is, a new directory you create for you service inside the `~/git/services` folder.
 
@@ -214,7 +214,7 @@ Your service should now be running in live mode!
 
 ## Running Tests
 
-After running the setup script for VSCode, the testing interface from the VSCode python extension will show in your quick access side menu and will present you with all available unit tests. You can then simply click the test or group of test you want to run and hit the `play` button to run the tests.
+After running the [setup script](../setup_script) for VSCode, the testing interface from the VSCode python extension will be shown in your quick access side menu and will present you with all available unit tests. You can then simply click the test or group of test you want to run and hit the `play` button to run the tests.
 
 !!! warning
     Do not forget to first launch the appropriate [Pytest Dependency](#pytest-dependencies) from the tasks otherwise all the tests will fail.

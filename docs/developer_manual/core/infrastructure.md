@@ -30,10 +30,25 @@ The components listed here are Assemblyline made processes that perform various 
 | Alerter | Create alerts for the different submissions in the system. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/alerter) |
 | Dispatcher | Route the files in the system while a submission is tacking place. Make sure all files during a submission are completed by all required services. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/dispatching) |
 | Expiry | Delete submissions and their results when their TTL expires. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/expiry) |
+| Frontend | Provides the user interface to interact with Assemblyline. | [Source code](https://github.com/CybercentreCanada/assemblyline-ui-frontend) |
 | Ingester | Move ingested files from the priority queues to the processing queues. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/ingester) |
-| Metrics | Generates metrics of the different components in the system. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/metrics) |
+| Metrics Aggregator | Aggregate metrics of the different components in the system to save them into an ELK stack. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/metrics) |
+| Metrics Heartbeat | Provide live metrics in the system for the dashboard. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/metrics) |
 | Scaler | Spin up and down services in the system depending on the load. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/scaler) |
+| Statistics Aggregator | Generate daily statistics about signatures and heuristics. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/metrics) |
 | Updater | Make sure the different services get their latest update files. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/updater) |
 | Workflow | Run the different work flows in the system and apply their labels, priority and status. | [Source code](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/workflow) |
-| UI / Socket Server | Provides the User Interface, APIs and a socket.io interface to interact with Assemblyline. | [Source code](https://github.com/CybercentreCanada/assemblyline-ui) |
 | Service Server | Provides an API for services to get tasks and post their results. | [Source code](https://github.com/CybercentreCanada/assemblyline-service-server) |
+| UI / Socket Server | Provides the APIs and a socket.io interface to interact with Assemblyline. | [Source code](https://github.com/CybercentreCanada/assemblyline-ui) |
+
+## Service interfaces
+
+The interfaces listed here are used by Assemblyline's services to process files, generate results and communicate back to the Service Server:
+
+| Service Interface | Description | Link |
+|-------------------|-------------|------|
+| Python 2 Compatibility Library | A library that gives services python 2 compatibility. | [Source code](https://github.com/CybercentreCanada/assemblyline-v4-p2compat) |
+| Result | Class used by service to generate results in the system | [Source code](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py) |
+| Service Base | Base Assemblyline service class | [Source code](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/base.py) |
+| Service Request | Class that definines a request to scan a file for a given service | [Source code](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/request.py) |
+| Task Handler | A python wrapper that communicates with the service server to get task, download files and publish results. It communicates with the service via named pipes so the service can execute the received tasks. | [Source code](https://github.com/CybercentreCanada/assemblyline-service-client/tree/master/assemblyline_service_client) |

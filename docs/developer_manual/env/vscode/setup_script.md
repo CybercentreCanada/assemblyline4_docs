@@ -2,15 +2,19 @@
 
 Assemblyline's VSCode installation is now entirely scripted. It will setup for you the following things for you:
 
-- Install VSCode via snap
+- Install VSCode via snap (Optional)
 - Install AL4 development dependencies
-- Create a virtual python environment for your project
+- Clone all core component sources from github
+- Clone all services sources from github (Optional)
+- Create a virtual python environment for core components development
+- Create a virtual python environment for services development (optional)
 - Create Run targets inside VSCode for all core components and other important scripts
 - Create Tasks inside VSCode for development using Docker-Compose
 - Setup our code formatting standards
 - Deploy a local Docker registry on port 32000
 
-We recommend installing the VSCode extensions needed to use this environment once VSCode is launched in the workspace.
+!!! note
+    We recommend installing the VSCode extensions needed to use this environment once VSCode is launched in the workspace.
 
 ## Pre-requisites
 
@@ -20,7 +24,7 @@ The setup script assumes the following:
 - VSCode does not have to be running on the same host were you run this script so run this setup script on the target VM of a remote development setup
 - You have read the setup_vscode.sh script, this script will install and configure packages for ease of use.
 
-!!! tip
+!!! important
     If you are uncomfortable which some of the changes that it makes, you should comment them before running the script.
 
 ## Installation instruction
@@ -63,9 +67,9 @@ Run setup script. Choose the type of development you want to do and on what type
     ```
 
 !!! important
-    When running the setup script with the `Core and Services` you will get two dev folder: `~/git/alv4` and `~/git/services`.
+    When running the setup script for `Core and Services` installation you will get two dev folder: `~/git/alv4` and `~/git/services`.
 
-    The reason for this is that we want to make sure that services python dependencies don't interfere with core services dependencies. Therefor the `venv` are create with a different set of dependencies. The service `venv` will point to the core live code to install `assemblyline-base`, `assemblyline-core`, `assemblyline-v4-service` and `assemblyline-client`. That way, any modification you do to core packages it code will be reflected in your service instantly.
+    The reason for this is that we want to make sure that services python dependencies don't interfere with core services dependencies. Therefor two seperate `venv` are create with a different set of dependencies. The service `venv` will point to the core components live code to install `assemblyline-base`, `assemblyline-core`, `assemblyline-v4-service` and `assemblyline-client`. That way, any modification you do to core packages' code will be reflected in your service instantly.
 
 ## Post-installation instructions
 
