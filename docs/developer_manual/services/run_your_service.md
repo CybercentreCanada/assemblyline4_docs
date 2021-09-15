@@ -3,8 +3,8 @@
 This section of the service documentation will show you how to run your service in 3 different ways:
 
 1. Standalone mode directly on a file
-2. Live on an Assemblyline system in debug mode
-3. Live on an Assemblyline system in a production container
+2. Live code on an Assemblyline sytem
+3. Production container on an Assemblyline system
 
 !!! important
     This documentation assumes the following:
@@ -98,7 +98,7 @@ It will look something like this:
     }
     ```
 
-## Live Debug mode
+## Live mode
 The following technique is how to hook in a service to an Assemblyline development instance so you can perform live debugging and you can send files to your service using the Assemblyline UI.
 
 The way to run a service in debug mode will differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
@@ -113,7 +113,7 @@ The way to run a service in debug mode will differs depending if you've are usin
     2. The correct service python module for your service (`sample.Sample`)
     3. The correct working directory for your service (`~/git/services/assemblyline-service-sample`)
 
-### Live debugging from a shell
+### Run from a shell
 
 If you don't plan on doing any debugging and you just want to run the service live in your development environment, you can just spin up two shells and run `Task Handler` in one and your `Sample service` in the other.
 
@@ -139,7 +139,7 @@ cd ~/git/services/assemblyline-service-sample
 SERVICE_PATH=sample.Sample python -m assemblyline_v4_service.run_service
 ```
 
-## Productionize your service
+## Production container mode
 
 When your confident your service is stable enough, it is time to test it in its final form: A docker container.
 
@@ -155,6 +155,10 @@ Run the `docker build` command and tag the container with the same name that con
 ```bash
 docker build -t testing/assemblyline-service-sample .
 ```
+
+### Push the container to your local registry
+
+TBD
 
 ### Run the container LIVE
 The way to run a container LIVE in your development environment differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
@@ -178,7 +182,7 @@ docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | 
 
 ### Add the container to your deployment
 
-1. Using your web browser, go to the service management page: https://localhost/admin/services.html
+1. Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace loaclhost by your VM's IP)
 2. Click the `Add service` button
 3. Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
 4. Click the `Add` button
