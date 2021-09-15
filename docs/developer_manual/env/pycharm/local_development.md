@@ -2,7 +2,7 @@
 
 This documentation will show you how to setup you development Virtual Machine for local development using the Pycharm Community Edition IDE (This would also work with Pycharm Professional). It this setup, you will run your IDE inside the virtual machine where the Assemblyline containers are running. This is by far the easiest setup to get Pycharm working and removes a lot of headaches.
 
-## Operating system 
+## Operating system
 
 For this documentation, we will assume that you are working on a fresh installation of [Ubuntu 20.04 Desktop](https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-desktop-amd64.iso).
 
@@ -84,7 +84,7 @@ Lets install the desired pycharm version. The professional version is not needed
     sudo snap install --classic pycharm-professional
     ```
 
-## Adding Assemblyline specific configuration 
+## Adding Assemblyline specific configuration
 
 ### Data directories
 
@@ -152,7 +152,7 @@ ui:
 " > /etc/assemblyline/config.yml
 ```
 
-!!! tip 
+!!! tip
     As you can see in the last command we are setting the FQDN to 127.0.0.1.nip.io. NIP.IO is a service that will resolve the first part of the domain **127.0.0.1**.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs.
 
 ## Setup Assemblyline source
@@ -165,7 +165,7 @@ Since your VM running Ubuntu 20.04 you can just install it with APT:
 sudo apt install -y git
 ```
 
-!!! tip 
+!!! tip
     You should add your desktop SSH keys to your Github account to use Git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
 ### Clone core repositories
@@ -181,7 +181,7 @@ Clone Assemblyline's repositories
 === "Git via SSH"
     Use SSH if you have your SSH id_rsa file configured to your Github account
     ```shell
-    git clone git@github.com:CybercentreCanada/assemblyline-base.git 
+    git clone git@github.com:CybercentreCanada/assemblyline-base.git
     git clone git@github.com:CybercentreCanada/assemblyline-core.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-server.git
@@ -200,43 +200,155 @@ Clone Assemblyline's repositories
     git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
     ```
 
-### Setting up Core Virtualenv
+### Virtual Environment
 
 ```shell
-# Directly in the alv4 source directory 
+# Directly in the alv4 source directory
 cd ~/git/alv4
 
-# Create the virtualenv and activate it
+# Create the virtualenv
 python3.9 -m venv venv
-source ~/git/alv4/venv/bin/activate
 
 # Install Assemblyline packages with their test dependencies
-pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
+~/git/alv4/venv/bin/pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
 
 # Remove Assemblyline packages because we will use the live code
-pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
+~/git/alv4/venv/bin/pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
 ```
 
-## Setup PyCharm 
+## Setting up Services (Optional)
+If you plan on doing service development in pycharm as well you will need a dedicated directory for services with its own virtual environment.
 
-### Load ALv4 Project
+### Clone service repositories
 
- 1. Load **pycharm**
-    - Choose whatever configuration option you want until the **Welcome screen**
- 2. Click the **Open** button
- 3. Choose the **~/git/alv4 directory**
+Create the sercice working directory
+```shell
+mkdir -p ~/git/services
+cd ~/git/services
+```
 
- Your Python interpreter should already be loaded because PyCharm will take ./venv directory as the project interpreter by default. Let it load the interpreter...
+Clone Assemblyline's services repositories
+=== "Git via SSH"
+    Use SSH if you have your SSH id_rsa file configured to your Github account
+    ```shell
+    git clone git@github.com:CybercentreCanada/assemblyline-service-antivirus.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-avclass.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-beaver.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-characterize.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-configextractor.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-cuckoo.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-deobfuscripter.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-emlparser.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-espresso.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-extract.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-floss.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-frankenstrings.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-iparse.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-metadefender.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-metapeek.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-oletools.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pdfid.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-peepdf.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pefile.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pixaxe.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-safelist.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-sigma.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-suricata.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-swiffer.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-torrentslicer.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-unpacker.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-unpacme.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-vipermonkey.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-dynamic.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-static.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-yara.git
+    ```
 
-### Setup project structure
+=== "Git via HTTPS"
+    Use HTTPS if you don't have your Github account configured with an SSH key
+    ```shell
+    git clone https://github.com/CybercentreCanada/assemblyline-service-antivirus.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-avclass.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-beaver.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-characterize.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-configextractor.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-cuckoo.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-emlparser.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-espresso.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-extract.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-floss.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-frankenstrings.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-iparse.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-metadefender.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-metapeek.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-oletools.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pdfid.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-peepdf.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pefile.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pixaxe.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-safelist.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-sigma.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-suricata.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-swiffer.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-torrentslicer.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-unpacker.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-unpacme.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-vipermonkey.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-static.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-yara.git
+    ```
 
- 1. Click **Files** -> **Settings**
- 2. Select **Project: alv4** -> **Python Structure**
- 3. For each top level folder (**assemblyline-base**, **assemblyline-core**...)
-    - Click on it
-    - Click **Source**
- 4. Click **apply** then **OK**
+### Virtual Environment
+
+```shell
+# Directly in the services source directory
+cd ~/git/services
+
+# Create the virtualenv
+python3.9 -m venv venv
+
+# Install Assemblyline packages from source in the services virtualenv
+~/git/services/venv/bin/pip install -e ~/git/alv4/assemblyline-base
+~/git/services/venv/bin/pip install -e ~/git/alv4/assemblyline-core
+~/git/services/venv/bin/pip install -e ~/git/alv4/assemblyline-service-client
+~/git/services/venv/bin/pip install -e ~/git/alv4/assemblyline-v4-service
+```
+
+## Setup PyCharm for core
+
+1. Load Pycharm
+    - Choose whatever configuration option you want until the `Welcome screen`
+2. Click the `Open` button
+3. Choose the `~/git/alv4` directory
+
+!!! info
+    Your Python interpreter shows as `No Interpreter` in the bottom right corner of the window, do the following:
+
+    1. Click on it
+    2. Click add interpreter
+    3. Choose "Existing Environment"
+    4. Click "OK"
+
+## Setup PyCharm for service (optional)
+
+1. From your core Pycharm window open the `File menu` then click `Open`
+2. Choose the `~/git/services` directory
+3. Select `New Window`
+
+!!! info
+    Your Python interpreter shows as `No Interpreter` in the bottom right corner of the window, do the following:
+
+    1. Click on it
+    2. Click add interpreter
+    3. Choose "Existing Environment"
+    4. Click "OK"
 
 ## Use Pycharm
 
-Now that your Local development VM is setup you should read the [use Pycharm](../use_pycharm) doucmentation to get you started.
+Now that your Local development VM is setup you should read the [use Pycharm](../use_pycharm) documentation to get you started.

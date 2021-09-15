@@ -5,8 +5,8 @@
 
 This document will show you how to setup your target Virtual Machine for remote development which means that you will run your IDE on your desktop and run the Assemblyline containers on the remote target VM.
 
-## On the target VM 
-### Operating system 
+## On the target VM
+### Operating system
 
 For this document, we will assume that you are working on a fresh installation of [Ubuntu 20.04 Server](https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-live-server-amd64.iso).
 
@@ -81,7 +81,7 @@ docker-compose --version
 
 ##### Securing docker for remote access
 
-We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a **static IP** to the remote VM because your cert will only allow connections to that IP.
+We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a `static IP` to the remote VM because your cert will only allow connections to that IP.
 ```shell
 # Create a cert directory
 mkdir ~/certs
@@ -116,7 +116,7 @@ chmod -v 0444 ca.pem server-cert.pem cert.pem
 # Moving server certs to their permanent location
 sudo mkdir -p /etc/docker/certs
 sudo mv server*.pem /etc/docker/certs
-sudo cp ca.pem /etc/docker/certs    
+sudo cp ca.pem /etc/docker/certs
 
 # Add system.d override configuration for docker to start the tcp with tls port
 sudo mkdir -p /etc/systemd/system/docker.service.d/
@@ -127,7 +127,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --tlsverify --tlscacert=/etc/docker/certs/ca
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-# Test the TLS connection with curl 
+# Test the TLS connection with curl
 curl https://127.0.0.1:2376/images/json --cert ~/certs/cert.pem --key ~/certs/key.pem --cacert ~/certs/ca.pem
 
 # Create an archive with the client certs
@@ -136,7 +136,7 @@ tar czvf certs.tgz ca.pem cert.pem key.pem
 
 The archive file `~/certs/certs.tgz` will have to be transferred to your desktop. We will use its content to log into the Docker daemon from your desktop.
 
-### Adding Assemblyline specific configuration 
+### Adding Assemblyline specific configuration
 
 #### Assemblyline folders
 
@@ -203,62 +203,60 @@ ui:
 " > /etc/assemblyline/config.yml
 ```
 
-!!! tip 
-    As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolve the first part of the domain **YOUR_IP**.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs. You can also replace the FQDN with your DNS name if you have one.
+!!! tip
+    As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolve the first part of the domain `YOUR_IP`.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs. You can also replace the FQDN with your DNS name if you have one.
 
 ### Setup Python Virtual Environments
 
-We will make two Python virtual environments: 
+We will make two Python virtual environments:
 
- - One for the core components 
- - One for services 
+ - One for the core components
+ - One for services
 
 That should be enough to cover most cases. If a service has conflicting dependencies with another, I suggest you create a separate virtualenv for it when you try to debug it. The core components should all be fine in the same environment.
 
 #### Setting up Core Virtualenv
 
 ```shell
-# Make sure venv dir exist and we are in it 
+# Make sure venv dir exist and we are in it
 mkdir -p ~/venv
 cd ~/venv
 
-# Create the virtualenv and activate it
+# Create the virtualenv
 python3.9 -m venv core
-source ~/venv/core/bin/activate
 
 # Install Assemblyline packages with their test dependencies
-pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
+~/venv/core/bin/pip install assemblyline[test] assemblyline-core[test] assemblyline-service-server[test] assemblyline-ui[test]
 
 # Remove Assemblyline packages because we will use the live code
-pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
+~/venv/core/bin/pip uninstall -y assemblyline assemblyline-core assemblyline-service-server assemblyline-ui
 ```
 
-#### Setting up Service Virtualenv
+#### Setting up Service Virtualenv (optional)
 
 ```shell
-# Make sure venv dir exist and we are in it 
+# Make sure venv dir exist and we are in it
 mkdir -p ~/venv
 cd ~/venv
 
-# Create the virtualenv and activate it
+# Create the virtualenv
 python3.9 -m venv services
-source ~/venv/services/bin/activate
 
 # Install Assemblyline Python client
-pip install assemblyline-client --pre
+~/venv/services/bin/pip install assemblyline-client
 
 # Install Assemblyline service packages
-pip install assemblyline-service-client assemblyline-v4-service 
+~/venv/services/bin/pip install assemblyline-service-client assemblyline-v4-service
 
 # Remove Assemblyline packages because we will use the live code
-pip uninstall -y assemblyline assemblyline-core assemblyline-service-client assemblyline-v4-service
+~/venv/services/bin/pip uninstall -y assemblyline assemblyline-core assemblyline-service-client assemblyline-v4-service
 ```
 
 ## On your desktop
 
 We are now done setting up the target VM. For the rest of the instructions, we will mainly setup your PyCharm IDE to interface with the target VM.
 
-### Get your Docker certs and install them 
+### Get your Docker certs and install them
 
 ```shell
 mkdir -p ~/docker_certs
@@ -268,7 +266,7 @@ tar zxvf certs.tgz
 rm certs.tgz
 ```
 
-### Install PyCharm 
+### Install PyCharm
 
 You can download PyCharm Professional directly from [jetbrains](https://www.jetbrains.com/pycharm/)'s website but if your desktop is running Ubuntu 20.04, you can just install it with snap:
 
@@ -283,10 +281,12 @@ You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but
 sudo apt install -y git
 ```
 
-!!! tip 
+!!! tip
     You should add your desktop SSH keys to your Github account to use Git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
-### Clone core repositories
+### Clone repositories
+
+#### Core components
 
 Create the core working directory
 ```shell
@@ -299,7 +299,7 @@ Clone Assemblyline's repositories
 === "Git via SSH"
     Use SSH if you have your SSH id_rsa file configured to your Github account
     ```shell
-    git clone git@github.com:CybercentreCanada/assemblyline-base.git 
+    git clone git@github.com:CybercentreCanada/assemblyline-base.git
     git clone git@github.com:CybercentreCanada/assemblyline-core.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-client.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-server.git
@@ -318,52 +318,163 @@ Clone Assemblyline's repositories
     git clone https://github.com/CybercentreCanada/assemblyline-v4-service.git
     ```
 
-### Setup PyCharm 
+#### Services (optional)
 
-#### Load ALv4 Project
+Create the sercice working directory
+```shell
+mkdir -p ~/git/services
+cd ~/git/services
+```
 
- 1. Load **pycharm-professional**
-    - Choose whatever configuration option you want until the **Welcome screen**
- 2. Click the **Open** button
- 3. Choose the **~/git/alv4 directory**
+Clone Assemblyline's services repositories
+=== "Git via SSH"
+    Use SSH if you have your SSH id_rsa file configured to your Github account
+    ```shell
+    git clone git@github.com:CybercentreCanada/assemblyline-service-antivirus.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-avclass.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-beaver.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-characterize.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-configextractor.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-cuckoo.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-deobfuscripter.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-emlparser.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-espresso.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-extract.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-floss.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-frankenstrings.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-iparse.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-metadefender.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-metapeek.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-oletools.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pdfid.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-peepdf.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pefile.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pixaxe.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-safelist.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-sigma.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-suricata.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-swiffer.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-torrentslicer.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-unpacker.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-unpacme.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-vipermonkey.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-dynamic.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-static.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-yara.git
+    ```
 
-#### Setup remote deployment and interpreter
+=== "Git via HTTPS"
+    Use HTTPS if you don't have your Github account configured with an SSH key
+    ```shell
+    git clone https://github.com/CybercentreCanada/assemblyline-service-antivirus.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-avclass.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-beaver.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-characterize.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-configextractor.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-cuckoo.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-emlparser.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-espresso.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-extract.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-floss.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-frankenstrings.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-iparse.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-metadefender.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-metapeek.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-oletools.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pdfid.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-peepdf.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pefile.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pixaxe.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-safelist.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-sigma.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-suricata.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-swiffer.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-torrentslicer.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-unpacker.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-unpacme.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-vipermonkey.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-static.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-yara.git
+    ```
 
- 1. Click **Files** -> **Settings**
- 2. Select **Project: alv4** -> **Python Interpreter**
- 3. Click the **cog wheel** on the top right -> **Add** 
- 4. Select **SSH Interpreter** -> **New Configuration**
-    - Host: IP or DNS name of your target VM
-    - Username: username of the user on the target VM
-    - Port: 22 unless you changed it...
- 5. Click **Next**
- 6. Put your target VM password in the box, check **Save password** and click **Next**
- 7. In the next window, do the following: 
-    - For the **interpreter box**, click the little **folder** and select your core venv (**/home/YOUR_TARGET_USER/venv/core/bin/python3.9**)
-    - For the **Sync folders** box, click the little **folder** and for the remote path set the path to: **/home/YOUR_TARGET_USER/git/alv4** then click **OK** (ensure target directory has write permissions for all users)
-    - Make sure **Automatically upload files to the server** is checked
-    - Make sure  **Execute code using this interpreter with root privileges via sudo** is checked
-    - Hit **Finish**
- 8. Click **Ok**
- 9. Let it load the interpreter and do the transfers
+### Setup PyCharm for core
 
-#### Setup project structure
+Start with loading the core directory in Pycharm:
 
- 1. Click **Files** -> **Settings**
- 2. Select **Project: alv4** -> **Project Structure**
- 3. For each top level folder (**assemblyline-base**, **assemblyline-core**...)
-    - Click on it
-    - Click **Sources**
- 4. Select **assemblyline-ui/assemblyline_ui/static/ng-template** then click **Template**
- 5. Select **assemblyline-ui/assemblyline_ui/static/** then click **Resources**
- 6. Click **apply** then **OK**
+!!! example "Load core folder"
+    1. Load Pycharm Professional
+        - Choose whatever configuration option you want until the `Welcome screen`
+    2. Click the `Open` button
+    3. Choose the `~/git/alv4` directory
 
-#### Setup link to remote docker
+The setup the remote deployment interpreter:
 
- 1. Click **Files** -> **Settings**
- 2. Select **build, Execution, Deployment** -> **Docker**
- 3. Click the little **+** on top left
- 4. Select **TCP Socket**
-    - In engine API URL put: **https://TARGET_VM_IP:2376**
-    - In Certificates folder, click the little folder and browse to **~/docker_certs** directory
- 5. Click **OK**
+!!! example "Setup core remote interpreter"
+    1. Click `Files` -> `Settings`
+    2. Select `Project: alv4` -> `Python Interpreter`
+    3. Click the `cog wheel` on the top right -> `Add`
+    4. Select `SSH Interpreter` -> `New Configuration`
+        - Host: IP or DNS name of your target VM
+        - Username: username of the user on the target VM
+        - Port: 22 unless you changed it...
+    5. Click `Next`
+    6. Put your target VM password in the box, check `Save password` and click `Next`
+    7. In the next window, do the following:
+        - For the `interpreter box`, click the little `folder` and select your core venv (`/home/YOUR_TARGET_USER/venv/core/bin/python3.9`)
+        - For the `Sync folders` box, click the little `folder` and for the remote path set the path to: `/home/YOUR_TARGET_USER/git/alv4` then click `OK` (ensure target directory has write permissions for all users)
+        - Make sure `Automatically upload files to the server` is checked
+        - Make sure  `Execute code using this interpreter with root privileges via sudo` is checked
+        - Hit `Finish`
+    8. Click `Ok`
+    9. Let it load the interpreter and do the transfers
+
+Finally link docker for remote management:
+
+!!! example "Setup docker remote management"
+    1. Click `Files` -> `Settings`
+    2. Select `build, Execution, Deployment` -> `Docker`
+    3. Click the little `+` on top left
+    4. Select `TCP Socket`
+        - In engine API URL put: `https://TARGET_VM_IP:2376`
+        - In Certificates folder, click the little folder and browse to `~/docker_certs` directory
+    5. Click `OK`
+
+### Setup PyCharm for service (optional)
+
+Start with loading the core directory in Pycharm:
+
+!!! example "Load services folder"
+    1. From your core Pycharm window open the `File menu` then click `Open`
+    3. Choose the `~/git/services` directory
+    3. Select `New Window`
+
+The setup the remote deployment interpreter:
+
+!!! example "Setup services remote interpreter"
+    1. Click `Files` -> `Settings`
+    2. Select `Project: services` -> `Python Interpreter`
+    3. Click the `cog wheel` on the top right -> `Add`
+    4. Select `SSH Interpreter` -> `New Configuration`
+        - Host: IP or DNS name of your target VM
+        - Username: username of the user on the target VM
+        - Port: 22 unless you changed it...
+    5. Click `Next`
+    6. Put your target VM password in the box, check `Save password` and click `Next`
+    7. In the next window, do the following:
+        - For the `interpreter box`, click the little `folder` and select your core venv (`/home/YOUR_TARGET_USER/venv/services/bin/python3.9`)
+        - For the `Sync folders` box, click the little `folder` and for the remote path set the path to: `/home/YOUR_TARGET_USER/git/services` then click `OK` (ensure target directory has write permissions for all users)
+        - Make sure `Automatically upload files to the server` is checked
+        - Make sure  `Execute code using this interpreter with root privileges via sudo` is checked
+        - Hit `Finish`
+    8. Click `Ok`
+    9. Let it load the interpreter and do the transfers
+
+## Use Pycharm
+
+Now that your Remote development VM is setup you should read the [use Pycharm](../use_pycharm) documentation to get you started.
