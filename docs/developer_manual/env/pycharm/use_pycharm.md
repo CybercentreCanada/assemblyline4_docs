@@ -78,6 +78,10 @@ Core services depend on the dependencies in the docker-compose file. When the co
     sudo docker-compose down
     ```
 
+## Load single container live
+
+TBD
+
 ## Run components live from PyCharm
 
 ### Core Components

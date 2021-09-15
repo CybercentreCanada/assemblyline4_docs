@@ -1,127 +1,186 @@
 # Run your service
 
-To test an Assemblyline service in standalone mode, the
-`run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package
-can be used to run a single task through the service for testing.
+This section of the service documentation will show you how to run your service in 3 different ways:
 
-## Setting up dev environment
-**NOTE:** The following environment setup has only been tested on Ubuntu 18.04.
+1. Standalone mode directly on a file
+2. Live on an Assemblyline system in debug mode
+3. Live on an Assemblyline system in a production container
 
-1. Install required packages
+!!! important
+    This documentation assumes the following:
 
-    ```bash
-    sudo apt-get install build-essential libffi-dev python3.7 python3.7-dev python3-pip automake autoconf libtool libfuzzy-dev
+    1. You have read throught the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
+    2. You have completed the [developing an Assemblyline service](../developing_an_assemblyline_service) documentation and your service is located in the `~/git/services/assemblyline-service-sample` directory on the machine where your IDE runs.
+    3. Wether you are using VSCode or Pycharm as your IDE, you have a virtual environment dedicated to running services either located at `~/git/services/venv` or `~/venv/services` on the VM where the code runs
+
+## Standalone mode
+To test an Assemblyline service in standalone mode, the `run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package can be used to run a single task through the service for testing.
+
+### Running the Sample service
+Load the virtual environment
+
+```shell
+source ~/git/services/venv/bin/activate
+```
+
+Ensure the current working directory is the root of the service directory of the service to be run.
+
+```shell
+cd ~/git/services/assemblyline-service-sample
+```
+
+From a terminal, run the `run_service_once` module, specifying the service path for the service to run and the path to the file to scan. For the pupose of this exemple we will have teh service scan itself.
+
+```shell
+python -m assemblyline_v4_service.dev.run_service_once sample.Sample sample.py
+```
+
+The `run_service_once` module creates a directory at the same spot where the file is found with the service name that scanned the file appended to it. In the provious example, the output of the service should be located at: `~/git/services/assemblyline-service-sample/sample.py_sample`. The directory will contain a `result.json` file containing the result from the service.
+
+You can view the `result.json` file using the following command:
+
+```shell
+cat ~/git/services/assemblyline-service-sample/sample.py_sample/result.json | json_pp
+```
+
+It will look something like this:
+!!! example "~/git/services/assemblyline-service-sample/sample.py_sample/result.json pretty printed"
+    ```json
+    {
+        "classification" : "TLP:W",
+        "drop_file" : false,
+        "response" : {
+            "extracted" : [],
+            "milestones" : {
+                "service_completed" : "2021-09-15T15:52:47.024909Z",
+                "service_started" : "2021-09-15T15:52:47.024761Z"
+            },
+            "service_context" : null,
+            "service_debug_info" : null,
+            "service_name" : "sample",
+            "service_tool_version" : null,
+            "service_version" : "1",
+            "supplementary" : []
+        },
+        "result" : {
+            "score" : 100,
+            "sections" : [
+                {
+                    "auto_collapse" : false,
+                    "body" : "This is a line displayed in the body of the section",
+                    "body_format" : "TEXT",
+                    "classification" : "TLP:W",
+                    "depth" : 0,
+                    "heuristic" : {
+                    "attack_ids" : [],
+                    "frequency" : 1,
+                    "heur_id" : 1,
+                    "score" : 100,
+                    "score_map" : {},
+                    "signatures" : {}
+                    },
+                    "tags" : {
+                    "network" : {
+                        "static" : {
+                            "domain" : [
+                                "cyber.gc.ca"
+                            ]
+                        }
+                    }
+                    },
+                    "title_text" : "Example of a default section",
+                    "zeroize_on_tag_safe" : false
+                }
+            ]
+        },
+        "sha256" : "dab595d88c22eba68e831e072471b02206d12cb29173c708c606416ecf50b942",
+        "temp_submission_data" : {}
+    }
     ```
-    
-2. Install Assemblyline 4 service package
 
-    ```bash
-    pip3 install --user assemblyline-v4-service
-    ```
-    **NOTE** Ubuntu 18.04 defaults to Python3.6 may need to run this instead 
-    ```bash
-    python3.7 -m pip install --user assemblyline-v4-service
-    ```
-3. Add your service development directory path (ie. `/home/ubuntu/alv4_services`) to the PYTHONPATH environment variable
+## Live Debug mode
+The following technique is how to hook in a service to an Assemblyline development instance so you can perform live debugging and you can send files to your service using the Assemblyline UI.
 
-## Using the *run_service_once* module
-### Steps
-1. Ensure the current working directory is the root of the service directory of the service to be run
+The way to run a service in debug mode will differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
 
-    ```bash
-    cd <service root directory>
-   ```
-   
-2. From a terminal, run the `run_service_once` module, where `<service path>` is the path to the service module and `<file path>` is the path of the file to be processed
+* [Run a service LIVE in VSCode](../../env/vscode/use_vscode/#running-live-services)
+* [Run a service LIVE in Pycharm](../../env/pycharm/use_pycharm/#live-services)
 
-    ```bash
-   python3.7 -m assemblyline_v4_service.dev.run_service_once <service path> <file path>
-   ```
-   
-3. The output of the service (`result.json` and extracted/supplementary files) will be located in a directory where the
-   input file is located 
-   
-### Example of running the Tutorial service
-1. Change working directory to root of the service:
+!!! important
+    You will need to adjust the documentation according to:
 
-    ```bash
-   cd <path to the tutorial service directory>
-   ```
-   
-2. Run the `run_service_once` module
+    1. The correct name for your service (`Sample`)
+    2. The correct service python module for your service (`sample.Sample`)
+    3. The correct working directory for your service (`~/git/services/assemblyline-service-sample`)
 
-    ```bash
-    python3.7 -m assemblyline_v4_service.dev.run_service_once result_sample.ResultSample <path to a file to scan>
-   ```
-   
-3. The `results.json` and any extracted/supplementary files will be outputted to `<previously provided path to a file to scan>_resultsample` directory
+### Live debugging from a shell
 
-## Using the *run_service* module
-### Use Case
-The following technique is how to hook in a service to an Assemblyline instance without using a Docker container for the service.
-The purpose of this technique is if you wish to avoid Docker container use for your service (if you don't, see 
-[Get your service working inside a container](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/services/run_your_service.html#get-your-service-working-inside-a-container)).
+If you don't plan on doing any debugging and you just want to run the service live in your development environment, you can just spin up two shells and run `Task Handler` in one and your `Sample service` in the other.
 
-### Prerequisites
-- You will need to install all packages required by your service in the virtual machine (both pip and apt).
-- You will need to upload the repositories of your service and the assemblyline-service-client to the virtual machine.
+#### Task Handler
+```shell
+# Load your service virtual environment
+source ~/git/services/venv/bin/activate
 
-### Steps for Running in PyCharm
-1. Set up the Task Handler
-- Right click on `assemblyline-service-client/assemblyline_service_client/task_handler.py` in your project window and select `Create 'task_handler'...`.
-- In the window "Create Run Configuration: 'task_handler'" set the following:
-  - Name: task_handler
-  - Script path: `<your path>/assemblyline-service-client/assemblyline_service_client/task_handler.py`
-  - Python interpreter: `<the Python interpreter on the virtual machine>`
-  - Working directory: `<your path>/assemblyline-service-client/assemblyline_service_client`
-- OK
+# Run task handler
+python -m assemblyline_service_client.task_handler
+```
 
-2. Set up `run_service` for your service
-- Run -> Edit Configurations
-- In the window "Run/Debug Configurations", set the following:
-  - Click the "+"
-  - Select "Python"
-  - Name: <Your service name> via RunService
-  - Module name: `assemblyline_v4_service.run_service`
-  - Environment variables: `<default variables (usually PYTHONBUFFERED=1)>;SERVICE_PATH=<module path to main class in service>`
-  - Python interpreter: `<the Python interpreter on the virtual machine>`
-  - Working directory: `<your path>/assemblyline-service-<service name>`
-- OK
+#### Sample service
 
-3. Run/debug the `task_handler` run configuration
-- The task handler awaits a service to be registered...
-4. Run/debug the `<Your service name> via RunService` run configuration
-- The service registers with the task handler, task handler exits
-5. Note that the task handler has now registered your service and exited. So you need to 
-run the `task_handler` run configuration once more before you can submit tasks to it via the UI.
-6. Use a web browser to head to the service configuration page at https://<virtual machine IP>>/admin/services.html
-7 You should see your service loaded and disabled. Enable it and submit away!
+```shell
+# Load your service virtual environment
+source ~/git/services/venv/bin/activate
 
-Note: If you are making changes to your service and loading it into the Assemblyline instance using this technique, 
-you will need to restart the `<Your service name> via RunService` run configuration every time you want your code changes
-updated.
+# Go to your service directory
+cd ~/git/services/assemblyline-service-sample
 
-## Get your service working inside a container
-### Build the service container
-1. Change working directory to root of the service:
+# Run your service
+SERVICE_PATH=sample.Sample python -m assemblyline_v4_service.run_service
+```
 
-    ```bash
-   cd <path to the tutorial service directory>
-   ```
-   
-2. Run the `docker build` command and tag the container with the same name that container name has in your service manifest
+## Productionize your service
 
-    ```bash
-    docker build -t testing/assemblyline-service-resultsample .
-   ```
+When your confident your service is stable enough, it is time to test it in its final form: A docker container.
+
+### Build the container
+Change working directory to root of the service:
+
+```bash
+cd ~/git/services/assemblyline-service-sample
+```
+
+Run the `docker build` command and tag the container with the same name that container name has in your service manifest
+
+```bash
+docker build -t testing/assemblyline-service-sample .
+```
+
+### Run the container LIVE
+The way to run a container LIVE in your development environment differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
+
+* [Run a single container in VSCode](../../env/vscode/use_vscode/#resultsample)
+* [Run a single container in Pycharm](../../env/pycharm/use_pycharm/#load-single-container-live)
+
+!!! important
+    You will need to adjust the documentation according to:
+
+    1. The correct name for your service (`Sample`)
+    2. The correct container name (`testing/assemblyline-service-sample`)
+
+#### Run container from a shell
+If you dont want to use the IDE to test your production container, you can always run it strait from a shell.
+
+Use the following command to run it:
+```shell
+docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | awk '{print $2}' | cut -f1 -d"/"`:5003 --network=host testing/assemblyline-service-sample
+```
 
 ### Add the container to your deployment
 
 1. Using your web browser, go to the service management page: https://localhost/admin/services.html
 2. Click the `Add service` button
-3. Paste the entire content of the `service_manifest.yaml` file in the text box
+3. Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
 4. Click the `Add` button
 
 Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.
-
-

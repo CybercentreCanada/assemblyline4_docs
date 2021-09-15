@@ -51,6 +51,11 @@ The ResultSample task was created to show the developers how to run newly create
 
     Essentially, all this does is it runs the ```docker run``` command and specify where the *service server* API is located. You can change the ```LOCAL_IP``` environment variable if your docker subnet is different.
 
+    If you want to make sure docker's local ip is indeed the default, `172.17.0.1`, just run that command:
+    ```shell
+    ip addr show docker0 | grep "inet " | awk '{print $2}' | cut -f1 -d"/"
+    ```
+
 ### Docker compose tasks
 
 The docker compose tasks are use to run sets of predefined dependencies in the system.
