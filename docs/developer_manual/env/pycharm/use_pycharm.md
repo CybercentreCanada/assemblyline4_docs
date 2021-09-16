@@ -80,7 +80,40 @@ Core services depend on the dependencies in the docker-compose file. When the co
 
 ## Load single container live
 
-TBD
+Load a single container is very useful to test a newly create production service container or to launch the frontend while the backend is being debugged.
+
+You can easily load any container live in your Assemblyline Dev environment by following these instructions:
+
+!!! note
+    For the purpose of this demo we will assume that you want to run the service container form the [developing an Assemblyline service](../../../services/developing_an_assemblyline_service) documentation.
+
+=== "Pycharm Professional"
+
+    1. Click the `Run` menu then select `Edit Configurations...`
+    2. Click the `+` button at the top left`
+    3. Select "Docker Image"
+    4. In the `Name` field at the top, set the name to: `Sample Service - Container`
+    5. Set the `Image ID` to: `testing/assemblyline-service-sample`
+    6. Set the `Container Name` to SampleService
+    7. Click the modify options and select `Environment variables`
+    8. Add the following environment variable: `SERVICE_API_HOST=http://172.17.0.1:5003`
+    9. Click the modify options and select `Run options`
+    10. Add the following `Run option`: `-network host`
+    11. Click `OK`
+
+    !!! tip
+        From now on you can just select the `Sample Service - Container` run configuration from the dropdown up top and hit the run button to launch it.
+
+=== "Docker (Pycharm Community)"
+
+    Pycharm community does not have support for managing docker containers, therefor you will have to run your containers using shell.
+
+    In a new terminal on the VM, run the following commands:
+    ```shell
+    docker run --env SERVICE_API_HOST=http://172.17.0.1:5003 --network=host --name SampleService testing/assemblyline-service-sample
+    ```
+    !!! tip
+        This will take over the terminal and the logs will be displayed there. Hit ```ctrl-c``` when you want to shut the containers down.
 
 ## Run components live from PyCharm
 
@@ -105,10 +138,13 @@ The main exception to very easy-to-run components are debugging services live in
 
 We will show you how to run the Sample service live in the system created in the [developing and Assemblyline service](../../../services/developing_an_assemblyline_service) documentation. This requires you to run the full infrastructure using the docker-compose files prior to execute the steps. ([Minimal dependencies](#minimal-dependencies) and [Core services](#core-services))
 
+!!! important
+    Run the following example inside the Pycharm window pointing to the services (`~/git/services`)
+
 !!! example
     Setup `Task handler` run configuration if does not exist:
 
-    1. Inside the Pycharm window pointing to the services (`~/git/services`), you should see an `Add configuration` button, click on it.
+    1. Click the "Run" menu then select "Edit Configurations..."
     2. Click the `+` button at the top left
     3. Click `Python`
     4. First option in the configuration tab is a drop down that says `Script path:` click it and choose `Module Name:`
@@ -120,7 +156,7 @@ We will show you how to run the Sample service live in the system created in the
 
     Setup the new service configuration:
 
-    1. Click on the dropdown menu that has your newly created run configuration (`Task handler`) then click `Edit configurations...`
+    1. Click the "Run" menu then select "Edit Configurations..."
     2. Click the `+` button at the top left
     3. Click `Python`
     4. First option in the configuration tab is a drop down that says `Script path:` click it and choose `Module Name:`
