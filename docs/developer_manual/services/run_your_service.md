@@ -177,12 +177,12 @@ If you dont want to use the IDE to test your production container, you can alway
 
 Use the following command to run it:
 ```shell
-docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | awk '{print $2}' | cut -f1 -d"/"`:5003 --network=host testing/assemblyline-service-sample
+docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | awk '{print $2}' | cut -f1 -d"/"`:5003 --network=host --name SampleService testing/assemblyline-service-sample
 ```
 
 ### Add the container to your deployment
 
-1. Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace loaclhost by your VM's IP)
+1. Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace localhost by your VM's IP)
 2. Click the `Add service` button
 3. Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
 4. Click the `Add` button
