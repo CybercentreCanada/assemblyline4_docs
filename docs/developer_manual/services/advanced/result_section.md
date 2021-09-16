@@ -175,20 +175,355 @@ Parameters:
     ```
 
 ## Section types
+These are all the result section types that Assemblyline support, you can see a screenshot of each sections as well as the code that was used to generate the actual section.
 
-### Text
+### TEXT
+
 ![TEXT](./images/text.png)
-### Memory Dump
+
+??? example "Code used to generate the TEXT section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Standard text section: BODY_FORMAT.TEXT - DEFAULT
+    #   Text sections basically just dumps the text to the screen...
+    #     All sections scores will be SUMed in the service result
+    #     The Result classification will be the highest classification found in the sections
+    text_section = ResultSection('Example of a default section')
+    # You can add lines to your section one at a time
+    #   Here we will generate a random line
+    text_section.add_line(get_random_phrase())
+    # Or your can add them from a list
+    #   Here we will generate random amount of random lines
+    text_section.add_lines([get_random_phrase() for _ in range(random.randint(1, 5))])
+    # You can tag data to a section, tagging is used to to quickly find defining information about a file
+    text_section.add_tag("attribution.implant", "ResultSample")
+    # If the section needs to affect the score of the file you need to set a heuristics
+    #   Here we will pick one at random
+    #     In addition to add a heuristic, we will associated a signature with the heuristic,
+    #     we're doing this by adding the signature name to the heuristic. (Here we generating a random name)
+    text_section.set_heuristic(3, signature="sig_one")
+    # You can attach attack ids to heuristics after they where defined
+    text_section.heuristic.add_attack_id(random.choice(list(software_map.keys())))
+    text_section.heuristic.add_attack_id(random.choice(list(attack_map.keys())))
+    text_section.heuristic.add_attack_id(random.choice(list(group_map.keys())))
+    text_section.heuristic.add_attack_id(random.choice(list(revoke_map.keys())))
+    # Same thing for the signatures, they can be added to heuristic after the fact and you can even say how
+    #   many time the signature fired by setting its frequency. If you call add_signature_id twice with the
+    #   same signature, this will effectively increase the frequency of the signature.
+    text_section.heuristic.add_signature_id("sig_two", score=20, frequency=2)
+    text_section.heuristic.add_signature_id("sig_two", score=20, frequency=3)
+    text_section.heuristic.add_signature_id("sig_three")
+    text_section.heuristic.add_signature_id("sig_three")
+    text_section.heuristic.add_signature_id("sig_four", score=0)
+    # The heuristic for text_section should have the following properties
+    #   1. 1 attack ID: T1066
+    #   2. 4 signatures: sig_one, sig_two, sig_three and sig_four
+    #   3. Signature frequencies are cumulative therefor they will be as follow:
+    #      - sig_one = 1
+    #      - sig_two = 5
+    #      - sig_three = 2
+    #      - sig_four = 1
+    #   4. The score used by each heuristic is driven by the following rules: signature_score_map is higher
+    #      priority, then score value for the add_signature_id is in second place and finally the default
+    #      heuristic score is use. Therefor the score used to calculate the total score for the text_section is
+    #      as follow:
+    #      - sig_one: 10    -> heuristic default score
+    #      - sig_two: 20    -> score provided by the function add_signature_id
+    #      - sig_three: 30  -> score provided by the heuristic map
+    #      - sig_four: 40   -> score provided by the heuristic map because it's higher priority than the
+    #                          function score
+    #    5. Total section score is then: 1x10 + 5x20 + 2x30 + 1x40 = 210
+    # Make sure you add your section to the result
+    result.add_section(text_section)
+    ...
+    ```
+
+### MEMORY_DUMP
+
 ![MEMORY_DUMP](./images/memory_dump.png)
-### Graph Data
+
+??? example "Code used to generate the MEMORY_DUMP section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Memory dump section: BODY_FORMAT.MEMORY_DUMP
+    #     Dump whatever string content you have into a <pre/> html tag so you can do your own formatting
+    data = hexdump(b"This is some random text that we will format as an hexdump and you'll see "
+                   b"that the hexdump formatting will be preserved by the memory dump section!")
+    memdump_section = ResultSection('Example of a memory dump section', body_format=BODY_FORMAT.MEMORY_DUMP,
+                                    body=data)
+    memdump_section.set_heuristic(random.randint(1, 4))
+    result.add_section(memdump_section)
+    ...
+    ```
+
+### GRAPH_DATA
+
 ![GRAPH_DATA](./images/graph_data.png)
-### Url
+
+??? example "Code used to generate the GRAPH_DATA section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Color map Section: BODY_FORMAT.GRAPH_DATA
+    #     Creates a color map bar using a minimum and maximum domain
+    #     e.g. We are using this section to display the entropy distribution in some services
+    cmap_min = 0
+    cmap_max = 20
+    color_map_data = {
+        'type': 'colormap',
+        'data': {
+            'domain': [cmap_min, cmap_max],
+            'values': [random.random() * cmap_max for _ in range(50)]
+        }
+    }
+    # The classification of a section can be set to any valid classification for your system
+    section_color_map = ResultSection("Example of colormap result section", body_format=BODY_FORMAT.GRAPH_DATA,
+                                        body=json.dumps(color_map_data), classification=cl_engine.RESTRICTED)
+    result.add_section(section_color_map)
+    ...
+    ```
+
+### URL
+
 ![URL](./images/url.png)
-### Json
+
+??? example "Code used to generate the URL section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # URL section: BODY_FORMAT.URL
+    #   Generate a list of clickable urls using a json encoded format
+    #     As you can see here, the body of the section can be set directly instead of line by line
+    random_host = get_random_host()
+    url_section = ResultSection('Example of a simple url section', body_format=BODY_FORMAT.URL,
+                                body=json.dumps({"name": "Random url!", "url": f"https://{random_host}/"}))
+
+    # Since urls are very important features we can tag those features in the system so they are easy to find
+    #   Tags are defined by a type and a value
+    url_section.add_tag("network.static.domain", random_host)
+
+    # You may also want to provide a list of url!
+    #   Also, No need to provide a name, the url link will be displayed
+    host1 = get_random_host()
+    host2 = get_random_host()
+    urls = [
+        {"url": f"https://{host1}/"},
+        {"url": f"https://{host2}/"}]
+
+    # A heuristic can fire more then once without being associated to a signature
+    url_heuristic = Heuristic(4, frequency=len(urls))
+
+    url_sub_section = ResultSection('Example of a url sub-section with multiple links',
+                                    body=json.dumps(urls), body_format=BODY_FORMAT.URL,
+                                    heuristic=url_heuristic, classification=cl_engine.RESTRICTED)
+    url_sub_section.add_tag("network.static.domain", host1)
+    url_sub_section.add_tag("network.dynamic.domain", host2)
+
+    # Since url_sub_section is a sub-section of url_section
+    # we will add it as a sub-section of url_section not to the main result itself
+    url_section.add_subsection(url_sub_section)
+
+    result.add_section(url_section)
+    ...
+    ```
+
+### JSON
+
 ![JSON](./images/json.png)
-### Key/Value pair
+
+??? example "Code used to generate the JSON section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # JSON section:
+    #     Re-use the JSON editor we use for administration (https://github.com/josdejong/jsoneditor)
+    #     to display a tree view of JSON results.
+    #     NB: Use this sparingly! As a service developer you should do your best to include important
+    #     results as their own result sections.
+    #     The body argument must be a json dump of a python dictionary
+    json_body = {
+        "a_str": "Some string",
+        "a_list": ["a", "b", "c"],
+        "a_bool": False,
+        "an_int": 102,
+        "a_dict": {
+            "list_of_dict": [
+                {"d1_key": "val", "d1_key2": "val2"},
+                {"d2_key": "val", "d2_key2": "val2"}
+            ],
+            "bool": True
+        }
+    }
+    json_section = ResultSection('Example of a JSON section', body_format=BODY_FORMAT.JSON,
+                                    body=json.dumps(json_body))
+    result.add_section(json_section)
+    ...
+    ```
+
+### KEY_VALUE
+
 ![KEY_VALUE](./images/key_value.png)
-### Process Tree
+
+??? example "Code used to generate the KEY_VALUE section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # KEY_VALUE section:
+    #     This section allows the service writer to list a bunch of key/value pairs to be displayed in the UI
+    #     while also providing easy to parse data for auto mated tools.
+    #     NB: You should definitely use this over a JSON body type since this one will be displayed correctly
+    #         in the UI for the user
+    #     The body argument must be a json dumps of a dictionary (only str, int, and booleans are allowed)
+    kv_body = {
+        "a_str": "Some string",
+        "a_bool": False,
+        "an_int": 102,
+    }
+    kv_section = ResultSection('Example of a KEY_VALUE section', body_format=BODY_FORMAT.KEY_VALUE,
+                                body=json.dumps(kv_body))
+    result.add_section(kv_section)
+    ...
+    ```
+
+### PROCESS_TREE
+
 ![PROCESS_TREE](./images/process_tree.png)
-### Table
+
+??? example "Code used to generate the section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # PROCESS_TREE section:
+    #     This section allows the service writer to list a bunch of dictionary objects that have nested lists
+    #     of dictionaries to be displayed in the UI. Each dictionary object represents a process, and therefore
+    #     each dictionary must have be of the following format:
+    #     {
+    #       "process_pid": int,
+    #       "process_name": str,
+    #       "command_line": str,
+    #       "children": [] NB: This list either is empty or contains more dictionaries that have the same
+    #                          structure
+    #     }
+    nc_body = [
+        {
+            "process_pid": 123,
+            "process_name": "evil.exe",
+            "command_line": "C:\\evil.exe",
+            "signatures": {},
+            "children": [
+                {
+                    "process_pid": 321,
+                    "process_name": "takeovercomputer.exe",
+                    "command_line": "C:\\Temp\\takeovercomputer.exe -f do_bad_stuff",
+                    "signatures": {"one": 250},
+                    "children": [
+                        {
+                            "process_pid": 456,
+                            "process_name": "evenworsethanbefore.exe",
+                            "command_line": "C:\\Temp\\evenworsethanbefore.exe -f change_reg_key_cuz_im_bad",
+                            "signatures": {"one": 10, "two": 10, "three": 10},
+                            "children": []
+                        },
+                        {
+                            "process_pid": 234,
+                            "process_name": "badfile.exe",
+                            "command_line": "C:\\badfile.exe -k nothing_to_see_here",
+                            "signatures": {"one": 1000, "two": 10, "three": 10, "four": 10, "five": 10},
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "process_pid": 345,
+                    "process_name": "benignexe.exe",
+                    "command_line": "C:\\benignexe.exe -f \"just kidding, i'm evil\"",
+                    "signatures": {"one": 2000},
+                    "children": []
+                }
+            ]
+        },
+        {
+            "process_pid": 987,
+            "process_name": "runzeroday.exe",
+            "command_line": "C:\\runzeroday.exe -f insert_bad_spelling",
+            "signatures": {},
+            "children": []
+        }
+    ]
+    nc_section = ResultSection('Example of a PROCESS_TREE section',
+                                body_format=BODY_FORMAT.PROCESS_TREE,
+                                body=json.dumps(nc_body))
+    result.add_section(nc_section)
+    ...
+    ```
+
+### TABLE
+
 ![TABLE](./images/table.png)
+
+??? example "Code used to generate the TABLE section"
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # TABLE section:
+    #     This section allows the service writer to have their content displayed in a table format in the UI
+    #     The body argument must be a list [] of dict {} objects. A dict object can have a key value pair
+    #     where the value is a flat nested dictionary, and this nested dictionary will be displayed as a nested
+    #     table within a cell.
+    table_body = [
+        {
+            "a_str": "Some string1",
+            "extra_column_here": "confirmed",
+            "a_bool": False,
+            "an_int": 101,
+        },
+        {
+            "a_str": "Some string2",
+            "a_bool": True,
+            "an_int": 102,
+        },
+        {
+            "a_str": "Some string3",
+            "a_bool": False,
+            "an_int": 103,
+        },
+        {
+            "a_str": "Some string4",
+            "a_bool": None,
+            "an_int": -1000000000000000000,
+            "extra_column_there": "confirmed",
+            "nested_table": {
+                "a_str": "Some string3",
+                "a_bool": False,
+                "nested_table_thats_too_deep": {
+                    "a_str": "Some string3",
+                    "a_bool": False,
+                    "an_int": 103,
+                },
+            },
+        },
+    ]
+    table_section = ResultSection('Example of a TABLE section',
+                                    body_format=BODY_FORMAT.TABLE,
+                                    body=json.dumps(table_body))
+    result.add_section(table_section)
+    ...
+    ```
