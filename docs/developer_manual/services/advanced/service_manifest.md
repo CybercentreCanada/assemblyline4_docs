@@ -2,7 +2,7 @@
 
 Every service must have a `service_manifest.yml` file in its root directory. The manifest file presents essential
 information about the service to the Assemblyline core system, information the Assemblyline core system must have before
-it can run the service. 
+it can run the service.
 
 The table below shows all the elements that the manifest file can contain, including a brief description of each.
 
@@ -18,7 +18,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 | docker_config | [DockerConfig](#docker-config) | Yes | Refer to [docker config](#docker-config) section. |
 | enabled | Boolean | No <br> Default: `false` | Should the service be enabled by default? |
 | file_required | Boolean | | Does the service require access to the file to perform its task? If set to `false`, the service will only have access to the file metadata (e.g. hashes, size, type, etc.). |
-| heuristics | List of [Heuristic](#heuristic) | No | List of heuristic(s) used in the service for scoring. Refer to [heuristic](#heuristic) section. | 
+| heuristics | List of [Heuristic](#heuristic) | No | List of heuristic(s) used in the service for scoring. Refer to [heuristic](#heuristic) section. |
 | is_external | Boolean | No <br> Default: `false` | Does the service make API calls to other products not part of the Assemblyline infrastructure (e.g. VirusTotal, ...)? |
 | licence_count | Integer | No <br> Default: `0` | Number of concurrent services allowed to run at the same time. |
 | name | Keyword | Yes | Name of the service. |
@@ -84,7 +84,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 | default | Any | Yes | Default value of the parameter. |
 | name | Keyword | Yes | Variable name of the parameter. |
 | type | Enum | Yes | Type of variable. Must be one of: `bool`, `int`, `list`, or `str`. |
-| value | Any | Yes | Value of the variable as configured by the user or the default if not configured. | 
+| value | Any | Yes | Value of the variable as configured by the user or the default if not configured. |
 
 ## Update config
 

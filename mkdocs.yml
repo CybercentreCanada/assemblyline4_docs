@@ -94,9 +94,14 @@ nav:
         - developer_manual/env/pycharm/remote_development.md
         - developer_manual/env/pycharm/use_pycharm.md
     - Services:
-      - developer_manual/services/developing_an_assemblyline_service.md
+      - Developing a service: developer_manual/services/developing_an_assemblyline_service.md
       - developer_manual/services/run_your_service.md
-      - developer_manual/services/service_manifest.md
+      - Advanced development:
+        - ServiceBase Class: developer_manual/services/advanced/service_base.md
+        - Request Class: developer_manual/services/advanced/request.md
+        - Result Class: developer_manual/services/advanced/result.md
+        - ResultSection Class: developer_manual/services/advanced/result_section.md
+        - developer_manual/services/advanced/service_manifest.md
     - Infrastructure: developer_manual/core/infrastructure.md
     - Frontend: developer_manual/frontend/frontend.md
     - Documentation: developer_manual/docs/docs.md
