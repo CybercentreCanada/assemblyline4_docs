@@ -106,7 +106,7 @@ In your service directory, you will add the YAML configuration file `service_man
 
     # Docker configuration block which defines:
     #  - the name of the docker container that will be created
-    #  - cpu and ram allocation by the container
+    #  - CPU and ram allocation by the container
     docker_config:
       image: ${REGISTRY}testing/assemblyline-service-sample:latest
       cpu_cores: 1.0
