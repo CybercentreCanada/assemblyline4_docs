@@ -39,7 +39,7 @@ You can instantiate the client by using the following snippet of Python code:
     al_client = get_client("https://yourdomain:443", cert='/path/to/cert/file.pem')
     ```
 
-??? tip "The client is fully documented in the docstrings, so that you can use the 'help' feature of IPython or Jupyter Notebook"
+??? tip "The client is fully documented in the docstrings so that you can use the 'help' feature of IPython or Jupyter Notebook"
     ``` python
         al_client.search.alert?
         
@@ -53,18 +53,18 @@ You can instantiate the client by using the following snippet of Python code:
             timeout=None,
         )
         Docstring:
-        Search alerts with a lucene query.
+        Search alerts with a Lucene query.
 
         Required:
-        query   : lucene query. (string)
+        query   : Lucene query. (string)
 
         Optional:
-        filters : Additional lucene queries used to filter the data (list of strings)
+        filters : Additional Lucene queries used to filter the data (list of strings)
         fl      : List of fields to return (comma separated string of fields)
         offset  : Offset at which the query items should start (integer)
         rows    : Number of records to return (integer)
         sort    : Field used for sorting with direction (string: ex. 'id desc')
-        timeout : Max amount of miliseconds the query will run (integer)
+        timeout : Max number of milliseconds the query will run (integer)
 
         Returns all results.
         File:      /usr/local/lib/python3.7/site-packages/assemblyline_client/v4_client/module/search/__init__.py
@@ -76,10 +76,10 @@ You can instantiate the client by using the following snippet of Python code:
 ### Submit a file or URL for analysis
 There are two methods for sending a file/URL to Assemblyline for analysis: **Ingest** and **Submit**.
 
-!!! attention "In most cases you want to use the Ingest API via the CLI"
+!!! attention "In most cases, you want to use the Ingest API via the CLI"
     **Ingest**
 
-    * Provides a fast, non-blocking method of submitting a large amount of files
+    * Provides a fast, non-blocking method of submitting many files
     * Ingest results will typically be analyzed by using a callback (if you need to look at all results) or by monitoring the alerts
     * Supports alert generation
 
@@ -115,7 +115,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
         }
     }
 
-    # Adding metadata (such as source of the files or anything you want!)
+    # Adding metadata (such as the source of the files or anything you want!)
     my_meta = {
         'my_metadata' : 'value',     # any metadata of your liking
         'my_metadata2' : 'value2'     # any metadata of your liking
@@ -129,7 +129,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
 === "Ingest"
     The Ingest API supports three additional functionalities over the Submit API:
 
-    * The ingest api is for high throughput submission (feeding the system)
+    * The ingest API is for high throughput submission (feeding the system)
     * By passing the argument `alert=True`, the system will generate an alert if the score is over 500
     * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has completed
         * If you don't need to know about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
@@ -137,7 +137,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
     ```python
     ingest_id = al_client.ingest(path='/pathto/file.txt', nq='my_queue_name', params=settings, metadata=my_meta)
 
-    # If you use a notificaton queue you can get your asynchronous results with:
+    # If you use a notification queue you can get your asynchronous results with:
     from time import sleep
     message = None
     while True:
@@ -189,24 +189,24 @@ In the following example, we want to retrieve the users who have made submission
 submission_results = al_client.search.facet.submission('params.submitter', query='times.submitted:[now-7d TO now]')
 ```
 
-## Using the Command Line Tool
-By installing the `assemblyline_client` PIP package, a command line tool `al-submit` is installed.
+## Using the Command-line Tool
+By installing the `assemblyline_client` PIP package, a command-line tool `al-submit` is installed.
 In case you don't want to use Python code to interface with the Assemblyline client, you can use this tool instead.
 You can view the user options via `al-submit --help`.
 ??? example "(Optional) Configuration file example"
-    Rather than passing authentication and server details as parameters in a command line, you can use a configuration file.
+    Rather than passing authentication and server details as parameters in a command-line, you can use a configuration file.
     This configuration file should be placed at `~/.al/submit.cfg`. A template for this configuration 
     file can be found below.
     NOTE: You can use `=` or `:` as the delimiter between key and value.
     ``` python
     [auth]
-    #   Username for Assemblyline account.
+    #   Username for the Assemblyline account.
     user = 
     #   There are three methods to authenticate a user account. Choose one:
     #   - Password Provided via User Prompt
     #       Leave the `password' configuration value below empty.
     #   - Password Provided in Configuration File
-    #       Enter the password for Assemblyline account in plaintext.
+    #       Enter the password for the Assemblyline account in plaintext.
     password = 
     #   - API Key in Configuration File
     #       Enter the API key to use in plaintext for the user to login.
@@ -214,17 +214,17 @@ You can view the user options via `al-submit --help`.
     apikey = 
     # Skip server cert validation. 
     # Value can be one of: true, false, yes, no
-    # If not supplied, default value is: false
+    # If not supplied, the default value is: false
     insecure = 
     [server]
     # Method of network transport. 
-    # If not supplied, default value is: https
+    # If not supplied, the default value is: https
     transport = 
     # Domain of Assemblyline instance.
-    # If not supplied, default value is: localhost
+    # If not supplied, the default value is: localhost
     host = 
     # Port to which traffic will be sent.
-    # If not supplied, default value is: 443
+    # If not supplied, the default value is: 443
     port = 
     # Server cert used to connect to server.
     cert = 
@@ -233,6 +233,6 @@ You can view the user options via `al-submit --help`.
 ## Mass Submission Toolkit
 The [Assemblyline Incident Manager](https://github.com/CybercentreCanada/assemblyline-incident-manager) can assist you with this process.
 
-One key consideration for very large volume of files in a burst are the [default sampling values](https://github.com/CybercentreCanada/assemblyline-base/blob/9d4ab5586ff34ae20e3a08e9584776379fc981e9/assemblyline/odm/models/config.py#L392-L396).
+One key consideration for a very large volume of files in a burst is the [default sampling values](https://github.com/CybercentreCanada/assemblyline-base/blob/9d4ab5586ff34ae20e3a08e9584776379fc981e9/assemblyline/odm/models/config.py#L392-L396).
 
-You have to keep your ingestion flow at a rate such that the size of the priority ingestion queue remains lower than the corresponding priority queue `sampling_at` values, otherwise Assemblyline will skip files.
+You must keep your ingestion flow at a rate such that the size of the priority ingestion queue remains lower than the corresponding priority queue `sampling_at` values, otherwise, Assemblyline will skip files.
