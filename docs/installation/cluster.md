@@ -15,12 +15,12 @@
 ### 1. Get Assemblyline Helm chart ready
 
 1. Download the latest [Assemblyline helm chart](https://github.com/CybercentreCanada/assemblyline-helm-chart/archive/refs/heads/master.zip)
-2. Unzip it into a directory of your choice which we will refer as `assemblyline-helm-chart` 
+2. Unzip it into a directory of your choice which we will refer to as `assemblyline-helm-chart` 
 3. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
 ### 2. Create the assemblyline namespace
 
-When deploying an Assemblyline instance using our chart, it must be in its own namespace. For the purpose of this documentation, we will use the `al` namespace.
+When deploying an Assemblyline instance using our chart, it must be in its own namespace. For this documentation, we will use the `al` namespace.
 
 ``` shell
 kubectl create namespace al
@@ -41,8 +41,8 @@ In the `deployment_directory` you've just created, create a `secrets.yaml` file 
     stringData:
       datastore-password: 
       logging-password:
-        # If this is the password for backends like azure blob storage, the password may need to be url encoded
-        # if it includes non alphanum characters
+        # If this is the password for backends like azure blob storage, the password may need to be URL-encoded
+        # if it includes non-alphanumeric characters
       filestore-password: 
       initial-admin-password: 
     ```
@@ -56,14 +56,14 @@ kubectl apply -f <deployment_directory>/secrets.yaml --namespace=al
 ```
 
 !!! warning
-    From this point on, you will not need the `secret.yaml` file anymore. You should definitely delete it.
+    From this point on, you will not need the `secret.yaml` file anymore. You should delete it.
 
 ### 4. Configure your deployment
 
 In your `deployment_directory`, create a `values.yaml` file which will contain the configuration specific to your deployment.
 
 !!! tip
-    For an exhaustive view of all the possible parameters you can change in the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml) file.
+    For an exhaustive view of all the possible parameters you can change the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml) file.
 
 
 These are the strict minimum configuration changes you will need to do: 
@@ -154,7 +154,7 @@ helm install assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_
 
 ## Update your deployment
 
-Once you have your Assemblyline chart deployed throught helm, you can change any values in the `values.yaml` file and upgrade your deployment with the following command:
+Once you have your Assemblyline chart deployed through helm, you can change any values in the `values.yaml` file and upgrade your deployment with the following command:
 
 ```shell
 helm upgrade assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
