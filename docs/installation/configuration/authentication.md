@@ -58,7 +58,7 @@ The authentication section (`auth:`) of the configuration files contains all the
         name_field: cn
         signature_importer_dn: null
         signature_manager_dn: null
-        uid_field: UID
+        uid_field: uid
         uri: ldap://localhost:389
       oauth:
         enabled: false
@@ -70,7 +70,7 @@ The authentication section (`auth:`) of the configuration files contains all the
             authorize_url: https://{TENANT}.auth0.com/authorize
             client_id: null
             client_kwargs:
-              scope: OpenID email profile
+              scope: openid email profile
             client_secret: null
             jwks_uri: https://{TENANT}.auth0.com/.well-known/jwks.json
             user_get: userinfo
@@ -347,7 +347,7 @@ Here is an exhaustive configuration block that explains every single parameter f
                     # Keyword arguments passed to the different URLs
                     #  (to set the scope for example)
                     client_kwargs:
-                        scope: OpenID email profile
+                        scope: openid email profile
 
                     # URL used to verify if a returned JWKS token is valid
                     jwks_uri: https://localhost/oauth2/certs
@@ -416,7 +416,7 @@ Here is an example configuration block that would let you use Auth0 if you would
                     client_secret: <YOUR_CLIENT_SECRET>
 
                     client_kwargs:
-                        scope: OpenID email profile
+                        scope: openid email profile
 
                     # Set your tenant's name in the following URLs
                     access_token_url: https://<TENANT_NAME>.auth0.com/oauth/token
