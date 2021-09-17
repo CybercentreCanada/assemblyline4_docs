@@ -60,7 +60,7 @@ nav:
     - Configuration:
       - installation/configuration/config_file.md
       - installation/configuration/authentication.md
-      #- installation/configuration/core.md
+      - installation/configuration/core.md
       #- installation/configuration/datasources.md
       #- installation/configuration/datastore.md
       #- installation/configuration/filestore.md
