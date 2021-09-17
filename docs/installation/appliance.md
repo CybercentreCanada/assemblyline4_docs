@@ -1,11 +1,11 @@
 # Appliance installation
 
-This is the documentation for an appliance instance of the Assemblyline platform suited for smaller scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
+This is the documentation for an appliance instance of the Assemblyline platform suited for smaller-scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
 
 ## Setup requirements
 
 !!! info "Caveat" 
-    The documentation provided here assumes that you are installing your appliance on a Ubuntu based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other linux distributions.
+    The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
 
 ### Install pre-requisites:
 
@@ -53,7 +53,7 @@ sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set contr
     sudo microk8s kubectl get nodes
     ```
 
-    Repeat this process for any additional standby nodes that's to be added.
+    Repeat this process for any additional standby nodes that are to be added.
 
     For more details, see: [Clustering with MicroK8s](https://microk8s.io/docs/clustering)
 
@@ -77,16 +77,16 @@ cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
 
 The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking.
 
-The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should definitely change them. 
+The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should change them. 
 
 !!! tip
-    The secrets are used to setup during bootstrap so make sure you change them before deploy the al chart.
+    The secrets are used to set up during bootstrap so make sure you change them before deploying the ```al``` chart.
 
 ## Deploy Assemblyline via Helm:
 
 ### Create a namespace for your Assemblyline install
 
-For the purpose of this documentation we will use ```al``` as the namespace.
+For this documentation, we will use ```al``` as the namespace.
 
 ```
 sudo microk8s kubectl create namespace al
@@ -106,20 +106,20 @@ rm ~/git/deployment/secrets.yaml
 
 ### Finally, let's deploy Assemblyline's chart:
 
-For the purpose of this documentation we will use ```assemblyline``` as the deployment name.
+For documentation, we will use ```assemblyline``` as the deployment name.
 
 ```
 sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
 ## Updating the current deployment
 
-Once you have your Assemblyline chart deployed throught helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
+Once you have your Assemblyline chart deployed through helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
 ```
 sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
 
 ??? tip "(Optional) Get the latest assemblyline-helm-chart"
-    Prior of doing your `helm upgrade` command, you can get the latest changes that we did to the chart by pulling them. (This could conflict with the changes you've made so be careful while doing this.)
+    Before doing your `helm upgrade` command, you can get the latest changes that we did to the chart by pulling them. (This could conflict with the changes you've made so be careful while doing this.)
     ```
     cd ~/git/assemblyline-helm-chart && git pull
     ```
@@ -127,7 +127,7 @@ sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyli
 ## Quality of life improvements
 
 ### Lens IDE
-If the computer on which your microk8s deployment is install has a desktop interface, I strongly suggest that you use K8s Lens IDE to manage the system
+If the computer on which your microk8s deployment is installed has a desktop interface, I strongly suggest that you use K8s Lens IDE to manage the system
 
 #### Install Lens
 ```
@@ -148,4 +148,4 @@ alias kubectl='sudo microk8s kubectl --namespace=al'
 
 ## Alternative Installations
 
-We will officially only support microk8s installations for appliances but you can technically install it on any local kubernetes frameworks (k3s, minikube. kind...). That said there will be no documentation for theses setups and you will have to modify the ```values.yaml``` storage classes to fit with your desired framework.
+We will officially only support microk8s installations for appliances, but you can technically install it on any local Kubernetes frameworks (k3s, minikube, kind...). That said there will be no documentation for these setups, and you will have to modify the ```values.yaml``` storage classes to fit with your desired framework.
