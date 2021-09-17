@@ -156,10 +156,6 @@ Run the `docker build` command and tag the container with the same name that con
 docker build -t testing/assemblyline-service-sample .
 ```
 
-### Push the container to your local registry
-
-TBD
-
 ### Run the container LIVE
 The way to run a container LIVE in your development environment differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
 
@@ -182,9 +178,31 @@ docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | 
 
 ### Add the container to your deployment
 
+!!! note
+    For the scaler and updater to be able to use your service container, they have to be able to get it from a docker registry. Your can either use dockerhub, a work central registry or a local registry.
+
+#### Push the container to your local registry
+
+!!! tip
+    A local docker registry should have already been installed during the [development environment setup](../../env/getting_started). If not, you can start one by simply running this command:
+
+    ```shell
+    sudo docker run -dp 32000:5000 --restart=always --name registry registry
+    ```
+
+Use the following to push your sample service to the local registry:
+
+```shell
+docker tag testing/assemblyline-service-sample localhost:32000/testing/assemblyline-service-sample
+docker push --all-tags localhost:32000/testing/assemblyline-service-sample
+```
+
+#### Add the service in the management interface
+
 1. Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace localhost by your VM's IP)
 2. Click the `Add service` button
 3. Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
+    * If you are using the local registry from this documentation, change the `${REGISTRY}` from the content of `service_manifest.yml` to `172.17.0.1:32000/`
 4. Click the `Add` button
 
 Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.
