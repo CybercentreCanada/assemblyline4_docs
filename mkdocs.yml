@@ -64,7 +64,7 @@ nav:
       - installation/configuration/datasources.md
       - installation/configuration/datastore.md
       - installation/configuration/filestore.md
-      #- installation/configuration/logging.md
+      - installation/configuration/logging.md
       #- installation/configuration/services.md
       #- installation/configuration/submission.md
       #- installation/configuration/system.md
