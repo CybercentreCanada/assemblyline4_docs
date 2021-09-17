@@ -6,7 +6,7 @@ The assemblyline java client library provides methods to submit requests to asse
 
 ## Using the client
 
-To instantiate the client bean set the application properties associated with the desired authentication method. The client can be accessed by autowiring the bean into the class using it.
+To instantiate the client bean set the application properties associated with the desired authentication method. The client can be accessed by auto-wiring the bean into the class using it.
 
 There are two authentication methods: username/apikey or username/password.
 
