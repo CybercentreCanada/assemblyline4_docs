@@ -4,7 +4,7 @@ This documentation is built using the awesome project: [mkdocs-material](https:/
 
 ## Clone the documentation
 
-The documentation can be cloned from the following repositorie:
+The documentation can be cloned from the following repository:
 ```
 git clone git@github.com:CybercentreCanada/assemblyline4_docs.git
 ```
@@ -28,4 +28,4 @@ cd assemblyline4_docs
 mkdocs serve
 ```
 
-Alternatively, if you are using VSCode, you can launch the pre-configured task: `Launch Assemblyline Documention`
+Alternatively, if you are using VSCode, you can launch the pre-configured task: `Launch Assemblyline Documentation`
