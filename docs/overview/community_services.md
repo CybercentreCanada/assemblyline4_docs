@@ -5,11 +5,11 @@ The Assemblyline community has been hard at work to improve Assemblyline's abili
 This page lists all the services that our members have created and shared with the public.
 
 !!! warning 
-    These services are not managed by the Assemblyline team so make sure that you check their source thoroughly and that you are confortable with what they do before you install them on your system.
+    These services are not managed by the Assemblyline team so make sure that you check their source thoroughly and that you are comfortable with what they do before you install them on your system.
 
 ## Service list
 
-There are currently no service featured in this page.
+There are currently no services featured on this page.
 
 ## Add your service
 
