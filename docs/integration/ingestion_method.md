@@ -2,18 +2,18 @@
 
 While integrating Assemblyline with other systems, the first thing you will need to do is to pick an ingestion method. 
 
-Assemblyline give you two options:
+Assemblyline gives you two options:
 
 1. Asynchronous (Using the Ingest API: **/api/v4/ingest/**)
 2. Synchronous (Using the Submit API: **/api/v4/submit/**)
 
-We will give you here a run down of the different particularities of each method so you can pick the one that fits your needs the best.
+We will give you here a rundown of the different particularities of each method so you can pick the one that fits your needs the best.
 
 ## Asynchronous ingestion
 
-This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submission in this mode, you will get assigned a ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view asynchronous submissions that Assemblyline deems highly suspicious. 
+This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submission in this mode, you will get assigned an ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view asynchronous submissions that Assemblyline deems highly suspicious. 
 
-Asynchronous mode was built to sustain a very large sample set of files and to help analysts focus on what is really important.
+The asynchronous model was built to sustain a very large sample set of files and to help analysts focus on what is important.
 
 ### Benefits and Drawbacks 
 
@@ -27,15 +27,15 @@ Asynchronous mode was built to sustain a very large sample set of files and to h
 
 !!! Failure "Drawbacks"
 
-    - [ ] Submissions may sit in the queue a long time if system is very busy
-    - [ ] Submissions may be skipped if system is overwhelmed
+    - [ ] Submissions may sit in the queue a long time if the system is very busy
+    - [ ] Submissions may be skipped if the system is overwhelmed
     - [ ] Metadata is not searchable for all submissions since the system does not create a submission entry for cache submissions
 
 ### Typical use cases
 
 Here are the typical use cases that users encounter while using the asynchronous submission mode in the system.
 
-??? example "Using the Ingest API while reading message from the notification queue"
+??? example "Using the Ingest API while reading a message from the notification queue"
     
     1. The user submits all its files and receives ingestion IDs for its files 
         * API: **/api/v4/ingest/**
@@ -49,7 +49,7 @@ Here are the typical use cases that users encounter while using the asynchronous
     
     1. The user submits all its files and ignores the returned ingestion IDs 
         * API: **/api/v4/ingest/**
-    2. The user then monitors the UI alerting perspective for newly created alers 
+    2. The user then monitors the UI alerting perspective for newly created alerts 
         * UI: **/alerts**
     
     This is how this works in the backend: 
@@ -57,9 +57,9 @@ Here are the typical use cases that users encounter while using the asynchronous
 
 ## Synchronous ingestion
 
-In this mode, Assemblyline will start the scanning of your file right away and will return you the ID of your submission. You will be able to use thid ID to ask the system if the submission is complete and to pull the results when all the services are done reporting results for that submission.
+In this mode, Assemblyline will start the scanning of your file right away and will return you the ID of your submission. You will be able to use this ID to ask the system if the submission is complete and to pull the results when all the services are done reporting results for that submission.
 
-This is more suited for very small volume of files and for manual analysis. Files submitted via the User interface are using the synchronous mode.
+This is more suited for a very small volume of files and manual analysis. Files submitted via the User interface are using the synchronous mode.
 
 ### Benefits and Drawbacks 
 
@@ -87,7 +87,7 @@ Here are the typical use cases that user's encounter while using the synchronous
         * API: **/api/v4/submit/**
     2. The user queries the `is completed` API until the system says the submission is completed 
         * API: **/api/v4/submission/is_completed/<ID>/**
-    3. The user pull the results for the submission 
+    3. The user pulls the results for the submission 
         * API: **/api/v4/submission/full/<ID>/**
 
     This is how this works in the backend: 
