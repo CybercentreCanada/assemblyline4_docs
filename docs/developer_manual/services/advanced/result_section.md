@@ -1,5 +1,5 @@
 # *ResultSection* class
-A `ResultSection` is bascally parts of a service result that encapsulate certain type of information that your service needs to convey to the user. For exemple, if you have a service that extract networking indicators as well as process lists, you will most likely end up putting network indicators in their own section and then the process list in another.
+A `ResultSection` is bascally parts of a service result that encapsulate certain type of information that your service needs to convey to the user. For example, if you have a service that extract networking indicators as well as process lists, you will most likely end up putting network indicators in their own section and then the process list in another.
 
 Result sections have the following properties:
 
@@ -117,7 +117,7 @@ Parameters:
                                     body=json.dumps(urls), body_format=BODY_FORMAT.URL,
                                     heuristic=url_heuristic, classification=cl_engine.RESTRICTED)
     ...
-    url_sub_sub_section = ResultSection('Exemple of a two level deep sub-section',
+    url_sub_sub_section = ResultSection('example of a two level deep sub-section',
                                         body=json.dumps(ips), body_format=BODY_FORMAT.URL)
     ...
     # Since url_sub_sub_section is a sub-section of url_sub_section

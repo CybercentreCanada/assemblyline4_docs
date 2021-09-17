@@ -4,7 +4,7 @@ The Data Sources configuration section (`datasources:`) of the configuration fil
 
 Since this section is quite simple, we will list the default configuration at the same time as we describe the different values.
 
-???+ example "Datasources section configuration exemple"
+???+ example "Datasources section configuration example"
     ```yaml
     ...
     # The data source section is essentially a key/value pair of source and their configuration

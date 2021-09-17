@@ -4,7 +4,7 @@ The Database configuration section (`datastore:`) of the configuration file cont
 
 Since this section is quite simple, we will list the default configuration at the same time as we describe the different values.
 
-???+ example "Datastore section configuration exemple"
+???+ example "Datastore section configuration example"
     ```yaml
     ...
     datastore:
