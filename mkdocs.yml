@@ -62,7 +62,7 @@ nav:
       - installation/configuration/authentication.md
       - installation/configuration/core.md
       - installation/configuration/datasources.md
-      #- installation/configuration/datastore.md
+      - installation/configuration/datastore.md
       #- installation/configuration/filestore.md
       #- installation/configuration/logging.md
       #- installation/configuration/services.md
