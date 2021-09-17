@@ -1,6 +1,6 @@
 # Configuration YAML file
 
-Assemblyline 4 configuration is done using a YAML file (`config.yml`) which is deployed to all container when they are launched. 
+Assemblyline 4 configuration is done using a YAML file (`config.yml`) which is deployed to all containers when they are launched. 
 
 ## Specification and defaults
 
@@ -320,8 +320,8 @@ The full specification of the file [is defined here](https://github.com/Cybercen
 
 The configuration file is built in layers:
 
-1. The ODM converts the python classes to the defautl values as shown above
-2. The default [assemblyline helm chart values.yaml file](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/eeceda628fa7a7ab23bda3ab3132e7dc61bd6c95/assemblyline/values.yaml#L223) changes certain of these values to adapt them to a kubernetes deployment
+1. The ODM converts the python classes to the default values as shown above
+2. The default [assemblyline helm chart values.yaml file](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/eeceda628fa7a7ab23bda3ab3132e7dc61bd6c95/assemblyline/values.yaml#L223) changes certain of these values to adapt them to a Kubernetes deployment
 3. Your deployment's `values.yaml` file change the values to their final form
 
 ## Changing the configuration file
@@ -347,9 +347,9 @@ If you want to change the `config.yml` file that will be deployed in the contain
 
 ## Exhaustive configuration file documentation
 
-All parameters of each configuration section will be thoroughtly documented in their own respective pages. 
+All parameters of each configuration section will be thoroughly documented in their respective pages. 
 
-Here are the link to the different section documentations:
+Here are the links to the different section documentations:
 
 * [Authentication (auth:)](../authentication)
 * [Core components  (core:)](../core)

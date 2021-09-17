@@ -1,9 +1,9 @@
 # Authentication section
 
-Assemblyline comes with a built-in user management database, so no external identity sources is required.
-However in order to facilitate user mangement in larger organisations you can integrate Assemblyline with external identity providers.
+Assemblyline comes with a built-in user management database, so no external identity sources are required.
+However, to facilitate user management in larger organizations you can integrate Assemblyline with external identity providers.
 
-The authentication section (`auth:`) of the configuration files contains all the different parameters that you can change to turn on/off the different authentication features that Assemblyline support as well as configure them.
+The authentication section (`auth:`) of the configuration files contains all the different parameters that you can change to turn on/off the different authentication features that Assemblyline supports.
 
 ??? info "Default values for the authentication section"
     ```yaml
@@ -58,7 +58,7 @@ The authentication section (`auth:`) of the configuration files contains all the
         name_field: cn
         signature_importer_dn: null
         signature_manager_dn: null
-        uid_field: uid
+        uid_field: UID
         uri: ldap://localhost:389
       oauth:
         enabled: false
@@ -70,7 +70,7 @@ The authentication section (`auth:`) of the configuration files contains all the
             authorize_url: https://{TENANT}.auth0.com/authorize
             client_id: null
             client_kwargs:
-              scope: openid email profile
+              scope: OpenID email profile
             client_secret: null
             jwks_uri: https://{TENANT}.auth0.com/.well-known/jwks.json
             user_get: userinfo
@@ -100,16 +100,16 @@ The authentication section (`auth:`) of the configuration files contains all the
 !!! tip
     Refer to the [changing the configuration file](../config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
 
-## Parameters definition
+## Parameter definitions
 
 The `auth` configuration block has a few parameters at the top level that help you turn on or off a few security features supported in the system.
 
-Here is an exemple of configuration block with those top level parameters and the explanation of what they do:
+Here is an example of a configuration block with those top-level parameters and an explanation of what they do:
 
-???+ example "Top level parameters"
+???+ example "Top-level parameters"
     ```yaml
     auth:
-        # Turns on/off second factor authentication in the system
+        # Turns on/off two-factor authentication in the system
         allow_2fa: true
 
         # Turn on/off usage of API Keys in the system
@@ -119,15 +119,15 @@ Here is an exemple of configuration block with those top level parameters and th
         # Turn on/off usage of extended API via the API keys
         allow_extended_apikeys: true
 
-        # Turn on/off usage of security token as second factor auth (ex: yubikeys)
+        # Turn on/off usage of security token as two-factor authentication (ex: yubikeys)
         allow_security_tokens: true
     ```
 
-### Internal authentificator
+### Internal authenticator
 
-The configuration block at `auth.internal` allows you to configure the Assemblyline internal authentificator.
+The configuration block at `auth.internal` allows you to configure the Assemblyline internal authenticator.
 
-Here is an example of configuration block with inline comments about the purpose of every single parameters:
+Here is an example of a configuration block with inline comments about the purpose of every single parameter:
 
 ???+ example "Internal auth configuration example"
     ```yaml
@@ -137,11 +137,11 @@ Here is an example of configuration block with inline comments about the purpose
             enabled: true
 
             # Time in seconds the user will have to wait after
-            #  too many authentication failures
+            # too many authentication failures
             failure_ttl: 60
 
             # Number of authentication failures before temporarily
-            #  locking down the user
+            # locking down the user
             max_failures: 5
 
             # Password complexity requirements for the system
@@ -149,7 +149,7 @@ Here is an example of configuration block with inline comments about the purpose
             # Are lowercase characters mandatory?
             lower: false
 
-            # what is the minimal password lenght
+            # What is the minimal password length
             min_length: 12
 
             # Are numbers mandatory?
@@ -166,7 +166,7 @@ Here is an example of configuration block with inline comments about the purpose
             enabled: false
 
             # Configuration block for GC Notify signup and password reset
-            #  see: https://notification.canada.ca/
+            # see: https://notification.canada.ca/
             notify:
                 activated_template: null
                 api_key: null
@@ -175,7 +175,7 @@ Here is an example of configuration block with inline comments about the purpose
                 password_reset_template: null
                 registration_template: null
 
-            # Configuration block for smtp signup and password reset
+            # Configuration block for SMTP signup and password reset
             smtp:
                 # Email address used for sender
                 from_adr: null
@@ -204,9 +204,9 @@ Here is an example of configuration block with inline comments about the purpose
 
 ### LDAP Authentication
 
-The configuration block at `auth.ldap` allows you to easily add authentication via your LDAP server. The LDAP authentication module will be able to automatically assign roles, classification, avatar, name and email address based of the properties of the LDAP user and the groups it is member of.
+The configuration block at `auth.ldap` allows you to easily add authentication via your LDAP server. The LDAP authentication module will be able to automatically assign roles, classification, avatar, name, and email address based on the properties of the LDAP user and the groups it is a member of.
 
-Here is a example configuration block to add to your configuration file that will allow you to connect to the docker-test-openldap server from: [https://github.com/rroemhild/docker-test-openldap](https://github.com/rroemhild/docker-test-openldap)
+Here is an example configuration block to add to your configuration file that will allow you to connect to the docker-test-openldap server from: [https://github.com/rroemhild/docker-test-openldap](https://github.com/rroemhild/docker-test-openldap)
 
 ???+ example "LDAP configuration example"
     ```yaml
@@ -215,15 +215,15 @@ Here is a example configuration block to add to your configuration file that wil
             # Disable internal login, you could also leave it on if you want
             enabled: false
         ldap:
-            # Should LDAP be enabled or not ?
+            # Should LDAP be enabled or not?
             enabled: true
 
-            # DN of the group or the user who will get admin priviledges
+            # DN of the group or the user who will get admin privileges
             admin_dn: cn=admin_staff,ou=people,dc=planetexpress,dc=com
 
-            # Auto-create users if they are missing, this basically mean
-            #  that if a user exist in LDAP, Assemblyline will create an
-            #  account for it upon first login
+            # Auto-create users if they are missing, this means
+            #  that if a user exists in LDAP, Assemblyline will create an
+            #  account for it upon the first login
             auto_create: true
 
             # Should we automatically sync roles, classification, avatar
@@ -233,7 +233,7 @@ Here is a example configuration block to add to your configuration file that wil
             # Base DN for the users
             base: ou=people,dc=planetexpress,dc=com
 
-            # Password use to query the LDAP server
+            # Password used to query the LDAP server
             bind_pass: null
 
             # User use to query the LDAP server
@@ -250,7 +250,7 @@ Here is a example configuration block to add to your configuration file that wil
             # Name of the field containing the user's avatar
             image_field: jpegPhoto
 
-            # Type of image use to store the avatar
+            # Type of image used to store the avatar
             image_format: jpeg
 
             # Name of the field containing the user's name
@@ -262,7 +262,7 @@ Here is a example configuration block to add to your configuration file that wil
             # DN of the group or the user who will get signature_manager role
             signature_manager_dn: null
 
-            # Field name for the uid
+            # Field name for the UID
             uid_field: uid
 
             # URI to the LDAP server
@@ -271,7 +271,7 @@ Here is a example configuration block to add to your configuration file that wil
 
 ### OAuth Authentication
 
-The configuration block at `auth.oauth` allows you to add oauth authentication to your system. Assemblyline OAuth module is configurable enough to allow you to use almost any OAuth providers.
+The configuration block at `auth.oauth` allows you to add OAuth authentication to your system. Assemblyline OAuth module is configurable enough to allow you to use almost any OAuth provider.
 
 It has been thoroughly tested with:
 
@@ -280,7 +280,7 @@ It has been thoroughly tested with:
 * [Auth0](https://auth0.com/)
 * [Microsoft Azure Active Directory Accounts](https://docs.microsoft.com/azure/active-directory/)
 
-Here is an exhaustive configuration block that explains every single parameters from the OAuth configuration block:
+Here is an exhaustive configuration block that explains every single parameter from the OAuth configuration block:
 
 ???+ example "Exhaustive OAuth configuration example"
     ```yaml
@@ -300,9 +300,9 @@ Here is an exhaustive configuration block that explains every single parameters 
             providers:
                 # Name of the provider displayed in the UI
                 local_provider:
-                    # Auto-create users if they are missing, this basically mean
-                    #  that if a user exist in the OAuth provider, Assemblyline
-                    #  will create an account for it upon first login
+                    # Auto-create users if they are missing, this means
+                    #  that if a user exists in the OAuth provider, Assemblyline
+                    #  will create an account for it upon the first login
                     #     WARNING: If you set it to true for let's say Google's
                     #              OAuth provider, anyone with a google account
                     #              essentially has access to your system
@@ -320,7 +320,7 @@ Here is an exhaustive configuration block that explains every single parameters 
                           pattern: .*@localhost\.local$
                           type: classification
                           value: "TLP:A"
-                        # any user with in the admins-sg will be made
+                        # any user within the admins-sg will be made
                         #  administrator in the system
                         - field: groups
                           pattern: ^admins-sg$
@@ -330,7 +330,7 @@ Here is an exhaustive configuration block that explains every single parameters 
                     # URL used to get the access token
                     access_token_url: https://oauth2.localhost/token
 
-                    # Base url for downloading the user's and groups info
+                    # Base URL for downloading the user's and groups info
                     api_base_url: https://openidconnect.localhost/
 
                     # URL used to authorize access to a resource
@@ -347,7 +347,7 @@ Here is an exhaustive configuration block that explains every single parameters 
                     # Keyword arguments passed to the different URLs
                     #  (to set the scope for example)
                     client_kwargs:
-                        scope: openid email profile
+                        scope: OpenID email profile
 
                     # URL used to verify if a returned JWKS token is valid
                     jwks_uri: https://localhost/oauth2/certs
@@ -359,17 +359,17 @@ Here is an exhaustive configuration block that explains every single parameters 
                     #  authenticated user?
                     uid_randomize: false
 
-                    # How many digit should we add at the end of the username?
+                    # How many digits should we add at the end of the username?
                     uid_randomize_digits: 0
 
-                    # What is the delimiter used by the random name generator ?
+                    # What is the delimiter used by the random name generator?
                     uid_randomize_delimiter: "-"
 
                     # Reged used to parse and email address and capture parts
                     #  to create a user ID out of it
                     uid_regex: ^(.*)@(\w*).*$
 
-                    # Format of the userid based on the captured parts from the regex
+                    # Format of the user ID based on the captured parts from the regex
                     uid_format: '{}-{}'
 
                     # Should we use the new callback method?
@@ -385,13 +385,13 @@ Here is an exhaustive configuration block that explains every single parameters 
                     #  list of groups
                     user_groups_data_field: null
 
-                    # Name of the field in the list of group that contains the
+                    # Name of the field in the list of groups that contains the
                     #  name of the group
                     user_groups_name_field: null
     ```
 
 
-Here is an example configuration block that would let you use Auth0 provided that you would change your `client_id` and `client_secret` and that you would change the `tenant_name` to yours:
+Here is an example configuration block that would let you use Auth0 if you would change your `client_id` and `client_secret` and that you would change the `tenant_name` to yours:
 
 ???+ example "Auth0 configuration example"
     ```yaml
@@ -407,7 +407,7 @@ Here is an example configuration block that would let you use Auth0 provided tha
             providers:
                 auth0:
                     # It is safe to auto-create users here
-                    # because it is your own oAuth tenant
+                    # because it is your OAuth tenant
                     auto_create: true
                     auto_sync: true
 
@@ -416,9 +416,9 @@ Here is an example configuration block that would let you use Auth0 provided tha
                     client_secret: <YOUR_CLIENT_SECRET>
 
                     client_kwargs:
-                        scope: openid email profile
+                        scope: OpenID email profile
 
-                    # Set your tenant name in the following urls
+                    # Set your tenant's name in the following URLs
                     access_token_url: https://<TENANT_NAME>.auth0.com/oauth/token
                     api_base_url: https://<TENANT_NAME>.auth0.com/
                     authorize_url: https://<TENANT_NAME>.auth0.com/authorize

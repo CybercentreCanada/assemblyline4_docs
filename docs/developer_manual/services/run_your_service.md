@@ -9,9 +9,9 @@ This section of the service documentation will show you how to run your service 
 !!! important
     This documentation assumes the following:
 
-    1. You have read throught the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
-    2. You have completed the [developing an Assemblyline service](../developing_an_assemblyline_service) documentation and your service is located in the `~/git/services/assemblyline-service-sample` directory on the machine where your IDE runs.
-    3. Wether you are using VSCode or Pycharm as your IDE, you have a virtual environment dedicated to running services either located at `~/git/services/venv` or `~/venv/services` on the VM where the code runs
+    1. You have read through the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
+    2. You have completed the [developing an Assemblyline service](../developing_an_assemblyline_service) documentation and your service is in the `~/git/services/assemblyline-service-sample` directory on the machine where your IDE runs.
+    3. Whether you are using VSCode or PyCharm as your IDE, you have a virtual environment dedicated to running services either located at `~/git/services/venv` or `~/venv/services` on the VM where the code runs
 
 ## Standalone mode
 To test an Assemblyline service in standalone mode, the `run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package can be used to run a single task through the service for testing.
@@ -29,13 +29,13 @@ Ensure the current working directory is the root of the service directory of the
 cd ~/git/services/assemblyline-service-sample
 ```
 
-From a terminal, run the `run_service_once` module, specifying the service path for the service to run and the path to the file to scan. For the pupose of this exemple we will have teh service scan itself.
+From a terminal, run the `run_service_once` module, specifying the service path for the service to run and the path to the file to scan. For this example, we will have the service scan itself.
 
 ```shell
 python -m assemblyline_v4_service.dev.run_service_once sample.Sample sample.py
 ```
 
-The `run_service_once` module creates a directory at the same spot where the file is found with the service name that scanned the file appended to it. In the provious example, the output of the service should be located at: `~/git/services/assemblyline-service-sample/sample.py_sample`. The directory will contain a `result.json` file containing the result from the service.
+The `run_service_once` module creates a directory at the same spot where the file is found with the service name that scanned the file appended to it. In the previous example, the output of the service should be located at `~/git/services/assemblyline-service-sample/sample.py_sample`. The directory will contain a `result.json` file containing the result from the service.
 
 You can view the `result.json` file using the following command:
 
@@ -101,10 +101,10 @@ It will look something like this:
 ## Live mode
 The following technique is how to hook in a service to an Assemblyline development instance so you can perform live debugging and you can send files to your service using the Assemblyline UI.
 
-The way to run a service in debug mode will differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
+The way to run a service in debug mode will differ depending on if you've been using VSCode or PyCharm as your IDE. Follow the appropriate documentation for your current setup:
 
 * [Run a service LIVE in VSCode](../../env/vscode/use_vscode/#running-live-services)
-* [Run a service LIVE in Pycharm](../../env/pycharm/use_pycharm/#live-services)
+* [Run a service LIVE in PyCharm](../../env/pycharm/use_pycharm/#live-services)
 
 !!! important
     You will need to adjust the documentation according to:
@@ -141,7 +141,7 @@ SERVICE_PATH=sample.Sample python -m assemblyline_v4_service.run_service
 
 ## Production container mode
 
-When your confident your service is stable enough, it is time to test it in its final form: A docker container.
+When you are confident your service is stable enough, it is time to test it in its final form: A Docker container.
 
 ### Build the container
 Change working directory to root of the service:
@@ -150,17 +150,17 @@ Change working directory to root of the service:
 cd ~/git/services/assemblyline-service-sample
 ```
 
-Run the `docker build` command and tag the container with the same name that container name has in your service manifest
+Run the `docker build` command and tag the container with the same name that the container name has in your service manifest
 
 ```bash
 docker build -t testing/assemblyline-service-sample .
 ```
 
 ### Run the container LIVE
-The way to run a container LIVE in your development environment differs depending if you've are using VSCode or pycharm as your IDE. Follow the appropriate documentation for your current setup:
+The way to run a container LIVE in your development environment differs depending on if you've been using VSCode or PyCharm as your IDE. Follow the appropriate documentation for your current setup:
 
 * [Run a single container in VSCode](../../env/vscode/use_vscode/#resultsample)
-* [Run a single container in Pycharm](../../env/pycharm/use_pycharm/#load-single-container-live)
+* [Run a single container in PyCharm](../../env/pycharm/use_pycharm/#load-single-container-live)
 
 !!! important
     You will need to adjust the documentation according to:
@@ -169,7 +169,7 @@ The way to run a container LIVE in your development environment differs dependin
     2. The correct container name (`testing/assemblyline-service-sample`)
 
 #### Run container from a shell
-If you dont want to use the IDE to test your production container, you can always run it strait from a shell.
+If you don't want to use the IDE to test your production container, you can always run it straight from a shell.
 
 Use the following command to run it:
 ```shell
@@ -179,7 +179,7 @@ docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | 
 ### Add the container to your deployment
 
 !!! note
-    For the scaler and updater to be able to use your service container, they have to be able to get it from a docker registry. Your can either use dockerhub, a work central registry or a local registry.
+    For the scaler and updater to be able to use your service container, they must be able to get it from a docker registry. You can either use DockerHub, a work central registry, or a local registry.
 
 #### Push the container to your local registry
 

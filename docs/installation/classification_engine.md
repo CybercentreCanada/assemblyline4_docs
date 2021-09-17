@@ -1,43 +1,43 @@
 # Classification engine
 
-Assemblyline has the ability to do record-based access control for submission, files, results and even up to individual section and tags of said results. It was built to support the [Governement of Canada levels of security](https://www.tpsgc-pwgsc.gc.ca/esc-src/protection-safeguarding/niveaux-levels-eng.html) and the [Traffic Light Protocol](https://www.cisa.gov/tlp) but can also be modified at will.
+Assemblyline can do record-based access control for submission, files, results, and even up to individual sections and tags of said results. It was built to support the [Government of Canada levels of security](https://www.tpsgc-pwgsc.gc.ca/esc-src/protection-safeguarding/niveaux-levels-eng.html) and the [Traffic Light Protocol](https://www.cisa.gov/tlp) but can also be modified at will.
 
 Once turned on, the classification engine will do the following changes to the system:
 
-* User will have to be assigned a maximum classification level that they can see as well as the groups they are members of
-* Each submissions to the system will have to have a classification level
+* Users will have to be assigned a maximum classification level that they can see as well as the groups they are members of
+* Each submission to the system will have to have a classification level
 * The User Interface will:
-    * Show the effective classification of each submissions, files, results and result sections
+    * Show the effective classification of each submission, file, result, and result sections
     * Have a dedicated help section that will explain how classification conflicts are resolved
-    * Will let you pick a classification while submitting a file
-    * Will automatically hide portions of result for a user that does not have enough priviledges to see them
+    * Let you pick a classification while submitting a file
+    * Automatically hide portions of the result for a user that does not have enough privileges to see them
 
 # Configuration
 
-The classification engine has many parameters that can be customized so you can get record-based access controls that fits your organization.
+The classification engine has many parameters that can be customized so you can get record-based access controls that fit your organization.
 
-Here is an exhaustive configuration file of the classification engine that explain every single parameters:
+Here is an exhaustive configuration file of the classification engine that explains every single parameter:
 ???+ example "Exhaustive classification configuration"
     ```yaml
     # Turn on/off classification enforcement. When this flag is off, this
     #  completely disables the classification engine, any documents added while
-    #  the classification engine is off gets the default unrestricted value
+    #  the classification engine is off getting the default unrestricted value
     enforce: false
 
-    # When this falg in on, the classification engine will automatically create
-    #  groups based of the domain part of a user's email address
+    # When this flag is on, the classification engine will automatically create
+    #  groups based on the domain part of a user's email address
     #  EX:
-    #     For to user with email: test@local.host
+    #     For user with email: test@local.host
     #     The group "local.host" will be valid in the system
     dynamic_groups: false
 
-    # List of Classification level:
-    #   This is a graded list, a smaller number is less restricted then an higher number
+    # List of Classification Levels:
+    #   This is a graded list; a smaller number is less restricted than a higher number
     #   A user must be allowed a classification level >= to be able to view the data
     levels:
       # List of alternate names for the current marking. If a user submits a file with
       #  those markings, the classification will automatically rename it to the value
-      #  specified in name
+      #  specified in the name
       - aliases:
           - UNRESTRICTED
           - UNCLASSIFIED
@@ -50,7 +50,7 @@ Here is an exhaustive configuration file of the classification engine that expla
           color: default
 
           # Deprecated parameters (Use color instead)
-          #  This where used in the old UI but are still valid in the new UI because if
+          #  These were used in the old UI but are still valid in the new UI because if
           #  the new UI cannot find the color param, it will use the label param and
           #  strips "label-" part.
           banner: alert-default
@@ -62,7 +62,7 @@ Here is an exhaustive configuration file of the classification engine that expla
           Subject to standard copyright rules, TLP:WHITE information may be distributed
           without restriction.
 
-        # Interger value of the Classification level (higher is more classified)
+        # Integer value of the Classification level (higher is more classified)
         lvl: 100
 
         # Long name of the classification level
@@ -95,7 +95,7 @@ Here is an exhaustive configuration file of the classification engine that expla
 
     # List of required tokens:
     #   A user requesting access to an item must have all the
-    #   required tokens the item has to gain access to it
+    #   required tokens the item has, to gain access to it
     required:
       # List of alternate names for the token
       - aliases: []
@@ -110,8 +110,8 @@ Here is an exhaustive configuration file of the classification engine that expla
         short_name: CMR
 
         # (optional) The minimum classification level an item must have
-        #  for this token to be valid. So because this token has a value
-        #  of 120, once its selected, the classification level automatically
+        #  for this token to be valid. So, because this token has a value
+        #  of 120, once it's selected, the classification level automatically
         #  jumps to TPL:A which was set to 120 in the previous section.
         require_lvl: 120
 
@@ -122,7 +122,7 @@ Here is an exhaustive configuration file of the classification engine that expla
       # List of aliases for the group
       - aliases:
           - ANY
-        # (optional) This is a special flag that when set to true, if any other groups
+        # (optional) This is a special flag that when set to true if any other groups
         #  are selected in a classification, this group will automatically be selected
         #  as well.
         auto_select: true
@@ -136,9 +136,9 @@ Here is an exhaustive configuration file of the classification engine that expla
         # Short name for the group
         short_name: CSE
 
-        # (optional) Assuming that this groups is the only group selected, this is the
+        # (optional) Assuming that this group is the only group selected, this is the
         #   display name that will be used in the classification
-        #   NOTE: that values has to be in the aliases of this group and only this group
+        #   NOTE: values must be in the aliases of this group and only this group
         solitary_display_name: ANY
 
     # List of sub-groups:
@@ -159,7 +159,7 @@ Here is an exhaustive configuration file of the classification engine that expla
       - aliases: []
         description: Member of the Canadian Centre for Cyber Security
 
-        # (optional) This is a special flag that auto-select the corresponding
+        # (optional) This is a special flag that auto select the corresponding
         #   group when this sub-group is selected
         require_group: CSE
 
@@ -174,16 +174,16 @@ Here is an exhaustive configuration file of the classification engine that expla
     restricted: TLP:A//CMR
 
     # Default unrestricted classification:
-    #   When no classification are provided or that the classification engine is
-    #   disabled, this is the classification value each items will get
+    #   When no classification is provided or the classification engine is
+    #   disabled, this is the classification value each item will get
     unrestricted: TLP:W
     ```
 
 # Enabling it in your system
-By default, the classification engine is disabled in the system but it can easily be enabled by creating a new config map in kubernetes.
+By default, the classification engine is disabled in the system, but it can easily be enabled by creating a new config map in Kubernetes.
 
 !!! info
-    For the purpose of this documentation we will enable a classification engine which support only the traffic light protocol.
+    For this documentation we will enable a classification engine that supports only the traffic light protocol.
 
 In your deployment directory, create a file named `objects.yaml` with the following content:
 ???+ example "objects.yaml"
@@ -291,4 +291,4 @@ Finally update your deployment using `helm upgrade command`:
     ```
 
 !!! important
-    It takes a while for all the containers to be restarted so be patient and it will enventually show up in the UI.
+    It takes a while for all the containers to be restarted so be patient and it will eventually show up in the UI.

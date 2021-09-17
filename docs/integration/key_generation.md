@@ -1,6 +1,6 @@
 # Generating an API key
 
-While integrating Assemblyline to another system, you should not save your username and password into another app. Instead, you should create an API Key with only the appropriate required for that specific integration.
+While integrating Assemblyline to another system, you should not save your username and password into another app. Instead, you should create an API Key with only the appropriate requirements for that specific integration.
 
 Here is how to do this: 
 

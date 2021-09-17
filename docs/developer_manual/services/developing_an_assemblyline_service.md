@@ -3,13 +3,13 @@
 This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service.
 
 ## Pre-requisites
-Before getting started, ensure you have read throught the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
+Before getting started, ensure you have read through the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
 
 ## Build your first service
 This section will guide you through the bare minimum steps required to create a running, but functionally useless service. Each sub-section below outlines the steps required for each of the different files required to create an Assemblyline service. All files created in the following sub-sections must be placed in a common directory.
 
 !!! important
-    For the purpose of this documentation, we will assume that your new service directory is located at: `~/git/services/assemblyline-service-sample`
+    For this documentation, we will assume that your new service directory is located at `~/git/services/assemblyline-service-sample`
 
 ### Service Python code
 
@@ -37,7 +37,7 @@ Put the following code in your service's file:
             # Execute a request:
             #   Every time your service receives a new file to scan, the execute function is called
             #   This is where you should execute your processing code.
-            #   For the purpose of this example, we will only generate results ...
+            #   For this example, we will only generate results ...
             # ==================================================================
 
             # 1. Create a result object where all the result sections will be saved to
@@ -49,7 +49,7 @@ Put the following code in your service's file:
             # 2.1. Add lines to your section
             text_section.add_line("This is a line displayed in the body of the section")
 
-            # 2.2. Your section can generate a score. To do this it need to fire a heuristic.
+            # 2.2. Your section can generate a score. To do this it needs to fire a heuristic.
             #     We will fire heuristic #1
             text_section.set_heuristic(1)
 
@@ -65,7 +65,7 @@ Put the following code in your service's file:
 
 ### Service manifest YAML
 
-Now that you have oa better understanding of the python portion of a service. We will create the associated manifest file that hold the different configuration for the service.
+Now that you have a better understanding of the python portion of a service. We will create the associated manifest file that holds the different configurations for the service.
 
 In your service directory, you will add the YAML configuration file `service_manifest.yml` with the following content:
 ???+ example "~/git/services/assembyline-service-sample/service_manifest.yml"
@@ -81,10 +81,10 @@ In your service directory, you will add the YAML configuration file `service_man
     accepts: .*
     rejects: empty
 
-    # At which stage the service should run (one of: FILTER, EXTRACT, CORE, SECONDARY, POST)
+    # At which stage the service should run (one of FILTER, EXTRACT, CORE, SECONDARY, POST)
     # NOTE: Stages are executed in the order defined in the list
     stage: CORE
-    # Which category the service is part of (one of: Antivirus, Dynamic Analysis, External, Extraction, Filtering, Networking, Static Analysis)
+    # Which category the service is part of (one of Antivirus, Dynamic Analysis, External, Extraction, Filtering, Networking, Static Analysis)
     category: Static Analysis
 
     # Does the service require access to the file to perform its task
@@ -96,7 +96,7 @@ In your service directory, you will add the YAML configuration file `service_man
     # is the service enabled by default
     enabled: true
 
-    # Service heuristic blocks: List of heuristics object that define the different heuristics used in the service
+    # Service heuristic blocks: List of heuristic objects that define the different heuristics used in the service
     heuristics:
       - description: This is a demo heuristic
         filetype: "*"
@@ -106,7 +106,7 @@ In your service directory, you will add the YAML configuration file `service_man
 
     # Docker configuration block which defines:
     #  - the name of the docker container that will be created
-    #  - cpu and ram allocation by the container
+    #  - CPU and ram allocation by the container
     docker_config:
       image: ${REGISTRY}testing/assemblyline-service-sample:latest
       cpu_cores: 1.0
@@ -114,10 +114,10 @@ In your service directory, you will add the YAML configuration file `service_man
     ```
 
 !!! important
-    The `service_manifest.yml` has a lot more configurable parameters that you might be required to change depending of the service you are building. You should get familiar with the complete list by reading the [service manifest](../advanced/service_manifest) advanced documentation.
+    The `service_manifest.yml` has a lot more configurable parameters that you might be required to change depending on the service you are building. You should get familiar with the complete list by reading the [service manifest](../advanced/service_manifest) advanced documentation.
 
 ### Dockerfile
-Finally, the last file needed to complete your assemblyline service is the `Dockerfile` that is used to create it's docker container.
+Finally, the last file needed to complete your assemblyline service is the `Dockerfile` that is used to create its Docker container.
 
 In your service directory, create a file named `Dockerfile` with the following content:
 ???+ example "~/git/services/assemblyline-service-sample/Dockerfile"
@@ -143,15 +143,15 @@ In your service directory, create a file named `Dockerfile` with the following c
 The Dockerfile is required to build a Docker container. When developing a Docker container for an Assemblyline service,
 the following must be ensured:
 
-- The parent image must be `cccs/assemblyline-v4-service-base:stable` so your are using a stable build of service base.
+- The parent image must be `cccs/assemblyline-v4-service-base:stable` so you are using a stable build of service base.
 - An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
 class which inherits from the `ServiceBase` class.
 - Any dependency installation must be completed as the `root` user, which is set by default in the parent image. Once all
-dependency installations have been completed, you must should change the user to `assemblyline`.
+dependency installations have been completed, you must change the user to `assemblyline`.
 - The service code and any dependency files must be copied to the `/opt/al_service` directory.
 
 ## Conclusion
-After you've completed creating your first service, your `~/git/services/assemblyline-service-sample` directory should have the following files at minimum:
+After you've completed creating your first service, your `~/git/services/assemblyline-service-sample` directory should have the following files at a minimum:
 
 ```text
 .
