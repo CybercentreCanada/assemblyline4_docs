@@ -72,7 +72,8 @@ nav:
     - installation/classification_engine.md
     - installation/monitoring.md
   - Administration:
-      #- administration/signature_management.md
+      - administration/signature_management.md
+      - administration/source_management.md
       #- administration/service_management.md
       - administration/system_safelist.md
       #- administration/user_management.md

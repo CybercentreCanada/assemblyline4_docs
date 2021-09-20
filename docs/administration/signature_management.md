@@ -1,125 +1,69 @@
-# Source Management
+# Signature Management
 
-Adding signature sources to support analysis is very simple and can be done directly through the Assemblyline WebUI.
+The signature management of Assemblyline line lets you:
 
-First, navigate to “Source management” through the navbar:
+1. List all the signatures in the system
+2. Filter and search the current set of signatures
+3. View details about those signatures
+4. Set the status of a specific signatures
+5. Remove signatures form the system
 
-![Source management](./images/bar.PNG)
+You can find the signature managment interface by clicking the *Manage* then *Signatures* menu from the navigation bar.
 
-## **Adding a source:**
-Then, to add a signature source, click on the green icon along the right side of the window:
-![Source add](./images/source_add.PNG)
-
-This will bring the user to the window below:
-
-![Source configuration](./images/source_config.PNG)
-
-### **Required input**
-
-The following sections are <ins>required</ins> in order to add a signature source to Assemlyline:
--	**URI** 
-    - This is the path to your sources. In this case, we will use a github repository.
-    - The URI section also accepts HTTP URLs as input.
--	**Source Name**
-    - This can be labelled at the user’s discretion. For this example, we have used REVERSING_LABS.
-    - Please note that input for "Source Name" **must not** have any spaces.
-    
-### **Optional input**
-
--   **Pattern**
-    - The user may add a regex pattern to pull certain file types for a particular service. In this example,
-    only `.yara` or `.yar` files will be added as signatures.
--   **Username / Password**
-    - This is the username and password for the URL or git repo you are targeting.
--   **Private Key**
-    - If using SSH to connect to Github, you must generate a private SSH key and add it to this section.
--   **Headers**
-    - Header name and Header value are for special HTTP headers that may be passed to the HTTP server, such as 
-    passing an api key.
-
-## **Updating signature sources**
-
-The user may set the frequency with which signature sources are updated in two ways:
--    Prior to loading the service into Assemblyline; and/or
--    Once the service has been loaded into Assemblyline
-    
-#### **Option 1 - prior to loading the service**
-
--   The updater can be configured through the service_manifest.yml, which is located in the root directory of each service.
-![Root folder](./images/root_folder.PNG)
--   The following is an example of the update configuration section of the service_manifest.yml file
-
-```
-update:config
-    generates_signatures: true
-    method: run
-    run_options:
-        allow_internet_access: true
-        command: ["python", "-m", "yara_.yara_updater"]
-        image: ${REGISTRY}cccs/assemblyline-service-yara:$SERVICE_TAG
-    sources:
-        - name: cve
-          pattern: ^cve_rules_index.yar$
-          uri: https://github.com/Yara-Rules/rules.git
-    update_interval_seconds: 86400
-    wait_for_update: true
-```
--   Click [here](https://cybercentrecanada.github.io/assemblyline4_docs/docs/developer_manual/services/service_manifest.html#update-config) to find explanations for each relevant parameter.
--   In this example, the service will pull any signatures from the source that have been updated in the last 86400 seconds.
-   
-#### **Option 2 - once the service has been loaded into Assemblyline**
-
--   First navigate to User/Administration/Services through the navbar:
-![Service navbar](./images/navbar_services.PNG)
--   Click on the relevant service you wish to update.
--   Navigate to the "updater" tab.
--   Input your preferred frequency (in seconds) into the "Update interval" textbox (as seen below).
-![Service updater](./images/updater.PNG)
--   In this example, the service will pull any signatures from the source that have been updated in the last 1800 seconds. 
-
-## **Rule Searching**
-
-Assemblyline allows the user to search for signatures in a variety of ways, for example:
--   Using the navbar, select signature management.
 ![Signature management](./images/signature_management.PNG)
--   search for the type of signature you are looking for.
 
-**Note:** although the search categories (i.e. type, source, etc) are not case sensitive, the search parameters are
-and must match the spelling of the specific signature you are searching for.
-![Searching yara signatures](./images/search_yara.PNG)
--   You may also search for the signature Name, Source, ID, Revision, Classification, and Status in the same manner.
-          Furthermore, multiple search parameters may be submitted at the same time, for example:
-![Searching all](./images/multiple_search.PNG)
+!!! warning
+    You cannot add new signatures to the system via this interface. Instead, Assemblyline has a [source management](../source_management) interface which lets you add a bunch of external sources to fetch to signatures from. The updater of the different service take care of loading the URL for the source and loading the new signature in the system. It will also sync existing signatures that changed since the last import.
 
-## **Scoring**
+## Signature list
 
--   Scoring is based on the CCCS YARA specifications for rule metadata, which were created 
-to define and validate the style and format of YARA rule metadata. Assemblyline supports this specification
-natively and will leverage it to provide more context around YARA signature hits. The CCCS YARA specifications 
-for rule metadata categorize samples into 5 different categories, each with their own
-associated score:
--   | malware = 1000 | exploit & tool = 500 | technique = 100 | info = 0 |
--   To learn more about this format, please [click here](https://github.com/CybercentreCanada/CCCS-Yara)   
+The first page you will be taken to when loading the signature management interface will list all the signatures that have been loaded in the system.
 
+![Signature list](./images/sig_list.PNG)
 
-## **Signature state**
+From this interface you can:
 
-There are three different signature states: Deployed, Noisy, and Disabled
+1. Page throught the different signatures from the list
+2. Filter the displayed signatures with the search bar
+    * Assemblyline signatures can be searched using a lucene query. As you start typing in the search box, the system will suggest you field you can search into.
+    * You can also use the quick filter buttons for pre-defined searches. These pre-defined search will help you get started writting more complex signature searches.
+3. Download the currently viewed signature set with the download arrow on the top right
+4. View the detail of a signature by clicking on it
 
--   **Deployed**:
-    -   Deployed rules score according to their rule "type" or "group", as referenced in the Scoring section.
--   **Noisy**:
-    -   Noisy rules are reported in the results but do not influence the score of the submission.
--   **Disabled**:
-    -   Are not run against samples that are submitted.
-    
-#### **Changing a signature's state:**
+## Signature detail
 
--   Navigate to signature management as referenced in the Rule Searching section.
--   Search for the applicable rule.
--   Click on the specific rule, select the "Change State" tab, and choose a new signature state from the drop-down menu.
+Once you click on a signature, the detail view for that signature will be shown.
+
+![Signature detail](./images/sig_detail.png)
+
+This page will show you the following information:
+
+1. ID of the siganture (Under the signature details header)
+2. The raw signature
+3. Statistics about the signature
+4. An histogram of the signature for the last 30 days
+5. A list of the last ten hits for that signature
+
+On the top right, it will also take actions on the signature:
+
+1. You can hit the search button to find all instance where that signature hits in the system
+2. Use the red delete button to delete the signature from the system
+    * If the signature is still in the source that it is attached to, it will be re-added on next update. In this case, you should disable it instead.
+3. Change the state of a signature
+
+### Changing the signature state
+
+Signature states are synced with the source they are comming from but the state in your Assemblyline deployment will superseed the state that the rule updater is trying to set. Which means that if you disable a rule in your Assemblyline instance, it will remain disabled even if the source where that rule is from changes.
+
+There are three different signature states: **Deployed**, **Noisy**, and **Disabled**
+
+* **Deployed**:
+    * Deployed will be used for detection and will generate a score depending on how the service handles these types of signatures
+* **Noisy:**
+    * Noisy used for detection but that rule will not affect the score of the file
+* **Disabled:**
+    * Disabled signatures are completely ignored in the system and the service will not even realized that those signatures exist
+
+You can change the signatures by clicking the current signature state in the signature detail view. This will bring up the state changing modal window which will let you pick a new state for the current rule.
+
 ![Change signature state](./images/change_state.PNG)
-
-
-
-
