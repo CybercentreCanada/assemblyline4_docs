@@ -74,7 +74,7 @@ nav:
   - Administration:
       #- administration/signature_management.md
       #- administration/service_management.md
-      #- administration/system_safelist.md
+      - administration/system_safelist.md
       #- administration/user_management.md
       - administration/troubleshooting.md
   - Integration:
