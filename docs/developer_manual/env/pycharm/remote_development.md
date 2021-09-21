@@ -1,9 +1,9 @@
 # Remote development
 
 !!! warning
-    To use this setup, we assume that you have a paid version of PyCharm ([Pycharm professional](https://www.jetbrains.com/lp/pycharm-pro/)) because we will be using features that are exclusive to the Pro version. If you don't, use the [Local development](../local_development) setup instead.
+    To use this setup, we assume that you have a paid version of PyCharm ([Pycharm professional](https://www.jetbrains.com/lp/pycharm-pro/)) because we will be using features that are exclusive to the Professional version. If you don't, use the [Local development](../local_development) setup instead.
 
-This document will show you how to setup your target Virtual Machine for remote development which means that you will run your IDE on your desktop and run the Assemblyline containers on the remote target VM.
+This document will show you how to set up your target virtual machine for remote development which means that you will run your IDE on your desktop and run the Assemblyline containers on the remote target VM.
 
 ## On the target VM
 ### Operating system
@@ -27,7 +27,7 @@ sudo reboot
 
 #### Install SSH Daemon
 
-We need to make sure the remote target has SSH daemon installed for remote debugging
+We need to make sure the remote target has an SSH daemon installed for remote debugging
 ```shell
 sudo apt update
 sudo apt install -y ssh
@@ -69,7 +69,7 @@ sudo docker run hello-world
 ```
 #### Installing docker-compose
 
-Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
+Installing `docker-compose` is done the same way on all Linux distributions. Follow these simple instructions:
 ```shell
 # Install docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -79,9 +79,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
-##### Securing docker for remote access
+##### Securing Docker for remote access
 
-We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a `static IP` to the remote VM because your cert will only allow connections to that IP.
+We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a `static IP` to the remote VM because your certificate (cert) will only allow connections to that IP.
 ```shell
 # Create a cert directory
 mkdir ~/certs
@@ -90,7 +90,7 @@ cd ~/certs
 # Create a CA (Remember the password you've set)
 openssl genrsa -aes256 -out ca-key.pem 4096
 
-# Create a certificate signing request (ignore the .rng error)
+# Create a certificate-signing request (ignore the .rng error)
 openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem -subj "/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local"
 
 # Creating the server public/private key
@@ -118,7 +118,7 @@ sudo mkdir -p /etc/docker/certs
 sudo mv server*.pem /etc/docker/certs
 sudo cp ca.pem /etc/docker/certs
 
-# Add system.d override configuration for docker to start the tcp with tls port
+# Add system.d override configuration for Docker to start the TCP with TLS port
 sudo mkdir -p /etc/systemd/system/docker.service.d/
 sudo su -c 'echo "# /etc/systemd/system/docker.service.d/override.conf
 [Service]
@@ -127,7 +127,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --tlsverify --tlscacert=/etc/docker/certs/ca
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-# Test the TLS connection with curl
+# Test the TLS connection with cURL
 curl https://127.0.0.1:2376/images/json --cert ~/certs/cert.pem --key ~/certs/key.pem --cacert ~/certs/ca.pem
 
 # Create an archive with the client certs
@@ -140,7 +140,7 @@ The archive file `~/certs/certs.tgz` will have to be transferred to your desktop
 
 #### Assemblyline folders
 
-Because Assemblyline uses its own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
+Because Assemblyline uses its own set of folders inside the core, service-server, and UI container, we have to create the same folder structure here so that we can run the components in debug mode.
 ```shell
 sudo mkdir -p ~/git
 
@@ -156,7 +156,7 @@ sudo chown $USER /var/log/assemblyline
 ```
 #### Assemblyline dev configuration files
 
-Here we will create configuration files that match the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
+Here we will create configuration files that match the default dev `docker-compose` configuration files so that we can swap any of the components to the one that is being debugged.
 ```shell
 echo "enforce: true" > /etc/assemblyline/classification.yml
 echo "
@@ -204,7 +204,7 @@ ui:
 ```
 
 !!! tip
-    As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolve the first part of the domain `YOUR_IP`.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs. You can also replace the FQDN with your DNS name if you have one.
+    As you can see in the last command we are setting the FQDN to YOUR_IP.nip.io. NIP.IO is a service that will resolve the first part of the domain `YOUR_IP`.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect URLs to IPs. You can also replace the FQDN with your own DNS name if you have one.
 
 ### Setup Python Virtual Environments
 
@@ -218,7 +218,7 @@ That should be enough to cover most cases. If a service has conflicting dependen
 #### Setting up Core Virtualenv
 
 ```shell
-# Make sure venv dir exist and we are in it
+# Make sure the venv directory exists and we are in it
 mkdir -p ~/venv
 cd ~/venv
 
@@ -235,7 +235,7 @@ python3.9 -m venv core
 #### Setting up Service Virtualenv (optional)
 
 ```shell
-# Make sure venv dir exist and we are in it
+# Make sure the venv directory exists and we are in it
 mkdir -p ~/venv
 cd ~/venv
 
@@ -268,7 +268,7 @@ rm certs.tgz
 
 ### Install PyCharm
 
-You can download PyCharm Professional directly from [jetbrains](https://www.jetbrains.com/pycharm/)'s website but if your desktop is running Ubuntu 20.04, you can just install it with snap:
+You can download PyCharm Professional directly from [JetBrains](https://www.jetbrains.com/pycharm/)'s website but if your desktop is running Ubuntu 20.04, you can just install it with `snap`:
 
 ```shell
 sudo snap install --classic pycharm-professional
@@ -276,13 +276,13 @@ sudo snap install --classic pycharm-professional
 
 ### Install Git
 
-You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but if your desktop is running Ubuntu 20.04 you can just install it with APT:
+You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but if your desktop is running Ubuntu 20.04 you can just install it with `APT`:
 ```shell
 sudo apt install -y git
 ```
 
 !!! tip
-    You should add your desktop SSH keys to your Github account to use Git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+    You should add your desktop SSH keys to your GitHub account to use Git via SSH. Follow these instructions to do so: [GitHub Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
 ### Clone repositories
 
@@ -297,7 +297,7 @@ cd ~/git/alv4
 Clone Assemblyline's repositories
 
 === "Git via SSH"
-    Use SSH if you have your SSH id_rsa file configured to your Github account
+    Use SSH if you have your SSH id_rsa file configured to your GitHub account
     ```shell
     git clone git@github.com:CybercentreCanada/assemblyline-base.git
     git clone git@github.com:CybercentreCanada/assemblyline-core.git
@@ -308,7 +308,7 @@ Clone Assemblyline's repositories
     ```
 
 === "Git via HTTPS"
-    Use HTTPS if you don't have your Github account configured with an SSH key
+    Use HTTPS if you don't have your GitHub account configured with an SSH key
     ```shell
     git clone https://github.com/CybercentreCanada/assemblyline-base.git
     git clone https://github.com/CybercentreCanada/assemblyline-core.git
@@ -320,7 +320,7 @@ Clone Assemblyline's repositories
 
 #### Services (optional)
 
-Create the sercice working directory
+Create the service working directory
 ```shell
 mkdir -p ~/git/services
 cd ~/git/services
@@ -328,7 +328,7 @@ cd ~/git/services
 
 Clone Assemblyline's services repositories
 === "Git via SSH"
-    Use SSH if you have your SSH id_rsa file configured to your Github account
+    Use SSH if you have your SSH id_rsa file configured to your GitHub account
     ```shell
     git clone git@github.com:CybercentreCanada/assemblyline-service-antivirus.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
@@ -366,7 +366,7 @@ Clone Assemblyline's services repositories
     ```
 
 === "Git via HTTPS"
-    Use HTTPS if you don't have your Github account configured with an SSH key
+    Use HTTPS if you don't have your GitHub account configured with an SSH key
     ```shell
     git clone https://github.com/CybercentreCanada/assemblyline-service-antivirus.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
@@ -413,7 +413,7 @@ Start with loading the core directory in Pycharm:
     2. Click the `Open` button
     3. Choose the `~/git/alv4` directory
 
-The setup the remote deployment interpreter:
+The setup of the remote deployment interpreter:
 
 !!! example "Setup core remote interpreter"
     1. Click `Files` -> `Settings`
@@ -424,7 +424,7 @@ The setup the remote deployment interpreter:
         - Username: username of the user on the target VM
         - Port: 22 unless you changed it...
     5. Click `Next`
-    6. Put your target VM password in the box, check `Save password` and click `Next`
+    6. Put your target VM password in the box, check `Save password`, and click `Next`
     7. In the next window, do the following:
         - For the `interpreter box`, click the little `folder` and select your core venv (`/home/YOUR_TARGET_USER/venv/core/bin/python3.9`)
         - For the `Sync folders` box, click the little `folder` and for the remote path set the path to: `/home/YOUR_TARGET_USER/git/alv4` then click `OK` (ensure target directory has write permissions for all users)
@@ -434,9 +434,9 @@ The setup the remote deployment interpreter:
     8. Click `Ok`
     9. Let it load the interpreter and do the transfers
 
-Finally link docker for remote management:
+Finally link Docker for remote management:
 
-!!! example "Setup docker remote management"
+!!! example "Setup Docker remote management"
     1. Click `Files` -> `Settings`
     2. Select `build, Execution, Deployment` -> `Docker`
     3. Click the little `+` on top left
@@ -447,14 +447,14 @@ Finally link docker for remote management:
 
 ### Setup PyCharm for service (optional)
 
-Start with loading the core directory in Pycharm:
+Start with loading the core directory in PyCharm:
 
 !!! example "Load services folder"
-    1. From your core Pycharm window open the `File menu` then click `Open`
+    1. From your core PyCharm window open the `File menu` then click `Open`
     3. Choose the `~/git/services` directory
     3. Select `New Window`
 
-The setup the remote deployment interpreter:
+The setup of the remote deployment interpreter:
 
 !!! example "Setup services remote interpreter"
     1. Click `Files` -> `Settings`
@@ -465,7 +465,7 @@ The setup the remote deployment interpreter:
         - Username: username of the user on the target VM
         - Port: 22 unless you changed it...
     5. Click `Next`
-    6. Put your target VM password in the box, check `Save password` and click `Next`
+    6. Put your target VM password in the box, check `Save password`, and click `Next`
     7. In the next window, do the following:
         - For the `interpreter box`, click the little `folder` and select your core venv (`/home/YOUR_TARGET_USER/venv/services/bin/python3.9`)
         - For the `Sync folders` box, click the little `folder` and for the remote path set the path to: `/home/YOUR_TARGET_USER/git/services` then click `OK` (ensure target directory has write permissions for all users)
@@ -477,4 +477,4 @@ The setup the remote deployment interpreter:
 
 ## Use Pycharm
 
-Now that your Remote development VM is setup you should read the [use Pycharm](../use_pycharm) documentation to get you started.
+Now that your remote development VM is set up you should read the [use PyCharm](../use_pycharm) documentation to get yourself started.
