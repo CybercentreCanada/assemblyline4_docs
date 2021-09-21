@@ -11,13 +11,13 @@ Assemblyline's user management interface lets you:
 
 You can find the user management interface by clicking the *User Avatar* then choose *Users* from the administrator menu.
 
-![User management](./images/user_management.PNG)
+![User management](./images/user_management.png)
 
 ## User list
 
 The first page you will be taken to when loading the user management interface will list all the users of the system.
 
-![User list](./images/user_list.PNG)
+![User list](./images/user_list.png)
 
 From this interface you can:
 
