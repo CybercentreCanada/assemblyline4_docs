@@ -73,7 +73,7 @@ In your service directory, you will add the YAML configuration file `service_man
     # Name of the service
     name: Sample
     # Version of the service
-    version: 1
+    version: 4.0.0.dev0
     # Description of the service
     description: ALv4 Sample service from the documentation
 
