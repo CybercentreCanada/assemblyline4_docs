@@ -6,21 +6,21 @@ Here are some pointers on how to run most of the core components live in PyCharm
 
 ### Minimal Dependencies
 
-When dependencies are loaded, you can launch any core components and its dependencies should be satisfied.
+When dependencies are loaded, you can launch any core components and their dependencies should be satisfied.
 
 === "Pycharm Professional"
 
     1. In your project file viewer
     2. Browse to ```assemblyline-base/dev/depends```
-    3. Right click on ```docker-compose-minimal.yml```
+    3. Right-click on ```docker-compose-minimal.yml```
     4. Select ```Create 'depends/docker-compose...'```
     5. Click ```OK```
-    6. You'll notice on the top right that a new Compose deployment has been created for dependencies, hit the play button next to it to launch the containers.
+    6. You'll notice on the top right that a new Compose deployment has been created for dependencies. Hit the play button next to it to launch the containers.
 
     !!! tip
-        From now on you can just select that Compose deployment for dependencies from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configurations and give it a proper name.
+        From now on you can just select that Compose deployment for dependencies from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configuration and give it a proper name.
 
-=== "Docker-compose (Pycharm Community)"
+=== "Docker-compose (PyCharm Community)"
 
     In a new terminal on the VM, run the following commands:
 
@@ -53,13 +53,13 @@ Core services depend on the dependencies in the docker-compose file. When the co
 
     1. In your project file viewer
     2. Browse to `assemblyline-base/dev/core`
-    3. Right click on `docker-compose.yml`
+    3. Right-click on `docker-compose.yml`
     4. Select `Create 'core: Compose Deploy...'`
     5. Click `OK`
     6. You'll notice on the top right that a new Compose deployment has been created for core services, hit the play button next to it to launch the containers.
 
     !!! tip
-        From now on you can just select that Compose deployment for core components from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configurations and give it a proper name.
+        From now on you can just select that Compose deployment for core components from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configuration and give it a proper name.
 
 === "Docker-compose (Pycharm Community)"
 
@@ -85,7 +85,7 @@ Load a single container is very useful to test a newly create production service
 You can easily load any container live in your Assemblyline Dev environment by following these instructions:
 
 !!! note
-    For the purpose of this demo we will assume that you want to run the service container form the [developing an Assemblyline service](../../../services/developing_an_assemblyline_service) documentation.
+    For this demo we will assume that you want to run the service container from the [developing an Assemblyline service](../../../services/developing_an_assemblyline_service) documentation.
 
 === "Pycharm Professional"
 
@@ -106,7 +106,7 @@ You can easily load any container live in your Assemblyline Dev environment by f
 
 === "Docker (Pycharm Community)"
 
-    Pycharm community does not have support for managing docker containers, therefor you will have to run your containers using shell.
+    Pycharm Community does not have support for managing Docker containers, therefore you will have to run your containers using a `shell`.
 
     In a new terminal on the VM, run the following commands:
     ```shell
@@ -119,53 +119,53 @@ You can easily load any container live in your Assemblyline Dev environment by f
 
 ### Core Components
 
-Most of the core components are going to be as easy to run as finding the component main file then hit `Run` or `Debug`... All core components require you to run the ```Minimal Dependencies``` docker-compose file prior to launch them.
+Most of the core components are going to be as easy to run as finding the component main file then hit `Run` or `Debug`... All core components require you to run the ```Minimal Dependencies``` docker-compose file before launching them.
 
 !!! example "Launching the API Server"
     1. Find the UI main file in the project files browser
         - ```assemblyline-ui/assemblyline_ui/app.py```
-    2. Right click on it
+    2. Right-click on it
     3. Select either ```Run 'app'``` or ```Debug 'app'```
 
 ### Live Services
 
-The main exception to very easy-to-run components are debugging services live in the system. Service require you to run two separate components to process files. The two components talk via named pipes in the /tmp folder. Inside the Docker container this is very easy but debugging this live needs requires some sacrifices.
+The main exception to very easy-to-run components is debugging services live in the system. Services require you to run two separate components to process files. The two components talk via named pipes in the /tmp folder. Inside the Docker container, this is very easy but debugging this live requires some sacrifices.
 
 !!! warning "Limitations"
     1. You can only run one live debugging service at the time
-    2. Depending on where you stop them and how you stop them, they don't fully cleanup after themselves.
-    3. They require extra configuration, it's not just click and go
+    2. Depending on where you stop them and how you stop them, they don't fully clean up after themselves.
+    3. They require extra configuration, it's not just "click-and-go"
 
-We will show you how to run the Sample service live in the system created in the [developing and Assemblyline service](../../../services/developing_an_assemblyline_service) documentation. This requires you to run the full infrastructure using the docker-compose files prior to execute the steps. ([Minimal dependencies](#minimal-dependencies) and [Core services](#core-services))
+We will show you how to run the Sample service live in the system created in the [developing and Assemblyline service](../../../services/developing_an_assemblyline_service) documentation. This requires you to run the full infrastructure using the `docker-compose` files before executing the steps. ([Minimal dependencies](#minimal-dependencies) and [Core services](#core-services))
 
 !!! important
     Run the following example inside the Pycharm window pointing to the services (`~/git/services`)
 
 !!! example
-    Setup `Task handler` run configuration if does not exist:
+    Setup `Task handler` run configuration if it does not exist:
 
     1. Click the "Run" menu then select "Edit Configurations..."
     2. Click the `+` button at the top left
     3. Click `Python`
-    4. First option in the configuration tab is a drop down that says `Script path:` click it and choose `Module Name:`
+    4. The first option in the configuration tab is a drop-down that says `Script path:` click it and choose `Module Name:`
     5. In the box beside it, write: `assemblyline_service_client.task_handler`
-    6. In the name box at the top, write `Task handler`
+    6. In the name box at the top, write `Task Handler`
     7. Click the `OK` Button
 
-    Now if you click the green play button beside the newly created `Task handler` run configuration, Task handler will be waiting for the service to start.
+    Now if you click the green play button beside the newly created `Task Handler` run configuration, Task Handler will be waiting for the service to start.
 
     Setup the new service configuration:
 
     1. Click the "Run" menu then select "Edit Configurations..."
     2. Click the `+` button at the top left
     3. Click `Python`
-    4. First option in the configuration tab is a drop down that says `Script path:` click it and choose `Module Name:`
+    4. The first option in the configuration tab is a drop-down that says `Script path:` click it and choose `Module Name:`
     5. In the box beside it, write: `assemblyline_v4_service.run_service`
     6. Add `;SERVICE_PATH=sample.Sample` to the `Environment variables`
     7. Set the working directory to: `assemblyline-service-sample` by pressing the little `folder` on the right and browsing to that directory
     8. In the name box at the top, write `Sample Service - LIVE`
     9. Click `OK`
     10. Now that dropdown near the top says `Sample Service - LIVE`, click the `play` or the `bug` button to either `Run` or `Debug` the service
-        - In the Run or Debug window, the service will be stuck at *Waiting for receive task named pipe to be ready...*. This is because task_handler shutdown after registering the service for the first time.
+        - In the Run or Debug window, the service will be stuck at *Waiting for receive task named pipe to be ready...*. This is because task_handler shut down after registering the service for the first time.
     11. Select `task_handler` from the dropdown near the top and click the `play` or `bug` button beside it again.
-        - Now both `Sample Service - LIVE` and `Task handler` will stay up an poll for task from service server.
+        - Now both `Sample Service - LIVE` and `Task Handler` will stay up and poll for tasks from the service server.
