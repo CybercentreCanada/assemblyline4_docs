@@ -9,7 +9,7 @@ Assemblyline's user management interface lets you:
 5. Enable/Disable users
 6. Change the users' roles, quotas and passwords
 
-You can find the user managment interface by clicking the *User Avatar* then choose *Users* from the user menu.
+You can find the user managment interface by clicking the *User Avatar* then choose *Users* from the administrator menu.
 
 ![User management](./images/user_management.PNG)
 
