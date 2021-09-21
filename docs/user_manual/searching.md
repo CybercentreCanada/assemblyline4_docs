@@ -19,11 +19,11 @@ You can view all indices and their indexed fields once you have a working Assemb
 
 ## Searching behaviors and limitations
 
-When you search for something in the Search Bar at the top of the UI, it will run your query in all the buckets and return any matching results.
+When you search for something in the Search Bar at the top of the UI, it will run your query in all the indexes and return any matching results.
 
-!!! tip "You must limit your search criteria to a single index; in other words you cannot do JOIN queries with information present in two or more buckets."
+!!! tip "You must limit your search criteria to a single index; in other words you cannot do JOIN queries with information present in two or more indexes."
 
-This limitation can be worked around by using the [Assemblyline Client](../../integration/python/) by performing queries on one bucket and then enriching or narrowing your search by searching for elements in another bucket.
+This limitation can be worked around by using the [Assemblyline Client](../../integration/python/) by performing queries on one index and then enriching or narrowing your search by searching for elements in another index.
 
 ## Search exemples
 
