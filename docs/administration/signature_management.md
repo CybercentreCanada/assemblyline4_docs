@@ -1,6 +1,6 @@
 # Signature Management
 
-The Assemblyline's signature management lets you:
+Assemblyline's signature management interface lets you:
 
 1. List all signatures in the system
 2. Filter and search the current set of signatures
