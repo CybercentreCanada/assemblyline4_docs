@@ -2,7 +2,7 @@
 
 ## Heuristiques
 
-Par heuristique, on entend une fonction qui peut être détectée par le service dans le cadre de l’analyse. 
+Par heuristique, on entend une fonction qui peut être détectée par le service dans le cadre de l’analyse.
 - Elle se compose de ce qui suit :
     - un identifiant;
     - un nom;
@@ -24,7 +24,7 @@ Les étiquettes sont d’importantes métadonnées extraites d’un fichier. Leu
 
 ```
 # Cette étiquette peut trouver les adresses IP extraites de manière statique peu importe le service utilisé lors de l’extraction.
-result.sections.tags.network.static.ip; 
+result.sections.tags.network.static.ip;
 ```
 
 Toutes les étiquettes enregistrées dans le système s’affichent dans le menu Help [Aide] > Searching Help [Aide à la recherche] de votre instance d’Assemblyline.
@@ -71,7 +71,7 @@ Le bouton **Submission Details** [Détails de la soumission] est situé au haut 
 
 ![Details](./images/report_viewdetails.png)
 
-Les détails de la soumission affichent les paramètres de la soumission, à savoir les services sélectionnés au moment où le fichier a été soumis et les [métadonnées](../assemblyline_client#submit-a-file) de la soumission. La section la plus importante est celle qui contient le bouton.
+Les détails de la soumission affichent les paramètres de la soumission, à savoir les services sélectionnés au moment où le fichier a été soumis et les [métadonnées](../../integration/python/#submit-a-file-or-url-for-analysis) de la soumission. La section la plus importante est celle qui contient le bouton.
 
 
 ### Arborescence des fichiers d’extraction
@@ -79,19 +79,21 @@ La section contenant l’arborescence offre une vue de tous les fichiers ayant �
 
 En cliquant sur les fichiers, on peut révéler la section la plus intéressante d’Assemblyline : la page de détails des fichiers.
 
-![](./images/report_files.png)
-<img src="./images/report_files.png" width="725">
+![Fichiers](./images/report_files.png)
 
 
 ## Détails des fichiers
-La section des détails contient toute l’information concernant un fichier en particulier. Elle ne tient pas compte de la soumission dont le fichier faisait partie. 
+La section des détails contient toute l’information concernant un fichier en particulier. Elle ne tient pas compte de la soumission dont le fichier faisait partie.
 
 Dans le coin supérieur droit, on retrouve une série de fonctions utiles.
 
+|Icone|Decription|
+|----|----|
 | ![Related submission](./images/icon_related_submission.png) | Trouver toutes les soumissions connexes |
 | ![File download](./images/icon_download.png) | Télécharger le fichier (lequel sera inséré au [format CaRT](https://pypi.org/project/cart/)) par défaut pour éviter une auto-infection accidentelle |
-| ![File viewer](./images/icon_fileviewer.png) | Visionneuse de fichiers (vue ASCII, chaînes, hexadécimal) <img src="./images/hex.png" width="500">|
+| ![File viewer](./images/icon_fileviewer.png) | Visionneuse de fichiers (vue ASCII, chaînes, hexadécimal) ![Hex view](./images/hex.png)|
 | ![File resubmittion](./images/icon_resubmit.png) | Resoumettre le fichier aux fins d’analyse |
+| ![File safelist](./images/icon_safelist.png) | Ajouter le fichier à la liste sûre |
 
 ### Fréquence des fichiers
 Cette section indique combien de fois ce fichier a été détecté, ainsi que la première et dernière détection. Ce compte est basé sur la période de conservation du fichier dans le système.
