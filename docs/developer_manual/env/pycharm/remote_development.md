@@ -127,7 +127,7 @@ ExecStart=/usr/bin/dockerd -H fd:// --tlsverify --tlscacert=/etc/docker/certs/ca
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
-# Test the TLS connection with cURL
+# Test the TLS connection with curl
 curl https://127.0.0.1:2376/images/json --cert ~/certs/cert.pem --key ~/certs/key.pem --cacert ~/certs/ca.pem
 
 # Create an archive with the client certs
