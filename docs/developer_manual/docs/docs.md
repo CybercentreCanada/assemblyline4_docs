@@ -11,7 +11,7 @@ git clone git@github.com:CybercentreCanada/assemblyline4_docs.git
 
 ## Install dependencies
 
-Create a virtual environment for your documentation in the `/venv/` directory right in the assemblyline4_docs source and install mkdocs dependencies:
+Create a virtual environment for your documentation in the `/venv/` directory right in the `assemblyline4_docs` source and install `mkdocs` dependencies:
 
 ```shell
 cd assemblyline4_docs

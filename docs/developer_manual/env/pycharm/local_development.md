@@ -1,6 +1,6 @@
 # Local development
 
-This documentation will show you how to setup you development Virtual Machine for local development using the Pycharm Community Edition IDE (This would also work with Pycharm Professional). It this setup, you will run your IDE inside the virtual machine where the Assemblyline containers are running. This is by far the easiest setup to get Pycharm working and removes a lot of headaches.
+This documentation will show you how to set up your development virtual machine for local development using the PyCharm Community Edition IDE (This would also work with PyCharm Professional). In this setup, you will run your IDE inside the virtual machine where the Assemblyline containers are running. This is by far the easiest setup to get PyCharm working and removes a lot of headaches.
 
 ## Operating system
 
@@ -70,15 +70,15 @@ docker-compose --version
 
 ### Installing PyCharm
 
-Lets install the desired pycharm version. The professional version is not needed but if you have a licence you can definitely use it.
+Let's install the desired PyCharm version. The Professional version is not needed but if you have a licence you can use it.
 
-=== "Pycharm Community"
+=== "PyCharm Community"
 
     ```shell
     sudo snap install --classic pycharm-community
     ```
 
-=== "Pycharm Professional"
+=== "PyCharm Professional"
 
     ```shell
     sudo snap install --classic pycharm-professional
@@ -88,7 +88,7 @@ Lets install the desired pycharm version. The professional version is not needed
 
 ### Data directories
 
-Because Assemblyline uses its own set of folders inside the core, service-server and UI container, we have to create the same folder structure here so we can run the components in debug mode.
+Because Assemblyline uses its own set of folders inside the core, service-server, and UI containers, we must create the same folder structure here so we can run the components in debug mode.
 
 ```shell
 sudo mkdir -p /etc/assemblyline
@@ -104,7 +104,7 @@ sudo chown $USER /var/log/assemblyline
 
 ### Dev default configuration files
 
-Here we will create configuration files that match the default dev docker-compose configuration files so we can swap any of the components to one that is being debugged.
+Here we will create configuration files that match the default dev docker-compose configuration files so that we can swap any of the components to the one that is being debugged.
 
 ```shell
 echo "enforce: true" > /etc/assemblyline/classification.yml
@@ -153,20 +153,20 @@ ui:
 ```
 
 !!! tip
-    As you can see in the last command we are setting the FQDN to 127.0.0.1.nip.io. NIP.IO is a service that will resolve the first part of the domain **127.0.0.1**.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect urls to IPs.
+    As you can see in the last command we are setting the FQDN to 127.0.0.1.nip.io. NIP.IO is a service that will resolve the first part of the domain **127.0.0.1**.nip.io to its IP value. We use this to fake DNS when there are none. This is especially useful for oAuth because some providers are forbidding redirect URLs to IPs.
 
 ## Setup Assemblyline source
 
 ### Install git
 
-Since your VM running Ubuntu 20.04 you can just install it with APT:
+Since your VM is running Ubuntu 20.04 you can just install it with APT:
 
 ```shell
 sudo apt install -y git
 ```
 
 !!! tip
-    You should add your desktop SSH keys to your Github account to use Git via SSH. Follow these instructions to do so: [Github Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+    You should add your desktop SSH keys to your GitHub account to use Git via SSH. Follow these instructions to do so: [GitHub Help](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
 
 ### Clone core repositories
 
@@ -179,7 +179,7 @@ cd ~/git/alv4
 Clone Assemblyline's repositories
 
 === "Git via SSH"
-    Use SSH if you have your SSH id_rsa file configured to your Github account
+    Use SSH if you have your SSH id_rsa file configured to your GitHub account
     ```shell
     git clone git@github.com:CybercentreCanada/assemblyline-base.git
     git clone git@github.com:CybercentreCanada/assemblyline-core.git
@@ -190,7 +190,7 @@ Clone Assemblyline's repositories
     ```
 
 === "Git via HTTPS"
-    Use HTTPS if you don't have your Github account configured with an SSH key
+    Use HTTPS if you don't have your GitHub account configured with an SSH key
     ```shell
     git clone https://github.com/CybercentreCanada/assemblyline-base.git
     git clone https://github.com/CybercentreCanada/assemblyline-core.git
@@ -217,11 +217,11 @@ python3.9 -m venv venv
 ```
 
 ## Setting up Services (Optional)
-If you plan on doing service development in pycharm as well you will need a dedicated directory for services with its own virtual environment.
+If you plan on doing service development in PyCharm you will need a dedicated directory for services with its own virtual environment.
 
 ### Clone service repositories
 
-Create the sercice working directory
+Create the service working directory
 ```shell
 mkdir -p ~/git/services
 cd ~/git/services
@@ -229,7 +229,7 @@ cd ~/git/services
 
 Clone Assemblyline's services repositories
 === "Git via SSH"
-    Use SSH if you have your SSH id_rsa file configured to your Github account
+    Use SSH if you have your SSH id_rsa file configured to your GitHub account
     ```shell
     git clone git@github.com:CybercentreCanada/assemblyline-service-antivirus.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
@@ -267,7 +267,7 @@ Clone Assemblyline's services repositories
     ```
 
 === "Git via HTTPS"
-    Use HTTPS if you don't have your Github account configured with an SSH key
+    Use HTTPS if you don't have your GitHub account configured with an SSH key
     ```shell
     git clone https://github.com/CybercentreCanada/assemblyline-service-antivirus.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
@@ -322,7 +322,7 @@ python3.9 -m venv venv
 
 ## Setup PyCharm for core
 
-1. Load Pycharm
+1. Load PyCharm
     - Choose whatever configuration option you want until the `Welcome screen`
 2. Click the `Open` button
 3. Choose the `~/git/alv4` directory
@@ -337,7 +337,7 @@ python3.9 -m venv venv
 
 ## Setup PyCharm for service (optional)
 
-1. From your core Pycharm window open the `File menu` then click `Open`
+1. From your core PyCharm window open the `File menu` then click `Open`
 2. Choose the `~/git/services` directory
 3. Select `New Window`
 
@@ -349,6 +349,6 @@ python3.9 -m venv venv
     3. Choose "Existing Environment"
     4. Click "OK"
 
-## Use Pycharm
+## Use PyCharm
 
-Now that your Local development VM is setup you should read the [use Pycharm](../use_pycharm) documentation to get you started.
+Now that your Local development VM is set up you should read the [use PyCharm](../use_pycharm) documentation to get you started.

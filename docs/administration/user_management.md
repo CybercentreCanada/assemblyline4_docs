@@ -4,27 +4,27 @@ Assemblyline's user management interface lets you:
 
 1. List all the users in the system
 2. Filter and search the current user list
-3. View details about those users
+3. View details about users
 4. Remove users
-5. Enable/Disable users
-6. Change the users' roles, quotas and passwords
+5. Enable/disable users
+6. Change the users' roles, quotas, and passwords
 
-You can find the user managment interface by clicking the *User Avatar* then choose *Users* from the administrator menu.
+You can find the user management interface by clicking the *User Avatar* then choose *Users* from the administrator menu.
 
 ![User management](./images/user_management.PNG)
 
 ## User list
 
-The first page you will be taken to when loading the user management interface will list all the users off the system.
+The first page you will be taken to when loading the user management interface will list all the users of the system.
 
 ![User list](./images/user_list.PNG)
 
 From this interface you can:
 
-1. Page throught the different user of the system
+1. Page through the different users of the system
 2. Filter the displayed users with the search bar
-    * Assemblyline user can be searched using a lucene query. As you start typing in the search box, the system will suggest you field you can search into.
-    * You can also use the quick filter buttons for pre-defined searches. These pre-defined search will help you get started writting more complex user searches.
+    * Assemblyline users can be searched using a Lucene query. As you start typing in the search box, the system will suggest to you fields that you can search into.
+    * You can also use the quick filter buttons for pre-defined searches. These pre-defined searches will help you get started writing more complex user searches.
 3. Add users to the system using the top right "*Add User*" button
 4. View the detail of a user
 
