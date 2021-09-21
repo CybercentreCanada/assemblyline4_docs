@@ -76,7 +76,7 @@ nav:
       - administration/source_management.md
       #- administration/service_management.md
       - administration/system_safelist.md
-      #- administration/user_management.md
+      - administration/user_management.md
       - administration/troubleshooting.md
   - Integration:
     - integration/ingestion_method.md
