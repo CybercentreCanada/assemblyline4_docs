@@ -52,7 +52,6 @@ nav:
     - user_manual/submitting_file.md
     - user_manual/results.md
     - user_manual/searching.md
-    #- user_manual/dashboard.md
   - Installation:
     - installation/deployment.md
     - installation/appliance.md
