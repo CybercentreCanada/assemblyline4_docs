@@ -13,7 +13,7 @@ You can find the signature management interface by clicking *Manage* then the *S
 ![Signature management](./images/signature_management.PNG)
 
 !!! warning
-    You cannot add new signatures to the system via this interface. Instead, Assemblyline has a [source management](../source_management) interface which lets you add a variety of external sources to fetch signatures from. The updater of the different services take care of loading the source URLs and the new signature(s) into the system. It will also sync existing signatures that have changed since the last import.
+    You cannot add new signatures to the system via this interface. Instead, Assemblyline has a [source management](../source_management) interface which lets you add a variety of external sources to fetch signatures from. The updater of the different services takes care of loading the source URLs and the new signature(s) into the system. It will also sync existing signatures that have changed since the last import.
 
 ## Signature list
 
@@ -48,7 +48,7 @@ On the top right, it will also show actions on the signature:
 
 1. You can hit the search button to find all instances where that signature hits in the system
 2. Use the red delete button to delete the signature from the system
-    * If the signature is still present in the source where it was retrieved from, it will be re-added on the next update. In this case, you should disable the signature instead.
+    * If the signature is still present in the source where it was retrieved, it will be re-added on the next update. In this case, you should disable the signature instead.
 3. Change the state of a signature
 
 ### Changing the signature state
@@ -60,7 +60,7 @@ There are three different signature states: **Deployed**, **Noisy**, and **Disab
 * **Deployed**:
     * *Deployed* will be used for detection and will generate a score depending on how the service handles these types of signatures
 * **Noisy:**
-    * *Noisy* will used for detection but rules with these states will not affect the score of the file
+    * *Noisy* will be used for detection but rules with these states will not affect the score of the file
 * **Disabled:**
     * *Disabled* signatures are completely ignored in the system and the service will not even realize that these signatures exist
 
