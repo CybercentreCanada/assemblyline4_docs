@@ -39,7 +39,7 @@ This function can take the following parameters:
 * `classification`: Optional classification of the file
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/3f40d89f731a21c24346a1e1747432bffe5ed185/assemblyline_result_sample_service/result_sample.py#L347-L355)
 
     ```python
     ...
@@ -67,7 +67,7 @@ This function can take the following parameters:
 * `classification`: Optional classification of the file
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/3f40d89f731a21c24346a1e1747432bffe5ed185/assemblyline_result_sample_service/result_sample.py#L370-L377)
 
     ```python
     ...
