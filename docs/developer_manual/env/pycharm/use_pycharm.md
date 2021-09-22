@@ -8,7 +8,7 @@ Here are some pointers on how to run most of the core components live in PyCharm
 
 When dependencies are loaded, you can launch any core components and their dependencies should be satisfied.
 
-=== "Pycharm Professional"
+=== "PyCharm Professional"
 
     1. In your project file viewer
     2. Browse to ```assemblyline-base/dev/depends```
@@ -41,7 +41,7 @@ When dependencies are loaded, you can launch any core components and their depen
 
 ### Core services
 
-Core services depend on the dependencies in the docker-compose file. When the core services are loaded you should be able to point a browser at ```https://IP_OF_VM``` and you'll be greeted with a working version of Assemblyline with no services configured.
+Core services depend on the dependencies in the `docker-compose` file. When the core services are loaded you should be able to point a browser at ```https://IP_OF_VM``` and you'll be greeted with a working version of Assemblyline with no services configured.
 
 !!! note
     Default admin user credentials are:
@@ -49,7 +49,7 @@ Core services depend on the dependencies in the docker-compose file. When the co
     * Username: ```admin```
     * Password: ```admin```
 
-=== "Pycharm Professional"
+=== "PyCharm Professional"
 
     1. In your project file viewer
     2. Browse to `assemblyline-base/dev/core`
@@ -61,7 +61,7 @@ Core services depend on the dependencies in the docker-compose file. When the co
     !!! tip
         From now on you can just select that Compose deployment for core components from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configuration and give it a proper name.
 
-=== "Docker-compose (Pycharm Community)"
+=== "Docker-compose (PyCharm Community)"
 
     In a new terminal on the VM, run the following commands:
     ```shell
@@ -78,16 +78,16 @@ Core services depend on the dependencies in the docker-compose file. When the co
     sudo docker-compose down
     ```
 
-## Load single container live
+## Load a single container live
 
-Load a single container is very useful to test a newly create production service container or to launch the frontend while the backend is being debugged.
+Loading a single container is very useful to test a newly create production service container or to launch the frontend while the backend is being debugged.
 
 You can easily load any container live in your Assemblyline Dev environment by following these instructions:
 
 !!! note
     For this demo we will assume that you want to run the service container from the [developing an Assemblyline service](../../../services/developing_an_assemblyline_service) documentation.
 
-=== "Pycharm Professional"
+=== "PyCharm Professional"
 
     1. Click the `Run` menu then select `Edit Configurations...`
     2. Click the `+` button at the top left`
@@ -104,7 +104,7 @@ You can easily load any container live in your Assemblyline Dev environment by f
     !!! tip
         From now on you can just select the `Sample Service - Container` run configuration from the dropdown up top and hit the run button to launch it.
 
-=== "Docker (Pycharm Community)"
+=== "Docker (PyCharm Community)"
 
     Pycharm Community does not have support for managing Docker containers, therefore you will have to run your containers using a `shell`.
 
@@ -119,7 +119,7 @@ You can easily load any container live in your Assemblyline Dev environment by f
 
 ### Core Components
 
-Most of the core components are going to be as easy to run as finding the component main file then hit `Run` or `Debug`... All core components require you to run the ```Minimal Dependencies``` docker-compose file before launching them.
+Most of the core components are going to be as easy to run as finding the component main file then hit `Run` or `Debug`... All core components require you to run the ```Minimal Dependencies``` `docker-compose` file before launching them.
 
 !!! example "Launching the API Server"
     1. Find the UI main file in the project files browser
@@ -132,17 +132,17 @@ Most of the core components are going to be as easy to run as finding the compon
 The main exception to very easy-to-run components is debugging services live in the system. Services require you to run two separate components to process files. The two components talk via named pipes in the /tmp folder. Inside the Docker container, this is very easy but debugging this live requires some sacrifices.
 
 !!! warning "Limitations"
-    1. You can only run one live debugging service at the time
+    1. You can only run one live debugging service at the time.
     2. Depending on where you stop them and how you stop them, they don't fully clean up after themselves.
-    3. They require extra configuration, it's not just "click-and-go"
+    3. They require extra configuration, it's not just "click-and-go".
 
 We will show you how to run the Sample service live in the system created in the [developing and Assemblyline service](../../../services/developing_an_assemblyline_service) documentation. This requires you to run the full infrastructure using the `docker-compose` files before executing the steps. ([Minimal dependencies](#minimal-dependencies) and [Core services](#core-services))
 
 !!! important
-    Run the following example inside the Pycharm window pointing to the services (`~/git/services`)
+    Run the following example inside the PyCharm window pointing to the services (`~/git/services`)
 
 !!! example
-    Setup `Task handler` run configuration if it does not exist:
+    Setup `Task Handler` run configuration if it does not exist:
 
     1. Click the "Run" menu then select "Edit Configurations..."
     2. Click the `+` button at the top left
