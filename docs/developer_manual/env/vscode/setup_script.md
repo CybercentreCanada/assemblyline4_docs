@@ -1,13 +1,13 @@
 # Setup script
 
-Assemblyline's VSCode installation is now entirely scripted. It will setup for you the following things for you:
+Assemblyline's VSCode installation is entirely scripted. It will set up the following things for you:
 
-- Install VSCode via snap (Optional)
+- Install VSCode via `snap` (Optional)
 - Install AL4 development dependencies
-- Clone all core component sources from github
-- Clone all services sources from github (Optional)
-- Create a virtual python environment for core components development
-- Create a virtual python environment for services development (optional)
+- Clone all core component sources from GitHub
+- Clone all service sources from GitHub (Optional)
+- Create a virtual Python environment for core component development
+- Create a virtual Python environment for service development (optional)
 - Create Run targets inside VSCode for all core components and other important scripts
 - Create Tasks inside VSCode for development using Docker-Compose
 - Setup our code formatting standards
@@ -20,22 +20,22 @@ Assemblyline's VSCode installation is now entirely scripted. It will setup for y
 
 The setup script assumes the following:
 
-- You are running this on a Ubuntu machine / VM (20.04 and up)
-- VSCode does not have to be running on the same host were you run this script so run this setup script on the target VM of a remote development setup
-- You have read the setup_vscode.sh script, this script will install and configure packages for ease of use.
+- You are running this on an Ubuntu machine / VM (20.04 and up).
+- VSCode does not have to be running on the same host where you run this script so run the setup script on the target VM of a remote development setup.
+- You have read the setup_vscode.sh script. This script will install and configure packages for ease of use.
 
 !!! important
-    If you are uncomfortable which some of the changes that it makes, you should comment them before running the script.
+    If you are uncomfortable with some of the changes that the script makes, you should comment them out before running the script.
 
 ## Installation instruction
 
-Create your repo directory
+Create your repository directory
 ```shell
 mkdir -p ~/git
 cd ~/git
 ```
 
-Clone repo
+Clone repository
 ```shell
 git clone https://github.com/CybercentreCanada/assemblyline-development-setup alv4
 ```
@@ -67,22 +67,22 @@ Run setup script. Choose the type of development you want to do and on what type
     ```
 
 !!! important
-    When running the setup script for `Core and Services` installation you will get two dev folder: `~/git/alv4` and `~/git/services`.
+    When running the setup script for the `Core and Services` installation you will get two dev folders: `~/git/alv4` and `~/git/services`.
 
-    The reason for this is that we want to make sure that services python dependencies don't interfere with core services dependencies. Therefor two seperate `venv` are create with a different set of dependencies. The service `venv` will point to the core components live code to install `assemblyline-base`, `assemblyline-core`, `assemblyline-v4-service` and `assemblyline-client`. That way, any modification you do to core packages' code will be reflected in your service instantly.
+    The reason for this is that we want to make sure that service Python dependencies don't interfere with core component dependencies. Therefore, two separate `venv` are created with different sets of dependencies. The service `venv` will point to the core components' live code to install `assemblyline-base`, `assemblyline-core`, `assemblyline-v4-service`, and `assemblyline-client`. That way, any modification you do to the core package code will be reflected in your service instantly.
 
 ## Post-installation instructions
 
-When installation is complete, you will be asked to reboot the VM. This is required for sudoless docker to work.
+When the installation is complete, you will be asked to reboot the VM. This is required for sudo-less Docker to work.
 
-After the VM has done rebooted, you can use a shell to open VSCode:
+After the VM has finished rebooted, you can use a shell to open VSCode:
 
 ```shell
 code ~/git/alv4
 ```
 
 !!! note
-    If you've installed the services, you should open another code window pointing to the services folder.
+    If you've installed the services, you should open another VSCode window pointing to the services folder.
     ```shell
     code ~/git/services
     ```
@@ -95,4 +95,4 @@ To take full advantage of this setup, we strongly advise installing the recommen
 
 ### Start using VSCode
 
-You can now refer to the [use VSCode](../use_vscode) instructions to get you started using the VSCode environment with Assemblyline.
+You can now refer to the "[use VSCode](../use_vscode)" instructions to get you started using the VSCode environment with Assemblyline.
