@@ -227,4 +227,4 @@ After running the [setup script](../setup_script) for VSCode, the testing interf
 ![Tests](./images/tests.png)
 
 !!! Bug "No tests available?"
-    If the testing interface is not showing any tests, load up the ['UI and All' Pytest Dependency](#pytest-dependencies) task hit the reload tests button.
+    If the testing interface is not showing any tests, load up the ['UI and All' Pytest Dependency](#pytest-dependencies) task and hit the "Reload tests" button.
