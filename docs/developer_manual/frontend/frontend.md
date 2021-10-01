@@ -1,17 +1,17 @@
-# Assemblyline Frontend development
+# Assemblyline frontend development
 
-This documentation will show you how to get your environement setup to do Assemblyline frontend development.
+This documentation will show you how to set up your environment for Assemblyline frontend development.
 
-## Install dev environment pre-requisites
+## Install dev environment prerequisites
 
-### Clone the UI Frontend code
+### Clone the UI frontend code
 
     cd ~/git
     git clone https://github.com/CybercentreCanada/assemblyline-ui-frontend.git
 
 ### Install NodeJS (Ubuntu)
 
-Follow these simple command to get NodeJS installed
+Follow these simple commands to install NodeJS
 
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
     sudo apt-get install -y nodejs
@@ -22,7 +22,7 @@ Go to your `assemblyline-ui-frontend` directory and type:
 
     npm install
 
-### Install docker (Ubuntu)
+### Install Docker (Ubuntu)
 
 Follow these simple commands to get Docker running on your machine:
 
@@ -39,9 +39,9 @@ Follow these simple commands to get Docker running on your machine:
     # Test Docker installation
     sudo docker run hello-world
 
-### Install docker-compose
+### Install `docker-compose`
 
-Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
+Installing `docker-compose` is done the same way on all Linux distributions. Follow these simple instructions:
 
     # Install docker-compose
     sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -52,17 +52,17 @@ Installing docker-compose is done the same way on all Linux distros. Follow thes
 
 For reference, here are the instructions on Docker’s website: <https://docs.docker.com/compose/install/>
 
-## Configure the dev environment
+## Configure the development environment
 
-### Setup Webpack for debugging behing a proxy
+### Setup Webpack for debugging behind a proxy
 
-Create a file named `.env.local` at the root of the assemblyline-ui-frontend directory.
+Create a file named `.env.local` at the root of the `assemblyline-ui-frontend` directory.
 
 The file should only contain the following where `<YOUR_IP>` is replaced by your dev computer IP.
 
     HOST=<YOUR_IP>.nip.io
 
-### Setup docker compose environment
+### Setup `docker-compose` environment
 
 #### Setup IP routing
 
@@ -72,7 +72,7 @@ This file should only contain the following where `<YOUR_IP>` is replaced by you
 
     EXTERNAL_IP=<YOUR_IP>
 
-#### Setup Assemblyline config file
+#### Setup Assemblyline configuration file
 
 From the `docker` directory, copy the file `config.yml.template` to `config.yml` in the same directory.
 
@@ -88,13 +88,13 @@ Change the `enforce` value to `true` in the `classification.yml` file to turn on
 
 ### Dependencies
 
-Go to the `docker` directory and run the following command to launch the Assemblyline DB and UI.
+Go to the `docker` directory and run the following command to launch the Assemblyline database and user interface.
 
     docker-compose up
 
 ### Frontend
 
-Simply use the `npm start script` to launch the frontend.
+Use the `npm start script` to launch the frontend.
 
 ### Once dependencies and frontend started
 
