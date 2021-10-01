@@ -2,7 +2,7 @@
 
 This documentation will show you how to set up your environment for Assemblyline frontend development.
 
-## Install dev environment prerequisites
+## Install development environment prerequisites
 
 ### Clone the UI frontend code
 
@@ -58,7 +58,7 @@ For reference, here are the instructions on Docker’s website: <https://docs.do
 
 Create a file named `.env.local` at the root of the `assemblyline-ui-frontend` directory.
 
-The file should only contain the following where `<YOUR_IP>` is replaced by your dev computer IP.
+The file should only contain the following where `<YOUR_IP>` is replaced by your development computer IP.
 
     HOST=<YOUR_IP>.nip.io
 
@@ -68,7 +68,7 @@ The file should only contain the following where `<YOUR_IP>` is replaced by your
 
 Create a file in the `docker` directory named `.env`.
 
-This file should only contain the following where `<YOUR_IP>` is replaced by your dev computer IP.
+This file should only contain the following where `<YOUR_IP>` is replaced by your development computer IP.
 
     EXTERNAL_IP=<YOUR_IP>
 
@@ -76,7 +76,7 @@ This file should only contain the following where `<YOUR_IP>` is replaced by you
 
 From the `docker` directory, copy the file `config.yml.template` to `config.yml` in the same directory.
 
-Change the `<YOUR_IP>` in the newly created `config.yml`file to the IP of your dev machine.
+Change the `<YOUR_IP>` in the newly created `config.yml`file to the IP of your development machine.
 
 #### Setup Assemblyline classification engine file
 
