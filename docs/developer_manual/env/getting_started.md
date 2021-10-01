@@ -40,4 +40,4 @@ Here are the installation instructions for the different setups:
 * [Local development](../pycharm/local_development) (minimum requirement: PyCharm Community edition)
 * [Remote development](../pycharm/remote_development) (minimum requirement: PyCharm Professional edition)
 
-For instructions on how to use PyCharm, refer to the [use PyCharm](../pycharm/use_pycharm) documentation.
+For instructions on how to use PyCharm, refer to the "[use PyCharm](../pycharm/use_pycharm)" documentation.
