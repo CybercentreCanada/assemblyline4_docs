@@ -1,39 +1,39 @@
 # *ResultSection* class
-A `ResultSection` is bascally parts of a service result that encapsulate certain type of information that your service needs to convey to the user. For example, if you have a service that extract networking indicators as well as process lists, you will most likely end up putting network indicators in their own section and then the process list in another.
+A `ResultSection` is bascally part of a service result that encapsulates a certain type of information that your service needs to convey to the user. For example, if you have a service that extracts networking indicators as well as process lists, you should put network indicators in their own section and then the process list in another.
 
 Result sections have the following properties:
 
-* They have different [types](#section-types) that will display the information in a different manner
-* They can attach a heuritic which will add a maliciousness score to it
-* They can tag important piece of information about a file
-* They can contain sub-section which is just a section inside of another section
-* They can have a classification which allow the API to redact partial results from a service depending on the user
+* They have different [types](#section-types) that will display information in different manners
+* They can attach a heuristic which will add a maliciousness score to the result section
+* They can tag important pieces of information about a file
+* They can contain subsections which are just sections inside of another section
+* They can have a classification which allows the API to redact partial results from a service depending on the user
 
 You can view the source for the class here: [ResultSection class source](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
 ## Class variables
 The `ResultSection` class includes many instance variables which can be used to shape the way the section will be shown to the user.
 
-The following tables describes all of the variables of the `ResultSection` class.
+The following table describes all of the variables of the `ResultSection` class.
 
 | Variable Name | Description |
 |:---|:---|
 | parent | Parent `ResultSection` object (Only if the section is a child of another) |
 | subsections | List of children `ResultSection` objects |
-| body | Body of the section. Can take multiple form depending of the section [type](#section-types): List of strings, string, JSON blob... ) |
+| body | Body of the section. Can take multiple forms depending on the section [type](#section-types): List of strings, string, JSON blob... |
 | classification | The classification level of the current section |
 | body_format | The [types of body](#section-types) of the current section (Default: TEXT) |
 | tags | Dictionary containing the different tags that have been added to the section |
 | heuristic | Current heuristic assigned to the section |
-| zeroize_on_tag_safe | Should the section be forced to a 0 score if all tags found in it are marked as Safelisted? (Default: False) |
+| zeroize_on_tag_safe | Should the section be forced to a score of 0 if all tags found in it are marked as Safelisted? (Default: False) |
 | auto_collapse | Should the section be displayed in collapsed mode when first rendered in the UI? (Default: False) |
-| zeroize_on_sig_safe | Should the section be forced to a 0 score if all heuristics signatures found in it are marked as Safelisted? (Default: True) |
+| zeroize_on_sig_safe | Should the section be forced to a score of 0 if all heuristic signatures found in it are marked as Safelisted? (Default: True) |
 
 ## Class functions
 
 ### \_\_init\_\_()
 
-The constructor of the `ResultSection` object allows you to set all the variables from the start.
+The constructor of the `ResultSection` object allows you to set all variables from the start.
 
 Parameters:
 
@@ -44,13 +44,13 @@ Parameters:
 * `heuristic`: Heuristic assigned to the section
 * `tags`: Dictionary of tags assigned to the section
 * `parent`: Parent of the section (either another section or the [Result](../result) object)
-* `zeroize_on_tag_safe`: Should the section be forced to a 0 score if all tags found in it are marked as Safelisted?
+* `zeroize_on_tag_safe`: Should the section be forced to a score of 0 if all tags found in it are marked as Safelisted?
 * `auto_collapse`: Should the section be displayed in collapsed mode when first rendered in the UI?
-* `zeroize_on_sig_safe`: Should the section be forced to a 0 score if all heuristics signatures found in it are marked as Safelisted?
+* `zeroize_on_sig_safe`: Should the section be forced to a score of 0 if all heuristic signatures found in it are marked as Safelisted?
 
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
@@ -69,7 +69,7 @@ Parameters:
 * `text`: A string containing the line to add to the body
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
@@ -88,7 +88,7 @@ Parameters:
 * `lines`: List of string to add as multiple lines in the body
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
@@ -106,10 +106,10 @@ This function allows the service to add a subsection to the current `ResultSecti
 Parameters:
 
 * `subsection`: The `ResultSection` object to add as a subsection
-* `on_top`: (Optional) Boolean value to tell if the section should be on top of the others or not
+* `on_top`: (Optional) Boolean value that indicates if the section should be on top of the other sections or not
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
@@ -127,7 +127,7 @@ Parameters:
     ```
 
 ### add_tag()
-This function allows the service writter to add a tag to the `ResultSection`
+This function allows the service writer to add a tag to the `ResultSection`
 
 Parameters:
 
@@ -135,11 +135,11 @@ Parameters:
 * `value`: Value of the tag
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
-    # You can tag data to a section, tagging is used to to quickly find defining information about a file
+    # You can tag data to a section. Tagging is used to quickly find defining information about a file
     text_section.add_tag("attribution.implant", "ResultSample")
     ...
     ```
@@ -159,77 +159,77 @@ Parameters:
 
 * `heur_id`: Heuristic ID as set in the service manifest
 * `attack_id`: (optional) Attack ID related to the heuristic
-* `signature`: (optional) Signature Name that triggered the heuristic
+* `signature`: (optional) Signature name that triggered the heuristic
 
 ??? Example
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
-    # If the section needs to affect the score of the file you need to set a heuristics
+    # If the section needs to affect the score of the file you need to set a heuristic
     #   Here we will pick one at random
-    #     In addition to add a heuristic, we will associated a signature with the heuristic,
-    #     we're doing this by adding the signature name to the heuristic. (Here we generating a random name)
+    #     In addition to adding a heuristic, we will associate a signature to the heuristic.
+    #     We're doing this by adding the signature name to the heuristic. (Here we use a random name)
     text_section.set_heuristic(3, signature="sig_one")
     ...
     ```
 
 ## Section types
-These are all the result section types that Assemblyline support, you can see a screenshot of each sections as well as the code that was used to generate the actual section.
+These are all result section types that Assemblyline supports. You can see a screenshot of each section as well as the code that was used to generate the actual section.
 
 ### TEXT
 
 ![TEXT](./images/text.png)
 
 ??? example "Code used to generate the TEXT section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
     # ==================================================================
     # Standard text section: BODY_FORMAT.TEXT - DEFAULT
-    #   Text sections basically just dumps the text to the screen...
-    #     All sections scores will be SUMed in the service result
+    #   Text sections basically just dump the text to the screen...
+    #     The scores of all sections will be SUMed in the service result
     #     The Result classification will be the highest classification found in the sections
     text_section = ResultSection('Example of a default section')
     # You can add lines to your section one at a time
     #   Here we will generate a random line
     text_section.add_line(get_random_phrase())
     # Or your can add them from a list
-    #   Here we will generate random amount of random lines
+    #   Here we will generate a random amount of random lines
     text_section.add_lines([get_random_phrase() for _ in range(random.randint(1, 5))])
-    # You can tag data to a section, tagging is used to to quickly find defining information about a file
+    # You can tag data to a section. Tagging is used to quickly find defining information about a file
     text_section.add_tag("attribution.implant", "ResultSample")
     # If the section needs to affect the score of the file you need to set a heuristics
     #   Here we will pick one at random
-    #     In addition to add a heuristic, we will associated a signature with the heuristic,
-    #     we're doing this by adding the signature name to the heuristic. (Here we generating a random name)
+    #     In addition to adding a heuristic, we will associate a signature to the heuristic.
+    #     We're doing this by adding the signature name to the heuristic. (Here we use a random name)
     text_section.set_heuristic(3, signature="sig_one")
-    # You can attach attack ids to heuristics after they where defined
+    # You can attach ATT&CK IDs to heuristics after they where defined
     text_section.heuristic.add_attack_id(random.choice(list(software_map.keys())))
     text_section.heuristic.add_attack_id(random.choice(list(attack_map.keys())))
     text_section.heuristic.add_attack_id(random.choice(list(group_map.keys())))
     text_section.heuristic.add_attack_id(random.choice(list(revoke_map.keys())))
-    # Same thing for the signatures, they can be added to heuristic after the fact and you can even say how
+    # Same thing for the signatures, they can be added to a heuristic after the fact and you can even say how
     #   many time the signature fired by setting its frequency. If you call add_signature_id twice with the
-    #   same signature, this will effectively increase the frequency of the signature.
+    #   same signature, this will also increase the frequency of the signature.
     text_section.heuristic.add_signature_id("sig_two", score=20, frequency=2)
     text_section.heuristic.add_signature_id("sig_two", score=20, frequency=3)
     text_section.heuristic.add_signature_id("sig_three")
     text_section.heuristic.add_signature_id("sig_three")
     text_section.heuristic.add_signature_id("sig_four", score=0)
-    # The heuristic for text_section should have the following properties
-    #   1. 1 attack ID: T1066
+    # The heuristic for text_section should have the following properties:
+    #   1. 1 ATT&CK ID: T1066
     #   2. 4 signatures: sig_one, sig_two, sig_three and sig_four
-    #   3. Signature frequencies are cumulative therefor they will be as follow:
+    #   3. Signature frequencies are cumulative, therefore they will be as follows:
     #      - sig_one = 1
     #      - sig_two = 5
     #      - sig_three = 2
     #      - sig_four = 1
-    #   4. The score used by each heuristic is driven by the following rules: signature_score_map is higher
+    #   4. The score used by each heuristic is driven by the following rules: signature_score_map is the highest
     #      priority, then score value for the add_signature_id is in second place and finally the default
-    #      heuristic score is use. Therefor the score used to calculate the total score for the text_section is
-    #      as follow:
+    #      heuristic score is used. The score used to calculate the total score for the text_section is
+    #      as follows:
     #      - sig_one: 10    -> heuristic default score
     #      - sig_two: 20    -> score provided by the function add_signature_id
     #      - sig_three: 30  -> score provided by the heuristic map
@@ -246,7 +246,7 @@ These are all the result section types that Assemblyline support, you can see a 
 ![MEMORY_DUMP](./images/memory_dump.png)
 
 ??? example "Code used to generate the MEMORY_DUMP section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
@@ -267,7 +267,7 @@ These are all the result section types that Assemblyline support, you can see a 
 ![GRAPH_DATA](./images/graph_data.png)
 
 ??? example "Code used to generate the GRAPH_DATA section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
@@ -296,24 +296,24 @@ These are all the result section types that Assemblyline support, you can see a 
 ![URL](./images/url.png)
 
 ??? example "Code used to generate the URL section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
     # ==================================================================
     # URL section: BODY_FORMAT.URL
-    #   Generate a list of clickable urls using a json encoded format
+    #   Generate a list of clickable URLs using a JSON encoded format
     #     As you can see here, the body of the section can be set directly instead of line by line
     random_host = get_random_host()
     url_section = ResultSection('Example of a simple url section', body_format=BODY_FORMAT.URL,
                                 body=json.dumps({"name": "Random url!", "url": f"https://{random_host}/"}))
 
-    # Since urls are very important features we can tag those features in the system so they are easy to find
+    # Since URLs are very important features, we can tag those features in the system so that they are easy to find
     #   Tags are defined by a type and a value
     url_section.add_tag("network.static.domain", random_host)
 
-    # You may also want to provide a list of url!
-    #   Also, No need to provide a name, the url link will be displayed
+    # You may also want to provide a list of URLs!
+    #   Also, no need to provide a name, the URL link will be displayed
     host1 = get_random_host()
     host2 = get_random_host()
     urls = [
@@ -323,14 +323,14 @@ These are all the result section types that Assemblyline support, you can see a 
     # A heuristic can fire more then once without being associated to a signature
     url_heuristic = Heuristic(4, frequency=len(urls))
 
-    url_sub_section = ResultSection('Example of a url sub-section with multiple links',
+    url_sub_section = ResultSection('Example of a URL sub-section with multiple links',
                                     body=json.dumps(urls), body_format=BODY_FORMAT.URL,
                                     heuristic=url_heuristic, classification=cl_engine.RESTRICTED)
     url_sub_section.add_tag("network.static.domain", host1)
     url_sub_section.add_tag("network.dynamic.domain", host2)
 
-    # Since url_sub_section is a sub-section of url_section
-    # we will add it as a sub-section of url_section not to the main result itself
+    # Since url_sub_section is a subsection of url_section
+    # we will add it as a subsection of url_section, not to the main result itself
     url_section.add_subsection(url_sub_section)
 
     result.add_section(url_section)
@@ -342,7 +342,7 @@ These are all the result section types that Assemblyline support, you can see a 
 ![JSON](./images/json.png)
 
 ??? example "Code used to generate the JSON section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
     ```python
     ...
