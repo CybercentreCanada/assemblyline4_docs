@@ -63,6 +63,51 @@ Put the following code in your service's file:
             request.result = result
     ```
 
+### Service Updater Python code
+
+In your service directory, you will first start by creating your service's updater python file. Let's use `update_server.py`.
+
+Put the following code in your service's file:
+???+ example "~/git/services/assemblyline-service-sample/update_server.py"
+    ```python
+    from assemblyline_v4_service.updater.updater import ServiceUpdater
+    from assemblyline.odm.models.signature import Signature
+
+
+    class SampleUpdateServer(ServiceUpdater):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+
+        def import_update(self, files_sha256, client, source_name, default_classification=None):
+            signatures = []
+            for file, _ in files_sha256:
+                # Iterate over all the files retrieved by source and upload them as signatures in Assemblyline
+                with open(file, 'r') as fh:
+                 signatures.append(Signature(dict(
+                     classification = default_classification,
+                     data = fh.read(),
+                     name = f'sample_signature{len(signatures)}',
+                     source = source_name,
+                     status = 'DEPLOYED',
+                     type = 'sample'
+                 )))
+            client.signatures.add_update_many(signatures)
+            self.log.info(f'Successfully imported {len(signatures)} signatures')
+            return
+
+        # Service base handles the default means of gathering source updates, it's up to the service writer to define
+        # how to handle importing the update into Assemblyline
+
+        # do_source_update() of ServiceUpdater class can be overridden if necessary
+        # ie. assemblyline-service-safelist
+
+
+    if __name__ == '__main__':
+        with SampleUpdateServer() as server:
+            server.serve_forever()
+
+
+
 ### Service manifest YAML
 
 Now that you have a better understanding of the python portion of a service. We will create the associated manifest file that holds the different configurations for the service.
@@ -111,6 +156,17 @@ In your service directory, you will add the YAML configuration file `service_man
       image: ${REGISTRY}testing/assemblyline-service-sample:latest
       cpu_cores: 1.0
       ram_mb: 1024
+
+    # Update configuration block
+    update_config:
+    # list of source object from where to fetch files for update and what will be the name of those files on disk
+    sources:
+        - uri: https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json
+        name: sample_1kb_file
+    # interval in seconds at which the updater dependency runs
+    update_interval_seconds: 300
+    # Should the downloaded files be used to create signatures in the system
+    generates_signatures: true
     ```
 
 !!! important

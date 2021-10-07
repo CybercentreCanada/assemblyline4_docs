@@ -12,8 +12,13 @@ The following tables describes all of the variables of the `ServiceBase` class.
 | Variable Name | Description |
 |:---|:---|
 | config | Reference to the service parameters containing values updated by the user for service configuration. |
+| dependencies | A dictionary containing connection details for service dependencies|
 | log | Reference to the logger. |
 | service_attributes | Service attributes from the [service manifest](../service_manifest). |
+| rules_directory | Returns the directory path which contains the current location of your rules |
+| rules_hash | A hash of the files in the rules_list. Used to invalidate caching if rules change.|
+| rules_list | Returns a list of directory paths which point to rule files derived from rules_directory|
+| update_time | An integer representing the epoch of when the last update occured|
 | working_directory | Returns the directory path which the service can use to temporarily store files during each task execution. |
 
 ## Class functions
@@ -41,3 +46,16 @@ The purpose of the `get_api_interface` function is to give the service direct ac
 
 ### stop()
 The `stop` function is called when the Assemblyline service is stopped and should be used to cleanup your service.
+
+The following functions are used if and only if you're using a dependency that's a service updater named 'updates'. For this reason, we reserve the dependency name 'updates' to be used for service updaters.
+
+### _clear_rules()
+The `_clear_rules` function is optionally called to remove the current ruleset from memory. Requires implementation by the service writer for use.
+
+### _load_rules()
+The `_load_rules` function is called to process the rules_list in a specific way defined by the service.
+
+### _download_rules()
+The `_download_rules` function is called after each `_cleanup` call to check if there is new updates to be processed. If so, it will attempt to download and use the new ruleset otherwise it will revert to the old ruleset.
+
+It will call on `_load_rules` and `_clear_rules` during this attempt process.

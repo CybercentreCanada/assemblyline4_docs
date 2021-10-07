@@ -27,7 +27,9 @@ The table below shows all the elements that the manifest file can contain, inclu
 | submission_params | List of [Submission Params](#submission-params) | No | List of submission param(s) that define parameters that the user can change about the service for each of its scans. Refer to the [submission_params](#submission-params) section. |
 | timeout | Integer | No <br> Default: `60` | Maximum execution time the service has before the task is timed out. |
 | update_config | [Update Config](#update-config) | No | Refer to the [update config](#update-config) section. |
-| version | Keyword | Yes | Version of the service. |
+| version<sup>1</sup>  | Keyword | Yes | Version of the service.|
+
+<sup>1</sup> the version in the manifest **must** be the same as the image tag in order to successfully pass registration on service update/load.
 
 ## Dependency config
 
@@ -91,10 +93,11 @@ The table below shows all the elements that the manifest file can contain, inclu
 | Field name | Value type | Required? | Description |
 |:---|:---|:---|:---|
 | generates_signatures | Boolean | No <br> Default: `false` | Should the downloaded files be used to create signatures in the system? |
-| method | Enum | Yes | Update method for updating service. Must be either: `run` or `build`. `run` will run the provided update container and `build` will build the provided Dockerfile. |
-| run_options | [Docker Config](#docker-config) | No | Refer to the [Docker Config](#docker-config) section. |
 | sources | List of [Update Source](#update-source) | No | List of source(s) from which updates can be downloaded. Refer to the [update source](#update-source) section. |
 | update_interval_seconds | Integer | Yes |  Interval in seconds at which the updater runs. |
+| wait_for_update | Boolean | False | Should the service wait for its updater dependency to be running? |
+| signature_delimiter | Enum | Must be of: `new_line`, `double_new_line`, `pipe`, `comma`, `space`, `none`, `file`, `custom` | Type of delimiter used for signaure downloads. |
+| custom_delimiter | Keyword | Optional | Custom signature delimiter to use when `signature_delimiter: custom` |
 
 ## Update source
 
