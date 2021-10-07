@@ -32,6 +32,11 @@ Put the following code in your service's file:
 
             self.log.info(f"start() from {self.service_attributes.name} service called")
 
+        def load_rules(self) -> None:
+            self.log.info(f'Sample will load the following rule files: {self.rules_list}')
+
+            # Pass rules_list to module that will be consulted during analysis on execute()
+
         def execute(self, request):
             # ==================================================================
             # Execute a request:
@@ -156,6 +161,18 @@ In your service directory, you will add the YAML configuration file `service_man
       image: ${REGISTRY}testing/assemblyline-service-sample:latest
       cpu_cores: 1.0
       ram_mb: 1024
+
+    # Dependencies configuration block which defines:
+    #   - the name of your dependencies (ie. 'updates') and its Docker configuration
+    #   - Should this dependency be able to interact with the core?
+    dependencies:
+        updates:
+            container:
+                allow_internet_access: true
+                command: ["python", "-m", "update_server"]
+                image: ${REGISTRY}cccs/assemblyline-service-sample:$SERVICE_TAG
+                ports: ["5003"]
+            run_as_core: True
 
     # Update configuration block
     update_config:
