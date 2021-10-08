@@ -262,7 +262,7 @@ update_config:
 Notes:
  - Source management will still be part of the update_config, but container configuration will be moved to a list of dependencies.
  - `signature_delimiter` indicates how signatures should be separated when downloaded from Assemblyline's Signature API (default: double newline).
-    - In Sigma's case, it gets its list of files of  following form: `/updates/<random_tempdir>/sigma/<source_name>/<signature_name>` where signature_name only contains the signature associated to the name
+    - In Sigma's case, it gets its list of files in the following form: `/updates/<random_tempdir>/sigma/<source_name>/<signature_name>` where signature_name only contains the signature associated to the name
     - Under the default delimiter, it would get: `/updates/<random_tempdir>/sigma/<source_name>` where source_name is a compiled list of all signatures from the source separated by double newlines in a single file (which might be fine for some services like YARA and Suricata)
 
  - In order for updaters to work, they need to be able to communicate with other core components. So you'll need to enable the dependency to be able to `run_as_core`, otherwise this could lead to issues where the updater isn't able to resolve to other components like Redis and/or Elasticsearch by name.
