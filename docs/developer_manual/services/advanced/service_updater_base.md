@@ -15,7 +15,7 @@ The following tables describes all of the variables of the `ServiceUpdater` clas
 | default_patten | The default pattern used if a source doesn't provide one (Default: *)|
 
 ## Class functions
-This is the list of all the functions that you can override in your updater. They are explain in order of important and the likelihood at which you will override them.
+This is the list of all the functions that you can override in your updater. They are explain in order of importance and the likelihood at which you will override them.
 
 Note: the updater are yours to define however you would like for your service, we have implemented the basics that work with our existing services **but** this does not mean you have to follow what's already defined. Override it!
 ie. [Safelist] (https://github.com/CybercentreCanada/assemblyline-service-safelist)
