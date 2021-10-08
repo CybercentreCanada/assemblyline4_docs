@@ -11,16 +11,8 @@ The following tables describes all of the variables of the `ServiceUpdater` clas
 
 | Variable Name | Description |
 |:---|:---|
-| config | Reference to the service parameters containing values updated by the user for service configuration. |
-| dependencies | A dictionary containing connection details for service dependencies|
-| log | Reference to the logger. |
-| rules_directory | Returns the directory path which contains the current location of your rules |
-| rules_hash | A hash of the files in the rules_list. Used to invalidate caching if rules change.|
-| rules_list | Returns a list of directory paths which point to rule files derived from rules_directory|
-| update_time | An integer representing the epoch of when the last update occured|
-| working_directory | Returns the directory path which the service can use to temporarily store files during each task execution. |
-
-
+| updater_type | The type of updater, typically the service's name lower-cased taken from the SERVICE_PATH environment variable|
+| default_patten | The default pattern used if a source doesn't provide one (Default: *)|
 
 ## Class functions
 This is the list of all the functions that you can override in your updater. They are explain in order of important and the likelihood at which you will override them.
@@ -28,19 +20,14 @@ This is the list of all the functions that you can override in your updater. The
 Note: the updater are yours to define however you would like for your service, we have implemented the basics that work with our existing services **but** this does not mean you have to follow what's already defined. Override it!
 ie. [Safelist] (https://github.com/CybercentreCanada/assemblyline-service-safelist)
 
-### _load_rules()
-The `_load_rules` function is called to process the rules_list in a specific way defined by the service
-
-### _clear_rules()
-The `_clear_rules` function is optionally called to remove the current ruleset from memory. Requires implementation by the service writer.
-
-### _download_rules()
-The `_download_rules` function is called after each `_cleanup` call to check if there is new updates to be processed. If so, it will attempt to download and use the new ruleset otherwise it will revert to the old ruleset.
-
-It will call on `_load_rules` and `_clear_rules` during this attempt process.
-
 ### do_local_update()
 The `do_local_update` function is called on a separate thread that checks Assemblyline for local changes to signatures such as change in status or additions/removals to the ruleset. This will then fetch the new ruleset on modification and make it available to be served to service instances.
 
 ### do_source_update()
 The `do_source_update` function is called on a separate thread that checks external signature sources for changes. This will then fetch the new ruleset on modification and update the signature set in Assemblyline to make it available to both users and the `do_local_update` thread.
+
+### is_valid()
+The `is_valid` function is called to determine whether if a file from a source is a valid file. The definition of its validity can vary between services but commonly it refers to something the service can use.
+
+### import_update()
+The `import_update` function is called to import a set of files into Assemblyline. This involves the implementation of creating a list `Signature` objects and importing them using the Assemblyline client to the Signature API.
