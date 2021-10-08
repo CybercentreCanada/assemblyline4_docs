@@ -1,6 +1,6 @@
 # How-to: Upgrade Service Updater for Assemblyline 4.1+
 
-For this tutorial, we'll take an existing official service that was ported to 4.1 as an example [Sigma 4.0.X.Y](https://github.com/CybercentreCanada/assemblyline-service-sigma/blob/a67ebcf1f3b07da689e63e61e6ee90e18d86499c/sigma_updater.py).
+For this tutorial, we'll take an existing official service that was ported to 4.1 as an example [Sigma 4.0.1.stable10](https://github.com/CybercentreCanada/assemblyline-service-sigma/tree/v4.0.1.stable10).
 
 ## Where do I start?
 As a starting point, you would create an instance of the `ServiceUpdater` class.
