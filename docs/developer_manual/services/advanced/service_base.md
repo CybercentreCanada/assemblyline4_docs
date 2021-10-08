@@ -22,7 +22,7 @@ The following tables describes all of the variables of the `ServiceBase` class.
 | working_directory | Returns the directory path which the service can use to temporarily store files during each task execution. |
 
 ## Class functions
-This is the list of all the functions that you can override in your service. They are explain in order of important and the likelihood at which you will override them.
+This is the list of all the functions that you can override in your service. They are explained in order of importance and the likelihood at which you will override them.
 
 ### execute()
 
@@ -49,11 +49,11 @@ The `stop` function is called when the Assemblyline service is stopped and shoul
 
 The following functions are used if and only if you're using a dependency that's a service updater named 'updates'. For this reason, we reserve the dependency name 'updates' to be used for service updaters.
 
-### _clear_rules()
-The `_clear_rules` function is optionally called to remove the current ruleset from memory. Requires implementation by the service writer for use.
-
 ### _load_rules()
 The `_load_rules` function is called to process the rules_list in a specific way defined by the service.
+
+### _clear_rules()
+The `_clear_rules` function is optionally called to remove the current ruleset from memory. Requires implementation by the service writer for use.
 
 ### _download_rules()
 The `_download_rules` function is called after each `_cleanup` call to check if there is new updates to be processed. If so, it will attempt to download and use the new ruleset otherwise it will revert to the old ruleset.

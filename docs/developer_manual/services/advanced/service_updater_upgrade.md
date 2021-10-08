@@ -206,19 +206,19 @@ Considering most of our services have the same pattern of:
 
  We decided to streamline that process for most services while giving service writers the ability to override certain aspects as needed.
 
- The service base contains a set of helper functions for retrieving files during the download process. So you'll notice most services don't need to implement their own `do_source_update()`, they just need to implement an `import_update()`. [Safelist](https://github.com/CybercentreCanada/assemblyline-service-safelist) is an example of a service that is an exception to this rule where it does implement it's own `do_source_update()`.
+ The service base contains a set of helper functions for retrieving files during the download process. So you'll notice most services don't need to implement their own `do_source_update()`, they just need to implement an `import_update()`. [Safelist](https://github.com/CybercentreCanada/assemblyline-service-safelist) is an example of a service that is an exception to this rule where it does implement its own `do_source_update()`.
 
 ### `do_local_update()`
-This particular function doesn't need to be overridden (but you're free to do so) because it's primary function is retrieve the signature set from Assemblyline and make it accessible to service instances when they ask for signatures.
+This particular function doesn't need to be overridden (but you're free to do so) because its primary function is retrieve the signature set from Assemblyline and make it accessible to service instances when they ask for signatures.
 
-This is separate from `do_source_update()` as that function is meant to retrieve / check for changes from external sources outside Assemblyline whereas `do_local_update()` is checking for internal changes to the signature set (ie. a change in status from 'DEPLOYED' to 'DISABLED')
+This is separate from `do_source_update()` as that function is meant to retrieve / check for changes from sources outside Assemblyline whereas `do_local_update()` is checking for internal changes to the signature set (ie. a change in status from 'DEPLOYED' to 'DISABLED').
 
 We invite you to look at the `ServiceUpdater` code to have a better understanding of how the new service updaters work and how they use the functions you implement (`is_valid`, `import_update`).
 
 ## Do I have to change the service manifest for 4.1?
-Yes, very much so. We've gone away from considering the service updater as a special dependency that needs it's own config section.
+Yes, very much so. We've gone away from considering the service updater as a special dependency that needs its own config section.
 
-We now consider it just be part of the service's list of dependencies, although we reserve the container name 'updates' to indicate this dependency is an updater to the service.
+We now consider it to just be part of the service's list of dependencies, although we reserve the container name 'updates' to indicate this dependency is an updater to the service.
 
 
 Service Manifest for 4.0:
@@ -262,8 +262,8 @@ update_config:
 Notes:
  - Source management will still be part of the update_config, but container configuration will be moved to a list of dependencies.
  - `signature_delimiter` indicates how signatures should be separated when downloaded from Assemblyline's Signature API (default: double newline).
-    - From Sigma's perspective, it gets it's a list of files of the form: `/updates/<random_tempdir>/sigma/<source_name>/<signature_name>` where signature_name only contains the signature associated to the name
-    - Under the default delimiter, it would've gotten: `/updates/<random_tempdir>/sigma/<source_name>` where source_name was a compiled list of all signatures from the source separated by double newlines in a single file (which might be fine for some service like YARA and Suricata)
+    - In Sigma's case, it gets its list of files of  following form: `/updates/<random_tempdir>/sigma/<source_name>/<signature_name>` where signature_name only contains the signature associated to the name
+    - Under the default delimiter, it would get: `/updates/<random_tempdir>/sigma/<source_name>` where source_name is a compiled list of all signatures from the source separated by double newlines in a single file (which might be fine for some services like YARA and Suricata)
 
- - In order for updaters to work, they need to be able to communicate with other core components. So you'll need to enable the dependency to be able to `run_as_core`, otherwise this could lead to issues where the updater isn't able to resolve to components like Redis and/or Elasticsearch by name.
- - Setting port(s) helps facilitate communication between the service and it's dependency over certain ports and so, as a result, Scaler will create the appropriate NetworkPolicy to ensure communication **only** between a service and its dependencies.
+ - In order for updaters to work, they need to be able to communicate with other core components. So you'll need to enable the dependency to be able to `run_as_core`, otherwise this could lead to issues where the updater isn't able to resolve to other components like Redis and/or Elasticsearch by name.
+ - Setting port(s) helps facilitate communication between the service and its dependency over certain ports and so, as a result, Scaler will create the appropriate NetworkPolicy to ensure communication **only** between a service and its dependencies.
