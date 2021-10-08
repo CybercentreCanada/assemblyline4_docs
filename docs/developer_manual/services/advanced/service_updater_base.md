@@ -27,7 +27,7 @@ The `do_local_update` function is called on a separate thread that checks Assemb
 The `do_source_update` function is called on a separate thread that checks external signature sources for changes. This will then fetch the new ruleset on modification and update the signature set in Assemblyline to make it available to both users and the `do_local_update` thread.
 
 ### is_valid()
-The `is_valid` function is called to determine whether if a file from a source is a valid file. The definition of its validity can vary between services but commonly it refers to something the service can use.
+The `is_valid` function is called to determine whether if a file from a source is a valid file. The definition of its validity can vary between services but it should be able to answer the question 'Can the service use this?'.
 
 ### import_update()
 The `import_update` function is called to import a set of files into Assemblyline. This involves the implementation of creating a list `Signature` objects and importing them using the Assemblyline client to the Signature API.
