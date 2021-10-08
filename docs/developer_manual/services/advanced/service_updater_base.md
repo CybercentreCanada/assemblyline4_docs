@@ -14,7 +14,6 @@ The following tables describes all of the variables of the `ServiceUpdater` clas
 | config | Reference to the service parameters containing values updated by the user for service configuration. |
 | dependencies | A dictionary containing connection details for service dependencies|
 | log | Reference to the logger. |
-| service_attributes | Service attributes from the [service manifest](../service_manifest). |
 | rules_directory | Returns the directory path which contains the current location of your rules |
 | rules_hash | A hash of the files in the rules_list. Used to invalidate caching if rules change.|
 | rules_list | Returns a list of directory paths which point to rule files derived from rules_directory|
