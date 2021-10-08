@@ -259,6 +259,11 @@ update_config:
   signature_delimiter: "file"
 ```
 
-Note: Source management will still be part of the update_config, but container configuration will be moved to a list of dependencies.
+Notes:
+ - Source management will still be part of the update_config, but container configuration will be moved to a list of dependencies.
+ - `signature_delimiter` indicates how signatures should be separated when downloaded from Assemblyline's Signature API (default: double newline).
+    - From Sigma's perspective, it gets it's a list of files of the form: `/updates/<random_tempdir>/sigma/<source_name>/<signature_name>` where signature_name only contains the signature associated to the name
+    - Under the default delimiter, it would've gotten: `/updates/<random_tempdir>/sigma/<source_name>` where source_name was a compiled list of all signatures from the source separated by double newlines in a single file (which might be fine for some service like YARA and Suricata)
 
-In order for updaters to work, they need to be able to communicate with other core components. So you'll need to enable the dependency to be able to `run_as_core`, otherwise this could lead to issues where the updater isn't able to resolve to components like redis and/or Elasticsearch.
+ - In order for updaters to work, they need to be able to communicate with other core components. So you'll need to enable the dependency to be able to `run_as_core`, otherwise this could lead to issues where the updater isn't able to resolve to components like Redis and/or Elasticsearch by name.
+ - Setting port(s) helps facilitate communication between the service and it's dependency over certain ports and so, as a result, Scaler will create the appropriate NetworkPolicy to ensure communication **only** between a service and its dependencies.
