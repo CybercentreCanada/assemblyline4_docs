@@ -74,12 +74,12 @@ dependencies:
 
 # Update configuration block
 update_config:
-    # list of source object from where to fetch files for update and what will be the name of those files on disk
-    sources:
-        - uri: https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json
-        name: sample_1kb_file
-    # interval in seconds at which the updater dependency runs
-    update_interval_seconds: 300
-    # Should the downloaded files be used to create signatures in the system
-    generates_signatures: true
+  # list of source object from where to fetch files for update and what will be the name of those files on disk
+  sources:
+    - uri: https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json
+      name: sample_1kb_file
+  # interval in seconds at which the updater dependency runs
+  update_interval_seconds: 300
+  # Should the downloaded files be used to create signatures in the system
+  generates_signatures: true
 ```
