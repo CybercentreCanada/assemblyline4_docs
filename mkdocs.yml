@@ -95,13 +95,16 @@ nav:
         - developer_manual/env/pycharm/use_pycharm.md
     - Services:
       - Developing a service: developer_manual/services/developing_an_assemblyline_service.md
+      - developer_manual/services/adding_a_service_updater.md
       - developer_manual/services/run_your_service.md
       - Advanced development:
         - ServiceBase Class: developer_manual/services/advanced/service_base.md
+        - ServiceUpdater Class: developer_manual/services/advanced/service_updater_base.md
         - Request Class: developer_manual/services/advanced/request.md
         - Result Class: developer_manual/services/advanced/result.md
         - ResultSection Class: developer_manual/services/advanced/result_section.md
         - developer_manual/services/advanced/service_manifest.md
+        - developer_manual/services/advanced/service_updater_upgrade.md
     - Infrastructure: developer_manual/core/infrastructure.md
     - Frontend: developer_manual/frontend/frontend.md
     - Documentation: developer_manual/docs/docs.md
