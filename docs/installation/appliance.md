@@ -4,16 +4,16 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 ## Setup requirements
 
-!!! info "Caveat" 
+!!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
 
 ### Install pre-requisites:
 
-1. Install microk8s: 
+1. Install microk8s:
 ```
 sudo snap install microk8s --classic
 ```
-2. Install microk8s addons:  
+2. Install microk8s addons:
 ```
 sudo microk8s enable dns ha-cluster storage metrics-server
 ```
@@ -23,7 +23,7 @@ sudo snap install helm --classic
 sudo mkdir /var/snap/microk8s/current/bin
 sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
 ```
-4. Install git: 
+4. Install git:
 ```
 sudo apt install git
 ```
@@ -48,7 +48,7 @@ sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set contr
     On your standby node, ensure the microk8s ```ha-cluster``` addon is enabled before
     running the command from the master to join the cluster.
 
-    To verify the nodes are connected, run (on any node): 
+    To verify the nodes are connected, run (on any node):
     ```
     sudo microk8s kubectl get nodes
     ```
@@ -77,7 +77,7 @@ cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
 
 The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking.
 
-The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should change them. 
+The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should change them.
 
 !!! tip
     The secrets are used to set up during bootstrap so make sure you change them before deploying the ```al``` chart.
@@ -111,6 +111,11 @@ For documentation, we will use ```assemblyline``` as the deployment name.
 ```
 sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
+
+!!! warning
+    After you've ran the `helm install` command, the system has a lot of setting up to do (Creating database indexes, loading service, setting up default accounts, loading signatures ...). Don't expect it to be fully operational for at least the next 15 minutes.
+
+
 ## Updating the current deployment
 
 Once you have your Assemblyline chart deployed through helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
@@ -139,7 +144,7 @@ After you run Lens for the first time, click the "Add cluster" menu/button, sele
 sudo microk8s kubectl config view --raw
 ```
 
-### Alias to kubectl 
+### Alias to kubectl
 
 Since all is running inside microk8s you can create an alias to the kubectl addon in your bashrc to make your life easier
 ```
