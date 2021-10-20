@@ -15,7 +15,7 @@
 ### 1. Get Assemblyline Helm chart ready
 
 1. Download the latest [Assemblyline helm chart](https://github.com/CybercentreCanada/assemblyline-helm-chart/archive/refs/heads/master.zip)
-2. Unzip it into a directory of your choice which we will refer to as `assemblyline-helm-chart` 
+2. Unzip it into a directory of your choice which we will refer to as `assemblyline-helm-chart`
 3. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
 ### 2. Create the assemblyline namespace
@@ -31,7 +31,7 @@ kubectl create namespace al
 In the `deployment_directory` you've just created, create a `secrets.yaml` file which will contain the different passwords used by Assemblyline.
 
 ???+ example "The secrets.yaml file should have the following format"
- 
+
     ``` yaml
     apiVersion: v1
     kind: Secret
@@ -39,12 +39,12 @@ In the `deployment_directory` you've just created, create a `secrets.yaml` file 
       name: assemblyline-system-passwords
     type: Opaque
     stringData:
-      datastore-password: 
+      datastore-password:
       logging-password:
         # If this is the password for backends like azure blob storage, the password may need to be URL-encoded
         # if it includes non-alphanumeric characters
-      filestore-password: 
-      initial-admin-password: 
+      filestore-password:
+      initial-admin-password:
     ```
 
 !!! tip
@@ -66,7 +66,7 @@ In your `deployment_directory`, create a `values.yaml` file which will contain t
     For an exhaustive view of all the possible parameters you can change the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml) file.
 
 
-These are the strict minimum configuration changes you will need to do: 
+These are the strict minimum configuration changes you will need to do:
 
 1. Setup the ingress controller by changing the values of:
     * `ingressAnnotations.cert-manager.io/issuer:` (Name of the issuer in K8s. This is for cert validation)
@@ -84,15 +84,15 @@ These are the strict minimum configuration changes you will need to do:
 
 ???+ example "This is an example values.yaml file to get you started"
     ```yaml
-    # 1. Setup the ingress controller 
+    # 1. Setup the ingress controller
     ingressAnnotations:
       kubernetes.io/ingress.class: "nginx"
       nginx.ingress.kubernetes.io/proxy-body-size: 100M
       cert-manager.io/issuer: <CHANGE_ME>
     tlsSecretName: <CHANGE_ME>
-        
-    
-    # 2. Setup the storage classes according to your Kubernetes cluster 
+
+
+    # 2. Setup the storage classes according to your Kubernetes cluster
     redisStorageClass: <CHANGE_ME>
     datastore:
       volumeClaimTemplate:
@@ -104,7 +104,7 @@ These are the strict minimum configuration changes you will need to do:
     persistantStorageClass: <CHANGE_ME>
     sharedStorageClass: <CHANGE_ME>
 
-    
+
     # 3. Decide where you want files stored
     internalFilestore: false
     # Un-comment and setup if internal filestore used
@@ -113,7 +113,7 @@ These are the strict minimum configuration changes you will need to do:
     #    size: 500Gi
     #    StorageClass: <CHANGE_ME>
 
-    
+
     # 4. Enable/disable/configure logging features
     enableLogging: false
     enableMetrics: false
@@ -138,7 +138,7 @@ These are the strict minimum configuration changes you will need to do:
       filestore:
         cache: ["s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=False"]
         storage: ["s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=False"]
-      
+
       # 4. Enable/disable/configure logging features
       logging:
         log_level: WARNING
@@ -151,6 +151,9 @@ Now that you've fully configured your `values.yaml` file, you can simply deploy 
 ```shell
 helm install assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
 ```
+
+!!! warning
+    After you've ran the `helm install` command, the system has a lot of setting up to do (Creating database indexes, loading service, setting up default accounts, loading signatures ...). Don't expect it to be fully operational for at least the next 15 minutes.
 
 ## Update your deployment
 
