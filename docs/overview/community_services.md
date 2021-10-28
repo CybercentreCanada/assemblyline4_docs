@@ -11,17 +11,17 @@ This page lists all the services that our members have created and shared with t
 
 | Service name | Description | Author | Source |
 | -------------| ----------- | ------ | ------ |
-| AutoItRipper | AutoIt unpacker service | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-autoit-ripper) |
-| Cape | Assemblyline service build for CAPE's API | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-cape) |
-| ClamAV | Assemblyline service which submits a file to ClamAV and displays the result | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-clamav) |
-| DocumentPreview | Document preview service | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-document-preview) |
-| IntezerStatic | Assemblyline service which fetchs the result of a specific sha256 intezer scan | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-intezer) |
-| MalwareBazaar | Assemblyline service fetching Malware Bazaar report | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-malware-bazaar) |
-| MsgParser | Simple MSG extractor AssemblyLine service | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-msg-extractor) |
-| PythonExeUnpack | Python exe unpacker service | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-python-exe-unpacker) |
-| StegFinder | AssemblyLine service which scans for embedded data in image using StegExpose | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-steg-finder) |
-| Unfurl | Assemblyline service parsing a submitted URL to unshorten it. | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-unfurl) |
-| UrlScanIo | URLScan.io AL service | NVISO | [link](https://github.com/Sorakurai/assemblyline-service-urlscanio) |
+| AutoItRipper | AutoIt unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-autoit-ripper) |
+| Cape | Assemblyline service build for CAPE's API | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-cape) |
+| ClamAV | Assemblyline service which submits a file to ClamAV and displays the result | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-clamav) |
+| DocumentPreview | Document preview service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-document-preview) |
+| IntezerStatic | Assemblyline service which fetchs the result of a specific sha256 intezer scan | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-intezer) |
+| MalwareBazaar | Assemblyline service fetching Malware Bazaar report | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-malware-bazaar) |
+| MsgParser | Simple MSG extractor AssemblyLine service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-msg-extractor) |
+| PythonExeUnpack | Python exe unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-python-exe-unpacker) |
+| StegFinder | AssemblyLine service which scans for embedded data in image using StegExpose | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-steg-finder) |
+| Unfurl | Assemblyline service parsing a submitted URL to unshorten it. | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-unfurl) |
+| UrlScanIo | URLScan.io AL service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-urlscanio) |
 
 ## Add your service
 
