@@ -22,6 +22,7 @@ This page lists all the services that our members have created and shared with t
 | StegFinder | AssemblyLine service which scans for embedded data in image using StegExpose | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-steg-finder) |
 | Unfurl | Assemblyline service parsing a submitted URL to unshorten it. | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-unfurl) |
 | UrlScanIo | URLScan.io AL service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-urlscanio) |
+| WindowsDefender | Windows defender service being adapted from an Assemblyline community [conversation](https://groups.google.com/g/cse-cst-assemblyline/c/LyziWuD8a9I/m/cg_m5eXpAQAJ) | [Adam McHugh](https://github.com/adammchugh) | [link](https://github.com/adammchugh/Assemblyline-WindowsDefender-Service)
 
 ## Add your service
 
