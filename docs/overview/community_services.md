@@ -1,15 +1,15 @@
-# Services de la communautée
+# Community services
 
-La communauté d'Assemblyline travaille fort pour améliorer cet outil à détecté des fichiers malicieux.
+The Assemblyline community has been hard at work to improve Assemblyline's ability to detect malicious files and extract information about them.
 
-Cette page contient la liste de services crée et partagé avec le publique.
+This page lists all the services that our members have created and shared with the public.
 
 !!! warning
-    Ces services ne sont pas gèrer par l'équipe d'Assemblyline, nous vous invitons à faire une revue de leur code pour vous assurez d'être confortable avec ce qu'ils font avant de les utilisés dans vôtre système.
+    These services are not managed by the Assemblyline team so make sure that you check their source thoroughly and that you are comfortable with what they do before you install them on your system.
 
-## Liste de services (anglais seulement)
+## Service list
 
-| Service name | Description | Author | Source |
+| Nom de service | Description | Auteur | Source |
 | -------------| ----------- | ------ | ------ |
 | AutoItRipper | AutoIt unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-autoit-ripper) |
 | Cape | Assemblyline service build for CAPE's API | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-cape) |
@@ -24,6 +24,6 @@ Cette page contient la liste de services crée et partagé avec le publique.
 | UrlScanIo | URLScan.io AL service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-urlscanio) |
 | WindowsDefender | Windows defender service being adapted from an Assemblyline community [conversation](https://groups.google.com/g/cse-cst-assemblyline/c/LyziWuD8a9I/m/cg_m5eXpAQAJ) | [Adam McHugh](https://github.com/adammchugh) | [link](https://github.com/adammchugh/Assemblyline-WindowsDefender-Service)
 
-## Faire nous part de vos services!
+## Add your service
 
-Contactez-nous sur [google groups](https://groups.google.com/g/cse-cst-assemblyline)  pour faire ajouté vos services a cette page.
+Contact us on [google groups](https://groups.google.com/g/cse-cst-assemblyline) to get your service featured on this page.
