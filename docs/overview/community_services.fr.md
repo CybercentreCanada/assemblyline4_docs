@@ -1,4 +1,4 @@
-# Services de la communautée
+# Services de la communauté
 
 La communauté d'Assemblyline travaille fort pour améliorer cet outil à détecté des fichiers malicieux.
 
