@@ -118,7 +118,7 @@ plugins:
         fr: français
       nav_translations:
         fr:
-          Home: Acceuil
+          Home: Accueil
           Overview: Tour
           User's manual: Manuel d'utilisateur
           Developer's guide: Guide du développeur
