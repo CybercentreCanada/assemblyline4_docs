@@ -6,8 +6,8 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 !!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
+### Install pre-requisites:
 === "Online"
-    ### Install pre-requisites:
 
     1. Install microk8s:
     ```
@@ -35,7 +35,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
     sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled=true -n ingress
     ```
 === "Offline"
-    ### Install pre-requisites:
 
     1. Download offline packages (On an internet-connected system):
     ```bash
