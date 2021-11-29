@@ -6,34 +6,179 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 !!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
+=== "Online"
+    ### Install pre-requisites:
 
-### Install pre-requisites:
+    1. Install microk8s:
+    ```
+    sudo snap install microk8s --classic
+    ```
+    2. Install microk8s addons:
+    ```
+    sudo microk8s enable dns ha-cluster storage metrics-server
+    ```
+    3. Install Helm and set it up to use with microk8s:
+    ```
+    sudo snap install helm --classic
+    sudo mkdir /var/snap/microk8s/current/bin
+    sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
+    ```
+    4. Install git:
+    ```
+    sudo apt install git
+    ```
+    5. Install ingress controller:
+    ```
+    sudo microk8s kubectl create ns ingress
+    sudo microk8s helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+    sudo microk8s helm repo update
+    sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled=true -n ingress
+    ```
+=== "Offline"
+    ### Install pre-requisites:
 
-1. Install microk8s:
-```
-sudo snap install microk8s --classic
-```
-2. Install microk8s addons:
-```
-sudo microk8s enable dns ha-cluster storage metrics-server
-```
-3. Install Helm and set it up to use with microk8s:
-```
-sudo snap install helm --classic
-sudo mkdir /var/snap/microk8s/current/bin
-sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
-```
-4. Install git:
-```
-sudo apt install git
-```
-5. Install ingress controller:
-```
-sudo microk8s kubectl create ns ingress
-sudo microk8s helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-sudo microk8s helm repo update
-sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled=true -n ingress
-```
+    1. Download offline packages (On an internet-connected system):
+    ```bash
+    mkdir al_deps
+    cd al_deps
+    for snap_pkg in "microk8s" "helm" "kubectl"
+    do
+        sudo snap download $snap_pkg
+    done
+
+    # Clone the Assemblyline helm chart repo
+    git clone https://github.com/CybercentreCanada/assemblyline-helm-chart
+
+    # Download dependency helm charts
+    helm dependency update assemblyline-helm-chart/assemblyline/
+
+    # Pull container images related to ingress release, refer to values.yaml in `charts` directory
+    for container_image in "controller:v1.1.0" "kube-webhook-certgen:v1.1.1"
+    do
+        docker pull k8s.gcr.io/ingress-nginx/$container_image && docker save k8s.gcr.io/ingress-nginx/$container_image >> $container_image.tar
+    done
+
+    # Pull container images for microk8s add-ons, refer to *.yaml in [ubuntu/microk8s](https://github.com/ubuntu/microk8s/tree/master/microk8s-resources/actions)
+    export ARCH=amd64
+
+    # DNS add-on
+    for container_image in "k8s-dns-kube-dns" "k8s-dns-dnsmasq-nanny" "k8s-dns-sidecar"
+    do
+        docker pull gcr.io/google_containers/$container_image-$ARCH:1.14.7 && docker save gcr.io/google_containers/$container_image-$ARCH:1.14.7 >> $container_image.tar
+    done
+
+    # Storage, coreDNS, metrics-server container images
+    docker pull coredns/coredns:1.8.0 && docker save coredns/coredns:1.8.0 >> coredns.tar
+    docker pull cdkbot/hostpath-provisioner-$ARCH:1.0.0 && docker save cdkbot/hostpath-provisioner-$ARCH:1.0.0 >> storage.tar
+    docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.2 && docker save k8s.gcr.io/metrics-server/metrics-server:v0.5.2 >> metrics.tar
+
+    # Assemblyline Core
+    for al_image in "core" "ui" "internal-ui" "frontend" "service-server" "socketio"
+    do
+        docker pull cccs/assemblyline-$al_image:stable && docker save cccs/assemblyline-$al_image:stable >> al_$al_image.tar
+    done
+
+    # Elastic images
+    ES_REG=docker.elastic.co
+    ES_VER=7.15.0
+    for beat in "filebeat" "metricbeat"
+    do
+        docker pull $ES_REG/beats/$beat:$ES_VER && docker save $ES_REG/beats/$beat:$ES_VER >> es_$beat.tar
+    done
+    for es in "logstash" "kibana" "elasticsearch"
+    do
+        docker pull $ES_REG/$es/$es:$ES_VER && docker save $ES_REG/$es/$es:$ES_VER >> es_$es.tar
+    done
+
+    # Filestore image (MinIO)
+    for minio_image in "minio" "mc"
+    do
+        docker pull quay.io/minio/$minio_image && docker save quay.io/minio/$minio_image >> minio_$minio_image.tar
+    done
+
+    # (Optional) Container Registry Image
+    docker pull registry && docker save registry >> registry.tar
+    ```
+
+    2. (Optional) Setup container registry
+    ```
+    # Assumes Docker is installed on hosting system
+    for container_image in *.tar:
+    do
+        sudo docker load -i $container_image
+    done
+
+    # Start up registry container
+    sudo docker run -dp 32000:5000 --restart=always --name registry registry
+
+    # Re-tag images and push to local registry
+    for image in $(docker image ls --format {{.Repository}})
+    do
+        image_tag=$image
+        if [$(grep -o '/' <<< $image | wc -l) eq 3]
+        then
+            image_tag=$(cut -d '/' -f 2- <<< $image)
+        fi
+        sudo docker tag $image localhost:32000/$image_tag && docker push localhost:32000/$image_tag
+    done
+    ```
+
+    3. Setup computing host(s):
+    ```
+    # Install microk8s
+    sudo snap ack microk8s_*.assert
+    sudo snap install microk8s_*.snap --classic
+    sudo microk8s enable dns ha-cluster storage metrics-server
+
+    # Modify Container Registry Endpoints to point to your container registry (if local: REGISTRY=localhost:32000)
+    sudo vim /var/snap/microk8s/current/args/containerd-template.toml
+        #[plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+        #  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+        #    endpoint = ["https://registry-1.docker.io", "http://<REGISTRY>", ]
+        #  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."REGISTRY"]
+        #    endpoint = ["http://REGISTRY"]
+        #  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."k8s.gcr.io"]
+        #    endpoint = ["http://<REGISTRY>"]
+        #  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."quay.io"]
+        #    endpoint = ["http://<REGISTRY>"]
+        #  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.elastic.co"]
+        #    endpoint = ["http://<REGISTRY>"]
+
+    # Install microk8s add-ons
+    sudo microk8s enable dns ha-cluster storage metrics-server
+
+    # Fetch kubeconfig for administration (copy to monitoring system)
+    # cp /var/snap/microk8s/current/credentials/client.config <remote_destination>
+    ```
+
+    4. Install admin tools (separate or same host(s) for computing):
+    ```
+    sudo snap ack helm_*.assert
+    sudo snap install helm_*.snap --classic
+
+    sudo snap ack kubectl_*.assert
+    sudo snap install kubectl_*.snap --classic
+
+    # Copy kubeconfig from cluster and make it accessible for kubectl/helm
+    export KUBECONFIG=$HOME/.kube/config
+
+    # If installing on computing hosts
+    # sudo mkdir /var/snap/microk8s/current/bin
+    # sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
+    # sudo ln -s /snap/bin/kubectl /var/snap/microk8s/current/bin/kubectl
+
+    # (Optional) Install additional monitoring tools like K9S or Lens
+    ```
+
+    5. Install ingress:
+    ```
+    # These steps assume you know the digest of the re-tagged images required for the ingress-nginx helm chart
+    sudo kubectl create ns ingress
+    sudo helm install ingress-nginx ./ingress-nginx-*.tgz -n ingress \
+    --set controller.hostPort.enabled=true \
+    --set controller.admissionWebhooks.path.image.digest=sha256:<certgen_HASH> \
+    --set controller.image.digest=sha256:<controller_HASH>
+    ```
 
 ??? note "Adding more nodes (optional)"
     **Note: This can be done before or after the system is live.**
@@ -57,13 +202,16 @@ sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set contr
 
     For more details, see: [Clustering with MicroK8s](https://microk8s.io/docs/clustering)
 
-## Get the Assemblyline chart to your computer
+## Get the Assemblyline chart to your administration computer
 
 ### Get the Assemblyline helm charts
 
 ```
+# Online
 mkdir ~/git && cd ~/git
 git clone https://github.com/CybercentreCanada/assemblyline-helm-chart.git
+
+# Offline; copy assemblyline-helm-chart folder from 1. to ~/git
 ```
 
 ### Create your personal deployment
