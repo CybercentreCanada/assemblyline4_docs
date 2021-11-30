@@ -148,8 +148,8 @@ sudo microk8s kubectl config view --raw
 MicroK8s require you to add sudo in front of every command, you can add your user to the microk8s group so you don't have to.
 
 ```
-sudo usermod -a -G microk8s user
-sudo chown -f -R user ~/.kube
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
 ```
 
 !!! warning "You will need to reboot for these changes to take effect"
