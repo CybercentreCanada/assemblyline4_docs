@@ -144,11 +144,26 @@ After you run Lens for the first time, click the "Add cluster" menu/button, sele
 sudo microk8s kubectl config view --raw
 ```
 
-### Alias to kubectl
+### Sudoless access to MicroK8s
+MicroK8s require you to add sudo in front of every command, you can add your user to the microk8s group so you don't have to.
+
+```
+sudo usermod -a -G microk8s user
+sudo chown -f -R user ~/.kube
+```
+
+!!! warning "You will need to reboot for these changes to take effect"
+    Temporarily, you can add the group to your current shell by running the following:
+    ```
+    newgrp microk8s
+    ```
+
+### Alias to Kubectl
 
 Since all is running inside microk8s you can create an alias to the kubectl addon in your bashrc to make your life easier
 ```
-alias kubectl='sudo microk8s kubectl --namespace=al'
+sudo snap alias microk8s.kubectl kubectl
+kubectl config set-context --current --namespace=al
 ```
 
 ## Alternative Installations
