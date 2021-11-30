@@ -160,7 +160,7 @@ sudo chown -f -R $USER ~/.kube
 
 ### Alias to Kubectl
 
-Since all is running inside microk8s you can create an alias to the kubectl addon in your bashrc to make your life easier
+Since all is running inside microk8s you can create an alias to the kubectl command to make your life easier
 ```
 sudo snap alias microk8s.kubectl kubectl
 kubectl config set-context --current --namespace=al
