@@ -219,6 +219,11 @@ This is the documentation for an appliance instance of the Assemblyline platform
 ??? note "Adding more nodes (optional)"
     **Note: This can be done before or after the system is live.**
 
+    Install required addon:
+    ```
+    sudo microk8s enable ha-cluster
+    ```
+
     From the master node, run:
     ```bash
     sudo microk8s add-node
@@ -326,11 +331,25 @@ After you run Lens for the first time, click the "Add cluster" menu/button, sele
 sudo microk8s kubectl config view --raw
 ```
 
-### Alias to kubectl
+### Sudoless access to MicroK8s
+MicroK8s require you to add sudo in front of every command, you can add your user to the microk8s group so you don't have to.
 
-Since all is running inside microk8s you can create an alias to the kubectl addon in your bashrc to make your life easier
-```bash
-alias kubectl='sudo microk8s kubectl --namespace=al'
+```
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+```
+
+!!! warning "You will need to reboot for these changes to take effect"
+    Temporarily, you can add the group to your current shell by running the following:
+    ```
+    newgrp microk8s
+    ```
+
+### Alias to Kubectl
+Since all is running inside microk8s you can create an alias to the kubectl command to make your life easier
+```
+sudo snap alias microk8s.kubectl kubectl
+kubectl config set-context --current --namespace=al
 ```
 
 ## Alternative Installations
