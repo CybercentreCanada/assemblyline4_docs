@@ -54,6 +54,11 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
         Depending on the amount of activity you're receiving, you'll likely have to tweak the *TargetUsage and *ReqRam settings in your values.yaml for your particular deployment, either to cause it to scale faster or slower.
 
         Refer to: [Kubernetes - Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) for more information.
+    ??? question "NGINX 504 but everything seems to be running"
+        It's possible the domain you're accessing the UI with doesn't match the setting ```configuration.ui.fqdn``` in your values.yaml.
+        If your setting is set to 'localhost' but you're accessing the UI using '192.0.0.1.nip.io', there is no ingress path using '192.0.0.1.nip.io' as a base.
+
+        The simplest solution is to update your values.yaml to the appropriate FQDN and redeploy.
 === "Services"
     === "General"
         ??? question "TASK PRE-EMPTED"
