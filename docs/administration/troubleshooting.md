@@ -1,25 +1,102 @@
-# Troubleshooting
+# Troubleshooting / FAQ
 
 We will update this page with typical issues and solutions.
-Until then, please ask your questions here: [https://groups.google.com/g/cse-cst-assemblyline](https://groups.google.com/g/cse-cst-assemblyline)
 
-## Signatures
-### Q: I've added my signature sources, but nothing shows up when searching the Signature Index, what's going on?!
-1. Signature Management
-    1. Is the URI for the signature source accessible from the host?
-    2. Does the signature source require authentication via credentials, CA, headers, etc.?
-        1. Provide the appropriate details and monitor the container's logs for errors
-    3. Is the signature source a private Git repository?
-        1. Be sure to copy the SSH clone information into the URI field and provide the authentication for the repository. 
+You can post your question to our [Assemblyline Google Group](https://groups.google.com/g/cse-cst-assemblyline) or join our [Discord](https://discord.gg/GUAy9wErNu) community!
 
-2. Service Management
-    1. What is the update interval set under the service's update config? (the minimum value is 60s)
-        1. Set the minimum interval to 60s or forcibly restart the updater container if time is of the essence
-    2. Is the host able to reach the Docker registry to pull in the image to perform the update?
-        1. ```curl https://<docker_registry>/v2/_catalog``` should return a list of repositories.
-        2. ```curl https://<docker_registry>/v2/repositories/<image_name>/tags``` should return all tags associated with the image (if found)
 
-3. Updater/Scaler
-    1. Is the updater and/or scaler container even running or in an error state?
-        1. Tail the containers' logs or view them in Kibana if running the full_appliance or equivalent
-        
+=== "Core"
+    === "Statistics"
+        ??? question "Why is the hits counter for a certain signature not incrementing even though it hit 5000 times in the last hour?"
+
+            Rules' hit count are not calculated live. There is an external process that calculates them daily for performance optimization.
+
+            However, you can click on the rule itself and it does calculate the stats for that specific rule and updates it right away.
+    === "Updater"
+        ??? question "Failed to establish a new connection: [Errno 110] Connection timed out"
+            Depending on the host mentioned in the error, ensure the deployment has access to the registry and its able to call the associated API.
+
+            The following modifications will have to be made to your values.yaml:
+            === "External Registry"
+                Let's say the domain of the registry is 'registry.local' and is hosted on port 443
+                ```yaml
+                configuration:
+                services:
+                    image_variables:
+                        REGISTRY: "registry.local/"
+                    allow_insecure_registry: true
+                ```
+            === "Local Registry"
+                Let's say the local registry is hosted on port 32000
+                ```yaml
+                configuration:
+                services:
+                    image_variables:
+                        REGISTRY: "localhost:32000/"
+                    update_image_variables:
+                        REGISTRY: "<HOST_IP>:32000/"
+                    allow_insecure_registry: true
+                ```
+=== "Kubernetes"
+    ??? question "Connection timeouts to external domains"
+        By default, coreDNS is configured to the Google's Public DNS when trying to resolve external domains outside the cluster.
+
+        You can configure it to use a different DNS via:
+        ```sudo microk8s disable dns && sudo microk8s enabled dns:1.1.1.1```
+
+        If this still poses an issue, refer to: [Teleport - Troubleshooting Kubernetes Networking Issues](https://goteleport.com/blog/troubleshooting-kubernetes-networking/)
+    ??? question "How can I monitor the status of the deployment/cluster?"
+        The quickest way to monitor the status of your cluster is:
+        ```kubectl get pods -n <assemblyline_namespace>```
+
+        There are other tools such as [k9s](https://k9scli.io/) and [Lens](https://k8slens.dev/) that allow you to monitor your cluster in a more user-friendly manner.
+    ??? question "Are HPAs adjustable?"
+        Depending on the amount of activity you're receiving, you'll likely have to tweak the *TargetUsage and *ReqRam settings in your values.yaml for your particular deployment, either to cause it to scale faster or slower.
+
+        Refer to: [Kubernetes - Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) for more information.
+=== "Services"
+    === "General"
+        ??? question "TASK PRE-EMPTED"
+            A service task can pre-empt for a number of reasons, such as:
+
+            1. Container being killed due to OOM (Out of Memory)
+                * Increase service memory limits
+                * Debug service memory usage with sample
+            2. Service instance ran beyond the service timeout
+                * Increase service timeout
+                * Debug service runtime with sample
+            3. The service result didn't make it back to service-server
+                * Check the state of service-server deployments
+                * Inspect network policies
+
+        ??? question "Is there a limit resources to allocate to a service instance?"
+
+            No! The sky's the limit (or more accurately), you're bound to the resources allocated on your cluster.
+            That being said, it's best practice to use what you need rather than what you want (especially if it's unwarranted).
+
+        ??? question "Can I deploy a 4.X service on a 4.Y Assemblyline system (where X,Y are system versions: X < Y)"
+
+            Yes and no. You can add a service with to the system with a lesser system version but it won't be enabled due to potential compatibility issues.
+            It's advised to rebuild the service and tag with the system version that you want to deploy on.
+
+    === "Service Updater"
+        ??? question "My service doesn't seem to be getting any signatures for analysis.."
+            Check the following on your service's updater instance:
+
+            1. Does your service have the following environment variables set: updates_host, updates_port, updates_key
+                * Edit the deployment manually
+                * Disable the service, delete the related deployments from Kubernetes, restart scaler, then re-enable service
+            2. Is there any downloaded signatures in ```/tmp/updater/update_dir*/*/``` of the updater container?
+                * If empty, it suggests there was a problem pulling the signatures from Assemblyline
+                * If some sources are missing, it suggests there was a problem pulling signatures from that source
+
+        ??? question "I've added my signature sources, but nothing shows up when searching the Signature index.."
+
+            1. Are the source links accessible from the cluster?
+            2. Is the authentication for each source valid?
+            3. How frequently is the service updater configured to check for source updates?
+
+        ??? question "If I modify signatures using the Assemblyline client or the API, will the service get these rules?"
+
+            Yes! Changes made involving our API trigger messaging events made to other components to Assemblyline causing the system to be more responsive.
+            In the case of services with updaters, they'll be notified immediately and the service will gather the new rules after a submissions has processed.
