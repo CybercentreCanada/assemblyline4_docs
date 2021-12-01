@@ -91,7 +91,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
         # Assemblyline Core (release: 4.1.stable)
         for al_image in "core" "ui" "ui-frontend" "service-server" "socketio"
         do
-            docker pull cccs/assemblyline-$al_image:4.1.stable && docker save cccs/assemblyline-$al_image:stable >> al_$al_image.tar
+            docker pull cccs/assemblyline-$al_image:4.1.stable && docker save cccs/assemblyline-$al_image:4.1.stable >> al_$al_image.tar
         done
 
         # Elastic
@@ -109,40 +109,53 @@ This is the documentation for an appliance instance of the Assemblyline platform
         # Filestore image (MinIO)
         for minio_image in "minio:RELEASE.2021-02-14T04-01-33Z" "mc:RELEASE.2021-02-14T04-28-06Z"
         do
-            docker pull quay.io/minio/$minio_image && docker save quay.io/minio/$minio_image >> minio_$minio_image.tar
+            docker pull minio/$minio_image && docker save minio/$minio_image >> minio_$minio_image.tar
         done
 
         # Redis image
         docker pull redis && docker save redis >> redis.tar
-
-        # (Optional) Container Registry Image
+        ```
+        (Optional) Container Registry Image
+        ```bash
         docker pull registry && docker save registry >> registry.tar
         ```
+        (Optional) Pull official service images
+        ```bash
+        for svc_image in apkaye beaver characterize configextractor cuckoo deobfuscripter emlparser espresso extract floss frankenstrings iparse metadefender metapeek oletools pdfid peepdf pefile pixaxe safelist sigma suricata swiffer tagcheck torrentslicer unpacme unpacker vipermonkey virustotal-dynamic virustotal-static xlmmacrodeobfuscator yara
+        do
+            docker pull cccs/assemblyline-service-$svc_image:stable && docker save cccs/assemblyline-service-$svc_image:stable >> $svc_image.tar
+        done
+        ```
 
-    2. (Optional) Setup container registry
-    ```bash
-    # Assumes Docker is installed on hosting system
-    for container_image in $(ls *.tar):
-    do
-        sudo docker load -i $container_image
-    done
+    2. Load images into a container registry
 
-    # Start up registry container
-    sudo docker run -dp 32000:5000 --restart=always --name registry registry
+        (Optional) Setup local container registry
+        ```bash
+        # Assumes Docker is installed on hosting system
+        for container_image in registry.tar):
+        do
+            sudo docker load -i $container_image
+        done
 
-    # Re-tag images and push to local registry
-    for image in $(docker image ls --format {{.Repository}}:{{.Tag}})
-    do
-        image_tag=$image
-        if [ $(grep -o '/' <<< $image | wc -l) -eq 2 ]
-        then
-            image_tag=$(cut -d '/' -f 2- <<< $image)
-        fi
-        sudo docker tag $image localhost:32000/$image_tag && docker push localhost:32000/$image_tag
-        sudo docker image rm $image
-        sudo docker image rm localhost:32000/$image_tag
-    done
-    ```
+        # Start up registry container
+        sudo docker run -dp 32000:5000 --restart=always --name registry registry
+        ```
+        Load images from disk and push to registry
+        ```bash
+        REGISTRY=localhost:32000
+        # Re-tag images and push to local registry
+        for image in $(docker image ls --format {{.Repository}}:{{.Tag}})
+        do
+            image_tag=$image
+            if [ $(grep -o '/' <<< $image | wc -l) -eq 2 ]
+            then
+                image_tag=$(cut -d '/' -f 2- <<< $image)
+            fi
+            sudo docker tag $image $REGISTRY/$image_tag && docker push $REGISTRY/$image_tag
+            sudo docker image rm $image
+            sudo docker image rm $REGISTRY/$image_tag
+        done
+        ```
 
     3. Setup computing host(s):
         1. Install microk8s
@@ -200,10 +213,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
     ```bash
     # These steps assume you know the digest of the re-tagged images required for the ingress-nginx helm chart
     kubectl create ns ingress
-    helm install ingress-nginx ./ingress-nginx-*.tgz -n ingress \
-    --set controller.hostPort.enabled=true \
-    --set controller.admissionWebhooks.path.image.digest=sha256:<certgen_HASH> \
-    --set controller.image.digest=sha256:<controller_HASH>
+    helm install ingress-nginx ./ingress-nginx-*.tgz --set controller.hostPort.enabled=true -n ingress
     ```
 
 ??? note "Adding more nodes (optional)"
@@ -251,6 +261,8 @@ The ```secret.yaml``` file in your deployment directory is preconfigured with de
 
 !!! tip
     The secrets are used to set up during bootstrap so make sure you change them before deploying the ```al``` chart.
+!!! warning
+    Be sure to update any values as deemed necessary ie. FQDN
 
 ## Deploy Assemblyline via Helm:
 
