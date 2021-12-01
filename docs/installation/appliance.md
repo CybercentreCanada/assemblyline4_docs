@@ -15,7 +15,7 @@ sudo snap install microk8s --classic
 ```
 2. Install microk8s addons:
 ```
-sudo microk8s enable dns ha-cluster storage metrics-server
+sudo microk8s enable dns storage
 ```
 3. Install Helm and set it up to use with microk8s:
 ```
@@ -37,6 +37,11 @@ sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set contr
 
 ??? note "Adding more nodes (optional)"
     **Note: This can be done before or after the system is live.**
+
+    Install required addon:
+    ```
+    sudo microk8s enable ha-cluster
+    ```
 
     From the master node, run:
     ```
