@@ -128,7 +128,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - attr_list
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - pymdownx.highlight
   - pymdownx.superfences
