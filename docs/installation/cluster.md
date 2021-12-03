@@ -1,4 +1,4 @@
-# Cluster installation
+# Kubernetes Cluster installation
 
 ## Pre-requisites
 

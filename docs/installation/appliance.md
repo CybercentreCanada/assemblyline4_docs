@@ -1,4 +1,4 @@
-# Appliance installation
+# Microk8s Appliance installation
 
 This is the documentation for an appliance instance of the Assemblyline platform suited for smaller-scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
 
@@ -6,6 +6,9 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 !!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
+
+    The recommended minimum system requirement for this appliance is **6 CPU** and **12 GB** of Ram.
+
 ### Install pre-requisites:
 === "Online"
 

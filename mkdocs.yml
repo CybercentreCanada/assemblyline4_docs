@@ -54,6 +54,7 @@ nav:
     - user_manual/searching.md
   - Installation:
     - installation/deployment.md
+    - installation/appliance_docker.md
     - installation/appliance.md
     - installation/cluster.md
     - Configuration:
