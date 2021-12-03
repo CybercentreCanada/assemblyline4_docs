@@ -1,8 +1,8 @@
-name: ci 
+name: ci
 
 on:
   push:
-    branches: 
+    branches:
       - master
       - main
 jobs:
@@ -13,5 +13,5 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: pip install mkdocs-material mkdocs-static-i18n
+      - run: pip install mkdocs-material==7.3.6 mkdocs-static-i18n
       - run: mkdocs gh-deploy --force
