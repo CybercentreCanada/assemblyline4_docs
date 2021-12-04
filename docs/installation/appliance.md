@@ -1,4 +1,4 @@
-# Microk8s Appliance installation
+# Appliance installation (MicroK8s)
 
 This is the documentation for an appliance instance of the Assemblyline platform suited for smaller-scale deployments. Since we've used microk8s as the backend for this, the appliance setup can later be scaled to multiple nodes.
 

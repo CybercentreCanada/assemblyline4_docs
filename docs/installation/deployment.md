@@ -17,7 +17,7 @@ Both deployments are the same in terms of analysis capabilities however a cluste
 
 ### Deployment features rundown
 
-|                                           | Appliance (Docker compose)             | Appliance (MicroK8s)                   | Cluster                                |
+|                                           | Appliance (Docker)                     | Appliance (MicroK8s)                   | Cluster                                |
 | ----------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Support all analysis capabilities         | :material-checkbox-marked-outline: Yes | :material-checkbox-marked-outline: Yes | :material-checkbox-marked-outline: Yes |
 | Single host installation                  | :material-checkbox-marked-outline: Yes | :material-checkbox-marked-outline: Yes | :material-checkbox-blank-outline: No   |
@@ -31,7 +31,9 @@ Both deployments are the same in terms of analysis capabilities however a cluste
 
 ## Installation stack
 
-Both clustered and MicroK8s deployments use a very similar stack in the background which allows them to share the same Helm chart. Only small changes in the values.yml file are required to differentiate them between a cluster and an appliance. As for the docker-compose appliance deployment, it uses a simpler stack which is easier to maintain and reset but offer less features to scale to high capacity.
+Both clustered and MicroK8s deployments use a very similar stack in the background which allows them to share the same Helm chart. Only small changes in the values.yml file are required to differentiate them.
+
+As for the Docker compose appliance deployment, it uses a simpler stack which is easier to maintain and reset but offer less features to scale to high capacity.
 
 ![Deployment types](./images/dep_types.png)
 
@@ -39,8 +41,8 @@ Both clustered and MicroK8s deployments use a very similar stack in the backgrou
 
 Now that you know the difference between the two types of deployment, you can refer to their respective installation instruction to get you started.
 
-* [Docker Compose Appliance installation](../appliance_docker)
-* [Microk8s Appliance installation](../appliance)
+* [Appliance installation (Docker)](../appliance_docker)
+* [Appliance installation (Microk8s)](../appliance)
 * [Cluster installation](../cluster)
 
 !!! tip

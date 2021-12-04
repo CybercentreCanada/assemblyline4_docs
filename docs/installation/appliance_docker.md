@@ -1,4 +1,4 @@
-# Docker appliance installation
+# Appliance installation (Docker)
 
 This is the documentation for an appliance instance of the Assemblyline platform suited for very small single machine deployment.
 
