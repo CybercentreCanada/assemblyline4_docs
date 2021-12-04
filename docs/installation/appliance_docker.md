@@ -1,6 +1,6 @@
 # Docker appliance installation
 
-This is the documentation for an appliance instance of the Assemblyline platform suited for very small single machine only deployment.
+This is the documentation for an appliance instance of the Assemblyline platform suited for very small single machine deployment.
 
 ## Setup requirements
 
@@ -12,7 +12,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 !!! warning
     If you have more then **16 CPUs** and **64 GB** of ram, you should consider using the [Microk8s appliance](../appliance/) instead. Microk8s will be able to auto-scale core components based on load but this docker appliance can only scale services.
 
-### Install pre-requisites:
+### Install pre-requisites
 === "Online"
 
     1. Install Docker:
@@ -78,11 +78,11 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 ### Setup your appliance
 
-The ```config/config.yaml``` file in your deployment directory is already pre-configured for use with docker-compose as a single node minimal appliance. You can review the settings already configured but you should not have anything to change there.
+The ```config/config.yaml``` file in your deployment directory is already pre-configured for use with docker-compose as a single node appliance. You can review the settings already configured but you should not have anything to change there.
 
 The ```.env``` file in your deployment directory is preconfigured with default passwords, you should definitely change them.
 
-## Deploy Assemblyline:
+## Deploy Assemblyline
 
 ### Create your https certs
 
