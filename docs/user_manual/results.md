@@ -52,7 +52,7 @@ The source code for these mappings can be found [here](https://github.com/Cyberc
 The first page that will appear when you view a submission is the submission report. This page is a high-level summary to allow an analyst to decide if it is worth digging deeper.
 
 ### General information
-At the top of the report you will find important information such as timestamps, the file type detected, file size, maximum score and various hashes representing the file contents.
+At the top of the report you will find important information such as timestamps, the file type detected, file size, and various hashes representing the file contents. The analysis verdict is also given with the maximum score revealed when hovering over the verdict (ie. 'Malicious').
 
 ![General information](./images/report_gi.png)
 
