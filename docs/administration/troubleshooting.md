@@ -60,7 +60,7 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
 
         The simplest solution is to update your values.yaml to the appropriate FQDN and redeploy.
     ??? question "Is it possible to mount an internal root CA bundles into core components to use?"
-        Yes! This would involve creating a configmap containing your CA bundle and using ```coreVolumes, coreMounts and coreEnv``` to pass that information onto the core components.
+        Yes! This would involve creating a configmap containing your CA bundle and using ```coreVolumes, coreMounts, and coreEnv``` in your values.yaml to pass that information onto the core deployments.
 
         An example of this configuration would be:
         ```yaml
