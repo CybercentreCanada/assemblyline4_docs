@@ -59,7 +59,7 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
         If your setting is set to 'localhost' but you're accessing the UI using '192.0.0.1.nip.io', there is no ingress path using '192.0.0.1.nip.io' as a base.
 
         The simplest solution is to update your values.yaml to the appropriate FQDN and redeploy.
-    ??? question "Is it possible to mount an internal root CA bundles into core components to use?"
+    ??? question "Is it possible to mount an internal root CA bundle into core components to use?"
         Yes! This would involve creating a configmap containing your CA bundle and using ```coreVolumes, coreMounts, and coreEnv``` in your values.yaml to pass that information onto the core deployments.
 
         An example of this configuration would be:
