@@ -15,6 +15,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 ### Install pre-requisites
 === "Online"
 
+    For Ubuntu OS:
     1. Install Docker:
     ```bash
     sudo apt-get update
@@ -33,6 +34,101 @@ This is the documentation for an appliance instance of the Assemblyline platform
     sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     sudo curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+    ```
+    
+    For RHEL OS (8.5 used as example, some commands may be version specific):
+    ```bash
+    yum update
+    ```
+    1. Install Docker:
+    
+    Set up the repository:
+    ```bash
+    yum install -y yum-utils
+    yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    ```
+    
+    Install Docker Engine:
+    ```bash
+    yum install -y docker-ce docker-ce-cli containerd.io
+    ```
+
+    Start Docker:
+    ```bash
+    systemctl start docker
+    ```
+    
+    Enable auto-start:
+    ```bash
+    systemctl enable docker
+    ```
+
+    Test Docker (Optional):
+    ```bash
+    docker run hello-world
+    ```
+    Remove all containers & images:
+    ```bash
+    docker rm $(docker ps -aq)
+    docker rmi $(docker images -aq)
+    ```
+
+    2. Install Docker-compose:
+    ```bash
+    curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    chmod +x /usr/local/bin/docker-compose
+    curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+    ```
+    
+    Add /usr/local/bin to PATH via ~/.bashrc:
+    ```bash
+    nano ~/.bashrc
+    ```
+    Add this to the end of the file and save:
+    ```bash
+    export PATH=$PATH:/usr/local/bin
+    ```
+    
+    Reboot:
+    ```bash
+    reboot
+    ```
+    
+    3. Install Python3.9:
+    Make/go to temp dir:
+    ```bash
+    mkdir ~/temp
+    cd ~/temp
+    ```
+    
+    Prerequisites:
+    ```bash
+    dnf install -y wget yum-utils make gcc openssl-devel bzip2-devel libffi-devel zlib-devel
+    ```
+    
+    Download, extract python3.9:
+    ```bash
+    wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz
+    tar xzf Python-3.9.6.tgz
+    ```
+    
+    Install python:
+    ```bash
+    cd Python-3.9.6
+    ./configure --with-system-ffi --with-computed-gotos --enable-loadable-sqlite-extensions
+    make -j ${nproc} 
+    make altinstall
+    ```
+    
+    Check for success and remove temporary files:
+    ```bash
+    python3.9 -V
+    pip3.9 -V
+    ```
+    Remove python install files:
+    ```bash
+    cd ~
+    rm -R -f ~/temp
     ```
 
 === "Offline"
