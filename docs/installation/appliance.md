@@ -91,10 +91,10 @@ This is the documentation for an appliance instance of the Assemblyline platform
         docker pull cdkbot/hostpath-provisioner-$ARCH:1.0.0 && docker save cdkbot/hostpath-provisioner-$ARCH:1.0.0 >> storage.tar
         docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.2 && docker save k8s.gcr.io/metrics-server/metrics-server:v0.5.2 >> metrics.tar
 
-        # Assemblyline Core (release: 4.1.stable)
+        # Assemblyline Core (release: 4.2.stable)
         for al_image in "core" "ui" "ui-frontend" "service-server" "socketio"
         do
-            docker pull cccs/assemblyline-$al_image:4.1.stable && docker save cccs/assemblyline-$al_image:4.1.stable >> al_$al_image.tar
+            docker pull cccs/assemblyline-$al_image:4.2.stable && docker save cccs/assemblyline-$al_image:4.2.stable >> al_$al_image.tar
         done
 
         # Elastic
