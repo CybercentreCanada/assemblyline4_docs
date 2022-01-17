@@ -40,7 +40,7 @@ docker_config:
 
     Service versions should follow the format `A.B.C.(dev|stable).D`, where:
 
-    - `A, B` represents the system and framework version, respectively.
+    - `A, B` represents the framework and system version, respectively.
     - `C, D` can be used to indicate the major and minor of a service, respectively.
     - The `dev` or `stable` portion of the tag should indicate the state of the service build. This is also relevant for providing service updates under a certain channel.
 The following is an example of a service build targetted for an Assemblyline deployment running release 4.1.x.x:
