@@ -14,26 +14,64 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 ### Install pre-requisites
 === "Online"
+    === "Ubuntu"
+        1. Install Docker:
+        ```bash
+        sudo apt-get update
+        sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+        ```
+        ```bash
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+        ```
+        ```bash
+        sudo apt-key fingerprint 0EBFCD88
+        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+        sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+        ```
+        2. Install Docker compose:
+        ```bash
+        sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        sudo curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+        ```
+    === "RHEL 8.5"
+        !!! warning
+            Many of the instructions below have been set to force yes and allowerasing for quick implementation.
 
-    1. Install Docker:
-    ```bash
-    sudo apt-get update
-    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-    ```
-    ```bash
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    ```
-    ```bash
-    sudo apt-key fingerprint 0EBFCD88
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-    ```
-    2. Install Docker compose:
-    ```bash
-    sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
-    sudo curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
-    ```
+            It is recommended that these flags be removed for production environments to avoid impacting production environments by missing key messages and warnings.
+            Step 4 contains a firewall configuration, we strongly advise firewall settings should be managed and reviewed by your organization before deployment.
+
+        1. Install Docker:
+        ```bash
+        yum update -y --allowerasing
+        yum install -y yum-utils
+        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+        yum install -y docker-ce docker-ce-cli containerd.io --allowerasing
+        systemctl start docker
+        systemctl enable docker
+        ```
+
+        2. Install Docker compose:
+        ```bash
+        curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+        chmod +x /usr/bin/docker-compose
+        curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+        ```
+
+        3. Upgrade Python3.9:
+        ```bash
+        dnf install -y python39
+        alternatives --set python3 /usr/bin/python3.9
+        python3 --version
+        ```
+
+        4. Configure firewalld for Docker:
+        ```bash
+        sed -i 's/FirewallBackend=nftables/FirewallBackend=iptables/' /etc/firewalld/firewalld.conf
+        firewall-cmd --reload
+        reboot
+        ```
+
 
 === "Offline"
 
