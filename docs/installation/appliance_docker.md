@@ -5,9 +5,14 @@ This is the documentation for an appliance instance of the Assemblyline platform
 ## Setup requirements
 
 !!! info "Caveat"
-    The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
+    The documentation provided here assumes that you are installing your appliance on one of the following systems:
 
-    The recommended minimum system requirement for this appliance is **4 CPUs** and **8 GB** of Ram.
+    - Debian: Ubuntu 20.04
+    - RHEL: RHEL 8.5
+
+    You might have to change the commands a bit if you use other Linux distributions.
+
+    The recommended minimum system requirement for this appliance is **4 CPUs** and **8 GB** of RAM.
 
 !!! warning
     If you have more then **16 CPUs** and **64 GB** of ram, you should consider using the [Microk8s appliance](../appliance/) instead. Microk8s will be able to auto-scale core components based on load but this docker appliance can only scale services.
@@ -72,11 +77,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
         reboot
         ```
 
-
-=== "Offline"
-
-    TBD
-
 ## Setup your Assemblyline appliance
 
 ### Download the Assemblyline docker-compose files
@@ -88,10 +88,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
     cd ~/git
     git clone https://github.com/CybercentreCanada/assemblyline-docker-compose.git
     ```
-
-=== "Offline"
-
-    TBD
 
 ### Choose your deployment type
 
