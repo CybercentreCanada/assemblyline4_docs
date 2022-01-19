@@ -10,6 +10,28 @@ This is the documentation for an appliance instance of the Assemblyline platform
     The recommended minimum system requirement for this appliance is **6 CPU** and **12 GB** of Ram.
 
 ### Install pre-requisites:
+
+=== "Offline-Cluster"
+
+#### T.O.C
+
+==== "On an internet-connected system"
+
+    1. Download offline packages
+    2. Install Microk8s on Master-Node 
+    3. Optional - Future upgrade the easy way
+       *Configure microk8s registry (localhost:32000) to handle our offline packages*
+       
+ !!! info "Caveat"
+    Without a registry (can be done with docker registry also) you would need to update new images to every node in your deployment.
+    With a registry, your nodes can pull new images from 1 registry instance managed on Master-node.
+    
+    4. Updating AL4 helm-chart source files to support our multi-node cluster
+    5. Recomendations :)
+    
+
+    
+
 === "Online"
 
     1. Install microk8s:
