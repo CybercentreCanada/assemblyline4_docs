@@ -102,6 +102,13 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
             Yes and no. You can add a service with to the system with a lesser system version but it won't be enabled due to potential compatibility issues.
             It's advised to rebuild the service and tag with the system version that you want to deploy on.
 
+        ??? question "Every time I update my service, the values/parameters are getting reset.."
+
+            This can stem from loading the service initially with production values which causes an issue with the service's service_delta.
+            It's best practice to add a service using the default manifest and update the values after it's been registered.
+
+            If you have many services that require an update in values or if there's many values to update in a single service, consider using the Assemblyline client.
+
     === "Service Updater"
         ??? question "My service doesn't seem to be getting any signatures for analysis.."
             Check the following on your service's updater instance:
