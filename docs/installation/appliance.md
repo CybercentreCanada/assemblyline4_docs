@@ -99,7 +99,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
         # Elastic
         ES_REG=docker.elastic.co
-        ES_VER=7.15.0
+        ES_VER=7.16.2
         for beat in "filebeat" "metricbeat"
         do
             docker pull $ES_REG/beats/$beat:$ES_VER && docker save $ES_REG/beats/$beat:$ES_VER >> es_$beat.tar
