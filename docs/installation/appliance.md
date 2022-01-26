@@ -135,7 +135,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
         (Optional) Setup local container registry
         ```bash
         # Assumes Docker is installed on hosting system
-        for container_image in registry.tar):
+        for container_image in $(ls *.tar):
         do
             sudo docker load -i $container_image
         done
