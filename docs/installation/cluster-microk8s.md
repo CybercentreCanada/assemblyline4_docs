@@ -99,6 +99,7 @@ Last update support 4.2.stable deployment (Jan 2022)
 	
 ## Download depenedencies
 !!! tip "In this section we'll prepare all the pre-requisites for our deployment"
+	Only step needs to be done on internet-connected system
 
 ### 1. Download offline dependencies (On online environment)
 
@@ -548,11 +549,12 @@ helm repo update
   <figcation></figcaption>
 </figure>
 
-??? cite "You can deploy (tested on Ubuntu 20.04) all of the dependencies in an offline environment"
+??? cite "You can deploy Microk8s+AL4 Dependencies with all the downloaded files"
 	Next steps can be done in an offline environment 
 		
 ## Microk8s setup (Including helm, kubectl)
 !!! tip "In this section we'll setup most of the infrastructure - Appliance Node/Master Node(Cluster)"
+	After this step you'll initialize the Microk8s Dependencies and deploy them
 
 ### 1. Setup Kubernetes environment
 ```bash title="Microk8s + Deps' installation"
@@ -649,9 +651,6 @@ cd al_deps/
 	
 ![Initial_Setup_Done](./images/After_Sec_2.png)
 	
-??? cite "You can export the current VM to OVF as 'Node-Template'"
-	Node consists of Microk8s/Helm/Kubectl
-
 ### 2. Install Microk8s Infrastructure dependencies
 
 !!! question "What is needed for this step?"
@@ -786,9 +785,10 @@ How we deploy all dependencies?
   <figcation></figcaption>
 </figure>
 
-??? cite "You can export the current VM to OVF as 'MasterNode-Template' "
-	Your VM is now ready to enable an AL4 deployment
+??? cite "You can export a 'Basic-Template' OVF that can be used as Appliance or Master(Part of cluster)"
+	Node consists of Microk8s/Helm/Kubectl
 	{==Strong Appliance/ Master Node for 2 kind of clusters==}
+	
 	
 ## Setup Node(s)
 !!! tip "In this section we'll create Microk8s 3-node cluster"
@@ -911,6 +911,13 @@ How we deploy all dependencies?
 
 	=== "On Node"
 		!!! warning "Update default gateway before joining the master"
+			
+			1. Via settings panel
+			
+			<figure markdown>
+			  ![NetSettings](./images/NetworkSetting.png)
+			  <figcation></figcaption>
+			</figure>
 		
 			Make sure it's permanent default-gateway (Change it in your network settings)
 			
@@ -1495,10 +1502,12 @@ How we deploy all dependencies?
 ![In the End!](./images/Sucessfull_deployment.png)
 
 
-## Update your deployment
+## Update your deployment (TODO - Test it)
 
-Once you have your Assemblyline chart deployed through helm, you can change any values in the `values.yaml` file and upgrade your deployment with the following command:
+!!! tldr "To upgrade we need to consider our infra'"
+	1. container-registry to give a central location for updating images (with python_tool)
+	2. updateing our helm-chart to recognize upgrades.
 
-```shell
-helm upgrade assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+```bash
+microk8s helm upgrade assemblyline ./assemblyline/ -f ./appliance/values-<What_ever_deployment_you_wish>.yaml -n al
 ```
