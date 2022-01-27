@@ -56,6 +56,7 @@ nav:
     - installation/deployment.md
     - installation/appliance_docker.md
     - installation/appliance.md
+    - installation/cluster-microk8s.md
     - installation/cluster.md
     - Configuration:
       - installation/configuration/config_file.md
@@ -128,6 +129,7 @@ plugins:
 markdown_extensions:
   - toc:
       permalink: true
+  - md_in_html
   - attr_list
   - pymdownx.tabbed
   - pymdownx.details
@@ -135,6 +137,11 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - def_list
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.emoji:
