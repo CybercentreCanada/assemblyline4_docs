@@ -27,7 +27,7 @@ Last update support 4.2.stable deployment (Jan 2022)
 		!!! done "They are configured to pull 2 repos + 2 files"
 		
 
-![services](./images/Repo_Services.png)
+		![services](./images/Repo_Services.png)
 
 ## __What needs to be done__
 
@@ -44,6 +44,12 @@ Last update support 4.2.stable deployment (Jan 2022)
 
 
 	??? question "Why Prefered?"
+		
+		<figure markdown>
+		  ![services](./images/ESCluster.png)
+		  <figcation></figcaption>
+		</figure>
+
 		
 		- [X] Elastic-Search can be scaled to No-Share architecture cluster (<B>Requires 3 nodes</B>)
 		
@@ -755,8 +761,12 @@ How we deploy all dependencies?
 	
 	2. Enable the preffered OpenEBS deployment for your kind of AL deployment	
 		
-		!!! warning "OpenEBS requires jiva addon (In addition to the default requiments) to be enabled in order to support multi-node ES Cluster (i.e. 3ES)"
-	
+		!!! warning "For 3-datastores (multi-node) you should enable jiva addon for OpenEBS"
+		
+		```bash title="Define variables"
+		COMMON_PATH="/var/snap/microk8s/common/"
+		```
+		
 		=== "Appliance + Cluster(1ES)"
 			!!! danger "Relevant for a Strong-Appliance OR Cluster AL4 (1 ES)"
 				If you wish deploying Cluster AL4+3ES refer to next tab
@@ -765,8 +775,8 @@ How we deploy all dependencies?
 				Deploy OpenEBS helm-chart for Strong appliance (Single-node)
 				```bash title="Default deployment enough for single-node datastore"
 				microk8s helm install openebs ./openebs-*.tgz --namespace openebs --create-namespace \
-					--set varDirectoryPath.baseDir=/var/snap/microk8s/common/var/openebs/ \
-					--set jiva.defaultStoragePath=/var/snap/microk8s/common/var/openebs/
+					--set varDirectoryPath.baseDir=$COMMON_PATH/var/openebs/local \
+					--set jiva.defaultStoragePath=$COMMON_PATH/var/openebs/
 				
 				```
 			- [X] 2.5/3
@@ -780,13 +790,13 @@ How we deploy all dependencies?
 				Deploy OpenEBS helm-chart for Multi-node cluster
 				```bash title="Jiva enabled for multi-node cluster"
 				microk8s helm install openebs ./openebs-*.tgz --namespace openebs --create-namespace \
-					--set legacy.enabled=false \
-					--set varDirectoryPath.baseDir=/var/snap/microk8s/common/var/openebs/ \
+					--version 3.0.x \
 					--set jiva.enabled=true \
-					--set jiva.defaultStoragePath=/var/snap/microk8s/common/var/openebs/ \
-					--set openebs-ndm.enabled=true \
-					--set localpv-provisioner.enabled=true
-					
+					--set legacy.enabled=false \
+					--set jiva.csiNode.kubeletDir="$COMMON_PATH/var/lib/kubelet/" \
+					--set localprovisioner.basePath="$COMMON_PATH/var/openebs/local" \
+					--set ndm.sparse.path="$COMMON_PATH/var/openebs/sparse" \
+					--set varDirectoryPath.baseDir="$COMMON_PATH/var/openebs"
 				```
 		
 			- [X] 3/3
