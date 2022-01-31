@@ -1,4 +1,4 @@
-# Local-Cluster installation (Multi-Node Microk8s)
+# Appliance/Cluster offline installation (Microk8s)
 
 Last update support 4.2.stable deployment (Jan 2022)
 
@@ -6,8 +6,9 @@ Last update support 4.2.stable deployment (Jan 2022)
 
 {==__ Tested VM: 24cpu, 24Gi ram, 512Gi hhd__==}
 
-## What do we need to consider before deploying offline
+{==__IN order to adapt this guide to online environment__==} you can skip offline downloads and use openebs + ingress addons that are built-in with microk8s
 
+## __What do we need to consider before deploying offline__
 	
 !!! danger "Consider before processeding"
 	* Needs to install python3-pip - if you cant do it for any reason, find a solution
@@ -28,7 +29,7 @@ Last update support 4.2.stable deployment (Jan 2022)
 
 ![services](./images/Repo_Services.png)
 
-## What needs to be done
+## __What needs to be done__
 
 
 * In order to make AL work their are some options for deployment.
@@ -51,14 +52,15 @@ Last update support 4.2.stable deployment (Jan 2022)
 		- [X] AL4 Services can be scaled to balance our scans
 
 
-1. __Download depenedencies (Infrastructure + AL4)__
+1. __Download depenedencies (Infrastructure + AL4)__		
 2. __Setup node(s)__
 3. __Setup microk8s cluster__
 
 	!!! tldr "Master+Additional nodes"	
 		
 4. __Prepair AL4 Strong Appliance/Cluster helm-chart for deployment__
-	
+
+
 !!! warning "Caution"
 	The following instructions assuming you're root user.
 	Please perform:
@@ -66,18 +68,19 @@ Last update support 4.2.stable deployment (Jan 2022)
         sudo su
         ```
         
-!!! tldr "Desktop directory before we can deploy AL4"
+??? tldr "Summary of files for deploying AL4"
 	```bash
 	Desktop/
 	├── al_deps/
 	│   ├── Python-tool   (Used to push .tar images to built-in registry)
+	│   ├── open-iscsi service  (Used to enable OpenEBS storage management)
 	│   ├── Snap packages (microk8s, helm, kubectl, koneta-lens)
 	│   ├── nginx-ingress (.tar)
 	│   ├── OpenEBS       (.tar) (Need to update dependency helm chart)
 	│   └── containers    (many .tar)/
 	│       ├── registry.tar       (Used for built-in registry)
 	│       ├── service_containers (AL4 services)
-	│       ├── openEBS-node       (Basic OpenEBS - Required for both deployments)        
+	│       ├── openEBS-node       (Basic OpenEBS - Required for both deployments)
 	│       ├── openEBS-multi-node (OpenEBS with java-csi addon)
 	│       ├── core-microk8s      (Enables Microk8s from scratch)
 	│       ├── minio-redis        (For AL4 charts)
@@ -89,17 +92,39 @@ Last update support 4.2.stable deployment (Jan 2022)
 	    │   ├── values-Cluster(1ES).yaml
 	    │   └── values-Cluster(3ES).yaml
 	    └── assemblyline/
-		├── requirements.yaml  (offline version)
-		├── charts/
-		│   ├── elasticsearch-7.16.1.tgz (Need to update configurations)
-		│   └── miinio-5.0.32.tgz        (Need to update configurations)
-		└── templates/
-		    └── updater-deployment.yaml  (Turn down replicas - 0)
+			├── requirements.yaml  (offline version)
+			├── charts/
+			│   ├── elasticsearch-7.16.1.tgz (Need to update configurations)
+			│   └── miinio-5.0.32.tgz        (Need to update configurations)
+			└── templates/
+			    └── updater-deployment.yaml  (Turn down replicas - 0)
+		    
 	```
 	
-## Download depenedencies
+??? bug "Workaround when cluster seems to be timed-out"
+
+	* Sometimes microk8s cluster will behave like shown in the following image:
+	<figure markdown>
+	  ![error](./images/Error.png)
+	  <figcation></figcaption>
+	</figure>
+	
+	* {==To fix this==} all we need to do is restart to internet interface:
+	<figure markdown>
+	  ![error](./images/Solution.png)
+	  <figcation></figcaption>
+	</figure>
+	
+	
+## __Download depenedencies__
 !!! tip "In this section we'll prepare all the pre-requisites for our deployment"
 	Only step needs to be done on internet-connected system
+	
+	* __Download files consist of:__
+		
+		* __Snap packages:__ Used for installing kubernetes dependencies
+		* __Helm Charts:__ Used for deploying apllication easily
+		* __Containers:__ Used for application run-time environment
 
 ### 1. Download offline dependencies (On online environment)
 
@@ -119,17 +144,16 @@ Last update support 4.2.stable deployment (Jan 2022)
 mkdir al_deps && cd al_deps
 ```
 
-* Install helm
-	```bash
-	snap install helm --classic
-	```
+```bash title="Helm inistallation"
+snap install helm --classic
+```
 
-	!!! Tip "Helm charts are usefull to get updated releases of various products"
+!!! Tip "Helm charts are usefull to deploy many products with their dependencies"
 	
-* Download dependencies and helm charts
+Download dependencies and helm charts
 
-	!!! Tip "Basic Best practice"
-		- [X] <b>It is recomended to use latest versions of products.</b>
+!!! success "Basic Best practice"
+	- [X] <b>It is recomended to use latest versions of products.</b>
 			
 		       
 	=== "Snap Packages"
@@ -167,7 +191,7 @@ mkdir al_deps && cd al_deps
 		
 		* Download package and dependencies of iscsi (Prerequisites for OpenEBS)
 			
-			!!! danger "Needs to be installed on each node of cluster(Didn't find a way to install it offline yet)"
+			!!! danger "You'll install it in offline environment"
 			
 			```bash
 			apt-get -y install --print-uris open-iscsi | cut -d\' -f2 | grep http:// > open-iscsi.txt
@@ -198,310 +222,314 @@ mkdir al_deps && cd al_deps
 			        
         - [X] 4/4
         
-* After you've done downloading dependencies <b>(4/4)</b> lets helm-update them
-```bash
-helm repo update
-```
-	
-### 2. Download containers for offline work
-* Set up dedicated directory
-	```bash 
-	mkdir containers && cd containers
+	After you've done downloading dependencies <b>(4/4)</b> 
+	```bash title="helm-update them"
+	helm repo update
 	```
 	
-	=== "Registry + Python tool"
-		```bash title="Download docker-registry image {==(Put in core-microk8s directory)==}"
-		docker pull registry:2.7.1 && docker save registry:2.7.1 >> registry.tar
-		```
+### 2. Download containers for offline work
+```bash title="Set up dedicated directory"
+mkdir containers && cd containers
+```
 	
-		!!! done "Enable quick managment with images and central-registry"
-			```bash title="Download python package 'dockertarpusher'"
-			mkdir python_tool && cd python_tool
-			apt install python3-pip -y
-			```
-			```bash
-			pip download dockertarpusher
-			```
-		
-		- [X] 1/7
-	=== "Core-Microk8s"
-		??? example "Required images list"
-			```yaml
-			coredns/coredns:1.8.0
-			calico/cni:v3.19.1
-			calico/pod2daemon-flexvol:v3.19.1	
-			calico/node:v3.19.1
-			clico/kube-controllers:v3.17.1
-			cdkbot/hostpath-provisioner-amd64:1.0.0
-			k8s.gcr.io/metrics-server/metrics-server:v0.5.2
-			```
-	
-		```bash title="DNS services for single\multi node cluster"
-		docker pull coredns/coredns:1.8.0 && docker save coredns/coredns:1.8.0 >> coredns.tar
-		```
-		
-		```bash title="Calico containers"
-		for container_image in "cni" "pod2daemon-flexvol" "node"
-		do
-		    docker pull calico/$container_image:v3.19.1 && docker save calico/$container_image:v3.19.1 >> calico_$container_image.tar
-		done
-		
-		docker pull calico/kube-controllers:v3.17.3 && docker save calico/kube-controllers:v3.17.3 >> calico_kube-controllers.tar
-		```
-		
-		```bash title="microk8s-hostpath for handling built-in registry"
-		docker pull cdkbot/hostpath-provisioner-amd64:1.0.0 && docker save cdkbot/hostpath-provisioner-amd64:1.0.0 >> storage.tar
-		```
-		
-		```bash title="metrics-server addon container"
-		docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.2 && docker save k8s.gcr.io/metrics-server/metrics-server:v0.5.2 >> metrics.tar
-		```
-		
-		```bash title="download k8s.gcr.io/pause:3.1"
-		docker pull k8s.gcr.io/pause:3.1 && docker save k8s.gcr.io/pause:3.1 >> pause.tar
-		```
-		
-		
-		
-		- [X] 2/7
-	=== "Ingress-NGINX"	
-		```bash title="Download nginx prerequists (Need to manually pull them | remove digest tag in yaml)"
-		for container_image in "controller:v1.1.1" "kube-webhook-certgen:v1.1.1"
-		do
-		    docker pull k8s.gcr.io/ingress-nginx/$container_image && docker save k8s.gcr.io/ingress-nginx/$container_image >> $container_image.tar
-		done
-		```
-		??? warning "Notice specific versions"
-			For update go to value.yaml and search for:
-			```yaml
-			...
-			controller:
-			  name: controller
-			  image: registry: k8s.gcr.io
-			  image: ingress-nginx/controller
-			  tag: "v1.1.1"
-			...
-			```
-			```yaml
-			...
-			controller:
-			  name: controller
-			  image: registry: k8s.gcr.io
-			  image: ingress-nginx/kube-webhook-certgen
-			  tag: "v1.1.1"
-			...
-			```
-		- [X] 3/7
-	=== "ELK"
-		```bash title="Download ELK images"
-		ES_REG=docker.elastic.co
-		ES_VER=7.16.1
-		for beat in "filebeat" "metricbeat"
-		do
-		    docker pull $ES_REG/beats/$beat:$ES_VER && docker save $ES_REG/beats/$beat:$ES_VER >> es_$beat.tar
-		done
-		for es in "logstash" "kibana" "elasticsearch"
-		do
-		    docker pull $ES_REG/$es/$es:$ES_VER && docker save $ES_REG/$es/$es:$ES_VER >> es_$es.tar
-		done
-		```
-		
-		- [X] 4/7
-	=== "MinIO + Redis"
-		```bash title="MinIO"
-		for minio_image in "minio:RELEASE.2022-01-08T03-11-54Z" "mc:RELEASE.2022-01-07T06-01-38Z"
-		do
-		    docker pull minio/$minio_image && docker save minio/$minio_image >> minio_$minio_image.tar
-		done
-		docker pull bskim45/helm-kubectl-jq:3.3.0 && docker save bskim45/helm-kubectl-jq:3.3.0 >> minio_helm-kubectl-jq:3.3.0.tar
-		```
-		??? warning "Notice specific versions"
-			For update go to value.yaml and search for:
-			```yaml
-			...
-			helmKubectlJqImage:
-			  pullPolicy: IfNotPresent
-			  repository: bskim45/helm-kubectl-jq
-			  #tag: <old_version>
-			  tag: 3.3.0 (new version)
-			...
-			```
-			```yaml
-			...
-			image:
-			  pullPolicy: IfNotPresent
-			  repository: minio/minio
-			  #tag: <old_version>
-			  tag: RELEASE.2022-01-08T03-11-54Z (new version)
-			...
-			```
-			```yaml
-			...
-			image:
-			  pullPolicy: IfNotPresent
-			  repository: minio/mc
-			  #tag: <old_version>
-			  tag: RELEASE.2022-01-07T06-01-38Z (new version)
-			...
-			```
-		
-		```bash title="Redis"
-		docker pull redis && docker save redis >> redis.tar
-		```
-		
-		- [X] 4/7
-	=== "OpenEBS"
-	
-		=== "Relevant for all deployment types"
-		
-			!!! tldr "Enable storage for single-node IO operations"
-				Relevant for {==__Non-ES Cluster__==}
-				
-			??? question "Where to find all dependencies for this helm chart?"
-				`openebs/values.yaml`
-				
-			??? example "Required images+tags(openebs_list.txt)"
-				```yaml
-				m-apiserver:2.12.2
-				openebs-k8s-provisioner:2.12.2
-				provisioner-localpv:3.1.0
-				snapshot-controller:2.12.2
-				snapshot-provisioner:2.12.2
-				node-disk-manager:1.8.0
-				node-disk-operator:1.8.0
-				node-disk-exporter:1.8.0
-				admission-server:2.12.2
-				linux-utils:3.1.0
-				jiva:2.12.2
-				cstor-pool:2.12.2
-				cstor-pool-mgmt:2.12.2
-				cstor-istgt:2.12.2
-				cstor-volume-mgmt:2.12.2
-				```
+=== "Registry + Python tool"
+	```bash title="Download docker-registry image {==(Put in core-microk8s directory)==}"
+	docker pull registry:2.7.1 && docker save registry:2.7.1 >> registry.tar
+	```
 
-			```bash title="Define repo"
-			REPO="openebs"
+	!!! done "Enable quick managment with images and central-registry"
+		```bash title="Download python package 'dockertarpusher'"
+		mkdir python_tool && cd python_tool
+		apt install python3-pip -y
+		```
+		```bash
+		pip download dockertarpusher
+		```
+	
+	- [X] 1/7
+=== "Core-Microk8s"
+	??? example "Required images list"
+		```yaml
+		coredns/coredns:1.8.0
+		calico/cni:v3.19.1
+		calico/pod2daemon-flexvol:v3.19.1	
+		calico/node:v3.19.1
+		clico/kube-controllers:v3.17.1
+		cdkbot/hostpath-provisioner-amd64:1.0.0
+		k8s.gcr.io/metrics-server/metrics-server:v0.5.2
+		```
+
+	```bash title="DNS services for single\multi node cluster"
+	docker pull coredns/coredns:1.8.0 && docker save coredns/coredns:1.8.0 >> coredns.tar
+	```
+	
+	```bash title="Calico containers"
+	for container_image in "cni" "pod2daemon-flexvol" "node"
+	do
+	    docker pull calico/$container_image:v3.19.1 && docker save calico/$container_image:v3.19.1 >> calico_$container_image.tar
+	done
+	
+	docker pull calico/kube-controllers:v3.17.3 && docker save calico/kube-controllers:v3.17.3 >> calico_kube-controllers.tar
+	```
+	
+	```bash title="microk8s-hostpath for handling built-in registry"
+	docker pull cdkbot/hostpath-provisioner-amd64:1.0.0 && docker save cdkbot/hostpath-provisioner-amd64:1.0.0 >> storage.tar
+	```
+	
+	```bash title="metrics-server addon container"
+	docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.2 && docker save k8s.gcr.io/metrics-server/metrics-server:v0.5.2 >> metrics.tar
+	```
+	
+	```bash title="download k8s.gcr.io/pause:3.1"
+	docker pull k8s.gcr.io/pause:3.1 && docker save k8s.gcr.io/pause:3.1 >> pause.tar
+	```
+	
+	
+	
+	- [X] 2/7
+=== "Ingress-NGINX"	
+	```bash title="Download nginx prerequists (Need to manually pull them | remove digest tag in yaml)"
+	for container_image in "controller:v1.1.1" "kube-webhook-certgen:v1.1.1"
+	do
+	    docker pull k8s.gcr.io/ingress-nginx/$container_image && docker save k8s.gcr.io/ingress-nginx/$container_image >> $container_image.tar
+	done
+	```
+	??? warning "Notice specific versions"
+		For update go to value.yaml and search for:
+		```yaml
+		...
+		controller:
+		  name: controller
+		  image: registry: k8s.gcr.io
+		  image: ingress-nginx/controller
+		  tag: "v1.1.1"
+		...
+		```
+		```yaml
+		...
+		controller:
+		  name: controller
+		  image: registry: k8s.gcr.io
+		  image: ingress-nginx/kube-webhook-certgen
+		  tag: "v1.1.1"
+		...
+		```
+	- [X] 3/7
+=== "ELK"
+	```bash title="Download ELK images"
+	ES_REG=docker.elastic.co
+	ES_VER=7.16.1
+	for beat in "filebeat" "metricbeat"
+	do
+	    docker pull $ES_REG/beats/$beat:$ES_VER && docker save $ES_REG/beats/$beat:$ES_VER >> es_$beat.tar
+	done
+	for es in "logstash" "kibana" "elasticsearch"
+	do
+	    docker pull $ES_REG/$es/$es:$ES_VER && docker save $ES_REG/$es/$es:$ES_VER >> es_$es.tar
+	done
+	```
+	
+	- [X] 4/7
+=== "MinIO + Redis"
+	```bash title="MinIO"
+	for minio_image in "minio:RELEASE.2022-01-08T03-11-54Z" "mc:RELEASE.2022-01-07T06-01-38Z"
+	do
+	    docker pull minio/$minio_image && docker save minio/$minio_image >> minio_$minio_image.tar
+	done
+	docker pull bskim45/helm-kubectl-jq:3.3.0 && docker save bskim45/helm-kubectl-jq:3.3.0 >> minio_helm-kubectl-jq:3.3.0.tar
+	```
+	??? warning "Notice specific versions"
+		For update go to value.yaml and search for:
+		```yaml
+		...
+		helmKubectlJqImage:
+		  pullPolicy: IfNotPresent
+		  repository: bskim45/helm-kubectl-jq
+		  #tag: <old_version>
+		  tag: 3.3.0 (new version)
+		...
+		```
+		```yaml
+		...
+		image:
+		  pullPolicy: IfNotPresent
+		  repository: minio/minio
+		  #tag: <old_version>
+		  tag: RELEASE.2022-01-08T03-11-54Z (new version)
+		...
+		```
+		```yaml
+		...
+		image:
+		  pullPolicy: IfNotPresent
+		  repository: minio/mc
+		  #tag: <old_version>
+		  tag: RELEASE.2022-01-07T06-01-38Z (new version)
+		...
+		```
+	
+	```bash title="Redis"
+	docker pull redis && docker save redis >> redis.tar
+	```
+	
+	- [X] 4/7
+=== "OpenEBS"
+
+	!!! tldr "How to choose?"
+		| OpenEBS    	| Requirements                                                                	| Purpose                               	|
+		|------------	|-----------------------------------------------------------------------------	|---------------------------------------	|
+		|   Default  	|                     :material-check: Default Containers                     	|  For {==__1__==} datastore in cluster 	|
+		| Jiva addon 	| :material-check: Default Containers  :material-check: Multi-node Containers 	| For {==__3__==} datastores in cluster 	|
+		
+	=== "Default Containers"
+		!!! tldr "Enable storage for single-node IO operations"
+			Relevant for {==__1 datastore OR 3 datastores__==}
+			
+		??? question "Where to find all dependencies for this helm chart?"
+			`openebs/values.yaml`
+			
+		??? example "Required images+tags(openebs_list.txt)"
+		
+			```yaml
+			m-apiserver:2.12.2
+			openebs-k8s-provisioner:2.12.2
+			provisioner-localpv:3.1.0
+			snapshot-controller:2.12.2
+			snapshot-provisioner:2.12.2
+			node-disk-manager:1.8.0
+			node-disk-operator:1.8.0
+			node-disk-exporter:1.8.0
+			admission-server:2.12.2
+			linux-utils:3.1.0
+			jiva:2.12.2
+			cstor-pool:2.12.2
+			cstor-pool-mgmt:2.12.2
+			cstor-istgt:2.12.2
+			cstor-volume-mgmt:2.12.2
 			```
-			```bash title="Required images for supporting Strong appliance (Not enough for cluster)"
-			for openebs_image in $(cat openebs_list.txt)
-			do
-			    docker pull $REPO/$openebs_image && docker save $REPO/$openebs_image >> $REPO_$openebs_image.tar
-			done
+
+		```bash title="Define repo"
+		REPO="openebs"
+		```
+		```bash title="Required images for supporting Strong appliance (Not enough for cluster)"
+		for openebs_image in $(cat openebs_list.txt)
+		do
+		    docker pull $REPO/$openebs_image && docker save $REPO/$openebs_image >> $REPO_$openebs_image.tar
+		done
+		```
+		```bash title="Pull cleaner image for OpenEBS" 
+		docker pull bitnami/kubectl && docker save bitnami/kubectl >> bitnami_kubectl.tar
+		```
+		
+		- [X] 5.5/7
+		
+	=== "Multi-node Containers"
+		!!! tldr "Enable storage for multi-node IO operations"
+			Relevant for {==__3 datastores__==}
+			
+		??? question "Where to find all dependencies for this helm chart?"
 			```
-			```bash title="Pull cleaner image for OpenEBS" 
-			docker pull bitnami/kubectl && docker save bitnami/kubectl >> bitnami_kubectl.tar
+			/openebs/charts/jiva/value.yaml
+			/openebs/charts/localpv-provisioner/value.yaml
+			/openebs/charts/openebs-ndm/value.yaml
 			```
 			
-			- [X] 5.5/7
-		=== "Required: Cluster(AL4+3ES)"
-			!!! tldr "Enable storage for multi-node IO operations"
-				Relevant for {==__ES Cluster (Not AL4 Cluster)__==}
-				
-			??? question "Where to find all dependencies for this helm chart?"
-				```
-				/openebs/charts/jiva/value.yaml
-				/openebs/charts/localpv-provisioner/value.yaml
-				/openebs/charts/openebs-ndm/value.yaml
-				```
-				
-			??? example "Required images+tags"
-				```yaml
-				OpenEBS Multi-Node Required:
-				jiva:3.1.0
-				m-exporter:3.1.0
-				jiva-operator:3.1.0
-				jiva-csi:3.1.0
+		??? example "Required images+tags"
+			```yaml
+			OpenEBS Multi-Node Required:
+			jiva:3.1.0
+			m-exporter:3.1.0
+			jiva-operator:3.1.0
+			jiva-csi:3.1.0
 
-				Jiva Required:
-				csi-attacher:v3.1.0
-				livenessprobe:v2.3.0
-				csi-provisioner:v3.0.0
-				csi-resizer:v1.2.0
-				csi-node-driver-registrar:v2.3.0
-				```
-				
-			!!! bug "Jiva required images needs to be pulled manually to our prirvate registry"
-				You're welcome to find a solution so k8s.gcr.io images could be pulled
-			
+			Jiva Required:
+			csi-attacher:v3.1.0
+			livenessprobe:v2.3.0
+			csi-provisioner:v3.0.0
+			csi-resizer:v1.2.0
+			csi-node-driver-registrar:v2.3.0
+			```
 
-			```bash title="Define repos"
-			REPO="openebs"
-			REPO_K8S="k8s.gcr.io/sig-storage"
-			```
-			```bash title="Pull extra OpenEBS images" 
-			for openebs_image in "jiva:3.1.0" "m-exporter:3.1.0" "jiva-operator:3.1.0" "jiva-csi:3.1.0"
-			do
-			    docker pull $REPO/$openebs_image && docker save $REPO/$openebs_image >> $REPO_$openebs_image.tar
-			done
-			```
-			```bash title="Pull jiva addon images" 
-			for k8s_image in "csi-attacher:v3.1.0" "livenessprobe:v2.3.0" "csi-provisioner:v3.0.0" "csi-resizer:v1.2.0" "csi-node-driver-registrar:v2.3.0"
-			do
-			    docker pull $REPO_K8S/$k8s_image && docker save $REPO_K8S/$k8s_image >> $k8s_image.tar
-			done
-
-			```
-			```bash title="Pull cleaner image for OpenEBS" 
-			docker pull bitnami/kubectl && docker save bitnami/kubectl >> bitnami_kubectl.tar
-			```
-			
-			- [X] 6/7
-		
-	
-	=== "AL4-services"
-	
-		```bash title="Define Tag"
-		AL4_RELEASE=4.2.stable
+		```bash title="Define repos"
+		REPO="openebs"
+		REPO_K8S="k8s.gcr.io/sig-storage"
 		```
-		
-	
-		```bash title="Assemblyline Core"
-		for al_image in "core" "ui" "ui-frontend" "service-server" "socketio"
+		```bash title="Pull extra OpenEBS images" 
+		for openebs_image in "jiva:3.1.0" "m-exporter:3.1.0" "jiva-operator:3.1.0" "jiva-csi:3.1.0"
 		do
-		    docker pull cccs/assemblyline-$al_image:$AL4_RELEASE && docker save cccs/assemblyline-$al_image:$AL4_RELEASE >> al_$al_image.tar
+		    docker pull $REPO/$openebs_image && docker save $REPO/$openebs_image >> $REPO_$openebs_image.tar
 		done
 		```
-	
-		??? example "List of services(service_list.txt)"
-			```yaml
-			antivirus
-			apkaye
-			beaver
-			characterize
-			configextractor
-			cuckoo
-			deobfuscripter
-			emlparser
-			elf
-			espresso
-			extract
-			floss
-			frankenstrings
-			iparse
-			jsjaws
-			metadefender
-			metapeek
-			oletools
-			overpower
-			pdfid
-			peepdf
-			pefile
-			pixaxe
-			safelist
-			sigma
-			suricata
-			swiffer
-			tagcheck
-			torrentslicer
-			unpacme
-			unpacker
-			vipermonkey
-			virustotal-dynamic
-			virustotal-static
-			xlmmacrodeobfuscator 
-			yara	
-			```	
+		```bash title="Pull jiva addon images" 
+		for k8s_image in "csi-attacher:v3.1.0" "livenessprobe:v2.3.0" "csi-provisioner:v3.0.0" "csi-resizer:v1.2.0" "csi-node-driver-registrar:v2.3.0"
+		do
+		    docker pull $REPO_K8S/$k8s_image && docker save $REPO_K8S/$k8s_image >> $k8s_image.tar
+		done
+
+		```
+		```bash title="Pull cleaner image for OpenEBS" 
+		docker pull bitnami/kubectl && docker save bitnami/kubectl >> bitnami_kubectl.tar
+		```
 		
+		- [X] 6/7
+	
+
+=== "AL4-services"
+
+	```bash title="Define Tag"
+	AL4_RELEASE=4.2.stable
+	```
+	
+
+	```bash title="Assemblyline Core"
+	for al_image in "core" "ui" "ui-frontend" "service-server" "socketio"
+	do
+	    docker pull cccs/assemblyline-$al_image:$AL4_RELEASE && docker save cccs/assemblyline-$al_image:$AL4_RELEASE >> al_$al_image.tar
+	done
+	```
+
+	??? example "List of services(service_list.txt)"
+		```yaml
+		antivirus
+		apkaye
+		beaver
+		characterize
+		configextractor
+		cuckoo
+		deobfuscripter
+		emlparser
+		elf
+		espresso
+		extract
+		floss
+		frankenstrings
+		iparse
+		jsjaws
+		metadefender
+		metapeek
+		oletools
+		overpower
+		pdfid
+		peepdf
+		pefile
+		pixaxe
+		safelist
+		sigma
+		suricata
+		swiffer
+		tagcheck
+		torrentslicer
+		unpacme
+		unpacker
+		vipermonkey
+		virustotal-dynamic
+		virustotal-static
+		xlmmacrodeobfuscator 
+		yara	
+		```	
+	
+	!!! danger "Both tags are required in our registry!"
+	
 		=== "Get latest tag"
 			
 			!!! tldr "Those tags important to suppply {==al_svc==} with currect image:{==4.2.stable'X'==}"
@@ -543,18 +571,23 @@ helm repo update
 			!!! bug "docker-tar-push can push an image per tar file. so we need to download each image separately"
 			
 			- [X] 7/7		
-		
+	
 <figure markdown>
-  ![al_deps](./images/al_deps_directory.png)
-  <figcation></figcaption>
+ ![al_deps](./images/FolderExample.png)
+ <figcation></figcaption>
 </figure>
 
 ??? cite "You can deploy Microk8s+AL4 Dependencies with all the downloaded files"
-	Next steps can be done in an offline environment 
+	Next step exaplin how to setup Node (Master or other-node)
 		
-## Microk8s setup (Including helm, kubectl)
+## __Microk8s setup__
 !!! tip "In this section we'll setup most of the infrastructure - Appliance Node/Master Node(Cluster)"
 	After this step you'll initialize the Microk8s Dependencies and deploy them
+	
+	| Stage                   	| Description                                                                                 	| Purpose                               	|
+	|-------------------------	|---------------------------------------------------------------------------------------------	|---------------------------------------	|
+	|      Core-Microk8s      	| :material-check: Microk8s :material-check: Helm :material-check: Kubectl :material-check: Lens 	|      Setup Kubernetes environment     	|
+	| Deploy microk8s add-ons 	| :material-check: NGINX-Ingress :material-check: OpenEBS                                       	| Used to deploy infrastructure for AL4 	|
 
 ### 1. Setup Kubernetes environment
 ```bash title="Microk8s + Deps' installation"
@@ -562,27 +595,26 @@ cd al_deps/
 ```
 
 === "Setup microk8s"
-	* Microk8s is a distribution of kubernetes that can handle local cluster
 	```bash title="Microk8s Install"
 	snap ack microk8s_*.assert
 	snap install microk8s_*.snap --classic
 	```
 	
-	* Manually import Core-Microk8s images
 	```bash title="Get to this directory"
 	cd core_microk8s
 	```
-	```bash
+	
+	```bash title="Manually import Core-Microk8s images"
 	for img_name in $(ls)
 	do
 	    microk8s ctr images import $img_name
 	done
 	```
 	
-		!!! warning "Make sure registry image located on correct folder"
+	!!! warning "Make sure registry image located on correct folder"
 	
 	* Enable relevant addons
-	```bash
+	```bash title="Only on Appliance/Master-node"
 	microk8s enable dns ha-cluster metrics-server rbac registry:size=30Gi
 	```
 		
@@ -590,61 +622,54 @@ cd al_deps/
 			 Default Deployment requires <b>55G</b> for storing images - maybe less.
 			 
 			 [Microk8s built-in Registry](https://microk8s.io/docs/registry-built-in)
-	
-	* Copy kubeconfig from cluster and make it accessible for kubectl/helm
-	```bash
+			 
+				
+	```bash title="Copy kubeconfig from cluster and make it accessible for kubectl/helm"
 	export KUBECONFIG=$HOME/.kube/config
 	```
 	
-	* Get ready for next steps...
-	```bash
+	```bash title="Get ready to install helm\kubectl"
 	mkdir /var/snap/microk8s/current/bin
 	```
 	
 	- [X] 1/4
 
 === "Setup Helm"
-	* Admin tool for deploying helm charts
-	```bash title="Helm Install"
+	```bash title="Admin tool for deploying helm charts"
 	snap ack helm_*.assert
 	snap install helm_*.snap --classic
 	```
 	
-	* link helm to microk8s
-	```bash
+	```bash title="Link helm to microk8s"
 	ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
 	```
 	
 	- [X] 2/4
 	
 === "Setup Kubectl"
-	* Admin tool for controlling kubernetes
-	```bash title="Kubectl install"
+	```bash title="Admin tool for controlling kubernetes"
 	snap ack kubectl_*.assert
 	snap install kubectl_*.snap --classic
 	```
 	
-	* link kubectl to microk8s
-	```bash
+	```bash title="Link kubectl to microk8s"
 	ln -s /snap/bin/kubectl /var/snap/microk8s/current/bin/kubectl
 	```
 	
 	- [X] 3/4
 	
 === "Setup Lens"
-	!!! danger "Relevant if node has user-interface"
+	??? danger "Relevant if node has user-interface"
 
-	* Admin tool for examining progresses in our appliance\cluster
-	```bash title="Lens install"
-	snap ack kontena-lens_*.assert
-	snap install kontena-lens_*.snap --classic
-	```
-	
-	* Link microk8s to Lens
-	```bash title="Updating kubectl config info"
-	microk8s kubectl config view --raw
-	```
-	
+		```bash title="Admin tool for examining progresses in our appliance\cluster"
+		snap ack kontena-lens_*.assert
+		snap install kontena-lens_*.snap --classic
+		```
+		
+		```bash title="Link microk8s to Lens"
+		microk8s kubectl config view --raw
+		```
+		
 		* In Lens: file -> Add Clusters -> Paste as text -> Paste last step output here
 	
 	- [X] 4/4 (Optional)
@@ -668,23 +693,20 @@ How we deploy all dependencies?
 		 
 	* Edit microk8s configuration to pull images from localhost:32000 instead of docker.io
 	
-		* Little change in this file:
-		```bash
+		```bash title="Little change in this file:"
 		gedit /var/snap/microk8s/current/args/certs.d/docker.io/hosts.toml
 		```
 		
-		* To look like this
-		```toml
+		```toml title="To look like this"
 		server = "http://localhost:32000"
 		
 		[host."http://localhost:32000"]
 		  capabilities = ["pull", "resolve"]
 		```
 	
-			!!! note "This ensure each service could access the registry on the node"
+		!!! note "This ensure each service could access the registry on the node"
 			
-		* Sync changes with Microk8s
-		```bash
+		```bash title="Sync changes with Microk8s"
 		microk8s stop && microk8s start
 		```
 
@@ -693,7 +715,7 @@ How we deploy all dependencies?
 		cd ./python-tool && pip install ./dockertarpusher-0.16-py3-none-any.whl
 		```
 	
-	* Next, we need to push the container-images we download in 1.2
+	* Push the container-images we download in 1.2
 	
 		```bash title="Push process - pushes tars in current directory"
 		for container_image in $(ls)
@@ -708,35 +730,40 @@ How we deploy all dependencies?
 === "Nginx-Ingress"
 	Nginx-Ingress is used to be a load-balancer in front of our cluster
 	
-	* Create dedicated namespace for our ingress installation
-	```bash
+	```bash title="Create dedicated namespace for our ingress installation"
 	microk8s helm install ingress-nginx ./ingress-nginx-*.tgz -n ingress --create-namespace \
 			--set controller.hostPort.enabled=true \
 			--set controllerr.image.registry="localhost:32000/k8s.gcr.io"
 	```
 	
+	!!! info "localhost:32000 is used to pull k8s images from microk8s built-in registry"
+	
 	- [X] 2/3
 	
 === "OpenEBS"
-	* Install and enable iscsi (Prerequisites of OpenEBS)
+	1. Install and enable iscsi (Prerequisites of OpenEBS)
 		
-		!!! todo "Optional(Cluster): Needs to be installed on each node of cluster"
-		```bash
-		dpkg -i *.deb
-		```
-		
-		```bash
-		systemctl enable --now iscsid
-		```
+		!!! todo "Needs to be installed on {==each node of cluster(Include master)==}"
+			in case datastore pod will be scheduled to other node
+			```bash
+			dpkg -i *.deb
+			```
 			
-	* OpenEBS needs to enable us using 'jiva' for multi-node datastore (3ES)
+			```bash
+			systemctl enable --now iscsid
+			```	
 	
-		=== "Appliance + Cluster(AL4+1ES)"
-			!!! danger "Relevant for a Strong-Appliance OR Cluster AL4 (1 ES)"
-				If you wish deploying Cluster AL43ES refer to next tab
+	2. Enable the preffered OpenEBS deployment for your kind of AL deployment	
 		
-			* Deploy OpenEBS helm-chart for Strong appliance (Single-node)
-				```bash title="Default deployment enough for single-node"
+		!!! warning "OpenEBS requires jiva addon (In addition to the default requiments) to be enabled in order to support multi-node ES Cluster (i.e. 3ES)"
+	
+		=== "Appliance + Cluster(1ES)"
+			!!! danger "Relevant for a Strong-Appliance OR Cluster AL4 (1 ES)"
+				If you wish deploying Cluster AL4+3ES refer to next tab
+				
+			!!! bug "Only on Master Node"
+				Deploy OpenEBS helm-chart for Strong appliance (Single-node)
+				```bash title="Default deployment enough for single-node datastore"
 				microk8s helm install openebs ./openebs-*.tgz --namespace openebs --create-namespace \
 					--set varDirectoryPath.baseDir=/var/snap/microk8s/common/var/openebs/ \
 					--set jiva.defaultStoragePath=/var/snap/microk8s/common/var/openebs/
@@ -744,41 +771,25 @@ How we deploy all dependencies?
 				```
 			- [X] 2.5/3
 			
-		=== "Cluster(AL4+3ES)"
+		=== "Cluster(3ES)"
 		
 			!!! danger "Required to create ES Multi-node datastores (3 ES)"
-				If you wish deploying Strong-Appliance OR Cluster AL4 (1ES) refer to first tab
-		
-			* Deploy OpenEBS helm-chart for Multi-node cluster
-				```bash title="We need jiva enabled for multi-node cluster"
+				Relevant so ES cluster could use it's nodes for load-balancing
+				
+			!!! bug "Only on Master Node"
+				Deploy OpenEBS helm-chart for Multi-node cluster
+				```bash title="Jiva enabled for multi-node cluster"
 				microk8s helm install openebs ./openebs-*.tgz --namespace openebs --create-namespace \
 					--set legacy.enabled=false \
 					--set varDirectoryPath.baseDir=/var/snap/microk8s/common/var/openebs/ \
 					--set jiva.enabled=true \
-					--set jiva.defaultStoragePath=/var/snap/microk8s/common/var/openebs/
+					--set jiva.defaultStoragePath=/var/snap/microk8s/common/var/openebs/ \
 					--set openebs-ndm.enabled=true \
-					--set localpv-provisioner.enabled=true \ 
+					--set localpv-provisioner.enabled=true
 					
 				```
-			??? tldr "Maybe not relevant"	
-				* Load k8s.gcr.io images <b>manually</b> to each node's registry on cluster
-					
-					??? example "tar files names:"
-						```yaml
-						csi-attacher:v3.1.0.tar               
-						csi-node-driver-registrar:v2.3.0.tar  
-						csi-provisioner:v3.0.0.tar     
-						livenessprobe:v2.3.0.tar
-						csi-resizer:v1.2.0.tar
-						```
-					```bash
-					for k8s_image in "csi-attacher:v3.1.0" "livenessprobe:v2.3.0" "csi-provisioner:v3.0.0" "csi-resizer:v1.2.0" "csi-node-driver-registrar:v2.3.0"
-					do
-					    microk8s ctr images import $k8s_image.tar
-					done
-					```
 		
-				- [X] 3/3
+			- [X] 3/3
 				
 <figure markdown>
   ![built-in registry after Appliance setup](./images/local_registry.png)
@@ -790,70 +801,60 @@ How we deploy all dependencies?
 	{==Strong Appliance/ Master Node for 2 kind of clusters==}
 	
 	
-## Setup Node(s)
+## __Setup Node(s)__
 !!! tip "In this section we'll create Microk8s 3-node cluster"
 	
 ### 1. Setup network configurations
-=== "Cluster"
-	=== "On each node"
-		* Little change in this file:
-		```bash
-		gedit /var/snap/microk8s/current/args/certs.d/docker.io/hosts.toml
-		```
+=== "Appliance"
 		
-		* To look like this
-		```toml
-		server = "http://localhost:32000"
-		
-		[host."http://localhost:32000"]
-		  capabilities = ["pull", "resolve"]
-		```
-		
-			!!! note "This ensure each node could access the registry on the Master"
-		
-		* Sync changes with Microk8s
-		```bash
-		microk8s stop && microk8s start
-		```
-			
-		- [X] 1/3
-		
-	=== "On Master node"
-		* Update hosts file
-		```bash
-		gedit /etc/hosts
-		```
-		
-		* Update it to be able to resolve hostnames of extra nodes
+	```bash title="Update hosts file"
+	gedit /etc/hosts
+	```
+	
+	* Update it to be able to resolve single-node
 		```file
 		127.0.0.1	localhost
 		127.0.1.1	ubuntu2004.linuxvmimages.local 
 		
 		<ip_master>	fdqn(al4 desired url) ubuntu2004
-		<ip_node1>	node1
-		<ip_node2>	node2
 		...
 		```
+		
+=== "Cluster"
+	=== "On Master node"
+		```bash title="Update hosts file"
+		gedit /etc/hosts
+		```
+		
+		* Update it to be able to resolve hostnames of extra nodes
+			```file
+			127.0.0.1	localhost
+			127.0.1.1	ubuntu2004.linuxvmimages.local 
+			
+			<ip_master>	fdqn(al4 desired url) ubuntu2004
+			<ip_node1>	node1
+			<ip_node2>	node2
+			...
+			```
 		- [X] 2/3
 
 	=== "On 2nd & 3rd nodes"
-		* Update hosts file
-		```bash
+		```bash title="Update hosts file"
 		gedit /etc/hosts
 		```
 		
 		* Update it to be able to resolve hostnames of extra nodes
-		```file
-		127.0.0.1	localhost
-		127.0.1.1	ubuntu2004.linuxvmimages.local 
-		
-		<ip_master>	fdqn(al4 desired url) ubuntu2004
-		<ip_node1>	node1
-		<ip_node2>	node2
-		...
-		```
-		* Update hostname file
-		```bash
+			```file
+			127.0.0.1	localhost
+			127.0.1.1	ubuntu2004.linuxvmimages.local 
+			
+			<ip_master>	fdqn(al4 desired url) ubuntu2004
+			<ip_node1>	node1
+			<ip_node2>	node2
+			...
+			```
+			
+		```bash title="Update hostname file"
 		gedit /etc/hostname
 		```
 		
@@ -864,25 +865,71 @@ How we deploy all dependencies?
 	!!! warning "After we done configuring nodes (3/3)"
 		Reboot <b>each node</b> to make changes take effect.
 		
-=== "Appliance"
-		
-	* Update hosts file
-	```bash
-	gedit /etc/hosts
-	```
-	
-		* Update it to be able to resolve single-node
-		```file
-		127.0.0.1	localhost
-		127.0.1.1	ubuntu2004.linuxvmimages.local 
-		
-		<ip_master>	fdqn(al4 desired url) ubuntu2004
-		...
-		```
-			
-### 2. Combine nodes to cluster! (Optional)
+### 2. Setup microk8s on new node
 
-!!! warning "Not relevant for Strong-Appliance"
+!!! warning "Steps 2&3 not relevant for Strong-Appliance"
+
+??? tip "Some step you've done before"
+	=== "Setup microk8s"
+		```bash title="Microk8s Install"
+		snap ack microk8s_*.assert
+		snap install microk8s_*.snap --classic
+		```
+		
+		```bash title="Get to this directory"
+		cd core_microk8s
+		```
+		
+		```bash title="Manually import Core-Microk8s images"
+		for img_name in $(ls)
+		do
+		    microk8s ctr images import $img_name
+		done
+		```
+		
+		!!! warning "Make sure registry image located on correct folder"
+		
+		* Enable relevant addons
+		```bash title="Only on Appliance/Master-node"
+		microk8s enable dns ha-cluster rbac
+		```
+		
+	=== "On each node"
+		```bash title="Little change in this file:"
+		gedit /var/snap/microk8s/current/args/certs.d/docker.io/hosts.toml
+		```
+		
+		```toml title="To look like this"
+		server = "http://localhost:32000"
+		
+		[host."http://localhost:32000"]
+		  capabilities = ["pull", "resolve"]
+		```
+		
+		!!! note "This ensure each node could access the registry on the Master"
+		
+		```bash title="Sync changes with Microk8s"
+		microk8s stop && microk8s start
+		```
+		
+	=== "OpenEBS"
+		* Install and enable iscsi (Prerequisites of OpenEBS)
+		
+		!!! todo "Needs to be installed on {==each node of cluster(Include master)==}"
+			in case datastore pod will be scheduled to other node
+			```bash
+			dpkg -i *.deb
+			```
+			
+			```bash
+			systemctl enable --now iscsid
+			```	
+	
+
+
+			
+### 3. Combine nodes to cluster! (Optional)
+!!! warning "Steps 2&3 not relevant for Strong-Appliance"
 
 ??? tldr "This step creating our multi-node cluster for AL4"
 	
@@ -897,48 +944,61 @@ How we deploy all dependencies?
 		
 	* <b>2nd\3rd nodes</b>
 
-		- [X] Microk8s & Helm/Kubectl
+		- [X] Microk8s & (No Helm/Kubectl)
 		- [ ] Registry
 		- [ ] Ingress
 		- [X] OpenEBS - {==open-iscsi service enabled==}
 		
 	=== "On Master"
-		* Run 'add-node' command:
-			```bash
-			microk8s add-node --token-ttl=6000000
-			```
+		```bash title="Run 'add-node' command:"
+		microk8s add-node --token-ttl=6000000
+		```
+		
 		* Save the relevant output command to an accessable location
+		
+		Wait for nodes to join...
+			
+		![NodesJoined!](./images/nodesafterjoin.png)
 
 	=== "On Node"
-		!!! warning "Update default gateway before joining the master"
+		???+ warning "Update default gateway before joining the master"
 			
 			1. Via settings panel
 			
-			<figure markdown>
-			  ![NetSettings](./images/NetworkSetting.png)
-			  <figcation></figcaption>
-			</figure>
-		
-			Make sure it's permanent default-gateway (Change it in your network settings)
+				<figure markdown>
+				  ![NetSettings](./images/NetworkSetting.png)
+				  <figcation></figcaption>
+				</figure>
 			
+				!!! danger ""
+				
+					Make sure it's permanent default-gateway (Change it in your network settings)
+			
+			2. With bash command
 			```bash
 			ip route add default via <master_ip>
 			```
-		* Run 'join' command:
-			```bash title="Copy/Paste from accessible location"
-			microk8s join <master_ip>:<port>/<token>
-			```
+		```bash title="Copy/Paste from accessible location"
+		microk8s join <master_ip>:<port>/<token>
+		```
 
 		* Wait untill progress is done.
 		
+			__node1:__
+			![NodeJoin!](./images/join_process.png)
+			
+			__node2:__
+			![NodeJoin!](./images/node2_joined.png)
+		
 		* Repeat on each node you wish to join.
 
-## Update original AL4-Helm-Chart
-!!! tip "In this section we'll update what's nessecary for AL4-Cluster"
+## __Update original AL4-Helm-Chart__
+!!! tip "In this section you'll update what's nessecary for AL4-deployment in offline environment"
+	Some of the changes relevant also for online use (al4 values.yaml)
 
 * Update `./assemblyline/requirments.yaml` with:
 
-	??? example "[requirments[offline-version].yaml]()"
+	??? example "requirments[offline-version].yaml"
 		```yaml
 		# If you change the elasticsearch version, remember to also change the version at:
 		#   - values.yaml: the init container image tag
@@ -977,7 +1037,7 @@ How we deploy all dependencies?
 		
 * Update AL4 `./assemblyline/value.yaml` with:
 
-	??? example "[value.yaml]()"
+	??? example "value.yaml()"
 		```yaml
 		...
 		redisImage: localhost:32000/redis
@@ -1002,10 +1062,20 @@ How we deploy all dependencies?
 		  ...
 		...
 		```
+	
+	??? bug "If need multi-node 3ES cluster"
+		```yaml title="Append those changes too"
+		...
+		datastore:
+		  ...
+		  volumeClaimTemplate:
+		    accessModes:["ReadWriteOnce"]
+		    storageClassName: {==openebs-jiva-csi-default==}
+	 	```
 
 * Update AL4 `./appliance/value.yaml` with:
 
-	??? example "[value-Appliance&Cluster(1ES).yaml]() Or [value-Cluster(3ES).yaml]()"
+	??? example "value-Appliance&Cluster(1ES).yaml Or value-Cluster(3ES).yaml"
 
 		=== "value-StrongAppliance&Cluster(1ES).yaml"
 
@@ -1135,6 +1205,9 @@ How we deploy all dependencies?
 				    # Replace localhost with the domain at which you will reach your cluster, this cannot be an IP. 
 				    # If you do not have a domain, use an nip.io address. (e.g. 192.168.0.1.nip.io points to ip 192.168.0.1)
 				    fqdn: "CHANGE_ME"
+				    # Community fix for blocking account randomly accounts from login
+				    validate_session_ip: false		    
+					
 
 				  # Max submission size in bytes (Leave as is). Significant tweaking required to go beyond this.
 				  submission:
@@ -1301,6 +1374,8 @@ How we deploy all dependencies?
 				    # Replace localhost with the domain at which you will reach your cluster, this cannot be an IP. 
 				    # If you do not have a domain, use an nip.io address. (e.g. 192.168.0.1.nip.io points to ip 192.168.0.1)
 				    fqdn: "CHANGE_ME"
+				    # Community fix for blocking account randomly accounts from login
+				    validate_session_ip: false		    
 
 				  # Max submission size in bytes (Leave as is). Significant tweaking required to go beyond this.
 				  submission:
@@ -1342,7 +1417,7 @@ How we deploy all dependencies?
 				
 * Update Minio `./charts/minio-5.0.32.tgz value.yaml` with:
 
-	??? example "[value.yaml]()"
+	??? example "value.yaml"
 		```yaml
 		...
 		persistence:
@@ -1356,7 +1431,7 @@ How we deploy all dependencies?
 			
 * Update ES `./charts/elasticsearch-7.16.1.tgz value.yaml` with:
 
-	??? example "[value.yaml]()"
+	??? example "value.yaml"
 		```yaml
 		...
 		image: "{==localhost:32000/==}docker.elastic.co..."
@@ -1367,7 +1442,7 @@ How we deploy all dependencies?
 	
 	!!! warning "Relevant only for Cluster(3ES)"
 	
-	??? example "[value.yaml]()"
+	??? example "value.yaml"
 		```yaml
 		...
 		csiController:
@@ -1409,7 +1484,7 @@ How we deploy all dependencies?
 		
 * To stop updater service from being deployed
 
-	??? example "[value.yaml]()"
+	??? example "value.yaml"
 	
 		```yaml title=./assemblyline/templates/updater-deployment.yaml
 		...
@@ -1418,11 +1493,8 @@ How we deploy all dependencies?
 		  ...
 		...
 		```
-		
-	
-		
 
-## Installation
+## __Installation__
 
 ### 1. Create the assemblyline namespace
 
@@ -1434,7 +1506,7 @@ How we deploy all dependencies?
 
 ### 2. Setup secrets
 
-!!! fail "Wrost-Practice: Default Passwords!"
+!!! fail "Worst-Practice: Default Passwords!"
 	{==__Please change it in your custom deployment__==}
 
 ??? example "The secrets.yaml file should have the following format"
@@ -1459,11 +1531,11 @@ How we deploy all dependencies?
 
 * When you're done setting the different passwords in your `secrets.yaml` file, upload it to your namespace:
 	```bash
-	microk8s kubectl apply -f ./appliance/secret.yaml --namespace=al
+	microk8s kubectl apply -f ./appliance/secrets.yaml --namespace=al
 	```
 
 !!! danger
-    From this point on, you will not need the `secret.yaml` file anymore. You should delete it.
+    From this point on, you will not need the `secrets.yaml` file anymore. You should delete it.
     
     ```bash
     rm ./appliance/secrets.yaml
@@ -1480,10 +1552,10 @@ How we deploy all dependencies?
 
 	???+ example "Options:"
 		```bash
-		StrongAppliance\&Cluster\(1ES\).yaml
+		microk8s helm install assemblyline ./assemblyline/ -f ./appliance/values-StrongAppliance\&Cluster\(1ES\).yaml -n al
 		```
 		```bash
-		Cluster\(3ES\).yaml
+		microk8s helm install assemblyline ./assemblyline/ -f ./appliance/values-Cluster\(3ES\).yaml -n
 		```
 		
 	```bash
