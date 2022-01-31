@@ -11,7 +11,6 @@ Last update support 4.2.stable deployment (Jan 2022)
 ## __What do we need to consider before deploying offline__
 	
 !!! danger "Consider before processeding"
-	* Needs to install python3-pip - if you cant do it for any reason, find a solution
 
 	* Git repo! - additional infrestructure to support some AL4 services
 	
@@ -78,15 +77,16 @@ Last update support 4.2.stable deployment (Jan 2022)
 	```bash
 	Desktop/
 	├── al_deps/
-	│   ├── Python-tool   (Used to push .tar images to built-in registry)
+	│   ├── Python-tool         (Used to push .tar images to built-in registry)
 	│   ├── open-iscsi service  (Used to enable OpenEBS storage management)
+	│   ├── pip-package         (Used to install Python-Tool
 	│   ├── Snap packages (microk8s, helm, kubectl, koneta-lens)
 	│   ├── nginx-ingress (.tar)
 	│   ├── OpenEBS       (.tar) (Need to update dependency helm chart)
 	│   └── containers    (many .tar)/
 	│       ├── registry.tar       (Used for built-in registry)
 	│       ├── service_containers (AL4 services)
-	│       ├── openEBS-node       (Basic OpenEBS - Required for both deployments)
+	│       ├── openEBS-node       (Basic OpenEBS - Required for both deployments)        
 	│       ├── openEBS-multi-node (OpenEBS with java-csi addon)
 	│       ├── core-microk8s      (Enables Microk8s from scratch)
 	│       ├── minio-redis        (For AL4 charts)
@@ -138,13 +138,6 @@ Last update support 4.2.stable deployment (Jan 2022)
 	```bash
 	apt-get update -y
 	```
-* {==The only prerequisites needed to be installed on offline VM==}
-
-	!!! warning "Needed on master node (Didn't find a solution to install it offline)"
-		* Install python3-pip
-			```bash
-			apt-get install python3-pip
-			```
 
 ```bash title="Directory to store all dependencies"
 mkdir al_deps && cd al_deps
@@ -204,7 +197,7 @@ Download dependencies and helm charts
 			```
 			
 			```bash
-			wget -i ./
+			wget -i ./open-iscsi.txt
 			```			
 		
 		!!! note "[Official OpenEBS helm-chart repo](https://openebs.github.io/charts/)"
@@ -242,12 +235,31 @@ mkdir containers && cd containers
 	```bash title="Download docker-registry image {==(Put in core-microk8s directory)==}"
 	docker pull registry:2.7.1 && docker save registry:2.7.1 >> registry.tar
 	```
+	
+	!!! note "Download pip package to install python-tool used for managing microk8s built-in registry"
+			
+		!!! danger "You'll install it in offline environment"
+		
+		=== "Download pip"
+			```bash
+			apt-get -y install --print-uris python3-pip | cut -d\' -f2 | grep http:// > python3-pip.txt
+			```
+			
+			```bash
+			wget -i ./python3-pip.txt
+			```
+		=== "Install (On offline environment)"
+			```bash
+			dpkg -i *.deb
+			```
+			
 
 	!!! done "Enable quick managment with images and central-registry"
 		```bash title="Download python package 'dockertarpusher'"
 		mkdir python_tool && cd python_tool
 		apt install python3-pip -y
 		```
+		!!! tip "For online use lets download"
 		```bash
 		pip download dockertarpusher
 		```
@@ -716,6 +728,11 @@ How we deploy all dependencies?
 		microk8s stop && microk8s start
 		```
 
+	* Install python3-pip package
+		```bash
+		cd ./pip-package && pip install ./pip-21.3.1-py3-none-any.whl
+		```
+	
 	* Install docker-tar-push package
 		```bash
 		cd ./python-tool && pip install ./dockertarpusher-0.16-py3-none-any.whl
