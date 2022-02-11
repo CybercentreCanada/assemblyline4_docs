@@ -1,8 +1,8 @@
-# Cluster installation
+# General
 
 ## Pre-requisites
 
-1. A **Kubernetes** 1.18+ cluster that has an ingress controller and storage class with read/write many (RWX) support. Assemblyline is known to work with the following Kubernetes providers:
+1. A **Kubernetes** 1.18+ cluster that has an ingress controller. Assemblyline is known to work with the following Kubernetes providers:
     * Rancher
     * AKS (Azure)
     * EKS (Amazon)

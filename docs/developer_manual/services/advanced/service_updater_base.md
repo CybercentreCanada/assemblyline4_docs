@@ -32,6 +32,12 @@ The `is_valid` function is called to determine if a file from a source is a vali
 ### do_local_update() [Override Optional]
 The `do_local_update` function is called on a separate thread that checks Assemblyline for local changes to signatures such as change in status or additions/removals to the ruleset. This will then fetch the new ruleset on modification and make it available to be served to service instances.
 
+### prepare_output_directory() [Override Optional]
+The `prepare_output_directory` function is called to prepare/organize your collection of external files/directories in a format that's acceptable by your service.
+The path to the resulting output_directory should be returned so it can be served.
+
+Note: This only needs to be implemented if the your service manifest contains `update_config.generates_signatures: False`. The implicatation is that whatever is generated won't get added to the Signatures API and will be local to the updater only to manage.
+
 
 !!! warning
     Failure to implement import_update() in your service's subclass of `ServiceUpdater` will render the updater unusable.

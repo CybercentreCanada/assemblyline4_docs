@@ -199,10 +199,11 @@ Note: After each submission, during a `_cleanup()`, there is a call made to `_do
 ## What don't I need to implement and why?
 ### `do_source_update()`
 Considering most of our services have the same pattern of:
- 1. Establishing a client for Assemblyline using the service_update_account
- 2. Iterating over our source list and using either a URL download or Git clone to retrieve signatures
- 3. (Optional) If there are rules to be updated, modify the rules before import to add extra metadata or validation
- 4. Importing the rules into Assemblyline
+
+1. Establishing a client for Assemblyline using the service_update_account
+2. Iterating over our source list and using either a URL download or Git clone to retrieve signatures
+3. (Optional) If there are rules to be updated, modify the rules before import to add extra metadata or validation
+4. Importing the rules into Assemblyline
 
  We decided to streamline that process for most services while giving service writers the ability to override certain aspects as needed.
 
@@ -267,3 +268,68 @@ Notes:
 
  - In order for updaters to work, they need to be able to communicate with other core components. So you'll need to enable the dependency to be able to `run_as_core`, otherwise this could lead to issues where the updater isn't able to resolve to other components like Redis and/or Elasticsearch by name.
  - Setting port(s) helps facilitate communication between the service and its dependency over certain ports and so, as a result, Scaler will create the appropriate NetworkPolicy to ensure communication **only** between a service and its dependencies.
+
+## What if I want to pull in updates that aren't signatures?
+Well for starters, you'll want to set the `update_config.generates_signatures` setting to `false` to indicate this updater shouldn't push it's output to the
+Signatures API.
+
+Secondly, since we're no longer relying on the datastore to maintain persistence of our updates, we'll have to manage it ourselves using persistent disks mounted to
+the updater containers.
+
+An example of the `service_manifest.yaml` would be:
+```yaml
+dependencies:
+  updates:
+    container:
+      allow_internet_access: true
+      command: ["python", "-m", "sigma_.update_server"]
+      image: ${REGISTRY}cccs/assemblyline-service-sigma:$SERVICE_TAG
+      ports: ["5003"]
+    volumes:
+      updates:
+        mount_path: /mnt/persistent_updates/
+        capacity: 5242880
+        storage_class: default
+    run_as_core: True
+
+update_config:
+  generates_signatures: false
+  sources:
+    - name: sigma
+      pattern: .*windows\/.*\.yml
+      uri: https://github.com/SigmaHQ/sigma.git
+  update_interval_seconds: 21600 # Quarter-day (every 6 hours)
+  signature_delimiter: "file"
+```
+
+With regard to updater code changes, you'll still maintain an `import_update()` and you may choose to implement your own `prepare_output_directory()`.
+
+During `import_update`, you'll want to write your files to `self.latest_updates_dir` which should hold all your downloaded files. The contents in this
+directory will then be used by `prepare_output_directory`.
+
+Example:
+```python
+def import_update(self, files_sha256, client, source, default_classification) -> None:
+    # Organize files by source
+    dest_dir = os.path.join(self.latest_updates_dir, source)
+
+    # For every file in this source, move to latest updates directory in a subdirectory labelled by source.
+    for file, _ in files_sha256:
+       shutil.move(file, dest_dir)
+```
+
+
+`prepare_output_directory` is a function that's called to prepare your downloaded sources before it's made available to your service. This could
+be a function where if you need to compile a bunch of files together or to re-organize in a certain directory format, you would call this and keep
+the original dataset intact.
+
+In the default behaviour, it just creates a temporary directory, copies the contents from `self.latest_updates_dir` to the directory, and returns the path.
+```python
+# Define how to prepare the output directory before being served, must return the path of the directory to serve.
+def prepare_output_directory(self) -> str:
+    output_directory = tempfile.mkdtemp()
+    shutil.copytree(self.latest_updates_dir, output_directory, dirs_exist_ok=True)
+    return output_directory
+```
+
+The reason why it is done this way is because we always delete old servings once they're replaced, so if you were to pass `self.latest_updates_dir` to be served, it would get deleted which will cause an error.
