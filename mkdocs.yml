@@ -53,11 +53,14 @@ nav:
     - user_manual/results.md
     - user_manual/searching.md
   - Installation:
-    - installation/deployment.md
-    - installation/appliance_docker.md
-    - installation/appliance.md
-    - installation/cluster-microk8s.md
-    - installation/cluster.md
+    - Getting Started:
+      - installation/deployment.md
+      - Appliance:
+        - installation/appliance/docker.md
+        - installation/appliance/kubernetes-microk8s.md
+      - Cluster:
+        - installation/cluster/general.md
+        - installation/cluster/microk8s.md
     - Configuration:
       - installation/configuration/config_file.md
       - installation/configuration/authentication.md
