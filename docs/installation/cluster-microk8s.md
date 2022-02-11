@@ -83,14 +83,15 @@ Last update support 4.2.stable deployment (Jan 2022)
 	│   ├── Snap packages (microk8s, helm, kubectl, koneta-lens)
 	│   ├── nginx-ingress (.tar)
 	│   ├── OpenEBS       (.tar) (Need to update dependency helm chart)
-	│   └── containers    (many .tar)/
-	│       ├── registry.tar       (Used for built-in registry)
-	│       ├── service_containers (AL4 services)
-	│       ├── openEBS-node       (Basic OpenEBS - Required for both deployments)        
-	│       ├── openEBS-multi-node (OpenEBS with java-csi addon)
-	│       ├── core-microk8s      (Enables Microk8s from scratch)
-	│       ├── minio-redis        (For AL4 charts)
-	│       └── elk                (For AL4 charts)
+	│   ├── containers    (many .tar)/
+	│   │   ├── registry.tar       (Used for built-in registry)
+	│   │   ├── service_containers (AL4 services)
+	│   │   ├── openEBS-node       (Basic OpenEBS - Required for both deployments)        
+	│   │   ├── openEBS-multi-node (OpenEBS with java-csi addon)
+	│   │   ├── core-microk8s      (Enables Microk8s from scratch)
+	│   │   ├── minio-redis        (For AL4 charts)
+	│   │   └── elk                (For AL4 charts)
+	│   └── new_registry.yaml   (Used to reconfigure registry deployment)
 	└── assemblyline-helm-chart/
 	    ├── appliance/
 	    │   ├── secrets.yaml
@@ -517,6 +518,7 @@ mkdir containers && cd containers
 		deobfuscripter
 		emlparser
 		elf
+		elfparser
 		espresso
 		extract
 		floss
@@ -574,7 +576,7 @@ mkdir containers && cd containers
 			!!! tldr "Thosee tags important to supply {==install_al_svc==} with currect image:{==stable==}"
 			
 			```bash title="Convert to stable tag"
-			for image in $(docker image ls --format {{.Repository}}:{{.Tag}} | grep :stable)
+			for image in $(docker image ls --format {{.Repository}}:{{.Tag}} | grep :4.2.0)
 			do
 			  image_name=$(cut -d ':' -f 1 <<< $image)
 			  image_no_reg=$(cut -d '/' -f 2 <<< $image_name)
@@ -727,15 +729,115 @@ How we deploy all dependencies?
 		```bash title="Sync changes with Microk8s"
 		microk8s stop && microk8s start
 		```
+	
+	??? example "new_registry.yaml"
+		```yaml title="Ensure registry container will run always on Master-node"
+		---
+		apiVersion: v1
+		kind: Namespace
+		metadata:
+		  name: container-registry
+		---
+		kind: PersistentVolumeClaim
+		apiVersion: v1
+		metadata:
+		  name: registry-claim
+		  namespace: container-registry
+		spec:
+		  accessModes:
+		    - ReadWriteMany
+		  volumeMode: Filesystem
+		  resources:
+		    requests:
+		      storage: <According to you with (i.e. 55Gi)>
+		---
+		apiVersion: apps/v1
+		kind: Deployment
+		metadata:
+		  labels:
+		    app: registry
+		  name: registry
+		  namespace: container-registry
+		spec:
+		  replicas: 1
+		  selector:
+		    matchLabels:
+		      app: registry
+		  template:
+		    metadata:
+		      labels:
+			app: registry
+		    spec:
+		      # Edit the name of you Master-node
+		      nodeName: ubuntu2004 
+		      containers:
+			- name: registry
+			  image: registry:2.7.1
+			  env:
+			    - name: REGISTRY_HTTP_ADDR
+			      value: :5000
+			    - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+			      value: /var/lib/registry
+			    - name: REGISTRY_STORAGE_DELETE_ENABLED
+			      value: "yes"
+			  ports:
+			    - containerPort: 5000
+			      name: registry
+			      protocol: TCP
+			  volumeMounts:
+			    - mountPath: /var/lib/registry
+			      name: registry-data
+		      volumes:
+			- name: registry-data
+			  persistentVolumeClaim:
+			    claimName: registry-claim
+		---
+		apiVersion: v1
+		kind: Service
+		metadata:
+		  labels:
+		    app: registry
+		  name: registry
+		  namespace: container-registry
+		spec:
+		  type: NodePort
+		  selector:
+		    app: registry
+		  ports:
+		    - name: "registry"
+		      port: 5000
+		      targetPort: 5000
+		      nodePort: 32000
+		---
+		# https://github.com/kubernetes/enhancements/issues/1755
+		apiVersion: v1
+		kind: ConfigMap
+		metadata:
+		  name: local-registry-hosting
+		  namespace: kube-public
+		data:
+		  localRegistryHosting.v1: |
+		    help: "https://microk8s.io/docs/registry-built-in"
+		    host: "localhost:32000"
+
+		```
+		
+	```bash title="To update registry deployment settings"
+	microk8s kubectl apply -f ./new_registry.yaml
+	```
 
 	* Install python3-pip package
 		```bash
-		cd ./pip-package && pip install ./pip-21.3.1-py3-none-any.whl
+		dpkg -i *.deb
 		```
 	
 	* Install docker-tar-push package
 		```bash
-		cd ./python-tool && pip install ./dockertarpusher-0.16-py3-none-any.whl
+		cd ./python-tool
+		```
+		
+		```bash
+		pip install ./dockertarpusher-0.16-py3-none-any.whl
 		```
 	
 	* Push the container-images we download in 1.2
@@ -1064,7 +1166,7 @@ How we deploy all dependencies?
 		
 * Update AL4 `./assemblyline/value.yaml` with:
 
-	??? example "value.yaml()"
+	??? example "value.yaml"
 		```yaml
 		...
 		redisImage: localhost:32000/redis
@@ -1447,6 +1549,17 @@ How we deploy all dependencies?
 	??? example "value.yaml"
 		```yaml
 		...
+		helmKubectlJqImage:
+		  ...
+		  tag: 3.3.0
+		image:
+		  ...
+		  tag: RELEASE.2022-01-08T03-11-54Z
+		...
+		mcImage:
+		  ...
+		  tag: RELEASE.2022-01-07T06-01-38Z
+		...
 		persistence:
 		  VolumeName: ""
 		  accessMode: "ReadWriteOnce"
@@ -1513,7 +1626,7 @@ How we deploy all dependencies?
 
 	??? example "value.yaml"
 	
-		```yaml title=./assemblyline/templates/updater-deployment.yaml
+		```yaml title="./assemblyline/templates/updater-deployment.yaml"
 		...
 		spec:
 		  replicas: {==0==}
