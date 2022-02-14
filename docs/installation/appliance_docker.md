@@ -77,6 +77,19 @@ This is the documentation for an appliance instance of the Assemblyline platform
         reboot
         ```
 
+### Configure Docker to use larger address pools
+1. Create/Edit `/etc/docker/daemon.json` and add the following lines:
+```
+{
+  "default-address-pools":
+  [
+    {"base":"10.201.0.0/16","size":24}
+  ]
+}
+```
+
+2. Restart Docker to acknowledge configuration: `service docker restart`
+
 ## Setup your Assemblyline appliance
 
 ### Download the Assemblyline docker-compose files
