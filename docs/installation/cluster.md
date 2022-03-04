@@ -76,9 +76,7 @@ These are the strict minimum configuration changes you will need to do:
     * `redisStorageClass` (Use SSD backed managed disks)
     * `log-storage.volumeClaimTemplate.storageClassName` (Use SSD backed managed disks)
     * `datastore.volumeClaimTemplate.storageClassName` (Use SSD backed managed disks)
-    * `updateStorageClass` (Use standard file sharing disks)
     * `persistentStorageClass` (Use standard file sharing disks)
-    * `sharedStorageClass` (Use standard file sharing disks)
 3. Decide where you want files stored, set the appropriate URI in the `configuration.filestore.*` fields. You should try to avoid using the internal filestore and use something like Azure blob store, Amazon S3...
 4. Enable/disable/configure logging features, (disabled by default).
 
@@ -100,9 +98,7 @@ These are the strict minimum configuration changes you will need to do:
     log-storage:
       volumeClaimTemplate:
         storageClassName: <CHANGE_ME>
-    updateStorageClass: <CHANGE_ME>
     persistantStorageClass: <CHANGE_ME>
-    sharedStorageClass: <CHANGE_ME>
 
 
     # 3. Decide where you want files stored
