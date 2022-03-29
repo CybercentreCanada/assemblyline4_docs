@@ -79,10 +79,12 @@ Refer to [*ServiceUpdater* class](advanced/service_updater_base.md) for more det
 
             # Organize files by source
             dest_dir = os.path.join(self.latest_updates_dir, source)
+            os.makedirs(dest_dir, dirs_exist_ok=True)
 
             # For every file in this source, move to latest updates directory in a subdirectory labelled by source.
             for file, _ in files_sha256:
-              shutil.move(file, dest_dir)
+              dest_file = os.path.join(dest_dir, os.path.basename(file))
+              shutil.move(file, dest_file)
             self.log.info(f"Finished moving {len(files_sha256)} files for {source} to {self.latest_updates_dir}")
             return
 
