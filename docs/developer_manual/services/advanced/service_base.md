@@ -14,6 +14,7 @@ The following tables describes all of the variables of the `ServiceBase` class.
 | config | Reference to the service parameters containing values updated by the user for service configuration. |
 | dependencies | A dictionary containing connection details for service dependencies|
 | log | Reference to the logger. |
+| ontologies | A dictionary containing ontologies to get appended to a service result. |
 | rules_directory | Returns the directory path which contains the current location of your rules |
 | rules_hash | A hash of the files in the rules_list. Used to invalidate caching if rules change.|
 | rules_list | Returns a list of directory paths which point to rule files derived from rules_directory|
@@ -59,3 +60,8 @@ The `_clear_rules` function is optionally called to remove the current ruleset f
 The `_download_rules` function is called after each `_cleanup` call to check if there is new updates to be processed. If so, it will attempt to download and use the new ruleset otherwise it will revert to the old ruleset.
 
 It will call on `_load_rules` and `_clear_rules` during this attempt process.
+
+### attach_ontological_result()
+The `attach_ontological_result` function is called when you want to attach an ontological result to your service result.
+
+Refer to [Result Ontologies](https://github.com/CybercentreCanada/assemblyline-base/tree/master/assemblyline/odm/models/ontology) for more information on the current set of ontological models.
