@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| msg | [Heartbeat](/odm/messages/dispatcher_heartbeat/#heartbeat) | Heartbeat message | :material-checkbox-marked-outline: Yes | `None` |
+| msg | [Heartbeat](assemblyline4_docs/odm/messages/dispatcher_heartbeat/#heartbeat) | Heartbeat message | :material-checkbox-marked-outline: Yes | `None` |
 | msg_loader | Enum | Loader class for message<br>Values:<br>`"assemblyline.odm.messages.dispatcher_heartbeat.DispatcherMessage"` | :material-checkbox-marked-outline: Yes | `assemblyline.odm.messages.dispatcher_heartbeat.DispatcherMessage` |
 | msg_type | Enum | Type of message<br>Values:<br>`"DispatcherHeartbeat"` | :material-checkbox-marked-outline: Yes | `DispatcherHeartbeat` |
 | sender | Keyword | Sender of message | :material-checkbox-marked-outline: Yes | `None` |
@@ -16,10 +16,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| inflight | [Inflight](/odm/messages/dispatcher_heartbeat/#inflight) | Inflight submissions | :material-checkbox-marked-outline: Yes | `None` |
+| inflight | [Inflight](assemblyline4_docs/odm/messages/dispatcher_heartbeat/#inflight) | Inflight submissions | :material-checkbox-marked-outline: Yes | `None` |
 | instances | Integer | Number of instances | :material-checkbox-marked-outline: Yes | `None` |
-| metrics | [Metrics](/odm/messages/dispatcher_heartbeat/#metrics) | Dispatcher metrics | :material-checkbox-marked-outline: Yes | `None` |
-| queues | [Queues](/odm/messages/dispatcher_heartbeat/#queues) | Dispatcher queues | :material-checkbox-marked-outline: Yes | `None` |
+| metrics | [Metrics](assemblyline4_docs/odm/messages/dispatcher_heartbeat/#metrics) | Dispatcher metrics | :material-checkbox-marked-outline: Yes | `None` |
+| queues | [Queues](assemblyline4_docs/odm/messages/dispatcher_heartbeat/#queues) | Dispatcher queues | :material-checkbox-marked-outline: Yes | `None` |
 | component | Keyword | Component name | :material-checkbox-marked-outline: Yes | `None` |
 
 

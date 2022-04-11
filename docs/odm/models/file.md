@@ -14,7 +14,7 @@
 | md5 | MD5 | MD5 of the file | :material-checkbox-marked-outline: Yes | `None` |
 | magic | Keyword | Output from libmagic related to the file | :material-checkbox-marked-outline: Yes | `None` |
 | mime | Keyword | MIME type of the file as identified by libmagic | :material-minus-box-outline: Optional | `None` |
-| seen | [Seen](/odm/models/file/#seen) | Details about when the file was seen | :material-checkbox-marked-outline: Yes | See [Seen](/odm/models/file/#seen) for more details. |
+| seen | [Seen](assemblyline4_docs/odm/models/file/#seen) | Details about when the file was seen | :material-checkbox-marked-outline: Yes | See [Seen](assemblyline4_docs/odm/models/file/#seen) for more details. |
 | sha1 | SHA1 | SHA1 hash of the file | :material-checkbox-marked-outline: Yes | `None` |
 | sha256 | SHA256 | SHA256 hash of the file | :material-checkbox-marked-outline: Yes | `None` |
 | size | Integer | Size of the file in bytes | :material-checkbox-marked-outline: Yes | `None` |

@@ -6,8 +6,8 @@
 | :--- | :--- | :--- | :--- | :--- |
 | agrees_with_tos | Date | Date the user agree with terms of service | :material-minus-box-outline: Optional | `None` |
 | api_quota | Integer | Maximum number of concurrent API requests | :material-checkbox-marked-outline: Yes | `10` |
-| apikeys | Mapping [[ApiKey](/odm/models/user/#apikey)] | Mapping of API keys | :material-checkbox-marked-outline: Yes | See [ApiKey](/odm/models/user/#apikey) for more details. |
-| apps | Mapping [[Apps](/odm/models/user/#apps)] | Applications with access to the account | :material-checkbox-marked-outline: Yes | See [Apps](/odm/models/user/#apps) for more details. |
+| apikeys | Mapping [[ApiKey](assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | :material-checkbox-marked-outline: Yes | See [ApiKey](assemblyline4_docs/odm/models/user/#apikey) for more details. |
+| apps | Mapping [[Apps](assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | :material-checkbox-marked-outline: Yes | See [Apps](assemblyline4_docs/odm/models/user/#apps) for more details. |
 | can_impersonate | Boolean | Allowed to query on behalf of others? | :material-checkbox-marked-outline: Yes | `False` |
 | classification | Classification | Maximum classification for the user | :material-checkbox-marked-outline: Yes | `TLP:W` |
 | dn | Keyword | User's LDAP DN | :material-minus-box-outline: Optional | `None` |
@@ -41,7 +41,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | client_id | Keyword | Username allowed to impersonate the current user | :material-checkbox-marked-outline: Yes | `None` |
 | netloc | Keyword | DNS hostname for the server | :material-checkbox-marked-outline: Yes | `None` |
-| scope | Enum | Scope of access for the API key<br>Values:<br>`"rw", "w", "r"` | :material-checkbox-marked-outline: Yes | `None` |
+| scope | Enum | Scope of access for the API key<br>Values:<br>`"r", "rw", "w"` | :material-checkbox-marked-outline: Yes | `None` |
 | server | Keyword | Name of the server that has access | :material-checkbox-marked-outline: Yes | `None` |
 
 

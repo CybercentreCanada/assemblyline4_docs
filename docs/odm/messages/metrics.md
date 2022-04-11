@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| msg | [Metrics](/odm/messages/metrics/#metrics) | Metrics message | :material-checkbox-marked-outline: Yes | `None` |
+| msg | [Metrics](assemblyline4_docs/odm/messages/metrics/#metrics) | Metrics message | :material-checkbox-marked-outline: Yes | `None` |
 | msg_loader | Enum | Loader class for message<br>Values:<br>`"assemblyline.odm.messages.metrics.MetricsMessage"` | :material-checkbox-marked-outline: Yes | `assemblyline.odm.messages.metrics.MetricsMessage` |
 | msg_type | Enum | Type of message<br>Values:<br>`"MetricsCounter"` | :material-checkbox-marked-outline: Yes | `MetricsCounter` |
 | sender | Keyword | Sender of message | :material-checkbox-marked-outline: Yes | `None` |

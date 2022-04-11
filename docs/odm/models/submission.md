@@ -10,15 +10,15 @@
 | errors | List [Keyword] | List of error keys | :material-checkbox-marked-outline: Yes | `None` |
 | expiry_ts | Date | Expiry timestamp | :material-minus-box-outline: Optional | `None` |
 | file_count | Integer | Total number of files in the submission | :material-checkbox-marked-outline: Yes | `None` |
-| files | List [[File](/odm/models/submission/#file)] | List of files that were originally submitted | :material-checkbox-marked-outline: Yes | `None` |
+| files | List [[File](assemblyline4_docs/odm/models/submission/#file)] | List of files that were originally submitted | :material-checkbox-marked-outline: Yes | `None` |
 | max_score | Integer | Maximum score of all the files in the scan | :material-checkbox-marked-outline: Yes | `None` |
 | metadata | FlattenedObject | Metadata associated to the submission | :material-checkbox-marked-outline: Yes | `None` |
-| params | [SubmissionParams](/odm/models/submission/#submissionparams) | Submission parameter details | :material-checkbox-marked-outline: Yes | `None` |
+| params | [SubmissionParams](assemblyline4_docs/odm/models/submission/#submissionparams) | Submission parameter details | :material-checkbox-marked-outline: Yes | `None` |
 | results | List [Keyword] | List of result keys | :material-checkbox-marked-outline: Yes | `None` |
 | sid | UUID | Submission ID | :material-checkbox-marked-outline: Yes | `None` |
-| state | Enum | Status of the submission<br>Values:<br>`"failed", "completed", "submitted"` | :material-checkbox-marked-outline: Yes | `None` |
-| times | [Times](/odm/models/submission/#times) | Submission-specific times | :material-checkbox-marked-outline: Yes | See [Times](/odm/models/submission/#times) for more details. |
-| verdict | [Verdict](/odm/models/submission/#verdict) | Malicious verdict details | :material-checkbox-marked-outline: Yes | See [Verdict](/odm/models/submission/#verdict) for more details. |
+| state | Enum | Status of the submission<br>Values:<br>`"submitted", "completed", "failed"` | :material-checkbox-marked-outline: Yes | `None` |
+| times | [Times](assemblyline4_docs/odm/models/submission/#times) | Submission-specific times | :material-checkbox-marked-outline: Yes | See [Times](assemblyline4_docs/odm/models/submission/#times) for more details. |
+| verdict | [Verdict](assemblyline4_docs/odm/models/submission/#verdict) | Malicious verdict details | :material-checkbox-marked-outline: Yes | See [Verdict](assemblyline4_docs/odm/models/submission/#verdict) for more details. |
 | scan_key | Keyword | None | :material-minus-box-outline: Optional | `None` |
 
 
@@ -56,7 +56,7 @@
 | profile | Boolean | Should the submission do extra profiling? | :material-checkbox-marked-outline: Yes | `False` |
 | psid | UUID | Parent submission ID | :material-minus-box-outline: Optional | `None` |
 | quota_item | Boolean | Does this submission count against quota? | :material-checkbox-marked-outline: Yes | `False` |
-| services | [ServiceSelection](/odm/models/submission/#serviceselection) | Service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](/odm/models/submission/#serviceselection) for more details. |
+| services | [ServiceSelection](assemblyline4_docs/odm/models/submission/#serviceselection) | Service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
 | service_spec | Mapping [Mapping] | Service-specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
 | submitter | Keyword | User who submitted the file | :material-checkbox-marked-outline: Yes | `None` |
 | ttl | Integer | Time, in days, to live for this submission | :material-checkbox-marked-outline: Yes | `0` |

@@ -16,7 +16,7 @@
 | priority | Integer | Default priority for the submissions | :material-checkbox-marked-outline: Yes | `1000` |
 | profile | Boolean | Should the submission do extra profiling? | :material-checkbox-marked-outline: Yes | `False` |
 | service_spec | Mapping [Mapping] | Default service specific settings | :material-checkbox-marked-outline: Yes | `{}` |
-| services | [ServiceSelection](/odm/models/submissio/#serviceselection) | Default service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](/odm/models/submissio/#serviceselection) for more details. |
+| services | [ServiceSelection](assemblyline4_docs/odm/models/submissio/#serviceselection) | Default service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](assemblyline4_docs/odm/models/submissio/#serviceselection) for more details. |
 | submission_view | Enum | Default view for completed submissions<br>Values:<br>`"report", "details"` | :material-checkbox-marked-outline: Yes | `report` |
 | ttl | Integer | Default submission TTL, in days | :material-checkbox-marked-outline: Yes | `30` |
 

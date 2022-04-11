@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| msg | [Heartbeat](/odm/messages/service_heartbeat/#heartbeat) | Heartbeat message | :material-checkbox-marked-outline: Yes | `None` |
+| msg | [Heartbeat](assemblyline4_docs/odm/messages/service_heartbeat/#heartbeat) | Heartbeat message | :material-checkbox-marked-outline: Yes | `None` |
 | msg_loader | Enum | Loader class for message<br>Values:<br>`"assemblyline.odm.messages.service_heartbeat.ServiceMessage"` | :material-checkbox-marked-outline: Yes | `assemblyline.odm.messages.service_heartbeat.ServiceMessage` |
 | msg_type | Enum | Type of message<br>Values:<br>`"ServiceHeartbeat"` | :material-checkbox-marked-outline: Yes | `ServiceHeartbeat` |
 | sender | Keyword | Sender of message | :material-checkbox-marked-outline: Yes | `None` |
@@ -16,9 +16,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| activity | [Activity](/odm/messages/service_heartbeat/#activity) | Service activity | :material-checkbox-marked-outline: Yes | `None` |
+| activity | [Activity](assemblyline4_docs/odm/messages/service_heartbeat/#activity) | Service activity | :material-checkbox-marked-outline: Yes | `None` |
 | instances | Integer | Service instances | :material-checkbox-marked-outline: Yes | `None` |
-| metrics | [Metrics](/odm/messages/service_heartbeat/#metrics) | Service metrics | :material-checkbox-marked-outline: Yes | `None` |
+| metrics | [Metrics](assemblyline4_docs/odm/messages/service_heartbeat/#metrics) | Service metrics | :material-checkbox-marked-outline: Yes | `None` |
 | queue | Integer | Service queue | :material-checkbox-marked-outline: Yes | `None` |
 | service_name | Keyword | Service name | :material-checkbox-marked-outline: Yes | `None` |
 

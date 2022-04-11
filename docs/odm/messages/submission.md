@@ -4,9 +4,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| msg | [Submission](/odm/messages/submission/#submission) | Body of the message | :material-checkbox-marked-outline: Yes | `None` |
+| msg | [Submission](assemblyline4_docs/odm/messages/submission/#submission) | Body of the message | :material-checkbox-marked-outline: Yes | `None` |
 | msg_loader | Enum | Class to use to load the message as an object<br>Values:<br>`"assemblyline.odm.messages.submission.SubmissionMessage"` | :material-checkbox-marked-outline: Yes | `assemblyline.odm.messages.submission.SubmissionMessage` |
-| msg_type | Enum | Type of message<br>Values:<br>`"SubmissionCompleted", "SubmissionReceived", "SubmissionIngested", "SubmissionStarted"` | :material-checkbox-marked-outline: Yes | `None` |
+| msg_type | Enum | Type of message<br>Values:<br>`"SubmissionStarted", "SubmissionReceived", "SubmissionCompleted", "SubmissionIngested"` | :material-checkbox-marked-outline: Yes | `None` |
 | sender | Keyword | Sender of the message | :material-checkbox-marked-outline: Yes | `None` |
 
 
@@ -18,10 +18,10 @@
 | :--- | :--- | :--- | :--- | :--- |
 | sid | UUID | Submission ID to use | :material-checkbox-marked-outline: Yes | `None` |
 | time | Date | Message time | :material-checkbox-marked-outline: Yes | `NOW` |
-| files | List [[File](/odm/models/submissio/#file)] | File block | :material-checkbox-marked-outline: Yes | `[]` |
+| files | List [[File](assemblyline4_docs/odm/models/submissio/#file)] | File block | :material-checkbox-marked-outline: Yes | `[]` |
 | metadata | FlattenedObject | Metadata submitted with the file | :material-checkbox-marked-outline: Yes | `{}` |
-| notification | [Notification](/odm/messages/submission/#notification) | Notification queue parameters | :material-checkbox-marked-outline: Yes | See [Notification](/odm/messages/submission/#notification) for more details. |
-| params | [SubmissionParams](/odm/models/submissio/#submissionparams) | Parameters of the submission | :material-checkbox-marked-outline: Yes | `None` |
+| notification | [Notification](assemblyline4_docs/odm/messages/submission/#notification) | Notification queue parameters | :material-checkbox-marked-outline: Yes | See [Notification](assemblyline4_docs/odm/messages/submission/#notification) for more details. |
+| params | [SubmissionParams](assemblyline4_docs/odm/models/submissio/#submissionparams) | Parameters of the submission | :material-checkbox-marked-outline: Yes | `None` |
 | scan_key | Keyword | None | :material-minus-box-outline: Optional | `None` |
 
 
