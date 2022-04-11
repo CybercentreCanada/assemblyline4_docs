@@ -64,4 +64,4 @@ It will call on `_load_rules` and `_clear_rules` during this attempt process.
 ### attach_ontological_result()
 The `attach_ontological_result` function is called when you want to attach an ontological result to your service result.
 
-Refer to [Result Ontologies](https://github.com/CybercentreCanada/assemblyline-base/tree/master/assemblyline/odm/models/ontology) for more information on the current set of ontological models.
+Refer to [Result Ontologies](/odm/models/ontology/meta/) for more information on the current set of ontological models.
