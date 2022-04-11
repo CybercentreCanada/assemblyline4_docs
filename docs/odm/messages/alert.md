@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| msg | [Alert](assemblyline4_docs/odm/models/alert/#alert) | Message of alert | :material-checkbox-marked-outline: Yes | `None` |
+| msg | [Alert](/assemblyline4_docs/odm/models/alert/#alert) | Message of alert | :material-checkbox-marked-outline: Yes | `None` |
 | msg_loader | Enum | Loader class for messages<br>Values:<br>`"assemblyline.odm.messages.alert.AlertMessage"` | :material-checkbox-marked-outline: Yes | `assemblyline.odm.messages.alert.AlertMessage` |
 | msg_type | Enum | Type of Message<br>Values:<br>`"AlertCreated", "AlertUpdated"` | :material-checkbox-marked-outline: Yes | `AlertCreated` |
 | sender | Keyword | Sender of message | :material-checkbox-marked-outline: Yes | `None` |

@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| msg | [Task](assemblyline4_docs/odm/messages/task/#task) | Body of the message | :material-checkbox-marked-outline: Yes | `None` |
+| msg | [Task](/assemblyline4_docs/odm/messages/task/#task) | Body of the message | :material-checkbox-marked-outline: Yes | `None` |
 | msg_loader | Enum | Class to use to load the message as an object<br>Values:<br>`"assemblyline.odm.messages.task.TaskMessage"` | :material-checkbox-marked-outline: Yes | `assemblyline.odm.messages.task.TaskMessage` |
 | msg_type | Enum | Type of message<br>Values:<br>`"Task"` | :material-checkbox-marked-outline: Yes | `Task` |
 | sender | Keyword | Sender of the message | :material-checkbox-marked-outline: Yes | `None` |
@@ -19,15 +19,15 @@
 | sid | UUID | Submission ID | :material-checkbox-marked-outline: Yes | `None` |
 | metadata | FlattenedObject | Metadata associated to the submission | :material-checkbox-marked-outline: Yes | `None` |
 | min_classification | Classification | Minimum classification of the file being scanned | :material-checkbox-marked-outline: Yes | `None` |
-| fileinfo | [FileInfo](assemblyline4_docs/odm/messages/task/#fileinfo) | File info block | :material-checkbox-marked-outline: Yes | `None` |
+| fileinfo | [FileInfo](/assemblyline4_docs/odm/messages/task/#fileinfo) | File info block | :material-checkbox-marked-outline: Yes | `None` |
 | filename | Keyword | File name | :material-checkbox-marked-outline: Yes | `None` |
 | service_name | Keyword | Service name | :material-checkbox-marked-outline: Yes | `None` |
 | service_config | Mapping [Any] | Service specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
 | depth | Integer | File depth relative to initital submitted file | :material-checkbox-marked-outline: Yes | `0` |
 | max_files | Integer | Maximum number of files that submission can have | :material-checkbox-marked-outline: Yes | `None` |
 | ttl | Integer | Task TTL | :material-checkbox-marked-outline: Yes | `0` |
-| tags | List [[TagItem](assemblyline4_docs/odm/messages/task/#tagitem)] | List of tags | :material-checkbox-marked-outline: Yes | `[]` |
-| temporary_submission_data | List [[DataItem](assemblyline4_docs/odm/messages/task/#dataitem)] | Temporary submission data | :material-checkbox-marked-outline: Yes | `[]` |
+| tags | List [[TagItem](/assemblyline4_docs/odm/messages/task/#tagitem)] | List of tags | :material-checkbox-marked-outline: Yes | `[]` |
+| temporary_submission_data | List [[DataItem](/assemblyline4_docs/odm/messages/task/#dataitem)] | Temporary submission data | :material-checkbox-marked-outline: Yes | `[]` |
 | deep_scan | Boolean | Perform deep scanning | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_cache | Boolean | Whether the service cache should be ignored during the processing of this task | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_dynamic_recursion_prevention | Boolean | Whether the service should ignore the dynamic recursion prevention or not | :material-checkbox-marked-outline: Yes | `False` |

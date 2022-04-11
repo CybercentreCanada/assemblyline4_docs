@@ -4,8 +4,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| objectid | [ObjectID](assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the process object | :material-checkbox-marked-outline: Yes | `None` |
-| pobjectid | [ObjectID](assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the parent process object | :material-checkbox-marked-outline: Yes | `None` |
+| objectid | [ObjectID](/assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the process object | :material-checkbox-marked-outline: Yes | `None` |
+| pobjectid | [ObjectID](/assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the parent process object | :material-checkbox-marked-outline: Yes | `None` |
 | pimage | Text | The image of the parent process that spawned this process | :material-minus-box-outline: Optional | `None` |
 | pcommand_line | Text | The command line that the parent process ran | :material-minus-box-outline: Optional | `None` |
 | ppid | Integer | The process ID of the parent process | :material-minus-box-outline: Optional | `None` |

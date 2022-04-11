@@ -5,25 +5,25 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | alert_id | Keyword | ID of the alert | :material-checkbox-marked-outline: Yes | `None` |
-| al | [ALResults](assemblyline4_docs/odm/models/alert/#alresults) | Assemblyline Result Block | :material-checkbox-marked-outline: Yes | `None` |
+| al | [ALResults](/assemblyline4_docs/odm/models/alert/#alresults) | Assemblyline Result Block | :material-checkbox-marked-outline: Yes | `None` |
 | archive_ts | Date | Archiving timestamp | :material-checkbox-marked-outline: Yes | `None` |
-| attack | [Attack](assemblyline4_docs/odm/models/alert/#attack) | ATT&CK Block | :material-checkbox-marked-outline: Yes | `None` |
+| attack | [Attack](/assemblyline4_docs/odm/models/alert/#attack) | ATT&CK Block | :material-checkbox-marked-outline: Yes | `None` |
 | classification | Classification | Classification of the alert | :material-checkbox-marked-outline: Yes | `None` |
 | expiry_ts | Date | Expiry timestamp | :material-minus-box-outline: Optional | `None` |
-| extended_scan | Enum | Status of the extended scan<br>Values:<br>`"submitted", "completed", "skipped", "incomplete"` | :material-checkbox-marked-outline: Yes | `None` |
-| file | [File](assemblyline4_docs/odm/models/alert/#file) | File Block | :material-checkbox-marked-outline: Yes | `None` |
+| extended_scan | Enum | Status of the extended scan<br>Values:<br>`"completed", "incomplete", "submitted", "skipped"` | :material-checkbox-marked-outline: Yes | `None` |
+| file | [File](/assemblyline4_docs/odm/models/alert/#file) | File Block | :material-checkbox-marked-outline: Yes | `None` |
 | filtered | Boolean | Are the alert results filtered? | :material-checkbox-marked-outline: Yes | `False` |
-| heuristic | [Heuristic](assemblyline4_docs/odm/models/alert/#heuristic) | Heuristic Block | :material-checkbox-marked-outline: Yes | `None` |
+| heuristic | [Heuristic](/assemblyline4_docs/odm/models/alert/#heuristic) | Heuristic Block | :material-checkbox-marked-outline: Yes | `None` |
 | label | List [Keyword] | List of labels applied to the alert | :material-checkbox-marked-outline: Yes | `[]` |
 | metadata | FlattenedObject | Metadata submitted with the file | :material-checkbox-marked-outline: Yes | `{}` |
 | owner | Keyword | Owner of the alert | :material-minus-box-outline: Optional | `None` |
-| priority | Enum | Priority applied to the alert<br>Values:<br>`"HIGH", "MEDIUM", "LOW", "CRITICAL", None` | :material-minus-box-outline: Optional | `None` |
+| priority | Enum | Priority applied to the alert<br>Values:<br>`"LOW", "MEDIUM", "HIGH", "CRITICAL", None` | :material-minus-box-outline: Optional | `None` |
 | reporting_ts | Date | Alert creation timestamp | :material-checkbox-marked-outline: Yes | `None` |
 | sid | UUID | Submission ID related to this alert | :material-checkbox-marked-outline: Yes | `None` |
-| status | Enum | Status applied to the alert<br>Values:<br>`"NON-MALICIOUS", "MALICIOUS", "TRIAGE", None, "ASSESS"` | :material-minus-box-outline: Optional | `None` |
+| status | Enum | Status applied to the alert<br>Values:<br>`"MALICIOUS", "ASSESS", "TRIAGE", "NON-MALICIOUS", None` | :material-minus-box-outline: Optional | `None` |
 | ts | Date | File submission timestamp | :material-checkbox-marked-outline: Yes | `None` |
 | type | Keyword | Type of alert | :material-checkbox-marked-outline: Yes | `None` |
-| verdict | [Verdict](assemblyline4_docs/odm/models/alert/#verdict) | Verdict Block | :material-checkbox-marked-outline: Yes | See [Verdict](assemblyline4_docs/odm/models/alert/#verdict) for more details. |
+| verdict | [Verdict](/assemblyline4_docs/odm/models/alert/#verdict) | Verdict Block | :material-checkbox-marked-outline: Yes | See [Verdict](/assemblyline4_docs/odm/models/alert/#verdict) for more details. |
 | workflows_completed | Boolean | Have all workflows ran on this alert? | :material-checkbox-marked-outline: Yes | `False` |
 
 

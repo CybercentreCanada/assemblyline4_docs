@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| kind | Enum | Kind of message<br>Values:<br>`"LIST_OUTSTANDING", "CREATE_WATCH"` | :material-checkbox-marked-outline: Yes | `None` |
+| kind | Enum | Kind of message<br>Values:<br>`"CREATE_WATCH", "LIST_OUTSTANDING"` | :material-checkbox-marked-outline: Yes | `None` |
 | payload_data | Any | Message payload | :material-checkbox-marked-outline: Yes | `None` |
 
 
@@ -17,7 +17,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | cache_key | Keyword | Cache key | :material-minus-box-outline: Optional | `None` |
-| status | Enum | Watch statuses<br>Values:<br>`"START", "STOP", "FAIL", "OK"` | :material-checkbox-marked-outline: Yes | `None` |
+| status | Enum | Watch statuses<br>Values:<br>`"FAIL", "STOP", "START", "OK"` | :material-checkbox-marked-outline: Yes | `None` |
 
 
 

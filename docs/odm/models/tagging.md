@@ -4,15 +4,15 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| attribution | [Attribution](assemblyline4_docs/odm/models/tagging/#attribution) | Attribution Tagging | :material-minus-box-outline: Optional | `None` |
-| av | [AV](assemblyline4_docs/odm/models/tagging/#av) | Antivirus Tagging | :material-minus-box-outline: Optional | `None` |
-| cert | [Cert](assemblyline4_docs/odm/models/tagging/#cert) | Certificate Tagging | :material-minus-box-outline: Optional | `None` |
-| dynamic | [Dynamic](assemblyline4_docs/odm/models/tagging/#dynamic) | Dynamic Analysis Tagging | :material-minus-box-outline: Optional | `None` |
-| info | [Info](assemblyline4_docs/odm/models/tagging/#info) | Informational Tagging | :material-minus-box-outline: Optional | `None` |
-| file | [File](assemblyline4_docs/odm/models/tagging/#file) | File Tagging | :material-minus-box-outline: Optional | `None` |
-| network | [Network](assemblyline4_docs/odm/models/tagging/#network) | Network Tagging | :material-minus-box-outline: Optional | `None` |
+| attribution | [Attribution](/assemblyline4_docs/odm/models/tagging/#attribution) | Attribution Tagging | :material-minus-box-outline: Optional | `None` |
+| av | [AV](/assemblyline4_docs/odm/models/tagging/#av) | Antivirus Tagging | :material-minus-box-outline: Optional | `None` |
+| cert | [Cert](/assemblyline4_docs/odm/models/tagging/#cert) | Certificate Tagging | :material-minus-box-outline: Optional | `None` |
+| dynamic | [Dynamic](/assemblyline4_docs/odm/models/tagging/#dynamic) | Dynamic Analysis Tagging | :material-minus-box-outline: Optional | `None` |
+| info | [Info](/assemblyline4_docs/odm/models/tagging/#info) | Informational Tagging | :material-minus-box-outline: Optional | `None` |
+| file | [File](/assemblyline4_docs/odm/models/tagging/#file) | File Tagging | :material-minus-box-outline: Optional | `None` |
+| network | [Network](/assemblyline4_docs/odm/models/tagging/#network) | Network Tagging | :material-minus-box-outline: Optional | `None` |
 | source | List [Keyword] | Source Tagging | :material-minus-box-outline: Optional | `None` |
-| technique | [Technique](assemblyline4_docs/odm/models/tagging/#technique) | Technique Tagging | :material-minus-box-outline: Optional | `None` |
+| technique | [Technique](/assemblyline4_docs/odm/models/tagging/#technique) | Technique Tagging | :material-minus-box-outline: Optional | `None` |
 | vector | List [Keyword] | Vector Tagging | :material-minus-box-outline: Optional | `None` |
 
 
@@ -55,7 +55,7 @@
 | subject | List [Keyword] | Subject Name | :material-minus-box-outline: Optional | `None` |
 | subject_alt_name | List [Keyword] | Alternative Subject Name | :material-minus-box-outline: Optional | `None` |
 | thumbprint | List [Keyword] | Thumbprint | :material-minus-box-outline: Optional | `None` |
-| valid | [CertValid](assemblyline4_docs/odm/models/tagging/#certvalid) | Validity Information | :material-minus-box-outline: Optional | `None` |
+| valid | [CertValid](/assemblyline4_docs/odm/models/tagging/#certvalid) | Validity Information | :material-minus-box-outline: Optional | `None` |
 | version | List [Keyword] | Version | :material-minus-box-outline: Optional | `None` |
 
 
@@ -79,11 +79,11 @@
 | dos_device | List [Keyword] | DOS Device | :material-minus-box-outline: Optional | `None` |
 | mutex | List [Keyword] | Mutex | :material-minus-box-outline: Optional | `None` |
 | registry_key | List [Keyword] | Registy Keys | :material-minus-box-outline: Optional | `None` |
-| process | [DynamicProcess](assemblyline4_docs/odm/models/tagging/#dynamicprocess) | Sandbox Processes | :material-minus-box-outline: Optional | `None` |
-| signature | [DynamicSignature](assemblyline4_docs/odm/models/tagging/#dynamicsignature) | Sandbox Signatures | :material-minus-box-outline: Optional | `None` |
-| ssdeep | [DynamicSSDeep](assemblyline4_docs/odm/models/tagging/#dynamicssdeep) | Sandbox SSDeep | :material-minus-box-outline: Optional | `None` |
-| window | [DynamicWindow](assemblyline4_docs/odm/models/tagging/#dynamicwindow) | Sandbox Window | :material-minus-box-outline: Optional | `None` |
-| operating_system | [DynamicOperatingSystem](assemblyline4_docs/odm/models/tagging/#dynamicoperatingsystem) | Sandbox Operating System | :material-minus-box-outline: Optional | `None` |
+| process | [DynamicProcess](/assemblyline4_docs/odm/models/tagging/#dynamicprocess) | Sandbox Processes | :material-minus-box-outline: Optional | `None` |
+| signature | [DynamicSignature](/assemblyline4_docs/odm/models/tagging/#dynamicsignature) | Sandbox Signatures | :material-minus-box-outline: Optional | `None` |
+| ssdeep | [DynamicSSDeep](/assemblyline4_docs/odm/models/tagging/#dynamicssdeep) | Sandbox SSDeep | :material-minus-box-outline: Optional | `None` |
+| window | [DynamicWindow](/assemblyline4_docs/odm/models/tagging/#dynamicwindow) | Sandbox Window | :material-minus-box-outline: Optional | `None` |
+| operating_system | [DynamicOperatingSystem](/assemblyline4_docs/odm/models/tagging/#dynamicoperatingsystem) | Sandbox Operating System | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -150,23 +150,23 @@
 | behavior | List [Keyword] | File Behaviour | :material-minus-box-outline: Optional | `None` |
 | compiler | List [Keyword] | Compiler of File | :material-minus-box-outline: Optional | `None` |
 | config | List [Keyword] | File Configuration | :material-minus-box-outline: Optional | `None` |
-| date | [FileDate](assemblyline4_docs/odm/models/tagging/#filedate) | File's Date Information | :material-minus-box-outline: Optional | `None` |
-| elf | [FileELF](assemblyline4_docs/odm/models/tagging/#fileelf) | ELF File Properties | :material-minus-box-outline: Optional | `None` |
+| date | [FileDate](/assemblyline4_docs/odm/models/tagging/#filedate) | File's Date Information | :material-minus-box-outline: Optional | `None` |
+| elf | [FileELF](/assemblyline4_docs/odm/models/tagging/#fileelf) | ELF File Properties | :material-minus-box-outline: Optional | `None` |
 | lib | List [Keyword] | File Libraries | :material-minus-box-outline: Optional | `None` |
-| name | [FileName](assemblyline4_docs/odm/models/tagging/#filename) | File Name | :material-minus-box-outline: Optional | `None` |
+| name | [FileName](/assemblyline4_docs/odm/models/tagging/#filename) | File Name | :material-minus-box-outline: Optional | `None` |
 | path | List [Keyword] | File Path | :material-minus-box-outline: Optional | `None` |
 | rule | Mapping [List] | Rule/Signature File | :material-minus-box-outline: Optional | `None` |
-| string | [FileStrings](assemblyline4_docs/odm/models/tagging/#filestrings) | File Strings Properties | :material-minus-box-outline: Optional | `None` |
-| apk | [FileAPK](assemblyline4_docs/odm/models/tagging/#fileapk) | APK File Properties | :material-minus-box-outline: Optional | `None` |
-| jar | [FileJAR](assemblyline4_docs/odm/models/tagging/#filejar) | JAR File Properties | :material-minus-box-outline: Optional | `None` |
-| img | [FileIMG](assemblyline4_docs/odm/models/tagging/#fileimg) | Image File Properties | :material-minus-box-outline: Optional | `None` |
-| ole | [FileOLE](assemblyline4_docs/odm/models/tagging/#fileole) | OLE File Properties | :material-minus-box-outline: Optional | `None` |
-| pe | [FilePE](assemblyline4_docs/odm/models/tagging/#filepe) | PE File Properties | :material-minus-box-outline: Optional | `None` |
-| pdf | [FilePDF](assemblyline4_docs/odm/models/tagging/#filepdf) | PDF File Properties | :material-minus-box-outline: Optional | `None` |
-| plist | [FilePList](assemblyline4_docs/odm/models/tagging/#fileplist) | PList File Properties | :material-minus-box-outline: Optional | `None` |
-| powershell | [FilePowerShell](assemblyline4_docs/odm/models/tagging/#filepowershell) | PowerShell File Properties | :material-minus-box-outline: Optional | `None` |
-| shortcut | [FileShortcut](assemblyline4_docs/odm/models/tagging/#fileshortcut) | Shortcut File Properties | :material-minus-box-outline: Optional | `None` |
-| swf | [FileSWF](assemblyline4_docs/odm/models/tagging/#fileswf) | SWF File Properties | :material-minus-box-outline: Optional | `None` |
+| string | [FileStrings](/assemblyline4_docs/odm/models/tagging/#filestrings) | File Strings Properties | :material-minus-box-outline: Optional | `None` |
+| apk | [FileAPK](/assemblyline4_docs/odm/models/tagging/#fileapk) | APK File Properties | :material-minus-box-outline: Optional | `None` |
+| jar | [FileJAR](/assemblyline4_docs/odm/models/tagging/#filejar) | JAR File Properties | :material-minus-box-outline: Optional | `None` |
+| img | [FileIMG](/assemblyline4_docs/odm/models/tagging/#fileimg) | Image File Properties | :material-minus-box-outline: Optional | `None` |
+| ole | [FileOLE](/assemblyline4_docs/odm/models/tagging/#fileole) | OLE File Properties | :material-minus-box-outline: Optional | `None` |
+| pe | [FilePE](/assemblyline4_docs/odm/models/tagging/#filepe) | PE File Properties | :material-minus-box-outline: Optional | `None` |
+| pdf | [FilePDF](/assemblyline4_docs/odm/models/tagging/#filepdf) | PDF File Properties | :material-minus-box-outline: Optional | `None` |
+| plist | [FilePList](/assemblyline4_docs/odm/models/tagging/#fileplist) | PList File Properties | :material-minus-box-outline: Optional | `None` |
+| powershell | [FilePowerShell](/assemblyline4_docs/odm/models/tagging/#filepowershell) | PowerShell File Properties | :material-minus-box-outline: Optional | `None` |
+| shortcut | [FileShortcut](/assemblyline4_docs/odm/models/tagging/#fileshortcut) | Shortcut File Properties | :material-minus-box-outline: Optional | `None` |
+| swf | [FileSWF](/assemblyline4_docs/odm/models/tagging/#fileswf) | SWF File Properties | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -176,13 +176,13 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | activity | List [Keyword] | Activity | :material-minus-box-outline: Optional | `None` |
-| app | [FileAPKApp](assemblyline4_docs/odm/models/tagging/#fileapkapp) | APK Application Information | :material-minus-box-outline: Optional | `None` |
+| app | [FileAPKApp](/assemblyline4_docs/odm/models/tagging/#fileapkapp) | APK Application Information | :material-minus-box-outline: Optional | `None` |
 | feature | List [Keyword] | Features | :material-minus-box-outline: Optional | `None` |
 | locale | List [Keyword] | Locale | :material-minus-box-outline: Optional | `None` |
 | permission | List [Keyword] | Permissions | :material-minus-box-outline: Optional | `None` |
 | pkg_name | List [Keyword] | Package Name | :material-minus-box-outline: Optional | `None` |
 | provides_component | List [Keyword] | Components Provided | :material-minus-box-outline: Optional | `None` |
-| sdk | [FileAPKSDK](assemblyline4_docs/odm/models/tagging/#fileapksdk) | APK SDK Information | :material-minus-box-outline: Optional | `None` |
+| sdk | [FileAPKSDK](/assemblyline4_docs/odm/models/tagging/#fileapksdk) | APK SDK Information | :material-minus-box-outline: Optional | `None` |
 | used_library | List [Keyword] | Libraries Used | :material-minus-box-outline: Optional | `None` |
 
 
@@ -224,9 +224,9 @@
 | :--- | :--- | :--- | :--- | :--- |
 | libraries | List [Keyword] | Libraries | :material-minus-box-outline: Optional | `None` |
 | interpreter | List [Keyword] | Interpreter | :material-minus-box-outline: Optional | `None` |
-| sections | [FileELFSections](assemblyline4_docs/odm/models/tagging/#fileelfsections) | ELF Sections | :material-minus-box-outline: Optional | `None` |
-| segments | [FileELFSegments](assemblyline4_docs/odm/models/tagging/#fileelfsegments) | ELF Segments | :material-minus-box-outline: Optional | `None` |
-| notes | [FileELFNotes](assemblyline4_docs/odm/models/tagging/#fileelfnotes) | ELF Notes | :material-minus-box-outline: Optional | `None` |
+| sections | [FileELFSections](/assemblyline4_docs/odm/models/tagging/#fileelfsections) | ELF Sections | :material-minus-box-outline: Optional | `None` |
+| segments | [FileELFSegments](/assemblyline4_docs/odm/models/tagging/#fileelfsegments) | ELF Segments | :material-minus-box-outline: Optional | `None` |
+| notes | [FileELFNotes](/assemblyline4_docs/odm/models/tagging/#fileelfnotes) | ELF Notes | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -264,7 +264,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| exif_tool | [FileIMGExiftool](assemblyline4_docs/odm/models/tagging/#fileimgexiftool) | Exiftool Information | :material-minus-box-outline: Optional | `None` |
+| exif_tool | [FileIMGExiftool](/assemblyline4_docs/odm/models/tagging/#fileimgexiftool) | Exiftool Information | :material-minus-box-outline: Optional | `None` |
 | mega_pixels | List [Keyword] | Megapixels | :material-minus-box-outline: Optional | `None` |
 | mode | List [Keyword] | Image Mode | :material-minus-box-outline: Optional | `None` |
 | size | List [Keyword] | Image Size | :material-minus-box-outline: Optional | `None` |
@@ -310,8 +310,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| macro | [FileOLEMacro](assemblyline4_docs/odm/models/tagging/#fileolemacro) | OLE Macro | :material-minus-box-outline: Optional | `None` |
-| summary | [FileOLESummary](assemblyline4_docs/odm/models/tagging/#fileolesummary) | OLE Summary | :material-minus-box-outline: Optional | `None` |
+| macro | [FileOLEMacro](/assemblyline4_docs/odm/models/tagging/#fileolemacro) | OLE Macro | :material-minus-box-outline: Optional | `None` |
+| summary | [FileOLESummary](/assemblyline4_docs/odm/models/tagging/#fileolesummary) | OLE Summary | :material-minus-box-outline: Optional | `None` |
 | clsid | List [Keyword] | CLSID | :material-minus-box-outline: Optional | `None` |
 | dde_link | List [Keyword] | DDE Link | :material-minus-box-outline: Optional | `None` |
 | fib_timestamp | List [Keyword] | FIB Timestamp | :material-minus-box-outline: Optional | `None` |
@@ -352,9 +352,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| date | [FilePDFDate](assemblyline4_docs/odm/models/tagging/#filepdfdate) | PDF Date Information | :material-minus-box-outline: Optional | `None` |
-| javascript | [FilePDFJavascript](assemblyline4_docs/odm/models/tagging/#filepdfjavascript) | PDF Javascript Information | :material-minus-box-outline: Optional | `None` |
-| stats | [FilePDFStats](assemblyline4_docs/odm/models/tagging/#filepdfstats) | PDF Statistics Information | :material-minus-box-outline: Optional | `None` |
+| date | [FilePDFDate](/assemblyline4_docs/odm/models/tagging/#filepdfdate) | PDF Date Information | :material-minus-box-outline: Optional | `None` |
+| javascript | [FilePDFJavascript](/assemblyline4_docs/odm/models/tagging/#filepdfjavascript) | PDF Javascript Information | :material-minus-box-outline: Optional | `None` |
+| stats | [FilePDFStats](/assemblyline4_docs/odm/models/tagging/#filepdfstats) | PDF Statistics Information | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -393,16 +393,16 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | api_vector | List [Keyword] | API Vector | :material-minus-box-outline: Optional | `None` |
-| debug | [FilePEDebug](assemblyline4_docs/odm/models/tagging/#filepedebug) | PE Debug Information | :material-minus-box-outline: Optional | `None` |
-| exports | [FilePEExports](assemblyline4_docs/odm/models/tagging/#filepeexports) | PE Exports Information | :material-minus-box-outline: Optional | `None` |
-| imports | [FilePEImports](assemblyline4_docs/odm/models/tagging/#filepeimports) | PE Imports Information | :material-minus-box-outline: Optional | `None` |
-| linker | [FilePELinker](assemblyline4_docs/odm/models/tagging/#filepelinker) | PE Linker Information | :material-minus-box-outline: Optional | `None` |
-| oep | [FilePEOEP](assemblyline4_docs/odm/models/tagging/#filepeoep) | PE OEP Information | :material-minus-box-outline: Optional | `None` |
+| debug | [FilePEDebug](/assemblyline4_docs/odm/models/tagging/#filepedebug) | PE Debug Information | :material-minus-box-outline: Optional | `None` |
+| exports | [FilePEExports](/assemblyline4_docs/odm/models/tagging/#filepeexports) | PE Exports Information | :material-minus-box-outline: Optional | `None` |
+| imports | [FilePEImports](/assemblyline4_docs/odm/models/tagging/#filepeimports) | PE Imports Information | :material-minus-box-outline: Optional | `None` |
+| linker | [FilePELinker](/assemblyline4_docs/odm/models/tagging/#filepelinker) | PE Linker Information | :material-minus-box-outline: Optional | `None` |
+| oep | [FilePEOEP](/assemblyline4_docs/odm/models/tagging/#filepeoep) | PE OEP Information | :material-minus-box-outline: Optional | `None` |
 | pdb_filename | List [Keyword] | PDB Filename | :material-minus-box-outline: Optional | `None` |
-| resources | [FilePEResources](assemblyline4_docs/odm/models/tagging/#fileperesources) | PE Resources Information | :material-minus-box-outline: Optional | `None` |
-| rich_header | [FilePERichHeader](assemblyline4_docs/odm/models/tagging/#fileperichheader) | PE Rich Header Information | :material-minus-box-outline: Optional | `None` |
-| sections | [FilePESections](assemblyline4_docs/odm/models/tagging/#filepesections) | PE Sections Information | :material-minus-box-outline: Optional | `None` |
-| versions | [FilePEVersions](assemblyline4_docs/odm/models/tagging/#filepeversions) | PE Versions Information | :material-minus-box-outline: Optional | `None` |
+| resources | [FilePEResources](/assemblyline4_docs/odm/models/tagging/#fileperesources) | PE Resources Information | :material-minus-box-outline: Optional | `None` |
+| rich_header | [FilePERichHeader](/assemblyline4_docs/odm/models/tagging/#fileperichheader) | PE Rich Header Information | :material-minus-box-outline: Optional | `None` |
+| sections | [FilePESections](/assemblyline4_docs/odm/models/tagging/#filepesections) | PE Sections Information | :material-minus-box-outline: Optional | `None` |
+| versions | [FilePEVersions](/assemblyline4_docs/odm/models/tagging/#filepeversions) | PE Versions Information | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -505,13 +505,13 @@
 | installer_url | List [Keyword] | Installer URL | :material-minus-box-outline: Optional | `None` |
 | min_os_version | List [Keyword] | Minimum OS Version | :material-minus-box-outline: Optional | `None` |
 | requests_open_access | List [Keyword] | Requests Open Access | :material-minus-box-outline: Optional | `None` |
-| build | [FilePListBuild](assemblyline4_docs/odm/models/tagging/#fileplistbuild) | Build Information | :material-minus-box-outline: Optional | `None` |
-| cf_bundle | [FilePListCFBundle](assemblyline4_docs/odm/models/tagging/#fileplistcfbundle) | CF Bundle Information | :material-minus-box-outline: Optional | `None` |
-| dt | [FilePListDT](assemblyline4_docs/odm/models/tagging/#fileplistdt) | DT Information | :material-minus-box-outline: Optional | `None` |
-| ls | [FilePListLS](assemblyline4_docs/odm/models/tagging/#fileplistls) | LS Information | :material-minus-box-outline: Optional | `None` |
-| ns | [FilePListNS](assemblyline4_docs/odm/models/tagging/#fileplistns) | NS Information | :material-minus-box-outline: Optional | `None` |
-| ui | [FilePListUI](assemblyline4_docs/odm/models/tagging/#fileplistui) | UI Information | :material-minus-box-outline: Optional | `None` |
-| wk | [FilePListWK](assemblyline4_docs/odm/models/tagging/#fileplistwk) | WK Information | :material-minus-box-outline: Optional | `None` |
+| build | [FilePListBuild](/assemblyline4_docs/odm/models/tagging/#fileplistbuild) | Build Information | :material-minus-box-outline: Optional | `None` |
+| cf_bundle | [FilePListCFBundle](/assemblyline4_docs/odm/models/tagging/#fileplistcfbundle) | CF Bundle Information | :material-minus-box-outline: Optional | `None` |
+| dt | [FilePListDT](/assemblyline4_docs/odm/models/tagging/#fileplistdt) | DT Information | :material-minus-box-outline: Optional | `None` |
+| ls | [FilePListLS](/assemblyline4_docs/odm/models/tagging/#fileplistls) | LS Information | :material-minus-box-outline: Optional | `None` |
+| ns | [FilePListNS](/assemblyline4_docs/odm/models/tagging/#fileplistns) | NS Information | :material-minus-box-outline: Optional | `None` |
+| ui | [FilePListUI](/assemblyline4_docs/odm/models/tagging/#fileplistui) | UI Information | :material-minus-box-outline: Optional | `None` |
+| wk | [FilePListWK](/assemblyline4_docs/odm/models/tagging/#fileplistwk) | WK Information | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -537,7 +537,7 @@
 | pkg_type | List [Keyword] | Package Type | :material-minus-box-outline: Optional | `None` |
 | signature | List [Keyword] | Signature | :material-minus-box-outline: Optional | `None` |
 | url_scheme | List [Keyword] | URL Scheme | :material-minus-box-outline: Optional | `None` |
-| version | [FilePListCFBundleVersion](assemblyline4_docs/odm/models/tagging/#fileplistcfbundleversion) | Bundle Version Information | :material-minus-box-outline: Optional | `None` |
+| version | [FilePListCFBundleVersion](/assemblyline4_docs/odm/models/tagging/#fileplistcfbundleversion) | Bundle Version Information | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -557,7 +557,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | compiler | List [Keyword] | Compiler | :material-minus-box-outline: Optional | `None` |
-| platform | [FilePListDTPlatform](assemblyline4_docs/odm/models/tagging/#fileplistdtplatform) | Platform Information | :material-minus-box-outline: Optional | `None` |
+| platform | [FilePListDTPlatform](/assemblyline4_docs/odm/models/tagging/#fileplistdtplatform) | Platform Information | :material-minus-box-outline: Optional | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -625,7 +625,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| header | [FileSWFHeader](assemblyline4_docs/odm/models/tagging/#fileswfheader) | Header Information | :material-minus-box-outline: Optional | `None` |
+| header | [FileSWFHeader](/assemblyline4_docs/odm/models/tagging/#fileswfheader) | Header Information | :material-minus-box-outline: Optional | `None` |
 | tags_ssdeep | List [SSDeepHash] | Tags SSDeep | :material-minus-box-outline: Optional | `None` |
 
 
@@ -635,7 +635,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| frame | [FileSWFHeaderFrame](assemblyline4_docs/odm/models/tagging/#fileswfheaderframe) | Header Frame Information | :material-minus-box-outline: Optional | `None` |
+| frame | [FileSWFHeaderFrame](/assemblyline4_docs/odm/models/tagging/#fileswfheaderframe) | Header Frame Information | :material-minus-box-outline: Optional | `None` |
 | version | List [Keyword] | Version | :material-minus-box-outline: Optional | `None` |
 
 
@@ -688,14 +688,14 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | attack | List [Keyword] | Attack | :material-minus-box-outline: Optional | `None` |
-| dynamic | [NetworkIOCs](assemblyline4_docs/odm/models/tagging/#networkiocs) | Dynamic IOCs | :material-minus-box-outline: Optional | `None` |
-| email | [NetworkEmail](assemblyline4_docs/odm/models/tagging/#networkemail) | Email | :material-minus-box-outline: Optional | `None` |
+| dynamic | [NetworkIOCs](/assemblyline4_docs/odm/models/tagging/#networkiocs) | Dynamic IOCs | :material-minus-box-outline: Optional | `None` |
+| email | [NetworkEmail](/assemblyline4_docs/odm/models/tagging/#networkemail) | Email | :material-minus-box-outline: Optional | `None` |
 | mac_address | List [MAC] | MAC Address | :material-minus-box-outline: Optional | `None` |
 | port | List [Integer] | Port | :material-minus-box-outline: Optional | `None` |
 | protocol | List [Keyword] | Protocol | :material-minus-box-outline: Optional | `None` |
-| signature | [NetworkSignature](assemblyline4_docs/odm/models/tagging/#networksignature) | Signatures | :material-minus-box-outline: Optional | `None` |
-| static | [NetworkIOCs](assemblyline4_docs/odm/models/tagging/#networkiocs) | Static IOCs | :material-minus-box-outline: Optional | `None` |
-| tls | [NetworkTLS](assemblyline4_docs/odm/models/tagging/#networktls) | TLS | :material-minus-box-outline: Optional | `None` |
+| signature | [NetworkSignature](/assemblyline4_docs/odm/models/tagging/#networksignature) | Signatures | :material-minus-box-outline: Optional | `None` |
+| static | [NetworkIOCs](/assemblyline4_docs/odm/models/tagging/#networkiocs) | Static IOCs | :material-minus-box-outline: Optional | `None` |
+| tls | [NetworkTLS](/assemblyline4_docs/odm/models/tagging/#networktls) | TLS | :material-minus-box-outline: Optional | `None` |
 | user_agent | List [Keyword] | User Agent | :material-minus-box-outline: Optional | `None` |
 
 

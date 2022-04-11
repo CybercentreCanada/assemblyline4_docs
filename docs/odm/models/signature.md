@@ -14,8 +14,8 @@
 | source | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
 | state_change_date | Date | None | :material-minus-box-outline: Optional | `None` |
 | state_change_user | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| stats | [Statistics](assemblyline4_docs/odm/models/statistic/#statistics) | None | :material-checkbox-marked-outline: Yes | See [Statistics](assemblyline4_docs/odm/models/statistic/#statistics) for more details. |
-| status | Enum | None<br>Values:<br>`"DISABLED", "INVALID", "DEPLOYED", "TESTING", "STAGING", "NOISY"` | :material-checkbox-marked-outline: Yes | `None` |
+| stats | [Statistics](/assemblyline4_docs/odm/models/statistic/#statistics) | None | :material-checkbox-marked-outline: Yes | See [Statistics](/assemblyline4_docs/odm/models/statistic/#statistics) for more details. |
+| status | Enum | None<br>Values:<br>`"NOISY", "DISABLED", "STAGING", "TESTING", "DEPLOYED", "INVALID"` | :material-checkbox-marked-outline: Yes | `None` |
 | type | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
 
 

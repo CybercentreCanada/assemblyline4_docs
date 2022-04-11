@@ -4,11 +4,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| connection_details | [NetworkConnection](assemblyline4_docs/odm/models/ontology/types/network/#networkconnection) | The low-level details of the HTTP request | :material-checkbox-marked-outline: Yes | `None` |
+| connection_details | [NetworkConnection](/assemblyline4_docs/odm/models/ontology/types/network/#networkconnection) | The low-level details of the HTTP request | :material-checkbox-marked-outline: Yes | `None` |
 | request_uri | URI | The URI requested | :material-checkbox-marked-outline: Yes | `None` |
 | request_headers | Mapping [Json] | Headers included in the request | :material-checkbox-marked-outline: Yes | `None` |
 | request_body | Text | The body of the request | :material-minus-box-outline: Optional | `None` |
-| request_method | Enum | The method of the request<br>Values:<br>`"X-MS-ENUMATTS", "MOVE", "BDELETE", "PUT", "UNSUBSCRIBE", "MKCOL", "BCOPY", "GET", "COPY", "PATCH", "TRACE", "DELETE", "POST", "SUBSCRIBE", "PROPFIND", "UNLOCK", "SEARCH", "BMOVE", "OPTIONS", "PROPPATCH", "CONNECT", "NOTIFY", "HEAD", "BPROPFIND", "LOCK", "BPROPPATCH", "POLL"` | :material-checkbox-marked-outline: Yes | `None` |
+| request_method | Enum | The method of the request<br>Values:<br>`"PROPPATCH", "CONNECT", "DELETE", "MOVE", "OPTIONS", "GET", "PATCH", "BDELETE", "PUT", "POLL", "UNLOCK", "BPROPFIND", "COPY", "BCOPY", "BPROPPATCH", "BMOVE", "SEARCH", "UNSUBSCRIBE", "X-MS-ENUMATTS", "NOTIFY", "HEAD", "MKCOL", "POST", "TRACE", "SUBSCRIBE", "LOCK", "PROPFIND"` | :material-checkbox-marked-outline: Yes | `None` |
 | response_headers | Mapping [Json] | Headers included in the response | :material-checkbox-marked-outline: Yes | `None` |
 | response_status_code | Integer | The status code of the response | :material-minus-box-outline: Optional | `None` |
 | response_body | Text | The body of the response | :material-minus-box-outline: Optional | `None` |
@@ -20,14 +20,14 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| objectid | [ObjectID](assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the process object | :material-checkbox-marked-outline: Yes | `None` |
-| process | [Process](assemblyline4_docs/odm/models/ontology/types/proc/#process) | The process that spawned the network connection | :material-minus-box-outline: Optional | `None` |
+| objectid | [ObjectID](/assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the process object | :material-checkbox-marked-outline: Yes | `None` |
+| process | [Process](/assemblyline4_docs/odm/models/ontology/types/proc/#process) | The process that spawned the network connection | :material-minus-box-outline: Optional | `None` |
 | source_ip | IP | The source IP of the connection | :material-minus-box-outline: Optional | `None` |
 | source_port | Integer | The source port of the connection | :material-minus-box-outline: Optional | `None` |
 | destination_ip | IP | The destination IP of the connection | :material-checkbox-marked-outline: Yes | `None` |
 | destination_port | Integer | The destination port of the connection | :material-checkbox-marked-outline: Yes | `None` |
-| transport_layer_protocol | Enum | The transport layer protocol of the connection<br>Values:<br>`"udp", "tcp"` | :material-checkbox-marked-outline: Yes | `None` |
-| direction | Enum | The direction of the network connection<br>Values:<br>`"outbound", "unknown", "inbound"` | :material-checkbox-marked-outline: Yes | `None` |
+| transport_layer_protocol | Enum | The transport layer protocol of the connection<br>Values:<br>`"tcp", "udp"` | :material-checkbox-marked-outline: Yes | `None` |
+| direction | Enum | The direction of the network connection<br>Values:<br>`"outbound", "inbound", "unknown"` | :material-checkbox-marked-outline: Yes | `None` |
 
 
 
@@ -38,7 +38,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| connection_details | [NetworkConnection](assemblyline4_docs/odm/models/ontology/types/network/#networkconnection) | The low-level details of the DNS request | :material-checkbox-marked-outline: Yes | `None` |
+| connection_details | [NetworkConnection](/assemblyline4_docs/odm/models/ontology/types/network/#networkconnection) | The low-level details of the DNS request | :material-checkbox-marked-outline: Yes | `None` |
 | domain | Domain | The domain requested | :material-checkbox-marked-outline: Yes | `None` |
 | resolved_ips | List [IP] | A list of IPs that were resolved | :material-checkbox-marked-outline: Yes | `None` |
 | lookup_type | Text | The type of DNS request | :material-checkbox-marked-outline: Yes | `None` |
@@ -50,13 +50,13 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| objectid | [ObjectID](assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the process object | :material-checkbox-marked-outline: Yes | `None` |
-| process | [Process](assemblyline4_docs/odm/models/ontology/types/proc/#process) | The process that spawned the network connection | :material-minus-box-outline: Optional | `None` |
+| objectid | [ObjectID](/assemblyline4_docs/odm/models/ontology/types/objectid/#objectid) | The object ID of the process object | :material-checkbox-marked-outline: Yes | `None` |
+| process | [Process](/assemblyline4_docs/odm/models/ontology/types/proc/#process) | The process that spawned the network connection | :material-minus-box-outline: Optional | `None` |
 | source_ip | IP | The source IP of the connection | :material-minus-box-outline: Optional | `None` |
 | source_port | Integer | The source port of the connection | :material-minus-box-outline: Optional | `None` |
 | destination_ip | IP | The destination IP of the connection | :material-checkbox-marked-outline: Yes | `None` |
 | destination_port | Integer | The destination port of the connection | :material-checkbox-marked-outline: Yes | `None` |
-| transport_layer_protocol | Enum | The transport layer protocol of the connection<br>Values:<br>`"udp", "tcp"` | :material-checkbox-marked-outline: Yes | `None` |
-| direction | Enum | The direction of the network connection<br>Values:<br>`"outbound", "unknown", "inbound"` | :material-checkbox-marked-outline: Yes | `None` |
+| transport_layer_protocol | Enum | The transport layer protocol of the connection<br>Values:<br>`"tcp", "udp"` | :material-checkbox-marked-outline: Yes | `None` |
+| direction | Enum | The direction of the network connection<br>Values:<br>`"outbound", "inbound", "unknown"` | :material-checkbox-marked-outline: Yes | `None` |
 
 

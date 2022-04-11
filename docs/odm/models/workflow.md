@@ -13,9 +13,9 @@
 | last_edit | Date | Date of last edit on workflow | :material-checkbox-marked-outline: Yes | `NOW` |
 | last_seen | Date | Date of last hit on workflow | :material-minus-box-outline: Optional | `None` |
 | name | Keyword | Name of the workflow | :material-checkbox-marked-outline: Yes | `None` |
-| priority | Enum | Priority applied by the workflow<br>Values:<br>`"HIGH", "MEDIUM", "LOW", "CRITICAL", None` | :material-minus-box-outline: Optional | `None` |
+| priority | Enum | Priority applied by the workflow<br>Values:<br>`"LOW", "MEDIUM", "HIGH", "CRITICAL", None` | :material-minus-box-outline: Optional | `None` |
 | query | Keyword | Query that the workflow runs | :material-checkbox-marked-outline: Yes | `None` |
-| status | Enum | Status applied by the workflow<br>Values:<br>`"NON-MALICIOUS", "MALICIOUS", "TRIAGE", None, "ASSESS"` | :material-minus-box-outline: Optional | `None` |
+| status | Enum | Status applied by the workflow<br>Values:<br>`"MALICIOUS", "ASSESS", "TRIAGE", "NON-MALICIOUS", None` | :material-minus-box-outline: Optional | `None` |
 | workflow_id | UUID | ID of the workflow | :material-minus-box-outline: Optional | `None` |
 
 
