@@ -74,8 +74,8 @@ Edit the `values.yml` file of your helm deployment and add the following lines:
     replayLoaderVolume:
       - name: replay-data
         nfs:
-        server: localhost
-        path: /path/to/folder
+          server: localhost
+          path: /path/to/folder
 
     ...
     ```
