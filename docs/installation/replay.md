@@ -9,7 +9,7 @@ Replay has two main component:
 * Replay Creator
 * Replay Loader
 
-The Replay Creator component will monitor either the alerts, the submissions or both and bundle them once they are completed including all their results, errors, files, etc... Those bundles will have to be transfered with the method of your choice to your offline enclave where the Replay Loader component will monitor a directory loading the bundles into your offline instance. Once these bundles are transfered onto your target system, the loader will be able to tell your offline instance to resume the scan and rescan the files with your offline services if you tell it to.
+The `Replay Creator` component will monitor either the alerts, the submissions or both and bundle them once they are completed including all their results, errors, files, etc... Those bundles will have to be transfered with the method of your choice to your offline enclave where the `Replay Loader` component will monitor a directory loading the bundles into your offline instance. Once these bundles are transfered onto your target system, the loader will be able to tell your offline instance to resume the scan and rescan the files with your offline services if you tell it to.
 
 ![Replay diagram](./images/Replay.png)
 
@@ -32,13 +32,23 @@ The source instance is the one that will run the Replay Creator components. Thes
 
 When you know where your files are going to be saved to, edit the `values.yml` file of your helm deployment and add the following lines:
 
-```yaml
-useReplay: true
-replayMode: "creator"
-replay:
-  creator:
-    output_filestore: <AN ASSEMBLYLINE FILESTORE LINK - SEE REPLAY CONFIGURATION FILE>
-```
+!!! example "Partial values.yaml config for replay creator setup"
+    ```yaml
+    ...
+
+    # Turn on Replay
+    useReplay: true
+
+    # Set replay mode to creator
+    replayMode: "creator"
+
+    # Set the output folder for the creator worker
+    replay:
+      creator:
+        output_filestore: <AN ASSEMBLYLINE FILESTORE LINK - SEE REPLAY CONFIGURATION FILE>
+
+    ...
+    ```
 
 When this is done you can just perform an Helm upgrade to apply the changes to your instance.
 
@@ -47,16 +57,28 @@ When this is done you can just perform an Helm upgrade to apply the changes to y
 The target instance is the one that will run the Replay Loader components. These components will have to have direct access to a directory where the files transfered over are dropped. This limits what can be use so `NFS` is our recommended way for now.
 
 Edit the `values.yml` file of your helm deployment and add the following lines:
-```yaml
-useReplay: true
-replayMode: "loader"
-replayLivenessCommand: "ls /tmp/replay/input"
-replayLoaderVolume:
-  - name: replay-data
-    nfs:
-      server: localhost
-      path: /path/to/folder
-```
+!!! example "Partial values.yaml config for replay loader setup"
+    ```yaml
+    ...
+
+    # Turn on Replay
+    useReplay: true
+
+    # Set replay mode to loader
+    replayMode: "loader"
+
+    # Make sure input folder is accessible
+    replayLivenessCommand: "ls /tmp/replay/input"
+
+    # Load input folder
+    replayLoaderVolume:
+      - name: replay-data
+        nfs:
+        server: localhost
+        path: /path/to/folder
+
+    ...
+    ```
 
 When this is done you can just perform an Helm upgrade to apply the changes to your instance.
 
@@ -82,24 +104,25 @@ If you are not using our helm chart to deploy Assemblyline, perhaps you are usin
 
     Then you can create your `/etc/assemblyline/replay.yml` configuration file and tell replay to use the API mode:
 
-    ```yaml
-    creator:
-      client:
-        type: api
-          options:
-            host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
-            apikey: "<PASTE YOUR SOURCE API KEY>"
-            user: <YOUR SOURCE USERNAME>
-            verify: false
-    loader:
-      client:
-        type: api
-          options:
-            host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
-            apikey: "<PASTE YOUR SOURCE API KEY>"
-            user: <YOUR SOURCE USERNAME>
-            verify: false
-    ```
+    !!! example "Partial replay.yml configuration"
+        ```yaml
+        creator:
+          client:
+            type: api
+            options:
+              host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
+              apikey: "<PASTE YOUR SOURCE API KEY>"
+              user: <YOUR SOURCE USERNAME>
+              verify: false
+        loader:
+          client:
+            type: api
+            options:
+              host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
+              apikey: "<PASTE YOUR SOURCE API KEY>"
+              user: <YOUR SOURCE USERNAME>
+              verify: false
+        ```
 
     Finally, just run which ever components are relevant depending on the Assemblyline instance you are on:
 
@@ -150,24 +173,25 @@ If you are not using our helm chart to deploy Assemblyline, perhaps you are usin
 
     Then you can create your `~/replay_config/replay.yml` configuration file and tell replay to use the API mode:
 
-    ```yaml
-    creator:
-      client:
-        type: api
-          options:
-            host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
-            apikey: "<PASTE YOUR SOURCE API KEY>"
-            user: <YOUR SOURCE USERNAME>
-            verify: false
-    loader:
-      client:
-        type: api
-          options:
-            host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
-            apikey: "<PASTE YOUR SOURCE API KEY>"
-            user: <YOUR SOURCE USERNAME>
-            verify: false
-    ```
+    !!! example "Partial replay.yml configuration"
+        ```yaml
+        creator:
+          client:
+            type: api
+            options:
+              host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
+              apikey: "<PASTE YOUR SOURCE API KEY>"
+              user: <YOUR SOURCE USERNAME>
+              verify: false
+        loader:
+          client:
+            type: api
+            options:
+              host: "https://<YOUR SOURCE SERVER DOMAIN/IP>:443",
+              apikey: "<PASTE YOUR SOURCE API KEY>"
+              user: <YOUR SOURCE USERNAME>
+              verify: false
+        ```
 
     Finally, just run which ever components are relevant depending on the Assemblyline instance you are on:
 
@@ -226,14 +250,15 @@ If you are not using our helm chart to deploy Assemblyline, perhaps you are usin
 
     First of all, you will need to create your `replay.yml` file in your `~/appliance/config` directory:
 
-    ```yaml
-    creator:
-      client:
-        type: direct
-    loader:
-      client:
-        type: direct
-    ```
+    !!! example "Partial replay.yml configuration"
+        ```yaml
+        creator:
+          client:
+            type: direct
+        loader:
+          client:
+            type: direct
+        ```
 
     Then you can just run which ever components are relevant depending on the Assemblyline instance you are on:
 
