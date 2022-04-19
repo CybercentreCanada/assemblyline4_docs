@@ -40,6 +40,7 @@ nav:
   - installation/deployment.md
   - installation/appliance_docker.md
   - installation/appliance.md
+  - Appliance Migration: installation/deployment_migration.md
   - installation/cluster.md
   - Configuration:
     - installation/configuration/config_file.md
