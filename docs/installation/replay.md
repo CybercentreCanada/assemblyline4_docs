@@ -1,4 +1,4 @@
-# Assemblyline Replay
+# Multiple instances syncing (Replay)
 
 Replay is a new feature of Assemblyline that allows you to bridge the gap between online and offline deployments of Assemblyline. You will be able to start a scan on your online deployment, bundle the results, ship them to your offline enclave and continue the scans in the offline enclave.
 
