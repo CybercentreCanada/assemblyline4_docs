@@ -56,6 +56,7 @@ nav:
     - installation/configuration/ui.md
   - installation/classification_engine.md
   - installation/monitoring.md
+  - installation/replay.md
 - Administration:
   - administration/signature_management.md
   - administration/source_management.md
