@@ -4,12 +4,12 @@ Replay is a new feature of Assemblyline that allows you to bridge the gap betwee
 
 ## How it works
 
-Replay has two main component:
+Replay has two main components:
 
 * Replay Creator
 * Replay Loader
 
-The `Replay Creator` component will monitor either the alerts, the submissions or both and bundle them once they are completed including all their results, errors, files, etc... Those bundles will have to be transfered with the method of your choice to your offline enclave where the `Replay Loader` component will monitor a directory loading the bundles into your offline instance. Once these bundles are transfered onto your target system, the loader will be able to tell your offline instance to resume the scan and rescan the files with your offline services if you tell it to.
+The `Replay Creator` component will monitor either the alerts, the submissions or both and bundle them once they are completed including all their results, errors, files, etc. Those bundles will have to be transfered with the method of your choice to your offline enclave where the `Replay Loader` component will monitor a directory loading the bundles into your offline instance. Once these bundles are transferred onto your target system, the loader will be able to tell your offline instance to resume the scan and rescan the files with your offline services if you tell it to.
 
 ![Replay diagram](./images/Replay.png)
 
@@ -17,7 +17,7 @@ The `Replay Creator` component will monitor either the alerts, the submissions o
 
 Replay has it's own configuration file that is seperate from the usual `config.yml` file found in an Assemblyline instance because it can run in an `API` mode which does not require a full Assemblyline config. In all cases, Replay will load it's configuration file from `/etc/assemblyline/replay.yml` by default or from the file path specified in the `REPLAY_CONFIG_PATH` environment variable.
 
-If you are using our helm chart to deploy replay you will be able to simply put the content of your `replay.yml` file in the `replay:` section of the `values.yml` file but if you are using replain in container or simple script mode you will have to create your own replay config file and mount it at the right place. The examples below will show you how to do this.
+If you are using our helm chart to deploy replay you will be able to simply put the content of your `replay.yml` file in the `replay:` section of the `values.yml` file but if you are using replay in container or simple script mode you will have to create your own replay config file and mount it at the right place. The examples below will show you how to do this.
 
 In the meantime, here's a fully descriptive example of the replay config file.
 
