@@ -38,7 +38,7 @@ volumes:
 
 ### Backup Datastore indices
 
-Shell into your `backup` container and open the AL CLI tool and backup the datastore data to mount location.
+Shell into your `backup` container, open the AL CLI tool, and backup the datastore data to the mount.
 === "System-only"
     !!! info
         The following indices will be backed up:
@@ -78,7 +78,7 @@ Shell into your `backup` container and open the AL CLI tool and backup the datas
     ls /mount/backup/
     ```
 ### Backup Filestore directories
-Copy `al-cache` and `al-storage` to backup volume
+Copy `al-cache` and `al-storage` to the backup volume
 ```bash
 cp -r /data/ /mount/backup/filestore/
 ```
@@ -166,7 +166,7 @@ spec:
 ```
 
 #### Merge Filestore data with existing volume
-Shell into the filestore pod can copy the files from backup:
+Shell into the filestore pod and copy the files from backup:
 
 ```bash
 cp -r /mount/backup/filestore/* /export/
@@ -183,7 +183,7 @@ You can copy the contents of `config.yml` and place them in the `configuration` 
 If you want to use custom configurations to control tag safelisting or classification, you'll need to create a ConfigMap and
 modify your helm deployment to make use of them.
 
-Let's say I want add the following custom configurations to Kubernetes:
+Let's say I want to add the following custom configurations to Kubernetes:
 === "classification.yml"
     ```
     enforce: true
