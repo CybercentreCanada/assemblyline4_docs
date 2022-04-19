@@ -1,4 +1,4 @@
-# Multiple instances syncing (Replay)
+# Syncing Instances (Replay)
 
 Replay is a new feature of Assemblyline that allows you to bridge the gap between online and offline deployments of Assemblyline. You will be able to start a scan on your online deployment, bundle the results, ship them to your offline enclave and continue the scans in the offline enclave.
 
@@ -15,7 +15,7 @@ The `Replay Creator` component will monitor either the alerts, the submissions o
 
 ## Replay configuration file
 
-Replay has it's own configuration file that is seperate from the usual `config.yml` file found in an Assemblyline instance because it can run in an `API` mode which does not require a full Assemblyline config. In all cases, Replay will load it's configuration file from `/etc/assemblyline/replay.yml` by default or from the file path specified in the `REPLAY_CONFIG_PATH` environment variable.
+Replay has its own configuration file that is seperate from the usual `config.yml` file found in an Assemblyline instance because it can run in an `API` mode which does not require a full Assemblyline config. In all cases, Replay will load its configuration file from `/etc/assemblyline/replay.yml` by default or from the file path specified in the `REPLAY_CONFIG_PATH` environment variable.
 
 If you are using our helm chart to deploy replay you will be able to simply put the content of your `replay.yml` file in the `replay:` section of the `values.yml` file but if you are using replay in container or simple script mode you will have to create your own replay config file and mount it at the right place. The examples below will show you how to do this.
 
@@ -33,7 +33,7 @@ In the meantime, here's a fully descriptive example of the replay config file.
       alert_input:
         # Is creator monitoring alerts for changes?
         enabled: true
-        # Which queries are performed to tell if and alert is ready for replay?
+        # Which queries are performed to tell if an alert is ready for replay?
         #  DEFAULT:
         #     - The alert is not performing an extended scan
         #     - All workflows on this system have executed on the alert
@@ -69,7 +69,7 @@ In the meantime, here's a fully descriptive example of the replay config file.
         # Options for the connection (only applies to api mode)
         options:
           # API Key that will be used to connect
-          #  NOTE: creator needs READ priviledge only
+          #  NOTE: creator needs READ privilege only
           apikey: devkey:devpass
           # Url to your Assemblyline server
           host: https://localhost:443
@@ -82,7 +82,7 @@ In the meantime, here's a fully descriptive example of the replay config file.
       # NOTE: This is a datemath lucene value (examples: *, now-1d, now-1h, ...)
       lookback_time: '*'
       # Assemblyline filestore object where the bundle files will be created
-      #  NOTE: This is similar the the urls found in the filstore configuration of the
+      #  NOTE: This is similar to the urls found in the filestore configuration of the
       #        config.yml file. Supported types are: S3, Azure Blob, FTP, local and sftp
       output_filestore: file:///tmp/replay/output
       # Working directory for the creator and creator_worker processes
@@ -102,7 +102,7 @@ In the meantime, here's a fully descriptive example of the replay config file.
         # Options for the connection (only applies to api mode)
         options:
           # API Key that will be used to connect
-          #  NOTE: loader needs WRITE priviledge only
+          #  NOTE: loader needs WRITE privilege only
           apikey: devkey:devpass
           # Url to your Assemblyline server
           host: https://localhost:443
@@ -117,7 +117,7 @@ In the meantime, here's a fully descriptive example of the replay config file.
       # the target instance. This will probably be an external directory
       # like an NFS mount...
       input_directory: /tmp/replay/input
-      # Number or concurrent worker thread the loader worker will use
+      # Number of concurrent worker threads the loader worker will use
       # to load the bundle in the target instance
       input_threads: 6
       # Minimum classification that will be applied to each loaded bundle
@@ -139,12 +139,12 @@ The helm chart deployment of replay will automatically scale the worker componen
 
 ### Configure the source instance
 
-The source instance is the one that will run the Replay Creator components. These components will have to write the alert and submission bundle somewhere. Convinently, replay uses the filestore feature of Assemblyline so you can use any type of storage that it supports to save your files.
+The source instance is the one that will run the Replay Creator components. These components will have to write the alert and submission bundle somewhere. Conveniently, replay uses the filestore feature of Assemblyline so you can use any type of storage that it supports to save your files.
 
-* FTP
 * S3
 * Azure blob
-* ...
+* FTP
+* SFTP
 
 When you know where your files are going to be saved to, edit the `values.yml` file of your helm deployment and add the following lines:
 
@@ -240,7 +240,7 @@ If you are not using our helm chart to deploy Assemblyline, perhaps you are usin
               verify: false
         ```
 
-    Finally, just run which ever components are relevant depending on the Assemblyline instance you are on:
+    Finally, just run whichever components are relevant depending on the Assemblyline instance you are on:
 
     === "Source Assemblyline instance"
 
