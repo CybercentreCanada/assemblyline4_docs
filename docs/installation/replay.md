@@ -15,6 +15,122 @@ The `Replay Creator` component will monitor either the alerts, the submissions o
 
 ## Replay configuration file
 
+Replay has it's own configuration file that is seperate from the usual `config.yml` file found in an Assemblyline instance because it can run in an `API` mode which does not require a full Assemblyline config. In all cases, Replay will load it's configuration file from `/etc/assemblyline/replay.yml` by default or from the file path specified in the `REPLAY_CONFIG_PATH` environment variable.
+
+If you are using our helm chart to deploy replay you will be able to simply put the content of your `replay.yml` file in the `replay:` section of the `values.yml` file but if you are using replain in container or simple script mode you will have to create your own replay config file and mount it at the right place. The examples below will show you how to do this.
+
+In the meantime, here's a fully descriptive example of the replay config file.
+
+!!! example "Default replay.yml file"
+    ```yaml
+    ####################################
+    # Replay Creator configuration block
+    ####################################
+    creator:
+      # -------------------------------
+      # Alert input configuration block
+      # -------------------------------
+      alert_input:
+        # Is creator monitoring alerts for changes?
+        enabled: true
+        # Which queries are performed to tell if and alert is ready for replay?
+        #  DEFAULT:
+        #     - The alert is not performing an extended scan
+        #     - All workflows on this system have executed on the alert
+        filter_queries:
+          - NOT extended_scan:submitted
+          - workflows_completed:true
+        # Number of concurrent worker threads the replay workers will use to
+        # process alerts
+        threads: 6
+
+      # ------------------------------------
+      # Submission input configuration block
+      # ------------------------------------
+      submission_input:
+        # Is creator monitoring submissions for changes?
+        enabled: true
+        # Which queries are performed to tell if a submission is ready for replay?
+        #  DEFAULT:
+        #     - There was a manual request for the submission to be replayed in
+        #       the metadata
+        filter_queries:
+          - metadata.replay:requested
+        # Number of concurrent worker threads the replay workers will use to
+        # process submissions
+        threads: 6
+
+      # ------------------------------------
+      # Replay client configuration block (How replay will connect to AL)
+      # ------------------------------------
+      client:
+        # Type of connection (direct or api )
+        type: direct
+        # Options for the connection (only applies to api mode)
+        options:
+          # API Key that will be used to connect
+          #  NOTE: creator needs READ priviledge only
+          apikey: devkey:devpass
+          # Url to your Assemblyline server
+          host: https://localhost:443
+          # User that will connect via the API
+          user: admin
+          # Should the SSL connection be verified ?
+          verify: true
+
+      # Amount of time to lookback when checking for new alert/submission
+      # NOTE: This is a datemath lucene value (examples: *, now-1d, now-1h, ...)
+      lookback_time: '*'
+      # Assemblyline filestore object where the bundle files will be created
+      #  NOTE: This is similar the the urls found in the filstore configuration of the
+      #        config.yml file. Supported types are: S3, Azure Blob, FTP, local and sftp
+      output_filestore: file:///tmp/replay/output
+      # Working directory for the creator and creator_worker processes
+      working_directory: /tmp/replay/work
+
+
+    ####################################
+    # Replay Loader configuration block
+    ####################################
+    loader:
+      # ------------------------------------
+      # Replay client configuration block (How replay will connect to AL)
+      # ------------------------------------
+      client:
+        # Type of connection (direct or api )
+        type: direct
+        # Options for the connection (only applies to api mode)
+        options:
+          # API Key that will be used to connect
+          #  NOTE: loader needs WRITE priviledge only
+          apikey: devkey:devpass
+          # Url to your Assemblyline server
+          host: https://localhost:443
+          # User that will connect via the API
+          user: admin
+          # Should the SSL connection be verified ?
+          verify: true
+
+      # Directory where bundles that failed to load will be copied to
+      failed_directory: /tmp/replay/failed
+      # Directory from which we will monitor new files and load them in
+      # the target instance. This will probably be an external directory
+      # like an NFS mount...
+      input_directory: /tmp/replay/input
+      # Number or concurrent worker thread the loader worker will use
+      # to load the bundle in the target instance
+      input_threads: 6
+      # Minimum classification that will be applied to each loaded bundle
+      # regardless of their original classification
+      min_classification: null
+      # List of services that you which to rescan after the bundle is done importing
+      # NOTE: If for example you have a different set of Yara rules on the source and
+      #       target systems you could set that value to ['YARA']
+      rescan: []
+      # Working directory for the loader and loader_worker processes
+      working_directory: /tmp/replay/work
+    ```
+
 ## Helm Deployment
 
 There are multiple ways to configure replay so unfortunately there is no one size fits all configuration. The easiest setup by far is to use the different flags that we have pre-configured in our helm chart. Make sure you pull our latest helm chart to be able to benefit of this easy setup.
