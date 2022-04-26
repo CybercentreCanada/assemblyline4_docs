@@ -1,4 +1,4 @@
-# Appliance installation (Docker)
+# Appliance in Docker
 
 This is the documentation for an appliance instance of the Assemblyline platform suited for very small single machine deployment.
 
@@ -15,7 +15,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
     The recommended minimum system requirement for this appliance is **4 CPUs** and **8 GB** of RAM.
 
 !!! warning
-    If you have more then **16 CPUs** and **64 GB** of ram, you should consider using the [Microk8s appliance](../appliance/) instead. Microk8s will be able to auto-scale core components based on load but this docker appliance can only scale services.
+    If you have more then **16 CPUs** and **64 GB** of ram, you should consider using the [MicroK8s appliance](../kubernetes-microk8s/) instead. Microk8s will be able to auto-scale core components based on load but this docker appliance can only scale services.
 
 ### Install pre-requisites
 === "Online"

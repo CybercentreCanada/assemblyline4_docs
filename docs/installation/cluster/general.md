@@ -1,4 +1,4 @@
-# Cluster installation
+# General
 
 ## Pre-requisites
 
