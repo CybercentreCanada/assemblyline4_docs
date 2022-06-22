@@ -111,14 +111,16 @@ nav:
     - FileScore: odm/models/filescore.md
     - Heuristic: odm/models/heuristic.md
     - Ontology:
-      - ResultOntology: odm/models/ontology/meta.md
-      - Types:
-        - Antivirus: odm/models/ontology/types/antivirus.md
-        - NetworkHTTP: odm/models/ontology/types/network.md
-        - ObjectID: odm/models/ontology/types/objectid.md
-        - PE: odm/models/ontology/types/pe.md
-        - Process: odm/models/ontology/types/process.md
-        - Sandbox: odm/models/ontology/types/sandbox.md
+      - Filetypes:
+        - PE: odm/models/ontology/filetypes/pe.md
+      - ResultOntology: odm/models/ontology/ontology.md
+      - Results:
+        - Antivirus: odm/models/ontology/results/antivirus.md
+        - NetworkConnection: odm/models/ontology/results/network.md
+        - Process: odm/models/ontology/results/process.md
+        - Sandbox: odm/models/ontology/results/sandbox.md
+        - Signature: odm/models/ontology/results/signature.md
+      - Types: []
     - ReplayConfig: odm/models/replay.md
     - Result: odm/models/result.md
     - Safelist: odm/models/safelist.md
@@ -149,6 +151,7 @@ nav:
     - ServiceTimingMessage: odm/messages/service_timing_heartbeat.md
     - SubmissionMessage: odm/messages/submission.md
     - TaskMessage: odm/messages/task.md
+    - VacuumMessage: odm/messages/vacuum_heartbeat.md
 plugins:
 - search
 - i18n:

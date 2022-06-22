@@ -17,7 +17,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | cache_key | Keyword | Cache key | :material-minus-box-outline: Optional | `None` |
-| status | Enum | Watch statuses<br>Values:<br>`"FAIL", "STOP", "START", "OK"` | :material-checkbox-marked-outline: Yes | `None` |
+| status | Enum | Watch statuses<br>Values:<br>`"FAIL", "OK", "START", "STOP"` | :material-checkbox-marked-outline: Yes | `None` |
 
 
 

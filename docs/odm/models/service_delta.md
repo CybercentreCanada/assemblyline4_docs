@@ -26,7 +26,7 @@
 | timeout | Integer | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | docker_config | [DockerConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dockerconfigdelta) | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | dependencies | Mapping [[DependencyConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dependencyconfigdelta)] | Refer to:<br>[Service](../service/#service) | :material-checkbox-marked-outline: Yes | See [DependencyConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dependencyconfigdelta) for more details. |
-| update_channel | Enum | Refer to:<br>[Service](../service/#service)<br>Values:<br>`"rc", "dev", "stable", "beta"` | :material-minus-box-outline: Optional | `None` |
+| update_channel | Enum | Refer to:<br>[Service](../service/#service)<br>Values:<br>`"beta", "dev", "rc", "stable"` | :material-minus-box-outline: Optional | `None` |
 | update_config | [UpdateConfigDelta](/assemblyline4_docs/odm/models/service_delta/#updateconfigdelta) | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 
 
@@ -118,7 +118,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | default | Any | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams) | :material-minus-box-outline: Optional | `None` |
 | name | Keyword | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams) | :material-minus-box-outline: Optional | `None` |
-| type | Enum | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams)<br>Values:<br>`"str", "bool", "list", "int"` | :material-minus-box-outline: Optional | `None` |
+| type | Enum | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams)<br>Values:<br>`"bool", "int", "list", "str"` | :material-minus-box-outline: Optional | `None` |
 | value | Any | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams) | :material-minus-box-outline: Optional | `None` |
 | list | Any | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams) | :material-minus-box-outline: Optional | `None` |
 | hide | Boolean | Refer to:<br>[Service - SubmissionParams](../service/#submissionparams) | :material-minus-box-outline: Optional | `None` |
@@ -134,7 +134,7 @@
 | sources | List [[UpdateSourceDelta](/assemblyline4_docs/odm/models/service_delta/#updatesourcedelta)] | Refer to:<br>[Service - UpdateConfig](../service/#updateconfig) | :material-minus-box-outline: Optional | `None` |
 | update_interval_seconds | Integer | Refer to:<br>[Service - UpdateConfig](../service/#updateconfig) | :material-minus-box-outline: Optional | `None` |
 | wait_for_update | Boolean | Refer to:<br>[Service - UpdateConfig](../service/#updateconfig) | :material-minus-box-outline: Optional | `None` |
-| signature_delimiter | Enum | Refer to:<br>[Service - UpdateConfig](../service/#updateconfig)<br>Values:<br>`"space", "custom", "file", "none", "double_new_line", "new_line", "comma", "pipe"` | :material-minus-box-outline: Optional | `None` |
+| signature_delimiter | Enum | Refer to:<br>[Service - UpdateConfig](../service/#updateconfig)<br>Values:<br>`"comma", "custom", "double_new_line", "file", "new_line", "none", "pipe", "space"` | :material-minus-box-outline: Optional | `None` |
 | custom_delimiter | Keyword | Refer to:<br>[Service - UpdateConfig](../service/#updateconfig) | :material-minus-box-outline: Optional | `None` |
 
 

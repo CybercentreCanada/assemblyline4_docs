@@ -26,7 +26,7 @@
 | timeout | Integer | Service task timeout, in seconds | :material-checkbox-marked-outline: Yes | `60` |
 | docker_config | [DockerConfig](/assemblyline4_docs/odm/models/service/#dockerconfig) | Docker configuration for service | :material-checkbox-marked-outline: Yes | `None` |
 | dependencies | Mapping [[DependencyConfig](/assemblyline4_docs/odm/models/service/#dependencyconfig)] | Dependency configuration for service | :material-checkbox-marked-outline: Yes | See [DependencyConfig](/assemblyline4_docs/odm/models/service/#dependencyconfig) for more details. |
-| update_channel | Enum | What channel to watch for service updates?<br>Values:<br>`"rc", "dev", "stable", "beta"` | :material-checkbox-marked-outline: Yes | `stable` |
+| update_channel | Enum | What channel to watch for service updates?<br>Values:<br>`"beta", "dev", "rc", "stable"` | :material-checkbox-marked-outline: Yes | `stable` |
 | update_config | [UpdateConfig](/assemblyline4_docs/odm/models/service/#updateconfig) | Update configuration for fetching external resources | :material-minus-box-outline: Optional | `None` |
 
 
@@ -118,7 +118,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | default | Any | Default value (must match value in `value` field) | :material-checkbox-marked-outline: Yes | `[]` |
 | name | Keyword | Name of parameter | :material-checkbox-marked-outline: Yes | `[]` |
-| type | Enum | Type of parameter<br>Values:<br>`"str", "bool", "list", "int"` | :material-checkbox-marked-outline: Yes | `[]` |
+| type | Enum | Type of parameter<br>Values:<br>`"bool", "int", "list", "str"` | :material-checkbox-marked-outline: Yes | `[]` |
 | value | Any | Default value (must match value in `default` field) | :material-checkbox-marked-outline: Yes | `[]` |
 | list | Any | List of values if `type: list` | :material-minus-box-outline: Optional | `[]` |
 | hide | Boolean | Should this parameter be hidden? | :material-checkbox-marked-outline: Yes | `[]` |
@@ -134,7 +134,7 @@
 | sources | List [[UpdateSource](/assemblyline4_docs/odm/models/service/#updatesource)] | List of external sources | :material-checkbox-marked-outline: Yes | `[]` |
 | update_interval_seconds | Integer | Update check interval, in seconds | :material-checkbox-marked-outline: Yes | `None` |
 | wait_for_update | Boolean | Should the service wait for updates first? | :material-checkbox-marked-outline: Yes | `False` |
-| signature_delimiter | Enum | Delimiter used when given a list of signatures<br>Values:<br>`"space", "custom", "file", "none", "double_new_line", "new_line", "comma", "pipe"` | :material-checkbox-marked-outline: Yes | `double_new_line` |
+| signature_delimiter | Enum | Delimiter used when given a list of signatures<br>Values:<br>`"comma", "custom", "double_new_line", "file", "new_line", "none", "pipe", "space"` | :material-checkbox-marked-outline: Yes | `double_new_line` |
 | custom_delimiter | Keyword | Custom delimiter definition | :material-minus-box-outline: Optional | `None` |
 
 
