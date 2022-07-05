@@ -8,9 +8,10 @@ This is the list of all the services that are bundled with Assemblyline and that
 | ------------------| -- | -------------------- | ------------- |
 | APKaye            | Android APK | APKs are decompiled and inspected. Network indicators and information found in the APK manifest file are displayed | [link](https://github.com/CybercentreCanada/assemblyline-service-apkaye) |
 | Anti-virus        | Anti-virus | Generic ICAP client to integrate with most Anti-virus enterprise scanners | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
+| BatchDeobfuscator | .bat files | Deobfuscate batch file | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
 | Characterize      | Entropy analysis | Partitions the file and calculates visual entropy for each partition, extract Exif metadata | [link](https://github.com/CybercentreCanada/assemblyline-service-characterize) |
 | ConfigExtractor   | IoC extraction | Extract malware configuration file, allowing to get list of C2, encryption material etc. | [link](https://github.com/CybercentreCanada/assemblyline-service-configextractor) |
-| Cuckoo            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
+| CAPE            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cape)|
 | DeobfuScripter    | Deobfuscation | Static script de-obfuscator. The purpose is not to get surgical de-obfuscation, but rather to extract obfuscated IOCs. | [link](https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter)|
 | EmlParser         | Email |Parse emails using [GOVCERT-LU eml_parser library](https://github.com/GOVCERT-LU/eml_parser) while extracting header information, attachments, URIs | [link](https://github.com/CybercentreCanada/assemblyline-service-emlparser)|
 | Espresso          | Java | All classes are extracted, decompiled, and analyzed for malicious behavior | [link](https://github.com/CybercentreCanada/assemblyline-service-espresso)|
@@ -40,3 +41,11 @@ This is the list of all the services that are bundled with Assemblyline and that
 | VirusTotalStatic  | Anti-virus | This service performs a hash check against the VirusTotal API and returns the result |[link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-static) |
 | XLMMacroDeobfuscator | Office documents | Analyze Excel 4.0 macros |[link](https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator) |
 | YARA              | File signatures | Signature for file |[link](https://github.com/CybercentreCanada/assemblyline-service-yara) |
+
+
+
+End of life, no longer actively supported:
+
+| Service Name      | Speciality | Description | Source |
+| ------------------| -- | -------------------- | ------------- |
+| Cuckoo            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
