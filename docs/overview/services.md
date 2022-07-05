@@ -1,13 +1,13 @@
 # Assemblyline services
 
-Services currently installed on a system can be found under `Help > Service Listing`. 
+Services currently installed on a system can be found under `Help > Service Listing`.
 
 This is the list of all the services that are bundled with Assemblyline and that are maintained by the Assemblyline team:
 
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
 | APKaye            | Android APK | APKs are decompiled and inspected. Network indicators and information found in the APK manifest file are displayed | [link](https://github.com/CybercentreCanada/assemblyline-service-apkaye) |
-| Anti-virus        | Anti-virus | Generic ICAP client to integrate with most Anti-virus enterprise scanners | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
+| AntiVirus        | Anti-virus | Generic ICAP client to integrate with most Anti-virus enterprise scanners | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
 | BatchDeobfuscator | .bat files | Deobfuscate batch file | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
 | Characterize      | Entropy analysis | Partitions the file and calculates visual entropy for each partition, extract Exif metadata | [link](https://github.com/CybercentreCanada/assemblyline-service-characterize) |
 | ConfigExtractor   | IoC extraction | Extract malware configuration file, allowing to get list of C2, encryption material etc. | [link](https://github.com/CybercentreCanada/assemblyline-service-configextractor) |
@@ -18,8 +18,10 @@ This is the list of all the services that are bundled with Assemblyline and that
 | Extract           | Compressed file | This service extracts embedded files from file containers (like ZIP, RAR, 7z, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-extract)|
 | Floss             | IoC extraction  | Automatically extract obfuscated strings from malware using [FireEye Labs Obfuscated String Solver](https://github.com/fireeye/flare-floss) | [link](https://github.com/CybercentreCanada/assemblyline-service-floss)|
 | FrankenStrings    | IoC extraction | This service performs file and IOC extractions using pattern matching, simple encoding decoder and script de-obfuscators | [link](https://github.com/CybercentreCanada/assemblyline-service-frankenstrings)|
+| IntezerDynamic    | File genome identification | Interface between Intezer Analyze API 2.0 | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-dynamic)|
+| IntezerStatic     | File genome identification | Interface between Intezer Analyze API 2.0 | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-static)|
 | IPArse            | Apple IOS | Analyze Apple apps | [link](https://github.com/CybercentreCanada/assemblyline-service-iparse)|
-| JSJaws            | Javascript | Analyze malicious Javascript | [link](https://github.com/CybercentreCanada/assemblyline-service-jsjaws)|
+| JsJaws            | Javascript | Analyze malicious Javascript | [link](https://github.com/CybercentreCanada/assemblyline-service-jsjaws)|
 | MetaDefender      | Anti-virus | Service for OPSWAT MetaDefender anti-virus (multi-engine) | [link](https://github.com/CybercentreCanada/assemblyline-service-metadefender)|
 | MetaPeek          | Meta data analysis | Checks submission metadata for indicators of potential malicious behavior (double file extensions, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-metapeek)|
 | Oletools          | Office documents | This service extracts metadata, network information and reports anomalies in Microsoft OLE and XML documents using the [Python library py-oletools](https://github.com/decalage2/oletools) by Philippe Lagadec - http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-oletools)|
@@ -49,3 +51,4 @@ End of life, no longer actively supported:
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
 | Cuckoo            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
+| Lastline          | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-lastline) |
