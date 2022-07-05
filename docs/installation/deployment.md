@@ -41,8 +41,8 @@ As for the Docker compose appliance deployment, it uses a simpler stack which is
 
 Now that you know the difference between the two types of deployment, you can refer to their respective installation instruction to get you started.
 
-* [Appliance installation (Docker)](../appliance_docker)
-* [Appliance installation (Microk8s)](../appliance)
+* [Appliance installation (Docker)](../appliance/docker)
+* [Appliance installation (Microk8s)](../appliance/kubernetes-microk8s)
 * [Cluster installation](../cluster)
 
 !!! tip
