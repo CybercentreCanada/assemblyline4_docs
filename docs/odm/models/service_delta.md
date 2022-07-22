@@ -7,7 +7,7 @@
 | accepts | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | rejects | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | category | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
-| config | Mapping [Any] | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
+| config | Mapping [String, Any] | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | description | Text | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | default_result_classification | ClassificationString | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | enabled | Boolean | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
@@ -25,7 +25,7 @@
 | submission_params | List [[SubmissionParamsDelta](/assemblyline4_docs/odm/models/service_delta/#submissionparamsdelta)] | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | timeout | Integer | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | docker_config | [DockerConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dockerconfigdelta) | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
-| dependencies | Mapping [[DependencyConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dependencyconfigdelta)] | Refer to:<br>[Service](../service/#service) | :material-checkbox-marked-outline: Yes | See [DependencyConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dependencyconfigdelta) for more details. |
+| dependencies | Mapping [String, [DependencyConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dependencyconfigdelta)] | Refer to:<br>[Service](../service/#service) | :material-checkbox-marked-outline: Yes | See [DependencyConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dependencyconfigdelta) for more details. |
 | update_channel | Enum | Refer to:<br>[Service](../service/#service)<br>Values:<br>`"beta", "dev", "rc", "stable"` | :material-minus-box-outline: Optional | `None` |
 | update_config | [UpdateConfigDelta](/assemblyline4_docs/odm/models/service_delta/#updateconfigdelta) | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 
@@ -37,7 +37,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | container | [DockerConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dockerconfigdelta) | Refer to:<br>[Service - DependencyConfig](../service/#dependencyconfig) | :material-minus-box-outline: Optional | `None` |
-| volumes | Mapping [[PersistentVolumeDelta](/assemblyline4_docs/odm/models/service_delta/#persistentvolumedelta)] | Refer to:<br>[Service - DependencyConfig](../service/#dependencyconfig) | :material-checkbox-marked-outline: Yes | See [PersistentVolumeDelta](/assemblyline4_docs/odm/models/service_delta/#persistentvolumedelta) for more details. |
+| volumes | Mapping [String, [PersistentVolumeDelta](/assemblyline4_docs/odm/models/service_delta/#persistentvolumedelta)] | Refer to:<br>[Service - DependencyConfig](../service/#dependencyconfig) | :material-checkbox-marked-outline: Yes | See [PersistentVolumeDelta](/assemblyline4_docs/odm/models/service_delta/#persistentvolumedelta) for more details. |
 | run_as_core | Boolean | Refer to:<br>[Service - DependencyConfig](../service/#dependencyconfig) | :material-minus-box-outline: Optional | `None` |
 
 

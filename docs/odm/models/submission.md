@@ -57,7 +57,7 @@
 | psid | UUID | Parent submission ID | :material-minus-box-outline: Optional | `None` |
 | quota_item | Boolean | Does this submission count against quota? | :material-checkbox-marked-outline: Yes | `False` |
 | services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
-| service_spec | Mapping [Mapping] | Service-specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
+| service_spec | Mapping [String, Mapping [String, Any]] | Service-specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
 | submitter | Keyword | User who submitted the file | :material-checkbox-marked-outline: Yes | `None` |
 | ttl | Integer | Time, in days, to live for this submission | :material-checkbox-marked-outline: Yes | `0` |
 | type | Keyword | Type of submission | :material-checkbox-marked-outline: Yes | `USER` |

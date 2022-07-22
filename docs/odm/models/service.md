@@ -7,7 +7,7 @@
 | accepts | Keyword | Regex to accept files as identified by Assemblyline | :material-checkbox-marked-outline: Yes | `.*` |
 | rejects | Keyword | Regex to reject files as identified by Assemblyline | :material-minus-box-outline: Optional | `empty|metadata/.*` |
 | category | Keyword | Which category does this service belong to? | :material-checkbox-marked-outline: Yes | `Static Analysis` |
-| config | Mapping [Any] | Service Configuration | :material-checkbox-marked-outline: Yes | `{}` |
+| config | Mapping [String, Any] | Service Configuration | :material-checkbox-marked-outline: Yes | `{}` |
 | description | Text | Description of service | :material-checkbox-marked-outline: Yes | `NA` |
 | default_result_classification | ClassificationString | Default classification assigned to service results | :material-checkbox-marked-outline: Yes | `TLP:W` |
 | enabled | Boolean | Is the service enabled (by default)? | :material-checkbox-marked-outline: Yes | `False` |
@@ -25,7 +25,7 @@
 | submission_params | List [[SubmissionParams](/assemblyline4_docs/odm/models/service/#submissionparams)] | Submission parameters of service | :material-checkbox-marked-outline: Yes | `[]` |
 | timeout | Integer | Service task timeout, in seconds | :material-checkbox-marked-outline: Yes | `60` |
 | docker_config | [DockerConfig](/assemblyline4_docs/odm/models/service/#dockerconfig) | Docker configuration for service | :material-checkbox-marked-outline: Yes | `None` |
-| dependencies | Mapping [[DependencyConfig](/assemblyline4_docs/odm/models/service/#dependencyconfig)] | Dependency configuration for service | :material-checkbox-marked-outline: Yes | See [DependencyConfig](/assemblyline4_docs/odm/models/service/#dependencyconfig) for more details. |
+| dependencies | Mapping [String, [DependencyConfig](/assemblyline4_docs/odm/models/service/#dependencyconfig)] | Dependency configuration for service | :material-checkbox-marked-outline: Yes | See [DependencyConfig](/assemblyline4_docs/odm/models/service/#dependencyconfig) for more details. |
 | update_channel | Enum | What channel to watch for service updates?<br>Values:<br>`"beta", "dev", "rc", "stable"` | :material-checkbox-marked-outline: Yes | `stable` |
 | update_config | [UpdateConfig](/assemblyline4_docs/odm/models/service/#updateconfig) | Update configuration for fetching external resources | :material-minus-box-outline: Optional | `None` |
 
@@ -37,7 +37,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | container | [DockerConfig](/assemblyline4_docs/odm/models/service/#dockerconfig) | Docker container configuration for dependency | :material-checkbox-marked-outline: Yes | `None` |
-| volumes | Mapping [[PersistentVolume](/assemblyline4_docs/odm/models/service/#persistentvolume)] | Volume configuration for dependency | :material-checkbox-marked-outline: Yes | See [PersistentVolume](/assemblyline4_docs/odm/models/service/#persistentvolume) for more details. |
+| volumes | Mapping [String, [PersistentVolume](/assemblyline4_docs/odm/models/service/#persistentvolume)] | Volume configuration for dependency | :material-checkbox-marked-outline: Yes | See [PersistentVolume](/assemblyline4_docs/odm/models/service/#persistentvolume) for more details. |
 | run_as_core | Boolean | Should this dependency run as other core components? | :material-checkbox-marked-outline: Yes | `False` |
 
 

@@ -156,7 +156,7 @@
 | lib | List [Keyword] | File Libraries | :material-minus-box-outline: Optional | `None` |
 | name | [FileName](/assemblyline4_docs/odm/models/tagging/#filename) | File Name | :material-minus-box-outline: Optional | `None` |
 | path | List [Keyword] | File Path | :material-minus-box-outline: Optional | `None` |
-| rule | Mapping [List] | Rule/Signature File | :material-minus-box-outline: Optional | `None` |
+| rule | Mapping [String, List [Keyword]] | Rule/Signature File | :material-minus-box-outline: Optional | `None` |
 | string | [FileStrings](/assemblyline4_docs/odm/models/tagging/#filestrings) | File Strings Properties | :material-minus-box-outline: Optional | `None` |
 | apk | [FileAPK](/assemblyline4_docs/odm/models/tagging/#fileapk) | APK File Properties | :material-minus-box-outline: Optional | `None` |
 | jar | [FileJAR](/assemblyline4_docs/odm/models/tagging/#filejar) | JAR File Properties | :material-minus-box-outline: Optional | `None` |

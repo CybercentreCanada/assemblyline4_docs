@@ -22,7 +22,7 @@
 | fileinfo | [FileInfo](/assemblyline4_docs/odm/messages/task/#fileinfo) | File info block | :material-checkbox-marked-outline: Yes | `None` |
 | filename | Keyword | File name | :material-checkbox-marked-outline: Yes | `None` |
 | service_name | Keyword | Service name | :material-checkbox-marked-outline: Yes | `None` |
-| service_config | Mapping [Any] | Service specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
+| service_config | Mapping [String, Any] | Service specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
 | depth | Integer | File depth relative to initital submitted file | :material-checkbox-marked-outline: Yes | `0` |
 | max_files | Integer | Maximum number of files that submission can have | :material-checkbox-marked-outline: Yes | `None` |
 | ttl | Integer | Task TTL | :material-checkbox-marked-outline: Yes | `0` |

@@ -35,10 +35,10 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | request_uri | URI | The URI requested | :material-checkbox-marked-outline: Yes | `None` |
-| request_headers | Mapping [Json] | Headers included in the request | :material-checkbox-marked-outline: Yes | `None` |
+| request_headers | Mapping [String, Json] | Headers included in the request | :material-checkbox-marked-outline: Yes | `None` |
 | request_body | Text | The body of the request | :material-minus-box-outline: Optional | `None` |
 | request_method | Enum | The method of the request<br>Values:<br>`"BCOPY", "BDELETE", "BMOVE", "BPROPFIND", "BPROPPATCH", "CONNECT", "COPY", "DELETE", "GET", "HEAD", "LOCK", "MKCOL", "MOVE", "NOTIFY", "OPTIONS", "PATCH", "POLL", "POST", "PROPFIND", "PROPPATCH", "PUT", "SEARCH", "SUBSCRIBE", "TRACE", "UNLOCK", "UNSUBSCRIBE", "X-MS-ENUMATTS"` | :material-checkbox-marked-outline: Yes | `None` |
-| response_headers | Mapping [Json] | Headers included in the response | :material-checkbox-marked-outline: Yes | `None` |
+| response_headers | Mapping [String, Json] | Headers included in the response | :material-checkbox-marked-outline: Yes | `None` |
 | response_status_code | Integer | The status code of the response | :material-minus-box-outline: Optional | `None` |
 | response_body | Text | The body of the response | :material-minus-box-outline: Optional | `None` |
 

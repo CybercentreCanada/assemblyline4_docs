@@ -11,7 +11,7 @@
 | heur_id | Keyword | ID of the Heuristic | :material-checkbox-marked-outline: Yes | `None` |
 | name | Keyword | Name of the heuristic | :material-checkbox-marked-outline: Yes | `None` |
 | score | Integer | Default score of the heuristic | :material-checkbox-marked-outline: Yes | `None` |
-| signature_score_map | Mapping [Integer] | Score of signatures for this heuristic | :material-checkbox-marked-outline: Yes | `{}` |
+| signature_score_map | Mapping [String, Integer] | Score of signatures for this heuristic | :material-checkbox-marked-outline: Yes | `{}` |
 | stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | Statistics related to the Heuristic | :material-checkbox-marked-outline: Yes | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
 | max_score | Integer | Maximum score for heuristic | :material-minus-box-outline: Optional | `None` |
 

@@ -19,6 +19,6 @@
 | host | Keyword | Host that generated metric | :material-checkbox-marked-outline: Yes | `None` |
 | type | Keyword | Type of metric | :material-checkbox-marked-outline: Yes | `None` |
 | name | Keyword | Metric name | :material-checkbox-marked-outline: Yes | `None` |
-| metrics | Mapping [Integer] | Metric value | :material-checkbox-marked-outline: Yes | `None` |
+| metrics | Mapping [String, Integer] | Metric value | :material-checkbox-marked-outline: Yes | `None` |
 
 

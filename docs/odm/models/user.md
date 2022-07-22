@@ -6,8 +6,8 @@
 | :--- | :--- | :--- | :--- | :--- |
 | agrees_with_tos | Date | Date the user agree with terms of service | :material-minus-box-outline: Optional | `None` |
 | api_quota | Integer | Maximum number of concurrent API requests | :material-checkbox-marked-outline: Yes | `10` |
-| apikeys | Mapping [[ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | :material-checkbox-marked-outline: Yes | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
-| apps | Mapping [[Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | :material-checkbox-marked-outline: Yes | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
+| apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | :material-checkbox-marked-outline: Yes | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
+| apps | Mapping [String, [Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | :material-checkbox-marked-outline: Yes | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
 | can_impersonate | Boolean | Allowed to query on behalf of others? | :material-checkbox-marked-outline: Yes | `False` |
 | classification | Classification | Maximum classification for the user | :material-checkbox-marked-outline: Yes | `TLP:W` |
 | dn | Keyword | User's LDAP DN | :material-minus-box-outline: Optional | `None` |
@@ -19,7 +19,7 @@
 | password | Keyword | BCrypt hash of the user's password | :material-checkbox-marked-outline: Yes | `None` |
 | submission_quota | Integer | Maximum number of concurrent submissions | :material-checkbox-marked-outline: Yes | `5` |
 | type | List [Enum] | Type of user | :material-checkbox-marked-outline: Yes | `['user']` |
-| security_tokens | Mapping [Keyword] | Map of security tokens | :material-checkbox-marked-outline: Yes | `{}` |
+| security_tokens | Mapping [String, Keyword] | Map of security tokens | :material-checkbox-marked-outline: Yes | `{}` |
 | uname | Keyword | Username | :material-checkbox-marked-outline: Yes | `None` |
 
 
