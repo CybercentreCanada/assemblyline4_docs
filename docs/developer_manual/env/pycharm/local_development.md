@@ -260,8 +260,7 @@ Clone Assemblyline's services repositories
     git clone git@github.com:CybercentreCanada/assemblyline-service-unpacker.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-unpacme.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-vipermonkey.git
-    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-dynamic.git
-    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal-static.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-virustotal.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-yara.git
     ```
@@ -298,8 +297,7 @@ Clone Assemblyline's services repositories
     git clone https://github.com/CybercentreCanada/assemblyline-service-unpacker.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-unpacme.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-vipermonkey.git
-    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic.git
-    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal-static.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-virustotal.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-yara.git
     ```

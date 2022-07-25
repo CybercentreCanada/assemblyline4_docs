@@ -39,8 +39,7 @@ This is the list of all the services that are bundled with Assemblyline and that
 | Unpacker          | UPX Unpacker | This service unpacks UPX packed executables for further analysis |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacker)|
 | Unpac.me          | Unpacker | Integrate with [unpac.me](https://www.unpac.me) |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacme)|
 | ViperMonkey       | Office documents | [ViperMonkey](https://github.com/decalage2/ViperMonkey) is a VBA Emulation engine by http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-vipermonkey)|
-| VirusTotalDynamic | Anti-virus | This service submits the files/URLs to VirusTotal and returns the results |[link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic) |
-| VirusTotalStatic  | Anti-virus | This service performs a hash check against the VirusTotal API and returns the result |[link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-static) |
+| VirusTotal | Anti-virus | This service checks (and optionally submits) files/URLs to VirusTotal for analysis. | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal) |
 | XLMMacroDeobfuscator | Office documents | Analyze Excel 4.0 macros |[link](https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator) |
 | YARA              | File signatures | Signature for file |[link](https://github.com/CybercentreCanada/assemblyline-service-yara) |
 
