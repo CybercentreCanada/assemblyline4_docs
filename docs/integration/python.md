@@ -15,7 +15,7 @@ You can instantiate the client by using the following snippet of Python code:
 ??? info "When connecting to Assemblyline, you can also provide a certificate for SSL or ignore the certificate error"
     ``` python
         al_client = get_client(..., verify='/path/to/server.crt')
-    
+
         al_client = get_client(..., verify=False)
     ```
 
@@ -32,7 +32,7 @@ You can instantiate the client by using the following snippet of Python code:
     al_client = get_client("https://yourdomain:443", auth=('user', 'password'))
     ```
 === "Certificate"
- 
+
     ``` python
     from assemblyline_client import get_client
     # and if your Assemblyline server is using a self-signed certificate
@@ -42,7 +42,7 @@ You can instantiate the client by using the following snippet of Python code:
 ??? tip "The client is fully documented in the docstrings so that you can use the 'help' feature of IPython or Jupyter Notebook"
     ``` python
         al_client.search.alert?
-        
+
         Signature: al_client.search.alert(
             query,
             filters=None,
@@ -94,14 +94,14 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
 
     ```python
     # Submission parameters (works for both Ingest and Submit)
-    settings = { 
+    settings = {
         'classification' : 'TLP:A',     # classification
         'description' : 'Hello world',  # file description
         'name' : 'filename',            # file name
         'deep_scan' : False,            # activate deep scan mode
         'priority' : 1000,              # queue priority (the higher the number, the higher the priority)
         'ignore_cache' : False,         # ignore system cache
-        'services' : {                  
+        'services' : {
             'selected' : [              # selected service list (override user profile)
                 'Cuckoo','Extract'
             ],
@@ -122,7 +122,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
     }
     ```
 
-    You can find all parameters and their default values in the [SubmissionParams class](https://github.com/CybercentreCanada/assemblyline-base/blob/fc5f8216e7fa59d9421ff626927d9602e5a3430c/assemblyline/odm/models/submission.py#L41).
+    You can find all parameters and their default values in the [SubmissionParams class](../../odm/models/submission/#submissionparams).
 
 !!! tip "For submitting a URL instead of a file, use the `url` argument instead of `path`"
 
@@ -133,7 +133,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
     * By passing the argument `alert=True`, the system will generate an alert if the score is over 500
     * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has completed
         * If you don't need to know about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
-    
+
     ```python
     ingest_id = al_client.ingest(path='/pathto/file.txt', nq='my_queue_name', params=settings, metadata=my_meta)
 
@@ -145,7 +145,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
         if message is None:
             sleep(1)    # Poll every second
         else:
-            do something ...        
+            do something ...
     ```
 === "Submit"
     ```python
@@ -195,44 +195,44 @@ In case you don't want to use Python code to interface with the Assemblyline cli
 You can view the user options via `al-submit --help`.
 ??? example "(Optional) Configuration file example"
     Rather than passing authentication and server details as parameters in a command-line, you can use a configuration file.
-    This configuration file should be placed at `~/.al/submit.cfg`. A template for this configuration 
+    This configuration file should be placed at `~/.al/submit.cfg`. A template for this configuration
     file can be found below.
     NOTE: You can use `=` or `:` as the delimiter between key and value.
     ``` python
     [auth]
     #   Username for the Assemblyline account.
-    user = 
+    user =
     #   There are three methods to authenticate a user account. Choose one:
     #   - Password Provided via User Prompt
     #       Leave the `password' configuration value below empty.
     #   - Password Provided in Configuration File
     #       Enter the password for the Assemblyline account in plaintext.
-    password = 
+    password =
     #   - API Key in Configuration File
     #       Enter the API key to use in plaintext for the user to login.
     #       NOTE: The API key must have WRITE access for INGEST and WRITE+READ for SUBMIT.
-    apikey = 
-    # Skip server cert validation. 
+    apikey =
+    # Skip server cert validation.
     # Value can be one of: true, false, yes, no
     # If not supplied, the default value is: false
-    insecure = 
+    insecure =
     [server]
-    # Method of network transport. 
+    # Method of network transport.
     # If not supplied, the default value is: https
-    transport = 
+    transport =
     # Domain of Assemblyline instance.
     # If not supplied, the default value is: localhost
-    host = 
+    host =
     # Port to which traffic will be sent.
     # If not supplied, the default value is: 443
-    port = 
+    port =
     # Server cert used to connect to server.
-    cert = 
+    cert =
     ```
 
 ## Mass Submission Toolkit
 The [Assemblyline Incident Manager](https://github.com/CybercentreCanada/assemblyline-incident-manager) can assist you with this process.
 
-One key consideration for a very large volume of files in a burst is the [default sampling values](https://github.com/CybercentreCanada/assemblyline-base/blob/9d4ab5586ff34ae20e3a08e9584776379fc981e9/assemblyline/odm/models/config.py#L392-L396).
+One key consideration for a very large volume of files in a burst is the `default sampling values` in the [Ingester Configuration](../../odm/models/config/#ingester).
 
 You must keep your ingestion flow at a rate such that the size of the priority ingestion queue remains lower than the corresponding priority queue `sampling_at` values, otherwise, Assemblyline will skip files.
