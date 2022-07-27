@@ -75,6 +75,10 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
             configMap:
               name: internal-certs-config
         ```
+    ??? question "Ignoring ingress because of error while validating ingress class" ingress="<namespace\>/<release\>-ingress" error="no object matching key "nginx" in local store"
+        This error can typically happen if the Assemblyline ingress' class name doesn't match the class name of the ingress controller on the system. You can fix this by
+        assigning the name of the class to `ingressClassName` in your values.yaml and re-deploy.
+
 
 
 === "Services"

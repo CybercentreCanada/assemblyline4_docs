@@ -31,13 +31,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
     ```bash
     sudo apt install git
     ```
-    5. Install ingress controller:
-    ```bash
-    sudo microk8s kubectl create ns ingress
-    sudo microk8s helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-    sudo microk8s helm repo update
-    sudo microk8s helm install ingress-nginx ingress-nginx/ingress-nginx --set controller.hostPort.enabled=true -n ingress
-    ```
 === "Offline"
 
     1. Download offline packages (On an internet-connected system):
@@ -62,7 +55,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
         # Download dependency helm charts
         helm dependency update assemblyline-helm-chart/assemblyline/
         ```
-        Fetch  container images. Be sure to check you have the correct image tags as specified (https://github.com/canonical/microk8s-addons/blob/main/addons)
+        Fetch  container images. Be sure to check you have the correct image tags as specified [microk8s-community-addons](https://github.com/canonical/microk8s-community-addons/tree/main/addons)
         === "All-in-One"
             ```bash
             # Calico CNI
@@ -172,7 +165,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
                 docker pull calico/kube-controllers:v3.17.3 && docker save calico/kube-controllers:v3.17.3 >> calico_kube-controllers.tar
                 ```
             === "MicroK8s addons"
-                Refer to: [microk8s-addons](https://github.com/canonical/microk8s-addons/blob/main/addons)
+                Refer to: [microk8s-community-addons](https://github.com/canonical/microk8s-community-addons/tree/main/addons)
                 ```bash
                 # Kubernetes DNS
                 for container_image in "k8s-dns-kube-dns" "k8s-dns-dnsmasq-nanny" "k8s-dns-sidecar"
