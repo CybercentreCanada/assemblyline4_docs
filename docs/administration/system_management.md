@@ -3,7 +3,7 @@
 ## Assemblyline Major Upgrades
 
 ### Pause Processing
-If upgrading the framework version (4.X → 4.Y, where X > Y) starting from [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121)+ or if performing an other major change that affects Assemblyline, it's strongly recommended to pause the ingester and dispatcher and allow services to complete what's currently been tasked to them. This can be done by:
+If upgrading the framework version (4.X → 4.Y, where X < Y) starting from [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121)+ or if performing an other major change that affects Assemblyline, it's strongly recommended to pause the ingester and dispatcher and allow services to complete what's currently been tasked to them. This can be done by:
 
  - Changing the state(s) using the `/api/v4/system/status/<component>/` API and setting the variable `active=false`
  - Using the toggle found in the Dashboard and switching Dispatcher/Ingester to the disabled state.
