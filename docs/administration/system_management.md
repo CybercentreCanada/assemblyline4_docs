@@ -3,7 +3,7 @@
 ## Assemblyline Major Upgrades
 
 ### Pause Processing
-If upgrading the framework version (4.X → 4.Y, where X < Y) starting from [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121)+ or if performing an other major change that affects Assemblyline, it's strongly recommended to pause the ingester and dispatcher and allow services to complete what's currently been tasked to them. This can be done by:
+If upgrading the framework version (4.X → 4.Y, where X < Y) starting from [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121)+ or if performing another major change that affects Assemblyline, it's strongly recommended to pause the Ingester and Dispatcher and allow services to complete what's currently been tasked to them. This can be done by:
 
  - Changing the state(s) using the `/api/v4/system/status/<component>/` API and setting the variable `active=false`
  - Using the toggle found in the Dashboard and switching Dispatcher/Ingester to the disabled state.
@@ -13,7 +13,7 @@ This ensures that if there are any breaking changes between the core and service
 This also gives an extended period to upgrade services to the compatible framework version before resuming processing.
 
 !!! danger
-    Systems upgrading before [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121) are strongly advised to upgrade to that release at a minimum and pause the ingester/dispatcher before proceeding to upgrade to later releases. Alternatively, you can stop submitting files to your system and let existing submissions complete and then perform the upgrade.
+    Systems upgrading before [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121) are strongly advised to upgrade to that release at a minimum and pause the Ingester/Dispatcher before proceeding to upgrade to later releases. Alternatively, you can stop submitting files to your system and let existing submissions complete and then perform the upgrade.
 
 ### Upgrade Deployment (Core)
 At this stage, you're ready to upgrade the core system and you shouldn't have any services actively processing.
@@ -30,7 +30,7 @@ Depending on the type of deployment (Kubernetes/Docker), the method of upgrading
  ```
 
 ### (Optional) Upgrade Services to Compatible Framework
-At this stage, you're deployment has been successfully upgraded and your core components should be upgraded to a newer framework release.
+At this stage, your deployment has been successfully upgraded and your core components should be upgraded to a newer framework release.
 
 While the system is still paused, on the Services page you should find that all your services are in a disabled state as they're assumed to be incompatible with the rest of the system. If using public services, there should be advertisements to upgrade to the latest compatible version.
 
