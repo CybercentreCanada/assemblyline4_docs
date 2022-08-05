@@ -49,7 +49,7 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
         The quickest way to monitor the status of your cluster is:
         ```kubectl get pods -n <assemblyline_namespace>```
 
-        There are other tools such as [k9s](https://k9scli.io/) and [Lens](https://k8slens.dev/) that allow you to monitor your cluster in a more user-friendly manner.
+        There are other tools such as [k9s](https://k9scli.io/) and [OpenLens](https://github.com/MuhammedKalkan/OpenLens/) (an OSS fork of [Lens](https://k8slens.dev/)) that allow you to monitor your cluster in a more user-friendly manner.
     ??? question "Are HPAs adjustable?"
         Depending on the amount of activity you're receiving, you'll likely have to tweak the *TargetUsage and *ReqRam settings in your values.yaml for your particular deployment, either to cause it to scale faster or slower.
 

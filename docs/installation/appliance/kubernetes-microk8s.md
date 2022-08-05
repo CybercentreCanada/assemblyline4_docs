@@ -254,7 +254,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
             # sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
             # sudo ln -s /snap/bin/kubectl /var/snap/microk8s/current/bin/kubectl
 
-            # (Optional) Install additional Kubernetes monitoring tools like k9s or Lens
+            # (Optional) Install additional Kubernetes monitoring tools like k9s or OpenLens
             ```
 
 ??? note "Adding more nodes (optional)"
@@ -359,15 +359,20 @@ sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyli
 
 ## Quality of life improvements
 
-### Lens IDE
-If the computer on which your microk8s deployment is installed has a desktop interface, I strongly suggest that you use K8s Lens IDE to manage the system
+### OpenLens IDE
+If the computer on which your microk8s deployment is installed has a desktop interface, we strongly suggest that you use an IDE like OpenLens to manage the system
 
-#### Install Lens
+#### Install OpenLens
+You'll have to fetch the appropriate installation file from [OpenLens releases](https://github.com/MuhammedKalkan/OpenLens/releases) and use your package manager to install manually:
 ```bash
-sudo snap install kontena-lens --classic
+# Ubuntu
+sudo snap install -y /path/to/OpenLens*.deb
 ```
-#### Configure Lens
-After you run Lens for the first time, click the "Add cluster" menu/button, select the paste as text tab and paste the output of the following command:
+
+If monitoring from a Windows system, Microsoft's SmartScreen will detect the file as being unrecognized and block execution. This can be resolved by checking 'Unblock' in the file's properties.
+
+#### Configure OpenLens
+After you run OpenLens for the first time, click the "Add cluster" menu/button, select the paste as text tab and paste the output of the following command:
 ```bash
 sudo microk8s kubectl config view --raw
 ```
