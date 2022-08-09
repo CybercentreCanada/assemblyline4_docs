@@ -436,6 +436,7 @@
 | imphash | List [MD5] | Imphash | :material-minus-box-outline: Optional | `None` |
 | sorted_fuzzy | List [SSDeepHash] | Sorted Fuzzy | :material-minus-box-outline: Optional | `None` |
 | sorted_sha1 | List [SHA1] | Sorted SHA1 | :material-minus-box-outline: Optional | `None` |
+| gimphash | List [SHA256] | Go Import hash | :material-minus-box-outline: Optional | `None` |
 | suspicious | List [Keyword] | Suspicious | :material-minus-box-outline: Optional | `None` |
 
 
