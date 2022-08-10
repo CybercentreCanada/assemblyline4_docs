@@ -27,7 +27,7 @@ There are no sub-configuration fields of the `raise_alert` field, it is either t
 
 ### Resubmit
 
-The `resubmit` action, when not null, must be a [ResubmitOptions](../../odm/models/actions/#resubmitoptions) object. The `additional_services` field is a list of services to resubmit to _in addition to_ the services given by a submission's `params.services.resubmit` parameter. The `random_below` parameter lets you further filter selected submissions by their max score, only randomly accepting submissions with score between 0 and the given value. The distribution is exponential with low scoring submissions being ignored more often.
+The `resubmit` action, when not null, must be a [ResubmitOptions](../../odm/models/actions/#resubmitoptions) object. The `additional_services` field is a list of services to resubmit to _in addition to_ the services given by a submission's `params.services.resubmit` parameter provided at submission or ingestion. The `random_below` parameter lets you further filter selected submissions by their max score, only randomly accepting submissions with score between 0 and the given value. The distribution is exponential with low scoring submissions being ignored more often.
 
 ### Webhook
 
