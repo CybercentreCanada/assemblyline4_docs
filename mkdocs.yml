@@ -69,6 +69,7 @@ nav:
   - administration/system_safelist.md
   - administration/user_management.md
   - administration/troubleshooting.md
+  - administration/submission_actions.md
 - Integration:
   - integration/ingestion_method.md
   - integration/key_generation.md
