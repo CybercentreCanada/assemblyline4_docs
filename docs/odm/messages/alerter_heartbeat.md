@@ -41,5 +41,6 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | alert | Integer | Number of alerts in queue | :material-checkbox-marked-outline: Yes | `None` |
+| alert_retry | Integer | Number of alerts in retry queue | :material-checkbox-marked-outline: Yes | `None` |
 
 
