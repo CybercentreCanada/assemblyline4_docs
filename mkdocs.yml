@@ -118,6 +118,7 @@ nav:
       - ResultOntology: odm/models/ontology/ontology.md
       - Results:
         - Antivirus: odm/models/ontology/results/antivirus.md
+        - MalwareConfig: odm/models/ontology/results/malware_config.md
         - NetworkConnection: odm/models/ontology/results/network.md
         - Process: odm/models/ontology/results/process.md
         - Sandbox: odm/models/ontology/results/sandbox.md

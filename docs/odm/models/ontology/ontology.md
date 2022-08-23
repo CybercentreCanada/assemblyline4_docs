@@ -36,6 +36,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | antivirus | List [[Antivirus](/assemblyline4_docs/odm/models/ontology/results/antivirus/#antivirus)] | List of Antivirus Ontologies | :material-minus-box-outline: Optional | `None` |
+| malwareconfig | List [[MalwareConfig](/assemblyline4_docs/odm/models/ontology/results/malware_config/#malwareconfig)] | List of MalwareConfig Ontologies | :material-minus-box-outline: Optional | `None` |
 | netflow | List [[NetworkConnection](/assemblyline4_docs/odm/models/ontology/results/network/#networkconnection)] | List of Network Ontologies | :material-minus-box-outline: Optional | `None` |
 | process | List [[Process](/assemblyline4_docs/odm/models/ontology/results/process/#process)] | List of Process Ontologies | :material-minus-box-outline: Optional | `None` |
 | sandbox | List [[Sandbox](/assemblyline4_docs/odm/models/ontology/results/sandbox/#sandbox)] | List of Sandbox Ontologies | :material-minus-box-outline: Optional | `None` |
