@@ -488,7 +488,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| categories | List [Keyword] | List of categories a service can be assigned to | :material-checkbox-marked-outline: Yes | `['Antivirus', 'Dynamic Analysis', 'External', 'Extraction', 'Filtering', 'Networking', 'Static Analysis']` |
+| categories | List [Keyword] | List of categories a service can be assigned to | :material-checkbox-marked-outline: Yes | `['Antivirus', 'Dynamic Analysis', 'External', 'Extraction', 'Filtering', 'Internet Connected', 'Networking', 'Static Analysis']` |
 | default_timeout | Integer | Default service timeout time in seconds | :material-checkbox-marked-outline: Yes | `60` |
 | min_service_workers | Integer | The minimum number of service instances to always be running. | :material-checkbox-marked-outline: Yes | `0` |
 | stages | List [Keyword] | List of execution stages a service can be assigned to | :material-checkbox-marked-outline: Yes | `['FILTER', 'EXTRACT', 'CORE', 'SECONDARY', 'POST']` |

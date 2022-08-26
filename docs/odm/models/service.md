@@ -15,6 +15,7 @@
 | licence_count | Integer | How many licences is the service allowed to use? | :material-checkbox-marked-outline: Yes | `0` |
 | max_queue_length | Integer | If more than this many jobs are queued for this service drop those over this limit. 0 is unlimited. | :material-checkbox-marked-outline: Yes | `0` |
 | uses_tags | Boolean | Does this service use tags from other services for analysis? | :material-checkbox-marked-outline: Yes | `False` |
+| uses_tag_scores | Boolean | Does this service use scores of tags from other services for analysis? | :material-checkbox-marked-outline: Yes | `False` |
 | uses_temp_submission_data | Boolean | Does this service use temp data from other services for analysis? | :material-checkbox-marked-outline: Yes | `False` |
 | uses_metadata | Boolean | Does this service use submission metadata for analysis? | :material-checkbox-marked-outline: Yes | `False` |
 | name | Keyword | Name of service | :material-checkbox-marked-outline: Yes | `None` |

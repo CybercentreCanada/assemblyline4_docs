@@ -67,8 +67,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| type | Keyword | None | :material-checkbox-marked-outline: Yes | `[]` |
-| value | Keyword | None | :material-checkbox-marked-outline: Yes | `[]` |
-| short_type | Keyword | None | :material-checkbox-marked-outline: Yes | `[]` |
+| type | Keyword | Type of tag item | :material-checkbox-marked-outline: Yes | `[]` |
+| value | Keyword | Value of tag item | :material-checkbox-marked-outline: Yes | `[]` |
+| short_type | Keyword | Short version of tag type | :material-checkbox-marked-outline: Yes | `[]` |
+| score | Integer | Score of tag item | :material-minus-box-outline: Optional | `[]` |
 
 

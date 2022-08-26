@@ -15,6 +15,7 @@
 | licence_count | Integer | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | max_queue_length | Integer | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | uses_tags | Boolean | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
+| uses_tag_scores | Boolean | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | uses_temp_submission_data | Boolean | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | uses_metadata | Boolean | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | name | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
