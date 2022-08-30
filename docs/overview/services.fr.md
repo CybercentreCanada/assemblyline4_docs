@@ -6,13 +6,17 @@ Cette liste contient tous les services inclus et maintenue avec Assemblyline:
 
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
+| APIVector         | Windows binaries | Extrait les imports de fichiers PE files ou mémoire pour générer un vecteur de classification. | [link](https://github.com/CybercentreCanada/assemblyline-service-apivector) |
 | APKaye            | Android APK | Les APK sont décompilés et inspectés. Les indicateurs de réseau et les informations trouvées dans le fichier manifeste APK sont affichés | [link](https://github.com/CybercentreCanada/assemblyline-service-apkaye) |
-| Anti-virus        | Anti-virus | Client ICAP générique à intégrer à la plupart des scanners antivirus d'entreprise | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
-| BatchDeobfuscator | .bat files | Désobscurcir le fichier de commandes | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
+| Anti-virus        | Anti-virus | Client ICAP générique utilisant plusieurs solution d'Anti-virus commerciales | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
+| BatchDeobfuscator | Deobfuscation | Résolution de variables locales et globales d'un fichier batch | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
+| CAPA              | Windows binaries | Intégration de l'outil public [CAPA](https://github.com/mandiant/capa) | [link](https://github.com/CybercentreCanada/assemblyline-service-capa) |
 | Characterize      | Analyze d'entropy | Calcule l'entropy des fichiers et extrait les meta-donnée Exif. | [link](https://github.com/CybercentreCanada/assemblyline-service-characterize) |
 | ConfigExtractor   | Extraction | Extrait la configuration de malware connu, pour trouvé des liste de C2s, cle d'encryption etc. | [link](https://github.com/CybercentreCanada/assemblyline-service-configextractor) |
 | CAPE            | Sandbox | Fournit une analyse dynamique des logiciels malveillants via le sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cape)|
 | DeobfuScripter    | Deobfuscation | Déobfuscation de script statique. | [link](https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter)|
+| ELF               | Linux binaries | Analyze de fichier ELF (sections, segments, ...) avec [Python library LIEF](https://github.com/lief-project/LIEF) | [link](https://github.com/CybercentreCanada/assemblyline-service-elf) |
+| ELFPARSER         | Linux binaries | Intégration de l'outil public [ELFParser](https://github.com/jacob-baines/elfparser) | [link](https://github.com/CybercentreCanada/assemblyline-service-elfparser) |
 | EmlParser         | Email | Analyze de fichier email avec [GOVCERT-LU eml_parser library](https://github.com/GOVCERT-LU/eml_parser) comme les attachements, URL etc | [link](https://github.com/CybercentreCanada/assemblyline-service-emlparser)|
 | Espresso          | Java | Extrait les classes Java, décompile et analyze pour comportement malicieux | [link](https://github.com/CybercentreCanada/assemblyline-service-espresso)|
 | Extract           | Compressed file | Extrait la plus part des type de compression (like ZIP, RAR, 7z, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-extract)|
@@ -26,7 +30,7 @@ Cette liste contient tous les services inclus et maintenue avec Assemblyline:
 | Oletools          | Office documents | Ce service analyze les fichiers Office et extrait des indicateurs de compromis avec [Python library py-oletools](https://github.com/decalage2/oletools) by Philippe Lagadec - http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-oletools)|
 | Overpower         | PowerShell | Déobfusque les fichier powershell |[link](https://github.com/CybercentreCanada/assemblyline-service-overpower) |
 | PDFId             | PDF | Analyze de fichier PDF avec Didier Stevens [PDFId](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pdfid.py) & [PDFParse](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pdf-parser.py) | [link](https://github.com/CybercentreCanada/assemblyline-service-pdfid)|
-| PEFile            | Windows binaries | Analyze de fichier Windows (imports, exports, section names, ...) avec [Python library pefile](https://github.com/erocarrera/pefile) | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
+| PE                | Windows binaries | Analyze de fichier Windows (imports, exports, sections, ...) avec [LIEF](https://github.com/lief-project/LIEF) | [link](https://github.com/CybercentreCanada/assemblyline-service-pe)|
 | PeePDF            | PDF | Ce service utilise [Python PeePDF library](https://github.com/jesparza/peepdf) pour extraire de l'information de fichier PDF |[link](https://github.com/CybercentreCanada/assemblyline-service-peepdf) |
 | PixAxe            | Images | Extrait du text des images | [link](https://github.com/CybercentreCanada/assemblyline-service-pixaxe)|
 | Safelist          | Safelisting | Permet de "safelister" des indicateur dans le système comme des domaines, hash etc [NSRL](https://www.nist.gov/itl/ssd/software-quality-group/national-software-reference-library-nsrl) |[link](https://github.com/CybercentreCanada/assemblyline-service-safelist) |
@@ -52,5 +56,6 @@ End of life, no longer actively supported:
 | Cuckoo            | Sandbox | Intégration avec la platform d'analyze dynamic Cuckoo | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
 | Lastline          | Sandbox | Fournit une analyse dynamique des logiciels malveillants via le sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-lastline) |
 | MetaDefender      | Anti-virus | Integration avec MetaDefender (multi-engine anti-virus) | [link](https://github.com/CybercentreCanada/assemblyline-service-metadefender)|
+| PEFile            | Windows binaries | Analyze de fichier Windows (imports, exports, section names, ...) avec [Python library pefile](https://github.com/erocarrera/pefile) | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
 | VirusTotalDynamic | Anti-virus | Vérifie et envoie activement les fichiers à VirusTotal pour analyse.  | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic) |
 | VirusTotalStatic  | Anti-virus | Vérifie VirusTotal pour une analyse existante sur le fichier soumis. | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-static) |
