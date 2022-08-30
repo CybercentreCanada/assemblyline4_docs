@@ -22,7 +22,6 @@ This is the list of all the services that are bundled with Assemblyline and that
 | IntezerStatic     | File genome identification | Interface between Intezer Analyze API 2.0, performs hash lookups of submitted file | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-static)|
 | IPArse            | Apple IOS | Analyze Apple apps | [link](https://github.com/CybercentreCanada/assemblyline-service-iparse)|
 | JsJaws            | Javascript | Analyze malicious Javascript | [link](https://github.com/CybercentreCanada/assemblyline-service-jsjaws)|
-| MetaDefender      | Anti-virus | Service for OPSWAT MetaDefender anti-virus (multi-engine) | [link](https://github.com/CybercentreCanada/assemblyline-service-metadefender)|
 | MetaPeek          | Meta data analysis | Checks submission metadata for indicators of potential malicious behavior (double file extensions, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-metapeek)|
 | Oletools          | Office documents | This service extracts metadata, network information and reports anomalies in Microsoft OLE and XML documents using the [Python library py-oletools](https://github.com/decalage2/oletools) by Philippe Lagadec - http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-oletools)|
 | Overpower         | PowerShell | De-obfuscate PowerShell scripts |[link](https://github.com/CybercentreCanada/assemblyline-service-overpower) |
@@ -38,6 +37,7 @@ This is the list of all the services that are bundled with Assemblyline and that
 | TorrentSlicer     | Torrent files | Extracts information from torrent files |[link](https://github.com/CybercentreCanada/assemblyline-service-torrentslicer) |
 | Unpacker          | UPX Unpacker | This service unpacks UPX packed executables for further analysis |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacker)|
 | Unpac.me          | Unpacker | Integrate with [unpac.me](https://www.unpac.me) |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacme)|
+| URLDownloader     | URL Fetching | Fetches URLs that are seemingly malicious |  [link](https://github.com/CybercentreCanada/assemblyline-service-urldownloader)|
 | ViperMonkey       | Office documents | [ViperMonkey](https://github.com/decalage2/ViperMonkey) is a VBA Emulation engine by http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-vipermonkey)|
 | VirusTotal | Anti-virus | This service checks (and optionally submits) files/URLs to VirusTotal for analysis. | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal) |
 | XLMMacroDeobfuscator | Office documents | Analyze Excel 4.0 macros |[link](https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator) |
@@ -51,3 +51,6 @@ End of life, no longer actively supported:
 | ------------------| -- | -------------------- | ------------- |
 | Cuckoo            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
 | Lastline          | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-lastline) |
+| MetaDefender      | Anti-virus | Service for OPSWAT MetaDefender anti-virus (multi-engine) | [link](https://github.com/CybercentreCanada/assemblyline-service-metadefender)|
+| VirusTotalDynamic | Anti-virus | Checks and actively sends files to VirusTotal for analysis.  | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic) |
+| VirusTotalStatic  | Anti-virus | Checks VirusTotal for existing analysis about submitted file. | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-static) |
