@@ -349,6 +349,7 @@
 | service_defaults | [ScalerServiceDefaults](/assemblyline4_docs/odm/models/config/#scalerservicedefaults) | Defaults Scaler will assign to a service. | :material-checkbox-marked-outline: Yes | `None` |
 | cpu_overallocation | Float | Percentage of CPU overallocation | :material-checkbox-marked-outline: Yes | `1` |
 | memory_overallocation | Float | Percentage of RAM overallocation | :material-checkbox-marked-outline: Yes | `1` |
+| overallocation_node_limit | Integer | None | :material-minus-box-outline: Optional | `None` |
 | additional_labels | List [Text] | Additional labels to be applied to services('=' delimited) | :material-minus-box-outline: Optional | `None` |
 
 
