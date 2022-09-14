@@ -231,14 +231,19 @@ Clone Assemblyline's services repositories
 === "Git via SSH"
     Use SSH if you have your SSH id_rsa file configured to your GitHub account
     ```shell
+    git clone git@github.com:CybercentreCanada/assemblyline-service-apivector.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-antivirus.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-avclass.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-batchdeobfuscator.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-beaver.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-capa.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-characterize.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-configextractor.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-cuckoo.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-deobfuscripter.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-elf.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-elfparser.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-emlparser.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-espresso.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-extract.git
@@ -250,7 +255,7 @@ Clone Assemblyline's services repositories
     git clone git@github.com:CybercentreCanada/assemblyline-service-oletools.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-pdfid.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-peepdf.git
-    git clone git@github.com:CybercentreCanada/assemblyline-service-pefile.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-pe.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-pixaxe.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-safelist.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-sigma.git
@@ -268,14 +273,19 @@ Clone Assemblyline's services repositories
 === "Git via HTTPS"
     Use HTTPS if you don't have your GitHub account configured with an SSH key
     ```shell
+    git clone https://github.com/CybercentreCanada/assemblyline-service-apivector.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-antivirus.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-avclass.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-beaver.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-capa.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-characterize.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-configextractor.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-cuckoo.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-elf.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-elfparser.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-emlparser.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-espresso.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-extract.git
@@ -287,7 +297,7 @@ Clone Assemblyline's services repositories
     git clone https://github.com/CybercentreCanada/assemblyline-service-oletools.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-pdfid.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-peepdf.git
-    git clone https://github.com/CybercentreCanada/assemblyline-service-pefile.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-pe.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-pixaxe.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-safelist.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-sigma.git

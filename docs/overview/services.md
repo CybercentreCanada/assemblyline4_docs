@@ -6,13 +6,17 @@ This is the list of all the services that are bundled with Assemblyline and that
 
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
+| APIVector         | Windows binaries | Extracts library imports from windows PE files or memory dump to generate api vector classification. | [link](https://github.com/CybercentreCanada/assemblyline-service-apivector) |
 | APKaye            | Android APK | APKs are decompiled and inspected. Network indicators and information found in the APK manifest file are displayed | [link](https://github.com/CybercentreCanada/assemblyline-service-apkaye) |
 | AntiVirus        | Anti-virus | Generic ICAP client to integrate with most Anti-virus enterprise scanners | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
-| BatchDeobfuscator | .bat files | Deobfuscate batch file | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
+| BatchDeobfuscator | Deobfuscation | Deobfuscate batch file through variable resolution | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
+| CAPA              | Windows binaries | [CAPA](https://github.com/mandiant/capa) open-source tool integration | [link](https://github.com/CybercentreCanada/assemblyline-service-capa) |
 | Characterize      | Entropy analysis | Partitions the file and calculates visual entropy for each partition, extract Exif metadata | [link](https://github.com/CybercentreCanada/assemblyline-service-characterize) |
 | ConfigExtractor   | IoC extraction | Extract malware configuration file, allowing to get list of C2, encryption material etc. | [link](https://github.com/CybercentreCanada/assemblyline-service-configextractor) |
 | CAPE            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cape)|
 | DeobfuScripter    | Deobfuscation | Static script de-obfuscator. The purpose is not to get surgical de-obfuscation, but rather to extract obfuscated IOCs. | [link](https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter)|
+| ELF               | Linux binaries | Extracts attributes (sections, segments, ...) from ELF files using [LIEF](https://github.com/lief-project/LIEF) | [link](https://github.com/CybercentreCanada/assemblyline-service-elf) |
+| ELFPARSER         | Linux binaries | [ELFParser](https://github.com/jacob-baines/elfparser) open-source tool integration | [link](https://github.com/CybercentreCanada/assemblyline-service-elfparser) |
 | EmlParser         | Email |Parse emails using [GOVCERT-LU eml_parser library](https://github.com/GOVCERT-LU/eml_parser) while extracting header information, attachments, URIs | [link](https://github.com/CybercentreCanada/assemblyline-service-emlparser)|
 | Espresso          | Java | All classes are extracted, decompiled, and analyzed for malicious behavior | [link](https://github.com/CybercentreCanada/assemblyline-service-espresso)|
 | Extract           | Compressed file | This service extracts embedded files from file containers (like ZIP, RAR, 7z, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-extract)|
@@ -26,7 +30,7 @@ This is the list of all the services that are bundled with Assemblyline and that
 | Oletools          | Office documents | This service extracts metadata, network information and reports anomalies in Microsoft OLE and XML documents using the [Python library py-oletools](https://github.com/decalage2/oletools) by Philippe Lagadec - http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-oletools)|
 | Overpower         | PowerShell | De-obfuscate PowerShell scripts |[link](https://github.com/CybercentreCanada/assemblyline-service-overpower) |
 | PDFId             | PDF | This service extracts metadata from PDFs using Didier Stevens [PDFId](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pdfid.py) & [PDFParse](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pdf-parser.py) | [link](https://github.com/CybercentreCanada/assemblyline-service-pdfid)|
-| PEFile            | Windows binaries | This service extracts attributes (imports, exports, section names, ...) from windows PE files using the [Python library pefile](https://github.com/erocarrera/pefile) | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
+| PE                | Windows binaries | Extract attributes (imports, exports, sections, ...) from PE files using [LIEF](https://github.com/lief-project/LIEF) | [link](https://github.com/CybercentreCanada/assemblyline-service-pe)|
 | PeePDF            | PDF | This service uses the [Python PeePDF library](https://github.com/jesparza/peepdf) information from PDFs including JavaScript blocks which it will attempt to de-obfuscate, if necessary, for further analysis |[link](https://github.com/CybercentreCanada/assemblyline-service-peepdf) |
 | PixAxe            | Images | Extract text from images | [link](https://github.com/CybercentreCanada/assemblyline-service-pixaxe)|
 | Safelist          | Safelisting | Allow for hash, IoC and signature safelisting, including support for downloading [NSRL](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjaptDzi-7yAhWEdN8KHefxC6oQFnoECAsQAw&url=https%3A%2F%2Fwww.nist.gov%2Fitl%2Fssd%2Fsoftware-quality-group%2Fnational-software-reference-library-nsrl&usg=AOvVaw3I05XBysnEGMtwgozhlm8g) |[link](https://github.com/CybercentreCanada/assemblyline-service-safelist) |
@@ -52,5 +56,6 @@ End of life, no longer actively supported:
 | Cuckoo            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
 | Lastline          | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-lastline) |
 | MetaDefender      | Anti-virus | Service for OPSWAT MetaDefender anti-virus (multi-engine) | [link](https://github.com/CybercentreCanada/assemblyline-service-metadefender)|
+| PEFile            | Windows binaries | This service extracts attributes (imports, exports, section names, ...) from windows PE files using the [Python library pefile](https://github.com/erocarrera/pefile) | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
 | VirusTotalDynamic | Anti-virus | Checks and actively sends files to VirusTotal for analysis.  | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-dynamic) |
 | VirusTotalStatic  | Anti-virus | Checks VirusTotal for existing analysis about submitted file. | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal-static) |
