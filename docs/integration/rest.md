@@ -16,13 +16,13 @@ For easy integration, it is recommended that you generate an [API key](../key_ge
 
 To use your newly created [API key](../key_generation) you can simply add the `X-USER` and `X-APIKEY` headers to your request and the system will identify you with that key at each request instead of relying on a session cookie.
 
-!!! example
+!!! example "Simple api call"
 
     Let's use a hypothetical [API key](../key_generation) to ask the system who we are. (Using the `/api/v4/user/whoami/` API)
 
 
     === "CURL"
-        ``` shell 
+        ``` shell
         curl -X GET "https://yourdomain/api/v4/user/whoami/" \
             -H 'x-user: <your_user_id>' \
             -H 'x-apikey: <key_name:randomly_generated_password>' \
@@ -32,7 +32,7 @@ To use your newly created [API key](../key_generation) you can simply add the `X
     === "Javascript (fetch)"
         ``` javascript
         fetch(
-        "https://yourdomain/api/v4/user/whoami/", 
+        "https://yourdomain/api/v4/user/whoami/",
         {
             "headers": {
             "accept": "application/json",
@@ -48,16 +48,57 @@ To use your newly created [API key](../key_generation) you can simply add the `X
         ``` python
         import requests
         requests.get(
-            "https://yourdomain/api/v4/user/whoami/", 
+            "https://yourdomain/api/v4/user/whoami/",
             headers={
-                "x-user": "<your_user_id>", 
-                "x-apikey": "<key_name:randomly_generated_password>", 
+                "x-user": "<your_user_id>",
+                "x-apikey": "<key_name:randomly_generated_password>",
                 "accept": "application/json"
             }
         )
         ```
 
-## API Gotcha! 
+!!! example "Submit a file to the API"
+
+    !!! tip "Submit API was used here but you can use the ingest API with the same parameters."
+
+    Now if we were to reuse that same [API key](../key_generation) to submit a file to the system, not only you need to pass the
+    `X-USER`, `X-APIKEY` and `ACCEPT` headers, you also need to pass at least one of the two multipart sections:
+
+    - `json` (optional): This is a JSON dictionary with 3 possible keys
+        - `name` (optional): Name of the file, otherwise `bin.filename` is used
+        - `params` (optional): Changes to the default submission parameters for the user
+        - `metadata` (optional): Metadata to be added to the submission
+    - `bin` (required): the actual file to be scanned
+
+    === "CURL"
+        ```shell
+        curl -X POST https://yourdomain/api/v4/submit/ \
+            -H 'x-user: <your_user_id>' \
+            -H 'x-apikey: <key_name:randomly_generated_password>' \
+            -H 'accept: application/json' \
+            -F 'json={"params": {"description": "My CURL test"}, "metadata": {"any_key": "any_value"}}' \
+            -F 'bin=@myfile.txt'
+        ```
+
+    === "Python (requests)"
+        ``` python
+        import requests
+        import json
+
+        requests.post(
+            "https://yourdomain/api/v4/submit/",
+            headers={
+                "x-user": "<your_user_id>",
+                "x-apikey": "<key_name:randomly_generated_password>",
+                "accept": "application/json",
+                "content-type": None
+            },
+            files={'bin': open('myfile.txt', 'rb')},
+            data={'json': json.dumps({'params': {'description': 'My CURL test'}, 'metadata': {'any_key': 'any_value'}})}
+        )
+        ```
+
+## API Gotcha!
 
 !!! tip "Here is a list of the most common issues users are facing while using the API"
 
