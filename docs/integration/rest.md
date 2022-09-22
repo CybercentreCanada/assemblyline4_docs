@@ -59,6 +59,8 @@ To use your newly created [API key](../key_generation) you can simply add the `X
 
 !!! example "Submit a file to the API"
 
+    !!! tip "Submit API was used here but you can use the ingest API with the same parameters."
+
     Now if we were to reuse that same [API key](../key_generation) to submit a file to the system, not only you need to pass the
     `X-USER`, `X-APIKEY` and `ACCEPT` headers, you also need to pass at least one of the two multipart sections:
 
@@ -95,8 +97,6 @@ To use your newly created [API key](../key_generation) you can simply add the `X
             data={'json': json.dumps({'params': {'description': 'My CURL test'}, 'metadata': {'any_key': 'any_value'}})}
         )
         ```
-
-    !!! tip "Submit API was used here but you can use the ingest API with the same parameters."
 
 ## API Gotcha!
 
