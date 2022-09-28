@@ -19,6 +19,7 @@
 | password | Keyword | BCrypt hash of the user's password | :material-checkbox-marked-outline: Yes | `None` |
 | submission_quota | Integer | Maximum number of concurrent submissions | :material-checkbox-marked-outline: Yes | `5` |
 | type | List [Enum] | Type of user | :material-checkbox-marked-outline: Yes | `['user']` |
+| roles | List [Enum] | Default roles for user | :material-checkbox-marked-outline: Yes | `[]` |
 | security_tokens | Mapping [String, Keyword] | Map of security tokens | :material-checkbox-marked-outline: Yes | `{}` |
 | uname | Keyword | Username | :material-checkbox-marked-outline: Yes | `None` |
 
