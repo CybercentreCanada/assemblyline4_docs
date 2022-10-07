@@ -1,14 +1,14 @@
 # System Architecture
 
-Assemblyline architecture is somewhat complex to understand because there are many moving pieces. In this section, we will describe every single components of Assemblyline and will give you visual exemples on how the different components interact with each other. We will do that by first setting the scene by describing a scenario done in Assemblyline then describing all the components in that scenario.
+Assemblyline architecture is somewhat complex to understand because there are many moving pieces. In this section, we will describe every single component of Assemblyline and will give you visual examples on how the different components interact with each other. We will do that by first setting the scene by describing a scenario done in Assemblyline then describing all the components in that scenario.
 
 ## Submitting files to Assemblyline
 
-Here's how submitting files to Assemblyline takes place. The user browses to the UI Frontend and submits a file through the web interface. The frontend takes that file and hand if off to the API Server. Alternatively, the user uses the assemblyline client to connect directly to the API server. Once the API server receives the file, it saves the file to the filestore and creates a tasking message in Redis (volatile) for the Dispatcher to pick up.
+Here's how submitting files to Assemblyline takes place. The user browses to the UI Frontend and submits a file through the web interface. The frontend takes that file and hands it off to the API Server. Alternatively, the user uses the Assemblyline client to connect directly to the API server. Once the API server receives the file, it saves the file to the filestore and creates a tasking message in Redis (volatile) for the Dispatcher to pick up.
 
-Dispatcher will be notified by Redis that a new task as come in, will identify the file and will route that file to the appropriate service by pushing a new message for the service in it's service queue.
+Dispatcher will be notified by Redis that a new task has come in, will identify the file and will route that file to the appropriate service by pushing a new message for the service in its service queue.
 
-Services long poll the Service Server API, when a new task enters their queue, the will get the file from Service Server and start processing it. Once they are done, they will send their analysis results to Service Server along with any embedded or supplementary file they have collected during analysis. The analysis results will be saved into the database by Service Server and the new embedded files will be sent back to the Dispatcher via Redis so it can dispatch them to a new set of services for reprocessing.
+Services long poll the Service Server API, when a new task enters their queue, they will get the file from Service Server and start processing it. Once they are done, they will send their analysis results to Service Server along with any embedded or supplementary file they have collected during analysis. The analysis results will be saved into the database by Service Server and the new embedded files will be sent back to the Dispatcher via Redis so that it can dispatch them to a new set of services for reprocessing.
 
 Once all associated files are done, Dispatcher will mark the submission as complete in the database.
 
@@ -16,19 +16,19 @@ Once all associated files are done, Dispatcher will mark the submission as compl
 
 ### Alternate submission method
 
-If the ingestion API is used instead of the submit API an alternate asynchroneous process is kick off. Instead of going directly to dispacher, the Submission will be queued is Redis (persistent). The Ingester process will monitor that queue and will slowly feed Dispatcher. This alternate method is for high volume submissions. Instead of having a million files processed at the same time in the system, they are queue and processed in batch by priority. This ensure the system can survive giant burst of files at the same time without falling over.
+If the ingestion API is used instead of the submit API, an alternate asynchroneous process is kick off. Instead of going directly to Dispatcher, the Submission will be queued in Redis (persistent). The Ingester process will monitor that queue and will slowly feed Dispatcher. This alternate method is for a high volume of submissions. Instead of having a million files processed at the same time in the system, they are queued and processed in batches by priority. This ensures the system can survive giant bursts of files at the same time without falling over.
 
 ### Alternate service process
 
-Some services may run in privileged mode. This means that they are allowed to bypass Service Server (which makes them much faster) and that they can pull their tasks directly from Redis, save their analysis results directly into the datastore and save their embedded and supplementary files directly into the filestore.
+Some services may run in privileged mode. This means that they are allowed to bypass Service Server (which makes them much faster) and that they can pull their tasks directly from Redis, save their analysis results directly into the datastore, and save their embedded and supplementary files directly into the filestore.
 
-!!! tip "Running in privilege mode is only recommended for service that do not execute the files because these services have complete access to all core components instead of only having access to Service Server."
+!!! tip "Running in privilege mode is only recommended for services that do not execute the files because these services have complete access to all core components instead of only having access to Service Server."
 
 ### Components part of the file submission process
 
 #### UI Frontend
 
-This is the component that, as a user, you will be the most familiar with. This component provides the User Interface (UI) of Assemblyline. This is the first thing that you see once you deploy Assemblyline and the component you interact with the most. Assemblyline's frontend is built using [React](https://reactjs.org/) with a [Material UI](https://v4.mui.com/getting-started/installation/) theme sitting of top of it. It support light and dark themes as well as internationalization.
+This is the component that, as a user, you will be the most familiar with. This component provides the User Interface (UI) of Assemblyline. This is the first thing that you see once you deploy Assemblyline and the component you interact with the most. Assemblyline's frontend is built using [React](https://reactjs.org/) with a [Material UI](https://v4.mui.com/getting-started/installation/) theme sitting of top of it. It supports light and dark themes as well as internationalization.
 
 ![Frontend](./images/frontend.png)
 
@@ -36,11 +36,11 @@ This is the component that, as a user, you will be the most familiar with. This 
 
 !!! tip "The UI component used to provide the User Interface and API to Assemblyline but does not provide the User Interface anymore. The User Interface code was moved to the UI Frontend component when the interface switched to React."
 
-Nowadays, the UI component provides the user facing API server of Assemblyline as well as a SocketIO Server for live messaging. API Server is responsible to identify the user either using and internal list of user or by communicating with your LDAP or oAuth server. It keeps track of the user sessions to make sure users only get access to the APIs they are allowed to. It also does document level access control to make sure that the data returned by the APIs is in fact data that the user is allowed to see.
+Nowadays, the UI component provides the user-facing API server of Assemblyline as well as a SocketIO Server for live messaging. The API Server is responsible to identify the user either using an internal list of users or by communicating with your LDAP or oAuth server. It keeps track of the user sessions to make sure users only get access to the APIs they are allowed to. It also does document-level access control to make sure that the data returned by the APIs is in fact data that the user is allowed to see.
 
 #### Dispatcher
 
-Dispatcher is the core tasking component of the system. It checks the type of the file submitted to the system and routes each file to the appropriate service depending on service availability and file type. It keeps track of children for a given file (zip extraction, etc...) and ensures that a submission is not completed until all the children have been processed and all files sent to the appropriate services. Dispatcher keeps track of errors in the system and re-queues jobs if it detects a failure that is recoverable. It is the Dispatcher’s job the mark a submission completed when all work is done. Dispatcher does all its queuing using non-persistent Redis queues. If the Dispatcher is restarted, all inflight submissions are restarted from the beginning. This is usually not a problem because Assemblyline has service level caching.
+Dispatcher is the core tasking component of the system. It checks the type of file submitted to the system and routes each file to the appropriate service depending on service availability and file type. It keeps track of children for a given file (zip extraction, etc.) and ensures that a submission is not completed until all the children have been processed and all files have been sent to the appropriate services. Dispatcher keeps track of errors in the system and re-queues jobs if it detects a failure that is recoverable. It is the Dispatcher’s job to mark a submission as completed when all work is done. Dispatcher does all its queuing using non-persistent Redis queues. If the Dispatcher is restarted, all inflight submissions are restarted from the beginning. This is usually not a problem because Assemblyline has service-level caching.
 
 Dispatcher also keeps metrics on how many files are being completed in the system over a given interval.
 
@@ -49,15 +49,15 @@ Dispatcher also keeps metrics on how many files are being completed in the syste
 Ingester is Assemblyline’s high volume ingestion component. It takes all submissions created using the
 ingest API and sorts them into different priority queues (Critical, High, Medium, and Low). It then fills half of the Dispatcher's maximum inflight queue with submissions starting with the highest priority queues and continuing until all queues are exhausted.
 
-!!! tip "The priority queues are starving queues. All critical submissions are processed before starting highs and so on..."
+!!! tip "The priority queues are starving queues. All critical submissions are processed before starting high submissions and so on..."
 
-Ingester can also deal with impossible to finish backlogs. When the queues reach a certain threshold,
+Ingester can also deal with impossible-to-finish backlogs. When the queues reach a certain threshold,
 Ingester will start sampling the queues using a method that is increasingly aggressive in proportion with the size of the backlog to randomly remove submissions from the priority queues to ensure that the queues don't keep growing forever.
 
-Ingester also ensures that work isn’t duplicated by deduping submissions before it sends them to the
-dispatcher. If provided, it also applies whitelisting regular expressions to the metadata of the submissions.
+Ingester also ensures that work isn’t duplicated by deduplicating submissions before it sends them to the
+Dispatcher. If provided, it also applies safelisting regular expressions to the metadata of the submissions.
 
-Metrics are reported on the number of duplicate, ingested, whitelisted, and completed files as well as the
+Metrics are reported on the number of duplicate, ingested, safelisted, and completed files as well as the
 number of bytes ingested and completed.
 
 <!--
