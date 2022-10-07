@@ -60,6 +60,49 @@ Dispatcher. If provided, it also applies safelisting regular expressions to the 
 Metrics are reported on the number of duplicate, ingested, safelisted, and completed files as well as the
 number of bytes ingested and completed.
 
+#### Service Server
+
+Service Server has been introduced to Assemblyline 4 as a way to isolate the services from the core infrastructure. It includes APIs that the service TaskHandler uses to get tasks, publish results, download files for analysis, publish embedded and upplementary files and get access to the system safelist. Everything that a service needs to process the file properly withou knowing anything about the infrastructure. The Service Server APIs are only accessible by the services an nothing else in the system.
+
+#### Remote Datatypes
+
+Assemblyline uses a bunch of containers running on different hosts that need live access to shared data structures. This is where the remote datatypes come into play, these are essentially data structures stored in Redis that are available to all processes in Assemblyline.
+
+Assemblyline instanciate connection to two different Redis instances:
+
+* ***Redis persistant***: Jourling file backed up database on a persistent drive, even if the system crash or reboot, the content of this Redis version is always available.
+* ***Redis volatile***: In memory instance, while it is much faster to interface with, if the Redis volatile container crashes or restarts, all its content is lost.
+
+We have a various range of supported data types to account for various scenarios:
+
+* **Counters**: Metrics gathering
+* **Event dispatcher/handlers**: Register callback function for events that happen system wide
+* **Hash**: Store currently processed items
+* **Global Locks**: Concurrency locks
+* **Sets**: Service and submission priority based queues
+* **Quota trackers**: Track user's submission and API quotas
+* **Queues (Pubsub/Fifo/Priority)**: Messaging between components
+
+#### Datastore
+
+The Assemblyline Datastore component is essentially the database where we store analysis results. While datastore was originally built as generic as possible, it nowadays pretty much only works with Elasticsearch since we've tied in to a lot of Elasticsearch specific features to make it faster. That said it could be made to work on project derived from Elasticsearch like Opensearch for example.
+
+The Datastore is there to ensure stable connection to the Elasticsearch backend with auto keep alive and retries, easy index management and sync with the code as well as support for all the basic features like: get, put, update, search, facet, stats, histogram ...
+
+#### Filestore
+
+Assemblyline's filestore is where all files are stored. The filestore implementation allow for multiples types of filestore to be used:
+
+* HTTP (read only)
+* FTP/SFTP
+* Amazon S3 / Minio
+* Azure Blob storage
+* Local storage
+
+It also has the concept of a multi level filestore so the files can be written to multiple locations at the same time.
+
+By default, Assemblyline uses Minio, which is an Amazon S3 compatible file storage engine.
+
 <!--
 ## Exerpt from Assemblyline 3 user manual
 
