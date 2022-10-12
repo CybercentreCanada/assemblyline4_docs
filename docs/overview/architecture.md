@@ -12,7 +12,7 @@ Services long poll the Service Server API, when a new task enters their queue, t
 
 Once all associated files are done, Dispatcher will mark the submission as complete in the database.
 
-![File processing graph](./images/Assemblyline File Processing Graph.png)
+![File processing graph](./images/al_fpg.png)
 
 ### Alternate submission method
 
@@ -102,6 +102,35 @@ Assemblyline's filestore is where all files are stored. The filestore implementa
 It also has the concept of a multi level filestore so the files can be written to multiple locations at the same time.
 
 By default, Assemblyline uses Minio, which is an Amazon S3 compatible file storage engine.
+
+## Generating Alerts
+
+On top off analysing files to report on their maliciousness level, Assemblyline can also work has a triage environment. In this scenario, all files are sent to AL and analysts only look at the analysis results if an alert is generated for said files. Using Post-Processing actions, you can define the rules of what constitutes an alert (default: file with score over 500).
+
+While Dispatcher is writing the final result for a submission, it will use those rules to determine if an alert should be written then write a message to Redis' presistent DB so an Alert can be genereated for the submission. Alerter will then receive this submissions and write associated Alerts into the Datastore. As a last step, Workflow will check every newly created Alert and will automatically apply labels, priority and/or status to all new Alerts matching the workflow queries.
+
+![Alerting](./images/alerting.png)
+
+### New Components part of the alerting process
+
+#### Alerter
+
+Alerter monitors Redis persistent alert input queue and transforms the related submission and all its results into an Alert. It then save the related Alert into the datastore. An alert my be derived from another one and sent for reprocessing with an alerternate list of service if certain criterias are met. These criterias are defined in the Post-Processing actions.
+
+An alerts is made of:
+
+* The list of specific import tags with their type and verdict
+* The list of all heuristics triggered
+* The Att&ck matrix categories and patterns associated to the alert
+* The metadata associated with the submission
+* The file information of the main file (hashes, size, type, name...)
+* Some Alert specific info (Timestamps, verdicts, owner, labels, priority, status)
+
+#### Workflow
+
+The workflow process runs all created workflows on freashly created alerts. If alerts are matching a specific workflow, all labels, the priority and the status associated with said workflow will be applied to the alert in the datastore.
+
+## House keeping
 
 <!--
 ## Exerpt from Assemblyline 3 user manual
