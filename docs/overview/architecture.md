@@ -132,67 +132,55 @@ The workflow process runs all created workflows on freashly created alerts. If a
 
 ## House keeping
 
-<!--
-## Exerpt from Assemblyline 3 user manual
+Assemblyline also includes a bunch of house keeping processes that perform different tasks in the system that are not immediately related to the file processing and alerting process.
 
+These process perform tasks like:
 
-EXPIRY / EXPIRY WORKERS
-Expiry takes care of data deletion by cleaning up every piece of information that has reached its Time To Live
-2
-(TTL). Every single piece of information in Assemblyline is tagged with an __expiry_ts__ field, which dictates
-the time at which this information will disappear from the system. Expiry uses SOLR indexing and searches for
-expired data. It then queues the items of data for the expiry workers to delete from the system
-As part of system optimization, one of the data buckets (emptyresult) does not use search to expire the data.
-Instead, we use journal files and avoid having to index a large amount of data that we only use for caching. This
-is explained in more detail later in the data layout section.
-Data is expired from the system because Assemblyline is not designed to be a Knowledge Base. Default TTL for
-the data is 15 days.
-JOURNALIST
-Journalist is an expiry system optimization, it takes care of writing journal files for emptyresult items. It reads
-those items from Redis queues and writes them to time stamped files for expiry to process later.
-ALERTER
-Alerter is the component responsible for generating alerts. It receives a notification from Ingester for all
-submissions where an alert was requested and the submission’s score reaches the system’s alert threshold.
-When creating an alert, alerter gathers the features (Tags) the system has extracted for the submission and
-generates an alert based on the mix of these features and the metadata that was part of the original
-submission.
-Even though submissions are deduped at the Ingester level, Ingester keeps track of these duplicates and,
-in the case of an alert, sends a notification for each duplicate to alerter. Alerter then creates one individual
-alert for every file ingested. This way, if one file was seen a 100 times we will have a 100 alerts and the
-associated metadata for each individual alert. The data can then be used to create a threat profile and more
-easily mitigate the problem.
-ALERT ACTIONS
-Alert actions is used to make sure two actions taken on a specific alert happen one after the other and not at
-the same time. All API calls or workflow actions to labels, priority, ownership, or status of an alert are placed in
-a Redis queue and dispatched to an internal alert action instance using a deterministic feature of the alert. This
-ensures the actions are processed sequentially but are still distributed to multiple processes for speed. Alert
-actions also report metrics on the number of alerts created.
+* Remove data where TTL has expire
+* Gather the system metrics
+* Scale service to process the current load
+* Update services
+* Generate statistics on signatures and heuristics
 
-WORKFLOW FILTERS
-On the alert page of the system, analysts can build and save search queries that can then be used for labelling,
-changing the priority, or changing the status of an alert. Workflow filter runs those queries on newly inserted
-alerts and sends messages to alert actions to apply the action described to all alerts matching the query.
-SYSTEM METRICS
-System metrics is in charge of gathering CPU, memory, load, network and many other metrics and shipping
-those directly to the ElasticSearch database on the Logger server. It also gathers Riak and SOLR specific metrics.
-This component is only installed when a Logger server is defined in the seed.
-METRICSD
-The Metricsd component aggregates Assemblyline specific counters reported by Ingester, dispatcher,
-alerter, and hostagent over one minute intervals and stores these aggregated counters in the ElasticSearch
-database on the Logger server. This component is only installed when a Logger server is defined in the seed.
-CONTROLLER
-Controller is an extremely lightweight component that runs on the workers. Controller’s only responsibility is to
-start, stop, and restart the hostagent component. This functionality is used by the host management page so
-we can restart the hostagent in batch without having to log in to the individual boxes.
-HOSTAGENT
-Hostagent is the component responsible for reading the worker’s profile from the datastore and loading the
-number of services and VMs as described in that profile. It keeps track of each service and VM that it launches
-and makes sure that they stay alive. It is also responsible for providing heartbeats to the system to let the UI
-and the dispatcher know that the different services are alive and are ready to receive tasks. When the
-hostagent tries to instantiate a VM, it will make sure that it actually has the VM disks on the worker host and
-download them if they are missing.
-Hostagents report metrics on the effectiveness of the service caching.
-QUOTASNIPER
-QuotaSniper is the component that makes sure that the different quotas and sessions for each user expire at
-the right time.
-Assemblyline is made of many different components with each have a different purpos -->
+We'll describe all these house keeping processes and show how they relate to the different infrastructure components.
+
+### Expiry
+
+The Expiry process is tasked to monitor for documents that have past their expiry date and remove them from the system. It does this by searching in that datastore for document that have their expiry date (expiry_ts) bigger than the current date then deletes the associated records from the datastore. If there are also associated file to the document in the filestore, Expiry will also delete those files.
+
+![Expiry](./images/Expiry.png)
+
+### Heartbeat and Metrics
+
+All core components in Assemblyline generate some sort of metrics so we can track their performance and see if the system is alive and well. Those metrics are sent to a message queue in Redis volatile which is then read by the metrics and hearbeat container. The Heartbeat container will aggregate those metrics and send them back to the SocketIO server for immediate consumption in the Frontend and the Metrics container will aggregate those metrics as well but will store them in the logging ELK stack for consumption by admins after the fact.
+
+![Metrics](./images/Metrics.png)
+
+### Scaler
+
+Looks at the busyness level and the queue of items to process of a service in Redis Volatile, check the available resources in kubernetes then determine the optimal amount of each services that should run right now to get through the current load of files to process. Instruct kubernetes orchestrator to load or unload service container accordingly.
+
+![Scaler](./images/Scaler.png)
+
+### Statistics
+
+Every our, the statistics container runs facet queries in the datastore to find out how many time heuristics/signatures where used and save those stats into the respective signatures/heuristics in the datastore.
+
+### Updating the system
+
+To keep the system up-to-date, there are two critical components that comes into play:
+
+* Updater: to update the different containers in the system
+* Service update container: to update the different signature set of a given service
+
+#### Updater
+
+The updater checks external docker registries for new containers (acr, dockerhub... ). When new containers are found, it launches the new container in kubernetes to register the service. Then it notifies scaler via Redis volatile that a new service version is available. Scaler instruct kubernetes to replace all old service version with the new service version be re-creating the service containers.
+
+#### Service updater
+
+Each service that updates the signatures or safelist has it's own updater. Only one update is launched for all associated services. The service updater fetches updates from external links defined in its configuration (git, http ...). It then saves the updated signature/safelist to the database via the internal-ui container. The internal-ui container is an API server dedicated to processing requests for core components.
+
+When the services launch, they pull their signature set from the service updater which in turn ask the internal-ui for the signatures.
+
+![Updater](./images/updater.png)
