@@ -176,14 +176,8 @@ The Updater checks external container registries (Azure Container Registry, Dock
 
 #### Service Updater
 
-<<<<<<< HEAD
-Each service that updates the signatures or safelist has its own updater. Only one update is launched for all associated services. The service updater fetches updates from external links defined in its configuration (`git`, `http` ...). It then saves the updated signature/safelist to the database via the `internal-ui` container. The `internal-ui` container is an API server dedicated to processing requests for core components.
-
-When the services launch, they pull their signature set from the service updater which in turn asks the `internal-ui` for the signatures.
-=======
 Each service that updates the signatures or safelist has its own updater. Only one updater is launched for all associated services. The Service Updater fetches updates from external links defined in its configuration (`git`, `HTTP`, ...). It then saves the updated signature/safelist to the database via the internal UI container. The internal UI container is an API server dedicated to processing requests for core components. This container's API isn't accessible outside of the system unlike the UI container that the Frontend uses.
 
 When the services launch, they pull their signature set from the service updater which in turn asks the internal UI for the signatures committed to the database.
->>>>>>> 1194d74d70df95fdd34a71431e800c92b3eff510
 
 ![Updater](./images/updater.png)
