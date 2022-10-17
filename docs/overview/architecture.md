@@ -4,7 +4,7 @@ The Assemblyline system architecture is somewhat complex to understand because t
 
 ## Submitting files to Assemblyline
 
-Here's how submitting files to Assemblyline takes place. The user browses to the User Interface (UI) Frontend and submits a file through the web interface. The frontend takes that file and hands it off to the API Server. Alternatively, the user uses the Assemblyline client to connect directly to the API server and submits a file via the client. Once the API server receives the file, it saves the file to the filestore and creates a tasking message in Redis (volatile) for the Dispatcher to pick up.
+Here's how submitting files to Assemblyline takes place. The user browses to the User Interface (UI) Frontend and submits a file through the web interface. The frontend takes that file and hands it off to the API Server. Alternatively, the user uses the Assemblyline client to connect directly to the API server and submits a file via the client. Once the API server receives the file, it saves the file to the Filestore and creates a tasking message in Redis (volatile) for the Dispatcher to pick up.
 
 The Dispatcher will be notified by Redis that a new task has come in, will identify the file, and will route that file to the appropriate services by pushing a new message for the services in its service queue.
 
@@ -20,11 +20,11 @@ If the ingestion API is used instead of the submit API, an asynchronous process 
 
 ### Alternate Service Process
 
-Some services may run in "privileged" mode. This means that they are allowed to bypass the Service Server (which makes them much faster) and pull their tasks directly from Redis. Privileged services can also save their analysis results directly into the datastore and save their embedded and supplementary files directly into the filestore.
+Some services may run in "privileged" mode. This means that they are allowed to bypass the Service Server (which makes them much faster) and pull their tasks directly from Redis. Privileged services can also save their analysis results directly into the Datastore and save their embedded and supplementary files directly into the Filestore.
 
 !!! tip "Running in privileged mode is only recommended for services that do not execute the files directly on their containers because these services have complete access to all core components instead of only having access to the Service Server."
 
-### Components Part of the File Submission Process
+### File Submission Components
 
 #### UI Frontend
 
@@ -82,13 +82,13 @@ We have a various range of supported data types to account for various scenarios
 
 #### Datastore
 
-The Assemblyline Datastore component is essentially the database where we store analysis results. While datastore was originally built as generic as possible, it nowadays pretty much only works with Elasticsearch since we've tied into a lot of Elasticsearch-specific features to make it faster. That said it could be made to work on projects derived from Elasticsearch like OpenSearch for example.
+The Assemblyline Datastore component is essentially the database where we store analysis results. While the Datastore was originally built as generic as possible, it currently pretty much only works with Elasticsearch since we've tied in a lot of Elasticsearch-specific features to make it faster. That being said, it could be made to work on projects derived from Elasticsearch, like OpenSearch for example.
 
-The Datastore is there to ensure stable connection to the Elasticsearch backend with auto keep alive and retries, easy index management, and sync with the code as well as support for all the basic features like `get`, `put`, `update`, `search`, `facet`, `stats`, `histogram` ...
+The Datastore is there to ensure a stable connection to the Elasticsearch backend with auto keep-alive and retries, easy index management, and sync with the code as well as support for all the basic features like `get`, `put`, `update`, `search`, `facet`, `stats`, `histogram` ...
 
 #### Filestore
 
-Assemblyline's filestore is where all files are stored. The filestore implementation allow for multiples types of filestores to be used:
+Assemblyline's Filestore is where all files are stored. The Filestore implementation allow for multiples types of Filestores to be used such as:
 
 - HTTP (read only)
 - FTP/SFTP
@@ -96,15 +96,15 @@ Assemblyline's filestore is where all files are stored. The filestore implementa
 - Azure Blob storage
 - Local storage
 
-It also has the concept of a multi-level filestore so the files can be written to multiple locations at the same time.
+It also has the concept of a multi-level Filestore so the files can be written to multiple locations at the same time.
 
 By default, Assemblyline uses Minio, which is an Amazon S3-compatible file storage engine.
 
 ## Generating Alerts
 
-On top of analysing files to report on their maliciousness level, Assemblyline can also work has a triage environment. In this scenario, all files are sent to AL and analysts only look at the analysis results if an Alert is generated for said files. Using Post-Processing actions, you can define the rules of what constitutes an Alert (default: file with a score over 500).
+On top of analysing files to report on their maliciousness level, Assemblyline can also work as a triage environment. In this scenario, all files are sent to Assemblyline and analysts only look at the analysis results if an Alert is generated for said files. Using Post-Processing actions, you can define the rules of what constitutes an Alert (default: file with a score over 500).
 
-While the Dispatcher is writing the final result for a submission, it will use those rules to determine if an Alert should be written then write a message to Redis' presistent DB so an Alert can be generated for the submission. Alerter will then receive this submission and write associated Alerts into the Datastore. As a last step, Workflow will check every newly created Alert and will automatically apply labels, priority, and/or status to all new Alerts matching the workflow queries.
+While the Dispatcher is writing the final result for a submission, it will use those rules to determine if an Alert should be written, then write a message to Redis' persistent DB so an Alert can be generated for the submission. Alerter will then receive this submission and write associated Alerts into the Datastore. As a last step, Workflow will check every newly created Alert and will automatically apply labels, priority, and/or status to all new Alerts matching the workflow queries.
 
 ![Alerting](./images/alerting.png)
 
@@ -112,9 +112,9 @@ While the Dispatcher is writing the final result for a submission, it will use t
 
 #### Alerter
 
-Alerter monitors Redis' persistent alert input queue and transforms the related submission and all its results into an Alert. It then saves the related Alert into the datastore. An alert may be derived from another one and sent for reprocessing with an alternate list of services if certain criteria are met. These criterias are defined in the Post-Processing actions.
+The Alerter monitors Redis' persistent Alert input queue and transforms the related submission and all its results into an Alert. It then saves the related Alert into the Datastore. An Alert may be derived from another Alert and sent for reprocessing with an alternate list of services if certain criteria are met. These criterias are defined in the Post-Processing actions.
 
-An alert is made of:
+An Alert is made up of:
 
 - The list of specific import tags with their type and verdict
 - The list of all heuristics triggered
@@ -125,9 +125,9 @@ An alert is made of:
 
 #### Workflow
 
-The workflow process runs all created workflows on freshly created Alerts. If Alerts are matching a specific workflow, all labels, the priority and the status associated with said workflow will be applied to the Alert in the datastore.
+The Workflow process runs all created workflows on freshly created Alerts. If Alerts are matching a specific workflow, all labels, the priority and the status associated with said workflow will be applied to the Alert in the Datastore.
 
-## House Keeping
+## Housekeeping
 
 Assemblyline also includes a bunch of housekeeping processes that perform different tasks in the system that are not immediately related to the file processing and alerting process.
 
@@ -143,25 +143,25 @@ We'll describe all these housekeeping processes and show how they relate to the 
 
 ### Expiry
 
-The Expiry process is tasked to monitor for documents that have past their expiry date and remove them from the system. It does this by searching in that datastore for documents that have their expiry date (expiry_ts) bigger than the current date then deletes the associated records from the datastore. If there are also associated files to the document in the filestore, Expiry will also delete those files.
+The Expiry process is tasked to monitor for documents that have past their expiry date and remove them from the system. It does this by searching in the Datastore for documents that have expiry dates (`expiry_ts`) earlier than the current date, then deletes the associated records from the Datastore. If there are also associated files to the document in the Filestore, Expiry will delete those files too.
 
 ![Expiry](./images/Expiry.png)
 
 ### Heartbeat and Metrics
 
-All core components in Assemblyline generate some sort of metrics so we can track their performance and see if the system is alive and well. Those metrics are sent to a message queue in Redis volatile which is then read by the metrics and heartbeat container. The Heartbeat container will aggregate those metrics and send them back to the SocketIO server for immediate consumption in the Frontend and the Metrics container will aggregate those metrics as well but will store them in the logging ELK stack for consumption by admins after the fact.
+All core components in Assemblyline generate some sort of metrics so that we can track their performance and see if the system is alive and well. Those metrics are sent to a message queue in Redis volatile which is then read by the Metrics and Heartbeat containers. The Heartbeat container will aggregate those metrics and send them back to the SocketIO server for immediate consumption in the Frontend and the Metrics container will aggregate those metrics as well but will store them in the logging ELK (Elasticsearch + Logstash + Kibana) stack for consumption by admininstators after the fact.
 
 ![Metrics](./images/Metrics.png)
 
 ### Scaler
 
-Looks at the busyness level and a service's queue of items to process in Redis volatile, check the available resources on the host(s) then determine the optimal amount of each services that should run right now to get through the current load of files to process. This component instructs Kubernetes or Docker to load or unload service containers accordingly.
+The Scaler looks at the busyness level and a service's queue of items to process in Redis volatile, checks the available resources on the host(s) then determine the optimal amount of each service that should run right now to get through the current load of files to process. This component instructs Kubernetes or Docker to load or unload service containers accordingly.
 
 ![Scaler](./images/Scaler.png)
 
 ### Statistics
 
-Every hour, the statistics container runs facet queries in the datastore to find out how many times heuristics/signatures were used and save those stats into the respective signatures/heuristics in the datastore.
+Every hour, the Statistics container runs facet queries in the Datastore to find out how many times heuristics/signatures were used and saves those stats to the respective signatures/heuristics in the Datastore.
 
 ### Updating the system
 
@@ -172,7 +172,7 @@ To keep the system up to date, two critical components come into play:
 
 #### Updater
 
-The Updater checks external container registries (Azure Container Registry, Docker Hub, Harbor, ... ) for a new container image for a sevice based on the tag. When new image versions are found, it launches the new ephemeral container to register the service. It then notifies the Scaler via Redis volatile that a new service version is available. The Scaler instructs Kubernetes / Docker to replace all service instances with the new service version by re-creating the service containers.
+The Updater checks external container registries (Azure Container Registry, Docker Hub, Harbor, ... ) for a new container image for a sevice based on the container tag. When new image versions are found, it launches the new ephemeral container to register the service. It then notifies the Scaler via Redis volatile that a new service version is available. The Scaler instructs Kubernetes / Docker to replace all service instances with the new service version by re-creating the service containers.
 
 #### Service Updater
 
