@@ -158,17 +158,17 @@ nav:
     - VacuumMessage: odm/messages/vacuum_heartbeat.md
 plugins:
 - glightbox:
-    touchNavigation: true
-    loop: false
-    effect: zoom
-    width: 100%
-    height: auto
-    zoomable: true
-    draggable: false
-    skip_classes:
-      - no-zoom
     auto_caption: false
     caption_position: bottom
+    draggable: false
+    effect: zoom
+    height: auto
+    loop: false
+    skip_classes:
+    - no-zoom
+    touchNavigation: true
+    width: 100%
+    zoomable: true
 - search
 - i18n:
     default_language: en
