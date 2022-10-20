@@ -30,6 +30,7 @@ nav:
 - Home: index.md
 - Overview:
   - overview/how_it_works.md
+  - overview/architecture.md
   - overview/services.md
   - overview/community_services.md
 - User's manual:
@@ -156,6 +157,18 @@ nav:
     - TaskMessage: odm/messages/task.md
     - VacuumMessage: odm/messages/vacuum_heartbeat.md
 plugins:
+- glightbox:
+    touchNavigation: true
+    loop: false
+    effect: zoom
+    width: 100%
+    height: auto
+    zoomable: true
+    draggable: false
+    skip_classes:
+      - no-zoom
+    auto_caption: false
+    caption_position: bottom
 - search
 - i18n:
     default_language: en
