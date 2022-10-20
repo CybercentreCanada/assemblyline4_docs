@@ -19,7 +19,6 @@ python -m venv venv
 pip install mkdocs-material==7.3.6
 pip install mkdocs-static-i18n
 pip install mkdocs-glightbox
-pip install "pymdown-extensions<9.4"
 ```
 
 ## Run the documentation locally
