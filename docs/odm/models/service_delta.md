@@ -52,10 +52,10 @@
 | command | List [Keyword] | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | cpu_cores | Float | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | environment | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service_delta/#environmentvariable)] | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
-| image | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| registry_username | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| registry_password | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| registry_type | Enum | None<br>Values:<br>`"docker", "harbor"` | :material-minus-box-outline: Optional | `None` |
+| image | Keyword | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
+| registry_username | Keyword | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `` |
+| registry_password | Keyword | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `` |
+| registry_type | Enum | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig)<br>Values:<br>`"docker", "harbor"` | :material-minus-box-outline: Optional | `None` |
 | ports | List [Keyword] | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | ram_mb | Integer | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | ram_mb_min | Integer | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
@@ -93,10 +93,10 @@
 | command | List [Keyword] | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | cpu_cores | Float | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | environment | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service_delta/#environmentvariable)] | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
-| image | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| registry_username | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| registry_password | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| registry_type | Enum | None<br>Values:<br>`"docker", "harbor"` | :material-minus-box-outline: Optional | `None` |
+| image | Keyword | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
+| registry_username | Keyword | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `` |
+| registry_password | Keyword | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `` |
+| registry_type | Enum | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig)<br>Values:<br>`"docker", "harbor"` | :material-minus-box-outline: Optional | `None` |
 | ports | List [Keyword] | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | ram_mb | Integer | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
 | ram_mb_min | Integer | Refer to:<br>[Service - DockerConfig](../service/#dockerconfig) | :material-minus-box-outline: Optional | `None` |
@@ -149,7 +149,7 @@
 | name | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-minus-box-outline: Optional | `None` |
 | password | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-minus-box-outline: Optional | `` |
 | pattern | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-minus-box-outline: Optional | `` |
-| private_key | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-minus-box-outline: Optional | `` |
+| private_key | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-checkbox-marked-outline: Yes | `` |
 | ca_cert | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-minus-box-outline: Optional | `` |
 | ssl_ignore_errors | Boolean | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-checkbox-marked-outline: Yes | `False` |
 | proxy | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | :material-minus-box-outline: Optional | `` |

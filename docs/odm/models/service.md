@@ -53,8 +53,8 @@
 | cpu_cores | Float | CPU allocation | :material-checkbox-marked-outline: Yes | `1.0` |
 | environment | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service/#environmentvariable)] | Additional environemnt variables for the container | :material-checkbox-marked-outline: Yes | `[]` |
 | image | Keyword | Complete name of the Docker image with tag, may include registry | :material-checkbox-marked-outline: Yes | `None` |
-| registry_username | Keyword | The username to use when pulling the image | :material-minus-box-outline: Optional | `None` |
-| registry_password | Keyword | The password or token to use when pulling the image | :material-minus-box-outline: Optional | `None` |
+| registry_username | Keyword | The username to use when pulling the image | :material-minus-box-outline: Optional | `` |
+| registry_password | Keyword | The password or token to use when pulling the image | :material-minus-box-outline: Optional | `` |
 | registry_type | Enum | The type of container registry<br>Values:<br>`"docker", "harbor"` | :material-checkbox-marked-outline: Yes | `docker` |
 | ports | List [Keyword] | What ports of container to expose? | :material-checkbox-marked-outline: Yes | `[]` |
 | ram_mb | Integer | Container RAM limit | :material-checkbox-marked-outline: Yes | `512` |
@@ -94,8 +94,8 @@
 | cpu_cores | Float | CPU allocation | :material-checkbox-marked-outline: Yes | `1.0` |
 | environment | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service/#environmentvariable)] | Additional environemnt variables for the container | :material-checkbox-marked-outline: Yes | `[]` |
 | image | Keyword | Complete name of the Docker image with tag, may include registry | :material-checkbox-marked-outline: Yes | `None` |
-| registry_username | Keyword | The username to use when pulling the image | :material-minus-box-outline: Optional | `None` |
-| registry_password | Keyword | The password or token to use when pulling the image | :material-minus-box-outline: Optional | `None` |
+| registry_username | Keyword | The username to use when pulling the image | :material-minus-box-outline: Optional | `` |
+| registry_password | Keyword | The password or token to use when pulling the image | :material-minus-box-outline: Optional | `` |
 | registry_type | Enum | The type of container registry<br>Values:<br>`"docker", "harbor"` | :material-checkbox-marked-outline: Yes | `docker` |
 | ports | List [Keyword] | What ports of container to expose? | :material-checkbox-marked-outline: Yes | `[]` |
 | ram_mb | Integer | Container RAM limit | :material-checkbox-marked-outline: Yes | `512` |
