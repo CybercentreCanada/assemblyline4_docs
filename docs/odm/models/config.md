@@ -664,6 +664,7 @@
 | tos_lockout_notify | List [Keyword] | List of admins to notify when a user gets locked out | :material-minus-box-outline: Optional | `None` |
 | url_submission_headers | Mapping [String, Keyword] | Headers used by the url_download method | :material-minus-box-outline: Optional | `None` |
 | url_submission_proxies | Mapping [String, Keyword] | Proxy used by the url_download method | :material-minus-box-outline: Optional | `None` |
+| url_submission_timeout | Integer | Request timeout for fetching URLs | :material-checkbox-marked-outline: Yes | `15` |
 | validate_session_ip | Boolean | Validate if the session IP matches the IP the session was created from | :material-checkbox-marked-outline: Yes | `True` |
 | validate_session_useragent | Boolean | Validate if the session useragent matches the useragent the session was created with | :material-checkbox-marked-outline: Yes | `True` |
 
