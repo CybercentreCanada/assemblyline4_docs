@@ -50,7 +50,7 @@ Parameters:
 
 
 ??? Example
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -69,7 +69,7 @@ Parameters:
 * `text`: A string containing the line to add to the body
 
 ??? Example
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -88,7 +88,7 @@ Parameters:
 * `lines`: List of string to add as multiple lines in the body
 
 ??? Example
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -109,7 +109,7 @@ Parameters:
 * `on_top`: (Optional) Boolean value that indicates if the section should be on top of the other sections or not
 
 ??? Example
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -135,7 +135,7 @@ Parameters:
 * `value`: Value of the tag
 
 ??? Example
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -162,7 +162,7 @@ Parameters:
 * `signature`: (optional) Signature name that triggered the heuristic
 
 ??? Example
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -182,7 +182,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![TEXT](./images/text.png)
 
 ??? example "Code used to generate the TEXT section"
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -246,9 +246,11 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![MEMORY_DUMP](./images/memory_dump.png)
 
 ??? example "Code used to generate the MEMORY_DUMP section"
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
+    ...
+    from assemblyline.common.hexdump import hexdump
     ...
     # ==================================================================
     # Memory dump section: BODY_FORMAT.MEMORY_DUMP
@@ -267,7 +269,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![GRAPH_DATA](./images/graph_data.png)
 
 ??? example "Code used to generate the GRAPH_DATA section"
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -296,7 +298,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![URL](./images/url.png)
 
 ??? example "Code used to generate the URL section"
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -342,7 +344,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![JSON](./images/json.png)
 
 ??? example "Code used to generate the JSON section"
-    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -377,7 +379,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![KEY_VALUE](./images/key_value.png)
 
 ??? example "Code used to generate the KEY_VALUE section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -404,7 +406,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![PROCESS_TREE](./images/process_tree.png)
 
 ??? example "Code used to generate the section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
@@ -478,7 +480,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 ![TABLE](./images/table.png)
 
 ??? example "Code used to generate the TABLE section"
-    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
+    Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
     ...
