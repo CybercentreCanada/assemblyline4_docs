@@ -656,6 +656,7 @@
 | read_only | Boolean | Turn on read only mode in the UI | :material-checkbox-marked-outline: Yes | `False` |
 | read_only_offset | Keyword | Offset of the read only mode for all paging and searches | :material-checkbox-marked-outline: Yes | `` |
 | rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | :material-checkbox-marked-outline: Yes | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json']` |
+| services_feed | Keyword | Feed of all the services available on AL | :material-checkbox-marked-outline: Yes | `https://alpytest.blob.core.windows.net/pytest/services.json` |
 | secret_key | Keyword | Flask secret key to store cookies, etc. | :material-checkbox-marked-outline: Yes | `This is the default flask secret key... you should change this!` |
 | session_duration | Integer | Duration of the user session before the user has to login again | :material-checkbox-marked-outline: Yes | `3600` |
 | statistics | [Statistics](/assemblyline4_docs/odm/models/config/#statistics) | Statistics configuration | :material-checkbox-marked-outline: Yes | See [Statistics](/assemblyline4_docs/odm/models/config/#statistics) for more details. |
