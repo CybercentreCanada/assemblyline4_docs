@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| archive_ts | Date | Archiving timestamp | :material-checkbox-marked-outline: Yes | `None` |
+| archive_ts | Date | None | :material-minus-box-outline: Optional | `None` |
 | created | Date | Error creation timestamp | :material-checkbox-marked-outline: Yes | `NOW` |
 | expiry_ts | Date | Expiry timestamp | :material-minus-box-outline: Optional | `None` |
 | response | [Response](/assemblyline4_docs/odm/models/error/#response) | Response from the service | :material-checkbox-marked-outline: Yes | `None` |

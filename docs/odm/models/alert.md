@@ -6,7 +6,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | alert_id | Keyword | ID of the alert | :material-checkbox-marked-outline: Yes | `None` |
 | al | [ALResults](/assemblyline4_docs/odm/models/alert/#alresults) | Assemblyline Result Block | :material-checkbox-marked-outline: Yes | `None` |
-| archive_ts | Date | Archiving timestamp | :material-checkbox-marked-outline: Yes | `None` |
+| archive_ts | Date | None | :material-minus-box-outline: Optional | `None` |
 | attack | [Attack](/assemblyline4_docs/odm/models/alert/#attack) | ATT&CK Block | :material-checkbox-marked-outline: Yes | `None` |
 | classification | Classification | Classification of the alert | :material-checkbox-marked-outline: Yes | `None` |
 | expiry_ts | Date | Expiry timestamp | :material-minus-box-outline: Optional | `None` |
