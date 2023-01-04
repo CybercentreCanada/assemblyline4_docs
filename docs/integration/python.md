@@ -182,6 +182,7 @@ In the following example, we want to retrieve the first page of submissions that
 ``` python
 submission_results = al_client.search.submission('times.submitted:[now-7d TO now]', fl='sid')
 ```
+!!! tip "`fl` defaults to a list of predefined field that we deemed important, you may use `fl="*"` to get all fields"
 
 #### Using facet searching
 In the following example, we want to retrieve the users who have made submissions in the last week, and the number of submissions that they have made:
