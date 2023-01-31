@@ -59,6 +59,8 @@ nav:
     - installation/configuration/submission.md
     - installation/configuration/system.md
     - installation/configuration/ui.md
+    - Kubernetes-specific:
+      - installation/configuration/kubernetes/internal_encryption.md
   - installation/classification_engine.md
   - installation/monitoring.md
   - installation/replay.md
