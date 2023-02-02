@@ -40,7 +40,7 @@ datastore:
       mountPath: /usr/share/elasticsearch/config/http_ssl
       readOnly: true
 
-# Interally hosted Kibana instance. For more details, see: https://github.com/elastic/helm-charts/tree/7.17/kibana#configuration
+# Internally hosted Kibana instance. For more details, see: https://github.com/elastic/helm-charts/tree/7.17/kibana#configuration
 kibanaHost: https://kibana/kibana
 kibana:
   elasticsearchHosts: https://log-storage-master:9200
