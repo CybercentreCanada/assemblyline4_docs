@@ -2,7 +2,7 @@
 
 !!! warning "If enabling this feature post-deployment, consider pausing the system before proceeding to upgrade"
 
-As of (insert_release), the [Assemblyline Helm Chart](https://github.com/CybercentreCanada/assemblyline-helm-chart)
+As of [4.3.1.0](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.3.1.stable0), the [Assemblyline Helm Chart](https://github.com/CybercentreCanada/assemblyline-helm-chart)
 supports enabling end-to-end encryption internally between components.
 
 The flag `enableInternalEncryption` found in the values.yaml is disabled by default
