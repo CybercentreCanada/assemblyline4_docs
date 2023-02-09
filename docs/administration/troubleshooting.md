@@ -37,6 +37,9 @@ You can post your question to our [Assemblyline Google Group](https://groups.goo
                         REGISTRY: "<HOST_IP>:32000/"
                     allow_insecure_registry: true
                 ```
+=== "Docker"
+    ??? question "Redis is logging: 'WARNING Memory overcommit must be enabled!', what should I do?"
+        To fix this issue add `vm.overcommit_memory = 1` to /etc/sysctl.conf and then reboot or run the command `sysctl vm.overcommit_memory=1` for this to take effect. This has to be performed on the host that's running the deployment.
 === "Kubernetes"
     ??? question "Connection timeouts to external domains"
         By default, coreDNS is configured to the Google's Public DNS when trying to resolve external domains outside the cluster.
