@@ -76,3 +76,18 @@ This includes, but is not limited to:
 - `configuration.metrics.elasticsearch.hosts: http → https (for all hosts)`
 - `configuration.datastore.hosts: http → https (for all hosts)`
 - `configuration.filestore.*: use_ssl=False → use_ssl=True (for all hosts)`
+
+## Changes to Ingress Controller
+
+Because we're enabling full encryption to everything Assemblyline-related, this also includes traffic going from the ingress
+controller to the appropriate services. (ie. '/' → `frontend`, '/api/' → `ui`, etc.)
+
+A simple way of doing this is setting the `ingressAnnotation` in your values.yaml to force the ingress controller to forward the request over HTTPS rather than HTTP.
+
+In microk8s, using their built-in ingress, you'd have to add:
+
+`nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"`
+
+However, this particular annotation doesn't work for all ingress controllers, so you'll need to refer to the respective documentation to find the right annotation configuration. For example, the annotation for [NGINX](https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/) installed via `helm` would be:
+
+`nginx.org/ssl-services: "ui,frontend,kibana,socketio"`.
