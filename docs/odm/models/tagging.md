@@ -34,6 +34,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | actor | List [UpperKeyword] | Attribution Actor | :material-minus-box-outline: Optional | `None` |
 | campaign | List [UpperKeyword] | Attribution Campaign | :material-minus-box-outline: Optional | `None` |
+| category | List [UpperKeyword] | Attribution Category | :material-minus-box-outline: Optional | `None` |
 | exploit | List [UpperKeyword] | Attribution Exploit | :material-minus-box-outline: Optional | `None` |
 | implant | List [UpperKeyword] | Attribution Implant | :material-minus-box-outline: Optional | `None` |
 | family | List [UpperKeyword] | Attribution Family | :material-minus-box-outline: Optional | `None` |
