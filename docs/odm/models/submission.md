@@ -18,6 +18,7 @@
 | results | List [Keyword] | List of result keys | :material-checkbox-marked-outline: Yes | `None` |
 | sid | UUID | Submission ID | :material-checkbox-marked-outline: Yes | `None` |
 | state | Enum | Status of the submission<br>Values:<br>`"completed", "failed", "submitted"` | :material-checkbox-marked-outline: Yes | `None` |
+| to_be_deleted | Boolean | This document is going to be deleted as soon as it finishes | :material-checkbox-marked-outline: Yes | `False` |
 | times | [Times](/assemblyline4_docs/odm/models/submission/#times) | Submission-specific times | :material-checkbox-marked-outline: Yes | See [Times](/assemblyline4_docs/odm/models/submission/#times) for more details. |
 | verdict | [Verdict](/assemblyline4_docs/odm/models/submission/#verdict) | Malicious verdict details | :material-checkbox-marked-outline: Yes | See [Verdict](/assemblyline4_docs/odm/models/submission/#verdict) for more details. |
 | from_archive | Boolean | Was loaded from the archive | :material-checkbox-marked-outline: Yes | `False` |

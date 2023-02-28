@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| kind | Enum | Kind of message<br>Values:<br>`"CREATE_WATCH", "LIST_OUTSTANDING"` | :material-checkbox-marked-outline: Yes | `None` |
+| kind | Enum | Kind of message<br>Values:<br>`"CREATE_WATCH", "LIST_OUTSTANDING", "UPDATE_BAD_SID"` | :material-checkbox-marked-outline: Yes | `None` |
 | payload_data | Any | Message payload | :material-checkbox-marked-outline: Yes | `None` |
 
 
