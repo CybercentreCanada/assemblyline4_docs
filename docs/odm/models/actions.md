@@ -47,7 +47,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name | :material-checkbox-marked-outline: Yes | `[]` |
-| value | Keyword | Value | :material-checkbox-marked-outline: Yes | `[]` |
+| name | Keyword | Name | :material-checkbox-marked-outline: Yes | `None` |
+| value | Keyword | Value | :material-checkbox-marked-outline: Yes | `None` |
 
 
