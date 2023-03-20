@@ -149,6 +149,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
+| ancestry | List [Keyword] | File Genealogy | :material-minus-box-outline: Optional | `None` |
 | behavior | List [Keyword] | File Behaviour | :material-minus-box-outline: Optional | `None` |
 | compiler | List [Keyword] | Compiler of File | :material-minus-box-outline: Optional | `None` |
 | config | List [Keyword] | File Configuration | :material-minus-box-outline: Optional | `None` |
