@@ -532,7 +532,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | categories | List [Keyword] | List of categories a service can be assigned to | :material-checkbox-marked-outline: Yes | `['Antivirus', 'Dynamic Analysis', 'External', 'Extraction', 'Filtering', 'Internet Connected', 'Networking', 'Static Analysis']` |
 | default_timeout | Integer | Default service timeout time in seconds | :material-checkbox-marked-outline: Yes | `60` |
-| stages | List [Keyword] | List of execution stages a service can be assigned to | :material-checkbox-marked-outline: Yes | `['FILTER', 'EXTRACT', 'CORE', 'SECONDARY', 'POST']` |
+| stages | List [Keyword] | List of execution stages a service can be assigned to | :material-checkbox-marked-outline: Yes | `['FILTER', 'EXTRACT', 'CORE', 'SECONDARY', 'POST', 'REVIEW']` |
 | image_variables | Mapping [String, Keyword] | Substitution variables for image paths (for custom registry support) | :material-checkbox-marked-outline: Yes | `None` |
 | update_image_variables | Mapping [String, Keyword] | Similar to `image_variables` but only applied to the updater. Intended for use with local registries. | :material-checkbox-marked-outline: Yes | `None` |
 | preferred_update_channel | Keyword | Default update channel to be used for new services | :material-checkbox-marked-outline: Yes | `stable` |
