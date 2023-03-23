@@ -18,7 +18,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | created_by | Keyword | Who created the favorite | :material-checkbox-marked-outline: Yes | `None` |
-| classification | Classification | Classification of the favorite | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Classification of the favorite | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | name | Keyword | Name of the favorite | :material-checkbox-marked-outline: Yes | `None` |
 | query | Keyword | Query for the favorite | :material-checkbox-marked-outline: Yes | `None` |
 

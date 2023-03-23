@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Classification of the cache | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Classification of the cache | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | filtered | Boolean | Has this cache entry been filtered? | :material-checkbox-marked-outline: Yes | `False` |
 | expiry_ts | Date | Expiry timestamp | :material-checkbox-marked-outline: Yes | `None` |
 | tags | Text | Tags cache | :material-checkbox-marked-outline: Yes | `None` |

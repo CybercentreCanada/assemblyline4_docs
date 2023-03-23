@@ -726,6 +726,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | domain | List [Domain] | Domain | :material-minus-box-outline: Optional | `None` |
 | ip | List [IP] | IP | :material-minus-box-outline: Optional | `None` |
+| unc_path | List [UNCPath] | UNC Path | :material-minus-box-outline: Optional | `None` |
 | uri | List [URI] | URI | :material-minus-box-outline: Optional | `None` |
 | uri_path | List [URIPath] | URI Path | :material-minus-box-outline: Optional | `None` |
 

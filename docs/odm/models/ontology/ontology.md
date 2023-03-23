@@ -81,7 +81,7 @@
 | sid | Keyword | Submission ID associated to file | :material-minus-box-outline: Optional | `None` |
 | source_system | Text | Which Assemblyline instance does the result originate from? | :material-minus-box-outline: Optional | `None` |
 | original_source | Text | Source as specified by submitter (from metadata) | :material-minus-box-outline: Optional | `None` |
-| classification | ClassificationString | Submitted classification | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | ClassificationString | Submitted classification | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | submitter | Keyword | Submitter | :material-minus-box-outline: Optional | `None` |
 | retention_id | Keyword | Reference to knowledge base for long-term data retention. | :material-minus-box-outline: Optional | `None` |
 | max_score | Integer | None | :material-minus-box-outline: Optional | `None` |

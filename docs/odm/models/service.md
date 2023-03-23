@@ -9,7 +9,7 @@
 | category | Keyword | Which category does this service belong to? | :material-checkbox-marked-outline: Yes | `Static Analysis` |
 | config | Mapping [String, Any] | Service Configuration | :material-checkbox-marked-outline: Yes | `{}` |
 | description | Text | Description of service | :material-checkbox-marked-outline: Yes | `NA` |
-| default_result_classification | ClassificationString | Default classification assigned to service results | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| default_result_classification | ClassificationString | Default classification assigned to service results | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | enabled | Boolean | Is the service enabled (by default)? | :material-checkbox-marked-outline: Yes | `False` |
 | is_external | Boolean | Does this service perform analysis outside of Assemblyline? | :material-checkbox-marked-outline: Yes | `False` |
 | licence_count | Integer | How many licences is the service allowed to use? | :material-checkbox-marked-outline: Yes | `0` |
@@ -158,7 +158,7 @@
 | uri | Keyword | URI to source | :material-checkbox-marked-outline: Yes | `None` |
 | username | Keyword | Username used to authenticate with source | :material-minus-box-outline: Optional | `` |
 | headers | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service/#environmentvariable)] | Headers | :material-checkbox-marked-outline: Yes | `[]` |
-| default_classification | Classification | Default classification used in absence of one defined in files from source | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| default_classification | Classification | Default classification used in absence of one defined in files from source | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | git_branch | Keyword | Branch to checkout from Git repository. | :material-minus-box-outline: Optional | `` |
 
 

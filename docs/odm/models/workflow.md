@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Classification of the workflow | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Classification of the workflow | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | creation_date | Date | Creation date of the workflow | :material-checkbox-marked-outline: Yes | `NOW` |
 | creator | Keyword | UID of the creator of the workflow | :material-checkbox-marked-outline: Yes | `None` |
 | edited_by | Keyword | UID of the last user to edit the workflow | :material-checkbox-marked-outline: Yes | `None` |

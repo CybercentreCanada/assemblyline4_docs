@@ -42,7 +42,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Original classification of the submission | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Original classification of the submission | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | deep_scan | Boolean | Should a deep scan be performed? | :material-checkbox-marked-outline: Yes | `False` |
 | description | Text | Description of the submission | :material-checkbox-marked-outline: Yes | `None` |
 | generate_alert | Boolean | Should this submission generate an alert? | :material-checkbox-marked-outline: Yes | `False` |

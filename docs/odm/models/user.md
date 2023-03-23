@@ -9,7 +9,7 @@
 | apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | :material-checkbox-marked-outline: Yes | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
 | apps | Mapping [String, [Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | :material-checkbox-marked-outline: Yes | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
 | can_impersonate | Boolean | Allowed to query on behalf of others? | :material-checkbox-marked-outline: Yes | `False` |
-| classification | Classification | Maximum classification for the user | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Maximum classification for the user | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | dn | Keyword | User's LDAP DN | :material-minus-box-outline: Optional | `None` |
 | email | Email | User's email address | :material-minus-box-outline: Optional | `None` |
 | groups | List [Keyword] | List of groups the user submits to | :material-checkbox-marked-outline: Yes | `['USERS']` |

@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | None | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | None | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | data | Text | None | :material-checkbox-marked-outline: Yes | `None` |
 | last_modified | Date | None | :material-checkbox-marked-outline: Yes | `NOW` |
 | name | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |

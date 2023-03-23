@@ -53,7 +53,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Classification of the source | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Classification of the source | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | name | Keyword | Name of the source | :material-checkbox-marked-outline: Yes | `None` |
 | reason | List [Keyword] | Reason for why file was safelisted | :material-checkbox-marked-outline: Yes | `None` |
 | type | Enum | Type of safelisting source<br>Values:<br>`"external", "user"` | :material-checkbox-marked-outline: Yes | `None` |

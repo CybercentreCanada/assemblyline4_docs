@@ -5,7 +5,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | attack_id | List [Keyword] | List of all associated ATT&CK IDs | :material-checkbox-marked-outline: Yes | `[]` |
-| classification | Classification | Classification of the heuristic | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Classification of the heuristic | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | description | Text | Description of the heuristic | :material-checkbox-marked-outline: Yes | `None` |
 | filetype | Keyword | What type of files does this heuristic target? | :material-checkbox-marked-outline: Yes | `None` |
 | heur_id | Keyword | ID of the Heuristic | :material-checkbox-marked-outline: Yes | `None` |

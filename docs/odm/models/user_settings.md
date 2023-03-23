@@ -4,7 +4,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Default submission classification | :material-checkbox-marked-outline: Yes | `TLP:W` |
+| classification | Classification | Default submission classification | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | deep_scan | Boolean | Should a deep scan be performed? | :material-checkbox-marked-outline: Yes | `False` |
 | description | Keyword | Default description | :material-checkbox-marked-outline: Yes | `` |
 | download_encoding | Enum | Default download encoding when downloading files<br>Values:<br>`"cart", "raw", "zip"` | :material-checkbox-marked-outline: Yes | `cart` |
