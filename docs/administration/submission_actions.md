@@ -1,4 +1,4 @@
-# Submission Actions
+# Submission (Post-Process) Actions
 
 Assemblyline can be configured to take a number of actions with completed submissions. This can be because a submission has been processed, or because an ingested submission is completed as a cache hit. The following actions can be taken:
 
