@@ -111,7 +111,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
             docker pull redis && docker save redis >> redis.tar
 
             #Pull official service images
-            for svc_image in apivector apkaye batchdeobfuscator beaver capa characterize configextractor cuckoo deobfuscripter elf elfparser emlparser espresso extract floss frankenstrings iparse metadefender metapeek oletools pdfid peepdf pe pixaxe safelist sigma suricata swiffer tagcheck torrentslicer unpacme unpacker vipermonkey virustotal-dynamic virustotal-static xlmmacrodeobfuscator yara
+            for svc_image in apivector apkaye batchdeobfuscator beaver capa characterize configextractor cuckoo deobfuscripter elf elfparser emlparser espresso extract floss frankenstrings iparse metadefender metapeek oletools onenoteanalyzer pdfid peepdf pe pixaxe safelist sigma suricata swiffer tagcheck torrentslicer unpacme unpacker vipermonkey virustotal-dynamic virustotal-static xlmmacrodeobfuscator yara
             do
                 docker pull cccs/assemblyline-service-$svc_image:stable && docker save cccs/assemblyline-service-$svc_image:stable >> $svc_image.tar
             done
@@ -126,7 +126,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
                 done
 
                 # Services
-                for svc_image in apivector apkaye batchdeobfuscator beaver capa characterize configextractor cuckoo deobfuscripter elf elfparser emlparser espresso extract floss frankenstrings iparse metadefender metapeek oletools pdfid peepdf pe pixaxe safelist sigma suricata swiffer tagcheck torrentslicer unpacme unpacker vipermonkey virustotal-dynamic virustotal-static xlmmacrodeobfuscator yara
+                for svc_image in apivector apkaye batchdeobfuscator beaver capa characterize configextractor cuckoo deobfuscripter elf elfparser emlparser espresso extract floss frankenstrings iparse metadefender metapeek oletools onenoteanalyzer pdfid peepdf pe pixaxe safelist sigma suricata swiffer tagcheck torrentslicer unpacme unpacker vipermonkey virustotal-dynamic virustotal-static xlmmacrodeobfuscator yara
                 do
                     docker pull cccs/assemblyline-service-$svc_image:stable && docker save cccs/assemblyline-service-$svc_image:stable >> $svc_image.tar
                 done
