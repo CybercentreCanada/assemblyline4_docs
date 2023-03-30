@@ -22,8 +22,7 @@ This is the list of all the services that are bundled with Assemblyline and that
 | Extract           | Compressed file | This service extracts embedded files from file containers (like ZIP, RAR, 7z, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-extract)|
 | Floss             | IoC extraction  | Automatically extract obfuscated strings from malware using [FireEye Labs Obfuscated String Solver](https://github.com/fireeye/flare-floss) | [link](https://github.com/CybercentreCanada/assemblyline-service-floss)|
 | FrankenStrings    | IoC extraction | This service performs file and IOC extractions using pattern matching, simple encoding decoder and script de-obfuscators | [link](https://github.com/CybercentreCanada/assemblyline-service-frankenstrings)|
-| IntezerDynamic    | File genome identification | Interface between Intezer Analyze API 2.0, submits file for analysis if hash is not present in Intezer database | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-dynamic)|
-| IntezerStatic     | File genome identification | Interface between Intezer Analyze API 2.0, performs hash lookups of submitted file | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-static)|
+| Intezer   | File genome identification | Interface between Intezer Analyze API 2.0, submits file for analysis if hash is not present in Intezer database | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-dynamic)|
 | IPArse            | Apple IOS | Analyze Apple apps | [link](https://github.com/CybercentreCanada/assemblyline-service-iparse)|
 | JsJaws            | Javascript | Analyze malicious Javascript | [link](https://github.com/CybercentreCanada/assemblyline-service-jsjaws)|
 | MetaPeek          | Meta data analysis | Checks submission metadata for indicators of potential malicious behavior (double file extensions, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-metapeek)|
@@ -54,6 +53,7 @@ End of life, no longer actively supported:
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
 | Cuckoo            | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-cuckoo) |
+| IntezerStatic     | File genome identification | Interface between Intezer Analyze API 2.0, performs hash lookups of submitted file | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-static)|
 | Lastline          | Sandbox | Provides dynamic malware analysis through sandboxing. | [link](https://github.com/CybercentreCanada/assemblyline-service-lastline) |
 | MetaDefender      | Anti-virus | Service for OPSWAT MetaDefender anti-virus (multi-engine) | [link](https://github.com/CybercentreCanada/assemblyline-service-metadefender)|
 | PEFile            | Windows binaries | This service extracts attributes (imports, exports, section names, ...) from windows PE files using the [Python library pefile](https://github.com/erocarrera/pefile) | [link](https://github.com/CybercentreCanada/assemblyline-service-pefile)|
