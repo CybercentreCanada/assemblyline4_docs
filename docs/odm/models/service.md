@@ -58,7 +58,7 @@
 | registry_type | Enum | The type of container registry<br>Values:<br>`"docker", "harbor"` | :material-checkbox-marked-outline: Yes | `docker` |
 | ports | List [Keyword] | What ports of container to expose? | :material-checkbox-marked-outline: Yes | `[]` |
 | ram_mb | Integer | Container RAM limit | :material-checkbox-marked-outline: Yes | `512` |
-| ram_mb_min | Integer | Container RAM request | :material-checkbox-marked-outline: Yes | `128` |
+| ram_mb_min | Integer | Container RAM request | :material-checkbox-marked-outline: Yes | `256` |
 | service_account | Keyword | None | :material-minus-box-outline: Optional | `None` |
 
 
@@ -100,7 +100,7 @@
 | registry_type | Enum | The type of container registry<br>Values:<br>`"docker", "harbor"` | :material-checkbox-marked-outline: Yes | `docker` |
 | ports | List [Keyword] | What ports of container to expose? | :material-checkbox-marked-outline: Yes | `[]` |
 | ram_mb | Integer | Container RAM limit | :material-checkbox-marked-outline: Yes | `512` |
-| ram_mb_min | Integer | Container RAM request | :material-checkbox-marked-outline: Yes | `128` |
+| ram_mb_min | Integer | Container RAM request | :material-checkbox-marked-outline: Yes | `256` |
 | service_account | Keyword | None | :material-minus-box-outline: Optional | `None` |
 
 
