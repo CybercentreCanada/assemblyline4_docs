@@ -590,7 +590,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ![MULTI](./images/multi.png)
 
-??? example "Code used to generate the JSON section"
+??? example "Code used to generate the MULTI section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
     ```python
