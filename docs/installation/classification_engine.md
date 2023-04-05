@@ -275,6 +275,25 @@ Then you must tell your pods to use the classification engine from the newly cre
     ...
     ```
 
+You will also need to ensure services have your `classification.yml` file mounted. Add the following to your `values.yaml`:
+???+ example "Partial values.yaml to load the custom classification.yml file for services"
+    ```yaml
+    ...
+    configuration:
+      ...
+      core:
+        ...
+        scaler:
+          service_defaults:
+            mounts:
+              - name: assemblyline-extra-config
+                path: "/etc/assemblyline/classification.yml"
+                resource_type: configmap
+                resource_name: assemblyline-extra-config
+                resource_key: classification
+    ...
+    ```
+
 Finally update your deployment using `helm upgrade command`:
 
 
