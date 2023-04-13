@@ -389,15 +389,29 @@ These are all result section types that Assemblyline supports. You can see a scr
     #     while also providing easy to parse data for auto mated tools.
     #     NB: You should definitely use this over a JSON body type since this one will be displayed correctly
     #         in the UI for the user
-    #     The body argument must be a json dumps of a dictionary (only str, int, and booleans are allowed)
-    kv_body = {
+    #     The body argument must be a dictionary (only str, int, and booleans are allowed)
+    kv_section = ResultKeyValueSection('Example of a KEY_VALUE section')
+    # You can add items individually
+    kv_section.set_item('key', "value")
+    # Or simply add them in bulk
+    kv_section.update_items({
         "a_str": "Some string",
         "a_bool": False,
         "an_int": 102,
-    }
-    kv_section = ResultSection('Example of a KEY_VALUE section', body_format=BODY_FORMAT.KEY_VALUE,
-                                body=json.dumps(kv_body))
+    })
     result.add_section(kv_section)
+
+    # ==================================================================
+    # ORDERED_KEY_VALUE section:
+    #     This section provides the same functionality as the KEY_VALUE section except the order of the fields
+    #     are garanteed to be preserved in the order in which the fields are added to the section. Also with
+    #     this section, you can repeat the same key name multiple times
+    oredered_kv_section = ResultOrderedKeyValueSection('Example of an ORDERED_KEY_VALUE section')
+    # You can add items individually
+    for x in range(random.randint(3, 6)):
+        oredered_kv_section.add_item(f'key{x}', f"value{x}")
+
+    result.add_section(oredered_kv_section)
     ...
     ```
 
@@ -527,5 +541,80 @@ These are all result section types that Assemblyline supports. You can see a scr
                                     body_format=BODY_FORMAT.TABLE,
                                     body=json.dumps(table_body))
     result.add_section(table_section)
+    ...
+    ```
+
+### IMAGE
+
+![IMAGE](./images/image.png)
+
+??? example "Code used to generate the IMAGE section"
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Image Section
+    #     This type of section allows the service writer to display images to the user
+    image_section = ResultImageSection(request, 'Example of Image section')
+    for x in range(6):
+        image_section.add_image(
+            os.path.join(os.path.dirname(__file__),
+                            'data', f'000{x+1}.jpg'),
+            f'000{x+1}.jpg', f'ResultSample screenshot 000{x+1}', ocr_heuristic_id=6)
+    result.add_section(image_section)
+    ...
+    ```
+
+### TIMELINE
+
+![TIMELINE](./images/timelinejson.png)
+
+??? example "Code used to generate the TIMELINE section"
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Timeline Section
+    #     This type of section allows the service writer to create a visual timeline
+    timeline_section = ResultTimelineSection("Timeline")
+    for x in range(4):
+        timeline_section.add_node(title=f"Node {x}", content=f"Description: {x}",
+                                    opposite_content=f"Value: {x}")
+    result.add_section(timeline_section)
+    ...
+    ```
+
+### MULTI
+
+![MULTI](./images/multi.png)
+
+??? example "Code used to generate the MULTI section"
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Multi Section
+    #     This type of section allows the service writer to display multiple section types
+    #     in the same result section. Here's a concrete exemple of this:
+    multi_section = ResultMultiSection('Example of Multi-typed section')
+    multi_section.add_section_part(TextSectionBody(body="We have detected very high entropy multiple sections "
+                                                        "of your file, this section is most-likely packed or "
+                                                        "encrypted.\n\nHere are affected sections:"))
+    section_count = random.randint(1, 4)
+    for x in range(section_count):
+        multi_section.add_section_part(
+            KVSectionBody(section_name=f".UPX{x}", offset=f'0x00{8+x}000', size='4196 bytes'))
+        graph_part = GraphSectionBody()
+        graph_part.set_colormap(0, 8, [7 + random.random() for _ in range(20)])
+        multi_section.add_section_part(graph_part)
+        if x != section_count - 1:
+            multi_section.add_section_part(DividerSectionBody())
+        multi_section.add_tag("file.pe.sections.name", f".UPX{x}")
+
+    multi_section.set_heuristic(5)
+    result.add_section(multi_section)
     ...
     ```
