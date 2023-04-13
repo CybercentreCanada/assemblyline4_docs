@@ -352,6 +352,7 @@ Clone Assemblyline's services repositories
     git clone git@github.com:CybercentreCanada/assemblyline-service-metadefender.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-metapeek.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-oletools.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-onenoteanalyzer.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-pdfid.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-peepdf.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-pe.git
@@ -394,6 +395,7 @@ Clone Assemblyline's services repositories
     git clone https://github.com/CybercentreCanada/assemblyline-service-metadefender.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-metapeek.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-oletools.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-onenoteanalyzer.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-pdfid.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-peepdf.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-pe.git
