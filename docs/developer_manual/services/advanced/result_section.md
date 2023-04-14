@@ -568,7 +568,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### TIMELINE
 
-![TIMELINE](./images/timelinejson.png)
+![TIMELINE](./images/timeline.png)
 
 ??? example "Code used to generate the TIMELINE section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
