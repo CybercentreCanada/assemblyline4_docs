@@ -199,7 +199,7 @@ sudo docker-compose logs ui
 ```bash
 cd ~/deployments/assemblyline
 sudo docker-compose stop
-sudo docker rm --force $(sudo docker ps -a --filter label=app=assemblyline -q)
+sudo docker-compose rm --force $(sudo docker ps -a --filter label=app=assemblyline -q)
 sudo docker-compose down --remove-orphans
 ```
 
