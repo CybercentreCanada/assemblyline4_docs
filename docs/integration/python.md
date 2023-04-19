@@ -77,6 +77,8 @@ You can instantiate the client by using the following snippet of Python code:
 There are two methods for sending a file/URL to Assemblyline for analysis: **Ingest** and **Submit**.
 
 !!! attention "In most cases, you want to use the Ingest API via the CLI"
+
+!!! attention "The default limit for sample size is 500mb, this is also the case in the UI and the use of the API is the only workaround. In order to circumvent this, the option ignore_size=True must be used when submitting via the API. "
     **Ingest**
 
     * Provides a fast, non-blocking method of submitting many files
