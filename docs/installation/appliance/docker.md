@@ -7,37 +7,30 @@ This is the documentation for an appliance instance of the Assemblyline platform
 !!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on one of the following systems:
 
-    - Debian: Ubuntu 20.04
+    - Debian: Ubuntu 20.04, Ubuntu 22.04
     - RHEL: RHEL 8.5
 
     You might have to change the commands a bit if you use other Linux distributions.
 
     The recommended minimum system requirement for this appliance is **4 CPUs** and **8 GB** of RAM.
 
-!!! warning
-    If you have more then **16 CPUs** and **64 GB** of ram, you should consider using the [MicroK8s appliance](../kubernetes-microk8s/) instead. Microk8s will be able to auto-scale core components based on load but this docker appliance can only scale services.
-
 ### Install pre-requisites
 === "Online"
     === "Ubuntu"
-        1. Install Docker:
+        Install Docker:
         ```bash
-        sudo apt-get update
-        sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-        ```
-        ```bash
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-        ```
-        ```bash
-        sudo apt-key fingerprint 0EBFCD88
-        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-        sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-        ```
-        2. Install Docker compose:
-        ```bash
-        sudo curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-        sudo curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+        sudo apt-get update -y
+        sudo apt-get install -y apt-transport-https ca-certificates curl gnupg software-properties-common
+        sudo install -m 0755 -d /etc/apt/keyrings
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+        sudo chmod a+r /etc/apt/keyrings/docker.gpg
+        echo \
+        "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+        "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        sudo apt-get update -y
+        sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose
         ```
     === "RHEL 8.5"
         !!! warning
@@ -50,27 +43,21 @@ This is the documentation for an appliance instance of the Assemblyline platform
         ```bash
         yum update -y --allowerasing
         yum install -y yum-utils
-        yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-        yum install -y docker-ce docker-ce-cli containerd.io --allowerasing
+        yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+        yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --allowerasing
+        ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose
         systemctl start docker
         systemctl enable docker
         ```
 
-        2. Install Docker compose:
-        ```bash
-        curl -s -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
-        chmod +x /usr/bin/docker-compose
-        curl -s -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
-        ```
-
-        3. Upgrade Python3.9:
+        2. Upgrade Python3.9:
         ```bash
         dnf install -y python39
         alternatives --set python3 /usr/bin/python3.9
         python3 --version
         ```
 
-        4. Configure firewalld for Docker:
+        3. Configure firewalld for Docker:
         ```bash
         sed -i 's/FirewallBackend=nftables/FirewallBackend=iptables/' /etc/firewalld/firewalld.conf
         firewall-cmd --reload
@@ -117,6 +104,9 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 === "Assemblyline with ELK monitoring stack"
 
+    !!! warning
+        Since everything is self-contained, you shouldn't need to install the ELK monitoring stack on the appliance.
+
     ```bash
     mkdir ~/deployments
     cp -R ~/git/assemblyline-docker-compose/full_appliance ~/deployments/assemblyline
@@ -150,7 +140,7 @@ sudo docker-compose -f bootstrap-compose.yaml pull
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose up -d
+sudo docker-compose up -d --wait
 sudo docker-compose -f bootstrap-compose.yaml up
 ```
 

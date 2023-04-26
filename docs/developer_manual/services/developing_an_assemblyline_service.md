@@ -19,6 +19,7 @@ Put the following code in your service's file:
 ???+ example "~/git/services/assemblyline-service-sample/sample.py"
     ```python
     from assemblyline_v4_service.common.base import ServiceBase
+    from assemblyline_v4_service.common.request import ServiceRequest
     from assemblyline_v4_service.common.result import Result, ResultSection
 
     class Sample(ServiceBase):
@@ -32,7 +33,7 @@ Put the following code in your service's file:
 
             self.log.info(f"start() from {self.service_attributes.name} service called")
 
-        def execute(self, request):
+        def execute(self, request: ServiceRequest) -> None:
             # ==================================================================
             # Execute a request:
             #   Every time your service receives a new file to scan, the execute function is called
@@ -73,7 +74,7 @@ In your service directory, you will add the YAML configuration file `service_man
     # Name of the service
     name: Sample
     # Version of the service
-    version: 4.0.0.dev0
+    version: 4.4.0.dev0
     # Description of the service
     description: ALv4 Sample service from the documentation
 
@@ -84,14 +85,14 @@ In your service directory, you will add the YAML configuration file `service_man
     # At which stage the service should run (one of FILTER, EXTRACT, CORE, SECONDARY, POST)
     # NOTE: Stages are executed in the order defined in the list
     stage: CORE
-    # Which category the service is part of (one of Antivirus, Dynamic Analysis, External, Extraction, Filtering, Networking, Static Analysis)
+    # Which category the service is part of (one of Antivirus, Dynamic Analysis, Internet Connected, Extraction, Filtering, Networking, Static Analysis)
     category: Static Analysis
 
     # Does the service require access to the file to perform its task
     # If set to false, the service will only have access to the file metadata (e.g. Hashes, size, type, ...)
     file_required: true
     # Maximum execution time the service has before it's considered to be timed out
-    timeout: 10
+    timeout: 60
 
     # is the service enabled by default
     enabled: true
@@ -130,7 +131,9 @@ In your service directory, create a file named `Dockerfile` with the following c
 
     # Install any service dependencies here
     # For example: RUN apt-get update && apt-get install -y libyaml-dev
-    #              RUN pip install utils
+    #
+    #              COPY requirements.txt requirements.txt
+    #              RUN pip install --no-cache-dir --user --requirement requirements.txt && rm -rf ~/.cache/pip
 
     # Switch to assemblyline user
     USER assemblyline
