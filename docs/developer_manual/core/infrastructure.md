@@ -52,3 +52,12 @@ The interfaces listed here are used by Assemblyline's services to process files,
 | Service Base | Base Assemblyline service class. | [Source code](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/base.py) |
 | Service Request | Class that defines a request to scan a file for a given service. | [Source code](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/request.py) |
 | Task Handler | A Python wrapper that communicates with the service server to get a task, download files, and publish results. It communicates with the service via named pipes so that the service can execute the received tasks. | [Source code](https://github.com/CybercentreCanada/assemblyline-service-client/tree/master/assemblyline_service_client) |
+
+
+## UI Plugins
+
+The API may be extended via plugins. Plugins may be developed externally to Assemblyline to provide additional functionality. They must conform the the defined interface for their function.
+
+| Plugin Interface | Description | Link |
+| ---------------- | ----------- | ---- |
+| External system lookups | These plugins enable the querying of Assmebyline data in an external system and brining back the results. | [Source code](https://github.com/CybercentreCanada/assemblyline-ui/tree/master/plugins/external_lookup/template) |
