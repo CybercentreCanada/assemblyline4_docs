@@ -26,5 +26,11 @@ Since this section is quite simple, we will list the default configuration at th
     ...
     ```
 
+!!! note "S3 Certificate Verification"
+    For S3-compatible file storage solutions, it is possible to enable verification through the `verify` parameter. The value of the parameter can either be a boolean or a path to the certificate on disk.
+
+    This also assumes that if certificate isn't part of the system certificates, then you'll need to mount it using `coreMounts` & `coreVolumes` and set `verify` to the path of the CA specified in the mount.
+    You would also need to modify `configuration.core.scaler.service_defaults.mounts` to ensure privileged services have access to those certificates as well.
+
 !!! tip
     Refer to the [changing the configuration file](../config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
