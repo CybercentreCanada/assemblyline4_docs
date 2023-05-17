@@ -98,3 +98,88 @@ In microk8s, using their built-in ingress, you'd have to add:
 However, this particular annotation doesn't work for all ingress controllers, so you'll need to refer to the respective documentation to find the right annotation configuration. For example, the annotation for [NGINX](https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/) installed via `helm` would be:
 
 `nginx.org/ssl-services: "ui,frontend,kibana,socketio"`.
+
+## What does this look like in practice?
+For example this is what your changes would look like if:
+
+- Enabling internal encryption (`enableInternalEncryption: true`)
+- Using an internal minIO filestore that the chart deploys  (`internalFilestore: true`)
+- Using the helm-generated CA for the various different servers within the cluster (`datastore` and/or `log-storage`, `kibana`, `filestore`)
+
+```diff
+- enableInternalEncryption: false
++ enableInternalEncryption: true
+
+  internalFilestore: true
+
+  configuration:
+    core:
+      ...
+      metrics:
+        apm_server:
+-         server_url: "http://apm:8200"
++         server_url: "https://apm:8200"
+        elasticsearch:
+          hosts:
+-           ["http://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
++           ["https://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
+    datastore:
+      ...
+-     hosts: ["http://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
++     hosts: ["https://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
+    filestore:
+      ...
+      cache:
+        [
+-         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=False",
++         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
+        ]
+      storage:
+        [
+-         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=False",
++         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
+        ]
+  ...
+
+# Equivalent changes for `datastore` would be made for `log-storage`
+  datastore:
++   protocol: https
+    ...
+    extraVolumes: |
+      - name: elastic-certificates
+        emptyDir: {}
++     - name: datastore-master-cert
++       secret:
++         secretName: datastore-master-cert
+    extraVolumeMounts: |
+      - name: elastic-certificates
+        mountPath: /usr/share/elasticsearch/config/certs
++     - name: datastore-master-cert
++       mountPath: /usr/share/elasticsearch/config/http_ssl
++       readOnly: true
+  ...
+
+- kibanaHost: http://kibana/kibana
++ kibanaHost: https://kibana/kibana
+  kibana:
+-   elasticsearchHosts: http://log-storage-master:9200
++   elasticsearchHosts: https://log-storage-master:9200
+    ...
++   extraVolumes:
++     - name: root-ca
++       secret:
++         secretName: "<release_name>.internal-generated-ca"
++   extraVolumeMounts:
++     - name: root-ca
++       mountPath: /etc/certs/ca.crt
++       subPath: tls.crt
+  ...
+
+  filestore:
+    ...
++   tls:
++     enabled: true
++     certSecret: filestore-cert
++     publicCrt: tls.crt
++     privateKey: tls.key
+```
