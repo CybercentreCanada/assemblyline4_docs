@@ -52,7 +52,7 @@ can then be added to your assemblyline configuration.
 ## Enabling a plugin
 
 Once deployed, plugins can be enabled by adding their details to the Assemblyline configuration file under the section:
-`ui.plugins.<plugin_type>`. The required config for each plugin type is defined in
+`ui.<plugin_type>`. The required config for each plugin type is defined in
 [Assemblyline Base](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/models/config.py).
 
 Once their configuration has been added, the plugin will be enabled on reload.
@@ -61,12 +61,11 @@ For example, External Lookup plugins can be enabled with the following:
 
 ```yaml
 ui:
-  plugins:
-    external_sources:
-      - name: virustotal
-        url: <full url to the plugin microservice>
-        classification: <optional minimum classification of the upstream service>
-        max_classification: <optional maximum classification that can be sumbitted to the upstream service>
+  external_sources:
+    - name: virustotal
+      url: <full url to the plugin microservice>
+      classification: <optional minimum classification of the upstream service>
+      max_classification: <optional maximum classification that can be sumbitted to the upstream service>
 ```
 
 Individual plugin configuration is set in the plugins deployment (eg through ENV variables in docker).
