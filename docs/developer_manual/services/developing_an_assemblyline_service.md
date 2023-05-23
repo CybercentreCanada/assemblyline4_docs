@@ -85,7 +85,7 @@ In your service directory, you will add the YAML configuration file `service_man
     # At which stage the service should run (one of FILTER, EXTRACT, CORE, SECONDARY, POST)
     # NOTE: Stages are executed in the order defined in the list
     stage: CORE
-    # Which category the service is part of (one of Antivirus, Dynamic Analysis, Internet Connected, Extraction, Filtering, Networking, Static Analysis)
+    # Which category the service is part of (one of Antivirus, Dynamic Analysis, External, Extraction, Filtering, Internet Connected, Networking, Static Analysis)
     category: Static Analysis
 
     # Does the service require access to the file to perform its task
