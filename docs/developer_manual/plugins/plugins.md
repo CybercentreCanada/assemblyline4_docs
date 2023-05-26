@@ -16,7 +16,7 @@ obscure.
 ## Architecture
 
 Plugins are essentially standalone microservices that act as a proxy layer between Assemblyline and the external system.
-They exist to transalte Assmemblyline specific ontology into queries that the external service will understand. For
+They exist to translate Assmemblyline specific ontology into queries that the external service will understand. For
 example, the builtin external lookup plugin for VirusTotal will take assembyline tags and translate and search for them
 in virustotal. In this case the Assemblyline tags `network.dynamic.ip` and `network.static.ip` will be mapped to a
 VirusTotal search for `ip_address`.
@@ -51,11 +51,13 @@ can then be added to your assemblyline configuration.
 
 ## Enabling a plugin
 
-Once deployed, plugins can be enabled by adding their details to the Assemblyline configuration file under the section:
+The plugin container should be deployed using either docker/docker-compose or kubernetes depending on your operating environment. Individual plugin configuration can be applied through environment variables, depending on your plugin. If deployed in kubernetes with network policies, remember to ensure correct policies are in place.
+
+Once deployed and running, plugins can be enabled by adding their details to the Assemblyline configuration file under the section:
 `ui.<plugin_type>`. The required config for each plugin type is defined in
 [Assemblyline Base](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/models/config.py).
 
-Once their configuration has been added, the plugin will be enabled on reload.
+Once their configuration has been added, the plugin will be enabled on the next UI reload.
 
 For example, External Lookup plugins can be enabled with the following:
 
