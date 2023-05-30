@@ -12,7 +12,7 @@
 | classification | Classification | Maximum classification for the user | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | dn | Keyword | User's LDAP DN | :material-minus-box-outline: Optional | `None` |
 | email | Email | User's email address | :material-minus-box-outline: Optional | `None` |
-| groups | List [Keyword] | List of groups the user submits to | :material-checkbox-marked-outline: Yes | `['USERS']` |
+| groups | List [UpperKeyword] | List of groups the user submits to | :material-checkbox-marked-outline: Yes | `[]` |
 | is_active | Boolean | Is the user active? | :material-checkbox-marked-outline: Yes | `True` |
 | name | Keyword | Full name of the user | :material-checkbox-marked-outline: Yes | `None` |
 | otp_sk | Keyword | Secret key to generate one time passwords | :material-minus-box-outline: Optional | `None` |

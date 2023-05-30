@@ -78,6 +78,7 @@
 | body | Text | Text body of the result section | :material-minus-box-outline: Optional | `None` |
 | classification | Classification | Classification of the section | :material-checkbox-marked-outline: Yes | `None` |
 | body_format | Enum | Type of body in this section<br>Values:<br>`"GRAPH_DATA", "IMAGE", "JSON", "KEY_VALUE", "MEMORY_DUMP", "MULTI", "ORDERED_KEY_VALUE", "PROCESS_TREE", "TABLE", "TEXT", "TIMELINE", "URL"` | :material-checkbox-marked-outline: Yes | `None` |
+| body_config | Mapping [String, Any] | None | :material-minus-box-outline: Optional | `None` |
 | depth | Integer | Depth of the section | :material-checkbox-marked-outline: Yes | `None` |
 | heuristic | [Heuristic](/assemblyline4_docs/odm/models/result/#heuristic) | Heuristic used to score result section | :material-minus-box-outline: Optional | `None` |
 | tags | [Tagging](/assemblyline4_docs/odm/models/tagging/#tagging) | List of tags associated to this section | :material-checkbox-marked-outline: Yes | See [Tagging](/assemblyline4_docs/odm/models/tagging/#tagging) for more details. |

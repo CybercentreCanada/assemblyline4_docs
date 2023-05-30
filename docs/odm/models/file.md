@@ -20,6 +20,7 @@
 | size | Integer | Size of the file in bytes | :material-checkbox-marked-outline: Yes | `None` |
 | ssdeep | SSDeepHash | SSDEEP hash of the file | :material-checkbox-marked-outline: Yes | `None` |
 | type | Keyword | Type of file as identified by Assemblyline | :material-checkbox-marked-outline: Yes | `None` |
+| tlsh | Keyword | None | :material-minus-box-outline: Optional | `None` |
 | from_archive | Boolean | Was loaded from the archive | :material-checkbox-marked-outline: Yes | `False` |
 
 

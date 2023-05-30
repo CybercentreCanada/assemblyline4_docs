@@ -7,6 +7,7 @@
 | accepts | Keyword | Regex to accept files as identified by Assemblyline | :material-checkbox-marked-outline: Yes | `.*` |
 | rejects | Keyword | Regex to reject files as identified by Assemblyline | :material-minus-box-outline: Optional | `empty|metadata/.*` |
 | category | Keyword | Which category does this service belong to? | :material-checkbox-marked-outline: Yes | `Static Analysis` |
+| classification | ClassificationString | Classification of the service | :material-checkbox-marked-outline: Yes | `TLP:C` |
 | config | Mapping [String, Any] | Service Configuration | :material-checkbox-marked-outline: Yes | `{}` |
 | description | Text | Description of service | :material-checkbox-marked-outline: Yes | `NA` |
 | default_result_classification | ClassificationString | Default classification assigned to service results | :material-checkbox-marked-outline: Yes | `TLP:C` |

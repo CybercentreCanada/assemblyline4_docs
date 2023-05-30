@@ -7,6 +7,7 @@
 | accepts | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | rejects | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | category | Keyword | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
+| classification | ClassificationString | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | config | Mapping [String, Any] | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | description | Text | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
 | default_result_classification | ClassificationString | Refer to:<br>[Service](../service/#service) | :material-minus-box-outline: Optional | `None` |
