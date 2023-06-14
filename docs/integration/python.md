@@ -182,7 +182,7 @@ In the following example, we want to retrieve the first page of submissions that
 ``` python
 submission_results = al_client.search.submission('times.submitted:[now-7d TO now]', fl='sid')
 ```
-!!! tip "`fl` defaults to a list of predefined field that we deemed important, you may use `fl="*"` to get all fields"
+!!! tip "`fl` defaults to a list of predefined fields that we deemed important, you may use `fl="*"` to get all fields. You can view the fields that we deem important under the 'Search Help' page on your Assemblyline instance. These fields have a `stored` attribute."
 
 #### Using facet searching
 In the following example, we want to retrieve the users who have made submissions in the last week, and the number of submissions that they have made:
