@@ -7,7 +7,7 @@
 | count | Integer | Count of statistical hits | :material-checkbox-marked-outline: Yes | `0` |
 | min | Integer | Minimum value of all stastical hits | :material-checkbox-marked-outline: Yes | `0` |
 | max | Integer | Maximum value of all stastical hits | :material-checkbox-marked-outline: Yes | `0` |
-| avg | Integer | Anerage of all stastical hits | :material-checkbox-marked-outline: Yes | `0` |
+| avg | Integer | Average of all stastical hits | :material-checkbox-marked-outline: Yes | `0` |
 | sum | Integer | Sum of all stastical hits | :material-checkbox-marked-outline: Yes | `0` |
 | first_hit | Date | Date of first hit of statistic | :material-minus-box-outline: Optional | `None` |
 | last_hit | Date | Date of last hit of statistic | :material-minus-box-outline: Optional | `None` |
