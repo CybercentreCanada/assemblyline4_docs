@@ -158,6 +158,8 @@ nav:
     - SubmissionMessage: odm/messages/submission.md
     - TaskMessage: odm/messages/task.md
     - VacuumMessage: odm/messages/vacuum_heartbeat.md
+- Blog:
+  - blog/entries.md
 plugins:
 - glightbox:
     auto_caption: false
