@@ -700,7 +700,7 @@
 | ingest_max_priority | Integer | Maximum priority for ingest API | :material-checkbox-marked-outline: Yes | `250` |
 | read_only | Boolean | Turn on read only mode in the UI | :material-checkbox-marked-outline: Yes | `False` |
 | read_only_offset | Keyword | Offset of the read only mode for all paging and searches | :material-checkbox-marked-outline: Yes | `` |
-| rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | :material-checkbox-marked-outline: Yes | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json']` |
+| rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | :material-checkbox-marked-outline: Yes | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json', 'https://alpytest.blob.core.windows.net/pytest/blog.json']` |
 | services_feed | Keyword | Feed of all the services available on AL | :material-checkbox-marked-outline: Yes | `https://alpytest.blob.core.windows.net/pytest/services.json` |
 | secret_key | Keyword | Flask secret key to store cookies, etc. | :material-checkbox-marked-outline: Yes | `This is the default flask secret key... you should change this!` |
 | session_duration | Integer | Duration of the user session before the user has to login again | :material-checkbox-marked-outline: Yes | `3600` |
