@@ -32,9 +32,6 @@ Since this section is quite simple, we will list the default configuration at th
       # while loaded from updater or scaler
       image_variables: {}
 
-      # Minimum amount of service that will be loaded for each service
-      min_service_workers: 0
-
       # Type of services the updater will be looking for when looking for service update
       # (dev or stable)
       preferred_update_channel: stable
