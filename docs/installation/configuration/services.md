@@ -19,6 +19,7 @@ Since this section is quite simple, we will list the default configuration at th
       - External
       - Extraction
       - Filtering
+      - Internet Connected
       - Networking
       - Static Analysis
 
@@ -43,6 +44,7 @@ Since this section is quite simple, we will list the default configuration at th
       - CORE
       - SECONDARY
       - POST
+      - REVIEW
     ...
     ```
 
