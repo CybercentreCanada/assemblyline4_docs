@@ -24,7 +24,7 @@ The table below shows all the elements that the manifest file can contain, inclu
 | name | Keyword | Yes | Name of the service. |
 | privileged | Boolean | No <br> Default: `false` | Allow service to have direct access to core for processing. <br>  **Note: Should only be enabled on services that perform static analysis.** |
 | rejects | Keyword | No <br> Default: <code>empty&#124;metadata/.\*</code>| Regexes applied to Assemblyline style file type string. For example, <code>empty&#124;metadata/.\*</code> will reject all empty and metadata files. |
-| stage | Keyword | No <br> Default: `CORE` | At which stage should the service run. Must be one of: (1) `FILTER`, (2) `EXTRACT`,  (3) `CORE`, (4) `SECONDARY`, (5) `POST`. Note that stages are executed in the numbered order shown. |
+| stage | Keyword | No <br> Default: `CORE` | At which stage should the service run. Must be one of: (1) `FILTER`, (2) `EXTRACT`,  (3) `CORE`, (4) `SECONDARY`, (5) `POST`, (6) `REVIEW`. Note that stages are executed in the numbered order shown. |
 | submission_params | List of [Submission Params](#submission-params) | No | List of submission param(s) that define parameters that the user can change about the service for each of its scans. Refer to the [submission_params](#submission-params) section. |
 | timeout | Integer | No <br> Default: `60` | Maximum execution time the service has before the task is timed out. |
 | update_config | [Update Config](#update-config) | No | Refer to the [update config](#update-config) section. |

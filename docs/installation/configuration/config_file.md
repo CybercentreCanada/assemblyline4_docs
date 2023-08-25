@@ -1,6 +1,6 @@
 # Configuration YAML file
 
-Assemblyline 4 configuration is done using a YAML file (`config.yml`) which is deployed to all containers when they are launched. 
+Assemblyline 4 configuration is done using a YAML file (`config.yml`) which is deployed to all containers when they are launched.
 
 ## Specification and defaults
 
@@ -94,7 +94,7 @@ The full specification of the file [is defined here](https://github.com/Cybercen
             client_secret: null
             jwks_uri: https://www.googleapis.com/oauth2/v3/certs
             user_get: v1/userinfo
-    
+
     core:
       alerter:
         alert_ttl: 90
@@ -174,7 +174,7 @@ The full specification of the file [is defined here](https://github.com/Cybercen
           growth: 60
           min_instances: 0
           shrink: 30
-    
+
     datasources:
       al:
         classpath: assemblyline.datasource.al.AL
@@ -182,7 +182,7 @@ The full specification of the file [is defined here](https://github.com/Cybercen
       alert:
         classpath: assemblyline.datasource.alert.Alert
         config: {}
-    
+
     datastore:
       hosts:
       - http://elastic:devpass@localhost
@@ -201,13 +201,13 @@ The full specification of the file [is defined here](https://github.com/Cybercen
           submission: *id002
         update_archive: false
       type: elasticsearch
-    
+
     filestore:
       cache:
       - s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-cache&use_ssl=False
       storage:
       - s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-storage&use_ssl=False
-    
+
     logging:
       export_interval: 5
       heartbeat_file: /tmp/heartbeat
@@ -219,7 +219,7 @@ The full specification of the file [is defined here](https://github.com/Cybercen
       log_to_syslog: false
       syslog_host: localhost
       syslog_port: 514
-    
+
     services:
       allow_insecure_registry: false
       categories:
@@ -241,7 +241,8 @@ The full specification of the file [is defined here](https://github.com/Cybercen
       - CORE
       - SECONDARY
       - POST
-    
+      - REVIEW
+
     submission:
       default_max_extracted: 500
       default_max_supplementary: 500
@@ -271,12 +272,12 @@ The full specification of the file [is defined here](https://github.com/Cybercen
         - network.dynamic.ip
         - network.dynamic.domain
         - network.dynamic.uri
-    
+
     system:
       constants: assemblyline.common.constants
       organisation: ACME
       type: production
-    
+
     ui:
       allow_malicious_hinting: false
       allow_raw_downloads: true
@@ -326,7 +327,7 @@ The configuration file is built in layers:
 
 ## Changing the configuration file
 
-If you want to change the `config.yml` file that will be deployed in the containers, it will have to be done through the `configuration` section found in the `values.yml` file of your deployment. 
+If you want to change the `config.yml` file that will be deployed in the containers, it will have to be done through the `configuration` section found in the `values.yml` file of your deployment.
 
 !!! example
     Let's say that you would want to change the log level in the system to `ERROR` an up.
@@ -341,13 +342,13 @@ If you want to change the `config.yml` file that will be deployed in the contain
     ```
 
     Then you would simply deploy that new `values.yaml` file using the `helm upgrade` command specific to your deployment:
-    
+
     * [Cluster deployment update](../../cluster/#update-your-deployment)
     * [Appliance deployment update](../../appliance/#updating-the-current-deployment)
 
 ## Exhaustive configuration file documentation
 
-All parameters of each configuration section will be thoroughly documented in their respective pages. 
+All parameters of each configuration section will be thoroughly documented in their respective pages.
 
 Here are the links to the different section documentations:
 

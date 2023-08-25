@@ -43,6 +43,7 @@ Since this section is quite simple, we will list the default configuration at th
       - CORE
       - SECONDARY
       - POST
+      - REVIEW
     ...
     ```
 
