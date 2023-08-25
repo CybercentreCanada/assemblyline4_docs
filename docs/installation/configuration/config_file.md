@@ -228,6 +228,7 @@ The full specification of the file [is defined here](https://github.com/Cybercen
       - External
       - Extraction
       - Filtering
+      - Internet Connected
       - Networking
       - Static Analysis
       cpu_reservation: 0.25

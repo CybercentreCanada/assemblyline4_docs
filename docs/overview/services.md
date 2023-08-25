@@ -9,7 +9,7 @@ This is the list of all the services that are bundled with Assemblyline and that
 | APIVector         | Windows binaries | Extracts library imports from windows PE files or memory dump to generate api vector classification. | [link](https://github.com/CybercentreCanada/assemblyline-service-apivector) |
 | APKaye            | Android APK | APKs are decompiled and inspected. Network indicators and information found in the APK manifest file are displayed | [link](https://github.com/CybercentreCanada/assemblyline-service-apkaye) |
 | AntiVirus        | Anti-virus | Generic ICAP client to integrate with most Anti-virus enterprise scanners | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
-| BatchDeobfuscator | Deobfuscation | Deobfuscate batch file through variable resolution | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
+| Batchdeobfuscator | Deobfuscation | Deobfuscate batch file through variable resolution | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
 | CAPA              | Windows binaries | [CAPA](https://github.com/mandiant/capa) open-source tool integration | [link](https://github.com/CybercentreCanada/assemblyline-service-capa) |
 | Characterize      | Entropy analysis | Partitions the file and calculates visual entropy for each partition, extract Exif metadata | [link](https://github.com/CybercentreCanada/assemblyline-service-characterize) |
 | ConfigExtractor   | IoC extraction | Extract malware configuration file, allowing to get list of C2, encryption material etc. | [link](https://github.com/CybercentreCanada/assemblyline-service-configextractor) |
