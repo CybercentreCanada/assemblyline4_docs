@@ -35,6 +35,8 @@ nav:
   - overview/community_services.md
 - User's manual:
   - user_manual/submitting_file.md
+  - user_manual/submitting_url.md
+  - user_manual/submitting_sha256.md
   - user_manual/results.md
   - user_manual/searching.md
 - Installation:

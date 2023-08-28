@@ -73,8 +73,8 @@ You can instantiate the client by using the following snippet of Python code:
 
 ## Examples
 
-### Submit a file or URL for analysis
-There are two methods for sending a file/URL to Assemblyline for analysis: **Ingest** and **Submit**.
+### Submit a file or URL or SHA256 for analysis
+There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: **Ingest** and **Submit**.
 
 !!! attention "In most cases, you want to use the Ingest API via the CLI"
     **Ingest**
@@ -125,6 +125,8 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
     You can find all parameters and their default values in the [SubmissionParams class](../../odm/models/submission/#submissionparams).
 
 !!! tip "For submitting a URL instead of a file, use the `url` argument instead of `path`"
+
+!!! tip "For submitting a SHA256 instead of a file, use the `sha256` argument instead of `path`"
 
 === "Ingest"
     The Ingest API supports three additional functionalities over the Submit API:

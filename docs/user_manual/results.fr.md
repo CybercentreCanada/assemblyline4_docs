@@ -71,7 +71,7 @@ Le bouton **Submission Details** [Détails de la soumission] est situé au haut 
 
 ![Details](./images/report_viewdetails.png)
 
-Les détails de la soumission affichent les paramètres de la soumission, à savoir les services sélectionnés au moment où le fichier a été soumis et les [métadonnées](../../integration/python/#submit-a-file-or-url-for-analysis) de la soumission. La section la plus importante est celle qui contient le bouton.
+Les détails de la soumission affichent les paramètres de la soumission, à savoir les services sélectionnés au moment où le fichier a été soumis et les [métadonnées](../../integration/python/#submit-a-file-or-url-or-sha256-for-analysis) de la soumission. La section la plus importante est celle qui contient le bouton.
 
 
 ### Arborescence des fichiers d’extraction

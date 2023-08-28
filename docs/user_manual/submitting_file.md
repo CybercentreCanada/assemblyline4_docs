@@ -1,7 +1,7 @@
 # Submitting a file for analysis
 
 ## Submission
-Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-or-url-for-analysis).
+Submitting a file for analysis is really easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-or-url-or-sha256-for-analysis).
 
 ![File submission](./images/submit.png)
 
@@ -26,11 +26,10 @@ Additional submission options are available to:
 ![Submit options](./images/submit_options.png)
 
 ## File analysis
-Once a file is submitted to Assemblyline, the system will automatically perform multiple checks to determine how to best 
-process the file. One of Assemblyline's most powerful functionalities is its recursive analysis model. Malware and 
-malicious documents often use multiple layers of obfuscation; recursive analysis allows the system to remove these 
-layers and keep analyzing the file. The end result is often a cleartext script or unpacked malware which traditional 
+Once a file is submitted to Assemblyline, the system will automatically perform multiple checks to determine how to best
+process the file. One of Assemblyline's most powerful functionalities is its recursive analysis model. Malware and
+malicious documents often use multiple layers of obfuscation; recursive analysis allows the system to remove these
+layers and keep analyzing the file. The end result is often a cleartext script or unpacked malware which traditional
 anti-virus are very effective at detecting.
 
 ![Submit options](./images/processing.png)
-
