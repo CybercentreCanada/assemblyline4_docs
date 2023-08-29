@@ -335,11 +335,10 @@ Clone Assemblyline's services repositories
     git clone git@github.com:CybercentreCanada/assemblyline-service-apkaye.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-avclass.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-batchdeobfuscator.git
-    git clone git@github.com:CybercentreCanada/assemblyline-service-beaver.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-capa.git
+    git clone git@github.com:CybercentreCanada/assemblyline-service-cape.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-characterize.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-configextractor.git
-    git clone git@github.com:CybercentreCanada/assemblyline-service-cuckoo.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-deobfuscripter.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-elf.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-elfparser.git
@@ -349,7 +348,6 @@ Clone Assemblyline's services repositories
     git clone git@github.com:CybercentreCanada/assemblyline-service-floss.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-frankenstrings.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-iparse.git
-    git clone git@github.com:CybercentreCanada/assemblyline-service-metadefender.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-metapeek.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-oletools.git
     git clone git@github.com:CybercentreCanada/assemblyline-service-pdfid.git
@@ -377,11 +375,10 @@ Clone Assemblyline's services repositories
     git clone https://github.com/CybercentreCanada/assemblyline-service-apkaye.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-avclass.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator.git
-    git clone https://github.com/CybercentreCanada/assemblyline-service-beaver.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-capa.git
+    git clone https://github.com/CybercentreCanada/assemblyline-service-cape.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-characterize.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-configextractor.git
-    git clone https://github.com/CybercentreCanada/assemblyline-service-cuckoo.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-deobfuscripter.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-elf.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-elfparser.git
@@ -391,7 +388,6 @@ Clone Assemblyline's services repositories
     git clone https://github.com/CybercentreCanada/assemblyline-service-floss.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-frankenstrings.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-iparse.git
-    git clone https://github.com/CybercentreCanada/assemblyline-service-metadefender.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-metapeek.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-oletools.git
     git clone https://github.com/CybercentreCanada/assemblyline-service-pdfid.git
