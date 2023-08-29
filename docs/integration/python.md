@@ -1,6 +1,6 @@
 # Python Client
 
-The Assemblyline python client facilitates issuing requests to Assemblyline.
+The Assemblyline Python client facilitates issuing requests to Assemblyline.
 
 ## Installing the client
 
@@ -73,8 +73,8 @@ You can instantiate the client by using the following snippet of Python code:
 
 ## Examples
 
-### Submit a file or URL for analysis
-There are two methods for sending a file/URL to Assemblyline for analysis: **Ingest** and **Submit**.
+### Submit a file, URL or SHA256 for analysis
+There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: **Ingest** and **Submit**.
 
 !!! attention "In most cases, you want to use the Ingest API via the CLI"
 
@@ -88,7 +88,7 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
     **Submit**
 
     * High priority, low volume (5 concurrent submissions by default, this can be increased slightly in the user settings)
-    * You will need to wait for analysis to complete before submitting more
+    * You will need to wait for the analysis to complete before submitting more
     * Useful to support manual analysis
 
 !!! example "(Optional) Customizing your submission"
@@ -128,13 +128,15 @@ There are two methods for sending a file/URL to Assemblyline for analysis: **Ing
 
 !!! tip "For submitting a URL instead of a file, use the `url` argument instead of `path`"
 
+!!! tip "For submitting a SHA256 instead of a file, use the `sha256` argument instead of `path`"
+
 === "Ingest"
     The Ingest API supports three additional functionalities over the Submit API:
 
     * The ingest API is for high throughput submission (feeding the system)
     * By passing the argument `alert=True`, the system will generate an alert if the score is over 500
-    * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has completed
-        * If you don't need to know about when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
+    * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has been completed
+        * If you don't need to know when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
 
     ```python
     ingest_id = al_client.ingest(path='/pathto/file.txt', nq='my_queue_name', params=settings, metadata=my_meta)
@@ -192,12 +194,12 @@ In the following example, we want to retrieve the users who have made submission
 submission_results = al_client.search.facet.submission('params.submitter', query='times.submitted:[now-7d TO now]')
 ```
 
-## Using the Command-line Tool
-By installing the `assemblyline_client` PIP package, a command-line tool `al-submit` is installed.
+## Using the Command line Tool
+By installing the `assemblyline_client` PIP package, a command line tool `al-submit` is installed.
 In case you don't want to use Python code to interface with the Assemblyline client, you can use this tool instead.
 You can view the user options via `al-submit --help`.
 ??? example "(Optional) Configuration file example"
-    Rather than passing authentication and server details as parameters in a command-line, you can use a configuration file.
+    Rather than passing authentication and server details as parameters in a command line, you can use a configuration file.
     This configuration file should be placed at `~/.al/submit.cfg`. A template for this configuration
     file can be found below.
     NOTE: You can use `=` or `:` as the delimiter between key and value.
