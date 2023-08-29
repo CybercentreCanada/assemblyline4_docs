@@ -17,7 +17,7 @@ Create a virtual environment for your documentation in the `/venv/` directory ri
 cd assemblyline4_docs
 python -m venv venv
 pip install mkdocs-material==7.3.6
-pip install mkdocs-static-i18n
+pip install mkdocs-static-i18n==0.56
 pip install mkdocs-glightbox
 ```
 
