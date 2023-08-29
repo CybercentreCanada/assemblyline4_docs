@@ -73,7 +73,7 @@ The "Submission Details" button is located at the top of the submission report.
 ![Details](./images/report_viewdetails.png)
 
 Submission details will display submission parameters such as which services were selected when the file was submitted
-and submission [metadata](../../integration/python/#submit-a-file-or-url-or-sha256-for-analysis).
+and submission [metadata](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
 
 ### Extracted File Tree
 The extracted file tree section will show a view of all the files that were processed and extracted along with their respective score and file type.
