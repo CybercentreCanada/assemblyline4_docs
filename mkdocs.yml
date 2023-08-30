@@ -34,6 +34,7 @@ nav:
   - overview/services.md
   - overview/community_services.md
 - User's manual:
+  - user_manual/user_walkthrough.md
   - user_manual/submitting_file.md
   - user_manual/submitting_url.md
   - user_manual/submitting_sha256.md
@@ -67,14 +68,16 @@ nav:
   - installation/monitoring.md
   - installation/replay.md
 - Administration:
-  - administration/signature_management.md
-  - administration/source_management.md
+  - administration/admin_walkthrough.md
+  - administration/submission_actions.md
   - administration/service_management.md
-  - administration/system_management.md
   - administration/system_safelist.md
   - administration/user_management.md
+  - administration/signature_management.md
+  - administration/heuristic_management.md
+  - administration/source_management.md
+  - administration/system_management.md
   - administration/troubleshooting.md
-  - administration/submission_actions.md
 - Integration:
   - integration/ingestion_method.md
   - integration/key_generation.md

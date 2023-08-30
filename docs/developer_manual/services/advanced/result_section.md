@@ -598,7 +598,7 @@ These are all result section types that Assemblyline supports. You can see a scr
     # ==================================================================
     # Multi Section
     #     This type of section allows the service writer to display multiple section types
-    #     in the same result section. Here's a concrete exemple of this:
+    #     in the same result section. Here's a concrete example of this:
     multi_section = ResultMultiSection('Example of Multi-typed section')
     multi_section.add_section_part(TextSectionBody(body="We have detected very high entropy multiple sections "
                                                         "of your file, this section is most-likely packed or "

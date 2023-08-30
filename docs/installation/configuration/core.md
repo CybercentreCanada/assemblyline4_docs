@@ -1,6 +1,6 @@
 # Core component section
 
-The core components configuration section (`core:`) of the configuration file contains all the different parameters that you can change to modify the behavior of each core components.
+The core components configuration section (`core:`) of the configuration file contains all the different parameters that you can change to modify the behaviour of each core components.
 
 ??? info "Default values for the core section"
     ```yaml

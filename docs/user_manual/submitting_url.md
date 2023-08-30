@@ -18,7 +18,7 @@ Rather than dragging and dropping a file or selecting a file from your local dri
 ### An important thing to note about URL submissions in Assemblyline
 Since Assemblyline is a malware triage system, it starts every submission with a file, even if you submit a URL. The way that this works is if you submit a URL for analysis, Assemblyline will make a network request to the URL that you submitted, download the resource that is being hosted at that location, and submit that file for analysis. If there is no resource at the location anymore, or if Assemblyline cannot connect to the server where that URL was pointing, then the submission will fail.
 
-This is important because if you have a URL hosting malware and you do not want to expose your Assemblyline system to that server that the URL is pointing to, then we recommend you set up a proxy server to act as a middleman between your Assemblyline infrastructure and the server hosting malware. You can set this up in your k8s deployment configuration under the `ui` component: https://cybercentrecanada.github.io/assemblyline4_docs/odm/models/config/#ui. The item you are looking for is `url_submission_proxies`.
+This is important because if you have a URL hosting malware and you do not want to expose your Assemblyline system to that server that the URL is pointing to, then we recommend you set up a proxy server to act as a middleman between your Assemblyline infrastructure and the server hosting malware. You can set this up in your k8s deployment configuration under the [`ui` component](../..//odm/models/config/#ui). The item you are looking for is `url_submission_proxies`.
 
 ## Options
 Additional submission options are available to:
