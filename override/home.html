@@ -96,26 +96,28 @@
             display: none
         }
     }
+
     .md-button-group {
         display: flex;
         flex-wrap: wrap;
     }
 
-    .md-button.button-discord {
+    .md-button.button-icon {
         width: fit-content;
         gap: 10px;
         fill: var(--md-primary-bg-color);
         transition: fill 125ms, background-color 125ms, border-color 125ms;
     }
 
-    .md-button.button-discord:hover {
+    .md-button.button-icon:hover,
+    .md-button.button-icon:focus {
         fill: var(--md-default-bg-color);
     }
 
-    .discord {
+    .icon {
         display: grid;
         text-align: center;
-        width: 38px;
+        width: 24px;
     }
 </style>
 
@@ -139,12 +141,14 @@
                     </a>
                     <a href="https://github.com/search?q=topic%3Aassemblyline+org%3ACybercentreCanada+fork%3Atrue"
                         title="{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}"
-                        class="md-button">
-                        {%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}
+                        class="md-button button-icon" target="_blank">
+                        <span>{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}</span>
+                        <span class="icon">{% include ".icons/fontawesome/brands/github.svg" %}</span>
                     </a>
-                    <a href="https://discord.gg/GUAy9wErNu" class="md-button button-discord">
-                        <span>{%if 'fr/' in page.url %}Rejoignez notre communauté{%else%}Join our community{%endif%}</span>
-                        <span class="discord">{% include ".icons/fontawesome/brands/discord.svg" %}</span>
+                    <a href="https://discord.gg/GUAy9wErNu" target="_blank" class="md-button button-icon">
+                        <span>{%if 'fr/' in page.url %}Rejoignez notre communauté{%else%}Join our
+                            community{%endif%}</span>
+                        <span class="icon">{% include ".icons/fontawesome/brands/discord.svg" %}</span>
                     </a>
                 </div>
             </div>
@@ -153,3 +157,4 @@
 </section>
 
 {% endblock %}
+{% block content %}{% endblock %}
