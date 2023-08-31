@@ -99,7 +99,7 @@ We have made it through the Administration subtopics, now let's look at over use
 
 ## Workflow Management
 
-Previously, [we talked about workflows on the Alerts page](../../docs/user_manual/user_walkthrough.md#alerts), which could be applied a single time on all alerts currently in the system. The "Workflows" page is where you can create workflows that are persistent and will run on all alerts currently in the system as well as all new alerts that come in.
+Previously, [we talked about workflows on the Alerts page](../../user_manual/user_walkthrough#alerts), which could be applied a single time on all alerts currently in the system. The "Workflows" page is where you can create workflows that are persistent and will run on all alerts currently in the system as well as all new alerts that come in.
 
 ![Persistent workflows](./images/persistent_workflows.png)
 
