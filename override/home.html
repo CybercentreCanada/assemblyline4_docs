@@ -36,6 +36,9 @@
     }
 
     .tx-hero .md-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-top: .5rem;
         margin-right: .5rem;
         color: var(--md-primary-bg-color)
@@ -93,6 +96,27 @@
             display: none
         }
     }
+    .md-button-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .md-button.button-discord {
+        width: fit-content;
+        gap: 10px;
+        fill: var(--md-primary-bg-color);
+        transition: fill 125ms, background-color 125ms, border-color 125ms;
+    }
+
+    .md-button.button-discord:hover {
+        fill: var(--md-default-bg-color);
+    }
+
+    .discord {
+        display: grid;
+        text-align: center;
+        width: 38px;
+    }
 </style>
 
 <!-- Main site Entry button descriptions -->
@@ -107,16 +131,22 @@
                 <p>{%if 'fr/' in page.url %}Plateforme de tri de fichier et d'analyse de « malware » qui intègre les
                     meilleurs outils de la communauté en cyber sécurité!{%else%}A scalable file triage and malware
                     analysis system integrating the cyber security community's best tools.{%endif%}</p>
-                <a href="overview/how_it_works/"
-                    title="{%if 'fr/' in page.url %}Comment ça fonctionne{%else%}How it works{%endif%}"
-                    class="md-button md-button--primary">
-                    {%if 'fr/' in page.url %}Comment ça fonctionne{%else%}How it works{%endif%}
-                </a>
-                <a href="https://github.com/search?q=topic%3Aassemblyline+org%3ACybercentreCanada+fork%3Atrue"
-                    title="{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}"
-                    class="md-button">
-                    {%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}
-                </a>
+                <div class="md-button-group">
+                    <a href="overview/how_it_works/"
+                        title="{%if 'fr/' in page.url %}Comment ça fonctionne{%else%}How it works{%endif%}"
+                        class="md-button md-button--primary">
+                        {%if 'fr/' in page.url %}Comment ça fonctionne{%else%}How it works{%endif%}
+                    </a>
+                    <a href="https://github.com/search?q=topic%3Aassemblyline+org%3ACybercentreCanada+fork%3Atrue"
+                        title="{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}"
+                        class="md-button">
+                        {%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}
+                    </a>
+                    <a href="https://discord.gg/GUAy9wErNu" class="md-button button-discord">
+                        <span>{%if 'fr/' in page.url %}Rejoignez notre communauté{%else%}Join our community{%endif%}</span>
+                        <span class="discord">{% include ".icons/fontawesome/brands/discord.svg" %}</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
