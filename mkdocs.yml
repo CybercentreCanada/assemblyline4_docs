@@ -1,10 +1,10 @@
 extra:
   alternate:
   - lang: en
-    link: ./en/
+    link: /
     name: English
   - lang: fr
-    link: ./fr/
+    link: /fr/
     name: Français
 extra_css:
 - stylesheets/extra.css
@@ -177,17 +177,22 @@ plugins:
     zoomable: true
 - search
 - i18n:
-    default_language: en
+    fallback_to_default: true
     languages:
-      en: english
-      fr: français
-    nav_translations:
-      fr:
-        Developer's guide: Guide du développeur
-        Home: Accueil
-        Integration: Intégration
-        Overview: Tour
-        User's manual: Manuel d'utilisateur
+      - locale: en
+        default: true
+        name: English
+        build: true
+      - locale: fr
+        name: Français
+        build: true
+        nav_translations:
+            Developer's guide: Guide du développeur
+            Home: Accueil
+            Integration: Intégration
+            Overview: Aperçu
+            User's manual: Manuel d'utilisateur
+            Data Ontology: Ontologie des données
 repo_url: https://github.com/CybercentreCanada/assemblyline4_docs
 site_name: Assemblyline 4
 theme:
@@ -215,3 +220,6 @@ theme:
       name: Switch to dark mode
   static_templates:
   - 404.html
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore
