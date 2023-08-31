@@ -109,7 +109,7 @@ In the top right corner, you will find a series of useful functions
 | Icon | Description|
 | ---- | -----|
 | ![Related submission](./images/icon_related_submission.png) | Find all related submissions |
-| ![File download](./images/icon_download.png) | Download file (by default the file will be inserted in the [CaRT format](https://pypi.org/project/cart/)) to prevent accidental self-infection |
+| ![File download](./images/icon_download.png) | Download file (by default the file will be inserted in the [CaRT format](https://pypi.org/project/cart/) to prevent accidental self-infection) |
 | ![File viewer](./images/icon_fileviewer.png) | File viewer (Ascii, Strings, Hex view) ![Hex view](./images/hex.png) |
 | ![File resubmission](./images/icon_resubmit.png) | Resubmit the file for analysis |
 | ![File Safelist](./images/icon_safelist.png) | Add file to the safelist |
