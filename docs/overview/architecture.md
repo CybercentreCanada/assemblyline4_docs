@@ -191,17 +191,22 @@ When the services launch, they pull their signature set from the service updater
 
 ![Updater](./images/updater.png)
 
-## Saving a file forever
+## Keeping files forever (Malware Archive)
+
+The Assemblyline team is working on new feature called the Malware Archive that will keep files forever in the system by moving them to another filestore and index so they are not deleted. To support this, a core component was added to move the file and the analysis over to the Malware Archive.
 
 ### [Archiver](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/archiver)
-TODO: This feature is a work-in-progress
 
-## Replaying a submission
+The archiver receives messages about a file or submission that should be kept forever and moved to the Malware Archive. It takes in those messages and copies the actual files into a permanent file store then moves associated analysis data to the archive indices.
 
-### [Replay](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/replay)
-TODO: This feature is a work-in-progress
+## Work online, continue offline
 
-## Looking for submissions
+An Assemblyline instance can continue the work that another Assemblyline instance has started. This allows you to start a scan on an instance of Assemblyline that is online (connected to the internet) and gather as much information possible on a file using these internet sources. Than ship the full analysis bundle to another instance of Assemblyline that is on an offline network (NOT connected to the internet) and continue the analysis with extra service that you may not want to deploy on your online version.
 
-### [Vacuum](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/vacuum)
-TODO: This feature is a work-in-progress
+### [Replay Creator](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/replay/creator)
+
+The Replay Creator component creates analysis bundles based on specific criterias and saves those bundles in a directory so they can be grabbed by any process that you have to transfer files over from online to offline networks.
+
+### [Replay Loader](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/replay/loader)
+
+The Replay Loader component load bundle files from a directory and tell dispatcher to continue the scan of the associated files with services that have a different version / configuration between online and offline or with services that were simply not on the server from which the bundles was created.
