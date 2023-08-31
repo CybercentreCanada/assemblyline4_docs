@@ -36,6 +36,9 @@
     }
 
     .tx-hero .md-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-top: .5rem;
         margin-right: .5rem;
         color: var(--md-primary-bg-color)
@@ -106,6 +109,28 @@
     .md-footer-social__link svg {
         max-height: 20px;
     }
+
+    .md-button-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .md-button.button-discord {
+        width: fit-content;
+        gap: 10px;
+        fill: var(--md-primary-bg-color);
+        transition: fill 125ms, background-color 125ms, border-color 125ms;
+    }
+
+    .md-button.button-discord:hover {
+        fill: var(--md-default-bg-color);
+    }
+
+    .discord {
+        display: grid;
+        text-align: center;
+        min-width: 38px;
+    }
 </style>
 
 <!-- Main site Entry button descriptions -->
@@ -120,14 +145,20 @@
                 <p>{%if 'fr/' in page.url %}Plateforme de tri de fichier et d'analyse de « malware » qui intègre les
                     meilleurs outils de la communauté en cyber sécurité!{%else%}A scalable file triage and malware
                     analysis system integrating the cyber security community's best tools.{%endif%}</p>
-                <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}"
-                    class="md-button md-button--primary">
-                    {{ page.next_page.title | striptags }}
-                </a>
-                <a href="https://github.com/search?q=topic%3Aassemblyline+org%3ACybercentreCanada+fork%3Atrue"
-                    title="{{ lang.t('source.link.title') }}" class="md-button">
-                    {{ lang.t('source.link.title') }}
-                </a>
+                <div class="md-button-group">
+                    <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}"
+                        class="md-button md-button--primary">
+                        {{ page.next_page.title | striptags }}
+                    </a>
+                    <a href="https://github.com/search?q=topic%3Aassemblyline+org%3ACybercentreCanada+fork%3Atrue"
+                        title="{{ lang.t('source.link.title') }}" class="md-button">
+                        {{ lang.t('source.link.title') }}
+                    </a>
+                    <a href="https://discord.gg/GUAy9wErNu" class="md-button button-discord">
+                        <span>{%if 'fr/' in page.url %}Rejoignez notre communauté{%else%}Join our community{%endif%}</span>
+                        <span class="discord">{% include ".icons/fontawesome/brands/discord.svg" %}</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
