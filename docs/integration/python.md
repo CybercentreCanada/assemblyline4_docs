@@ -105,7 +105,7 @@ There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis
         'ignore_cache' : False,         # ignore system cache
         'services' : {
             'selected' : [              # selected service list (override user profile)
-                'Cuckoo','Extract'
+                'CAPE','Extract'
             ],
             'resubmit' : [],            # resubmit to these services if file initially scores > 500
             'excluded': [],             # exclude these services
