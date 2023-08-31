@@ -30,7 +30,7 @@ Since this section is quite simple, we will list the default configuration at th
       max_metadata_length: 4096
 
       # Types of tags to be included in the submission summary in
-      # the attribution, behavior and ioc sectiona.
+      # the attribution, behaviour and ioc sectiona.
       tag_types:
         attribution:
         - attribution.actor
