@@ -2,10 +2,10 @@ site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
 extra:
   alternate:
   - lang: en
-    link: /
+    link: ./
     name: English
   - lang: fr
-    link: /fr/
+    link: ./fr/
     name: Français
 extra_css:
 - stylesheets/extra.css
