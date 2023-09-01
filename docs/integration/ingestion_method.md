@@ -19,11 +19,11 @@ The asynchronous model was built to sustain a large sample set of files and to h
 
 !!! success "Benefits"
 
-    - [x] Support large volume of files
-    - [x] Not subjected to any quota
+    - [x] Support large volume of files for processing
+    - [x] Not subjected to quota limits
+    - [x] Allows for alerting functionality to be used
     - [x] Will resort to data sampling if it gets overwhelmed with too many files
-    - [x] Allows for alerting perspective to be used
-    - [x] Does submission level caching if the same file is submitted twice with the same parameters
+    - [x] Does submission-level caching if the same file is submitted twice with the same parameters, for performance optimization
 
 !!! Failure "Drawbacks"
 
@@ -67,14 +67,14 @@ This is more suited for a small volume of files and manual analysis. Files submi
 
     - [x] Instant scanning
     - [x] Higher priority than asynchronous
-    - [x] Submission guaranteed to be processed
+    - [x] Submission guaranteed to be processed (no data sampling)
     - [x] Metadata searchable for all submissions
 
 !!! Failure "Drawbacks"
 
     - [ ] Subjected to quota (Default: 5 concurrent submissions)
-    - [ ] Not suited for high load
-    - [ ] No submission level caching
+    - [ ] Not suited for large volume of files
+    - [ ] No submission-level caching
     - [ ] Alerting not available
 
 ### Typical use cases
@@ -92,3 +92,12 @@ Here are the typical use cases that user's encounter while using the synchronous
 
     This is how this works in the backend:
     ![Submit execution flow](./images/flow.svg){: .center }
+
+## Mass Submission Toolkit
+The [Assemblyline Incident Manager](https://github.com/CybercentreCanada/assemblyline-incident-manager) can assist you with submitting a large amount of files, such as every file on a hard drive for example. It utilizes the ingest API that we just talked about.
+
+The Cyber Centre uses this tool when we are in a pinch and need to ingest millions of files to Assemblyline without learning how to use the APIs.
+
+One key consideration for submitting a large volume of files in a burst is the `default sampling values` in the [Ingester Configuration](../../odm/models/config/#ingester).
+
+You must keep your ingestion flow at a rate such that the size of the priority ingestion queue remains lower than the corresponding priority queue `sampling_at` values, otherwise, Assemblyline will skip files.

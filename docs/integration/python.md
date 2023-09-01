@@ -1,6 +1,6 @@
 # Python Client
 
-The Assemblyline Python client facilitates issuing requests to Assemblyline.
+The [Assemblyline Python client](https://pypi.org/project/assemblyline-client/) facilitates issuing requests to Assemblyline.
 
 ## Installing the client
 
@@ -11,13 +11,6 @@ pip install assemblyline_client
 ## Connecting to Assemblyline
 
 You can instantiate the client by using the following snippet of Python code:
-
-??? info "When connecting to Assemblyline, you can also provide a certificate for SSL or ignore the certificate error"
-    ``` python
-        al_client = get_client(..., verify='/path/to/server.crt')
-
-        al_client = get_client(..., verify=False)
-    ```
 
 === "API Key"
     You will need an [API key](../key_generation).
@@ -35,8 +28,15 @@ You can instantiate the client by using the following snippet of Python code:
 
     ``` python
     from assemblyline_client import get_client
-    # and if your Assemblyline server is using a self-signed certificate
+    # If your Assemblyline server is using a self-signed certificate
     al_client = get_client("https://yourdomain:443", cert='/path/to/cert/file.pem')
+    ```
+
+??? info "When connecting to Assemblyline, you can provide a certificate for SSL or ignore the certificate error"
+    ``` python
+        al_client = get_client(..., verify='/path/to/server.crt')
+
+        al_client = get_client(..., verify=False)
     ```
 
 ??? tip "The client is fully documented in the docstrings so that you can use the 'help' feature of IPython or Jupyter Notebook"
@@ -74,22 +74,11 @@ You can instantiate the client by using the following snippet of Python code:
 ## Examples
 
 ### Submit a file, URL or SHA256 for analysis
-There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: **Ingest** and **Submit**.
+There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: [**Ingest** and **Submit**](./ingestion_method).
 
 !!! attention "In most cases, you want to use the Ingest API via the CLI"
 
 !!! attention "The default limit for sample size is 100mb, this is also the case in the UI and the use of the API is the only workaround. In order to circumvent this, the option ignore_size=True must be used when submitting via the API. "
-    **Ingest**
-
-    * Provides a fast, non-blocking method of submitting many files
-    * Ingest results will typically be analyzed by using a callback (if you need to look at all results) or by monitoring the alerts
-    * Supports alert generation
-
-    **Submit**
-
-    * High priority, low volume (5 concurrent submissions by default, this can be increased slightly in the user settings)
-    * You will need to wait for the analysis to complete before submitting more
-    * Useful to support manual analysis
 
 !!! example "(Optional) Customizing your submission"
     !!! tip "Note: Service names are case-sensitive"
@@ -130,33 +119,33 @@ There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis
 
 !!! tip "For submitting a SHA256 instead of a file, use the `sha256` argument instead of `path`"
 
-=== "Ingest"
-    The Ingest API supports three additional functionalities over the Submit API:
+#### Ingest
+The Ingest API supports two additional functionalities over the Submit API:
 
-    * The ingest API is for high throughput submission (feeding the system)
-    * By passing the argument `alert=True`, the system will generate an alert if the score is over 500
-    * By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has been completed
-        * If you don't need to know when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
+* By passing the argument `alert=True`, the system will generate an alert if the score is over 500
+* By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has been completed
+    * If you don't need to know when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
 
-    ```python
-    ingest_id = al_client.ingest(path='/pathto/file.txt', nq='my_queue_name', params=settings, metadata=my_meta)
+```python
+ingest_id = al_client.ingest(path='/pathto/file.txt', nq='my_queue_name', params=settings, metadata=my_meta)
 
-    # If you use a notification queue you can get your asynchronous results with:
-    from time import sleep
-    message = None
-    while True:
-        message = al_client.ingest.get_message("my_queue_name")
-        if message is None:
-            sleep(1)    # Poll every second
-        else:
-            do something ...
-    ```
-=== "Submit"
-    ```python
-    submit_results = al_client.submit(path='/pathto/file.txt', fname='fname', params=settings, metadata=my_meta)
-    ```
+# If you use a notification queue you can get your asynchronous results with:
+from time import sleep
+message = None
+while True:
+    message = al_client.ingest.get_message("my_queue_name")
+    if message is None:
+        sleep(1)    # Poll every second
+    else:
+        do something ...
+```
 
-#### Submission details
+#### Submit
+```python
+submit_results = al_client.submit(path='/pathto/file.txt', fname='fname', params=settings, metadata=my_meta)
+```
+
+##### Submission details
 To get the details about a submission, you simply need to pass the client a submission ID (sid)
 ``` python
 submission_details = al_client.submission("4nxrpBePQDLH427aA8m3TZ")
@@ -234,10 +223,3 @@ You can view the user options via `al-submit --help`.
     # Server cert used to connect to server.
     cert =
     ```
-
-## Mass Submission Toolkit
-The [Assemblyline Incident Manager](https://github.com/CybercentreCanada/assemblyline-incident-manager) can assist you with this process.
-
-One key consideration for a large volume of files in a burst is the `default sampling values` in the [Ingester Configuration](../../odm/models/config/#ingester).
-
-You must keep your ingestion flow at a rate such that the size of the priority ingestion queue remains lower than the corresponding priority queue `sampling_at` values, otherwise, Assemblyline will skip files.
