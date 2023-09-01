@@ -1,6 +1,6 @@
 # Choosing your ingestion method
 
-While integrating Assemblyline with other systems, the first thing you will need to do is to pick an ingestion method. 
+While integrating Assemblyline with other systems, the first thing you will need to do is to pick an ingestion method.
 
 Assemblyline gives you two options:
 
@@ -11,23 +11,23 @@ We will give you here a rundown of the different particularities of each method 
 
 ## Asynchronous ingestion
 
-This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submission in this mode, you will get assigned an ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view asynchronous submissions that Assemblyline deems highly suspicious. 
+This is the preferred ingestion method for use with Assemblyline. In this mode, Assemblyline will queue your submission based on priority and will process them when the services have empty processing cycles. For each submission in this mode, you will get assigned an ingestion ID and you can be notified via a completion queue when your file has completed scanning. Alternatively, you can use the alerting page in the Assemblyline UI if you want to only view asynchronous submissions that Assemblyline deems highly suspicious.
 
-The asynchronous model was built to sustain a very large sample set of files and to help analysts focus on what is important.
+The asynchronous model was built to sustain a large sample set of files and to help analysts focus on what is important.
 
-### Benefits and Drawbacks 
+### Benefits and Drawbacks
 
 !!! success "Benefits"
 
-    - [x] Support very large volume of files
+    - [x] Support large volume of files
     - [x] Not subjected to any quota
     - [x] Will resort to data sampling if it gets overwhelmed with too many files
-    - [x] Allows for alerting perspective to be used 
+    - [x] Allows for alerting perspective to be used
     - [x] Does submission level caching if the same file is submitted twice with the same parameters
 
 !!! Failure "Drawbacks"
 
-    - [ ] Submissions may sit in the queue a long time if the system is very busy
+    - [ ] Submissions may sit in the queue a long time if the system is busy
     - [ ] Submissions may be skipped if the system is overwhelmed
     - [ ] Metadata is not searchable for all submissions since the system does not create a submission entry for cache submissions
 
@@ -36,44 +36,44 @@ The asynchronous model was built to sustain a very large sample set of files and
 Here are the typical use cases that users encounter while using the asynchronous submission mode in the system.
 
 ??? example "Using the Ingest API while reading a message from the notification queue"
-    
-    1. The user submits all its files and receives ingestion IDs for its files 
+
+    1. The user submits all its files and receives ingestion IDs for its files
         * API: **/api/v4/ingest/**
-    2. The user asks the notification for messages until it receives a confirmation message for all its files 
+    2. The user asks the notification for messages until it receives a confirmation message for all its files
         * API: **/api/v4/ingest/get_message_list/**
 
-    This is how this works in the backend: 
+    This is how this works in the backend:
     ![Ingest execution flow](./images/flow_ingest.svg){: .center }
 
 ??? example "Using the Ingest API ignoring the notification queue but using the alert perspective"
-    
-    1. The user submits all its files and ignores the returned ingestion IDs 
+
+    1. The user submits all its files and ignores the returned ingestion IDs
         * API: **/api/v4/ingest/**
-    2. The user then monitors the UI alerting perspective for newly created alerts 
+    2. The user then monitors the UI alerting perspective for newly created alerts
         * UI: **/alerts**
-    
-    This is how this works in the backend: 
+
+    This is how this works in the backend:
     ![Alert execution flow](./images/flow_alert.svg){: .center }
 
 ## Synchronous ingestion
 
 In this mode, Assemblyline will start the scanning of your file right away and will return you the ID of your submission. You will be able to use this ID to ask the system if the submission is complete and to pull the results when all the services are done reporting results for that submission.
 
-This is more suited for a very small volume of files and manual analysis. Files submitted via the User interface are using the synchronous mode.
+This is more suited for a small volume of files and manual analysis. Files submitted via the User interface are using the synchronous mode.
 
-### Benefits and Drawbacks 
+### Benefits and Drawbacks
 
 !!! success "Benefits"
 
     - [x] Instant scanning
     - [x] Higher priority than asynchronous
-    - [x] Submission guaranteed to be processed 
+    - [x] Submission guaranteed to be processed
     - [x] Metadata searchable for all submissions
 
 !!! Failure "Drawbacks"
 
     - [ ] Subjected to quota (Default: 5 concurrent submissions)
-    - [ ] Not suited for high load 
+    - [ ] Not suited for high load
     - [ ] No submission level caching
     - [ ] Alerting not available
 
@@ -82,14 +82,13 @@ This is more suited for a very small volume of files and manual analysis. Files 
 Here are the typical use cases that user's encounter while using the synchronous submission mode in the system.
 
 ??? example "Using the Submit API waiting for the submission to be done"
-    
-    1. The user sends its file for processing and receives an ID for its submission 
+
+    1. The user sends its file for processing and receives an ID for its submission
         * API: **/api/v4/submit/**
-    2. The user queries the `is completed` API until the system says the submission is completed 
+    2. The user queries the `is completed` API until the system says the submission is completed
         * API: **/api/v4/submission/is_completed/<ID>/**
-    3. The user pulls the results for the submission 
+    3. The user pulls the results for the submission
         * API: **/api/v4/submission/full/<ID>/**
 
-    This is how this works in the backend: 
+    This is how this works in the backend:
     ![Submit execution flow](./images/flow.svg){: .center }
-

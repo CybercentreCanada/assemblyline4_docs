@@ -174,7 +174,7 @@ search_result = al_client.search.submission("params.submitter:user")
 
 #### Using search iterator
 Instead of using `search` and getting a page of results, you can use the `search` iterator `stream` to go through all the results.
-!!! tip "Streamed results only return indexed fields. If you want the full result, you have to go get it via the client"
+!!! tip "Streamed results only return indexed fields. If you want the full result, you must go get it via the client"
 ``` python
 for submission in al_client.search.stream.submission("params.submitter:user"):
     submission_id = submission["sid"]
@@ -186,7 +186,7 @@ In the following example, we want to retrieve the first page of submissions that
 ``` python
 submission_results = al_client.search.submission('times.submitted:[now-7d TO now]', fl='sid')
 ```
-!!! tip "`fl` defaults to a list of predefined fields that we deemed important, you may use `fl="*"` to get all fields. You can view the fields that we deem important under the 'Search Help' page on your Assemblyline instance. These fields have a `stored` attribute."
+!!! tip "`fl` defaults to a list of predefined fields that we deemed important; you may use `fl="*"` to get all fields. You can view the fields that we deem important under the 'Search Help' page on your Assemblyline instance. These fields have a `stored` attribute."
 
 #### Using facet searching
 In the following example, we want to retrieve the users who have made submissions in the last week, and the number of submissions that they have made:
@@ -238,6 +238,6 @@ You can view the user options via `al-submit --help`.
 ## Mass Submission Toolkit
 The [Assemblyline Incident Manager](https://github.com/CybercentreCanada/assemblyline-incident-manager) can assist you with this process.
 
-One key consideration for a very large volume of files in a burst is the `default sampling values` in the [Ingester Configuration](../../odm/models/config/#ingester).
+One key consideration for a large volume of files in a burst is the `default sampling values` in the [Ingester Configuration](../../odm/models/config/#ingester).
 
 You must keep your ingestion flow at a rate such that the size of the priority ingestion queue remains lower than the corresponding priority queue `sampling_at` values, otherwise, Assemblyline will skip files.
