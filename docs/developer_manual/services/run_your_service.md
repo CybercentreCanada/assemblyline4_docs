@@ -98,6 +98,8 @@ It will look something like this:
     }
     ```
 
+Using the standalone mode via `run_service_once` is going to help quickly catch any bug, but won't allow you to see the UI elements.
+
 ## Live mode
 The following technique is how to hook in a service to an Assemblyline development instance so you can perform live debugging and you can send files to your service using the Assemblyline UI.
 
