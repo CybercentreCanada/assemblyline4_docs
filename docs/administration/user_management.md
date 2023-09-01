@@ -11,7 +11,7 @@ Assemblyline's user management interface lets you:
 
 You can find the user management interface by clicking the *Administration* topic then choose the *System Safelist* subtopic.
 
-![User management](./images/users_bar.png)
+![User management](./images/users_bar.png){: .center }
 
 ## User list
 

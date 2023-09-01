@@ -22,7 +22,7 @@ You can view all indices and their indexed fields once you have a working Assemb
 
 When you search for something in the Search Bar at the top of the UI
 
-![Search bar atop UI](./images/search_bar.png)
+![Search bar atop UI](./images/search_bar.png){: .center }
 
 or on the generic Search page
 
@@ -43,7 +43,7 @@ This limitation can be worked around by using the [Assemblyline Client](../../in
 
 One quick way to get familiar with search indices is to use the "*Find related results*" item from the tags dropdown menu.
 
-![Searching](./images/magnifier.png)
+![Searching](./images/magnifier.png){: .center }
 
 Clicking it on the `av.virus_name` tag (`HEUR/Macro.Downloader.MRAA.Gen`) will build the following query:
 ```ruby

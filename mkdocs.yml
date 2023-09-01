@@ -85,6 +85,12 @@ nav:
   - integration/python.md
   - integration/java.md
   - integration/rest.md
+  - integration/ontology.md
+  - integration/api_exercise_1.md
+  - integration/api_exercise_2.md
+  - integration/api_exercise_3.md
+  - integration/api_exercise_4.md
+  - integration/api_exercise_5.md
 - Developer's guide:
   - Setup Environment:
     - developer_manual/env/getting_started.md

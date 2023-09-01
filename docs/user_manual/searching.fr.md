@@ -27,7 +27,7 @@ Il est possible de contourner cette limitation en faisant appel à l’API REST
 
 Un moyen rapide de se familiariser avec les index de recherche consiste à utiliser l'élément "*Trouver les résultats associés*" dans le menu déroulant des balises.
 
-![Searching](./images/magnifier.png)
+![Searching](./images/magnifier.png){: .center }
 
 Cliquer sur l'élément "*Trouver les résultats associés*" sur la balise `av.virus_name` (`HEUR/Macro.Downloader.MRAA.Gen`) générera la requête suivante :
 ```ruby

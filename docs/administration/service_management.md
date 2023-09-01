@@ -9,7 +9,7 @@ Assemblyline's service management interface lets you:
 
 You can find the service management interface by clicking the *Administration* topic then choose *Services* subtopic.
 
-![Service management](./images/services_bar.png)
+![Service management](./images/services_bar.png){: .center }
 
 ## Service list
 
@@ -19,7 +19,7 @@ The first page you will be taken to when loading the service management interfac
 
 This page is important so let's talk about everything, starting with the buttons on the top right of the page:
 
-![Service management buttons](./images/service_mgmt_buttons.png)
+![Service management buttons](./images/service_mgmt_buttons.png){: .center }
 
 
 These buttons perform the following:

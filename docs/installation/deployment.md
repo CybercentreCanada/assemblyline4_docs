@@ -37,7 +37,7 @@ Both clustered and MicroK8s deployments use a very similar stack in the backgrou
 
 As for the Docker compose appliance deployment, it uses a simpler stack which is easier to maintain and reset but offer less features to scale to high capacity.
 
-![Deployment types](./images/dep_types.png)
+![Deployment types](./images/dep_types.png){: .center }
 
 ## Installation instructions
 
