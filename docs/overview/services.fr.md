@@ -48,7 +48,7 @@ Cette liste contient tous les services inclus et maintenue avec Assemblyline:
 
 
 
-End of life, no longer actively supported:
+En fin de vie, ne sont plus activement pris en charge:
 
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |
