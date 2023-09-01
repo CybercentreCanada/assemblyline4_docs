@@ -63,7 +63,7 @@ The Service Server has been introduced to Assemblyline 4 to isolate the services
 
 #### Remote Datatypes
 
-Assemblyline uses a bunch of containers running on different hosts that need live access to shared data structures. This is where the remote datatypes come into play, these are essentially data structures stored in Redis that are available to all processes in Assemblyline.
+Assemblyline uses a bunch of containers running on different hosts that need live access to shared data structures. This is where the remote datatypes come into play, these are data structures stored in Redis that are available to all processes in Assemblyline.
 
 Assemblyline instantiates connection to two different Redis instances:
 
@@ -82,7 +82,7 @@ We have a wide range of supported data types to account for various scenarios:
 
 #### [Datastore](https://github.com/CybercentreCanada/assemblyline-base/tree/master/assemblyline/datastore)
 
-The Assemblyline Datastore component is essentially the database where we store analysis results. While the Datastore was originally built as generic as possible, it currently pretty much only works with Elasticsearch since we've tied in a lot of Elasticsearch-specific features to make it faster. It could be made to work on projects derived from Elasticsearch, like OpenSearch for example.
+The Assemblyline Datastore component is the database where we store analysis results. While the Datastore was originally built as generic as possible, it currently pretty much only works with Elasticsearch since we've tied in a lot of Elasticsearch-specific features to make it faster. It could be made to work on projects derived from Elasticsearch, like OpenSearch for example.
 
 The Datastore is there to ensure a stable connection to the Elasticsearch backend with auto keep-alive and retries, easy index management, and sync with the code as well as support for all the basic features like `get`, `put`, `update`, `search`, `facet`, `stats`, `histogram` ...
 
@@ -148,7 +148,7 @@ The Expiry process is tasked to monitor for documents that have past their expir
 
 ### [Heartbeat and Metrics](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/metrics)
 
-All core components in Assemblyline generate some sort of metrics so that we can track their performance and see if the system is alive and well. Those metrics are sent to a message queue in Redis volatile which is then read by the Metrics and Heartbeat containers. The Heartbeat container will aggregate those metrics and send them back to the SocketIO server for immediate consumption in the Frontend and the Metrics container will aggregate those metrics as well but will store them in the logging ELK (Elasticsearch + Logstash + Kibana) stack for consumption by administators after the fact.
+All core components in Assemblyline generate some sort of metrics so that we can track their performance and see if the system is alive and well. Those metrics are sent to a message queue in Redis volatile which is then read by the Metrics and Heartbeat containers. The Heartbeat container will aggregate those metrics and send them back to the SocketIO server for immediate consumption in the Frontend and the Metrics container will aggregate those metrics as well but will store them in the logging ELK (Elasticsearch + Logstash + Kibana) stack for consumption by administrators after the fact.
 
 ![Metrics](./images/Metrics.png)
 
@@ -193,7 +193,7 @@ When the services launch, they pull their signature set from the service updater
 
 ## Keeping files forever (Malware Archive)
 
-The Assemblyline team is working on new feature called the Malware Archive that will keep files forever in the system by moving them to another filestore and index so they are not deleted. To support this, a core component was added to move the file and the analysis over to the Malware Archive.
+The Assemblyline team is working on new feature called the Malware Archive that will keep files forever in the system by moving them to another filestore and index, so they are not deleted. To support this, a core component was added to move the file and the analysis over to the Malware Archive.
 
 ### [Archiver](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/archiver)
 
@@ -201,12 +201,12 @@ The archiver receives messages about a file or submission that should be kept fo
 
 ## Work online, continue offline
 
-An Assemblyline instance can continue the work that another Assemblyline instance has started. This allows you to start a scan on an instance of Assemblyline that is online (connected to the internet) and gather as much information possible on a file using these internet sources. Than ship the full analysis bundle to another instance of Assemblyline that is on an offline network (NOT connected to the internet) and continue the analysis with extra service that you may not want to deploy on your online version.
+An Assemblyline instance can continue the work that another Assemblyline instance has started. This allows you to start a scan on an instance of Assemblyline that is online (connected to the internet) and gather as much information possible on a file using these internet sources. Then ship the full analysis bundle to another instance of Assemblyline that is on an offline network (NOT connected to the internet) and continue the analysis with extra service that you may not want to deploy on your online version.
 
 ### [Replay Creator](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/replay/creator)
 
-The Replay Creator component creates analysis bundles based on specific criterias and saves those bundles in a directory so they can be grabbed by any process that you have to transfer files over from online to offline networks.
+The Replay Creator component creates analysis bundles based on specific criteria and saves those bundles in a directory so they can be grabbed by any process that you must transfer files over from online to offline networks.
 
 ### [Replay Loader](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/replay/loader)
 
-The Replay Loader component load bundle files from a directory and tell dispatcher to continue the scan of the associated files with services that have a different version / configuration between online and offline or with services that were simply not on the server from which the bundles was created.
+The Replay Loader component loads bundle files from a directory and tells Dispatcher to continue the scan of the associated files with services that have a different version / configuration between online and offline or with services that were simply not on the server from which the bundle was created.
