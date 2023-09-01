@@ -32,4 +32,4 @@ Additional submission options are available to:
 - Perform deep analysis: Provide maximum deobfuscation (**Highly recommended for known malicious or highly suspicious files to detect highly obfuscated content**)
 - Time to live: Time (in days) before the file is purged from the system
 
-![Submit options](./images/submit_options.png)
+![Submit options](./images/submit_options.png){: .center }

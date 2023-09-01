@@ -5,7 +5,7 @@ Assemblyline includes a safelisting system that will let you ignore certain tags
 ## Editing the safelist
 You can find the system safelist interface by clicking the *Administration* topic then choose the *System Safelist* subtopic.
 
-![Safelist menu](./images/system_safelist_bar.png)
+![Safelist menu](./images/system_safelist_bar.png){: .center }
 
 Once the safelist management interface is open you will be greeted with a YAML file in an editor. From here you can edit the YAML directly in the interface and hit the "*Save changes*" button to apply the changes to the system.
 

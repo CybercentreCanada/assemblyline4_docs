@@ -23,7 +23,7 @@ Additional submission options are available to:
 - Perform deep analysis: Provide maximum deobfuscation (**Highly recommended for known malicious or highly suspicious files to detect highly obfuscated content**)
 - Time to live: Time (in days) before the file is purged from the system
 
-![Submit options](./images/submit_options.png)
+![Submit options](./images/submit_options.png){: .center }
 
 ## File analysis
 Once a file is submitted to Assemblyline, the system will automatically perform multiple checks to determine how to best
@@ -32,4 +32,4 @@ malicious documents often use multiple layers of obfuscation; recursive analysis
 layers and keep analyzing the file. The result is often a cleartext script or unpacked malware which traditional
 anti-virus are very effective at detecting.
 
-![Submit options](./images/processing.png)
+![Submit options](./images/processing.png){: .center }

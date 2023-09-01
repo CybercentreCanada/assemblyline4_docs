@@ -2,7 +2,7 @@
 
 In the user interface, there is a menu on the left-hand side. We will be walking through each option under the "Administration" topic as well as some other features:
 
-![Administration topic and subtopic menu](./images/admin_topic_menu.png)
+![Administration topic and subtopic menu](./images/admin_topic_menu.png){: .center }
 
 ## Error Viewer
 
@@ -68,7 +68,7 @@ The best part about all these tabs on the "File Identification" page is that the
 
 You can find the service review interface by clicking the *Administration* topic then choose *Service Review* subtopic.
 
-![Service review bar](./images/service_review_bar.png)
+![Service review bar](./images/service_review_bar.png){: .center }
 
 This is a page where you can compare different versions of a service and how it behaved in terms of the number of results processed, the average score, the average number of extracted and supplementary files, etc.
 
@@ -79,7 +79,7 @@ Here is an example of comparing different versions of the APIVector service:
 ## Site Map
 You can find the site map interface by clicking the *Administration* topic then choose the *Site Map* subtopic.
 
-![Site map bar](./images/site_map_bar.png)
+![Site map bar](./images/site_map_bar.png){: .center }
 
 This page is useful for seeing how the URL endpoints map to Python client functions, the method types of these functions, and the RBAC roles required to use them.
 
@@ -123,7 +123,7 @@ Core cards represent core components described in [Design and Architecture](../.
 
 Here are those cute buttons that I was talking about. The small box with a Q in it has a tooltip if you hover your mouse over it which explains what the value next to it represents:
 
-![Tooltip for the Q button](./images/tooltip_for_q_button.png)
+![Tooltip for the Q button](./images/tooltip_for_q_button.png){: .center }
 
 You can hover over the other buttons to discover what everything means.
 

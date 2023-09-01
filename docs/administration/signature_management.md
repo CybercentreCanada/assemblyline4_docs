@@ -10,7 +10,7 @@ Assemblyline's signature management interface lets you:
 
 You can find the signature management interface by clicking *Manage* then the *Signatures* menu from the navigation bar.
 
-![Signature management](./images/signature_management.PNG)
+![Signature management](./images/signature_management.PNG){: .center }
 
 !!! warning
     You cannot add new signatures to the system via this interface. Instead, Assemblyline has a [source management](../source_management) interface which lets you add a variety of external sources to fetch signatures from. The updater of the different services takes care of loading the source URLs and the new signature(s) into the system. It will also sync existing signatures that have changed since the last import.
@@ -66,4 +66,4 @@ There are three different signature states: **Deployed**, **Noisy**, and **Disab
 
 You can change the signatures by clicking the current signature state in the signature detail view. This will bring up the state-changing modal window which will let you pick a new state for the current rule.
 
-![Change signature state](./images/change_state.PNG)
+![Change signature state](./images/change_state.PNG){: .center }

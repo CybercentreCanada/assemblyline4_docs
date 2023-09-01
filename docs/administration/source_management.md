@@ -2,7 +2,7 @@
 
 You can access the source management interface by selecting "*Update Sources*" in the navigation menu.
 
-![Source management](./images/bar.png)
+![Source management](./images/bar.png){: .center }
 
 The source management interface will list all services that support external sources and will show you the various sources currently configured in the system.
 
@@ -82,9 +82,9 @@ The updater can be configured through the `service_manifest.yml`, which is in th
 
 ### Option 2 - Inside the service management interface
 
--   First navigate to "*User*" -> "*Administration*" -> "*Services*" through the navigation bar:
+-   You can find the service management interface by clicking the *Administration* topic then choose *Services* subtopic.
 
-![Service navbar](./images/navbar_services.PNG)
+![Service management](./images/services_bar.png){: .center }
 
 -   Click on the relevant service that you wish to update.
 -   Navigate to the "*Updates*" tab.

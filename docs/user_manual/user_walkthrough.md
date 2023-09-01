@@ -25,15 +25,15 @@ Select the following links to see the specifics about submitting [a file](../../
 
 This is the search bar. You can click on it with your mouse or use Control + K to bring focus to it.
 
-![Search bar](./images/search_bar.png)
+![Search bar](./images/search_bar.png){: .center }
 
 Clicking on the bell icon brings you to the notification panel where you can see system-wide announcements and what's new with the Assemblyline tool, as well as whatever RSS feeds that you have set up to receive:
 
-![Notification panel](./images/notification_feed.png)
+![Notification panel](./images/notification_feed.png){: .center }
 
 Click on the avatar in the top right to view the user settings panel. Out of the box, Assemblyline supports English and French localization. You can also personalize some of the user interface experience here, such as dark mode vs light mode.
 
-![User menu](./images/user_menu.png)
+![User menu](./images/user_menu.png){: .center }
 
 ## Account Management and Settings
 From the above menu, you can access the "Manage Account" view. This view has profile information like maximum account classification, groups your user is a part of, and personal details.
@@ -60,7 +60,7 @@ Scrolling down in this view to the "Interface Options", you can set some more de
 
 The "File encoding" setting is of interest here, because if you are working on a system that has an antivirus product running on it, you will want to set the encoding of all files downloaded from the system to something like CaRT or a password-protected ZIP so that the files you download from Assemblyline are not immediately wiped from your machine.
 
-![File encoding](./images/file_encoding.png)
+![File encoding](./images/file_encoding.png){: .center }
 
 Scrolling even further down, you can set a custom set of services as a default if you find yourself always submitting to the same services repeatedly.
 
@@ -97,19 +97,19 @@ You can filter for alerts using a Lucene query:
 
 You can set your favourite queries:
 
-![Create a Favourite Alert Query](./images/favourite_alert.png)
+![Create a Favourite Alert Query](./images/favourite_alert.png){: .center }
 
 Filter the results after the query was made:
 
-![Filter the query results](./images/alert_filter.png)
+![Filter the query results](./images/alert_filter.png){: .center }
 
 And apply workflow actions on alerts that already existed in the system:
 
-![Perform a workflow action on alerts](./images/alert_workflow.png)
+![Perform a workflow action on alerts](./images/alert_workflow.png){: .center }
 
 An example of a workflow that you may want to perform is if you want all alerts that receive a verdict of malicious and contain the word "invoice" in the file name to be assigned a "PHISHING" label which can then be lumped into a bucket for further analysis.
 
-![Phishing invoice workflow example](./images/phishing_workflow_example.png)
+![Phishing invoice workflow example](./images/phishing_workflow_example.png){: .center }
 
 By selecting an alert card on the "Alerts" page, you can view the full alert details:
 
@@ -119,7 +119,7 @@ You have the classification at the top, the alert information at the top left an
 
 If you have a team of analysts triaging alerts as we do at the Canadian Centre for Cyber Security, these buttons on the top right of the alert details view are very important:
 
-![Alert Triage Buttons](./images/alert_triage_buttons.png)
+![Alert Triage Buttons](./images/alert_triage_buttons.png){: .center }
 
 We'll explain them from left to right.
 
@@ -129,11 +129,11 @@ The suitcase icon button is "View History". If you click on that you can see the
 
 The next button is "Show all alerts from group", which will apply a group filter to the query on the Alerts page to show you all the alerts from the same group as the alert you are viewing:
 
-![Show all alerts from group](./images/alerts_by_group.png)
+![Show all alerts from group](./images/alerts_by_group.png){: .center }
 
 Then there is the "Take ownership" option which will allow you to assign the alert to your user account so that a team of analysts can easily assign work:
 
-![Take ownership view](./images/take_ownership.png)
+![Take ownership view](./images/take_ownership.png){: .center }
 
 The next options are "Go to a related submission" which will bring you to the submission that raised that alert, and "Perform a workflow action", where you can create a workflow action to be applied to all alerts in the system that are part of the same group. 
 
