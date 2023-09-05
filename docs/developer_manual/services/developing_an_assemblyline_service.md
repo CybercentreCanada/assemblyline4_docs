@@ -1,6 +1,6 @@
 # Developing an Assemblyline service
 
-This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service.
+This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. You should understand the concepts found [here](../../user_manual/results) though.
 
 ## Pre-requisites
 Before getting started, ensure you have read through the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
@@ -11,12 +11,20 @@ This section will guide you through the bare minimum steps required to create a 
 !!! important
     For this documentation, we will assume that your new service directory is located at `~/git/services/assemblyline-service-sample`
 
+To build a service, we need a minimum of three files. 
+
+1. A Python script that has a class implementing `ServiceBase` and the `execute` function
+2. A service manifest
+3. A Dockerfile. 
+
+The Dockerfile is not needed for development but will be required to deploy to your service to an Assemblyline instance.
+
 ### Service Python code
 
-In your service directory, you will first start by creating your service's python file. Let's use `sample.py`.
+In your service directory, you will first start by creating your service's python file. Let's use `result_sample.py`.
 
 Put the following code in your service's file:
-???+ example "~/git/services/assemblyline-service-sample/sample.py"
+???+ example "~/git/services/assemblyline-service-sample/result_sample.py"
     ```python
     from assemblyline_v4_service.common.base import ServiceBase
     from assemblyline_v4_service.common.request import ServiceRequest
@@ -28,15 +36,16 @@ Put the following code in your service's file:
 
         def start(self):
             # ==================================================================
-            # On Startup actions:
+            # Startup actions:
             #   Your service might have to do some warming up on startup to make things faster
+            # ==================================================================
 
             self.log.info(f"start() from {self.service_attributes.name} service called")
 
         def execute(self, request: ServiceRequest) -> None:
             # ==================================================================
             # Execute a request:
-            #   Every time your service receives a new file to scan, the execute function is called
+            #   Every time your service receives a new file to scan, the execute function is called.
             #   This is where you should execute your processing code.
             #   For this example, we will only generate results ...
             # ==================================================================
@@ -162,3 +171,21 @@ After you've completed creating your first service, your `~/git/services/assembl
 ├── result_sample.py
 └── service_manifest.yml
 ```
+
+### Good service examples
+
+#### [ElfParser](https://github.com/CybercentreCanada/assemblyline-service-elfparser)
+- Package a compiled executable from https://github.com/jacob-baines/elfparser
+- Parse the output of the executable to fill `ResultSections` for the user
+
+#### [ApiVector](https://github.com/CybercentreCanada/assemblyline-service-apivector)
+- Use a public library ([`apiscout`](https://github.com/danielplohmann/apiscout), [`lief`](https://github.com/lief-project/LIEF))
+- Load an external file
+- Use an updater
+
+#### [UrlDownloader](https://github.com/CybercentreCanada/assemblyline-service-urldownloader/)
+Unique key-value usage in the service manifest relative to the average service:
+- `stage: POST`
+- `file_required: false`
+- `is_external, allow_internet_access: true`
+- `uses_tag_scores, uses_metadata, uses_temp_submission_data: true`
