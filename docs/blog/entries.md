@@ -12,3 +12,9 @@ Assemblyline Blog Entry #1 — Welcome!👋 My name is Kevin and I work at the C
 ![A Little Bit Of History](images/blog2.png){ align=right }
 
 Assemblyline Blog Entry #2 —  In the previous blog entry of the Assemblyline series “Supercharge Your Malware Analysis Workflow”, my colleague Kevin talked about the high-level background required for understanding the need behind Assemblyline. In this post, as one of the original developers for Assemblyline, I will be telling you the story behind how Assemblyline got started.
+
+### [Static Analysis Showcase](https://medium.com/@kevin.hardy-cooper/static-analysis-showcase-13f9224cbbc)
+
+![Static Analysis Showcase](images/blog3.jpg){ align=right }
+
+Assemblyline Blog Entry #3 — ⚠️⚠️⚠️ CAUTION ⚠️⚠️⚠️ This document describes malware analysis in Assemblyline. Malware analysis must be performed in an isolated environment. In this post, we will be illustrating the power of Assemblyline’s static analysis services when analyzing a malware sample!
