@@ -136,7 +136,7 @@ In your service directory, create a file named `Dockerfile` with the following c
 
     # Python path to the service class from your service directory
     #  The following example refers to the class "Sample" from the "sample.py" file
-    ENV SERVICE_PATH sample.Sample
+    ENV SERVICE_PATH result_sample.Sample
 
     # Install any service dependencies here
     # For example: RUN apt-get update && apt-get install -y libyaml-dev
