@@ -140,6 +140,7 @@ nav:
         - Signature: odm/models/ontology/results/signature.md
     - ReplayConfig: odm/models/replay.md
     - Result: odm/models/result.md
+    - Retrohunt: odm/models/retrohunt.md
     - Safelist: odm/models/safelist.md
     - Service: odm/models/service.md
     - ServiceDelta: odm/models/service_delta.md
