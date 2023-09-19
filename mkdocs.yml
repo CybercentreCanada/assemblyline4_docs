@@ -110,8 +110,9 @@ nav:
       - Request Class: developer_manual/services/advanced/request.md
       - Result Class: developer_manual/services/advanced/result.md
       - ResultSection Class: developer_manual/services/advanced/result_section.md
-      - developer_manual/services/advanced/service_manifest.md
+      - Service manifest: developer_manual/services/advanced/service_manifest.md
       - developer_manual/services/advanced/service_updater_upgrade.md
+      - Exceptions: developer_manual/services/advanced/exceptions.md
   - Infrastructure: developer_manual/core/infrastructure.md
   - Frontend: developer_manual/frontend/frontend.md
   - Documentation: developer_manual/docs/docs.md
