@@ -40,6 +40,7 @@ nav:
   - user_manual/submitting_sha256.md
   - user_manual/results.md
   - user_manual/searching.md
+  - user_manual/verdicts.md
 - Installation:
   - Getting Started:
     - installation/deployment.md

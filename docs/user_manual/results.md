@@ -58,7 +58,9 @@ The text version of the risk associated with a file or result. Can be one of the
 700 - 999: highly suspicious
 >= 1000: malicious
 ```
-The source code for these mappings can be found [here](https://github.com/CybercentreCanada/assemblyline-ui-frontend/blob/a030a6400f56b22e11d38132da45467e7651c0fb/src/helpers/utils.ts#L8-L31).
+The configuration model for these mappings can be found [here](../../odm/models/config/#verdicts).
+
+For more details on how to interpret the score and verdict, head to [Assemblyline Verdicts](../../user_manual/verdicts)
 
 ## Submission Report
 The first page that will appear when you view a submission is the submission report. This page is a high-level summary to allow an analyst to decide if it is worth digging deeper.
