@@ -3,7 +3,7 @@
 As per the [Assemblyline documentation](../../odm/models/config/#verdicts), verdicts are the human-readable
 interpretation of the score that a file received upon analysis by a service.
 
-By default , the following score ranges are applied to certain verdicts:
+By default, the following score ranges are applied to certain verdicts:
 
 ```
 -1000: safe
@@ -63,7 +63,7 @@ We can hover the verdict button to see the score that rendered this verdict:
 
 Interesting, I guess the `default.bat` file that scored 260 was not the highest scoring file in the "Files" section.
 
-By hovering over the other files in the section, I see that the `vbe_decoded` file is actually the highest scoring file, with a score of 273:
+By hovering over the other files in the section, we see that the `vbe_decoded` file is actually the highest scoring file, with a score of 273:
 
 ![vbe_decoded score](./images/vbe_decoded_score.png)
 
