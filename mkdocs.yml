@@ -50,6 +50,7 @@ nav:
     - Cluster:
       - Kubernetes: installation/cluster/general.md
       - MicroK8s: installation/cluster/microk8s.md
+      - High-Throughput Optimizations: installation/cluster/optimizations.md
   - Appliance Migration: installation/deployment_migration.md
   - Configuration:
     - installation/configuration/config_file.md
