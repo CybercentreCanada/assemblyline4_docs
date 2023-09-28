@@ -10,8 +10,8 @@ This section gives you an overview of why plugins exist and what they are used f
 Plugins are designed to enable interoperability with other systems. This method allows for the de-coupling of system
 specific code that is not core to Assemblyline and may not want to be enabled by all users.
 
-These plugins enable a single Assemblyline API to be defined cleanly to query all desired systems, no matter how
-obscure.
+These plugins enable a single Assemblyline API to be defined that is able to cleanly query all desired systems, no
+matter how obscure.
 
 ## Architecture
 
@@ -28,7 +28,14 @@ then only require external egress to whatever resources are needed to perform th
 
 ### External Lookups
 
-These plugins enable the querying of Assmebyline data in an external system and brining back the results.
+These plugins enable the querying of Assemblyline data in an external system to then bring back and enrich the
+Assembyline Web UI. Use cases of this style of plugin include:
+
+- Looking up IOCs in a private or shared threat intelligence systems (eg MISP);
+- Checking for existance or similar links in public malware analysis systems (eg VirusTotal and Malware Bazaar);
+- Querying internal mirrors and databases
+
+All of this can be achived from within the Assemblyline UI, without having to copy/paste the data and context switch.
 
 The defined interface that these plugins must implement is located in the
 [assemblyine-ui plugins/external_lookup/template directory](https://github.com/CybercentreCanada/assemblyline-ui/tree/master/plugins/external_lookup/template).
@@ -46,15 +53,23 @@ written in a `test_app.py` module and any additional test requirements added to 
 The templates also contain a standard Dockerfile for building your container image which will run your app with
 `gunicorn`. This Dockerfile can also be modifed as required, as can the basic `gunicorn` config file.
 
+Note: You are not required to use the exact directory structure as the templates provided. These are simply minimal
+single module examples. For more complex requirements, you may wish to write a full python package. The only
+requirement is that the query interface is matched.
+
 Once the plugin is written, the docker image should be built and deployed to your Assemblyline environment. The plugin
 can then be added to your assemblyline configuration.
 
 ## Enabling a plugin
 
-The plugin container should be deployed using either docker/docker-compose or kubernetes depending on your operating environment. Individual plugin configuration can be applied through environment variables, depending on your plugin. If deployed in kubernetes with network policies, remember to ensure correct policies are in place.
+The plugin container should be deployed using either docker/docker-compose or kubernetes depending on your operating
+environment. Individual plugin configuration can be applied through environment variables, depending on your plugin.
+If deployed in kubernetes with network policies, remember to ensure correct policies are in place.
 
-Once deployed and running, plugins can be enabled by adding their details to the Assemblyline configuration file under the section:
-`ui.<plugin_type>`. The required config for each plugin type is defined in
+Plugins are not currently able to be deployed via the helm chart, and must be manually deployed.
+
+Once deployed and running, plugins can be enabled by adding their details to the Assemblyline configuration file under
+the section: `ui.<plugin_type>`. The required config for each plugin type is defined in
 [Assemblyline Base](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/models/config.py).
 
 Once their configuration has been added, the plugin will be enabled on the next UI reload.
@@ -64,10 +79,34 @@ For example, External Lookup plugins can be enabled with the following:
 ```yaml
 ui:
   external_sources:
-    - name: virustotal
-      url: <full url to the plugin microservice>
-      classification: <optional minimum classification of the upstream service>
+    - name: <display name for the source>
+      url: <full url to the plugin microservice api>
+      classification: <optional minimum classification require to access the upstream service>
       max_classification: <optional maximum classification that can be sumbitted to the upstream service>
 ```
 
-Individual plugin configuration is set in the plugins deployment (eg through ENV variables in docker).
+Individual plugin configuration is set in the plugins deployment (eg through ENV variables in docker). For example,
+the required API key for accessing the VirusTotal API can be set in the plugin setting the `VT_API_KEY` environment
+variable in the container.
+
+## Included Plugins
+
+### VirusTotal
+
+The following Assembyline data can be queried by default:
+
+- Hashes (MD5, SHA1, SHA256)
+- `network.dynamic.domain` and `network.static.domain`
+- `network.dynamic.ip` and `network.static.ip`
+- `network.dynamic.uri` and `network.static.uri`
+
+#### Container configuration
+
+The following environment variables may be configured:
+
+- VT_API_KEY: Your VirusTotal API key for the service to query with [Default: ""]
+- VT_VERIFY: Use secure HTTPS connections [Default: True]
+- MAX_TIMEOUT: Maximum amount of time to wait for resuls from VirusTotal [Default: 3]
+- CLASSIFICATION: The classification of the data being returned from this service [Default: TLP:CLEAR]
+- API_URL: The base URL for the VirusTotal API [Default: https://www.virustotal.com/api/v3]
+- FRONTEND_URL: The base URL of the VirusTotal web UI [Default: https://www.virustotal.com/gui/search]
