@@ -46,7 +46,7 @@
 | deep_scan | Boolean | Should a deep scan be performed? | :material-checkbox-marked-outline: Yes | `False` |
 | description | Text | Description of the submission | :material-checkbox-marked-outline: Yes | `None` |
 | generate_alert | Boolean | Should this submission generate an alert? | :material-checkbox-marked-outline: Yes | `False` |
-| groups | List [Keyword] | List of groups related to this scan | :material-checkbox-marked-outline: Yes | `['USERS']` |
+| groups | List [Keyword] | List of groups related to this scan | :material-checkbox-marked-outline: Yes | `[]` |
 | ignore_cache | Boolean | Ignore the cached service results? | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_dynamic_recursion_prevention | Boolean | Should we ignore dynamic recursion prevention? | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_filtering | Boolean | Should we ignore filtering services? | :material-checkbox-marked-outline: Yes | `False` |

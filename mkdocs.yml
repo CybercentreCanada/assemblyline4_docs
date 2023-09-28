@@ -1,7 +1,7 @@
 extra:
   alternate:
   - lang: en
-    link: ./en/
+    link: ./
     name: English
   - lang: fr
     link: ./fr/
@@ -34,9 +34,13 @@ nav:
   - overview/services.md
   - overview/community_services.md
 - User's manual:
+  - user_manual/user_walkthrough.md
   - user_manual/submitting_file.md
+  - user_manual/submitting_url.md
+  - user_manual/submitting_sha256.md
   - user_manual/results.md
   - user_manual/searching.md
+  - user_manual/verdicts.md
 - Installation:
   - Getting Started:
     - installation/deployment.md
@@ -46,6 +50,7 @@ nav:
     - Cluster:
       - Kubernetes: installation/cluster/general.md
       - MicroK8s: installation/cluster/microk8s.md
+      - High-Throughput Optimizations: installation/cluster/optimizations.md
   - Appliance Migration: installation/deployment_migration.md
   - Configuration:
     - installation/configuration/config_file.md
@@ -65,20 +70,28 @@ nav:
   - installation/monitoring.md
   - installation/replay.md
 - Administration:
-  - administration/signature_management.md
-  - administration/source_management.md
+  - administration/admin_walkthrough.md
+  - administration/submission_actions.md
   - administration/service_management.md
-  - administration/system_management.md
   - administration/system_safelist.md
   - administration/user_management.md
+  - administration/signature_management.md
+  - administration/heuristic_management.md
+  - administration/source_management.md
+  - administration/system_management.md
   - administration/troubleshooting.md
-  - administration/submission_actions.md
 - Integration:
   - integration/ingestion_method.md
   - integration/key_generation.md
   - integration/python.md
   - integration/java.md
   - integration/rest.md
+  - integration/ontology.md
+  - integration/api_exercise_1.md
+  - integration/api_exercise_2.md
+  - integration/api_exercise_3.md
+  - integration/api_exercise_4.md
+  - integration/api_exercise_5.md
 - Developer's guide:
   - Setup Environment:
     - developer_manual/env/getting_started.md
@@ -99,8 +112,9 @@ nav:
       - Request Class: developer_manual/services/advanced/request.md
       - Result Class: developer_manual/services/advanced/result.md
       - ResultSection Class: developer_manual/services/advanced/result_section.md
-      - developer_manual/services/advanced/service_manifest.md
+      - Service manifest: developer_manual/services/advanced/service_manifest.md
       - developer_manual/services/advanced/service_updater_upgrade.md
+      - Exceptions: developer_manual/services/advanced/exceptions.md
   - Infrastructure: developer_manual/core/infrastructure.md
   - Frontend: developer_manual/frontend/frontend.md
   - Documentation: developer_manual/docs/docs.md
@@ -129,6 +143,7 @@ nav:
         - Signature: odm/models/ontology/results/signature.md
     - ReplayConfig: odm/models/replay.md
     - Result: odm/models/result.md
+    - Retrohunt: odm/models/retrohunt.md
     - Safelist: odm/models/safelist.md
     - Service: odm/models/service.md
     - ServiceDelta: odm/models/service_delta.md
@@ -158,6 +173,8 @@ nav:
     - SubmissionMessage: odm/messages/submission.md
     - TaskMessage: odm/messages/task.md
     - VacuumMessage: odm/messages/vacuum_heartbeat.md
+- Blog:
+  - blog/entries.md
 plugins:
 - glightbox:
     auto_caption: false
@@ -173,19 +190,25 @@ plugins:
     zoomable: true
 - search
 - i18n:
-    default_language: en
+    fallback_to_default: true
     languages:
-      en: english
-      fr: français
-    nav_translations:
-      fr:
+    - build: true
+      default: true
+      locale: en
+      name: English
+    - build: true
+      locale: fr
+      name: Français
+      nav_translations:
+        Data Ontology: Ontologie des données
         Developer's guide: Guide du développeur
         Home: Accueil
         Integration: Intégration
-        Overview: Tour
+        Overview: Aperçu
         User's manual: Manuel d'utilisateur
 repo_url: https://github.com/CybercentreCanada/assemblyline4_docs
 site_name: Assemblyline 4
+site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
 theme:
   custom_dir: override
   favicon: images/crane.png
@@ -211,3 +234,6 @@ theme:
       name: Switch to dark mode
   static_templates:
   - 404.html
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore

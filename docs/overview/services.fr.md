@@ -8,8 +8,8 @@ Cette liste contient tous les services inclus et maintenue avec Assemblyline:
 | ------------------| -- | -------------------- | ------------- |
 | APIVector         | Windows binaries | Extrait les imports de fichiers PE files ou mémoire pour générer un vecteur de classification. | [link](https://github.com/CybercentreCanada/assemblyline-service-apivector) |
 | APKaye            | Android APK | Les APK sont décompilés et inspectés. Les indicateurs de réseau et les informations trouvées dans le fichier manifeste APK sont affichés | [link](https://github.com/CybercentreCanada/assemblyline-service-apkaye) |
-| Anti-virus        | Anti-virus | Client ICAP générique utilisant plusieurs solution d'Anti-virus commerciales | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
-| BatchDeobfuscator | Deobfuscation | Résolution de variables locales et globales d'un fichier batch | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
+| AntiVirus        | Anti-virus | Client ICAP générique utilisant plusieurs solution d'Anti-virus commerciales | [link](https://github.com/CybercentreCanada/assemblyline-service-antivirus) |
+| Batchdeobfuscator | Deobfuscation | Résolution de variables locales et globales d'un fichier batch | [link](https://github.com/CybercentreCanada/assemblyline-service-batchdeobfuscator) |
 | CAPA              | Windows binaries | Intégration de l'outil public [CAPA](https://github.com/mandiant/capa) | [link](https://github.com/CybercentreCanada/assemblyline-service-capa) |
 | Characterize      | Analyze d'entropy | Calcule l'entropy des fichiers et extrait les meta-donnée Exif. | [link](https://github.com/CybercentreCanada/assemblyline-service-characterize) |
 | ConfigExtractor   | Extraction | Extrait la configuration de malware connu, pour trouvé des liste de C2s, cle d'encryption etc. | [link](https://github.com/CybercentreCanada/assemblyline-service-configextractor) |
@@ -22,10 +22,9 @@ Cette liste contient tous les services inclus et maintenue avec Assemblyline:
 | Extract           | Compressed file | Extrait la plus part des type de compression (like ZIP, RAR, 7z, ...) | [link](https://github.com/CybercentreCanada/assemblyline-service-extract)|
 | Floss             | IoC extraction  | Extrait des chaîne de charracters obfusqué avec [FireEye Labs Obfuscated String Solver](https://github.com/fireeye/flare-floss) | [link](https://github.com/CybercentreCanada/assemblyline-service-floss)|
 | FrankenStrings    | IoC extraction | Ce service effectue des extractions de fichiers et d'IOC à l'aide de la correspondance de modèles, d'un décodeur d'encodage simple et de désobfuscateurs de script | [link](https://github.com/CybercentreCanada/assemblyline-service-frankenstrings)|
-| IntezerDynamic    | File genome identification | Interface entre Intezer Analyze API 2.0, soumet le fichier pour analyse si le hachage n'est pas présent dans la base de données Intezer | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-dynamic)|
-| IntezerStatic     | File genome identification | Interface entre Intezer Analyze API 2.0, effectue des recherches de hachage du fichier soumis | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer-static)|
+| Intezer    | File genome identification | Interface entre Intezer Analyze API 2.0, soumet le fichier pour analyse si le hachage n'est pas présent dans la base de données Intezer | [link](https://github.com/CybercentreCanada/assemblyline-service-intezer)|
 | IPArse            | Apple IOS | Analyze de fichier Apple IOS | [link](https://github.com/CybercentreCanada/assemblyline-service-iparse)|
-| JSJaws            | Javascript | Analyze de fichier Javascript | [link](https://github.com/CybercentreCanada/assemblyline-service-jsjaws)|
+| JsJaws            | Javascript | Analyze de fichier Javascript | [link](https://github.com/CybercentreCanada/assemblyline-service-jsjaws)|
 | MetaPeek          | Meta data analysis | Détect les signe malicieux dans les meta-données et les noms de fichier (double extension etc) | [link](https://github.com/CybercentreCanada/assemblyline-service-metapeek)|
 | Oletools          | Office documents | Ce service analyze les fichiers Office et extrait des indicateurs de compromis avec [Python library py-oletools](https://github.com/decalage2/oletools) by Philippe Lagadec - http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-oletools)|
 | Overpower         | PowerShell | Déobfusque les fichier powershell |[link](https://github.com/CybercentreCanada/assemblyline-service-overpower) |
@@ -49,7 +48,7 @@ Cette liste contient tous les services inclus et maintenue avec Assemblyline:
 
 
 
-End of life, no longer actively supported:
+En fin de vie, ne sont plus activement pris en charge:
 
 | Service Name      | Speciality | Description | Source |
 | ------------------| -- | -------------------- | ------------- |

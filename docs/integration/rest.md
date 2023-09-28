@@ -1,6 +1,6 @@
 # RESTful API
 
-When it is impossible to integrate your application using the dedicated python client, you can use Assemblyline's RESTful API to perform any task that you can think of.
+When it is impossible to integrate your application using the dedicated Python or Java clients, you can use Assemblyline's RESTful API to perform any task that you can think of.
 
 ## API documentation
 

@@ -156,6 +156,7 @@
 | date | [FileDate](/assemblyline4_docs/odm/models/tagging/#filedate) | File's Date Information | :material-minus-box-outline: Optional | `None` |
 | elf | [FileELF](/assemblyline4_docs/odm/models/tagging/#fileelf) | ELF File Properties | :material-minus-box-outline: Optional | `None` |
 | lib | List [Keyword] | File Libraries | :material-minus-box-outline: Optional | `None` |
+| lsh | List [Keyword] | File LSH hashes | :material-minus-box-outline: Optional | `None` |
 | name | [FileName](/assemblyline4_docs/odm/models/tagging/#filename) | File Name | :material-minus-box-outline: Optional | `None` |
 | path | List [Keyword] | File Path | :material-minus-box-outline: Optional | `None` |
 | rule | Mapping [String, List [Keyword]] | Rule/Signature File | :material-minus-box-outline: Optional | `None` |

@@ -2,7 +2,19 @@
 
 While integrating Assemblyline to another system, you should not save your username and password into another app. Instead, you should create an API Key with only the appropriate requirements for that specific integration.
 
-Here is how to do this: 
+## Role-based Access Controls
+
+All APIs have role-based access controls (RBAC) and require users to be authenticated to use those APIs through basic authentication like username and password, API keys, certificates, etc.
+
+![RBAC Controls for an Administrator User](./images/rbac_admin.png)
+
+API keys can be defined to have specific restraints that are less than or equal to those imposed on the owner.
+
+The APIs also drive whether information should be made accessible to a user by comparing the classification of the requester against the data asked to retrieve.
+
+## Create an API key
+
+Here is how to do this:
 
 ![Key generation](./images/apikey.gif){: .center }
 

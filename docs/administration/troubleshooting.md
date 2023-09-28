@@ -2,7 +2,7 @@
 
 We will update this page with typical issues and solutions.
 
-You can post your question to our [Assemblyline Google Group](https://groups.google.com/g/cse-cst-assemblyline) or join our [Discord](https://discord.gg/GUAy9wErNu) community!
+You can post your question to our [Discord](https://discord.gg/GUAy9wErNu) community!
 
 
 === "Core"

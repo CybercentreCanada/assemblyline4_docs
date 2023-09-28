@@ -11,6 +11,7 @@
 | default_external_sources | List [Keyword] | List of sha256 sources to check by default | :material-checkbox-marked-outline: Yes | `[]` |
 | default_zip_password | Text | Default user-defined password for creating password protected ZIPs when downloading files | :material-checkbox-marked-outline: Yes | `zippy` |
 | expand_min_score | Integer | Auto-expand section when score bigger then this | :material-checkbox-marked-outline: Yes | `500` |
+| generate_alert | Boolean | Generate an alert? | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_cache | Boolean | Ignore service caching? | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_dynamic_recursion_prevention | Boolean | Ignore dynamic recursion prevention? | :material-checkbox-marked-outline: Yes | `False` |
 | ignore_filtering | Boolean | Ignore filtering services? | :material-checkbox-marked-outline: Yes | `False` |

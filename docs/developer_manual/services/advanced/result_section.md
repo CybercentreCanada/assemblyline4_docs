@@ -4,10 +4,19 @@ A `ResultSection` is bascally part of a service result that encapsulates a certa
 Result sections have the following properties:
 
 * They have different [types](#section-types) that will display information in different manners
-* They can attach a heuristic which will add a maliciousness score to the result section
-* They can tag important pieces of information about a file
+* They can attach a single heuristic which will add a maliciousness score to the result section
+
+    * Each signature can have an associated score, that will raise the score of the heuristic by overriding the default heuristic score.
+
+* They can tag important pieces of information about a file, which can be used to easily search in the system
 * They can contain subsections which are just sections inside of another section
 * They can have a classification which allows the API to redact partial results from a service depending on the user
+
+    * Different classifications would mostly be used if you have external data sources, like signatures. Some may have a higher classification than others
+
+The total score for the heuristic is going to determine the colour and categorization of everything in the `ResultSection`. The `ResultSection` is going to show up yellow or red if the score is high enough, as are the tags for that `ResultSection`.
+
+For example, if you extract a domain that you know is malicious, you can tag it in the `ResultSection` that has a heuristic with a high score, so that the tag will easily be seen by the users.
 
 You can view the source for the class here: [ResultSection class source](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
@@ -179,7 +188,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### TEXT
 
-![TEXT](./images/text.png)
+![TEXT](./images/text.png){ .center }
 
 ??? example "Code used to generate the TEXT section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -243,7 +252,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### MEMORY_DUMP
 
-![MEMORY_DUMP](./images/memory_dump.png)
+![MEMORY_DUMP](./images/memory_dump.png){ .center }
 
 ??? example "Code used to generate the MEMORY_DUMP section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -266,7 +275,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### GRAPH_DATA
 
-![GRAPH_DATA](./images/graph_data.png)
+![GRAPH_DATA](./images/graph_data.png){ .center }
 
 ??? example "Code used to generate the GRAPH_DATA section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -295,7 +304,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### URL
 
-![URL](./images/url.png)
+![URL](./images/url.png){ .center }
 
 ??? example "Code used to generate the URL section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -341,7 +350,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### JSON
 
-![JSON](./images/json.png)
+![JSON](./images/json.png){ .center }
 
 ??? example "Code used to generate the JSON section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -376,7 +385,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### KEY_VALUE
 
-![KEY_VALUE](./images/key_value.png)
+![KEY_VALUE](./images/key_value.png){ .center }
 
 ??? example "Code used to generate the KEY_VALUE section"
     Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -417,7 +426,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### PROCESS_TREE
 
-![PROCESS_TREE](./images/process_tree.png)
+![PROCESS_TREE](./images/process_tree.png){ .center }
 
 ??? example "Code used to generate the section"
     Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -491,7 +500,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### TABLE
 
-![TABLE](./images/table.png)
+![TABLE](./images/table.png){ .center }
 
 ??? example "Code used to generate the TABLE section"
     Excerpt from Assemblyline Result sample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -546,7 +555,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### IMAGE
 
-![IMAGE](./images/image.png)
+![IMAGE](./images/image.png){ .center }
 
 ??? example "Code used to generate the IMAGE section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -568,7 +577,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### TIMELINE
 
-![TIMELINE](./images/timeline.png)
+![TIMELINE](./images/timeline.png){ .center }
 
 ??? example "Code used to generate the TIMELINE section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -588,7 +597,7 @@ These are all result section types that Assemblyline supports. You can see a scr
 
 ### MULTI
 
-![MULTI](./images/multi.png)
+![MULTI](./images/multi.png){ .center }
 
 ??? example "Code used to generate the MULTI section"
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
@@ -598,7 +607,7 @@ These are all result section types that Assemblyline supports. You can see a scr
     # ==================================================================
     # Multi Section
     #     This type of section allows the service writer to display multiple section types
-    #     in the same result section. Here's a concrete exemple of this:
+    #     in the same result section. Here's a concrete example of this:
     multi_section = ResultMultiSection('Example of Multi-typed section')
     multi_section.add_section_part(TextSectionBody(body="We have detected very high entropy multiple sections "
                                                         "of your file, this section is most-likely packed or "

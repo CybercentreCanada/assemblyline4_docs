@@ -42,3 +42,27 @@ Once all services are upgraded, you can resume processing by toggling the Dispat
 This implies the changes should have little to no impact on systems within the same framework version.
 
 Setting the system to a paused state before upgrading isn't required.
+
+## Single Node Elasticsearch Maintenance
+
+When running Elasticsearch in a single node deployment, it will sometimes drop to a `yellow` status without a real issue.
+This typically occurs when an index has (because of templating or defaults), its `number_of_replicas` set to more than zero.
+Since the single node deployment can't create a redundant replica, this forces the node to a yellow status.
+The details on the settings around this can be a little different depending on which version of Elasticsearch you are using, but the following should be true for versions 7 and 8.
+
+To check if this is the case for your Elasticsearch node, running the following command will reset the replicas to zero for all indices:
+```bash
+curl -XPUT -k -u "${ELASTIC_USERNAME}:${ELASTIC_PASSWORD}" https://localhost:9200/_all/_settings -H 'Content-Type: application/json' -d '{"index" : {"number_of_replicas" : 0}}'
+```
+You may need to replace `https` with `http` depending on your other settings. If your Elasticsearch doesn't return to a green status within a few minutes of running the command you may have other issues and should look for support.
+
+If the issue reoccurs often enough to be an issue for you, it should be preventable by ensuring no templates have a non-zero replica value set and creating an index template like the following to establish zero as the default value.
+```json
+{
+   "index_patterns" : ["*"],
+   "order" : 0
+   "settings" : {
+       "number_of_replicas" : "0"
+   }
+}
+```

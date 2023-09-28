@@ -22,6 +22,14 @@ The following tables describes all of the variables of the `ServiceBase` class.
 | update_time | An integer representing the epoch of when the last update occurred|
 | working_directory | Returns the directory path which the service can use to temporarily store files during each task execution. |
 
+The `config` property is a dictionary that comes from the service manifest that will contain the default values. An Assemblyline system administrator can go into the service management section of their instance `/admin/services` and change the default configuration, so you'll be able to access that configuration through `config`. An example of this is the [default password list](https://github.com/CybercentreCanada/assemblyline-service-extract/blob/master/service_manifest.yml#L24:L25) of the [Extract service](https://github.com/CybercentreCanada/assemblyline-service-extract), known as `default_pw_list`. This list can be configured by your administrator to always include "password", "infected" or the name of your organization.
+
+![Service Variables for the Extract service](./images/service_variables_for_extract.png){ .center }
+
+The `working_directory` property is a temporary directory that you should use if you extract or create temporary files. That way, your different file submissions won't interfere with each other, and you won't leave files in your running container that could start bloating it.
+
+If you need to log anything for debugging, you could use `print` or `self.log`. The advantage of `self.log` is that with the right setup, it'll be forwarded to your logging stack where you can do more analysis.
+
 ## Class functions
 This is the list of all the functions that you can override in your service. They are explained in order of importance and the likelihood at which you will override them.
 
@@ -33,11 +41,13 @@ The `execute` function is called every time the service receives a new file to s
 
 It is inside this function that you will create a [Result](../result) objects to send your scan results back to the system for storage and display in the user interface. This has to be done before the end of the function execution. Make sure you go through the [tips on writing good results](../result#tips-on-writing-good-results) before starting to built your service.
 
+If multiple files come in around the same time, the system is optimized to reuse deployed services. The `start` function won't be called between submissions, so you need to make sure not to keep data between runs in the class variables as it can lead to wrong results.
+
 ### get_tool_version()
 The purpose of the `get_tool_version` function is to the return a string indicating the version of the tools used by the service or a hash of the signatures it uses. The tool version should be updated to reflect changes in the service tools or signatures, so that Assemblyline can rescan files on the new service version if they are submitted again.
 
-### start()
-The `start` function is called when the Assemblyline service is initiated and should be used to prepare your service for task execution.
+### __init__() and start()
+The `__init__` and `start` functions are called when the Assemblyline service is initiated and should be used to prepare your service for task execution. The main difference between these methods is that you have access to the content provided by your updater in the `start` method.
 
 ### get_api_interface()
 The purpose of the `get_api_interface` function is to give the service direct access to the [service server](../../core/infrastructure/#core-components) component to perform API request to find out if a file or a tag is meant to be safelisted.

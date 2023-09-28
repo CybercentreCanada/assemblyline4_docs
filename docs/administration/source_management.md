@@ -1,14 +1,16 @@
-# Signature Source Management
+# Source Management
 
-Modifying the signature set to support analysis is very simple and can be done directly through the Assemblyline User Interface.
+You can access the source management interface by selecting "*Update Sources*" in the navigation menu.
 
-You can access the source management interface by selecting "*Source management*" in the navigation menu.
+![Source management](./images/bar.png){: .center }
 
-![Source management](./images/bar.PNG)
+The source management interface will list all services that support external sources and will show you the various sources currently configured in the system.
 
-The source management interface will list all services that support external sources and will show you the different sources currently configured in the system.
+![Source list](./images/source_list.png)
 
-![Source list](./images/source_list.PNG)
+Here is where you can add sources for services that consume signatures or the safelist. In the above screenshot, you can see that the Sigma and Suricata services have configured sources where they ingest rules from.
+
+On this page, you can manually pull signatures from sources, add new sources, synchronize signatures on your system based on their source or view all signatures from a source.
 
 ## Modifying sources
 
@@ -80,11 +82,14 @@ The updater can be configured through the `service_manifest.yml`, which is in th
 
 ### Option 2 - Inside the service management interface
 
--   First navigate to "*User*" -> "*Administration*" -> "*Services*" through the navigation bar:
-![Service navbar](./images/navbar_services.PNG)
+-   You can find the service management interface by clicking the *Administration* topic then choose *Services* subtopic.
+
+![Service management](./images/services_bar.png){: .center }
+
 -   Click on the relevant service that you wish to update.
 -   Navigate to the "*Updates*" tab.
 -   You can change any value related to the updates in this section.
+
 ![Service updater](./images/updater.PNG)
 
 !!! tip

@@ -8,11 +8,13 @@
 | creation_date | Date | Creation date of the workflow | :material-checkbox-marked-outline: Yes | `NOW` |
 | creator | Keyword | UID of the creator of the workflow | :material-checkbox-marked-outline: Yes | `None` |
 | edited_by | Keyword | UID of the last user to edit the workflow | :material-checkbox-marked-outline: Yes | `None` |
+| first_seen | Date | Date of first hit on workflow | :material-minus-box-outline: Optional | `None` |
 | hit_count | Integer | Number of times there was a workflow hit | :material-checkbox-marked-outline: Yes | `0` |
 | labels | List [Keyword] | Labels applied by the workflow | :material-checkbox-marked-outline: Yes | `[]` |
 | last_edit | Date | Date of last edit on workflow | :material-checkbox-marked-outline: Yes | `NOW` |
 | last_seen | Date | Date of last hit on workflow | :material-minus-box-outline: Optional | `None` |
 | name | Keyword | Name of the workflow | :material-checkbox-marked-outline: Yes | `None` |
+| origin | Keyword | Which did this originate from? | :material-minus-box-outline: Optional | `None` |
 | priority | Enum | Priority applied by the workflow<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM", None` | :material-minus-box-outline: Optional | `None` |
 | query | Keyword | Query that the workflow runs | :material-checkbox-marked-outline: Yes | `None` |
 | status | Enum | Status applied by the workflow<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE", None` | :material-minus-box-outline: Optional | `None` |

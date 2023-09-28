@@ -1,6 +1,6 @@
 # Java Client
 
-The assemblyline java client library provides methods to submit requests to assemblyline.
+The Assemblyline Java client library provides methods to submit requests to Assemblyline.
 
 :octicons-mark-github-16: [Get the Java client](https://github.com/CybercentreCanada/assemblyline-java-client)
 
@@ -12,7 +12,7 @@ There are two authentication methods: username/apikey or username/password.
 
 ### API Key Authentication
 
-To instantiate an API key authenticated assemblyline client, define the following properties:
+To instantiate an API key authenticated Assemblyline client, define the following properties:
 
     assemblyline-java-client:
         url: <assemblyline-instance-url>
@@ -22,14 +22,14 @@ To instantiate an API key authenticated assemblyline client, define the followin
 
 ### Password Authentication
 
-To instantiate a password authenticated assemblyline client, define the following properties:
+To instantiate a password authenticated Assemblyline client, define the following properties:
 
     assemblyline-java-client:
         url: <assemblyline-instance-url>
         password-auth:
             password: <password>
             username: <username>
- 
+
 ### Proxy
 
 To go through a proxy, add the following properties:
@@ -38,4 +38,3 @@ To go through a proxy, add the following properties:
         proxy:
             host: <host>
             port: <port>
- 

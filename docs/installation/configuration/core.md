@@ -1,6 +1,6 @@
 # Core component section
 
-The core components configuration section (`core:`) of the configuration file contains all the different parameters that you can change to modify the behavior of each core components.
+The core components configuration section (`core:`) of the configuration file contains all the different parameters that you can change to modify the behaviour of each core components.
 
 ??? info "Default values for the core section"
     ```yaml
@@ -74,6 +74,10 @@ The core components configuration section (`core:`) of the configuration file co
           host: 127.0.0.1
           port: 6380
       scaler:
+        additional_labels: null
+        cpu_overallocation: 1
+        memory_overallocation: 1
+        overallocation_node_limit: null
         service_defaults:
           backlog: 100
           environment:
@@ -336,6 +340,15 @@ Here is an example configuration block with inline comments about the purpose of
     ```yaml
     core:
         scaler:
+          # Percentage of CPU overallocation, represented as 0-1 float
+          cpu_overallocation: 0.5
+          # Percentage of RAM overallocation, represented as 0-1 float
+          memory_overallocation: 1
+          # If the system has this many nodes or more overallocation is ignored
+          overallocation_node_limit: 3
+          # Additional labels to be applied to services('=' delimited)
+          additional_labels:
+            - env=production
           service_defaults:
             # How many files in a service queue are considered a backlog.
             #  This weights how important scaling up a service is relative
