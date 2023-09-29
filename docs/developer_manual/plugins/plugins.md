@@ -91,6 +91,22 @@ variable in the container.
 
 ## Included Plugins
 
+### Assemblyline
+
+This plugin can be enabled and configured to query other Assemblyline instances. This may be useful if you
+wish to query data from a partner or have multiple instances yourself. All hashes and tags can be queried by default.
+
+#### Container configuration
+
+The following environment variables may be configured:
+
+- API_KEY: Your API key for the service to query with [Default: ""]
+- VERIFY: Use secure HTTPS connections [Default: True]
+- MAX_LIMIT: Maximum amount of results to return [Default: 100]
+- MAX_TIMEOUT: Maximum amount of time to wait for results [Default: 3]
+- CLASSIFICATION: The classification of upstream service [Default: TLP:CLEAR]
+- URL_BASE: The base URL of the upstream service [Default: https://assemblyline-ui]
+
 ### VirusTotal
 
 The following Assembyline data can be queried by default:
@@ -106,7 +122,25 @@ The following environment variables may be configured:
 
 - VT_API_KEY: Your VirusTotal API key for the service to query with [Default: ""]
 - VT_VERIFY: Use secure HTTPS connections [Default: True]
-- MAX_TIMEOUT: Maximum amount of time to wait for resuls from VirusTotal [Default: 3]
+- MAX_TIMEOUT: Maximum amount of time to wait for results [Default: 3]
 - CLASSIFICATION: The classification of the data being returned from this service [Default: TLP:CLEAR]
 - API_URL: The base URL for the VirusTotal API [Default: https://www.virustotal.com/api/v3]
 - FRONTEND_URL: The base URL of the VirusTotal web UI [Default: https://www.virustotal.com/gui/search]
+
+### Malware Bazaar
+
+The following Assembyline data can be queried by default:
+
+- Hashes (MD5, SHA1, SHA256)
+- `file.pe.imports.imphash`
+
+#### Container configuration
+
+The following environment variables may be configured:
+
+- MB_VERIFY: Use secure HTTPS connections [Default: True]
+- MB_MAX_LIMIT: Maximum amount of results to return [Default: 100]
+- MAX_TIMEOUT: Maximum amount of time to wait for results [Default: 3]
+- CLASSIFICATION: The classification of the data being returned from this service [Default: TLP:CLEAR]
+- API_URL: The base URL for the Malware Bazaar API [Default: https://mb-api.abuse.ch/api/v1]
+- FRONTEND_URL: The base URL of the Malware Bazaar web UI [Default: https://bazaar.abuse.ch/browse.php]
