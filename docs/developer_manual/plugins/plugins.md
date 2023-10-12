@@ -58,15 +58,13 @@ single module examples. For more complex requirements, you may wish to write a f
 requirement is that the query interface is matched.
 
 Once the plugin is written, the docker image should be built and deployed to your Assemblyline environment. The plugin
-can then be added to your assemblyline configuration.
+can then be added to your assemblyline configuration. This can be done through Helm.
 
 ## Enabling a plugin
 
 The plugin container should be deployed using either docker/docker-compose or kubernetes depending on your operating
 environment. Individual plugin configuration can be applied through environment variables, depending on your plugin.
 If deployed in kubernetes with network policies, remember to ensure correct policies are in place.
-
-Plugins are not currently able to be deployed via the helm chart, and must be manually deployed.
 
 Once deployed and running, plugins can be enabled by adding their details to the Assemblyline configuration file under
 the section: `ui.<plugin_type>`. The required config for each plugin type is defined in
@@ -88,6 +86,10 @@ ui:
 Individual plugin configuration is set in the plugins deployment (eg through ENV variables in docker). For example,
 the required API key for accessing the VirusTotal API can be set in the plugin setting the `VT_API_KEY` environment
 variable in the container.
+
+If deploying to Kubernetes, plugins can be configured and deployed through the Assemblyline Helm chart. All plugin
+related fields are stored in the values file under the `uiPlugins` key. Additional custom developed lookup plugins
+should be added to the list under: `uiPlugins.lookup.plugins`.
 
 ## Included Plugins
 
