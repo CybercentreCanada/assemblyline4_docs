@@ -82,7 +82,7 @@ lookup:
 
         # Full url to the plugin microservice api.
         # (this will be the above lowercase `name` with a `ui-plugin-lookup-` prefix)
-        url: ui-plugin-lookup-virustotal
+        url: http://ui-plugin-lookup-virustotal:8000
 
         # (optional) Minimum classification require to access the upstream service.
         classification:
