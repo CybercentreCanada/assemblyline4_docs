@@ -81,7 +81,8 @@ lookup:
       - name: virustotal
 
         # Full url to the plugin microservice api.
-        url:
+        # (this will be the above lowercase `name` with a `ui-plugin-lookup-` prefix)
+        url: ui-plugin-lookup-virustotal
 
         # (optional) Minimum classification require to access the upstream service.
         classification:
