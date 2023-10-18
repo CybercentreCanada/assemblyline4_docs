@@ -237,6 +237,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | alert_ttl | Integer | Time to live (days) for an alert in the system | :material-checkbox-marked-outline: Yes | `90` |
 | constant_alert_fields | List [Keyword] | List of fields that should not change during an alert update | :material-checkbox-marked-outline: Yes | `['alert_id', 'file', 'ts']` |
+| constant_ignore_keys | List [Keyword] | List of keys to ignore in the constant alert fields. | :material-checkbox-marked-outline: Yes | `['screenshots']` |
 | default_group_field | Keyword | Default field used for alert grouping view | :material-checkbox-marked-outline: Yes | `file.sha256` |
 | delay | Integer | Time in seconds that we give extended scans and workflow to complete their work before we start showing alerts in the alert viewer. | :material-checkbox-marked-outline: Yes | `300` |
 | filtering_group_fields | List [Keyword] | List of group fields that when selected will ignore certain alerts where this field is missing. | :material-checkbox-marked-outline: Yes | `['file.name', 'status', 'priority']` |
