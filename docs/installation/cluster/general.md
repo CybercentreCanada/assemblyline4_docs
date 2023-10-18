@@ -45,6 +45,14 @@ In the `deployment_directory` you've just created, create a `secrets.yaml` file 
         # if it includes non-alphanumeric characters
       filestore-password:
       initial-admin-password:
+    ---
+    # Initalizes secret with a temporary value, will be replaced by job upon helm install
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: kibana-service-token
+    stringData:
+      token: ""
     ```
 
 !!! tip

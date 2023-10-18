@@ -66,6 +66,7 @@ nav:
           - installation/configuration/system.md
           - installation/configuration/ui.md
           - Kubernetes-specific:
+              - Upgrading to Elasticsearch 8: installation/configuration/kubernetes/upgrading_elastic.md
               - installation/configuration/kubernetes/internal_encryption.md
       - installation/classification_engine.md
       - installation/monitoring.md
