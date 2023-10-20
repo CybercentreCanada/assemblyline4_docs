@@ -15,7 +15,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - attr_list
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - pymdownx.highlight
   - pymdownx.superfences
@@ -208,7 +209,7 @@ plugins:
             Integration: Intégration
             Overview: Aperçu
             User's manual: Manuel d'utilisateur
-repo_url: https://github.com/CybercentreCanada/assemblyline4_docs
+repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
 theme:
