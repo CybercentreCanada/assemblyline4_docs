@@ -18,10 +18,10 @@ matter how obscure.
 Plugins are essentially standalone microservices that act as a proxy layer between Assemblyline and the external system.
 They exist to translate Assmemblyline specific ontology into queries that the external service will understand. For
 example, the builtin external lookup plugin for VirusTotal will take assembyline tags and translate and search for them
-in virustotal. In this case the Assemblyline tags `network.dynamic.ip` and `network.static.ip` will be mapped to a
+in VirusTotal. In this case the Assemblyline tags `network.dynamic.ip` and `network.static.ip` will be mapped to a
 VirusTotal search for `ip_address`.
 
-Plugins are run as separete containers and only require incoming ingress connections from the Assemblyline UI API. They
+Plugins are run as separate containers and only require incoming ingress connections from the Assemblyline UI API. They
 then only require external egress to whatever resources are needed to perform their function.
 
 ## Core plugin types
@@ -31,8 +31,8 @@ then only require external egress to whatever resources are needed to perform th
 These plugins enable the querying of Assemblyline data in an external system to then bring back and enrich the
 Assembyline Web UI. Use cases of this style of plugin include:
 
-- Looking up IOCs in a private or shared threat intelligence systems (eg MISP);
-- Checking for existance or similar links in public malware analysis systems (eg VirusTotal and Malware Bazaar);
+- Looking up IOCs in a private or shared threat intelligence systems (eg. MISP);
+- Checking for existance or similar links in public malware analysis systems (eg. VirusTotal and Malware Bazaar);
 - Querying internal mirrors and databases
 
 All of this can be achived from within the Assemblyline UI, without having to copy/paste the data and context switch.
@@ -47,28 +47,29 @@ An example template should be defined for each type of plugin in the
 
 The quickest way to develop your own plugin is to simply take a complete copy of this template directory for the type
 of plugin you wish to write, and use it as the base of a new repository. In this new repository, modify the `app.py` to
-write your functionality. Any python requirements can be added to the `requirements.txt` file. Tests should then be
+write your functionality. Any Python requirements can be added to the `requirements.txt` file. Tests should then be
 written in a `test_app.py` module and any additional test requirements added to a `requirements_tests.txt` file.
 
 The templates also contain a standard Dockerfile for building your container image which will run your app with
 `gunicorn`. This Dockerfile can also be modifed as required, as can the basic `gunicorn` config file.
 
 Note: You are not required to use the exact directory structure as the templates provided. These are simply minimal
-single module examples. For more complex requirements, you may wish to write a full python package. The only
+single module examples. For more complex requirements, you may wish to write a full Python package. The only
 requirement is that the query interface is matched.
 
-Once the plugin is written, the docker image should be built and deployed to your Assemblyline environment. The plugin
-can then be added to your assemblyline configuration. This can be done through Helm.
+Once the plugin is written, the Docker image should be built and deployed to your Assemblyline environment. The plugin
+can then be added to your Assemblyline configuration. This can be done through Helm by modifying your `values.yaml` or through
+Docker by updating your `config.yml`.
 
 ## Enabling a plugin
 
-The plugin container should be deployed using either docker/docker-compose or kubernetes depending on your operating
+The plugin container should be deployed using either Docker or Kubernetes depending on your operating
 environment. Individual plugin configuration can be applied through environment variables, depending on your plugin.
-If deployed in kubernetes with network policies, remember to ensure correct policies are in place.
+If deployed in Kubernetes with network policies, remember to ensure correct policies are in place.
 
 Once deployed and running, plugins can be enabled by adding their details to the Assemblyline configuration file under
 the section: `ui.<plugin_type>`. The required config for each plugin type is defined in
-[Assemblyline Base](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/models/config.py).
+[here](../../../odm/models/config/#externalsource).
 
 Once their configuration has been added, the plugin will be enabled on the next UI reload.
 
@@ -83,7 +84,7 @@ ui:
       max_classification: <optional maximum classification that can be sumbitted to the upstream service>
 ```
 
-Individual plugin configuration is set in the plugins deployment (eg through ENV variables in docker). For example,
+Individual plugin configuration is set in the plugins deployment (eg. through ENV variables in Docker). For example,
 the required API key for accessing the VirusTotal API can be set in the plugin setting the `VT_API_KEY` environment
 variable in the container.
 

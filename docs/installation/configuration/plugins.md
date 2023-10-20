@@ -1,10 +1,8 @@
 # UI plugin section
 
-The plugin configuration section (`uiPlugins:`) of the configuration file allows you to enable and confire both the
-built in and you own custom plugins.
+The plugin configuration section (`uiPlugins:`) of the `values.yaml` allows you to enable and configure both the built-in and your own custom plugins.
 
-Since this section is quite simple, we will list the default configuration at the same time as we describe the
-different values.
+Since this section is quite simple, we will list the default configuration at the same time as we describe the different values.
 
 ???+ example "UI plugin section configuration example"
 
@@ -72,24 +70,26 @@ uiPlugins: # configure/setup external lookup type plugins.
       ...
 ...
 
-# add the configred plugins to the UI config section.
-ui:
-  external_sources:
+# add the configured plugins to the AL UI config section.
+configuration:
+  ...
+  ui:
+    external_sources:
 
-  # Display name of the lookup source.
-  - name: virustotal
+    # Display name of the lookup source.
+    - name: virustotal
 
-    # Full url to the plugin microservice api.
-    # (this will be the above lowercase `name` with a `ui-plugin-lookup-` prefix)
-    url: http://ui-plugin-lookup-virustotal:8000
+      # Full url to the plugin microservice api.
+      # (this will be the above lowercase `name` with a `ui-plugin-lookup-` prefix)
+      url: http://ui-plugin-lookup-virustotal:8000
 
-    # (optional) Minimum classification require to access the upstream service.
-    classification:
+      # (optional) Minimum classification require to access the upstream service.
+      classification:
 
-    # (optional) Maximum classification that can be sumbitted to the upstream service.
-    max_classification:
-    ...
-    ```
+      # (optional) Maximum classification that can be sumbitted to the upstream service.
+      max_classification:
+      ...
+```
 
 !!! tip
 Refer to the [changing the configuration file](../config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
