@@ -207,7 +207,7 @@ plugins:
         Integration: Intégration
         Overview: Aperçu
         User's manual: Manuel d'utilisateur
-repo_url: https://github.com/CybercentreCanada/assemblyline4_docs
+repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
 theme:
