@@ -29,7 +29,7 @@ Assemblyline Blog Entry #4 — The following is the first part of a write-up det
 
 ![Can HackTheBox Business CTF 2023 Forensic Challenges beat Assemblyline?](images/blog5.png){ align=right }
 
-Assemblyline Blog Entry #5 — he following is the second part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+Assemblyline Blog Entry #5 — The following is the second part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
 
 ### [One last HackTheBox Business CTF 2023 Forensic Challenge (3/3)](https://medium.com/@gdesmar/hackthebox-business-ctf-2023-forensic-challenges-3-3-d05b026062c0)
 
