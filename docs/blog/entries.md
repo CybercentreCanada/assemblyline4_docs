@@ -18,3 +18,21 @@ Assemblyline Blog Entry #2 —  In the previous blog entry of the Assemblyline s
 ![Static Analysis Showcase](images/blog3.jpg){ align=right }
 
 Assemblyline Blog Entry #3 — ⚠️⚠️⚠️ CAUTION ⚠️⚠️⚠️ This document describes malware analysis in Assemblyline. Malware analysis must be performed in an isolated environment. In this post, we will be illustrating the power of Assemblyline’s static analysis services when analyzing a malware sample!
+
+### [Can Assemblyline beat HackTheBox Business CTF 2023 Forensic Challenges? (1/3)](https://medium.com/@gdesmar/hackthebox-business-ctf-2023-forensic-challenges-1-3-13248862a380)
+
+![Can Assemblyline beat HackTheBox Business CTF 2023 Forensic Challenges?](images/blog4.png){ align=right }
+
+Assemblyline Blog Entry #4 — The following is the first part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+
+### [Can HackTheBox Business CTF 2023 Forensic Challenges beat Assemblyline? (2/3)](https://medium.com/@gdesmar/hackthebox-business-ctf-2023-forensic-challenges-2-3-224c83cac72f)
+
+![Can HackTheBox Business CTF 2023 Forensic Challenges beat Assemblyline?](images/blog5.png){ align=right }
+
+Assemblyline Blog Entry #5 — The following is the second part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+
+### [One last HackTheBox Business CTF 2023 Forensic Challenge (3/3)](https://medium.com/@gdesmar/hackthebox-business-ctf-2023-forensic-challenges-3-3-d05b026062c0)
+
+![One last HackTheBox Business CTF 2023 Forensic Challenge](images/blog6.png){ align=right }
+
+Assemblyline Blog Entry #6 - The following is the third part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
