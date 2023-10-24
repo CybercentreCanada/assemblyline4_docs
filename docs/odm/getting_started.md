@@ -51,3 +51,15 @@ Here is a table of the basic types of fields in our data models and what they're
 | `UUID` | A field storing an auto-generated unique ID if None is provided. |
 | `UpperKeyword` | A field storing a short uppercase string with a technical interpretation. |
 | `ValidatedKeyword` | Keyword field whose value is validated by a regular expression. |
+
+
+## Field States
+In each table, there will be a "Required" column with different states about the field's status:
+
+|State|Description|
+|:---|:----------|
+|:material-checkbox-marked-outline: Yes|This field is required to be set in the model|
+|:material-minus-box-outline: Optional|This field isn't required to be set in the model|
+|:material-alert-box-outline: Deprecated|This field has been deprecated in the model. See field's description for more details.|
+
+__Note__: Fields that are ":material-alert-box-outline: Deprecated" that are still shown in the docs will still work as expected but you're encouraged to update your configuration as soon as possible to avoid future deployment issues.
