@@ -14,16 +14,15 @@ uiPlugins: # configure/setup external lookup type plugins.
     # These are disabed by default. Set to `true` to enable them (note: individual plugins must still be enabled).
     enabled: false
 
-    # List of plugins to setup.
-    # You can add your own custom plugins to this list as long as they implement the correct interface.
+    # Mapping of plugins to setup.
+    # You can add your own custom plugins to this mapping as long as they implement the correct interface.
     plugins:
 
-      # Enable or disable this particular plugin.
-      # Note: to enable, the upper level `uiPlugins.lookup.enabled` must also be `true`.
-      - enabled: false
+      <lookupName>: # The name of the lookup plugin (eg. virustotal). This will be used in the deployment definitions.
 
-        # The name of the lookup plugin. This will be used in the deployment definitions.
-        lookupName: virustotal
+        # Enable or disable this particular plugin.
+        # Note: to enable, the upper level `uiPlugins.lookup.enabled` must also be `true`.
+        enabled: false
 
         # The registry and image name of the plugin image.
         image: cccs/assemblyline-ui-plugin-lookup-virustotal
@@ -80,7 +79,7 @@ configuration:
     - name: virustotal
 
       # Full url to the plugin microservice api.
-      # (this will be the above lowercase `name` with a `ui-plugin-lookup-` prefix)
+      # (this will be the lowercase `lookupName` key with a `ui-plugin-lookup-` prefix)
       url: http://ui-plugin-lookup-virustotal:8000
 
       # (optional) Minimum classification require to access the upstream service.
