@@ -20,9 +20,12 @@ datastore:
     - data_cold
     # Only if using Elasticsearch instance for logging
     # - ingest
+  secret:
+    enabled: false  # Disable auto-password generation
   esConfig:
     elasticsearch.yml: |
       ...
+      cluster.deprecation_indexing.enabled: false
       # Below configurations are used when `enableInternalEncryption: true`
       # xpack.security.http.ssl.enabled: ${DATASTORE_SSL_ENABLED}
       # xpack.security.http.ssl.verification_mode: full
