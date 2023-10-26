@@ -5,6 +5,8 @@ To migrate your system to the newest version of the chart and Elasticsearch, tak
 ### Elasticsearch (datastore/log-storage)
 If you're using an exact copy-and-paste of the `values.yaml` with some modifications, note the following (`datastore` will be used as an example):
 
+!!! note "Upgrading `log-storage` configuration for internal TLS/SSL involves different environment variables (`DATASTORE_*` → `LOGGING_*`)"
+
 ```yaml
 datastore:
   imageTag: "8.10.2" # Tag statically set to the latest version of ES at the time of writing
@@ -22,10 +24,10 @@ datastore:
     elasticsearch.yml: |
       ...
       # Below configurations are used when `enableInternalEncryption: true`
-      # xpack.security.http.ssl.enabled: ${LOGGING_SSL_ENABLED}
+      # xpack.security.http.ssl.enabled: ${DATASTORE_SSL_ENABLED}
       # xpack.security.http.ssl.verification_mode: full
-      # xpack.security.http.ssl.key: ${LOGGING_SSL_KEY}
-      # xpack.security.http.ssl.certificate: ${LOGGING_SSL_CERTIFICIATE}
+      # xpack.security.http.ssl.key: ${DATASTORE_SSL_KEY}
+      # xpack.security.http.ssl.certificate: ${DATASTORE_SSL_CERTIFICIATE}
 ```
 
 
@@ -41,6 +43,11 @@ metadata:
     name: kibana-service-token
 stringData:
     token: ""
+```
+
+Using the following command:
+```bash
+kubectl create secret generic kibana-service-token --from-literal=token="" -n <al_ns>
 ```
 
 As well as the following changes to the Kibana chart values:
@@ -64,9 +71,12 @@ kibanaConfig:
 No changes should be required for Beats, Logstash, and APM server
 
 ### Upgrade Checklist
+- [x] (Optional) Pause system processing using the toggles on the Ingestion & Dispatch cards in the Dashboard view
 - [x] Update Elasticsearch configuration(s) in `values.yaml`
-- [x] Update Kibana configuration in `values.yaml`
 - [x] Create a new Secret for Kibana's service token with `""` value
-    - `kubectl apply -f /path/to/secrets.yaml -n al_ns`
+- [x] Update Kibana configuration in `values.yaml`
+- [x] Remove the `datastore-master` (& `log-storage-master`) StatefulSet(s)
+    - Removing the StatefulSet objects have no affect on the storage it's bound to (won't get deleted)
+    - Allow pods to terminate gracefully to avoid any potential data corruption
 
 If all these items are checked off, you can proceed with a `helm upgrade` of your deployment.
