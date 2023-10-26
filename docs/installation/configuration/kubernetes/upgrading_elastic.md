@@ -75,8 +75,5 @@ No changes should be required for Beats, Logstash, and APM server
 - [x] Update Elasticsearch configuration(s) in `values.yaml`
 - [x] Create a new Secret for Kibana's service token with `""` value
 - [x] Update Kibana configuration in `values.yaml`
-- [x] Remove the `datastore-master` (& `log-storage-master`) StatefulSet(s)
-    - Removing the StatefulSet objects have no affect on the storage it's bound to (won't get deleted)
-    - Allow pods to terminate gracefully to avoid any potential data corruption
 
 If all these items are checked off, you can proceed with a `helm upgrade` of your deployment.
