@@ -25,7 +25,16 @@ datastore:
   esConfig:
     elasticsearch.yml: |
       ...
+      # Suppress warning logs from certain loggers
+      logger.org.elasticsearch.cluster.coordination.ClusterBootstrapService: ERROR
+      logger.com.amazonaws.auth.profile.internal.BasicProfileConfigFileLoader: ERROR
+      logger.org.elasticsearch.cluster.coordination.Coordinator: ERROR
+      logger.org.elasticsearch.deprecation: ERROR
+      logger.org.elasticsearch.xpack.ml.inference.loadingservice.ModelLoadingService: ERROR
+
+      # Don't create a deprecation index
       cluster.deprecation_indexing.enabled: false
+
       # Below configurations are used when `enableInternalEncryption: true`
       # xpack.security.http.ssl.enabled: ${DATASTORE_SSL_ENABLED}
       # xpack.security.http.ssl.verification_mode: full
