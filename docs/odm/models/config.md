@@ -4,17 +4,17 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| auth | [Auth](/assemblyline4_docs/odm/models/config/#auth) | Authentication module configuration | :material-checkbox-marked-outline: Yes | See [Auth](/assemblyline4_docs/odm/models/config/#auth) for more details. |
-| core | [Core](/assemblyline4_docs/odm/models/config/#core) | Core component configuration | :material-checkbox-marked-outline: Yes | See [Core](/assemblyline4_docs/odm/models/config/#core) for more details. |
-| datastore | [Datastore](/assemblyline4_docs/odm/models/config/#datastore) | Datastore configuration | :material-checkbox-marked-outline: Yes | See [Datastore](/assemblyline4_docs/odm/models/config/#datastore) for more details. |
-| datasources | Mapping [String, [Datasource](/assemblyline4_docs/odm/models/config/#datasource)] | Datasources configuration | :material-checkbox-marked-outline: Yes | See [Datasource](/assemblyline4_docs/odm/models/config/#datasource) for more details. |
-| filestore | [Filestore](/assemblyline4_docs/odm/models/config/#filestore) | Filestore configuration | :material-checkbox-marked-outline: Yes | See [Filestore](/assemblyline4_docs/odm/models/config/#filestore) for more details. |
-| logging | [Logging](/assemblyline4_docs/odm/models/config/#logging) | Logging configuration | :material-checkbox-marked-outline: Yes | See [Logging](/assemblyline4_docs/odm/models/config/#logging) for more details. |
-| retrohunt | [Retrohunt](/assemblyline4_docs/odm/models/config/#retrohunt) | Retrohunt configuration for the frontend and server. | :material-checkbox-marked-outline: Yes | See [Retrohunt](/assemblyline4_docs/odm/models/config/#retrohunt) for more details. |
-| services | [Services](/assemblyline4_docs/odm/models/config/#services) | Service configuration | :material-checkbox-marked-outline: Yes | See [Services](/assemblyline4_docs/odm/models/config/#services) for more details. |
-| system | [System](/assemblyline4_docs/odm/models/config/#system) | System configuration | :material-checkbox-marked-outline: Yes | See [System](/assemblyline4_docs/odm/models/config/#system) for more details. |
-| ui | [UI](/assemblyline4_docs/odm/models/config/#ui) | UI configuration parameters | :material-checkbox-marked-outline: Yes | See [UI](/assemblyline4_docs/odm/models/config/#ui) for more details. |
-| submission | [Submission](/assemblyline4_docs/odm/models/config/#submission) | Options for how submissions will be processed | :material-checkbox-marked-outline: Yes | See [Submission](/assemblyline4_docs/odm/models/config/#submission) for more details. |
+| auth | [Auth](/assemblyline4_docs/odm/models/config/#auth) | Authentication module configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Auth](/assemblyline4_docs/odm/models/config/#auth) for more details. |
+| core | [Core](/assemblyline4_docs/odm/models/config/#core) | Core component configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Core](/assemblyline4_docs/odm/models/config/#core) for more details. |
+| datastore | [Datastore](/assemblyline4_docs/odm/models/config/#datastore) | Datastore configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Datastore](/assemblyline4_docs/odm/models/config/#datastore) for more details. |
+| datasources | Mapping [String, [Datasource](/assemblyline4_docs/odm/models/config/#datasource)] | Datasources configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Datasource](/assemblyline4_docs/odm/models/config/#datasource) for more details. |
+| filestore | [Filestore](/assemblyline4_docs/odm/models/config/#filestore) | Filestore configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Filestore](/assemblyline4_docs/odm/models/config/#filestore) for more details. |
+| logging | [Logging](/assemblyline4_docs/odm/models/config/#logging) | Logging configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Logging](/assemblyline4_docs/odm/models/config/#logging) for more details. |
+| retrohunt | [Retrohunt](/assemblyline4_docs/odm/models/config/#retrohunt) | Retrohunt configuration for the frontend and server. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Retrohunt](/assemblyline4_docs/odm/models/config/#retrohunt) for more details. |
+| services | [Services](/assemblyline4_docs/odm/models/config/#services) | Service configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Services](/assemblyline4_docs/odm/models/config/#services) for more details. |
+| system | [System](/assemblyline4_docs/odm/models/config/#system) | System configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [System](/assemblyline4_docs/odm/models/config/#system) for more details. |
+| ui | [UI](/assemblyline4_docs/odm/models/config/#ui) | UI configuration parameters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [UI](/assemblyline4_docs/odm/models/config/#ui) for more details. |
+| submission | [Submission](/assemblyline4_docs/odm/models/config/#submission) | Options for how submissions will be processed | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Submission](/assemblyline4_docs/odm/models/config/#submission) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -23,13 +23,13 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| allow_2fa | Boolean | Allow 2FA? | :material-checkbox-marked-outline: Yes | `True` |
-| allow_apikeys | Boolean | Allow API keys? | :material-checkbox-marked-outline: Yes | `True` |
-| allow_extended_apikeys | Boolean | Allow extended API keys? | :material-checkbox-marked-outline: Yes | `True` |
-| allow_security_tokens | Boolean | Allow security tokens? | :material-checkbox-marked-outline: Yes | `True` |
-| internal | [Internal](/assemblyline4_docs/odm/models/config/#internal) | Internal authentication settings | :material-checkbox-marked-outline: Yes | See [Internal](/assemblyline4_docs/odm/models/config/#internal) for more details. |
-| ldap | [LDAP](/assemblyline4_docs/odm/models/config/#ldap) | LDAP settings | :material-checkbox-marked-outline: Yes | See [LDAP](/assemblyline4_docs/odm/models/config/#ldap) for more details. |
-| oauth | [OAuth](/assemblyline4_docs/odm/models/config/#oauth) | OAuth settings | :material-checkbox-marked-outline: Yes | See [OAuth](/assemblyline4_docs/odm/models/config/#oauth) for more details. |
+| allow_2fa | Boolean | Allow 2FA? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| allow_apikeys | Boolean | Allow API keys? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| allow_extended_apikeys | Boolean | Allow extended API keys? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| allow_security_tokens | Boolean | Allow security tokens? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| internal | [Internal](/assemblyline4_docs/odm/models/config/#internal) | Internal authentication settings | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Internal](/assemblyline4_docs/odm/models/config/#internal) for more details. |
+| ldap | [LDAP](/assemblyline4_docs/odm/models/config/#ldap) | LDAP settings | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [LDAP](/assemblyline4_docs/odm/models/config/#ldap) for more details. |
+| oauth | [OAuth](/assemblyline4_docs/odm/models/config/#oauth) | OAuth settings | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [OAuth](/assemblyline4_docs/odm/models/config/#oauth) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -38,11 +38,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Internal authentication allowed? | :material-checkbox-marked-outline: Yes | `True` |
-| failure_ttl | Integer | How long to wait after `max_failures` before re-attempting login? | :material-checkbox-marked-outline: Yes | `60` |
-| max_failures | Integer | Maximum number of fails allowed before timeout | :material-checkbox-marked-outline: Yes | `5` |
-| password_requirements | [PasswordRequirement](/assemblyline4_docs/odm/models/config/#passwordrequirement) | Password requirements | :material-checkbox-marked-outline: Yes | See [PasswordRequirement](/assemblyline4_docs/odm/models/config/#passwordrequirement) for more details. |
-| signup | [Signup](/assemblyline4_docs/odm/models/config/#signup) | Signup method | :material-checkbox-marked-outline: Yes | See [Signup](/assemblyline4_docs/odm/models/config/#signup) for more details. |
+| enabled | Boolean | Internal authentication allowed? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| failure_ttl | Integer | How long to wait after `max_failures` before re-attempting login? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `60` |
+| max_failures | Integer | Maximum number of fails allowed before timeout | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| password_requirements | [PasswordRequirement](/assemblyline4_docs/odm/models/config/#passwordrequirement) | Password requirements | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [PasswordRequirement](/assemblyline4_docs/odm/models/config/#passwordrequirement) for more details. |
+| signup | [Signup](/assemblyline4_docs/odm/models/config/#signup) | Signup method | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Signup](/assemblyline4_docs/odm/models/config/#signup) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -51,11 +51,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| lower | Boolean | Password must contain lowercase letters | :material-checkbox-marked-outline: Yes | `False` |
-| number | Boolean | Password must contain numbers | :material-checkbox-marked-outline: Yes | `False` |
-| special | Boolean | Password must contain special characters | :material-checkbox-marked-outline: Yes | `False` |
-| upper | Boolean | Password must contain uppercase letters | :material-checkbox-marked-outline: Yes | `False` |
-| min_length | Integer | Minimum password length | :material-checkbox-marked-outline: Yes | `12` |
+| lower | Boolean | Password must contain lowercase letters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| number | Boolean | Password must contain numbers | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| special | Boolean | Password must contain special characters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| upper | Boolean | Password must contain uppercase letters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| min_length | Integer | Minimum password length | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `12` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -64,10 +64,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Can a user automatically signup for the system | :material-checkbox-marked-outline: Yes | `False` |
-| smtp | [SMTP](/assemblyline4_docs/odm/models/config/#smtp) | Signup via SMTP | :material-checkbox-marked-outline: Yes | See [SMTP](/assemblyline4_docs/odm/models/config/#smtp) for more details. |
-| notify | [Notify](/assemblyline4_docs/odm/models/config/#notify) | Signup via GC Notify | :material-checkbox-marked-outline: Yes | See [Notify](/assemblyline4_docs/odm/models/config/#notify) for more details. |
-| valid_email_patterns | List [Keyword] | Email patterns that will be allowed to automatically signup for an account | :material-checkbox-marked-outline: Yes | `['.*', '.*@localhost']` |
+| enabled | Boolean | Can a user automatically signup for the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| smtp | [SMTP](/assemblyline4_docs/odm/models/config/#smtp) | Signup via SMTP | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [SMTP](/assemblyline4_docs/odm/models/config/#smtp) for more details. |
+| notify | [Notify](/assemblyline4_docs/odm/models/config/#notify) | Signup via GC Notify | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Notify](/assemblyline4_docs/odm/models/config/#notify) for more details. |
+| valid_email_patterns | List [Keyword] | Email patterns that will be allowed to automatically signup for an account | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['.*', '.*@localhost']` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -76,12 +76,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| base_url | Keyword | Base URL | :material-minus-box-outline: Optional | `None` |
-| api_key | Keyword | API key | :material-minus-box-outline: Optional | `None` |
-| registration_template | Keyword | Registration template | :material-minus-box-outline: Optional | `None` |
-| password_reset_template | Keyword | Password reset template | :material-minus-box-outline: Optional | `None` |
-| authorization_template | Keyword | Authorization template | :material-minus-box-outline: Optional | `None` |
-| activated_template | Keyword | Activated Template | :material-minus-box-outline: Optional | `None` |
+| base_url | Keyword | Base URL | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| api_key | Keyword | API key | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| registration_template | Keyword | Registration template | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| password_reset_template | Keyword | Password reset template | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| authorization_template | Keyword | Authorization template | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| activated_template | Keyword | Activated Template | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -90,12 +90,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| from_adr | Keyword | Email address used for sender | :material-minus-box-outline: Optional | `None` |
-| host | Keyword | SMTP host | :material-minus-box-outline: Optional | `None` |
-| password | Keyword | Password for SMTP server | :material-minus-box-outline: Optional | `None` |
-| port | Integer | Port of SMTP server | :material-checkbox-marked-outline: Yes | `587` |
-| tls | Boolean | Should we communicate with SMTP server via TLS? | :material-checkbox-marked-outline: Yes | `True` |
-| user | Keyword | User to authenticate to the SMTP server | :material-minus-box-outline: Optional | `None` |
+| from_adr | Keyword | Email address used for sender | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| host | Keyword | SMTP host | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| password | Keyword | Password for SMTP server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| port | Integer | Port of SMTP server | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `587` |
+| tls | Boolean | Should we communicate with SMTP server via TLS? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| user | Keyword | User to authenticate to the SMTP server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -104,24 +104,24 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Should LDAP be enabled or not? | :material-checkbox-marked-outline: Yes | `False` |
-| admin_dn | Keyword | DN of the group or the user who will get admin privileges | :material-minus-box-outline: Optional | `None` |
-| bind_user | Keyword | User use to query the LDAP server | :material-minus-box-outline: Optional | `None` |
-| bind_pass | Keyword | Password used to query the LDAP server | :material-minus-box-outline: Optional | `None` |
-| auto_create | Boolean | Auto-create users if they are missing | :material-checkbox-marked-outline: Yes | `True` |
-| auto_sync | Boolean | Should we automatically sync with LDAP server on each login? | :material-checkbox-marked-outline: Yes | `True` |
-| auto_properties | List [[AutoProperty](/assemblyline4_docs/odm/models/config/#autoproperty)] | Automatic role and classification assignments | :material-checkbox-marked-outline: Yes | `[]` |
-| base | Keyword | Base DN for the users | :material-checkbox-marked-outline: Yes | `ou=people,dc=assemblyline,dc=local` |
-| classification_mappings | Any | Classification mapping | :material-checkbox-marked-outline: Yes | `None` |
-| email_field | Keyword | Name of the field containing the email address | :material-checkbox-marked-outline: Yes | `mail` |
-| group_lookup_query | Keyword | How the group lookup is queried | :material-checkbox-marked-outline: Yes | `(&(objectClass=Group)(member=%s))` |
-| image_field | Keyword | Name of the field containing the user's avatar | :material-checkbox-marked-outline: Yes | `jpegPhoto` |
-| image_format | Keyword | Type of image used to store the avatar | :material-checkbox-marked-outline: Yes | `jpeg` |
-| name_field | Keyword | Name of the field containing the user's name | :material-checkbox-marked-outline: Yes | `cn` |
-| signature_importer_dn | Keyword | DN of the group or the user who will get signature_importer role | :material-minus-box-outline: Optional | `None` |
-| signature_manager_dn | Keyword | DN of the group or the user who will get signature_manager role | :material-minus-box-outline: Optional | `None` |
-| uid_field | Keyword | Field name for the UID | :material-checkbox-marked-outline: Yes | `uid` |
-| uri | Keyword | URI to the LDAP server | :material-checkbox-marked-outline: Yes | `ldap://localhost:389` |
+| enabled | Boolean | Should LDAP be enabled or not? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| admin_dn | Keyword | DN of the group or the user who will get admin privileges | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| bind_user | Keyword | User use to query the LDAP server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| bind_pass | Keyword | Password used to query the LDAP server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| auto_create | Boolean | Auto-create users if they are missing | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| auto_sync | Boolean | Should we automatically sync with LDAP server on each login? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| auto_properties | List [[AutoProperty](/assemblyline4_docs/odm/models/config/#autoproperty)] | Automatic role and classification assignments | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| base | Keyword | Base DN for the users | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `ou=people,dc=assemblyline,dc=local` |
+| classification_mappings | Any | Classification mapping | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| email_field | Keyword | Name of the field containing the email address | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `mail` |
+| group_lookup_query | Keyword | How the group lookup is queried | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `(&(objectClass=Group)(member=%s))` |
+| image_field | Keyword | Name of the field containing the user's avatar | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `jpegPhoto` |
+| image_format | Keyword | Type of image used to store the avatar | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `jpeg` |
+| name_field | Keyword | Name of the field containing the user's name | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cn` |
+| signature_importer_dn | Keyword | DN of the group or the user who will get signature_importer role | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature_manager_dn | Keyword | DN of the group or the user who will get signature_manager role | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| uid_field | Keyword | Field name for the UID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `uid` |
+| uri | Keyword | URI to the LDAP server | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `ldap://localhost:389` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -130,10 +130,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| field | Keyword | Field to apply `pattern` to | :material-checkbox-marked-outline: Yes | `None` |
-| pattern | Keyword | Regex pattern for auto-prop assignment | :material-checkbox-marked-outline: Yes | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "remove_role", "role", "type"` | :material-checkbox-marked-outline: Yes | `None` |
-| value | List [Keyword] | Assigned property value | :material-checkbox-marked-outline: Yes | `[]` |
+| field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "remove_role", "role", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -142,9 +142,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Enable use of OAuth? | :material-checkbox-marked-outline: Yes | `False` |
-| gravatar_enabled | Boolean | Enable gravatar? | :material-checkbox-marked-outline: Yes | `True` |
-| providers | Mapping [String, [OAuthProvider](/assemblyline4_docs/odm/models/config/#oauthprovider)] | OAuth provider configuration | :material-checkbox-marked-outline: Yes | See [OAuthProvider](/assemblyline4_docs/odm/models/config/#oauthprovider) for more details. |
+| enabled | Boolean | Enable use of OAuth? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| gravatar_enabled | Boolean | Enable gravatar? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| providers | Mapping [String, [OAuthProvider](/assemblyline4_docs/odm/models/config/#oauthprovider)] | OAuth provider configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [OAuthProvider](/assemblyline4_docs/odm/models/config/#oauthprovider) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -153,36 +153,36 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| auto_create | Boolean | Auto-create users if they are missing | :material-checkbox-marked-outline: Yes | `True` |
-| auto_sync | Boolean | Should we automatically sync with OAuth provider? | :material-checkbox-marked-outline: Yes | `False` |
-| auto_properties | List [[AutoProperty](/assemblyline4_docs/odm/models/config/#autoproperty)] | Automatic role and classification assignments | :material-checkbox-marked-outline: Yes | `[]` |
-| app_provider | [AppProvider](/assemblyline4_docs/odm/models/config/#appprovider) | None | :material-minus-box-outline: Optional | `None` |
-| uid_randomize | Boolean | Should we generate a random username for the authenticated user? | :material-checkbox-marked-outline: Yes | `False` |
-| uid_randomize_digits | Integer | How many digits should we add at the end of the username? | :material-checkbox-marked-outline: Yes | `0` |
-| uid_randomize_delimiter | Keyword | What is the delimiter used by the random name generator? | :material-checkbox-marked-outline: Yes | `-` |
-| uid_regex | Keyword | Regex used to parse an email address and capture parts to create a user ID out of it | :material-minus-box-outline: Optional | `None` |
-| uid_format | Keyword | Format of the user ID based on the captured parts from the regex | :material-minus-box-outline: Optional | `None` |
-| client_id | Keyword | ID of your application to authenticate to the OAuth provider | :material-minus-box-outline: Optional | `None` |
-| client_secret | Keyword | Password to your application to authenticate to the OAuth provider | :material-minus-box-outline: Optional | `None` |
-| request_token_url | Keyword | URL to request token | :material-minus-box-outline: Optional | `None` |
-| request_token_params | Keyword | Parameters to request token | :material-minus-box-outline: Optional | `None` |
-| access_token_url | Keyword | URL to get access token | :material-minus-box-outline: Optional | `None` |
-| access_token_params | Keyword | Parameters to get access token | :material-minus-box-outline: Optional | `None` |
-| authorize_url | Keyword | URL used to authorize access to a resource | :material-minus-box-outline: Optional | `None` |
-| authorize_params | Keyword | Parameters used to authorize access to a resource | :material-minus-box-outline: Optional | `None` |
-| api_base_url | Keyword | Base URL for downloading the user's and groups info | :material-minus-box-outline: Optional | `None` |
-| client_kwargs | Mapping [String, Keyword] | Keyword arguments passed to the different URLs | :material-minus-box-outline: Optional | `None` |
-| jwks_uri | Keyword | URL used to verify if a returned JWKS token is valid | :material-minus-box-outline: Optional | `None` |
-| uid_field | Keyword | Name of the field that will contain the user ID | :material-minus-box-outline: Optional | `None` |
-| user_get | Keyword | Path from the base_url to fetch the user info | :material-minus-box-outline: Optional | `None` |
-| user_groups | Keyword | Path from the base_url to fetch the group info | :material-minus-box-outline: Optional | `None` |
-| user_groups_data_field | Keyword | Field return by the group info API call that contains the list of groups | :material-minus-box-outline: Optional | `None` |
-| user_groups_name_field | Keyword | Name of the field in the list of groups that contains the name of the group | :material-minus-box-outline: Optional | `None` |
-| use_new_callback_format | Boolean | Should we use the new callback method? | :material-checkbox-marked-outline: Yes | `False` |
-| allow_external_tokens | Boolean | Should token provided to the login API directly be use for authentication? | :material-checkbox-marked-outline: Yes | `False` |
-| external_token_alternate_audiences | List [Keyword] | List of valid alternate audiences for the external token. | :material-checkbox-marked-outline: Yes | `[]` |
-| email_fields | List [Keyword] | List of fields in the claim to get the email from | :material-checkbox-marked-outline: Yes | `['email', 'emails', 'extension_selectedEmailAddress', 'otherMails', 'preferred_username', 'upn']` |
-| username_field | Keyword | Name of the field that will contain the username | :material-checkbox-marked-outline: Yes | `uname` |
+| auto_create | Boolean | Auto-create users if they are missing | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| auto_sync | Boolean | Should we automatically sync with OAuth provider? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| auto_properties | List [[AutoProperty](/assemblyline4_docs/odm/models/config/#autoproperty)] | Automatic role and classification assignments | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| app_provider | [AppProvider](/assemblyline4_docs/odm/models/config/#appprovider) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| uid_randomize | Boolean | Should we generate a random username for the authenticated user? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| uid_randomize_digits | Integer | How many digits should we add at the end of the username? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| uid_randomize_delimiter | Keyword | What is the delimiter used by the random name generator? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `-` |
+| uid_regex | Keyword | Regex used to parse an email address and capture parts to create a user ID out of it | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| uid_format | Keyword | Format of the user ID based on the captured parts from the regex | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| client_id | Keyword | ID of your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| client_secret | Keyword | Password to your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| request_token_url | Keyword | URL to request token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| request_token_params | Keyword | Parameters to request token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| access_token_url | Keyword | URL to get access token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| access_token_params | Keyword | Parameters to get access token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| authorize_url | Keyword | URL used to authorize access to a resource | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| authorize_params | Keyword | Parameters used to authorize access to a resource | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| api_base_url | Keyword | Base URL for downloading the user's and groups info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| client_kwargs | Mapping [String, Keyword] | Keyword arguments passed to the different URLs | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| jwks_uri | Keyword | URL used to verify if a returned JWKS token is valid | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| uid_field | Keyword | Name of the field that will contain the user ID | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| user_get | Keyword | Path from the base_url to fetch the user info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| user_groups | Keyword | Path from the base_url to fetch the group info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| user_groups_data_field | Keyword | Field return by the group info API call that contains the list of groups | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| user_groups_name_field | Keyword | Name of the field in the list of groups that contains the name of the group | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| use_new_callback_format | Boolean | Should we use the new callback method? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| allow_external_tokens | Boolean | Should token provided to the login API directly be use for authentication? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| external_token_alternate_audiences | List [Keyword] | List of valid alternate audiences for the external token. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| email_fields | List [Keyword] | List of fields in the claim to get the email from | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['email', 'emails', 'extension_selectedEmailAddress', 'otherMails', 'preferred_username', 'upn']` |
+| username_field | Keyword | Name of the field that will contain the username | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `uname` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -191,12 +191,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| access_token_url | Keyword | URL used to get the access token | :material-checkbox-marked-outline: Yes | `None` |
-| user_get | Keyword | Path from the base_url to fetch the user info | :material-minus-box-outline: Optional | `None` |
-| group_get | Keyword | Path from the base_url to fetch the group info | :material-minus-box-outline: Optional | `None` |
-| scope | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
-| client_id | Keyword | ID of your application to authenticate to the OAuth | :material-minus-box-outline: Optional | `None` |
-| client_secret | Keyword | Password to your application to authenticate to the OAuth provider | :material-minus-box-outline: Optional | `None` |
+| access_token_url | Keyword | URL used to get the access token | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| user_get | Keyword | Path from the base_url to fetch the user info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| group_get | Keyword | Path from the base_url to fetch the group info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| scope | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| client_id | Keyword | ID of your application to authenticate to the OAuth | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| client_secret | Keyword | Password to your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -205,10 +205,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| field | Keyword | Field to apply `pattern` to | :material-checkbox-marked-outline: Yes | `None` |
-| pattern | Keyword | Regex pattern for auto-prop assignment | :material-checkbox-marked-outline: Yes | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "remove_role", "role", "type"` | :material-checkbox-marked-outline: Yes | `None` |
-| value | List [Keyword] | Assigned property value | :material-checkbox-marked-outline: Yes | `[]` |
+| field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "remove_role", "role", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -217,17 +217,17 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| alerter | [Alerter](/assemblyline4_docs/odm/models/config/#alerter) | Configuration for Alerter | :material-checkbox-marked-outline: Yes | See [Alerter](/assemblyline4_docs/odm/models/config/#alerter) for more details. |
-| archiver | [Archiver](/assemblyline4_docs/odm/models/config/#archiver) | Configuration for the permanent submission archive | :material-checkbox-marked-outline: Yes | See [Archiver](/assemblyline4_docs/odm/models/config/#archiver) for more details. |
-| dispatcher | [Dispatcher](/assemblyline4_docs/odm/models/config/#dispatcher) | Configuration for Dispatcher | :material-checkbox-marked-outline: Yes | See [Dispatcher](/assemblyline4_docs/odm/models/config/#dispatcher) for more details. |
-| expiry | [Expiry](/assemblyline4_docs/odm/models/config/#expiry) | Configuration for Expiry | :material-checkbox-marked-outline: Yes | See [Expiry](/assemblyline4_docs/odm/models/config/#expiry) for more details. |
-| ingester | [Ingester](/assemblyline4_docs/odm/models/config/#ingester) | Configuration for Ingester | :material-checkbox-marked-outline: Yes | See [Ingester](/assemblyline4_docs/odm/models/config/#ingester) for more details. |
-| metrics | [Metrics](/assemblyline4_docs/odm/models/config/#metrics) | Configuration for Metrics Collection | :material-checkbox-marked-outline: Yes | See [Metrics](/assemblyline4_docs/odm/models/config/#metrics) for more details. |
-| plumber | [Plumber](/assemblyline4_docs/odm/models/config/#plumber) | Configuration for system cleanup | :material-checkbox-marked-outline: Yes | See [Plumber](/assemblyline4_docs/odm/models/config/#plumber) for more details. |
-| redis | [Redis](/assemblyline4_docs/odm/models/config/#redis) | Configuration for Redis instances | :material-checkbox-marked-outline: Yes | See [Redis](/assemblyline4_docs/odm/models/config/#redis) for more details. |
-| scaler | [Scaler](/assemblyline4_docs/odm/models/config/#scaler) | Configuration for Scaler | :material-checkbox-marked-outline: Yes | See [Scaler](/assemblyline4_docs/odm/models/config/#scaler) for more details. |
-| updater | [Updater](/assemblyline4_docs/odm/models/config/#updater) | Configuration for Updater | :material-checkbox-marked-outline: Yes | See [Updater](/assemblyline4_docs/odm/models/config/#updater) for more details. |
-| vacuum | [Vacuum](/assemblyline4_docs/odm/models/config/#vacuum) | Configuration for Vacuum | :material-checkbox-marked-outline: Yes | See [Vacuum](/assemblyline4_docs/odm/models/config/#vacuum) for more details. |
+| alerter | [Alerter](/assemblyline4_docs/odm/models/config/#alerter) | Configuration for Alerter | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Alerter](/assemblyline4_docs/odm/models/config/#alerter) for more details. |
+| archiver | [Archiver](/assemblyline4_docs/odm/models/config/#archiver) | Configuration for the permanent submission archive | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Archiver](/assemblyline4_docs/odm/models/config/#archiver) for more details. |
+| dispatcher | [Dispatcher](/assemblyline4_docs/odm/models/config/#dispatcher) | Configuration for Dispatcher | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Dispatcher](/assemblyline4_docs/odm/models/config/#dispatcher) for more details. |
+| expiry | [Expiry](/assemblyline4_docs/odm/models/config/#expiry) | Configuration for Expiry | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Expiry](/assemblyline4_docs/odm/models/config/#expiry) for more details. |
+| ingester | [Ingester](/assemblyline4_docs/odm/models/config/#ingester) | Configuration for Ingester | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Ingester](/assemblyline4_docs/odm/models/config/#ingester) for more details. |
+| metrics | [Metrics](/assemblyline4_docs/odm/models/config/#metrics) | Configuration for Metrics Collection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Metrics](/assemblyline4_docs/odm/models/config/#metrics) for more details. |
+| plumber | [Plumber](/assemblyline4_docs/odm/models/config/#plumber) | Configuration for system cleanup | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Plumber](/assemblyline4_docs/odm/models/config/#plumber) for more details. |
+| redis | [Redis](/assemblyline4_docs/odm/models/config/#redis) | Configuration for Redis instances | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Redis](/assemblyline4_docs/odm/models/config/#redis) for more details. |
+| scaler | [Scaler](/assemblyline4_docs/odm/models/config/#scaler) | Configuration for Scaler | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Scaler](/assemblyline4_docs/odm/models/config/#scaler) for more details. |
+| updater | [Updater](/assemblyline4_docs/odm/models/config/#updater) | Configuration for Updater | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Updater](/assemblyline4_docs/odm/models/config/#updater) for more details. |
+| vacuum | [Vacuum](/assemblyline4_docs/odm/models/config/#vacuum) | Configuration for Vacuum | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Vacuum](/assemblyline4_docs/odm/models/config/#vacuum) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -236,15 +236,15 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| alert_ttl | Integer | Time to live (days) for an alert in the system | :material-checkbox-marked-outline: Yes | `90` |
-| constant_alert_fields | List [Keyword] | List of fields that should not change during an alert update | :material-checkbox-marked-outline: Yes | `['alert_id', 'file', 'ts']` |
-| constant_ignore_keys | List [Keyword] | List of keys to ignore in the constant alert fields. | :material-checkbox-marked-outline: Yes | `['screenshots']` |
-| default_group_field | Keyword | Default field used for alert grouping view | :material-checkbox-marked-outline: Yes | `file.sha256` |
-| delay | Integer | Time in seconds that we give extended scans and workflow to complete their work before we start showing alerts in the alert viewer. | :material-checkbox-marked-outline: Yes | `300` |
-| filtering_group_fields | List [Keyword] | List of group fields that when selected will ignore certain alerts where this field is missing. | :material-checkbox-marked-outline: Yes | `['file.name', 'status', 'priority']` |
-| non_filtering_group_fields | List [Keyword] | List of group fields that are sure to be present in all alerts. | :material-checkbox-marked-outline: Yes | `['file.md5', 'file.sha1', 'file.sha256']` |
-| process_alert_message | Keyword | Python path to the function that will process an alert message. | :material-checkbox-marked-outline: Yes | `assemblyline_core.alerter.processing.process_alert_message` |
-| threshold | Integer | Minimum score to reach for a submission to be considered an alert. | :material-checkbox-marked-outline: Yes | `500` |
+| alert_ttl | Integer | Time to live (days) for an alert in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `90` |
+| constant_alert_fields | List [Keyword] | List of fields that should not change during an alert update<br>:material-alert-outline: This behavior is no longer configurable | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| constant_ignore_keys | List [Keyword] | List of keys to ignore in the constant alert fields.<br>:material-alert-outline: This behavior is no longer configurable | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| default_group_field | Keyword | Default field used for alert grouping view | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `file.sha256` |
+| delay | Integer | Time in seconds that we give extended scans and workflow to complete their work before we start showing alerts in the alert viewer. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `300` |
+| filtering_group_fields | List [Keyword] | List of group fields that when selected will ignore certain alerts where this field is missing. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['file.name', 'status', 'priority']` |
+| non_filtering_group_fields | List [Keyword] | List of group fields that are sure to be present in all alerts. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['file.md5', 'file.sha1', 'file.sha256']` |
+| process_alert_message | Keyword | Python path to the function that will process an alert message. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `assemblyline_core.alerter.processing.process_alert_message` |
+| threshold | Integer | Minimum score to reach for a submission to be considered an alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -253,7 +253,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| minimum_required_services | List [Keyword] | List of minimum required service before archiving takes place | :material-checkbox-marked-outline: Yes | `[]` |
+| minimum_required_services | List [Keyword] | List of minimum required service before archiving takes place | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -262,8 +262,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| timeout | Integer | Time between re-dispatching attempts, as long as some action (submission or any task completion) happens before this timeout ends, the timeout resets. | :material-checkbox-marked-outline: Yes | `900` |
-| max_inflight | Integer | Maximum submissions allowed to be in-flight | :material-checkbox-marked-outline: Yes | `1000` |
+| timeout | Integer | Time between re-dispatching attempts, as long as some action (submission or any task completion) happens before this timeout ends, the timeout resets. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `900` |
+| max_inflight | Integer | Maximum submissions allowed to be in-flight | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -272,14 +272,14 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| batch_delete | Boolean | Perform expiry in batches?<br>Delete queries are rounded by day therefore all delete operation happen at the same time at midnight | :material-checkbox-marked-outline: Yes | `False` |
-| delay | Integer | Delay, in hours, that will be applied to the expiry query so we can keepdata longer then previously set or we can offset deletion during non busy hours | :material-checkbox-marked-outline: Yes | `0` |
-| delete_storage | Boolean | Should we also cleanup the file storage? | :material-checkbox-marked-outline: Yes | `True` |
-| sleep_time | Integer | Time, in seconds, to sleep in between each expiry run | :material-checkbox-marked-outline: Yes | `15` |
-| workers | Integer | Number of concurrent workers | :material-checkbox-marked-outline: Yes | `20` |
-| delete_workers | Integer | Worker processes for file storage deletes. | :material-checkbox-marked-outline: Yes | `2` |
-| iteration_max_tasks | Integer | How many query chunks get run per iteration. | :material-checkbox-marked-outline: Yes | `20` |
-| delete_batch_size | Integer | How large a batch get deleted per iteration. | :material-checkbox-marked-outline: Yes | `2000` |
+| batch_delete | Boolean | Perform expiry in batches?<br>Delete queries are rounded by day therefore all delete operation happen at the same time at midnight | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| delay | Integer | Delay, in hours, that will be applied to the expiry query so we can keepdata longer then previously set or we can offset deletion during non busy hours | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| delete_storage | Boolean | Should we also cleanup the file storage? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| sleep_time | Integer | Time, in seconds, to sleep in between each expiry run | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `15` |
+| workers | Integer | Number of concurrent workers | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `20` |
+| delete_workers | Integer | Worker processes for file storage deletes. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `2` |
+| iteration_max_tasks | Integer | How many query chunks get run per iteration. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `20` |
+| delete_batch_size | Integer | How large a batch get deleted per iteration. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `2000` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -288,22 +288,22 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| default_user | Keyword | Default user for bulk ingestion and unattended submissions | :material-checkbox-marked-outline: Yes | `internal` |
-| default_services | List [Keyword] | Default service selection | :material-checkbox-marked-outline: Yes | `[]` |
-| default_resubmit_services | List [Keyword] | Default service selection for resubmits | :material-checkbox-marked-outline: Yes | `[]` |
-| description_prefix | Keyword | A prefix for descriptions. When a description is automatically generated, it will be the hash prefixed by this string | :material-checkbox-marked-outline: Yes | `Bulk` |
-| is_low_priority | Keyword | Path to a callback function filtering ingestion tasks that should have their priority forcefully reset to low | :material-checkbox-marked-outline: Yes | `assemblyline.common.null.always_false` |
-| get_whitelist_verdict | Keyword | None | :material-checkbox-marked-outline: Yes | `assemblyline.common.signaturing.drop` |
-| whitelist | Keyword | None | :material-checkbox-marked-outline: Yes | `assemblyline.common.null.whitelist` |
-| default_max_extracted | Integer | How many extracted files may be added to a Submission. Overrideable via submission parameters. | :material-checkbox-marked-outline: Yes | `100` |
-| default_max_supplementary | Integer | How many supplementary files may be added to a Submission. Overrideable via submission parameters | :material-checkbox-marked-outline: Yes | `100` |
-| expire_after | Integer | Period, in seconds, in which a task should be expired | :material-checkbox-marked-outline: Yes | `1296000` |
-| stale_after_seconds | Integer | Drop a task altogether after this many seconds | :material-checkbox-marked-outline: Yes | `86400` |
-| incomplete_expire_after_seconds | Integer | How long should scores be kept before expiry | :material-checkbox-marked-outline: Yes | `3600` |
-| incomplete_stale_after_seconds | Integer | How long should scores be cached in the ingester | :material-checkbox-marked-outline: Yes | `1800` |
-| sampling_at | Mapping [String, Integer] | Thresholds at certain buckets before sampling | :material-checkbox-marked-outline: Yes | `None` |
-| max_inflight | Integer | How long can a queue get before we start dropping files | :material-checkbox-marked-outline: Yes | `500` |
-| cache_dtl | Integer | How long are files results cached | :material-checkbox-marked-outline: Yes | `2` |
+| default_user | Keyword | Default user for bulk ingestion and unattended submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `internal` |
+| default_services | List [Keyword] | Default service selection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| default_resubmit_services | List [Keyword] | Default service selection for resubmits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| description_prefix | Keyword | A prefix for descriptions. When a description is automatically generated, it will be the hash prefixed by this string | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `Bulk` |
+| is_low_priority | Keyword | Path to a callback function filtering ingestion tasks that should have their priority forcefully reset to low | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `assemblyline.common.null.always_false` |
+| get_whitelist_verdict | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `assemblyline.common.signaturing.drop` |
+| whitelist | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `assemblyline.common.null.whitelist` |
+| default_max_extracted | Integer | How many extracted files may be added to a Submission. Overrideable via submission parameters. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `100` |
+| default_max_supplementary | Integer | How many supplementary files may be added to a Submission. Overrideable via submission parameters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `100` |
+| expire_after | Integer | Period, in seconds, in which a task should be expired | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1296000` |
+| stale_after_seconds | Integer | Drop a task altogether after this many seconds | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `86400` |
+| incomplete_expire_after_seconds | Integer | How long should scores be kept before expiry | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `3600` |
+| incomplete_stale_after_seconds | Integer | How long should scores be cached in the ingester | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1800` |
+| sampling_at | Mapping [String, Integer] | Thresholds at certain buckets before sampling | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| max_inflight | Integer | How long can a queue get before we start dropping files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
+| cache_dtl | Integer | How long are files results cached | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `2` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -312,10 +312,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| apm_server | [APMServer](/assemblyline4_docs/odm/models/config/#apmserver) | APM server configuration | :material-checkbox-marked-outline: Yes | See [APMServer](/assemblyline4_docs/odm/models/config/#apmserver) for more details. |
-| elasticsearch | [ESMetrics](/assemblyline4_docs/odm/models/config/#esmetrics) | Where to export metrics? | :material-checkbox-marked-outline: Yes | See [ESMetrics](/assemblyline4_docs/odm/models/config/#esmetrics) for more details. |
-| export_interval | Integer | How often should we be exporting metrics? | :material-checkbox-marked-outline: Yes | `5` |
-| redis | [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) | Redis for Dashboard metrics | :material-checkbox-marked-outline: Yes | See [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) for more details. |
+| apm_server | [APMServer](/assemblyline4_docs/odm/models/config/#apmserver) | APM server configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [APMServer](/assemblyline4_docs/odm/models/config/#apmserver) for more details. |
+| elasticsearch | [ESMetrics](/assemblyline4_docs/odm/models/config/#esmetrics) | Where to export metrics? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ESMetrics](/assemblyline4_docs/odm/models/config/#esmetrics) for more details. |
+| export_interval | Integer | How often should we be exporting metrics? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| redis | [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) | Redis for Dashboard metrics | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -324,8 +324,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| server_url | Keyword | URL to API server | :material-minus-box-outline: Optional | `None` |
-| token | Keyword | Authentication token for server | :material-minus-box-outline: Optional | `None` |
+| server_url | Keyword | URL to API server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| token | Keyword | Authentication token for server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -334,12 +334,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| hosts | List [Keyword] | Elasticsearch hosts | :material-minus-box-outline: Optional | `None` |
-| host_certificates | Keyword | Host certificates | :material-minus-box-outline: Optional | `None` |
-| warm | Integer | How long, per unit of time, should a document remain in the 'warm' tier? | :material-checkbox-marked-outline: Yes | `2` |
-| cold | Integer | How long, per unit of time, should a document remain in the 'cold' tier? | :material-checkbox-marked-outline: Yes | `30` |
-| delete | Integer | How long, per unit of time, should a document remain before being deleted? | :material-checkbox-marked-outline: Yes | `90` |
-| unit | Enum | Unit of time used by `warm`, `cold`, `delete` phases<br>Values:<br>`"d", "h", "m"` | :material-checkbox-marked-outline: Yes | `d` |
+| hosts | List [Keyword] | Elasticsearch hosts | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| host_certificates | Keyword | Host certificates | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| warm | Integer | How long, per unit of time, should a document remain in the 'warm' tier? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `2` |
+| cold | Integer | How long, per unit of time, should a document remain in the 'cold' tier? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
+| delete | Integer | How long, per unit of time, should a document remain before being deleted? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `90` |
+| unit | Enum | Unit of time used by `warm`, `cold`, `delete` phases<br>Values:<br>`"d", "h", "m"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `d` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -348,8 +348,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| host | Keyword | Hostname of Redis instance | :material-checkbox-marked-outline: Yes | `127.0.0.1` |
-| port | Integer | Port of Redis instance | :material-checkbox-marked-outline: Yes | `6379` |
+| host | Keyword | Hostname of Redis instance | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `127.0.0.1` |
+| port | Integer | Port of Redis instance | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `6379` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -358,8 +358,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| notification_queue_interval | Integer | Interval at which the notification queue cleanup should run | :material-checkbox-marked-outline: Yes | `1800` |
-| notification_queue_max_age | Integer | Max age in seconds notification queue messages can be | :material-checkbox-marked-outline: Yes | `86400` |
+| notification_queue_interval | Integer | Interval at which the notification queue cleanup should run | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1800` |
+| notification_queue_max_age | Integer | Max age in seconds notification queue messages can be | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `86400` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -368,8 +368,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| nonpersistent | [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) | A volatile Redis instance | :material-checkbox-marked-outline: Yes | See [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) for more details. |
-| persistent | [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) | A persistent Redis instance | :material-checkbox-marked-outline: Yes | See [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) for more details. |
+| nonpersistent | [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) | A volatile Redis instance | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) for more details. |
+| persistent | [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) | A persistent Redis instance | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [RedisServer](/assemblyline4_docs/odm/models/config/#redisserver) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -378,8 +378,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| host | Keyword | Hostname of Redis instance | :material-checkbox-marked-outline: Yes | `127.0.0.1` |
-| port | Integer | Port of Redis instance | :material-checkbox-marked-outline: Yes | `6379` |
+| host | Keyword | Hostname of Redis instance | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `127.0.0.1` |
+| port | Integer | Port of Redis instance | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `6379` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -388,12 +388,13 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| service_defaults | [ScalerServiceDefaults](/assemblyline4_docs/odm/models/config/#scalerservicedefaults) | Defaults Scaler will assign to a service. | :material-checkbox-marked-outline: Yes | `None` |
-| cpu_overallocation | Float | Percentage of CPU overallocation | :material-checkbox-marked-outline: Yes | `1` |
-| memory_overallocation | Float | Percentage of RAM overallocation | :material-checkbox-marked-outline: Yes | `1` |
-| overallocation_node_limit | Integer | None | :material-minus-box-outline: Optional | `None` |
-| additional_labels | List [Text] | Additional labels to be applied to services('=' delimited) | :material-minus-box-outline: Optional | `None` |
-| linux_node_selector | [Selector](/assemblyline4_docs/odm/models/config/#selector) | Selector for linux nodes under kubernetes | :material-checkbox-marked-outline: Yes | `None` |
+| service_defaults | [ScalerServiceDefaults](/assemblyline4_docs/odm/models/config/#scalerservicedefaults) | Defaults Scaler will assign to a service. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| cpu_overallocation | Float | Percentage of CPU overallocation | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| memory_overallocation | Float | Percentage of RAM overallocation | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| overallocation_node_limit | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| additional_labels | List [Text] | Additional labels to be applied to services('=' delimited) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| linux_node_selector | [Selector](/assemblyline4_docs/odm/models/config/#selector) | Selector for linux nodes under kubernetes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| cluster_pod_list | Boolean | Sets if scaler list pods for all namespaces. Disabling this lets you use stricter cluster roles but will make cluster resource usage less accurate, setting a namespace resource quota might be needed. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -402,12 +403,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| growth | Integer | Period, in seconds, to wait before scaling up a service deployment | :material-checkbox-marked-outline: Yes | `None` |
-| shrink | Integer | Period, in seconds, to wait before scaling down a service deployment | :material-checkbox-marked-outline: Yes | `None` |
-| backlog | Integer | Backlog threshold that dictates scaling adjustments | :material-checkbox-marked-outline: Yes | `None` |
-| min_instances | Integer | The minimum number of service instances to be running | :material-checkbox-marked-outline: Yes | `None` |
-| environment | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service/#environmentvariable)] | Environment variables to pass onto services | :material-checkbox-marked-outline: Yes | `[]` |
-| mounts | List [[Mount](/assemblyline4_docs/odm/models/config/#mount)] | A list of volume mounts for every service | :material-checkbox-marked-outline: Yes | `[]` |
+| growth | Integer | Period, in seconds, to wait before scaling up a service deployment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| shrink | Integer | Period, in seconds, to wait before scaling down a service deployment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| backlog | Integer | Backlog threshold that dictates scaling adjustments | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| min_instances | Integer | The minimum number of service instances to be running | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| environment | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service/#environmentvariable)] | Environment variables to pass onto services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| mounts | List [[Mount](/assemblyline4_docs/odm/models/config/#mount)] | A list of volume mounts for every service | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -416,15 +417,15 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name of volume mount | :material-checkbox-marked-outline: Yes | `None` |
-| path | Text | Target mount path | :material-checkbox-marked-outline: Yes | `None` |
-| read_only | Boolean | Should this be mounted as read-only? | :material-checkbox-marked-outline: Yes | `True` |
-| privileged_only | Boolean | Should this mount only be available for privileged services? | :material-checkbox-marked-outline: Yes | `False` |
-| resource_type | Enum | Type of mountable Kubernetes resource<br>Values:<br>`"configmap", "secret", "volume"` | :material-checkbox-marked-outline: Yes | `volume` |
-| resource_name | Keyword | Name of resource (Kubernetes only) | :material-minus-box-outline: Optional | `None` |
-| resource_key | Keyword | Key of ConfigMap/Secret (Kubernetes only) | :material-minus-box-outline: Optional | `None` |
-| config_map | Keyword | Name of ConfigMap (Kubernetes only, deprecated) | :material-minus-box-outline: Optional | `None` |
-| key | Keyword | Key of ConfigMap (Kubernetes only, deprecated) | :material-minus-box-outline: Optional | `None` |
+| name | Keyword | Name of volume mount | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| path | Text | Target mount path | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| read_only | Boolean | Should this be mounted as read-only? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| privileged_only | Boolean | Should this mount only be available for privileged services? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| resource_type | Enum | Type of mountable Kubernetes resource<br>Values:<br>`"configmap", "secret", "volume"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `volume` |
+| resource_name | Keyword | Name of resource (Kubernetes only) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| resource_key | Keyword | Key of ConfigMap/Secret (Kubernetes only) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| config_map | Keyword | Name of ConfigMap (Kubernetes only)<br>:material-alert-outline: Use `resource_type: configmap` and fill in the `resource_name` & `resource_key` fields to mount ConfigMaps | <div style="width:100px">:material-alert-box-outline: Deprecated</div> | `None` |
+| key | Keyword | Key of ConfigMap (Kubernetes only)<br>:material-alert-outline: Use `resource_type: configmap` and fill in the `resource_name` & `resource_key` fields to mount ConfigMaps | <div style="width:100px">:material-alert-box-outline: Deprecated</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -433,8 +434,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| field | List [[FieldSelector](/assemblyline4_docs/odm/models/config/#fieldselector)] | Field selector for resource under kubernetes | :material-checkbox-marked-outline: Yes | `[]` |
-| label | List [[LabelSelector](/assemblyline4_docs/odm/models/config/#labelselector)] | Label selector for resource under kubernetes | :material-checkbox-marked-outline: Yes | `[]` |
+| field | List [[FieldSelector](/assemblyline4_docs/odm/models/config/#fieldselector)] | Field selector for resource under kubernetes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| label | List [[LabelSelector](/assemblyline4_docs/odm/models/config/#labelselector)] | Label selector for resource under kubernetes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -443,9 +444,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | Keyword | Name of a field to select on. | :material-checkbox-marked-outline: Yes | `None` |
-| equal | Boolean | When true key must equal value, when false it must not | :material-checkbox-marked-outline: Yes | `True` |
-| value | Keyword | Value to compare field to. | :material-checkbox-marked-outline: Yes | `None` |
+| key | Keyword | Name of a field to select on. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| equal | Boolean | When true key must equal value, when false it must not | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| value | Keyword | Value to compare field to. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -454,9 +455,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | Keyword | Name of label to select on. | :material-checkbox-marked-outline: Yes | `None` |
-| operator | Enum | Operation to select label with.<br>Values:<br>`"DoesNotExist", "Exists", "In", "NotIn"` | :material-checkbox-marked-outline: Yes | `None` |
-| values | List [Keyword] | Value list to compare label to. | :material-checkbox-marked-outline: Yes | `None` |
+| key | Keyword | Name of label to select on. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| operator | Enum | Operation to select label with.<br>Values:<br>`"DoesNotExist", "Exists", "In", "NotIn"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| values | List [Keyword] | Value list to compare label to. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -465,8 +466,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| job_dockerconfig | [DockerConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dockerconfigdelta) | Container configuration used for service registration/updates | :material-checkbox-marked-outline: Yes | `None` |
-| registry_configs | List [[RegistryConfiguration](/assemblyline4_docs/odm/models/config/#registryconfiguration)] | Configurations to be used with container registries | :material-checkbox-marked-outline: Yes | `[{'name': 'registry.hub.docker.com', 'proxies': {}}]` |
+| job_dockerconfig | [DockerConfigDelta](/assemblyline4_docs/odm/models/service_delta/#dockerconfigdelta) | Container configuration used for service registration/updates | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| registry_configs | List [[RegistryConfiguration](/assemblyline4_docs/odm/models/config/#registryconfiguration)] | Configurations to be used with container registries | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[{'name': 'registry.hub.docker.com', 'proxies': {}}]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -475,8 +476,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Text | Name of container registry | :material-checkbox-marked-outline: Yes | `None` |
-| proxies | Mapping [String, Text] | Proxy configuration that is passed to Python Requests | :material-minus-box-outline: Optional | `None` |
+| name | Text | Name of container registry | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| proxies | Mapping [String, Text] | Proxy configuration that is passed to Python Requests | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -485,20 +486,20 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| list_cache_directory | Keyword | None | :material-checkbox-marked-outline: Yes | `/cache/` |
-| worker_cache_directory | Keyword | None | :material-checkbox-marked-outline: Yes | `/memory/` |
-| data_directories | List [Keyword] | None | :material-checkbox-marked-outline: Yes | `[]` |
-| file_directories | List [Keyword] | None | :material-checkbox-marked-outline: Yes | `[]` |
-| assemblyline_user | Keyword | None | :material-checkbox-marked-outline: Yes | `vacuum-service-account` |
-| department_map_url | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| department_map_init | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| stream_map_url | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| stream_map_init | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| safelist | List [[VacuumSafelistItem](/assemblyline4_docs/odm/models/config/#vacuumsafelistitem)] | None | :material-checkbox-marked-outline: Yes | `[]` |
-| worker_threads | Integer | None | :material-checkbox-marked-outline: Yes | `50` |
-| worker_rollover | Integer | None | :material-checkbox-marked-outline: Yes | `1000` |
-| minimum_classification | Keyword | None | :material-checkbox-marked-outline: Yes | `U` |
-| ingest_type | Keyword | None | :material-checkbox-marked-outline: Yes | `VACUUM` |
+| list_cache_directory | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `/cache/` |
+| worker_cache_directory | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `/memory/` |
+| data_directories | List [Keyword] | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| file_directories | List [Keyword] | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| assemblyline_user | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `vacuum-service-account` |
+| department_map_url | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| department_map_init | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| stream_map_url | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| stream_map_init | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| safelist | List [[VacuumSafelistItem](/assemblyline4_docs/odm/models/config/#vacuumsafelistitem)] | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| worker_threads | Integer | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `50` |
+| worker_rollover | Integer | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
+| minimum_classification | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `U` |
+| ingest_type | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `VACUUM` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -507,8 +508,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
-| conditions | Mapping [String, Keyword] | None | :material-checkbox-marked-outline: Yes | `None` |
+| name | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| conditions | Mapping [String, Keyword] | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -517,8 +518,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classpath | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
-| config | Mapping [String, Keyword] | None | :material-checkbox-marked-outline: Yes | `None` |
+| classpath | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| config | Mapping [String, Keyword] | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -527,10 +528,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| hosts | List [Keyword] | List of hosts used for the datastore | :material-checkbox-marked-outline: Yes | `['http://elastic:devpass@localhost:9200']` |
-| archive | [Archive](/assemblyline4_docs/odm/models/config/#archive) | Datastore Archive feature configuration | :material-checkbox-marked-outline: Yes | See [Archive](/assemblyline4_docs/odm/models/config/#archive) for more details. |
-| cache_dtl | Integer | Default cache lenght for computed indices (submission_tree, submission_summary... | :material-checkbox-marked-outline: Yes | `5` |
-| type | Enum | Type of application used for the datastore<br>Values:<br>`"elasticsearch"` | :material-checkbox-marked-outline: Yes | `elasticsearch` |
+| hosts | List [Keyword] | List of hosts used for the datastore | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['http://elastic:devpass@localhost:9200']` |
+| archive | [Archive](/assemblyline4_docs/odm/models/config/#archive) | Datastore Archive feature configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Archive](/assemblyline4_docs/odm/models/config/#archive) for more details. |
+| cache_dtl | Integer | Default cache lenght for computed indices (submission_tree, submission_summary... | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| type | Enum | Type of application used for the datastore<br>Values:<br>`"elasticsearch"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `elasticsearch` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -539,8 +540,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Are we enabling Achiving features across indices? | :material-checkbox-marked-outline: Yes | `False` |
-| indices | List [Keyword] | List of indices the ILM Applies to | :material-checkbox-marked-outline: Yes | `['file', 'submission', 'result']` |
+| enabled | Boolean | Are we enabling Achiving features across indices? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| indices | List [Keyword] | List of indices the ILM Applies to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['file', 'submission', 'result']` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -549,9 +550,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| archive | List [Keyword] | List of filestores used for malware archive | :material-checkbox-marked-outline: Yes | `['s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-archive&use_ssl=False']` |
-| cache | List [Keyword] | List of filestores used for caching | :material-checkbox-marked-outline: Yes | `['s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-cache&use_ssl=False']` |
-| storage | List [Keyword] | List of filestores used for storage | :material-checkbox-marked-outline: Yes | `['s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-storage&use_ssl=False']` |
+| archive | List [Keyword] | List of filestores used for malware archive | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-archive&use_ssl=False']` |
+| cache | List [Keyword] | List of filestores used for caching | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-cache&use_ssl=False']` |
+| storage | List [Keyword] | List of filestores used for storage | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-storage&use_ssl=False']` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -560,16 +561,16 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| log_level | Enum | What level of logging should we have?<br>Values:<br>`"CRITICAL", "DEBUG", "DISABLED", "ERROR", "INFO", "WARNING"` | :material-checkbox-marked-outline: Yes | `INFO` |
-| log_to_console | Boolean | Should we log to console? | :material-checkbox-marked-outline: Yes | `True` |
-| log_to_file | Boolean | Should we log to files on the server? | :material-checkbox-marked-outline: Yes | `False` |
-| log_directory | Keyword | If `log_to_file: true`, what is the directory to store logs? | :material-checkbox-marked-outline: Yes | `/var/log/assemblyline/` |
-| log_to_syslog | Boolean | Should logs be sent to a syslog server? | :material-checkbox-marked-outline: Yes | `False` |
-| syslog_host | Keyword | If `log_to_syslog: true`, provide hostname/IP of the syslog server? | :material-checkbox-marked-outline: Yes | `localhost` |
-| syslog_port | Integer | If `log_to_syslog: true`, provide port of the syslog server? | :material-checkbox-marked-outline: Yes | `514` |
-| export_interval | Integer | How often, in seconds, should counters log their values? | :material-checkbox-marked-outline: Yes | `5` |
-| log_as_json | Boolean | Log in JSON format? | :material-checkbox-marked-outline: Yes | `True` |
-| heartbeat_file | Keyword | Add a health check to core components.<br>If `true`, core components will touch this path regularly to tell the container environment it is healthy | :material-minus-box-outline: Optional | `/tmp/heartbeat` |
+| log_level | Enum | What level of logging should we have?<br>Values:<br>`"CRITICAL", "DEBUG", "DISABLED", "ERROR", "INFO", "WARNING"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `INFO` |
+| log_to_console | Boolean | Should we log to console? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| log_to_file | Boolean | Should we log to files on the server? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| log_directory | Keyword | If `log_to_file: true`, what is the directory to store logs? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `/var/log/assemblyline/` |
+| log_to_syslog | Boolean | Should logs be sent to a syslog server? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| syslog_host | Keyword | If `log_to_syslog: true`, provide hostname/IP of the syslog server? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `localhost` |
+| syslog_port | Integer | If `log_to_syslog: true`, provide port of the syslog server? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `514` |
+| export_interval | Integer | How often, in seconds, should counters log their values? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| log_as_json | Boolean | Log in JSON format? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| heartbeat_file | Keyword | Add a health check to core components.<br>If `true`, core components will touch this path regularly to tell the container environment it is healthy | <div style="width:100px">:material-minus-box-outline: Optional</div> | `/tmp/heartbeat` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -578,12 +579,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Is the Retrohunt functionnality enabled on the frontend | :material-checkbox-marked-outline: Yes | `False` |
-| dtl | Integer | Number of days retrohunt jobs will remain in the system by default | :material-checkbox-marked-outline: Yes | `30` |
-| max_dtl | Integer | Maximum number of days retrohunt jobs will remain in the system | :material-checkbox-marked-outline: Yes | `0` |
-| url | Keyword | Base URL for service API | :material-checkbox-marked-outline: Yes | `https://hauntedhouse.hauntedhouse.svc.cluster.local:4443` |
-| api_key | Keyword | Service API Key | :material-checkbox-marked-outline: Yes | `ChangeThisDefaultRetroHuntAPIKey!` |
-| tls_verify | Boolean | Should tls certificates be verified | :material-checkbox-marked-outline: Yes | `True` |
+| enabled | Boolean | Is the Retrohunt functionnality enabled on the frontend | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| dtl | Integer | Number of days retrohunt jobs will remain in the system by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
+| max_dtl | Integer | Maximum number of days retrohunt jobs will remain in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| url | Keyword | Base URL for service API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://hauntedhouse.hauntedhouse.svc.cluster.local:4443` |
+| api_key | Keyword | Service API Key | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `ChangeThisDefaultRetroHuntAPIKey!` |
+| tls_verify | Boolean | Should tls certificates be verified | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -592,19 +593,19 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| categories | List [Keyword] | List of categories a service can be assigned to | :material-checkbox-marked-outline: Yes | `['Antivirus', 'Dynamic Analysis', 'External', 'Extraction', 'Filtering', 'Internet Connected', 'Networking', 'Static Analysis']` |
-| default_timeout | Integer | Default service timeout time in seconds | :material-checkbox-marked-outline: Yes | `60` |
-| stages | List [Keyword] | List of execution stages a service can be assigned to | :material-checkbox-marked-outline: Yes | `['FILTER', 'EXTRACT', 'CORE', 'SECONDARY', 'POST', 'REVIEW']` |
-| image_variables | Mapping [String, Keyword] | Substitution variables for image paths (for custom registry support) | :material-checkbox-marked-outline: Yes | `None` |
-| update_image_variables | Mapping [String, Keyword] | Similar to `image_variables` but only applied to the updater. Intended for use with local registries. | :material-checkbox-marked-outline: Yes | `None` |
-| preferred_update_channel | Keyword | Default update channel to be used for new services | :material-checkbox-marked-outline: Yes | `stable` |
-| allow_insecure_registry | Boolean | Allow fetching container images from insecure registries | :material-checkbox-marked-outline: Yes | `False` |
-| preferred_registry_type | Enum | Global registry type to be used for fetching updates for a service (overridable by a service)<br>Values:<br>`"docker", "harbor"` | :material-checkbox-marked-outline: Yes | `docker` |
-| prefer_service_privileged | Boolean | Global preference that controls if services should be privileged to communicate with core infrastucture | :material-checkbox-marked-outline: Yes | `False` |
-| cpu_reservation | Float | How much CPU do we want to reserve relative to the service's request?<br>At `1`, a service's full CPU request will be reserved for them.<br>At `0` (only for very small appliances/dev boxes), the service's CPU will be limited but no CPU will be reserved allowing for more flexible scheduling of containers. | :material-checkbox-marked-outline: Yes | `0.25` |
-| safelist | [ServiceSafelist](/assemblyline4_docs/odm/models/config/#servicesafelist) | None | :material-checkbox-marked-outline: Yes | `None` |
-| registries | List [[ServiceRegistry](/assemblyline4_docs/odm/models/config/#serviceregistry)] | Global set of registries for services | :material-minus-box-outline: Optional | `[]` |
-| service_account | Keyword | None | :material-minus-box-outline: Optional | `None` |
+| categories | List [Keyword] | List of categories a service can be assigned to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['Antivirus', 'Dynamic Analysis', 'External', 'Extraction', 'Filtering', 'Internet Connected', 'Networking', 'Static Analysis']` |
+| default_timeout | Integer | Default service timeout time in seconds | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `60` |
+| stages | List [Keyword] | List of execution stages a service can be assigned to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['FILTER', 'EXTRACT', 'CORE', 'SECONDARY', 'POST', 'REVIEW']` |
+| image_variables | Mapping [String, Keyword] | Substitution variables for image paths (for custom registry support) | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| update_image_variables | Mapping [String, Keyword] | Similar to `image_variables` but only applied to the updater. Intended for use with local registries. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| preferred_update_channel | Keyword | Default update channel to be used for new services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `stable` |
+| allow_insecure_registry | Boolean | Allow fetching container images from insecure registries | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| preferred_registry_type | Enum | Global registry type to be used for fetching updates for a service (overridable by a service)<br>Values:<br>`"docker", "harbor"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `docker` |
+| prefer_service_privileged | Boolean | Global preference that controls if services should be privileged to communicate with core infrastucture | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| cpu_reservation | Float | How much CPU do we want to reserve relative to the service's request?<br>At `1`, a service's full CPU request will be reserved for them.<br>At `0` (only for very small appliances/dev boxes), the service's CPU will be limited but no CPU will be reserved allowing for more flexible scheduling of containers. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0.25` |
+| safelist | [ServiceSafelist](/assemblyline4_docs/odm/models/config/#servicesafelist) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| registries | List [[ServiceRegistry](/assemblyline4_docs/odm/models/config/#serviceregistry)] | Global set of registries for services | <div style="width:100px">:material-minus-box-outline: Optional</div> | `[]` |
+| service_account | Keyword | Service account to use for pods in kubernetewhere the service does not have one configured.<br>:material-alert-outline: Use helm values to specify service accounts settings for (non-)privileged services: `privilegedServiceAccountName`, `unprivilegedServiceAccountName` | <div style="width:100px">:material-alert-box-outline: Deprecated</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -613,10 +614,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name of container registry | :material-checkbox-marked-outline: Yes | `None` |
-| type | Enum | Type of container registry<br>Values:<br>`"docker", "harbor"` | :material-checkbox-marked-outline: Yes | `docker` |
-| username | Keyword | Username for container registry | :material-checkbox-marked-outline: Yes | `None` |
-| password | Keyword | Password for container registry | :material-checkbox-marked-outline: Yes | `None` |
+| name | Keyword | Name of container registry | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of container registry<br>Values:<br>`"docker", "harbor"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `docker` |
+| username | Keyword | Username for container registry | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| password | Keyword | Password for container registry | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -625,9 +626,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| enabled | Boolean | Should services be allowed to check extracted files against safelist? | :material-checkbox-marked-outline: Yes | `True` |
-| hash_types | List [Enum] | Types of file hashes used for safelist checks | :material-checkbox-marked-outline: Yes | `['sha1', 'sha256']` |
-| enforce_safelist_service | Boolean | Should the Safelist service always run on extracted files? | :material-checkbox-marked-outline: Yes | `False` |
+| enabled | Boolean | Should services be allowed to check extracted files against safelist? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| hash_types | List [Enum] | Types of file hashes used for safelist checks | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['sha1', 'sha256']` |
+| enforce_safelist_service | Boolean | Should the Safelist service always run on extracted files? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -636,17 +637,17 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| default_max_extracted | Integer | How many extracted files may be added to a submission? | :material-checkbox-marked-outline: Yes | `500` |
-| default_max_supplementary | Integer | How many supplementary files may be added to a submission? | :material-checkbox-marked-outline: Yes | `500` |
-| dtl | Integer | Number of days submissions will remain in the system by default | :material-checkbox-marked-outline: Yes | `30` |
-| max_dtl | Integer | Maximum number of days submissions will remain in the system | :material-checkbox-marked-outline: Yes | `0` |
-| max_extraction_depth | Integer | Maximum files extraction depth | :material-checkbox-marked-outline: Yes | `6` |
-| max_file_size | Integer | Maximum size for files submitted in the system | :material-checkbox-marked-outline: Yes | `104857600` |
-| max_metadata_length | Integer | Maximum length for each metadata values | :material-checkbox-marked-outline: Yes | `4096` |
-| max_temp_data_length | Integer | Maximum length for each temporary data values | :material-checkbox-marked-outline: Yes | `4096` |
-| sha256_sources | List [[Sha256Source](/assemblyline4_docs/odm/models/config/#sha256source)] | List of external source to fetch file via their SHA256 hashes | :material-checkbox-marked-outline: Yes | `[]` |
-| tag_types | [TagTypes](/assemblyline4_docs/odm/models/config/#tagtypes) | Tag types that show up in the submission summary | :material-checkbox-marked-outline: Yes | See [TagTypes](/assemblyline4_docs/odm/models/config/#tagtypes) for more details. |
-| verdicts | [Verdicts](/assemblyline4_docs/odm/models/config/#verdicts) | Minimum score value to get the specified verdict. | :material-checkbox-marked-outline: Yes | See [Verdicts](/assemblyline4_docs/odm/models/config/#verdicts) for more details. |
+| default_max_extracted | Integer | How many extracted files may be added to a submission? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
+| default_max_supplementary | Integer | How many supplementary files may be added to a submission? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
+| dtl | Integer | Number of days submissions will remain in the system by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
+| max_dtl | Integer | Maximum number of days submissions will remain in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| max_extraction_depth | Integer | Maximum files extraction depth | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `6` |
+| max_file_size | Integer | Maximum size for files submitted in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `104857600` |
+| max_metadata_length | Integer | Maximum length for each metadata values | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `4096` |
+| max_temp_data_length | Integer | Maximum length for each temporary data values | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `4096` |
+| sha256_sources | List [[Sha256Source](/assemblyline4_docs/odm/models/config/#sha256source)] | List of external source to fetch file via their SHA256 hashes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| tag_types | [TagTypes](/assemblyline4_docs/odm/models/config/#tagtypes) | Tag types that show up in the submission summary | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [TagTypes](/assemblyline4_docs/odm/models/config/#tagtypes) for more details. |
+| verdicts | [Verdicts](/assemblyline4_docs/odm/models/config/#verdicts) | Minimum score value to get the specified verdict. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Verdicts](/assemblyline4_docs/odm/models/config/#verdicts) for more details. |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -655,16 +656,16 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name of the sha256 source | :material-checkbox-marked-outline: Yes | `None` |
-| classification | ClassificationString | None | :material-minus-box-outline: Optional | `None` |
-| data | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| failure_pattern | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| method | Enum | Method used to call the URL<br>Values:<br>`"GET", "POST"` | :material-checkbox-marked-outline: Yes | `GET` |
-| url | Keyword | Url to fetch the file via SHA256 from (Uses replace pattern) | :material-checkbox-marked-outline: Yes | `None` |
-| replace_pattern | Keyword | Pattern to replace in the URL with the SHA256 | :material-checkbox-marked-outline: Yes | `None` |
-| headers | Mapping [String, Keyword] | Headers used to connect to the URL | :material-checkbox-marked-outline: Yes | `{}` |
-| proxies | Mapping [String, Keyword] | Proxy used to connect to the URL | :material-checkbox-marked-outline: Yes | `{}` |
-| verify | Boolean | Should the download function Verify SSL connections? | :material-checkbox-marked-outline: Yes | `True` |
+| name | Keyword | Name of the sha256 source | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| data | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| failure_pattern | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| method | Enum | Method used to call the URL<br>Values:<br>`"GET", "POST"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `GET` |
+| url | Keyword | Url to fetch the file via SHA256 from (Uses replace pattern) | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| replace_pattern | Keyword | Pattern to replace in the URL with the SHA256 | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| headers | Mapping [String, Keyword] | Headers used to connect to the URL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| proxies | Mapping [String, Keyword] | Proxy used to connect to the URL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| verify | Boolean | Should the download function Verify SSL connections? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -673,9 +674,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| attribution | List [Keyword] | Attibution tags | :material-checkbox-marked-outline: Yes | `['attribution.actor', 'attribution.campaign', 'attribution.exploit', 'attribution.implant', 'attribution.family', 'attribution.network', 'av.virus_name', 'file.config', 'technique.obfuscation']` |
-| behavior | List [Keyword] | Behaviour tags | :material-checkbox-marked-outline: Yes | `['file.behavior']` |
-| ioc | List [Keyword] | IOC tags | :material-checkbox-marked-outline: Yes | `['network.email.address', 'network.static.ip', 'network.static.domain', 'network.static.uri', 'network.dynamic.ip', 'network.dynamic.domain', 'network.dynamic.uri']` |
+| attribution | List [Keyword] | Attibution tags | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['attribution.actor', 'attribution.campaign', 'attribution.exploit', 'attribution.implant', 'attribution.family', 'attribution.network', 'av.virus_name', 'file.config', 'technique.obfuscation']` |
+| behavior | List [Keyword] | Behaviour tags | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['file.behavior']` |
+| ioc | List [Keyword] | IOC tags | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['network.email.address', 'network.static.ip', 'network.static.domain', 'network.static.uri', 'network.dynamic.ip', 'network.dynamic.domain', 'network.dynamic.uri']` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -684,10 +685,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| info | Integer | Minimum score for the verdict to be Informational. | :material-checkbox-marked-outline: Yes | `0` |
-| suspicious | Integer | Minimum score for the verdict to be Suspicious. | :material-checkbox-marked-outline: Yes | `300` |
-| highly_suspicious | Integer | Minimum score for the verdict to be Highly Suspicious. | :material-checkbox-marked-outline: Yes | `700` |
-| malicious | Integer | Minimum score for the verdict to be Malicious. | :material-checkbox-marked-outline: Yes | `1000` |
+| info | Integer | Minimum score for the verdict to be Informational. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| suspicious | Integer | Minimum score for the verdict to be Suspicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `300` |
+| highly_suspicious | Integer | Minimum score for the verdict to be Highly Suspicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `700` |
+| malicious | Integer | Minimum score for the verdict to be Malicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -696,9 +697,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| constants | Keyword | Module path to the assemblyline constants | :material-checkbox-marked-outline: Yes | `assemblyline.common.constants` |
-| organisation | Text | Organisation acronym used for signatures | :material-checkbox-marked-outline: Yes | `ACME` |
-| type | Enum | Type of system<br>Values:<br>`"development", "production", "staging"` | :material-checkbox-marked-outline: Yes | `production` |
+| constants | Keyword | Module path to the assemblyline constants | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `assemblyline.common.constants` |
+| organisation | Text | Organisation acronym used for signatures | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `ACME` |
+| type | Enum | Type of system<br>Values:<br>`"development", "production", "staging"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `production` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -707,39 +708,39 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| alerting_meta | [AlertingMeta](/assemblyline4_docs/odm/models/config/#alertingmeta) | Alerting metadata fields | :material-checkbox-marked-outline: Yes | See [AlertingMeta](/assemblyline4_docs/odm/models/config/#alertingmeta) for more details. |
-| allow_malicious_hinting | Boolean | Allow user to tell in advance the system that a file is malicious? | :material-checkbox-marked-outline: Yes | `False` |
-| allow_raw_downloads | Boolean | Allow user to download raw files? | :material-checkbox-marked-outline: Yes | `True` |
-| allow_zip_downloads | Boolean | Allow user to download files as password protected ZIPs? | :material-checkbox-marked-outline: Yes | `True` |
-| allow_replay | Boolean | Allow users to request replay on another server? | :material-checkbox-marked-outline: Yes | `False` |
-| allow_url_submissions | Boolean | Allow file submissions via url? | :material-checkbox-marked-outline: Yes | `True` |
-| audit | Boolean | Should API calls be audited and saved to a separate log file? | :material-checkbox-marked-outline: Yes | `True` |
-| banner | Mapping [String, Keyword] | Banner message display on the main page (format: {<language_code>: message}) | :material-minus-box-outline: Optional | `None` |
-| banner_level | Enum | Banner message level<br>Values:<br>`"error", "info", "success", "warning"` | :material-checkbox-marked-outline: Yes | `info` |
-| debug | Boolean | Enable debugging? | :material-checkbox-marked-outline: Yes | `False` |
-| discover_url | Keyword | Discover URL | :material-minus-box-outline: Optional | `None` |
-| download_encoding | Enum | Which encoding will be used for downloads?<br>Values:<br>`"cart", "raw"` | :material-checkbox-marked-outline: Yes | `cart` |
-| email | Email | Assemblyline admins email address | :material-minus-box-outline: Optional | `None` |
-| enforce_quota | Boolean | Enforce the user's quotas? | :material-checkbox-marked-outline: Yes | `True` |
-| external_links | List [[ExternalLinks](/assemblyline4_docs/odm/models/config/#externallinks)] | List of external pivot links | :material-checkbox-marked-outline: Yes | `[]` |
-| external_sources | List [[ExternalSource](/assemblyline4_docs/odm/models/config/#externalsource)] | List of external sources to query | :material-checkbox-marked-outline: Yes | `[]` |
-| fqdn | Text | Fully qualified domain name to use for the 2-factor authentication validation | :material-checkbox-marked-outline: Yes | `localhost` |
-| ingest_max_priority | Integer | Maximum priority for ingest API | :material-checkbox-marked-outline: Yes | `250` |
-| read_only | Boolean | Turn on read only mode in the UI | :material-checkbox-marked-outline: Yes | `False` |
-| read_only_offset | Keyword | Offset of the read only mode for all paging and searches | :material-checkbox-marked-outline: Yes | `` |
-| rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | :material-checkbox-marked-outline: Yes | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json', 'https://alpytest.blob.core.windows.net/pytest/blog.json']` |
-| services_feed | Keyword | Feed of all the services available on AL | :material-checkbox-marked-outline: Yes | `https://alpytest.blob.core.windows.net/pytest/services.json` |
-| secret_key | Keyword | Flask secret key to store cookies, etc. | :material-checkbox-marked-outline: Yes | `This is the default flask secret key... you should change this!` |
-| session_duration | Integer | Duration of the user session before the user has to login again | :material-checkbox-marked-outline: Yes | `3600` |
-| statistics | [Statistics](/assemblyline4_docs/odm/models/config/#statistics) | Statistics configuration | :material-checkbox-marked-outline: Yes | See [Statistics](/assemblyline4_docs/odm/models/config/#statistics) for more details. |
-| tos | Text | Terms of service | :material-minus-box-outline: Optional | `None` |
-| tos_lockout | Boolean | Lock out user after accepting the terms of service? | :material-checkbox-marked-outline: Yes | `False` |
-| tos_lockout_notify | List [Keyword] | List of admins to notify when a user gets locked out | :material-minus-box-outline: Optional | `None` |
-| url_submission_headers | Mapping [String, Keyword] | Headers used by the url_download method | :material-minus-box-outline: Optional | `None` |
-| url_submission_proxies | Mapping [String, Keyword] | Proxy used by the url_download method | :material-minus-box-outline: Optional | `None` |
-| url_submission_timeout | Integer | Request timeout for fetching URLs | :material-checkbox-marked-outline: Yes | `15` |
-| validate_session_ip | Boolean | Validate if the session IP matches the IP the session was created from | :material-checkbox-marked-outline: Yes | `True` |
-| validate_session_useragent | Boolean | Validate if the session useragent matches the useragent the session was created with | :material-checkbox-marked-outline: Yes | `True` |
+| alerting_meta | [AlertingMeta](/assemblyline4_docs/odm/models/config/#alertingmeta) | Alerting metadata fields | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [AlertingMeta](/assemblyline4_docs/odm/models/config/#alertingmeta) for more details. |
+| allow_malicious_hinting | Boolean | Allow user to tell in advance the system that a file is malicious? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| allow_raw_downloads | Boolean | Allow user to download raw files? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| allow_zip_downloads | Boolean | Allow user to download files as password protected ZIPs? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| allow_replay | Boolean | Allow users to request replay on another server? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| allow_url_submissions | Boolean | Allow file submissions via url? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| audit | Boolean | Should API calls be audited and saved to a separate log file? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| banner | Mapping [String, Keyword] | Banner message display on the main page (format: {<language_code>: message}) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| banner_level | Enum | Banner message level<br>Values:<br>`"error", "info", "success", "warning"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `info` |
+| debug | Boolean | Enable debugging? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| discover_url | Keyword | Discover URL | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| download_encoding | Enum | Which encoding will be used for downloads?<br>Values:<br>`"cart", "raw"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cart` |
+| email | Email | Assemblyline admins email address | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| enforce_quota | Boolean | Enforce the user's quotas? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| external_links | List [[ExternalLinks](/assemblyline4_docs/odm/models/config/#externallinks)] | List of external pivot links | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| external_sources | List [[ExternalSource](/assemblyline4_docs/odm/models/config/#externalsource)] | List of external sources to query | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| fqdn | Text | Fully qualified domain name to use for the 2-factor authentication validation | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `localhost` |
+| ingest_max_priority | Integer | Maximum priority for ingest API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `250` |
+| read_only | Boolean | Turn on read only mode in the UI | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| read_only_offset | Keyword | Offset of the read only mode for all paging and searches | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `` |
+| rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json', 'https://alpytest.blob.core.windows.net/pytest/blog.json']` |
+| services_feed | Keyword | Feed of all the services available on AL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://alpytest.blob.core.windows.net/pytest/services.json` |
+| secret_key | Keyword | Flask secret key to store cookies, etc. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `This is the default flask secret key... you should change this!` |
+| session_duration | Integer | Duration of the user session before the user has to login again | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `3600` |
+| statistics | [Statistics](/assemblyline4_docs/odm/models/config/#statistics) | Statistics configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Statistics](/assemblyline4_docs/odm/models/config/#statistics) for more details. |
+| tos | Text | Terms of service | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| tos_lockout | Boolean | Lock out user after accepting the terms of service? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| tos_lockout_notify | List [Keyword] | List of admins to notify when a user gets locked out | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| url_submission_headers | Mapping [String, Keyword] | Headers used by the url_download method | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| url_submission_proxies | Mapping [String, Keyword] | Proxy used by the url_download method | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| url_submission_timeout | Integer | Request timeout for fetching URLs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `15` |
+| validate_session_ip | Boolean | Validate if the session IP matches the IP the session was created from | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| validate_session_useragent | Boolean | Validate if the session useragent matches the useragent the session was created with | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -748,9 +749,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| important | List [Keyword] | Metadata keys that are considered important | :material-checkbox-marked-outline: Yes | `['original_source', 'protocol', 'subject', 'submitted_url', 'source_url', 'url', 'web_url', 'from', 'to', 'cc', 'bcc', 'ip_src', 'ip_dst', 'source']` |
-| subject | List [Keyword] | Metadata keys that refer to an email's subject | :material-checkbox-marked-outline: Yes | `['subject']` |
-| url | List [Keyword] | Metadata keys that refer to a URL | :material-checkbox-marked-outline: Yes | `['submitted_url', 'source_url', 'url', 'web_url']` |
+| important | List [Keyword] | Metadata keys that are considered important | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['original_source', 'protocol', 'subject', 'submitted_url', 'source_url', 'url', 'web_url', 'from', 'to', 'cc', 'bcc', 'ip_src', 'ip_dst', 'source']` |
+| subject | List [Keyword] | Metadata keys that refer to an email's subject | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['subject']` |
+| url | List [Keyword] | Metadata keys that refer to a URL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['submitted_url', 'source_url', 'url', 'web_url']` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -759,14 +760,14 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| allow_bypass | Boolean | If the classification of the item is higher than the max_classificaiton, can we let the user bypass the check and still query the external link? | :material-checkbox-marked-outline: Yes | `False` |
-| name | Keyword | Name of the link | :material-checkbox-marked-outline: Yes | `None` |
-| double_encode | Boolean | Should the replaced value be double encoded? | :material-checkbox-marked-outline: Yes | `False` |
-| classification | ClassificationString | None | :material-minus-box-outline: Optional | `None` |
-| max_classification | ClassificationString | None | :material-minus-box-outline: Optional | `None` |
-| replace_pattern | Keyword | Pattern that will be replaced in the URL with the metadata or tag value | :material-checkbox-marked-outline: Yes | `None` |
-| targets | List [[ExternalLinksTargets](/assemblyline4_docs/odm/models/config/#externallinkstargets)] | List of external sources to query | :material-checkbox-marked-outline: Yes | `[]` |
-| url | Keyword | URL to redirect to | :material-checkbox-marked-outline: Yes | `None` |
+| allow_bypass | Boolean | If the classification of the item is higher than the max_classificaiton, can we let the user bypass the check and still query the external link? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| name | Keyword | Name of the link | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| double_encode | Boolean | Should the replaced value be double encoded? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| max_classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| replace_pattern | Keyword | Pattern that will be replaced in the URL with the metadata or tag value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| targets | List [[ExternalLinksTargets](/assemblyline4_docs/odm/models/config/#externallinkstargets)] | List of external sources to query | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| url | Keyword | URL to redirect to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -775,8 +776,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| type | Enum | Type of external link target<br>Values:<br>`"hash", "metadata", "tag"` | :material-checkbox-marked-outline: Yes | `None` |
-| key | Keyword | Key that it can be used against | :material-checkbox-marked-outline: Yes | `None` |
+| type | Enum | Type of external link target<br>Values:<br>`"hash", "metadata", "tag"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| key | Keyword | Key that it can be used against | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -785,10 +786,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name of the source. | :material-checkbox-marked-outline: Yes | `None` |
-| classification | ClassificationString | None | :material-minus-box-outline: Optional | `None` |
-| max_classification | ClassificationString | None | :material-minus-box-outline: Optional | `None` |
-| url | Keyword | URL of the upstream source's lookup service. | :material-checkbox-marked-outline: Yes | `None` |
+| name | Keyword | Name of the source. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| max_classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| url | Keyword | URL of the upstream source's lookup service. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -797,7 +798,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| alert | List [Keyword] | Fields used to generate statistics in the Alerts page | :material-checkbox-marked-outline: Yes | `['al.attrib', 'al.av', 'al.behavior', 'al.domain', 'al.ip', 'al.yara', 'file.name', 'file.md5', 'owner']` |
-| submission | List [Keyword] | Fields used to generate statistics in the Submissions page | :material-checkbox-marked-outline: Yes | `['params.submitter']` |
+| alert | List [Keyword] | Fields used to generate statistics in the Alerts page | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['al.attrib', 'al.av', 'al.behavior', 'al.domain', 'al.ip', 'al.yara', 'file.name', 'file.md5', 'owner']` |
+| submission | List [Keyword] | Fields used to generate statistics in the Submissions page | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['params.submitter']` |
 
 

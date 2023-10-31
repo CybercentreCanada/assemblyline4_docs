@@ -4,15 +4,15 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| attack_id | List [Keyword] | List of all associated ATT&CK IDs | :material-checkbox-marked-outline: Yes | `[]` |
-| classification | Classification | Classification of the heuristic | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| description | Text | Description of the heuristic | :material-checkbox-marked-outline: Yes | `None` |
-| filetype | Keyword | What type of files does this heuristic target? | :material-checkbox-marked-outline: Yes | `None` |
-| heur_id | Keyword | ID of the Heuristic | :material-checkbox-marked-outline: Yes | `None` |
-| name | Keyword | Name of the heuristic | :material-checkbox-marked-outline: Yes | `None` |
-| score | Integer | Default score of the heuristic | :material-checkbox-marked-outline: Yes | `None` |
-| signature_score_map | Mapping [String, Integer] | Score of signatures for this heuristic | :material-checkbox-marked-outline: Yes | `{}` |
-| stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | Statistics related to the Heuristic | :material-checkbox-marked-outline: Yes | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
-| max_score | Integer | Maximum score for heuristic | :material-minus-box-outline: Optional | `None` |
+| attack_id | List [Keyword] | List of all associated ATT&CK IDs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| classification | Classification | Classification of the heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| description | Text | Description of the heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| filetype | Keyword | What type of files does this heuristic target? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| heur_id | Keyword | ID of the Heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| name | Keyword | Name of the heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| score | Integer | Default score of the heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| signature_score_map | Mapping [String, Integer] | Score of signatures for this heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | Statistics related to the Heuristic | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
+| max_score | Integer | Maximum score for heuristic | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 

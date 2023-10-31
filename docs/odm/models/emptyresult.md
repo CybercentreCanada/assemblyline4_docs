@@ -4,6 +4,6 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| expiry_ts | Date | Expiry timestamp | :material-checkbox-marked-outline: Yes | `None` |
+| expiry_ts | Date | Expiry timestamp | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 

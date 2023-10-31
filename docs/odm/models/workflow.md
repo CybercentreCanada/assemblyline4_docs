@@ -4,20 +4,20 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Classification of the workflow | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| creation_date | Date | Creation date of the workflow | :material-checkbox-marked-outline: Yes | `NOW` |
-| creator | Keyword | UID of the creator of the workflow | :material-checkbox-marked-outline: Yes | `None` |
-| edited_by | Keyword | UID of the last user to edit the workflow | :material-checkbox-marked-outline: Yes | `None` |
-| first_seen | Date | Date of first hit on workflow | :material-minus-box-outline: Optional | `None` |
-| hit_count | Integer | Number of times there was a workflow hit | :material-checkbox-marked-outline: Yes | `0` |
-| labels | List [Keyword] | Labels applied by the workflow | :material-checkbox-marked-outline: Yes | `[]` |
-| last_edit | Date | Date of last edit on workflow | :material-checkbox-marked-outline: Yes | `NOW` |
-| last_seen | Date | Date of last hit on workflow | :material-minus-box-outline: Optional | `None` |
-| name | Keyword | Name of the workflow | :material-checkbox-marked-outline: Yes | `None` |
-| origin | Keyword | Which did this originate from? | :material-minus-box-outline: Optional | `None` |
-| priority | Enum | Priority applied by the workflow<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM", None` | :material-minus-box-outline: Optional | `None` |
-| query | Keyword | Query that the workflow runs | :material-checkbox-marked-outline: Yes | `None` |
-| status | Enum | Status applied by the workflow<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE", None` | :material-minus-box-outline: Optional | `None` |
-| workflow_id | UUID | ID of the workflow | :material-minus-box-outline: Optional | `None` |
+| classification | Classification | Classification of the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| creation_date | Date | Creation date of the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
+| creator | Keyword | UID of the creator of the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| edited_by | Keyword | UID of the last user to edit the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| first_seen | Date | Date of first hit on workflow | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hit_count | Integer | Number of times there was a workflow hit | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| labels | List [Keyword] | Labels applied by the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| last_edit | Date | Date of last edit on workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
+| last_seen | Date | Date of last hit on workflow | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| name | Keyword | Name of the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| origin | Keyword | Which did this originate from? | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| priority | Enum | Priority applied by the workflow<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM", None` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| query | Keyword | Query that the workflow runs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| status | Enum | Status applied by the workflow<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE", None` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| workflow_id | UUID | ID of the workflow | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 

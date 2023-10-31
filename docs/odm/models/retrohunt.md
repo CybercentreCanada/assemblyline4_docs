@@ -4,24 +4,24 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| archive_only | Boolean | Defines the indices used for this retrohunt job | :material-checkbox-marked-outline: Yes | `False` |
-| classification | Classification | Classification string for the retrohunt job and results list | :material-checkbox-marked-outline: Yes | `None` |
-| created | Date | Start time for the search. | :material-checkbox-marked-outline: Yes | `NOW` |
-| creator | Keyword | User who created this retrohunt job | :material-checkbox-marked-outline: Yes | `None` |
-| description | Text | Human readable description of this retrohunt job | :material-checkbox-marked-outline: Yes | `None` |
-| tags | Mapping [String, List [Keyword]] | None | :material-minus-box-outline: Optional | `None` |
-| expiry_ts | Date | Expiry timestamp of this retrohunt job | :material-minus-box-outline: Optional | `None` |
-| code | Keyword | Unique code identifying this retrohunt job | :material-checkbox-marked-outline: Yes | `None` |
-| raw_query | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| yara_signature | Keyword | Text of original yara signature run | :material-checkbox-marked-outline: Yes | `None` |
-| errors | List [Keyword] | List of error messages that occured during the search | :material-checkbox-marked-outline: Yes | `None` |
-| finished | Boolean | Boolean that indicates if this retrohunt job is finished | :material-checkbox-marked-outline: Yes | `False` |
-| hits | List [Keyword] | List of sha256 of the files that were hit during the search | :material-checkbox-marked-outline: Yes | `None` |
-| percentage | Integer | Percentage of completion the phase is at | :material-minus-box-outline: Optional | `None` |
-| phase | Enum | None<br>Values:<br>`"filtering", "finished", "unknown", "yara"` | :material-minus-box-outline: Optional | `None` |
-| progress | List [Integer] | Progress values when the job is running | :material-minus-box-outline: Optional | `None` |
-| total_errors | Integer | Total number of errors encountered during the job | :material-minus-box-outline: Optional | `None` |
-| total_hits | Integer | Total number of hits when the job first ran | :material-minus-box-outline: Optional | `None` |
-| truncated | Boolean | Indicates if the list of hits been truncated at some limit | :material-checkbox-marked-outline: Yes | `False` |
+| archive_only | Boolean | Defines the indices used for this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| classification | Classification | Classification string for the retrohunt job and results list | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| created | Date | Start time for the search. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
+| creator | Keyword | User who created this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| description | Text | Human readable description of this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| tags | Mapping [String, List [Keyword]] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| expiry_ts | Date | Expiry timestamp of this retrohunt job | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| code | Keyword | Unique code identifying this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| raw_query | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| yara_signature | Keyword | Text of original yara signature run | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| errors | List [Keyword] | List of error messages that occured during the search | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| finished | Boolean | Boolean that indicates if this retrohunt job is finished | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| hits | List [Keyword] | List of sha256 of the files that were hit during the search | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| percentage | Integer | Percentage of completion the phase is at | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| phase | Enum | None<br>Values:<br>`"filtering", "finished", "unknown", "yara"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| progress | List [Integer] | Progress values when the job is running | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| total_errors | Integer | Total number of errors encountered during the job | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| total_hits | Integer | Total number of hits when the job first ran | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| truncated | Boolean | Indicates if the list of hits been truncated at some limit | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 
 

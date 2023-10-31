@@ -4,10 +4,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Classification of the cache | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| filtered | Boolean | Has this cache entry been filtered? | :material-checkbox-marked-outline: Yes | `False` |
-| expiry_ts | Date | Expiry timestamp | :material-checkbox-marked-outline: Yes | `None` |
-| supplementary | Text | Tree of supplementary files | :material-checkbox-marked-outline: Yes | `None` |
-| tree | Text | File tree cache | :material-checkbox-marked-outline: Yes | `None` |
+| classification | Classification | Classification of the cache | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| filtered | Boolean | Has this cache entry been filtered? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| expiry_ts | Date | Expiry timestamp | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| supplementary | Text | Tree of supplementary files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| tree | Text | File tree cache | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 

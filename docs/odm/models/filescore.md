@@ -4,11 +4,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| psid | UUID |  Parent submission ID of the associated submission | :material-minus-box-outline: Optional | `None` |
-| expiry_ts | Date | Expiry timestamp, used for garbage collection | :material-checkbox-marked-outline: Yes | `None` |
-| score | Integer | Maximum score for the associated submission | :material-checkbox-marked-outline: Yes | `None` |
-| errors | Integer | Number of errors that occurred during the previous analysis | :material-checkbox-marked-outline: Yes | `None` |
-| sid | UUID | ID of the associated submission | :material-checkbox-marked-outline: Yes | `None` |
-| time | Float | Epoch time at which the FileScore entry was created | :material-checkbox-marked-outline: Yes | `None` |
+| psid | UUID |  Parent submission ID of the associated submission | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| expiry_ts | Date | Expiry timestamp, used for garbage collection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| score | Integer | Maximum score for the associated submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| errors | Integer | Number of errors that occurred during the previous analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| sid | UUID | ID of the associated submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| time | Float | Epoch time at which the FileScore entry was created | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 

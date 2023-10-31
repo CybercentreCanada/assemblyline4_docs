@@ -4,28 +4,29 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| alert_id | Keyword | ID of the alert | :material-checkbox-marked-outline: Yes | `None` |
-| al | [ALResults](/assemblyline4_docs/odm/models/alert/#alresults) | Assemblyline Result Block | :material-checkbox-marked-outline: Yes | `None` |
-| archive_ts | Date | None | :material-minus-box-outline: Optional | `None` |
-| attack | [Attack](/assemblyline4_docs/odm/models/alert/#attack) | ATT&CK Block | :material-checkbox-marked-outline: Yes | `None` |
-| classification | Classification | Classification of the alert | :material-checkbox-marked-outline: Yes | `None` |
-| expiry_ts | Date | Expiry timestamp | :material-minus-box-outline: Optional | `None` |
-| extended_scan | Enum | Status of the extended scan<br>Values:<br>`"completed", "incomplete", "skipped", "submitted"` | :material-checkbox-marked-outline: Yes | `None` |
-| file | [File](/assemblyline4_docs/odm/models/alert/#file) | File Block | :material-checkbox-marked-outline: Yes | `None` |
-| filtered | Boolean | Are the alert results filtered? | :material-checkbox-marked-outline: Yes | `False` |
-| heuristic | [Heuristic](/assemblyline4_docs/odm/models/alert/#heuristic) | Heuristic Block | :material-checkbox-marked-outline: Yes | `None` |
-| label | List [Keyword] | List of labels applied to the alert | :material-checkbox-marked-outline: Yes | `[]` |
-| metadata | FlattenedObject | Metadata submitted with the file | :material-checkbox-marked-outline: Yes | `{}` |
-| owner | Keyword | Owner of the alert | :material-minus-box-outline: Optional | `None` |
-| priority | Enum | Priority applied to the alert<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM", None` | :material-minus-box-outline: Optional | `None` |
-| reporting_ts | Date | Alert creation timestamp | :material-checkbox-marked-outline: Yes | `None` |
-| sid | UUID | Submission ID related to this alert | :material-checkbox-marked-outline: Yes | `None` |
-| status | Enum | Status applied to the alert<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE", None` | :material-minus-box-outline: Optional | `None` |
-| ts | Date | File submission timestamp | :material-checkbox-marked-outline: Yes | `None` |
-| type | Keyword | Type of alert | :material-checkbox-marked-outline: Yes | `None` |
-| verdict | [Verdict](/assemblyline4_docs/odm/models/alert/#verdict) | Verdict Block | :material-checkbox-marked-outline: Yes | See [Verdict](/assemblyline4_docs/odm/models/alert/#verdict) for more details. |
-| events | List [[Event](/assemblyline4_docs/odm/models/alert/#event)] | An audit of events applied to alert | :material-checkbox-marked-outline: Yes | `[]` |
-| workflows_completed | Boolean | Have all workflows ran on this alert? | :material-checkbox-marked-outline: Yes | `False` |
+| alert_id | Keyword | ID of the alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| al | [ALResults](/assemblyline4_docs/odm/models/alert/#alresults) | Assemblyline Result Block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| archive_ts | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| attack | [Attack](/assemblyline4_docs/odm/models/alert/#attack) | ATT&CK Block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| classification | Classification | Classification of the alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| expiry_ts | Date | Expiry timestamp | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| extended_scan | Enum | Status of the extended scan<br>Values:<br>`"completed", "incomplete", "skipped", "submitted"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| file | [File](/assemblyline4_docs/odm/models/alert/#file) | File Block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| filtered | Boolean | Are the alert results filtered? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| heuristic | [Heuristic](/assemblyline4_docs/odm/models/alert/#heuristic) | Heuristic Block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| label | List [Keyword] | List of labels applied to the alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| metadata | FlattenedObject | Metadata submitted with the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| owner | Keyword | Owner of the alert | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| priority | Enum | Priority applied to the alert<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM", None` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| reporting_ts | Date | Alert creation timestamp | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| submission_relations | List [[Relationship](/assemblyline4_docs/odm/models/alert/#relationship)] | Describes relationships between submissions used to build this alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| sid | UUID | Submission ID related to this alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| status | Enum | Status applied to the alert<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE", None` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ts | Date | File submission timestamp | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Keyword | Type of alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| verdict | [Verdict](/assemblyline4_docs/odm/models/alert/#verdict) | Verdict Block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Verdict](/assemblyline4_docs/odm/models/alert/#verdict) for more details. |
+| events | List [[Event](/assemblyline4_docs/odm/models/alert/#event)] | An audit of events applied to alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| workflows_completed | Boolean | Have all workflows ran on this alert? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -34,22 +35,22 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| attrib | List [Keyword] | List of attribution | :material-checkbox-marked-outline: Yes | `[]` |
-| av | List [Keyword] | List of AV hits | :material-checkbox-marked-outline: Yes | `[]` |
-| behavior | List [Keyword] | List of behaviors for the alert | :material-checkbox-marked-outline: Yes | `[]` |
-| detailed | [DetailedResults](/assemblyline4_docs/odm/models/alert/#detailedresults) | Assemblyline Detailed result block | :material-checkbox-marked-outline: Yes | `None` |
-| domain | List [Domain] | List of all domains | :material-checkbox-marked-outline: Yes | `[]` |
-| domain_dynamic | List [Domain] | List of domains found during Dynamic Analysis | :material-checkbox-marked-outline: Yes | `[]` |
-| domain_static | List [Domain] | List of domains found during Static Analysis | :material-checkbox-marked-outline: Yes | `[]` |
-| ip | List [IP] | List of all IPs | :material-checkbox-marked-outline: Yes | `[]` |
-| ip_dynamic | List [IP] | List of IPs found during Dynamic Analysis | :material-checkbox-marked-outline: Yes | `[]` |
-| ip_static | List [IP] | List of IPs found during Static Analysis | :material-checkbox-marked-outline: Yes | `[]` |
-| request_end_time | Date | Finish time of the Assemblyline submission | :material-checkbox-marked-outline: Yes | `None` |
-| score | Integer | Maximum score found in the submission | :material-checkbox-marked-outline: Yes | `None` |
-| uri | List [URI] | List of all URIs | :material-checkbox-marked-outline: Yes | `[]` |
-| uri_dynamic | List [URI] | List of URIs found during Dynamic Analysis | :material-checkbox-marked-outline: Yes | `[]` |
-| uri_static | List [URI] | List of URIs found during Static Analysis | :material-checkbox-marked-outline: Yes | `[]` |
-| yara | List [Keyword] | List of YARA rule hits | :material-checkbox-marked-outline: Yes | `[]` |
+| attrib | List [Keyword] | List of attribution | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| av | List [Keyword] | List of AV hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| behavior | List [Keyword] | List of behaviors for the alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| detailed | [DetailedResults](/assemblyline4_docs/odm/models/alert/#detailedresults) | Assemblyline Detailed result block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| domain | List [Domain] | List of all domains | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| domain_dynamic | List [Domain] | List of domains found during Dynamic Analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| domain_static | List [Domain] | List of domains found during Static Analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| ip | List [IP] | List of all IPs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| ip_dynamic | List [IP] | List of IPs found during Dynamic Analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| ip_static | List [IP] | List of IPs found during Static Analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| request_end_time | Date | Finish time of the Assemblyline submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| score | Integer | Maximum score found in the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| uri | List [URI] | List of all URIs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| uri_dynamic | List [URI] | List of URIs found during Dynamic Analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| uri_static | List [URI] | List of URIs found during Static Analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| yara | List [Keyword] | List of YARA rule hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -58,16 +59,16 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| attack_pattern | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed Att&ck patterns | :material-checkbox-marked-outline: Yes | `[]` |
-| attack_category | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed Att&ck categories | :material-checkbox-marked-outline: Yes | `[]` |
-| attrib | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed attribution | :material-checkbox-marked-outline: Yes | `[]` |
-| av | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed AV hits | :material-checkbox-marked-outline: Yes | `[]` |
-| behavior | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed behaviors for the alert | :material-checkbox-marked-outline: Yes | `[]` |
-| domain | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed domains | :material-checkbox-marked-outline: Yes | `[]` |
-| heuristic | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed heuristics | :material-checkbox-marked-outline: Yes | `[]` |
-| ip | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed IPs | :material-checkbox-marked-outline: Yes | `[]` |
-| uri | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed URIs | :material-checkbox-marked-outline: Yes | `[]` |
-| yara | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed YARA rule hits | :material-checkbox-marked-outline: Yes | `[]` |
+| attack_pattern | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed Att&ck patterns | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| attack_category | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed Att&ck categories | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| attrib | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed attribution | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| av | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed AV hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| behavior | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed behaviors for the alert | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| domain | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed domains | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| heuristic | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed heuristics | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| ip | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed IPs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| uri | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed URIs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| yara | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | List of detailed YARA rule hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -76,10 +77,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| type | Keyword | Type of data that generated this item | :material-checkbox-marked-outline: Yes | `None` |
-| value | Keyword | Value of the item | :material-checkbox-marked-outline: Yes | `None` |
-| verdict | Enum | Verdict of the item<br>Values:<br>`"info", "malicious", "safe", "suspicious"` | :material-checkbox-marked-outline: Yes | `None` |
-| subtype | Enum | None<br>Values:<br>`"CFG", "EXP", "IMP", "OB", "TA"` | :material-minus-box-outline: Optional | `None` |
+| type | Keyword | Type of data that generated this item | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| value | Keyword | Value of the item | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| verdict | Enum | Verdict of the item<br>Values:<br>`"info", "malicious", "safe", "suspicious"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| subtype | Enum | None<br>Values:<br>`"CFG", "EXP", "IMP", "OB", "TA"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -88,8 +89,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| pattern | List [Keyword] | List of related ATT&CK patterns | :material-checkbox-marked-outline: Yes | `[]` |
-| category | List [Keyword] | List of related ATT&CK categories | :material-checkbox-marked-outline: Yes | `[]` |
+| pattern | List [Keyword] | List of related ATT&CK patterns | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| category | List [Keyword] | List of related ATT&CK categories | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -98,13 +99,13 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| entity_type | Enum | Type of entity associated to event<br>Values:<br>`"user", "workflow"` | :material-checkbox-marked-outline: Yes | `None` |
-| entity_id | Keyword | ID of entity associated to event | :material-checkbox-marked-outline: Yes | `None` |
-| entity_name | Keyword | Name of entity | :material-checkbox-marked-outline: Yes | `None` |
-| ts | Date | Timestamp of event | :material-checkbox-marked-outline: Yes | `NOW` |
-| labels | List [Keyword] | Labels added during event | :material-minus-box-outline: Optional | `None` |
-| status | Enum | Status applied during event<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE"` | :material-minus-box-outline: Optional | `None` |
-| priority | Enum | Priority applied during event<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM"` | :material-minus-box-outline: Optional | `None` |
+| entity_type | Enum | Type of entity associated to event<br>Values:<br>`"user", "workflow"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| entity_id | Keyword | ID of entity associated to event | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| entity_name | Keyword | Name of entity | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| ts | Date | Timestamp of event | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
+| labels | List [Keyword] | Labels added during event | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| status | Enum | Status applied during event<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| priority | Enum | Priority applied during event<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -113,13 +114,13 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| md5 | MD5 | MD5 hash of file | :material-checkbox-marked-outline: Yes | `None` |
-| name | Keyword | Name of the file | :material-checkbox-marked-outline: Yes | `None` |
-| sha1 | SHA1 | SHA1 hash of the file | :material-checkbox-marked-outline: Yes | `None` |
-| sha256 | SHA256 | SHA256 hash of the file | :material-checkbox-marked-outline: Yes | `None` |
-| size | Integer | Size of the file in bytes | :material-checkbox-marked-outline: Yes | `None` |
-| type | Keyword | Type of file as identified by Assemblyline | :material-checkbox-marked-outline: Yes | `None` |
-| screenshots | List [[Screenshot](/assemblyline4_docs/odm/models/alert/#screenshot)] | Screenshots of the file | :material-checkbox-marked-outline: Yes | `[]` |
+| md5 | MD5 | MD5 hash of file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| name | Keyword | Name of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| sha1 | SHA1 | SHA1 hash of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| sha256 | SHA256 | SHA256 hash of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| size | Integer | Size of the file in bytes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Keyword | Type of file as identified by Assemblyline | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| screenshots | List [[Screenshot](/assemblyline4_docs/odm/models/alert/#screenshot)] | Screenshots of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -128,10 +129,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name of the screenshot | :material-checkbox-marked-outline: Yes | `None` |
-| description | Keyword | Description of the screenshot | :material-checkbox-marked-outline: Yes | `None` |
-| img | SHA256 | SHA256 hash of the image | :material-checkbox-marked-outline: Yes | `None` |
-| thumb | SHA256 | SHA256 hash of the thumbnail | :material-checkbox-marked-outline: Yes | `None` |
+| name | Keyword | Name of the screenshot | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| description | Keyword | Description of the screenshot | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| img | SHA256 | SHA256 hash of the image | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| thumb | SHA256 | SHA256 hash of the thumbnail | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -140,7 +141,17 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | List [Keyword] | List of related Heuristic names | :material-checkbox-marked-outline: Yes | `[]` |
+| name | List [Keyword] | List of related Heuristic names | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+
+
+[comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
+## Relationship
+> Submission relations for an alert
+
+| Field | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| child | UUID | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| parent | UUID | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -149,7 +160,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| malicious | List [Keyword] | List of users that claim submission as malicious | :material-checkbox-marked-outline: Yes | `[]` |
-| non_malicious | List [Keyword] | List of users that claim submission as non-malicious | :material-checkbox-marked-outline: Yes | `[]` |
+| malicious | List [Keyword] | List of users that claim submission as malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| non_malicious | List [Keyword] | List of users that claim submission as non-malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 

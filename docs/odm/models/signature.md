@@ -4,18 +4,18 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | None | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| data | Text | None | :material-checkbox-marked-outline: Yes | `None` |
-| last_modified | Date | None | :material-checkbox-marked-outline: Yes | `NOW` |
-| name | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
-| order | Integer | None | :material-checkbox-marked-outline: Yes | `1` |
-| revision | Keyword | None | :material-checkbox-marked-outline: Yes | `1` |
-| signature_id | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| source | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
-| state_change_date | Date | None | :material-minus-box-outline: Optional | `None` |
-| state_change_user | Keyword | None | :material-minus-box-outline: Optional | `None` |
-| stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | None | :material-checkbox-marked-outline: Yes | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
-| status | Enum | None<br>Values:<br>`"DEPLOYED", "DISABLED", "INVALID", "NOISY", "STAGING", "TESTING"` | :material-checkbox-marked-outline: Yes | `None` |
-| type | Keyword | None | :material-checkbox-marked-outline: Yes | `None` |
+| classification | Classification | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| data | Text | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| last_modified | Date | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
+| name | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| order | Integer | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| revision | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| signature_id | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| source | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| state_change_date | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| state_change_user | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
+| status | Enum | None<br>Values:<br>`"DEPLOYED", "DISABLED", "INVALID", "NOISY", "STAGING", "TESTING"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
