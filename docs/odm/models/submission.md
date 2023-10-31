@@ -4,25 +4,25 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| archive_ts | Date | None | :material-minus-box-outline: Optional | `None` |
-| archived | Boolean | Document is present in the malware archive | :material-checkbox-marked-outline: Yes | `False` |
-| classification | Classification | Classification of the submission | :material-checkbox-marked-outline: Yes | `None` |
-| error_count | Integer | Total number of errors in the submission | :material-checkbox-marked-outline: Yes | `None` |
-| errors | List [Keyword] | List of error keys | :material-checkbox-marked-outline: Yes | `None` |
-| expiry_ts | Date | Expiry timestamp | :material-minus-box-outline: Optional | `None` |
-| file_count | Integer | Total number of files in the submission | :material-checkbox-marked-outline: Yes | `None` |
-| files | List [[File](/assemblyline4_docs/odm/models/submission/#file)] | List of files that were originally submitted | :material-checkbox-marked-outline: Yes | `None` |
-| max_score | Integer | Maximum score of all the files in the scan | :material-checkbox-marked-outline: Yes | `None` |
-| metadata | FlattenedObject | Metadata associated to the submission | :material-checkbox-marked-outline: Yes | `None` |
-| params | [SubmissionParams](/assemblyline4_docs/odm/models/submission/#submissionparams) | Submission parameter details | :material-checkbox-marked-outline: Yes | `None` |
-| results | List [Keyword] | List of result keys | :material-checkbox-marked-outline: Yes | `None` |
-| sid | UUID | Submission ID | :material-checkbox-marked-outline: Yes | `None` |
-| state | Enum | Status of the submission<br>Values:<br>`"completed", "failed", "submitted"` | :material-checkbox-marked-outline: Yes | `None` |
-| to_be_deleted | Boolean | This document is going to be deleted as soon as it finishes | :material-checkbox-marked-outline: Yes | `False` |
-| times | [Times](/assemblyline4_docs/odm/models/submission/#times) | Submission-specific times | :material-checkbox-marked-outline: Yes | See [Times](/assemblyline4_docs/odm/models/submission/#times) for more details. |
-| verdict | [Verdict](/assemblyline4_docs/odm/models/submission/#verdict) | Malicious verdict details | :material-checkbox-marked-outline: Yes | See [Verdict](/assemblyline4_docs/odm/models/submission/#verdict) for more details. |
-| from_archive | Boolean | Was loaded from the archive | :material-checkbox-marked-outline: Yes | `False` |
-| scan_key | Keyword | None | :material-minus-box-outline: Optional | `None` |
+| archive_ts | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| archived | Boolean | Document is present in the malware archive | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| classification | Classification | Classification of the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| error_count | Integer | Total number of errors in the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| errors | List [Keyword] | List of error keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| expiry_ts | Date | Expiry timestamp | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_count | Integer | Total number of files in the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| files | List [[File](/assemblyline4_docs/odm/models/submission/#file)] | List of files that were originally submitted | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| max_score | Integer | Maximum score of all the files in the scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| metadata | FlattenedObject | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| params | [SubmissionParams](/assemblyline4_docs/odm/models/submission/#submissionparams) | Submission parameter details | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| results | List [Keyword] | List of result keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| sid | UUID | Submission ID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| state | Enum | Status of the submission<br>Values:<br>`"completed", "failed", "submitted"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| to_be_deleted | Boolean | This document is going to be deleted as soon as it finishes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| times | [Times](/assemblyline4_docs/odm/models/submission/#times) | Submission-specific times | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Times](/assemblyline4_docs/odm/models/submission/#times) for more details. |
+| verdict | [Verdict](/assemblyline4_docs/odm/models/submission/#verdict) | Malicious verdict details | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Verdict](/assemblyline4_docs/odm/models/submission/#verdict) for more details. |
+| from_archive | Boolean | Was loaded from the archive | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| scan_key | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -31,9 +31,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | Keyword | Name of the file | :material-checkbox-marked-outline: Yes | `None` |
-| size | Integer | Size of the file in bytes | :material-minus-box-outline: Optional | `None` |
-| sha256 | SHA256 | SHA256 hash of the file | :material-checkbox-marked-outline: Yes | `None` |
+| name | Keyword | Name of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| size | Integer | Size of the file in bytes | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sha256 | SHA256 | SHA256 hash of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -42,31 +42,31 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Original classification of the submission | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| deep_scan | Boolean | Should a deep scan be performed? | :material-checkbox-marked-outline: Yes | `False` |
-| description | Text | Description of the submission | :material-checkbox-marked-outline: Yes | `None` |
-| generate_alert | Boolean | Should this submission generate an alert? | :material-checkbox-marked-outline: Yes | `False` |
-| groups | List [Keyword] | List of groups related to this scan | :material-checkbox-marked-outline: Yes | `[]` |
-| ignore_cache | Boolean | Ignore the cached service results? | :material-checkbox-marked-outline: Yes | `False` |
-| ignore_dynamic_recursion_prevention | Boolean | Should we ignore dynamic recursion prevention? | :material-checkbox-marked-outline: Yes | `False` |
-| ignore_filtering | Boolean | Should we ignore filtering services? | :material-checkbox-marked-outline: Yes | `False` |
-| ignore_size | Boolean | Ignore the file size limits? | :material-checkbox-marked-outline: Yes | `False` |
-| never_drop | Boolean | Exempt from being dropped by ingester? | :material-checkbox-marked-outline: Yes | `False` |
-| malicious | Boolean | Is the file submitted already known to be malicious? | :material-checkbox-marked-outline: Yes | `False` |
-| max_extracted | Integer | Max number of extracted files | :material-checkbox-marked-outline: Yes | `500` |
-| max_supplementary | Integer | Max number of supplementary files | :material-checkbox-marked-outline: Yes | `500` |
-| priority | Integer | Priority of the scan | :material-checkbox-marked-outline: Yes | `1000` |
-| profile | Boolean | Should the submission do extra profiling? | :material-checkbox-marked-outline: Yes | `False` |
-| psid | UUID | Parent submission ID | :material-minus-box-outline: Optional | `None` |
-| quota_item | Boolean | Does this submission count against quota? | :material-checkbox-marked-outline: Yes | `False` |
-| services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
-| service_spec | Mapping [String, Mapping [String, Any]] | Service-specific parameters | :material-checkbox-marked-outline: Yes | `{}` |
-| submitter | Keyword | User who submitted the file | :material-checkbox-marked-outline: Yes | `None` |
-| ttl | Integer | Time, in days, to live for this submission | :material-checkbox-marked-outline: Yes | `0` |
-| type | Keyword | Type of submission | :material-checkbox-marked-outline: Yes | `USER` |
-| initial_data | Text | Initialization for temporary submission data | :material-minus-box-outline: Optional | `None` |
-| auto_archive | Boolean | Does the submission automatically goes into the archive when completed? | :material-checkbox-marked-outline: Yes | `False` |
-| delete_after_archive | Boolean | When the submission is archived, should we delete it from hot storage right away? | :material-checkbox-marked-outline: Yes | `False` |
+| classification | Classification | Original classification of the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| deep_scan | Boolean | Should a deep scan be performed? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| description | Text | Description of the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| generate_alert | Boolean | Should this submission generate an alert? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| groups | List [Keyword] | List of groups related to this scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| ignore_cache | Boolean | Ignore the cached service results? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_dynamic_recursion_prevention | Boolean | Should we ignore dynamic recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_filtering | Boolean | Should we ignore filtering services? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_size | Boolean | Ignore the file size limits? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| never_drop | Boolean | Exempt from being dropped by ingester? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| malicious | Boolean | Is the file submitted already known to be malicious? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| max_extracted | Integer | Max number of extracted files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
+| max_supplementary | Integer | Max number of supplementary files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
+| priority | Integer | Priority of the scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
+| profile | Boolean | Should the submission do extra profiling? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| psid | UUID | Parent submission ID | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| quota_item | Boolean | Does this submission count against quota? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Service selection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
+| service_spec | Mapping [String, Mapping [String, Any]] | Service-specific parameters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| submitter | Keyword | User who submitted the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| ttl | Integer | Time, in days, to live for this submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| type | Keyword | Type of submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `USER` |
+| initial_data | Text | Initialization for temporary submission data | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| auto_archive | Boolean | Does the submission automatically goes into the archive when completed? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| delete_after_archive | Boolean | When the submission is archived, should we delete it from hot storage right away? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -75,11 +75,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| selected | List [Keyword] | List of selected services | :material-checkbox-marked-outline: Yes | `['Filtering', 'Antivirus', 'Static Analysis', 'Extraction', 'Networking']` |
-| excluded | List [Keyword] | List of excluded services | :material-checkbox-marked-outline: Yes | `[]` |
-| rescan | List [Keyword] | List of services to rescan when initial run scores as malicious | :material-checkbox-marked-outline: Yes | `[]` |
-| resubmit | List [Keyword] | Add to service selection when resubmitting | :material-checkbox-marked-outline: Yes | `[]` |
-| runtime_excluded | List [Keyword] | List of runtime excluded services | :material-checkbox-marked-outline: Yes | `[]` |
+| selected | List [Keyword] | List of selected services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['Filtering', 'Antivirus', 'Static Analysis', 'Extraction', 'Networking']` |
+| excluded | List [Keyword] | List of excluded services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| rescan | List [Keyword] | List of services to rescan when initial run scores as malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| resubmit | List [Keyword] | Add to service selection when resubmitting | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| runtime_excluded | List [Keyword] | List of runtime excluded services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -88,8 +88,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| completed | Date | Date at which the submission finished scanning | :material-minus-box-outline: Optional | `None` |
-| submitted | Date | Date at which the submission started scanning | :material-checkbox-marked-outline: Yes | `NOW` |
+| completed | Date | Date at which the submission finished scanning | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| submitted | Date | Date at which the submission started scanning | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -98,7 +98,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| malicious | List [Keyword] | List of user that thinks this submission is malicious | :material-checkbox-marked-outline: Yes | `[]` |
-| non_malicious | List [Keyword] | List of user that thinks this submission is non-malicious | :material-checkbox-marked-outline: Yes | `[]` |
+| malicious | List [Keyword] | List of user that thinks this submission is malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| non_malicious | List [Keyword] | List of user that thinks this submission is non-malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 

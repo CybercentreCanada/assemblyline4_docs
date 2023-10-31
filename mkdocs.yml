@@ -68,6 +68,7 @@ nav:
           - Kubernetes-specific:
               - Upgrading to Elasticsearch 8: installation/configuration/kubernetes/upgrading_elastic.md
               - installation/configuration/kubernetes/internal_encryption.md
+              - installation/configuration/plugins.md
       - installation/classification_engine.md
       - installation/monitoring.md
       - installation/replay.md
@@ -120,6 +121,7 @@ nav:
       - Infrastructure: developer_manual/core/infrastructure.md
       - Frontend: developer_manual/frontend/frontend.md
       - Documentation: developer_manual/docs/docs.md
+      - Plugins: developer_manual/plugins/plugins.md      
   - Data Ontology:
       - Getting Started: odm/getting_started.md
       - Models:
@@ -208,7 +210,7 @@ plugins:
         Integration: Intégration
         Overview: Aperçu
         User's manual: Manuel d'utilisateur
-repo_url: https://github.com/CybercentreCanada/assemblyline4_docs
+repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
 theme:

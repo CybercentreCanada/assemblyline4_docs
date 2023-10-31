@@ -4,8 +4,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| kind | Enum | Kind of message<br>Values:<br>`"CREATE_WATCH", "LIST_OUTSTANDING", "UPDATE_BAD_SID"` | :material-checkbox-marked-outline: Yes | `None` |
-| payload_data | Any | Message payload | :material-checkbox-marked-outline: Yes | `None` |
+| kind | Enum | Kind of message<br>Values:<br>`"CREATE_WATCH", "LIST_OUTSTANDING", "UPDATE_BAD_SID"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| payload_data | Any | Message payload | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 
@@ -16,8 +16,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| cache_key | Keyword | Cache key | :material-minus-box-outline: Optional | `None` |
-| status | Enum | Watch statuses<br>Values:<br>`"FAIL", "OK", "START", "STOP"` | :material-checkbox-marked-outline: Yes | `None` |
+| cache_key | Keyword | Cache key | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| status | Enum | Watch statuses<br>Values:<br>`"FAIL", "OK", "START", "STOP"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 
@@ -28,8 +28,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| queue_name | Keyword | Name of queue | :material-checkbox-marked-outline: Yes | `None` |
-| submission | Keyword | Submission ID | :material-checkbox-marked-outline: Yes | `None` |
+| queue_name | Keyword | Name of queue | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| submission | Keyword | Submission ID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 
@@ -40,7 +40,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| response_queue | Keyword | Response queue | :material-checkbox-marked-outline: Yes | `None` |
-| submission | Keyword | Submission ID | :material-checkbox-marked-outline: Yes | `None` |
+| response_queue | Keyword | Response queue | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| submission | Keyword | Submission ID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 

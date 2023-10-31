@@ -4,24 +4,24 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| agrees_with_tos | Date | Date the user agree with terms of service | :material-minus-box-outline: Optional | `None` |
-| api_quota | Integer | Maximum number of concurrent API requests | :material-checkbox-marked-outline: Yes | `10` |
-| apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | :material-checkbox-marked-outline: Yes | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
-| apps | Mapping [String, [Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | :material-checkbox-marked-outline: Yes | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
-| can_impersonate | Boolean | Allowed to query on behalf of others? | :material-checkbox-marked-outline: Yes | `False` |
-| classification | Classification | Maximum classification for the user | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| dn | Keyword | User's LDAP DN | :material-minus-box-outline: Optional | `None` |
-| email | Email | User's email address | :material-minus-box-outline: Optional | `None` |
-| groups | List [UpperKeyword] | List of groups the user submits to | :material-checkbox-marked-outline: Yes | `[]` |
-| is_active | Boolean | Is the user active? | :material-checkbox-marked-outline: Yes | `True` |
-| name | Keyword | Full name of the user | :material-checkbox-marked-outline: Yes | `None` |
-| otp_sk | Keyword | Secret key to generate one time passwords | :material-minus-box-outline: Optional | `None` |
-| password | Keyword | BCrypt hash of the user's password | :material-checkbox-marked-outline: Yes | `None` |
-| submission_quota | Integer | Maximum number of concurrent submissions | :material-checkbox-marked-outline: Yes | `5` |
-| type | List [Enum] | Type of user | :material-checkbox-marked-outline: Yes | `['user']` |
-| roles | List [Enum] | Default roles for user | :material-checkbox-marked-outline: Yes | `[]` |
-| security_tokens | Mapping [String, Keyword] | Map of security tokens | :material-checkbox-marked-outline: Yes | `{}` |
-| uname | Keyword | Username | :material-checkbox-marked-outline: Yes | `None` |
+| agrees_with_tos | Date | Date the user agree with terms of service | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| api_quota | Integer | Maximum number of concurrent API requests | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `10` |
+| apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
+| apps | Mapping [String, [Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
+| can_impersonate | Boolean | Allowed to query on behalf of others? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| classification | Classification | Maximum classification for the user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| dn | Keyword | User's LDAP DN | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| email | Email | User's email address | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| groups | List [UpperKeyword] | List of groups the user submits to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| is_active | Boolean | Is the user active? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| name | Keyword | Full name of the user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| otp_sk | Keyword | Secret key to generate one time passwords | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| password | Keyword | BCrypt hash of the user's password | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| submission_quota | Integer | Maximum number of concurrent submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| type | List [Enum] | Type of user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['user']` |
+| roles | List [Enum] | Default roles for user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| security_tokens | Mapping [String, Keyword] | Map of security tokens | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| uname | Keyword | Username | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -30,9 +30,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| acl | List [Enum] | Access Control List for the API key | :material-checkbox-marked-outline: Yes | `None` |
-| password | Keyword | BCrypt hash of the password for the apikey | :material-checkbox-marked-outline: Yes | `None` |
-| roles | List [Enum] | List of roles tied to the API key | :material-checkbox-marked-outline: Yes | `[]` |
+| acl | List [Enum] | Access Control List for the API key | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| password | Keyword | BCrypt hash of the password for the apikey | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| roles | List [Enum] | List of roles tied to the API key | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -41,10 +41,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| client_id | Keyword | Username allowed to impersonate the current user | :material-checkbox-marked-outline: Yes | `None` |
-| netloc | Keyword | DNS hostname for the server | :material-checkbox-marked-outline: Yes | `None` |
-| scope | Enum | Scope of access for the App token<br>Values:<br>`"c", "r", "rw", "w"` | :material-checkbox-marked-outline: Yes | `None` |
-| server | Keyword | Name of the server that has access | :material-checkbox-marked-outline: Yes | `None` |
-| roles | List [Enum] | List of roles tied to the App token | :material-checkbox-marked-outline: Yes | `[]` |
+| client_id | Keyword | Username allowed to impersonate the current user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| netloc | Keyword | DNS hostname for the server | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| scope | Enum | Scope of access for the App token<br>Values:<br>`"c", "r", "rw", "w"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| server | Keyword | Name of the server that has access | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| roles | List [Enum] | List of roles tied to the App token | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 

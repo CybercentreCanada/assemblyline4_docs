@@ -4,23 +4,23 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Default submission classification | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| deep_scan | Boolean | Should a deep scan be performed? | :material-checkbox-marked-outline: Yes | `False` |
-| description | Keyword | Default description | :material-checkbox-marked-outline: Yes | `` |
-| download_encoding | Enum | Default download encoding when downloading files<br>Values:<br>`"cart", "raw", "zip"` | :material-checkbox-marked-outline: Yes | `cart` |
-| default_external_sources | List [Keyword] | List of sha256 sources to check by default | :material-checkbox-marked-outline: Yes | `[]` |
-| default_zip_password | Text | Default user-defined password for creating password protected ZIPs when downloading files | :material-checkbox-marked-outline: Yes | `zippy` |
-| expand_min_score | Integer | Auto-expand section when score bigger then this | :material-checkbox-marked-outline: Yes | `500` |
-| generate_alert | Boolean | Generate an alert? | :material-checkbox-marked-outline: Yes | `False` |
-| ignore_cache | Boolean | Ignore service caching? | :material-checkbox-marked-outline: Yes | `False` |
-| ignore_dynamic_recursion_prevention | Boolean | Ignore dynamic recursion prevention? | :material-checkbox-marked-outline: Yes | `False` |
-| ignore_filtering | Boolean | Ignore filtering services? | :material-checkbox-marked-outline: Yes | `False` |
-| malicious | Boolean | Is the file submitted already known to be malicious? | :material-checkbox-marked-outline: Yes | `False` |
-| priority | Integer | Default priority for the submissions | :material-checkbox-marked-outline: Yes | `1000` |
-| profile | Boolean | Should the submission do extra profiling? | :material-checkbox-marked-outline: Yes | `False` |
-| service_spec | Mapping [String, Mapping [String, Any]] | Default service specific settings | :material-checkbox-marked-outline: Yes | `{}` |
-| services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Default service selection | :material-checkbox-marked-outline: Yes | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
-| submission_view | Enum | Default view for completed submissions<br>Values:<br>`"details", "report"` | :material-checkbox-marked-outline: Yes | `report` |
-| ttl | Integer | Default submission TTL, in days | :material-checkbox-marked-outline: Yes | `30` |
+| classification | Classification | Default submission classification | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| deep_scan | Boolean | Should a deep scan be performed? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| description | Keyword | Default description | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `` |
+| download_encoding | Enum | Default download encoding when downloading files<br>Values:<br>`"cart", "raw", "zip"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cart` |
+| default_external_sources | List [Keyword] | List of sha256 sources to check by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| default_zip_password | Text | Default user-defined password for creating password protected ZIPs when downloading files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `zippy` |
+| expand_min_score | Integer | Auto-expand section when score bigger then this | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
+| generate_alert | Boolean | Generate an alert? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_cache | Boolean | Ignore service caching? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_dynamic_recursion_prevention | Boolean | Ignore dynamic recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_filtering | Boolean | Ignore filtering services? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| malicious | Boolean | Is the file submitted already known to be malicious? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| priority | Integer | Default priority for the submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
+| profile | Boolean | Should the submission do extra profiling? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| service_spec | Mapping [String, Mapping [String, Any]] | Default service specific settings | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Default service selection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
+| submission_view | Enum | Default view for completed submissions<br>Values:<br>`"details", "report"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `report` |
+| ttl | Integer | Default submission TTL, in days | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
 
 

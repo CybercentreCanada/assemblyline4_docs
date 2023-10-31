@@ -4,13 +4,13 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Classification of the cache | :material-checkbox-marked-outline: Yes | `TLP:C` |
-| filtered | Boolean | Has this cache entry been filtered? | :material-checkbox-marked-outline: Yes | `False` |
-| expiry_ts | Date | Expiry timestamp | :material-checkbox-marked-outline: Yes | `None` |
-| tags | Text | Tags cache | :material-checkbox-marked-outline: Yes | `None` |
-| attack_matrix | Text | ATT&CK Matrix cache | :material-checkbox-marked-outline: Yes | `None` |
-| heuristics | Text | Heuristics cache | :material-checkbox-marked-outline: Yes | `None` |
-| heuristic_sections | Text | All sections mapping to the heuristics | :material-checkbox-marked-outline: Yes | `None` |
-| heuristic_name_map | Text | Map of heuristic names to IDs | :material-checkbox-marked-outline: Yes | `None` |
+| classification | Classification | Classification of the cache | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| filtered | Boolean | Has this cache entry been filtered? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| expiry_ts | Date | Expiry timestamp | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| tags | Text | Tags cache | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| attack_matrix | Text | ATT&CK Matrix cache | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| heuristics | Text | Heuristics cache | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| heuristic_sections | Text | All sections mapping to the heuristics | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| heuristic_name_map | Text | Map of heuristic names to IDs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 

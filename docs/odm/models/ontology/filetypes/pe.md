@@ -4,33 +4,33 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| format | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| imphash | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| entrypoint | Integer | None | :material-minus-box-outline: Optional | `None` |
-| header | [Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#header) | None | :material-minus-box-outline: Optional | `None` |
-| optional_header | [Optional_Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#optional_header) | None | :material-minus-box-outline: Optional | `None` |
-| dos_header | [Dos_Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#dos_header) | None | :material-minus-box-outline: Optional | `None` |
-| rich_header | [Rich_Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#rich_header) | None | :material-minus-box-outline: Optional | `None` |
-| nx | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| authentihash | [Authentihash](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#authentihash) | None | :material-minus-box-outline: Optional | `None` |
-| tls | [TLS](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#tls) | None | :material-minus-box-outline: Optional | `None` |
-| position_independent | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| is_reproducible_build | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| size_of_headers | Integer | None | :material-minus-box-outline: Optional | `None` |
-| virtual_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sections | List [[Sections](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#sections)] | None | :material-minus-box-outline: Optional | `None` |
-| debugs | List [[Debug](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#debug)] | None | :material-minus-box-outline: Optional | `None` |
-| export | [Export](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#export) | None | :material-minus-box-outline: Optional | `None` |
-| imports | List [[Import](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#import)] | None | :material-minus-box-outline: Optional | `None` |
-| load_configuration | [Load_Configuration](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#load_configuration) | None | :material-minus-box-outline: Optional | `None` |
-| resources_manager | [Resources_Manager](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#resources_manager) | None | :material-minus-box-outline: Optional | `None` |
-| resources | List [[Resource](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#resource)] | None | :material-minus-box-outline: Optional | `None` |
-| verify_signature | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| signatures | List [[Signature](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#signature)] | None | :material-minus-box-outline: Optional | `None` |
-| overlay | [Overlay](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#overlay) | None | :material-minus-box-outline: Optional | `None` |
-| relocations | List [[Relocation](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#relocation)] | None | :material-minus-box-outline: Optional | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| format | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| imphash | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entrypoint | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| header | [Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#header) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| optional_header | [Optional_Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#optional_header) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dos_header | [Dos_Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#dos_header) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| rich_header | [Rich_Header](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#rich_header) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| nx | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| authentihash | [Authentihash](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#authentihash) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| tls | [TLS](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#tls) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| position_independent | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_reproducible_build | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size_of_headers | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| virtual_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sections | List [[Sections](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#sections)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| debugs | List [[Debug](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#debug)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| export | [Export](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#export) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| imports | List [[Import](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#import)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| load_configuration | [Load_Configuration](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#load_configuration) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| resources_manager | [Resources_Manager](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#resources_manager) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| resources | List [[Resource](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#resource)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| verify_signature | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signatures | List [[Signature](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#signature)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| overlay | [Overlay](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#overlay) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| relocations | List [[Relocation](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#relocation)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -39,11 +39,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| sha512 | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| sha384 | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| sha256 | SHA256 | None | :material-minus-box-outline: Optional | `None` |
-| sha1 | SHA1 | None | :material-minus-box-outline: Optional | `None` |
-| md5 | MD5 | None | :material-minus-box-outline: Optional | `None` |
+| sha512 | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sha384 | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sha256 | SHA256 | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sha1 | SHA1 | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| md5 | MD5 | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -52,17 +52,17 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| addressof_rawdata | Integer | None | :material-minus-box-outline: Optional | `None` |
-| characteristics | Integer | None | :material-minus-box-outline: Optional | `None` |
-| major_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| pointerto_rawdata | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| timestamp | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hr_timestamp | Date | None | :material-minus-box-outline: Optional | `None` |
-| type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| code_view | [CodeView](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#codeview) | None | :material-minus-box-outline: Optional | `None` |
-| pogo | [POGO](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#pogo) | None | :material-minus-box-outline: Optional | `None` |
+| addressof_rawdata | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| characteristics | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| pointerto_rawdata | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| timestamp | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hr_timestamp | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| code_view | [CodeView](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#codeview) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| pogo | [POGO](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#pogo) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -71,10 +71,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| age | Integer | None | :material-minus-box-outline: Optional | `None` |
-| cv_signature | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| filename | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| guid | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| age | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| cv_signature | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| filename | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guid | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -83,8 +83,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | :material-minus-box-outline: Optional | `None` |
-| signature | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -93,9 +93,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| start_rva | Integer | None | :material-minus-box-outline: Optional | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| start_rva | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -104,23 +104,23 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| addressof_new_exeheader | Integer | None | :material-minus-box-outline: Optional | `None` |
-| addressof_relocation_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| checksum | Integer | None | :material-minus-box-outline: Optional | `None` |
-| file_size_in_pages | Integer | None | :material-minus-box-outline: Optional | `None` |
-| header_size_in_paragraphs | Integer | None | :material-minus-box-outline: Optional | `None` |
-| initial_ip | Integer | None | :material-minus-box-outline: Optional | `None` |
-| initial_relative_cs | Integer | None | :material-minus-box-outline: Optional | `None` |
-| initial_relative_ss | Integer | None | :material-minus-box-outline: Optional | `None` |
-| initial_sp | Integer | None | :material-minus-box-outline: Optional | `None` |
-| magic | Integer | None | :material-minus-box-outline: Optional | `None` |
-| maximum_extra_paragraphs | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minimum_extra_paragraphs | Integer | None | :material-minus-box-outline: Optional | `None` |
-| numberof_relocation | Integer | None | :material-minus-box-outline: Optional | `None` |
-| oem_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| oem_info | Integer | None | :material-minus-box-outline: Optional | `None` |
-| overlay_number | Integer | None | :material-minus-box-outline: Optional | `None` |
-| used_bytes_in_the_last_page | Integer | None | :material-minus-box-outline: Optional | `None` |
+| addressof_new_exeheader | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| addressof_relocation_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| checksum | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_size_in_pages | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| header_size_in_paragraphs | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| initial_ip | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| initial_relative_cs | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| initial_relative_ss | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| initial_sp | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| magic | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| maximum_extra_paragraphs | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minimum_extra_paragraphs | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| numberof_relocation | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| oem_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| oem_info | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| overlay_number | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| used_bytes_in_the_last_page | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -129,14 +129,14 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | :material-minus-box-outline: Optional | `None` |
-| export_flags | Integer | None | :material-minus-box-outline: Optional | `None` |
-| major_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| ordinal_base | Integer | None | :material-minus-box-outline: Optional | `None` |
-| timestamp | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hr_timestamp | Date | None | :material-minus-box-outline: Optional | `None` |
+| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| export_flags | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ordinal_base | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| timestamp | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hr_timestamp | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -145,12 +145,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| address | Integer | None | :material-minus-box-outline: Optional | `None` |
-| forward_information | [Forward_Information](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#forward_information) | None | :material-minus-box-outline: Optional | `None` |
-| function_rva | Integer | None | :material-minus-box-outline: Optional | `None` |
-| is_extern | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| ordinal | Integer | None | :material-minus-box-outline: Optional | `None` |
+| address | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| forward_information | [Forward_Information](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#forward_information) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| function_rva | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_extern | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ordinal | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -159,8 +159,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| function | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| library | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| function | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| library | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -169,14 +169,14 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| characteristics_hash | Integer | None | :material-minus-box-outline: Optional | `None` |
-| characteristics_list | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| machine | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| numberof_sections | Integer | None | :material-minus-box-outline: Optional | `None` |
-| numberof_symbols | Integer | None | :material-minus-box-outline: Optional | `None` |
-| signature | List [Integer] | None | :material-minus-box-outline: Optional | `None` |
-| timestamp | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hr_timestamp | Date | None | :material-minus-box-outline: Optional | `None` |
+| characteristics_hash | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| characteristics_list | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| machine | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| numberof_sections | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| numberof_symbols | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature | List [Integer] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| timestamp | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hr_timestamp | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -185,14 +185,14 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| library | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hint | Integer | None | :material-minus-box-outline: Optional | `None` |
-| iat_address | Integer | None | :material-minus-box-outline: Optional | `None` |
-| iat_value | Integer | None | :material-minus-box-outline: Optional | `None` |
-| is_ordinal | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| ordinal | Integer | None | :material-minus-box-outline: Optional | `None` |
+| library | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hint | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| iat_address | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| iat_value | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_ordinal | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ordinal | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -201,50 +201,50 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| characteristics | Integer | None | :material-minus-box-outline: Optional | `None` |
-| critical_section_default_timeout | Integer | None | :material-minus-box-outline: Optional | `None` |
-| csd_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| decommit_free_block_threshold | Integer | None | :material-minus-box-outline: Optional | `None` |
-| decommit_total_free_threshold | Integer | None | :material-minus-box-outline: Optional | `None` |
-| editlist | Integer | None | :material-minus-box-outline: Optional | `None` |
-| global_flags_clear | Integer | None | :material-minus-box-outline: Optional | `None` |
-| global_flags_set | Integer | None | :material-minus-box-outline: Optional | `None` |
-| lock_prefix_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| major_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| maximum_allocation_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| process_affinity_mask | Integer | None | :material-minus-box-outline: Optional | `None` |
-| process_heap_flags | Integer | None | :material-minus-box-outline: Optional | `None` |
-| reserved1 | Integer | None | :material-minus-box-outline: Optional | `None` |
-| security_cookie | Integer | None | :material-minus-box-outline: Optional | `None` |
-| timedatestamp | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hr_timedatestamp | Date | None | :material-minus-box-outline: Optional | `None` |
-| version | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| virtual_memory_threshold | Integer | None | :material-minus-box-outline: Optional | `None` |
-| se_handler_count | Integer | None | :material-minus-box-outline: Optional | `None` |
-| se_handler_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_cf_check_function_pointer | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_cf_dispatch_function_pointer | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_cf_flags_list | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| guard_cf_function_count | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_cf_function_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_flags | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| code_integrity | [Code_Integrity](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#code_integrity) | None | :material-minus-box-outline: Optional | `None` |
-| guard_address_taken_iat_entry_count | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_address_taken_iat_entry_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_long_jump_target_count | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_long_jump_target_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| dynamic_value_reloc_table | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hybrid_metadata_pointer | Integer | None | :material-minus-box-outline: Optional | `None` |
-| dynamic_value_reloctable_offset | Integer | None | :material-minus-box-outline: Optional | `None` |
-| dynamic_value_reloctable_section | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_rf_failure_routine | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_rf_failure_routine_function_pointer | Integer | None | :material-minus-box-outline: Optional | `None` |
-| reserved2 | Integer | None | :material-minus-box-outline: Optional | `None` |
-| guard_rf_verify_stackpointer_function_pointer | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hotpatch_table_offset | Integer | None | :material-minus-box-outline: Optional | `None` |
-| addressof_unicode_string | Integer | None | :material-minus-box-outline: Optional | `None` |
-| reserved3 | Integer | None | :material-minus-box-outline: Optional | `None` |
+| characteristics | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| critical_section_default_timeout | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| csd_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| decommit_free_block_threshold | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| decommit_total_free_threshold | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| editlist | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| global_flags_clear | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| global_flags_set | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| lock_prefix_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| maximum_allocation_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| process_affinity_mask | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| process_heap_flags | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| reserved1 | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| security_cookie | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| timedatestamp | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hr_timedatestamp | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| version | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| virtual_memory_threshold | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| se_handler_count | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| se_handler_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_cf_check_function_pointer | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_cf_dispatch_function_pointer | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_cf_flags_list | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_cf_function_count | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_cf_function_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_flags | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| code_integrity | [Code_Integrity](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#code_integrity) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_address_taken_iat_entry_count | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_address_taken_iat_entry_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_long_jump_target_count | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_long_jump_target_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dynamic_value_reloc_table | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hybrid_metadata_pointer | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dynamic_value_reloctable_offset | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dynamic_value_reloctable_section | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_rf_failure_routine | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_rf_failure_routine_function_pointer | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| reserved2 | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| guard_rf_verify_stackpointer_function_pointer | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hotpatch_table_offset | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| addressof_unicode_string | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| reserved3 | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -253,10 +253,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| catalog | Integer | None | :material-minus-box-outline: Optional | `None` |
-| catalog_offset | Integer | None | :material-minus-box-outline: Optional | `None` |
-| flags | Integer | None | :material-minus-box-outline: Optional | `None` |
-| reserved | Integer | None | :material-minus-box-outline: Optional | `None` |
+| catalog | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| catalog_offset | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| flags | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| reserved | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -265,38 +265,38 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| addressof_entrypoint | Integer | None | :material-minus-box-outline: Optional | `None` |
-| baseof_code | Integer | None | :material-minus-box-outline: Optional | `None` |
-| baseof_data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| checksum | Integer | None | :material-minus-box-outline: Optional | `None` |
-| computed_checksum | Integer | None | :material-minus-box-outline: Optional | `None` |
-| dll_characteristics | Integer | None | :material-minus-box-outline: Optional | `None` |
-| dll_characteristics_lists | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| file_alignment | Integer | None | :material-minus-box-outline: Optional | `None` |
-| imagebase | Integer | None | :material-minus-box-outline: Optional | `None` |
-| loader_flags | Integer | None | :material-minus-box-outline: Optional | `None` |
-| magic | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| major_image_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| major_linker_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| major_operating_system_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| major_subsystem_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_image_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_linker_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_operating_system_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_subsystem_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| numberof_rva_and_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| section_alignment | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_code | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_headers | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_heap_commit | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_heap_reserve | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_image | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_initialized_data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_stack_commit | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_stack_reserve | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_uninitialized_data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| subsystem | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| win32_version_value | Integer | None | :material-minus-box-outline: Optional | `None` |
+| addressof_entrypoint | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| baseof_code | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| baseof_data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| checksum | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| computed_checksum | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dll_characteristics | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dll_characteristics_lists | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_alignment | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| imagebase | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| loader_flags | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| magic | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_image_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_linker_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_operating_system_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_subsystem_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_image_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_linker_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_operating_system_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_subsystem_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| numberof_rva_and_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| section_alignment | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_code | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_headers | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_heap_commit | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_heap_reserve | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_image | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_initialized_data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_stack_commit | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_stack_reserve | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_uninitialized_data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| subsystem | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| win32_version_value | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -305,8 +305,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| entropy | Float | None | :material-minus-box-outline: Optional | `None` |
+| size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entropy | Float | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -315,8 +315,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| virtual_address | Integer | None | :material-minus-box-outline: Optional | `None` |
-| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | :material-minus-box-outline: Optional | `None` |
+| virtual_address | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -325,11 +325,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| address | Integer | None | :material-minus-box-outline: Optional | `None` |
-| data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| position | Integer | None | :material-minus-box-outline: Optional | `None` |
-| size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| address | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| position | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -338,27 +338,27 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| parent_resource_ids | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| parent_labels | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| characteristics | Integer | None | :material-minus-box-outline: Optional | `None` |
-| num_childs | Integer | None | :material-minus-box-outline: Optional | `None` |
-| depth | Integer | None | :material-minus-box-outline: Optional | `None` |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| resource_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| resource_type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| is_data | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| is_directory | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| major_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| minor_version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| numberof_id_entries | Integer | None | :material-minus-box-outline: Optional | `None` |
-| numberof_name_entries | Integer | None | :material-minus-box-outline: Optional | `None` |
-| time_date_stamp | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hr_time_date_stamp | Date | None | :material-minus-box-outline: Optional | `None` |
-| code_page | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sha256 | SHA256 | None | :material-minus-box-outline: Optional | `None` |
-| entropy | Float | None | :material-minus-box-outline: Optional | `None` |
-| offset | Integer | None | :material-minus-box-outline: Optional | `None` |
-| reserved | Integer | None | :material-minus-box-outline: Optional | `None` |
+| parent_resource_ids | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| parent_labels | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| characteristics | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| num_childs | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| depth | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| resource_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| resource_type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_data | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_directory | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| major_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| minor_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| numberof_id_entries | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| numberof_name_entries | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| time_date_stamp | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hr_time_date_stamp | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| code_page | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sha256 | SHA256 | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entropy | Float | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| offset | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| reserved | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -367,15 +367,15 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| langs_available | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| sublangs_available | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| accelerators | List [[Accelerator](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#accelerator)] | None | :material-minus-box-outline: Optional | `None` |
-| dialogs | List [[Dialog](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#dialog)] | None | :material-minus-box-outline: Optional | `None` |
-| html | Text | None | :material-minus-box-outline: Optional | `None` |
-| icons | List [[Icon](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#icon)] | None | :material-minus-box-outline: Optional | `None` |
-| manifest | Text | None | :material-minus-box-outline: Optional | `None` |
-| string_table | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| version | [Version](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#version) | None | :material-minus-box-outline: Optional | `None` |
+| langs_available | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sublangs_available | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| accelerators | List [[Accelerator](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#accelerator)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dialogs | List [[Dialog](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#dialog)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| html | Text | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| icons | List [[Icon](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#icon)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| manifest | Text | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| string_table | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| version | [Version](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#version) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -384,10 +384,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| accelerator_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| padding | Integer | None | :material-minus-box-outline: Optional | `None` |
-| ansi | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| flags | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| accelerator_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| padding | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ansi | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| flags | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -396,26 +396,26 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| charset | Integer | None | :material-minus-box-outline: Optional | `None` |
-| cx | Integer | None | :material-minus-box-outline: Optional | `None` |
-| cy | Integer | None | :material-minus-box-outline: Optional | `None` |
-| dialogbox_style_list | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| extended_style | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| extended_style_list | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| help_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| items | List [[Item](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#item)] | None | :material-minus-box-outline: Optional | `None` |
-| lang | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| point_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| signature | Integer | None | :material-minus-box-outline: Optional | `None` |
-| style | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| style_list | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| sub_lang | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| title | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| typeface | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| weight | Integer | None | :material-minus-box-outline: Optional | `None` |
-| x | Integer | None | :material-minus-box-outline: Optional | `None` |
-| y | Integer | None | :material-minus-box-outline: Optional | `None` |
+| charset | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| cx | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| cy | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| dialogbox_style_list | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| extended_style | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| extended_style_list | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| help_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| items | List [[Item](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#item)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| lang | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| point_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| style | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| style_list | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sub_lang | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| title | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| typeface | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| weight | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| x | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| y | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -424,16 +424,16 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| cx | Integer | None | :material-minus-box-outline: Optional | `None` |
-| cy | Integer | None | :material-minus-box-outline: Optional | `None` |
-| extended_style | Integer | None | :material-minus-box-outline: Optional | `None` |
-| help_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| item_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| is_extended | Boolean | None | :material-minus-box-outline: Optional | `None` |
-| style | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| title | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| x | Integer | None | :material-minus-box-outline: Optional | `None` |
-| y | Integer | None | :material-minus-box-outline: Optional | `None` |
+| cx | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| cy | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| extended_style | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| help_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| item_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_extended | Boolean | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| style | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| title | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| x | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| y | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -442,12 +442,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| icon_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| planes | Integer | None | :material-minus-box-outline: Optional | `None` |
-| height | Integer | None | :material-minus-box-outline: Optional | `None` |
-| width | Integer | None | :material-minus-box-outline: Optional | `None` |
-| lang | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| sublang | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| icon_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| planes | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| height | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| width | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| lang | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sublang | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -456,10 +456,10 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| type | Integer | None | :material-minus-box-outline: Optional | `None` |
-| fixed_file_info | [Fixed_File_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#fixed_file_info) | None | :material-minus-box-outline: Optional | `None` |
-| string_file_info | [String_File_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#string_file_info) | None | :material-minus-box-outline: Optional | `None` |
-| var_file_info | [Var_File_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#var_file_info) | None | :material-minus-box-outline: Optional | `None` |
+| type | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| fixed_file_info | [Fixed_File_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#fixed_file_info) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| string_file_info | [String_File_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#string_file_info) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| var_file_info | [Var_File_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#var_file_info) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -468,19 +468,19 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| file_date_ls | Integer | None | :material-minus-box-outline: Optional | `None` |
-| file_date_ms | Integer | None | :material-minus-box-outline: Optional | `None` |
-| file_flags | Integer | None | :material-minus-box-outline: Optional | `None` |
-| file_flags_mask | Integer | None | :material-minus-box-outline: Optional | `None` |
-| file_os | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| file_subtype | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| file_type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| file_version_ls | Integer | None | :material-minus-box-outline: Optional | `None` |
-| file_version_ms | Integer | None | :material-minus-box-outline: Optional | `None` |
-| product_version_ls | Integer | None | :material-minus-box-outline: Optional | `None` |
-| product_version_ms | Integer | None | :material-minus-box-outline: Optional | `None` |
-| signature | Integer | None | :material-minus-box-outline: Optional | `None` |
-| struct_version | Integer | None | :material-minus-box-outline: Optional | `None` |
+| file_date_ls | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_date_ms | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_flags | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_flags_mask | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_os | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_subtype | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_version_ls | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_version_ms | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| product_version_ls | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| product_version_ms | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| struct_version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -489,9 +489,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| type | Integer | None | :material-minus-box-outline: Optional | `None` |
-| langcode_items | List [[LangCode_Item](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#langcode_item)] | None | :material-minus-box-outline: Optional | `None` |
+| key | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| type | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| langcode_items | List [[LangCode_Item](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#langcode_item)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -500,12 +500,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| type | Integer | None | :material-minus-box-outline: Optional | `None` |
-| lang | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| sublang | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| code_page | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| items | List [[Item](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#item)] | None | :material-minus-box-outline: Optional | `None` |
+| key | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| type | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| lang | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sublang | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| code_page | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| items | List [[Item](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#item)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -514,8 +514,8 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| value | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| key | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| value | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -524,9 +524,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| type | Integer | None | :material-minus-box-outline: Optional | `None` |
-| translations | List [Integer] | None | :material-minus-box-outline: Optional | `None` |
+| key | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| type | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| translations | List [Integer] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -535,9 +535,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| key | Integer | None | :material-minus-box-outline: Optional | `None` |
-| hash | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | :material-minus-box-outline: Optional | `None` |
+| key | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hash | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entries | List [[Entry](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#entry)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -546,9 +546,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| build_id | Integer | None | :material-minus-box-outline: Optional | `None` |
-| count | Integer | None | :material-minus-box-outline: Optional | `None` |
-| entry_id | Integer | None | :material-minus-box-outline: Optional | `None` |
+| build_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| count | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entry_id | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -557,18 +557,18 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| name | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| characteristics_hash | Integer | None | :material-minus-box-outline: Optional | `None` |
-| characteristics_list | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| entropy | Float | None | :material-minus-box-outline: Optional | `None` |
-| entropy_without_padding | Float | None | :material-minus-box-outline: Optional | `None` |
-| md5 | MD5 | None | :material-minus-box-outline: Optional | `None` |
-| offset | Integer | None | :material-minus-box-outline: Optional | `None` |
-| size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| sizeof_raw_data | Integer | None | :material-minus-box-outline: Optional | `None` |
-| virtual_address | Integer | None | :material-minus-box-outline: Optional | `None` |
-| virtual_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| fullname | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| name | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| characteristics_hash | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| characteristics_list | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entropy | Float | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| entropy_without_padding | Float | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| md5 | MD5 | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| offset | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| sizeof_raw_data | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| virtual_address | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| virtual_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| fullname | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -577,12 +577,12 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| algorithm | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| signers | List [[Signer](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#signer)] | None | :material-minus-box-outline: Optional | `None` |
-| certificates | List [[Certificate](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#certificate)] | None | :material-minus-box-outline: Optional | `None` |
-| content_info | [Content_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#content_info) | None | :material-minus-box-outline: Optional | `None` |
-| check | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| algorithm | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signers | List [[Signer](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#signer)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| certificates | List [[Certificate](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#certificate)] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| content_info | [Content_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#content_info) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| check | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -591,22 +591,22 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| subject | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| issuer | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| serial_number | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| key_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| key_type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| key_usage | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| certificate_policies | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| ext_key_usage | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| valid_from | Date | None | :material-minus-box-outline: Optional | `None` |
-| valid_to | Date | None | :material-minus-box-outline: Optional | `None` |
-| signature | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| signature_algorithm | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| is_trusted | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| raw_hex | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| rsa_info | [RSA_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#rsa_info) | None | :material-minus-box-outline: Optional | `None` |
+| version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| subject | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| issuer | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| serial_number | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| key_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| key_type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| key_usage | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| certificate_policies | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ext_key_usage | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| valid_from | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| valid_to | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature_algorithm | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_trusted | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| raw_hex | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| rsa_info | [RSA_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#rsa_info) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -615,11 +615,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| d_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| e_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| n_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| p_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| q_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| d_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| e_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| n_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| p_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| q_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -628,9 +628,9 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| algorithm | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| digest | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| content_type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| algorithm | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| digest | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| content_type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -639,15 +639,15 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| issuer | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| serial_number | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| encryption_algorithm | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| digest_algorithm | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| encrypted_digest | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| cert | [Certificate](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#certificate) | None | :material-minus-box-outline: Optional | `None` |
-| authenticated_attributes | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| unauthenticated_attributes | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
+| version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| issuer | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| serial_number | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| encryption_algorithm | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| digest_algorithm | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| encrypted_digest | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| cert | [Certificate](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#certificate) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| authenticated_attributes | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| unauthenticated_attributes | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -656,22 +656,22 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| version | Integer | None | :material-minus-box-outline: Optional | `None` |
-| subject | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| issuer | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| serial_number | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| key_size | Integer | None | :material-minus-box-outline: Optional | `None` |
-| key_type | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| key_usage | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| certificate_policies | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| ext_key_usage | List [EmptyableKeyword] | None | :material-minus-box-outline: Optional | `None` |
-| valid_from | Date | None | :material-minus-box-outline: Optional | `None` |
-| valid_to | Date | None | :material-minus-box-outline: Optional | `None` |
-| signature | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| signature_algorithm | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| is_trusted | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| raw_hex | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| rsa_info | [RSA_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#rsa_info) | None | :material-minus-box-outline: Optional | `None` |
+| version | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| subject | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| issuer | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| serial_number | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| key_size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| key_type | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| key_usage | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| certificate_policies | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ext_key_usage | List [EmptyableKeyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| valid_from | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| valid_to | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| signature_algorithm | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| is_trusted | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| raw_hex | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| rsa_info | [RSA_Info](/assemblyline4_docs/odm/models/ontology/filetypes/pe/#rsa_info) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -680,11 +680,11 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| d_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| e_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| n_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| p_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
-| q_param | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| d_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| e_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| n_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| p_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| q_param | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -693,6 +693,6 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| section | EmptyableKeyword | None | :material-minus-box-outline: Optional | `None` |
+| section | EmptyableKeyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
