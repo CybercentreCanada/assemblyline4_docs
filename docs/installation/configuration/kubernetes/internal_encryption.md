@@ -15,55 +15,160 @@ Enabling this feature will require some changes to the values used by the accomp
 
 For example, to enable the feature with the default values using Helm-generated Root CA for verification:
 
-```yaml
----
-# Generated certificates are stored in Secrets as <server_hostname>-cert
-# Each Secret has two keys: 'tls.crt', 'tls.key' which has their respective public certificate and private key
+!!! note "Generated certificates are stored in Secrets as `<server_hostname>-cert`"
+    Each Secret has two keys: `tls.crt`, `tls.key` which has their respective public certificate and private key
 
-datastore:
-  # Change of protocol for readiness probes
-  protocol: https
+=== "Elasticsearch"
+    In this example, I'll mention the changes to the `datastore` but this will also apply to `log-storage` when `seperateInternalELKStack: true`
+    === "7.17.3"
+        ```yaml
+        datastore:
+          # Change of protocol for readiness probes
+          protocol: https
 
-  # By default, we configure Elasticsearch instances (including the log-storage) to use
-  # the contents of '/usr/share/elasticsearch/config/http_ssl/' when settings up HTTPS
-  # This can be overridden by setting the environment variables directly, see values.yaml for more details
-  extraVolumes: |
-    - name: elastic-certificates
-      emptyDir: {}
-    - name: datastore-master-cert
-      secret:
-        secretName: datastore-master-cert
-  extraVolumeMounts: |
-    - name: elastic-certificates
-      mountPath: /usr/share/elasticsearch/config/certs
-    - name: datastore-master-cert
-      mountPath: /usr/share/elasticsearch/config/http_ssl
-      readOnly: true
+          # By default, we configure Elasticsearch instances (including the log-storage) to use
+          # the contents of '/usr/share/elasticsearch/config/http_ssl/' when settings up HTTPS
+          # This can be overridden by setting the environment variables directly, see values.yaml for more details
+          extraVolumes: |
+            - name: elastic-certificates
+              emptyDir: {}
+            - name: datastore-master-cert
+              secret:
+                secretName: datastore-master-cert
+          extraVolumeMounts: |
+            - name: elastic-certificates
+              mountPath: /usr/share/elasticsearch/config/certs
+            - name: datastore-master-cert
+              mountPath: /usr/share/elasticsearch/config/http_ssl
+              readOnly: true
+        ```
+    === "8+"
+        ```yaml
+        datastore:
+          # Change of protocol for readiness probes
+          protocol: https
+          esConfig:
+            elasticsearch.yml: |
+              ingest.geoip.downloader.enabled: false
+              logger.level: WARN
+              xpack.security.enabled: true
+              xpack.security.transport.ssl.enabled: true
+              xpack.security.transport.ssl.verification_mode: certificate
+              xpack.security.transport.ssl.keystore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+              xpack.security.transport.ssl.truststore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+              xpack.security.http.ssl.enabled: ${DATASTORE_SSL_ENABLED}
+              xpack.security.http.ssl.verification_mode: full
+              xpack.security.http.ssl.key: ${DATASTORE_SSL_KEY}
+              xpack.security.http.ssl.certificate: ${DATASTORE_SSL_CERTIFICIATE}
 
-# Internally hosted Kibana instance. For more details, see: https://github.com/elastic/helm-charts/tree/7.17/kibana#configuration
-kibanaHost: https://kibana/kibana
-kibana:
-  elasticsearchHosts: https://log-storage-master:9200
+          # By default, we configure Elasticsearch instances (including the log-storage) to use
+          # the contents of '/usr/share/elasticsearch/config/http_ssl/' when settings up HTTPS
+          # This can be overridden by setting the environment variables directly, see values.yaml for more details
+          extraVolumes: |
+            - name: elastic-certificates
+              emptyDir: {}
+            - name: datastore-master-cert
+              secret:
+                secretName: datastore-master-cert
+          extraVolumeMounts: |
+            - name: elastic-certificates
+              mountPath: /usr/share/elasticsearch/config/certs
+            - name: datastore-master-cert
+              mountPath: /usr/share/elasticsearch/config/http_ssl
+              readOnly: true
+        ```
+=== "Kibana"
+    === "7.17.3"
+        ```yaml
+        # Internally hosted Kibana instance. For more details, see: https://github.com/elastic/helm-charts/tree/7.17/kibana#configuration
+        kibanaHost: https://kibana/kibana
+        kibana:
+          elasticsearchHosts: https://log-storage-master:9200
 
-  # For Filebeat, Metricbeat, APM, and Kibana, we mount the Root CA in '/etc/certs/ca.crt'
-  # This can be overridden by replacing the ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES environment variable
-  extraVolumes:
-    - name: root-ca
-      secret:
-        secretName: "<release_name>.internal-generated-ca"
-  extraVolumeMounts:
-    - name: root-ca
-      mountPath: /etc/certs/ca.crt
-      subPath: tls.crt
+          # For Filebeat, Metricbeat, APM, and Kibana, we mount the Root CA in '/etc/certs/ca.crt'
+          # This can be overridden by replacing the ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES environment variable
+          kibanaConfig:
+            kibana.yml: |
+              server.ssl:
+                enabled: true
+                certificate: /etc/certs/kibana/tls.crt
+                key: /etc/certs/kibana/tls.key
+                certificateAuthorities: /etc/certs/ca.crt
+              elasticsearch:
+                hosts: ['${ELASTICSEARCH_HOSTS}']
+                username: ${ELASTICSEARCH_USERNAME}
+                password: ${ELASTICSEARCH_PASSWORD}
+          extraVolumes:
+            - name: root-ca
+              secret:
+                secretName: "<release_name>.internal-generated-ca"
+            - name: kibana-cert
+              secret:
+                secretName: kibana-cert
+          extraVolumeMounts:
+            - name: root-ca
+              mountPath: /etc/certs/ca.crt
+              subPath: tls.crt
+            - name: kibana-cert
+              mountPath: /etc/certs/kibana/
+              readOnly: true
+        ```
+    === "8+"
+        ```yaml
+        # Internally hosted Kibana instance. For more details, see: https://github.com/elastic/helm-charts/tree/7.17/kibana#configuration
+        kibanaHost: https://kibana/kibana
+        kibana:
+          elasticsearchHosts: https://log-storage-master:9200
 
-# Internally hosted MinIO filestore. For more details, see: https://github.com/minio/charts/tree/main/minio#configuration
-filestore:
-  tls:
-    enabled: true
-    certSecret: filestore-cert
-    publicCrt: tls.crt
-    privateKey: tls.key
-```
+          # For Filebeat, Metricbeat, APM, and Kibana, we mount the Root CA in '/etc/certs/ca.crt'
+          # This can be overridden by replacing the ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES environment variable
+          extraVolumes:
+            - name: init-script
+              configMap:
+                name: init-kibana-token
+            - name: root-ca
+              secret:
+                secretName: "<release_name>.internal-generated-ca"
+          extraVolumeMounts:
+            - name: root-ca
+              mountPath: /etc/certs/ca.crt
+              subPath: tls.crt
+          kibanaConfig:
+            kibana.yml: |
+              server.ssl:
+                enabled: true
+                certificate: /etc/certs/kibana/tls.crt
+                key: /etc/certs/kibana/tls.key
+                certificateAuthorities: /etc/certs/ca.crt
+              elasticsearch:
+                hosts: ['${ELASTICSEARCH_HOSTS}']
+                serviceAccountToken: '${ELASTICSEARCH_SERVICEACCOUNTTOKEN}'
+                ssl.certificateAuthorities: '${ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES:[]}'
+          extraVolumes:
+            - name: root-ca
+              secret:
+                secretName: "<release_name>.internal-generated-ca"
+            - name: kibana-cert
+              secret:
+                secretName: kibana-cert
+          extraVolumeMounts:
+            - name: root-ca
+              mountPath: /etc/certs/ca.crt
+              subPath: tls.crt
+            - name: kibana-cert
+              mountPath: /etc/certs/kibana/
+              readOnly: true
+        ```
+=== "MinIO"
+    ```yaml
+    # Internally hosted MinIO filestore. For more details, see: https://github.com/minio/charts/tree/main/minio#configuration
+    filestore:
+      tls:
+        enabled: true
+        certSecret: filestore-cert
+        publicCrt: tls.crt
+        privateKey: tls.key
+    ```
 
 ## Changes to Assemblyline Configuration
 
@@ -106,80 +211,211 @@ For example this is what your changes would look like if:
 - Using an internal minIO filestore that the chart deploys  (`internalFilestore: true`)
 - Using the helm-generated CA for the various different servers within the cluster (`datastore` and/or `log-storage`, `kibana`, `filestore`)
 
-```diff
-- enableInternalEncryption: false
-+ enableInternalEncryption: true
+!!! warning "Configuration depends on the version of the Assemblyline helm chart used in your deployment"
 
-  internalFilestore: true
+=== "4.2.0"
+    ```diff
+    - enableInternalEncryption: false
+    + enableInternalEncryption: true
 
-  configuration:
-    core:
+      internalFilestore: true
+
+      configuration:
+        core:
+          ...
+          metrics:
+            apm_server:
+    -         server_url: "http://apm:8200"
+    +         server_url: "https://apm:8200"
+            elasticsearch:
+              hosts:
+    -           ["http://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
+    +           ["https://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
+        datastore:
+          ...
+    -     hosts: ["http://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
+    +     hosts: ["https://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
+        filestore:
+          ...
+          cache:
+            [
+    -         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=False",
+    +         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
+            ]
+          storage:
+            [
+    -         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=False",
+    +         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
+            ]
       ...
-      metrics:
-        apm_server:
--         server_url: "http://apm:8200"
-+         server_url: "https://apm:8200"
-        elasticsearch:
-          hosts:
--           ["http://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
-+           ["https://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
-    datastore:
+
+    # Equivalent changes for `datastore` would be made for `log-storage`
+      datastore:
+    +   protocol: https
+        ...
+        extraVolumes: |
+          - name: elastic-certificates
+            emptyDir: {}
+    +     - name: datastore-master-cert
+    +       secret:
+    +         secretName: datastore-master-cert
+        extraVolumeMounts: |
+          - name: elastic-certificates
+            mountPath: /usr/share/elasticsearch/config/certs
+    +     - name: datastore-master-cert
+    +       mountPath: /usr/share/elasticsearch/config/http_ssl
+    +       readOnly: true
       ...
--     hosts: ["http://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
-+     hosts: ["https://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
-    filestore:
+
+    - kibanaHost: http://kibana/kibana
+    + kibanaHost: https://kibana/kibana
+      kibana:
+    -   elasticsearchHosts: http://log-storage-master:9200
+    +   elasticsearchHosts: https://log-storage-master:9200
+        ...
+    +   kibanaConfig:
+    +     kibana.yml: |
+    +       server.ssl:
+    +         enabled: true
+    +         certificate: /etc/certs/kibana/tls.crt
+    +         key: /etc/certs/kibana/tls.key
+    +         certificateAuthorities: /etc/certs/ca.crt
+    +       elasticsearch:
+    +         hosts: ['${ELASTICSEARCH_HOSTS}']
+    +         username: ${ELASTICSEARCH_USERNAME}
+    +         password: ${ELASTICSEARCH_PASSWORD}
+    +   extraVolumes:
+    +     - name: root-ca
+    +       secret:
+    +         secretName: "<release_name>.internal-generated-ca"
+    +     - name: kibana-cert
+    +       secret:
+    +         secretName: kibana-cert
+    +   extraVolumeMounts:
+    +     - name: root-ca
+    +       mountPath: /etc/certs/ca.crt
+    +       subPath: tls.crt
+    +     - name: kibana-cert
+    +       mountPath: /etc/certs/kibana/
+    +       readOnly: true
       ...
-      cache:
-        [
--         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=False",
-+         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
-        ]
-      storage:
-        [
--         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=False",
-+         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
-        ]
-  ...
 
-# Equivalent changes for `datastore` would be made for `log-storage`
-  datastore:
-+   protocol: https
-    ...
-    extraVolumes: |
-      - name: elastic-certificates
-        emptyDir: {}
-+     - name: datastore-master-cert
-+       secret:
-+         secretName: datastore-master-cert
-    extraVolumeMounts: |
-      - name: elastic-certificates
-        mountPath: /usr/share/elasticsearch/config/certs
-+     - name: datastore-master-cert
-+       mountPath: /usr/share/elasticsearch/config/http_ssl
-+       readOnly: true
-  ...
+      filestore:
+        ...
+    +   tls:
+    +     enabled: true
+    +     certSecret: filestore-cert
+    +     publicCrt: tls.crt
+    +     privateKey: tls.key
+    ```
+=== "4.3.0"
+    ```diff
+    - enableInternalEncryption: false
+    + enableInternalEncryption: true
 
-- kibanaHost: http://kibana/kibana
-+ kibanaHost: https://kibana/kibana
-  kibana:
--   elasticsearchHosts: http://log-storage-master:9200
-+   elasticsearchHosts: https://log-storage-master:9200
-    ...
-+   extraVolumes:
-+     - name: root-ca
-+       secret:
-+         secretName: "<release_name>.internal-generated-ca"
-+   extraVolumeMounts:
-+     - name: root-ca
-+       mountPath: /etc/certs/ca.crt
-+       subPath: tls.crt
-  ...
+      internalFilestore: true
 
-  filestore:
-    ...
-+   tls:
-+     enabled: true
-+     certSecret: filestore-cert
-+     publicCrt: tls.crt
-+     privateKey: tls.key
-```
+      configuration:
+        core:
+          ...
+          metrics:
+            apm_server:
+    -         server_url: "http://apm:8200"
+    +         server_url: "https://apm:8200"
+            elasticsearch:
+              hosts:
+    -           ["http://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
+    +           ["https://${LOGGING_USERNAME}:${LOGGING_PASSWORD}@${LOGGING_HOST}"]
+        datastore:
+          ...
+    -     hosts: ["http://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
+    +     hosts: ["https://elastic:${ELASTIC_PASSWORD}@datastore-master:9200"]
+        filestore:
+          ...
+          cache:
+            [
+    -         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=False",
+    +         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-cache&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
+            ]
+          storage:
+            [
+    -         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=False",
+    +         "s3://${INTERNAL_FILESTORE_ACCESS}:${INTERNAL_FILESTORE_KEY}@filestore:9000?s3_bucket=al-storage&use_ssl=True&verify=/etc/assemblyline/ssl/al_root-ca.crt",
+            ]
+      ...
+
+    # Equivalent changes for `datastore` would be made for `log-storage`
+      datastore:
+    +   protocol: https
+    +   esConfig:
+    +     elasticsearch.yml: |
+    +       ingest.geoip.downloader.enabled: false
+    +       logger.level: WARN
+    +       xpack.security.enabled: true
+    +       xpack.security.transport.ssl.enabled: true
+    +       xpack.security.transport.ssl.verification_mode: certificate
+    +       xpack.security.transport.ssl.keystore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+    +       xpack.security.transport.ssl.truststore.path: /usr/share/elasticsearch/config/certs/elastic-certificates.p12
+    +       xpack.security.http.ssl.enabled: ${DATASTORE_SSL_ENABLED}
+    +       xpack.security.http.ssl.verification_mode: full
+    +       xpack.security.http.ssl.key: ${DATASTORE_SSL_KEY}
+    +       xpack.security.http.ssl.certificate: ${DATASTORE_SSL_CERTIFICIATE}
+        ...
+        extraVolumes: |
+          - name: elastic-certificates
+            emptyDir: {}
+    +     - name: datastore-master-cert
+    +       secret:
+    +         secretName: datastore-master-cert
+        extraVolumeMounts: |
+          - name: elastic-certificates
+            mountPath: /usr/share/elasticsearch/config/certs
+    +     - name: datastore-master-cert
+    +       mountPath: /usr/share/elasticsearch/config/http_ssl
+    +       readOnly: true
+      ...
+
+    - kibanaHost: http://kibana/kibana
+    + kibanaHost: https://kibana/kibana
+      kibana:
+    -   elasticsearchHosts: http://log-storage-master:9200
+    +   elasticsearchHosts: https://log-storage-master:9200
+        ...
+    +   kibanaConfig:
+    +     kibana.yml: |
+    +       server.ssl:
+    +         enabled: true
+    +         certificate: /etc/certs/kibana/tls.crt
+    +         key: /etc/certs/kibana/tls.key
+    +         certificateAuthorities: /etc/certs/ca.crt
+    +       elasticsearch:
+    +         hosts: ['${ELASTICSEARCH_HOSTS}']
+    +         serviceAccountToken: '${ELASTICSEARCH_SERVICEACCOUNTTOKEN}'
+    +         ssl.certificateAuthorities: '${ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES:[]}'
+    +   extraVolumes:
+    +     - name: init-script
+    +       configMap:
+    +         name: init-kibana-token
+    +     - name: root-ca
+    +       secret:
+    +         secretName: "<release_name>.internal-generated-ca"
+    +     - name: kibana-cert
+    +       secret:
+    +         secretName: kibana-cert
+    +   extraVolumeMounts:
+    +     - name: root-ca
+    +       mountPath: /etc/certs/ca.crt
+    +       subPath: tls.crt
+    +     - name: kibana-cert
+    +       mountPath: /etc/certs/kibana/
+    +       readOnly: true
+      ...
+
+      filestore:
+        ...
+    +   tls:
+    +     enabled: true
+    +     certSecret: filestore-cert
+    +     publicCrt: tls.crt
+    +     privateKey: tls.key
+    ```
