@@ -115,7 +115,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 ### Setup your appliance
 
-The ```config/config.yaml``` file in your deployment directory is already pre-configured for use with docker-compose as a single node appliance. You can review the settings already configured but you should not have anything to change there.
+The ```config/config.yaml``` file in your deployment directory is already pre-configured for use with `docker-compose` as a single node appliance. You can review the settings already configured but you should not have anything to change there.
 
 The ```.env``` file in your deployment directory is preconfigured with default passwords, you should definitely change them.
 
@@ -127,11 +127,17 @@ The ```.env``` file in your deployment directory is preconfigured with default p
 openssl req -nodes -x509 -newkey rsa:4096 -keyout ~/deployments/assemblyline/config/nginx.key -out ~/deployments/assemblyline/config/nginx.crt -days 365 -subj "/C=CA/ST=Ontario/L=Ottawa/O=CCCS/CN=assemblyline.local"
 ```
 
-### Pull necessary docker containers
+### Pull necessary Docker containers
 
 ```bash
 cd ~/deployments/assemblyline
 sudo docker-compose pull
+# If you see the following error, have no fear, just run the next command (sudo docker-compose build)
+# WARNING: Some service image(s) must be built from source by running:
+#     docker compose build scaler updater
+# 2 errors occurred:
+#         * Error response from daemon: pull access denied for al_scaler, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+#         * Error response from daemon: pull access denied for al_updater, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
 sudo docker-compose build
 sudo docker-compose -f bootstrap-compose.yaml pull
 ```
@@ -145,7 +151,7 @@ sudo docker-compose -f bootstrap-compose.yaml up
 ```
 
 !!! info
-    Once the docker-compose command on the bootstrap file complete, your cluster will be ready to use and you can login with the default admin user/password that you've set in your ```.env``` file
+    Once the `docker-compose` command on the bootstrap file complete, your cluster will be ready to use and you can login with the default admin user/password that you've set in your ```.env``` file
 
 
 ## Docker Compose cheat sheet
