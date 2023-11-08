@@ -640,6 +640,7 @@
 | default_max_extracted | Integer | How many extracted files may be added to a submission? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
 | default_max_supplementary | Integer | How many supplementary files may be added to a submission? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
 | dtl | Integer | Number of days submissions will remain in the system by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
+| emptyresult_dtl | Integer | Number of days emptyresult will remain in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
 | max_dtl | Integer | Maximum number of days submissions will remain in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 | max_extraction_depth | Integer | Maximum files extraction depth | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `6` |
 | max_file_size | Integer | Maximum size for files submitted in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `104857600` |

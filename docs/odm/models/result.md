@@ -44,7 +44,7 @@
 | description | Text | Description of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | classification | Classification | Classification of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | is_section_image | Boolean | Is this an image used in an Image Result Section? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| parent_relation | Text | File relation to parent, if any. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `EXTRACTED` |
+| parent_relation | Text | File relation to parent, if any.            <br>Values: `"ROOT", "EXTRACTED", "INFORMATION", "DYNAMIC", "MEMDUMP", "DOWNLOADED"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `EXTRACTED` |
 | allow_dynamic_recursion | Boolean | Allow file to be analysed during Dynamic Analysiseven if Dynamic Recursion Prevention is enabled. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 
 
