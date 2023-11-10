@@ -737,6 +737,7 @@
 | tos | Text | Terms of service | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | tos_lockout | Boolean | Lock out user after accepting the terms of service? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | tos_lockout_notify | List [Keyword] | List of admins to notify when a user gets locked out | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| url_submission_auto_service_selection | List [Keyword] | List of services auto-selected by the UI when submitting URLs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['URLDownloader']` |
 | url_submission_headers | Mapping [String, Keyword] | Headers used by the url_download method | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | url_submission_proxies | Mapping [String, Keyword] | Proxy used by the url_download method | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | url_submission_timeout | Integer | Request timeout for fetching URLs | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `15` |
