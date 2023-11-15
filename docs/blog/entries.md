@@ -46,3 +46,11 @@ Assemblyline Blog Entry #5 — The following is the second part of a write-up de
 ![One last HackTheBox Business CTF 2023 Forensic Challenge](images/blog6.png){ align=right }
 
 Assemblyline Blog Entry #6 - The following is the third part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+
+---
+
+### [What other security products WON’T tell you about malicious archives](https://medium.com/@kevin.hardy-cooper/what-other-security-products-wont-tell-you-about-malicious-archives-5d5704f96da7)
+
+![What other security products WON’T tell you about malicious archives](images/blog7.png){ align=right }
+
+Assemblyline Blog Entry #7 — In this post, we will be discussing how a malware campaign centred around archives seen in 2022 triggered large improvements to Assemblyline and CAPE Sandbox!
