@@ -58,6 +58,8 @@
 | sha1 | SHA1 | SHA1 hash of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sha256 | SHA256 | SHA256 hash of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | size | Integer | Size of the file in bytes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| ssdeep | SSDeepHash | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| tlsh | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | type | Keyword | Type of file as identified by Assemblyline | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | uri_info | [URIInfo](/assemblyline4_docs/odm/models/file/#uriinfo) | URI structure to speed up specialty file searching | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
