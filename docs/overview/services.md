@@ -40,7 +40,8 @@ This is the list of all the services that are bundled with Assemblyline and that
 | TorrentSlicer     | Torrent files | Extracts information from torrent files |[link](https://github.com/CybercentreCanada/assemblyline-service-torrentslicer) |
 | Unpacker          | UPX Unpacker | This service unpacks UPX packed executables for further analysis |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacker)|
 | Unpac.me          | Unpacker | Integrate with [unpac.me](https://www.unpac.me) |  [link](https://github.com/CybercentreCanada/assemblyline-service-unpacme)|
-| URLDownloader     | URL Fetching | Fetches URLs that are seemingly malicious |  [link](https://github.com/CybercentreCanada/assemblyline-service-urldownloader)|
+| URLCreator        | URL File creation | Create URI files from URLs tags that are seemingly malicious |  [link](https://github.com/CybercentreCanada/assemblyline-service-urlcreator)|
+| URLDownloader     | URL Fetching | Fetches URLs from URI files |  [link](https://github.com/CybercentreCanada/assemblyline-service-urldownloader)|
 | ViperMonkey       | Office documents | [ViperMonkey](https://github.com/decalage2/ViperMonkey) is a VBA Emulation engine by http://www.decalage.info | [link](https://github.com/CybercentreCanada/assemblyline-service-vipermonkey)|
 | VirusTotal | Anti-virus | This service checks (and optionally submits) files/URLs to VirusTotal for analysis. | [link](https://github.com/CybercentreCanada/assemblyline-service-virustotal) |
 | XLMMacroDeobfuscator | Office documents | Analyze Excel 4.0 macros |[link](https://github.com/CybercentreCanada/assemblyline-service-XLMMacroDeobfuscator) |
