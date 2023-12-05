@@ -117,7 +117,7 @@ There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis
 
 !!! tip "For submitting a URL instead of a file, use the `url` argument instead of `path`"
 
-!!! tip "For submitting a SHA256 instead of a file, use the `sha256` argument instead of `path`"
+!!! tip "For submitting a SHA256 instead of a file, use the `sha256` argument instead of `path`. You may use external sources with `params={"default_external_sources":["VirusTotal","Malware Bazaar"]}`"
 
 #### Ingest
 The Ingest API supports two additional functionalities over the Submit API:
