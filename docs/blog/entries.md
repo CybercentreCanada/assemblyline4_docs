@@ -54,3 +54,11 @@ Assemblyline Blog Entry #6 - The following is the third part of a write-up detai
 ![What other security products WON’T tell you about malicious archives](images/blog7.png){ align=right }
 
 Assemblyline Blog Entry #7 — In this post, we will be discussing how a malware campaign centred around archives seen in 2022 triggered large improvements to Assemblyline and CAPE Sandbox!
+
+---
+
+### [The Great OneNote Scramble of 2023](https://medium.com/@kevin.hardy-cooper/the-great-onenote-scramble-of-2023-6fa2ee4a32ad)
+
+![The Great OneNote Scramble of 2023](images/blog8.png){ align=right }
+
+Assemblyline Blog Entry #8 — This article will illustrate another, more recent, campaign in 2023 that focused on OneNote files and how the Assemblyline team adapted quickly to improve detection.
