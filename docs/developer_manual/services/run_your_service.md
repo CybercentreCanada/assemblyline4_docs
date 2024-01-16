@@ -32,7 +32,7 @@ cd ~/git/services/assemblyline-service-sample
 From a terminal, run the `run_service_once` module, specifying the service path for the service to run and the path to the file to scan. For this example, we will have the service scan itself.
 
 ```shell
-python -m assemblyline_v4_service.dev.run_service_once sample.Sample sample.py
+python -m assemblyline_v4_service.dev.run_service_once result_sample.Sample result_sample.py
 ```
 
 The `run_service_once` module creates a directory at the same spot where the file is found with the service name that scanned the file appended to it. In the previous example, the output of the service should be located at `~/git/services/assemblyline-service-sample/sample.py_sample`. The directory will contain a `result.json` file containing the result from the service.
@@ -40,7 +40,7 @@ The `run_service_once` module creates a directory at the same spot where the fil
 You can view the `result.json` file using the following command:
 
 ```shell
-cat ~/git/services/assemblyline-service-sample/sample.py_sample/result.json | json_pp
+cat ~/git/services/assemblyline-service-sample/result_sample.py_sample/result.json | json_pp
 ```
 
 It will look something like this:
@@ -138,7 +138,7 @@ source ~/git/services/venv/bin/activate
 cd ~/git/services/assemblyline-service-sample
 
 # Run your service
-SERVICE_PATH=sample.Sample python -m assemblyline_v4_service.run_service
+SERVICE_PATH=result_sample.Sample python -m assemblyline_v4_service.run_service
 ```
 
 ## Production container mode
