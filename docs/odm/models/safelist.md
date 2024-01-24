@@ -7,6 +7,7 @@
 | added | Date | Date when the safelisted hash was added | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
 | classification | Classification | Computed max classification for the safe hash | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | enabled | Boolean | Is safe hash enabled or not? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| expiry_ts | Date | When does this item expire from the list? | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | hashes | [Hashes](/assemblyline4_docs/odm/models/safelist/#hashes) | List of hashes related to the safe hash | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Hashes](/assemblyline4_docs/odm/models/safelist/#hashes) for more details. |
 | file | [File](/assemblyline4_docs/odm/models/safelist/#file) | Information about the file | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | sources | List [[Source](/assemblyline4_docs/odm/models/safelist/#source)] | List of reasons why hash is safelisted | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |

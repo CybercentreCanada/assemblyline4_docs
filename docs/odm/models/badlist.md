@@ -8,6 +8,7 @@
 | attribution | [Attribution](/assemblyline4_docs/odm/models/badlist/#attribution) | Attribution related to the bad hash | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | classification | Classification | Computed max classification for the bad hash | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | enabled | Boolean | Is bad hash enabled or not? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| expiry_ts | Date | When does this item expire from the list? | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | hashes | [Hashes](/assemblyline4_docs/odm/models/badlist/#hashes) | List of hashes related to the bad hash | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Hashes](/assemblyline4_docs/odm/models/badlist/#hashes) for more details. |
 | file | [File](/assemblyline4_docs/odm/models/badlist/#file) | Information about the file | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | sources | List [[Source](/assemblyline4_docs/odm/models/badlist/#source)] | List of reasons why hash is badlisted | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
