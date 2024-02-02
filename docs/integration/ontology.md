@@ -10,4 +10,4 @@ For machine-to-machine parsing, we recommend the use of the Ontology APIs.
 
 At the Cyber Centre, we are currently using the Ontology APIs to export submission results to a [Superset](https://superset.apache.org/) deployment for data visualization and big-data analytics.
 
-For more details regarding the Ontology output, see [here](../odm/models/ontology/ontology).
+For more details regarding the Ontology output, see [here](../../odm/models/ontology/ontology).
