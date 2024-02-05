@@ -12,6 +12,17 @@ Since this section is quite simple, we will list the default configuration at th
       hosts:
       - http://elastic:devpass@localhost
 
+      # Datastore Archive feature configuration
+      archive:
+        # Are we enabling Achiving features across indices?
+        enabled: true
+
+        # List of indices the ILM Applies to
+        indices:
+        - file
+        - submission
+        - result
+
       # Index Lifecycle management configuration block
       ilm:
         # After how many days do documents go in the ILM managed indexes
