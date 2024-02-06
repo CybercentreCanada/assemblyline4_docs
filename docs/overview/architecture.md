@@ -193,7 +193,7 @@ When the services launch, they pull their signature set from the service updater
 
 ## Keeping files forever (Malware Archive)
 
-Malware Archive is a new feature that Assemblyline feature that allows users to preserve important documents forever. To accomplish this, an archived filestore and datastore indices have been defined where the stored documents do not have an expiry date and will not be deleted by the expiry process. The new core component called the Archiver was added to move the file and the analysis over to the Malware Archive.
+Malware Archive is a new feature for Assemblyline that allows users to preserve important documents forever. To accomplish this, archived filestore and datastore indices have been defined where the stored documents do not have an expiry date and will not be deleted by the expiry process. The new core component - "the Archiver" - was added to move the file and the analysis over to the Malware Archive.
 
 ### [Archiver](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/archiver)
 
