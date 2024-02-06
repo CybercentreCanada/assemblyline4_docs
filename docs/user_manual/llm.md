@@ -64,18 +64,26 @@ There are a few limitations to understand about the current implementation of th
 ## Enabling and configuring the AI Integration
 
 The AI integration can easily be turned on by editting the AI configuration section in your `config.yml` file to enable the integration and set your API Key.
- ```yaml
+
+???+ example "Minimal AI configuration block"
+    ```yaml
+    ...
+
     ui:
       ai:
         enabled: True
         headers:
           Api-Key: <OPENAI_APIKEY>
-```
+
+    ...
+    ```
 
 The `ai` configuration block will also let you specify all the other parameters sent to the OpenAI API. Here is an exemple of what the configuation of the AI integration looks like:
 
+???+ example "Full AI configuration block"
+    ```yaml
+    ...
 
- ```yaml
     ui:
       ai:
         # URL to the chat completion API, you can change this to your own if you are not using the default
@@ -115,7 +123,10 @@ The `ai` configuration block will also let you specify all the other parameters 
 
         # Should the SSL cert to the OpenAI API endpoint be verified?
         verify: True
-```
+
+    ...
+    ```
+
 ## Contributing
 
 The Assemblyline team does not have any AI experts so if you have any insight on what we can tweak in our default configuration to get better results out of the LLM do not hesitate to reach out to us on discord so we can provide a better default configuration for others.
