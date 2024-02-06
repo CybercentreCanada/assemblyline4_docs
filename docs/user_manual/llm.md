@@ -129,4 +129,4 @@ The `ai` configuration block will also let you specify the other parameters sent
 
 ## Contributing
 
-The Assemblyline team does not have any AI experts so if you have any insight on what we can tweak in our default configuration to get better results out of the LLM do not hesitate to reach out to us on discord so we can provide a better default configuration for others.
+The Assemblyline team does not have any AI experts so if you have any insight on what we can tweak in our default configuration to get better results out of the LLM do not hesitate to reach out to us on [Discord ](https://discord.gg/GUAy9wErNu) so we can provide a better default configuration for others.
