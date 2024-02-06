@@ -197,7 +197,7 @@ Malware Archive is a new feature for Assemblyline that allows users to preserve 
 
 ### [Archiver](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/archiver)
 
-The Archiver process is the core component that archives the files and documents. When a user or a system requests a submission to be archived, a message is created in the Redis (volatile) message broker. The Archiver listens to those messages and is tasked with copying the file to the archived filestore and the all the submissions related datastore to their archive indices.
+The Archiver process is the core component that archives the files and documents. When a user or a system requests a submission to be archived, a message is created in the Redis (volatile) message broker. The Archiver listens to those messages and is tasked with copying the file to the archived filestore and the related submissions in the datastore to their archive indices.
 
 ## Work online, continue offline
 
