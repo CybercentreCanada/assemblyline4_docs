@@ -193,11 +193,11 @@ When the services launch, they pull their signature set from the service updater
 
 ## Keeping files forever (Malware Archive)
 
-The Assemblyline team is working on new feature called the Malware Archive that will keep files forever in the system by moving them to another filestore and index, so they are not deleted. To support this, a core component was added to move the file and the analysis over to the Malware Archive.
+Malware Archive is a new feature that Assemblyline feature that allows users to preserve important documents forever. To accomplish this, an archived filestore and datastore indices have been defined where the stored documents do not have an expiry date and will not be deleted by the expiry process. The new core component called the Archiver was added to move the file and the analysis over to the Malware Archive.
 
 ### [Archiver](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/archiver)
 
-The archiver receives messages about a file or submission that should be kept forever and moved to the Malware Archive. It takes in those messages and copies the actual files into a permanent file store then moves associated analysis data to the archive indices.
+The Archiver process is the core component that archives the files and documents. When a user or a system requests a submission to be archived, a message is created in the Redis (volatile) message broker. The Archiver listen for those messages and is tasked with copying the file to the archived filestore and the all the submissions related datastore to their archive indices.
 
 ## Work online, continue offline
 
