@@ -1,6 +1,6 @@
 # OpenAI Integration
 
-Assemblyline now supports LLM integration using the OpenAI chat completions API.
+Assemblyline now supports LLM integration using the [OpenAI Chat Completions API](https://platform.openai.com/docs/guides/text-generation/chat-completions-api).
 
 ## Current Features of the AI Integration
 
