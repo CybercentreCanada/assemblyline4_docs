@@ -42,6 +42,7 @@ nav:
   - user_manual/results.md
   - user_manual/searching.md
   - user_manual/verdicts.md
+  - user_manual/malware_archive.md
   - user_manual/llm.md
 - Installation:
   - Getting Started:

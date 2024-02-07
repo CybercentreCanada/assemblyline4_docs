@@ -16,6 +16,10 @@ Since this section is quite simple, we will list the default configuration at th
     # more files but to look them up less often.
 
     filestore:
+      # List of filestores used for malware archive
+      archive:
+      - s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-archive&use_ssl=False
+
       # List of URLs to connect to the cache filestore
       cache:
       - s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-cache&use_ssl=False
