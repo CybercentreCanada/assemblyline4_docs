@@ -73,7 +73,7 @@ The AI integration can easily be turned on by editing the AI configuration secti
       ai:
         enabled: True
         headers:
-          Api-Key: <OPENAI_APIKEY>
+          Authorization: Bearer <OPENAI_APIKEY>
 
     ...
     ```
@@ -116,7 +116,8 @@ The `ai` configuration block will also let you specify the other parameters sent
 
         # Headers sent to the OpenAI API
         headers:
-            Content-Type: "application/json"
+          Authorization: Bearer <OPENAI_APIKEY>
+          Content-Type: "application/json"
 
         # Model used for the AI Integration
         model_name: "gpt-3.5-turbo",
