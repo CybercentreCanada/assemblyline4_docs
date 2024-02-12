@@ -153,6 +153,12 @@ sudo docker-compose -f bootstrap-compose.yaml up
 !!! info
     Once the `docker-compose` command on the bootstrap file complete, your cluster will be ready to use and you can login with the default admin user/password that you've set in your ```.env``` file
 
+### Service specific configurations
+
+Certain services need special configurations to run efficiently in a docker-compose appliance setup. Refer to the [service management documentation](https://cybercentrecanada.github.io/assemblyline4_docs/administration/service_management/) to configure services through service parameters and service variables.
+
+- URLDownloader: The `no_sandbox` option defaults to `False`, but will cause a `TimeoutExpired` in the internal google-chrome. Change this value to `True` if you encounter this [issue](https://github.com/CybercentreCanada/assemblyline/issues/146).
+
 
 ## Docker Compose cheat sheet
 
