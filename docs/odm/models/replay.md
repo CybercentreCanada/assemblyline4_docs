@@ -16,7 +16,10 @@
 | :--- | :--- | :--- | :--- | :--- |
 | client | [Client](/assemblyline4_docs/odm/models/replay/#client) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Client](/assemblyline4_docs/odm/models/replay/#client) for more details. |
 | alert_input | [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) for more details. |
+| badlist_input | [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) for more details. |
+| safelist_input | [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) for more details. |
 | submission_input | [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) for more details. |
+| workflow_input | [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [InputModule](/assemblyline4_docs/odm/models/replay/#inputmodule) for more details. |
 | lookback_time | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `*` |
 | output_filestore | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `file:///tmp/replay/output` |
 | working_directory | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `/tmp/replay/work` |

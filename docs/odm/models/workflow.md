@@ -8,6 +8,7 @@
 | creation_date | Date | Creation date of the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
 | creator | Keyword | UID of the creator of the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | edited_by | Keyword | UID of the last user to edit the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| enabled | Boolean | Is this workflow enabled? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | first_seen | Date | Date of first hit on workflow | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | hit_count | Integer | Number of times there was a workflow hit | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 | labels | List [Keyword] | Labels applied by the workflow | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
