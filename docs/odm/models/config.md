@@ -734,8 +734,9 @@
 | ingest_max_priority | Integer | Maximum priority for ingest API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `250` |
 | read_only | Boolean | Turn on read only mode in the UI | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | read_only_offset | Keyword | Offset of the read only mode for all paging and searches | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `` |
-| rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json', 'https://alpytest.blob.core.windows.net/pytest/blog.json']` |
-| services_feed | Keyword | Feed of all the services available on AL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://alpytest.blob.core.windows.net/pytest/services.json` |
+| rss_feeds | List [Keyword] | List of RSS feeds to display on the UI | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['https://alpytest.blob.core.windows.net/pytest/stable.json', 'https://alpytest.blob.core.windows.net/pytest/services.json', 'https://alpytest.blob.core.windows.net/pytest/community.json', 'https://alpytest.blob.core.windows.net/pytest/blog.json']` |
+| services_feed | Keyword | Feed of all the services built by the Assemblyline Team | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://alpytest.blob.core.windows.net/pytest/services.json` |
+| community_feed | Keyword | Feed of all the services built by the Assemblyline community. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://alpytest.blob.core.windows.net/pytest/community.json` |
 | secret_key | Keyword | Flask secret key to store cookies, etc. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `This is the default flask secret key... you should change this!` |
 | session_duration | Integer | Duration of the user session before the user has to login again | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `3600` |
 | statistics | [Statistics](/assemblyline4_docs/odm/models/config/#statistics) | Statistics configuration | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Statistics](/assemblyline4_docs/odm/models/config/#statistics) for more details. |
@@ -757,6 +758,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | chat_url | Keyword | URL to the AI API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://api.openai.com/v1/chat/completions` |
+| assistant | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for Assamblyline Assistant | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | code | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for code analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | detailed_report | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for detailed reports | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | executive_summary | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for executive summaries | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
