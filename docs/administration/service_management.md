@@ -228,3 +228,43 @@ Service variables are often but not exclusively things like:
 * Credentials use to connect to external services
 * List of default values used in a service
 * Configuration parameter that will limit or increase scanning capabilities of a service
+
+##### OCR Configuration
+Some services may perform OCR analysis on images given/generated during analysis. Because of this, you're able to override/customize the default OCR terms from the [service base](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/ocr.py) using the `ocr` key in the `config` block of the service manifest.
+
+###### Simple Term Override (Legacy)
+Let's say, I want to use a custom set of terms for `ransomware` detection. Then I can set the following:
+
+```yaml
+config:
+    ocr:
+        ransomware: ['bad1', 'bad2', ...]
+```
+
+This will cause the service to **only** use the terms I've specified when looking for `ransomware` terms. This is still subject to the hit threshold defined in the service base.
+
+###### Advanced Term Override
+Let's say, I want to use a custom set of terms for `ransomware` detection and I want to set the hit threshold to `1` instead of `2` (default). Then I can set the following:
+
+```yaml
+config:
+    ocr:
+        ransomware:
+            terms: ['bad1', 'bad2', ...]
+            threshold: 1
+```
+
+This will cause the service to **only** use the terms I've specified when looking for `ransomware` terms and is subject to the hit threshold I've defined.
+
+###### Term Inclusion/Exclusion
+Let's say, I want to add/remove a set of terms from the default set for `ransomware` detection. Then I can set the following:
+
+```yaml
+config:
+    ocr:
+        ransomware:
+            include: ['bad1', 'bad2', ...]
+            exclude: ['bank account']
+```
+
+This will cause the service to add the terms listed in `include` and remove the terms in `exclude` when looking for `ransomware` terms in OCR detection with the default set.
