@@ -230,7 +230,7 @@ Service variables are often but not exclusively things like:
 * Configuration parameter that will limit or increase scanning capabilities of a service
 
 ##### OCR Configuration
-Some services may perform OCR analysis on images given/generated during analysis. Because of this, you're able to override/customize the default OCR terms from the [service base](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/ocr.py) using `ocr` key in the `config` block of the service manifest.
+Some services may perform OCR analysis on images given/generated during analysis. Because of this, you're able to override/customize the default OCR terms from the [service base](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/ocr.py) using the `ocr` key in the `config` block of the service manifest.
 
 ###### Simple Term Override (Legacy)
 Let's say, I want to use a custom set of terms for `ransomware` detection. Then I can set the following:
