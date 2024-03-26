@@ -42,7 +42,8 @@ Here is an exhaustive configuration file of the classification engine that expla
           - UNRESTRICTED
           - UNCLASSIFIED
           - U
-
+          - TLP:W
+          - TLP:WHITE
         # Stylesheet applied in the UI for the current classification level
         css:
           # Name of the color scheme used for display
@@ -59,17 +60,17 @@ Here is an exhaustive configuration file of the classification engine that expla
 
         # Description of the classification level
         description:
-          Subject to standard copyright rules, TLP:WHITE information may be distributed
+          Subject to standard copyright rules, TLP:CLEAR information may be distributed
           without restriction.
 
         # Integer value of the Classification level (higher is more classified)
         lvl: 100
 
         # Long name of the classification level
-        name: TLP:WHITE
+        name: TLP:CLEAR
 
         # Short name of the classification level
-        short_name: TLP:W
+        short_name: TLP:C
       - aliases: []
         css:
           color: success
@@ -176,7 +177,7 @@ Here is an exhaustive configuration file of the classification engine that expla
     # Default unrestricted classification:
     #   When no classification is provided or the classification engine is
     #   disabled, this is the classification value each item will get
-    unrestricted: TLP:W
+    unrestricted: TLP:C
     ```
 
 # Enabling it in your system
@@ -199,14 +200,16 @@ In your deployment directory, create a file named `objects.yaml` with the follow
           - aliases:
               - UNRESTRICTED
               - U
+              - TLP:W
+              - TLP:WHITE
             css:
               color: default
             description:
-              Subject to standard copyright rules, TLP:WHITE information may be
+              Subject to standard copyright rules, TLP:CLEAR information may be
               distributed without restriction.
             lvl: 100
-            name: TLP:WHITE
-            short_name: TLP:W
+            name: TLP:CLEAR
+            short_name: TLP:C
           - aliases: []
             css:
               color: success
@@ -237,7 +240,7 @@ In your deployment directory, create a file named `objects.yaml` with the follow
         subgroups: []
 
         restricted: TLP:A
-        unrestricted: TLP:W
+        unrestricted: TLP:C
     ```
 
 Use kubectl to apply the `objects.yaml` file to your system:
