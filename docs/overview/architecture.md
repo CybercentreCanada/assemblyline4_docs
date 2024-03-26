@@ -199,6 +199,14 @@ Malware Archive is a new feature for Assemblyline that allows users to preserve 
 
 The Archiver process is the core component that archives the files and documents. When a user or a system requests a submission to be archived, a message is created in the Redis (volatile) message broker. The Archiver listens to those messages and is tasked with copying the file to the archived filestore and the related submissions in the datastore to their archive indices.
 
+## YARA back in time (Retrohunt)
+
+Retrohunt is a new feature for Assemblyline that allows users to scan the historical collection of files using their own YARA rules.
+
+### [Haunted House](https://github.com/CybercentreCanada/haunted-house)
+
+The Haunted House processes
+
 ## Work online, continue offline
 
 An Assemblyline instance can continue the work that another Assemblyline instance has started. This allows you to start a scan on an instance of Assemblyline that is online (connected to the internet) and gather as much information possible on a file using these internet sources. Then ship the full analysis bundle to another instance of Assemblyline that is on an offline network (NOT connected to the internet) and continue the analysis with extra service that you may not want to deploy on your online version.
