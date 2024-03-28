@@ -43,6 +43,7 @@ nav:
   - user_manual/searching.md
   - user_manual/verdicts.md
   - user_manual/malware_archive.md
+  - user_manual/retrohunt.md
   - user_manual/llm.md
 - Installation:
   - Getting Started:
@@ -62,8 +63,9 @@ nav:
     - installation/configuration/datasources.md
     - installation/configuration/datastore.md
     - installation/configuration/filestore.md
-    - installation/configuration/malware_archive.md
     - installation/configuration/logging.md
+    - installation/configuration/malware_archive.md
+    - installation/configuration/retrohunt.md
     - installation/configuration/services.md
     - installation/configuration/submission.md
     - installation/configuration/system.md
