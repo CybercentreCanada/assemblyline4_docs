@@ -30,7 +30,7 @@ When you're done, click the "ADD RETROHUNT JOB" and confirm the job to create it
 
 The Retrohunt Detail page displays information in a tabular format.
 
-- **Details**: This tab shows the search information and displays the resulting hits of the search. You may reduce the scope of the hits by entering a search query or by clicking on a column in the distribution graphs to add a filter value. Clicking a on table row will open the detail page of that file.
+- **Details**: This tab shows the search information and displays the resulting hits of the search. You may reduce the scope of the hits by entering a search query or by clicking on a column in the distribution graphs to add a filter value. Clicking on a table row will open the detail page of that file.
 - **YARA Rule**: The entered YARA rule is in this tab to use the full size of the page making it easier to analyze.
 - **Errors**: This tab is only accessible to administrators as it shows the warnings and errors that occurred during the Retrohunt search process, which may be used for debugging purposes.
 
