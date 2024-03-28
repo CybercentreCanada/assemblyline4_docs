@@ -62,3 +62,11 @@ Assemblyline Blog Entry #7 — In this post, we will be discussing how a malware
 ![The Great OneNote Scramble of 2023](images/blog8.png){ align=right }
 
 Assemblyline Blog Entry #8 — This article will illustrate another, more recent, campaign in 2023 that focused on OneNote files and how the Assemblyline team adapted quickly to improve detection.
+
+---
+
+### [What Can Assemblyline Learn From Other Malware Analysis Projects?](https://medium.com/@kevin.hardy-cooper/what-can-assemblyline-learn-from-other-malware-analysis-projects-d5e189462349)
+
+![What Can Assemblyline Learn From Other Malware Analysis Projects?](images/blog9.png){ align=right }
+
+Assemblyline Blog Entry #9 — I wanted to find what Assemblyline could learn from these tools to improve the Government of Canada’s defences.
