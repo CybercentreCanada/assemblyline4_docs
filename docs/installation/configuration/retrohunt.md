@@ -10,7 +10,7 @@ Refer to the [Retrohunt architecture](../../overview/architecture.md/#yara-back-
     ```yaml
     ...
     retrohunt:
-      # Is the Retrohunt functionnality enabled on the frontend
+      # Is the Retrohunt functionality enabled on the frontend?
       enabled: false
 
       # Number of days retrohunt jobs will remain in the system by default
