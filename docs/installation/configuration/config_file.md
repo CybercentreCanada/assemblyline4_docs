@@ -185,7 +185,7 @@ The full specification of the file [is defined here](https://github.com/Cybercen
 
     datastore:
       archive:
-        enabled: true
+        enabled: false
       hosts:
       - http://elastic:devpass@localhost
       ilm:
