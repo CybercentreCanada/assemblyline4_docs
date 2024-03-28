@@ -20,7 +20,7 @@ To create a new search job, click the green "plus" button on the top right of th
 
 - **Search information**: Provide a description for the search, select which indices to search on (search space) and enter the expiry date (days to live).
 - **Maximum file classification**: This property defines the scope of the included files in the search, but note that even with higher classification levels, users with a lower classification will not be able to see all the resulting hits after the search has completed.
-- **YARA rule**: When writing a YARA rule, starting to type `rule` will show a snippet that will create a basic rule template. Write a valid rule otherwise submitting the request to create a search will fail.
+- **YARA rule**: When writing a YARA rule, starting to type `rule` will show a snippet that will create a basic rule template. You must write a valid rule, otherwise submitting the request to create a search will fail.
 
 When you're done, click the "ADD RETROHUNT JOB" and confirm the job to create it. If no errors have occurred, a green snack bar should appear from the bottom and the interface should redirect to its Retrohunt Detail page. That page will show a progress bar denoting the status of the search. After the job has completed, it will show the resulting hits of the search.
 
