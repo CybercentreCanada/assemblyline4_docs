@@ -205,7 +205,7 @@ Retrohunt is a new feature that allows users to scan the collection of submitted
 
 ### [Haunted House](https://github.com/CybercentreCanada/haunted-house)
 
-Haunted House is composed of the three components called the Python Client, the Server and the Worker which both are written in Rust. The Python Client is the intermediary between the Assemblyline UI and the Rust Server. It receives the requests from the UI to either start a new search, repeat an existing search or receive status updates on an in-progress job. The Rust Server is responsible for tasking a multitude of Workers to match the YARA rules provided to the files.
+Haunted House is composed of three components called the "Python Client", the "Server" and the "Worker", the latter two being written in Rust. The Python Client is the intermediary between the Assemblyline UI and the Rust Server. It receives the requests from the UI to either start a new search, repeat an existing search or receive status updates on an in-progress job. The Rust Server is responsible for tasking a multitude of Workers to match the YARA rules provided to the files.
 
 ## Work online, continue offline
 
