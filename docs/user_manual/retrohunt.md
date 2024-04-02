@@ -10,7 +10,7 @@ If you want to understand how Retrohunt works, a detailed description can be fou
 
 ## Retrohunt Interface
 
-Click the "Retrohunt" left navbar link to access the main Retrohunt interface. This page displays all the Retrohunt searches that users have created while taking into consideration their classification. You can filter these searches using your own search parameters, but it does provide quick search actions (on the right side of the search bar) to display jobs that were completed in the last 24h and your own jobs.
+Click the "Retrohunt" left navbar link to access the main Retrohunt interface. This page displays all the Retrohunt searches that users have created while taking into consideration their classification. You can filter these searches using your own search parameters, and it also provides quick search actions (on the right side of the search bar) to display jobs that were completed in the last 24h and your own jobs.
 
 ![Retrohunt](./images/retrohunt1.png)
 
