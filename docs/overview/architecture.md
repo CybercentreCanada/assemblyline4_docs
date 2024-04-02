@@ -201,7 +201,7 @@ The Archiver process is the core component that archives the files and documents
 
 ## YARA back in time (Retrohunt)
 
-Retrohunt is a new feature that allows users to scan the collection of submitted files in Assemblyline using their own YARA rules. When a user submits a request to create a new search job, the UI will tasks the new component called `Haunted House` to process the hunting of the files and inform the user on the progress of the job. The resulting file hits of the search job are stored in the Datastore which makes them easily accessible and minimized the interaction with Haunted House.
+Retrohunt is a new feature that allows users to scan the collection of submitted files in Assemblyline using their own YARA rules. When a user submits a request to create a new search job, the UI will task the new component called `Haunted House` to process the hunting of the files and inform the user on the progress of the job. The resulting file hits of the search job are stored in the Datastore which makes them easily accessible and minimizes the interaction with Haunted House.
 
 ### [Haunted House](https://github.com/CybercentreCanada/haunted-house)
 
