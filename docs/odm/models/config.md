@@ -587,7 +587,7 @@
 | enabled | Boolean | Is the Retrohunt functionnality enabled on the frontend | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | dtl | Integer | Number of days retrohunt jobs will remain in the system by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
 | max_dtl | Integer | Maximum number of days retrohunt jobs will remain in the system | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
-| url | Keyword | Base URL for service API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://hauntedhouse.hauntedhouse.svc.cluster.local:4443` |
+| url | Keyword | Base URL for service API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://hauntedhouse:4443` |
 | api_key | Keyword | Service API Key | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `ChangeThisDefaultRetroHuntAPIKey!` |
 | tls_verify | Boolean | Should tls certificates be verified | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 
