@@ -133,7 +133,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "remove_role", "role", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "multi_group", "remove_role", "role", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
@@ -175,6 +175,7 @@
 | api_base_url | Keyword | Base URL for downloading the user's and groups info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | client_kwargs | Mapping [String, Keyword] | Keyword arguments passed to the different URLs | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | jwks_uri | Keyword | URL used to verify if a returned JWKS token is valid | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| jwt_token_alg | Keyword | Algorythm use the validate JWT OBO tokens | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `RS256` |
 | uid_field | Keyword | Name of the field that will contain the user ID | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | user_get | Keyword | Path from the base_url to fetch the user info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | user_groups | Keyword | Path from the base_url to fetch the group info | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
@@ -209,7 +210,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "remove_role", "role", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "classification", "group", "multi_group", "remove_role", "role", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
@@ -759,6 +760,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | chat_url | Keyword | URL to the AI API | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `https://api.openai.com/v1/chat/completions` |
+| api_type | Enum | Type of chat API we are communicating with<br>Values:<br>`"cohere", "openai"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `openai` |
 | assistant | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for Assamblyline Assistant | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | code | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for code analysis | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | detailed_report | [AIQueryParams](/assemblyline4_docs/odm/models/config/#aiqueryparams) | Parameters used for detailed reports | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
