@@ -324,7 +324,7 @@
 | sleep_time | Integer | Time, in seconds, to sleep in between each expiry run | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `15` |
 | workers | Integer | Number of concurrent workers | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `20` |
 | delete_workers | Integer | Worker processes for file storage deletes. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `2` |
-| iteration_max_tasks | Integer | How many query chunks get run per iteration. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `20` |
+| iteration_max_tasks | Integer | How many query chunks get run per iteration. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `50` |
 | delete_batch_size | Integer | How large a batch get deleted per iteration. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `2000` |
 | safelisted_tag_dtl | Integer | The default period, in days, before tags expire from Safelist | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 | badlisted_tag_dtl | Integer | The default period, in days, before tags expire from Badlist | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
