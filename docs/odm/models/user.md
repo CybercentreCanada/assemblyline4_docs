@@ -5,7 +5,8 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | agrees_with_tos | Date | Date the user agree with terms of service | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| api_quota | Integer | Maximum number of concurrent API requests | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `10` |
+| api_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| api_daily_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
 | apps | Mapping [String, [Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
 | can_impersonate | Boolean | Allowed to query on behalf of others? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
@@ -17,7 +18,8 @@
 | name | Keyword | Full name of the user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | otp_sk | Keyword | Secret key to generate one time passwords | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | password | Keyword | BCrypt hash of the user's password | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| submission_quota | Integer | Maximum number of concurrent submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| submission_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| submission_daily_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | type | List [Enum] | Type of user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['user']` |
 | roles | List [Enum] | Default roles for user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | security_tokens | Mapping [String, Keyword] | Map of security tokens | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
