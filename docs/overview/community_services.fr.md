@@ -42,10 +42,10 @@ docker_config:
     - « C, D » peuvent être utilisés pour indiquer respectivement le majeur et le mineur d'un service.
     - La partie « dev » ou « stable » de la balise doit indiquer l'état de la construction du service. Ceci est également pertinent pour fournir des mises à jour de service sous un certain canal.
 
-Voici un exemple de build de service destiné à un déploiement Assemblyline exécutant la version 4.4.x.x :
+Voici un exemple de build de service destiné à un déploiement Assemblyline exécutant la version 4.5.x.x :
 ```bash
-docker build . -t <private_registry>/<service_container_image>:4.4.0.stable0 --build-arg version=4.4.0.stable0
-docker push <private_registry>/<service_container_image>:4.4.0.stable0
+docker build . -t <private_registry>/<service_container_image>:4.5.0.stable0 --build-arg version=4.5.0.stable0
+docker push <private_registry>/<service_container_image>:4.5.0.stable0
 ```
 4. Ajoutez le contenu du manifeste de service à l'interface utilisateur ou utilisez l'API REST pour ajouter le service à Assemblyline.
 

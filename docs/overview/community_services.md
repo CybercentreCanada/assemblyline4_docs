@@ -41,10 +41,10 @@ docker_config:
     - `A, B` represents the framework and system version, respectively.
     - `C, D` can be used to indicate the major and minor of a service, respectively.
     - The `dev` or `stable` portion of the tag should indicate the state of the service build. This is also relevant for providing service updates under a certain channel.
-The following is an example of a service build targetted for an Assemblyline deployment running release 4.4.x.x:
+The following is an example of a service build targetted for an Assemblyline deployment running release 4.5.x.x:
 ```bash
-docker build . -t <private_registry>/<service_container_image>:4.4.0.stable0 --build-arg version=4.4.0.stable0
-docker push <private_registry>/<service_container_image>:4.4.0.stable0
+docker build . -t <private_registry>/<service_container_image>:4.5.0.stable0 --build-arg version=4.5.0.stable0
+docker push <private_registry>/<service_container_image>:4.5.0.stable0
 ```
 4. Add contents of service manifest to UI or using the REST API to add the service to Assemblyline
 
