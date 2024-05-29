@@ -184,6 +184,8 @@ The full specification of the file [is defined here](https://github.com/Cybercen
         config: {}
 
     datastore:
+      archive:
+        enabled: false
       hosts:
       - http://elastic:devpass@localhost
       ilm:
@@ -203,6 +205,8 @@ The full specification of the file [is defined here](https://github.com/Cybercen
       type: elasticsearch
 
     filestore:
+      archive:
+      - s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-archive&use_ssl=False
       cache:
       - s3://al_storage_key:Ch@ngeTh!sPa33w0rd@localhost:9000?s3_bucket=al-cache&use_ssl=False
       storage:
@@ -219,6 +223,14 @@ The full specification of the file [is defined here](https://github.com/Cybercen
       log_to_syslog: false
       syslog_host: localhost
       syslog_port: 514
+
+    retrohunt:
+      enabled: false
+      dtl: 30
+      max_dtl: 0
+      url: https://hauntedhouse:4443
+      api_key: ChangeThisDefaultRetroHuntAPIKey!
+      tls_verify: true
 
     services:
       allow_insecure_registry: false
@@ -359,6 +371,7 @@ Here are the links to the different section documentations:
 * [Database (datastore:)](../datastore)
 * [File storage (filestore:)](../filestore)
 * [Logging (logging:)](../logging)
+* [Retrohunt (retrohunt:)](../retrohunt)
 * [Services (services:)](../services)
 * [Submission (submission:)](../submission)
 * [System (system:)](../system)

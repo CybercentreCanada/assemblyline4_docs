@@ -193,11 +193,19 @@ When the services launch, they pull their signature set from the service updater
 
 ## Keeping files forever (Malware Archive)
 
-Malware Archive is a new feature for Assemblyline that allows users to preserve important documents forever. To accomplish this, archived filestore and datastore indices have been defined where the stored documents do not have an expiry date and will not be deleted by the expiry process. The new core component - "the Archiver" - was added to move the file and the analysis over to the Malware Archive.
+Malware Archive is a new feature for Assemblyline that allows users to preserve important documents forever. To accomplish this, archived filestore and datastore indices have been defined where the stored documents do not have an expiry date and will not be deleted by the expiry process. The new core component `Archiver` was added to move the file and the analysis over to the Malware Archive.
 
 ### [Archiver](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/archiver)
 
 The Archiver process is the core component that archives the files and documents. When a user or a system requests a submission to be archived, a message is created in the Redis (volatile) message broker. The Archiver listens to those messages and is tasked with copying the file to the archived filestore and the related submissions in the datastore to their archive indices.
+
+## YARA back in time (Retrohunt)
+
+Retrohunt is a new feature that allows users to scan the collection of submitted files in Assemblyline using their own YARA rules. When a user submits a request to create a new search job, the UI will task the new component called `Haunted House` to process the hunting of the files and inform the user on the progress of the job. The resulting file hits of the search job are stored in the Datastore which makes them easily accessible and minimizes the interaction with Haunted House.
+
+### [Haunted House](https://github.com/CybercentreCanada/haunted-house)
+
+Haunted House is composed of three components called the "Python Client", the "Server" and the "Worker", the latter two being written in Rust. The Python Client is the intermediary between the Assemblyline UI and the Rust Server. It receives the requests from the UI to either start a new search, repeat an existing search or receive status updates on an in-progress job. The Rust Server is responsible for tasking a multitude of Workers to match the YARA rules provided to the files.
 
 ## Work online, continue offline
 
