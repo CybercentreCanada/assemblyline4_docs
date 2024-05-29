@@ -5,7 +5,7 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | odm_type | Text | Type of ODM Model | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `Assemblyline Result Ontology` |
-| odm_version | Text | Version of ODM Model | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1.7` |
+| odm_version | Text | Version of ODM Model | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1.9` |
 | classification | ClassificationString | Classification of Ontological Record | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | file | [File](/assemblyline4_docs/odm/models/ontology/ontology/#file) | Descriptors about file being analyzed | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | service | [Service](/assemblyline4_docs/odm/models/ontology/ontology/#service) | Information about Service | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |

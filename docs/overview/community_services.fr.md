@@ -15,7 +15,7 @@ Cette page contient la liste de services crée et partagé avec le publique.
 | ClamAV | Assemblyline service which submits a file to ClamAV and displays the result | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-clamav) |
 | MalwareBazaar | Assemblyline service fetching Malware Bazaar report | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-malware-bazaar) |
 | MsgParser | Simple MSG extractor AssemblyLine service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-msg-extractor) |
-| OPSWAT Filescan Sandbox :material-new-box:{ .big_icon } | Submits a file or a URL to OPSWAT Filescan Sandbox | [OPSWAT](https://github.com/OPSWAT/) | [link](https://github.com/OPSWAT/assemblyline-service-opswat-filescan-sandbox) |
+| MetaDefender Sandbox :material-new-box:{ .big_icon } | Submits a file or a URL to MetaDefender Sandbox | [OPSWAT](https://github.com/OPSWAT/) | [link](https://github.com/OPSWAT/assemblyline-service-metadefender-sandbox) |
 | PythonExeUnpack | Python exe unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-python-exe-unpacker) |
 | StegFinder | AssemblyLine service which scans for embedded data in image using StegExpose | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-steg-finder) |
 | Unfurl | Assemblyline service parsing a submitted URL to unshorten it. | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-unfurl) |
@@ -42,10 +42,10 @@ docker_config:
     - « C, D » peuvent être utilisés pour indiquer respectivement le majeur et le mineur d'un service.
     - La partie « dev » ou « stable » de la balise doit indiquer l'état de la construction du service. Ceci est également pertinent pour fournir des mises à jour de service sous un certain canal.
 
-Voici un exemple de build de service destiné à un déploiement Assemblyline exécutant la version 4.4.x.x :
+Voici un exemple de build de service destiné à un déploiement Assemblyline exécutant la version 4.5.x.x :
 ```bash
-docker build . -t <private_registry>/<service_container_image>:4.4.0.stable0 --build-arg version=4.4.0.stable0
-docker push <private_registry>/<service_container_image>:4.4.0.stable0
+docker build . -t <private_registry>/<service_container_image>:4.5.0.stable0 --build-arg version=4.5.0.stable0
+docker push <private_registry>/<service_container_image>:4.5.0.stable0
 ```
 4. Ajoutez le contenu du manifeste de service à l'interface utilisateur ou utilisez l'API REST pour ajouter le service à Assemblyline.
 

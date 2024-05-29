@@ -7,6 +7,7 @@
 | objectid | [ObjectID](/assemblyline4_docs/odm/models/ontology/results/process/#objectid) | The object ID of the signature object | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | name | Keyword | The name of the signature | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | type | Enum | Type of signature<br>Values:<br>`"CUCKOO", "SIGMA", "SURICATA", "YARA"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| classification | ClassificationString | Classification of signature | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | attributes | List [[Attribute](/assemblyline4_docs/odm/models/ontology/results/signature/#attribute)] | Attributes about the signature | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | attacks | List [[Attack](/assemblyline4_docs/odm/models/result/#attack)] | A list of ATT&CK patterns and categories of the signature | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | actors | List [Text] | List of actors of the signature | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

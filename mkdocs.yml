@@ -152,7 +152,7 @@ nav:
         - Signature: odm/models/ontology/results/signature.md
     - ReplayConfig: odm/models/replay.md
     - Result: odm/models/result.md
-    - Retrohunt: odm/models/retrohunt.md
+    - RetrohuntHit: odm/models/retrohunt.md
     - Safelist: odm/models/safelist.md
     - Service: odm/models/service.md
     - ServiceDelta: odm/models/service_delta.md
@@ -172,9 +172,11 @@ nav:
     - ArchiveMessage: odm/messages/archive_heartbeat.md
     - DispatcherMessage: odm/messages/dispatcher_heartbeat.md
     - DispatcherCommandMessage: odm/messages/dispatching.md
+    - ElasticMessage: odm/messages/elastic_heartbeat.md
     - ExpiryMessage: odm/messages/expiry_heartbeat.md
     - IngestMessage: odm/messages/ingest_heartbeat.md
     - MetricsMessage: odm/messages/metrics.md
+    - RetrohuntMessage: odm/messages/retrohunt_heartbeat.md
     - ScalerMessage: odm/messages/scaler_heartbeat.md
     - ScalerStatusMessage: odm/messages/scaler_status_heartbeat.md
     - ServiceMessage: odm/messages/service_heartbeat.md

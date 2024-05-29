@@ -15,7 +15,7 @@ This page lists all the services that our members have created and shared with t
 | ClamAV | Assemblyline service which submits a file to ClamAV and displays the result | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-clamav) |
 | MalwareBazaar | Assemblyline service fetching Malware Bazaar report | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-malware-bazaar) |
 | MsgParser | Simple MSG extractor AssemblyLine service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-msg-extractor) |
-| OPSWAT Filescan Sandbox :material-new-box:{ .big_icon } | Submits a file or a URL to OPSWAT Filescan Sandbox | [OPSWAT](https://github.com/OPSWAT/) | [link](https://github.com/OPSWAT/assemblyline-service-opswat-filescan-sandbox) |
+| MetaDefender Sandbox :material-new-box:{ .big_icon } | Submits a file or a URL to MetaDefender Sandbox | [OPSWAT](https://github.com/OPSWAT/) | [link](https://github.com/OPSWAT/assemblyline-service-metadefender-sandbox) |
 | PythonExeUnpack | Python exe unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-python-exe-unpacker) |
 | StegFinder | AssemblyLine service which scans for embedded data in image using StegExpose | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-steg-finder) |
 | Unfurl | Assemblyline service parsing a submitted URL to unshorten it. | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-unfurl) |
@@ -41,10 +41,10 @@ docker_config:
     - `A, B` represents the framework and system version, respectively.
     - `C, D` can be used to indicate the major and minor of a service, respectively.
     - The `dev` or `stable` portion of the tag should indicate the state of the service build. This is also relevant for providing service updates under a certain channel.
-The following is an example of a service build targetted for an Assemblyline deployment running release 4.4.x.x:
+The following is an example of a service build targetted for an Assemblyline deployment running release 4.5.x.x:
 ```bash
-docker build . -t <private_registry>/<service_container_image>:4.4.0.stable0 --build-arg version=4.4.0.stable0
-docker push <private_registry>/<service_container_image>:4.4.0.stable0
+docker build . -t <private_registry>/<service_container_image>:4.5.0.stable0 --build-arg version=4.5.0.stable0
+docker push <private_registry>/<service_container_image>:4.5.0.stable0
 ```
 4. Add contents of service manifest to UI or using the REST API to add the service to Assemblyline
 

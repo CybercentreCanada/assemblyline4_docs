@@ -103,7 +103,8 @@
 | entity_id | Keyword | ID of entity associated to event | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | entity_name | Keyword | Name of entity | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | ts | Date | Timestamp of event | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
-| labels | List [Keyword] | Labels added during event | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| labels | List [Keyword] | Labels added during event | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| labels_removed | List [Keyword] | Labels removed during event | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | status | Enum | Status applied during event<br>Values:<br>`"ASSESS", "MALICIOUS", "NON-MALICIOUS", "TRIAGE"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | priority | Enum | Priority applied during event<br>Values:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
