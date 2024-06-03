@@ -509,6 +509,7 @@
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
+| always_create_submission | Boolean | Always create submissions even on cache hit? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | default_user | Keyword | Default user for bulk ingestion and unattended submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `internal` |
 | default_services | List [Keyword] | Default service selection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | default_resubmit_services | List [Keyword] | Default service selection for resubmits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
