@@ -770,6 +770,10 @@
 | :--- | :--- | :--- | :--- | :--- |
 | ja3_hash | List [MD5] | JA3 Hash | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | ja3_string | List [Keyword] | JA3 String | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ja3s_hash | List [MD5] | JA3S Hash | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ja3s_string | List [Keyword] | JA3S String | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ja4_hash | List [ValidatedKeyword] | JA4 Hash | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| ja4s_hash | List [ValidatedKeyword] | JA4S Hash | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | sni | List [Keyword] | SNI | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
