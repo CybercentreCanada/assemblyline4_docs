@@ -149,7 +149,7 @@ For reference, here are the instructions on Docker’s website: <https://docs.do
 
 Create a file named `.env.local` at the root of the `assemblyline-ui-frontend` directory with the following content:
 
-``` bash title="~/git/assemblyline-ui-frontend/.env.local"
+``` shell title="~/git/assemblyline-ui-frontend/.env.local"
 HOST=0.0.0.0
 WDS_SOCKET_PORT=443
 HTTPS=true
@@ -164,7 +164,7 @@ Create a file in the `docker` directory named `.env`.
 
 This file should only contain the following where `<YOUR_IP>` is replaced by your development computer IP.
 
-``` bash title="~/git/assemblyline-ui-frontend/docker/.env"
+``` shell title="~/git/assemblyline-ui-frontend/docker/.env"
 EXTERNAL_IP=<YOUR_IP>
 ```
 
