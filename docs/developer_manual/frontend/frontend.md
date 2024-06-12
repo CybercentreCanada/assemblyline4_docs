@@ -1,44 +1,44 @@
 # Assemblyline frontend development
 
-The following documentation will explain how to setup an environment for developing on the Assemblyline frontend.
+This documentation will show you how to set up your environment for Assemblyline frontend development.
 
 ## Libraries
 
-First off, the following framework and libaries are the tech stack that is used on the Assemblyline's frontend.
+First off, Assemblyline's frontend uses the following libraries. Here are some key notes when using them while developing a feature on the frontend.
 
 ### **[React](https://react.dev)**
 
-The Assemblyline's frontend was developed using the React libary. It was originaly chosen for its popularity and has stood the test of time. Where Angular is a framework because some decision were made for the developer, React is an unopinionated library allowing the developer their own decision for their app. The main advantage of using React is it allows developers to create modular and reusable components throughtout the app.
+The Assemblyline's frontend was developed using the React library. It was originally chosen for its popularity and has stood the test of time. Where Angular is a framework because some decisions were made for the developer, React is an unopinionated library allowing the developer their own decision for their app. The main advantage of using React is it allows developers to create modular and reusable components throughout the app.
 
-**[ReactDOM](https://react.dev/reference/react-dom)**: React comes with the ReactDOM library that implements the concept of Virtual DOM (VDOM). It works by storing a virtual representation of the DOM tree in memory and whenever an event causes changes a state such as a user clicking on a button or entering text in an input field, the VDOM will reconcile the differences and rerender the components where the state change occured and all of its child components.
+**[ReactDOM](https://react.dev/reference/react-dom)**: React comes with the ReactDOM library that implements the concept of Virtual DOM (VDOM). It works by storing a virtual representation of the DOM tree in memory and whenever an event causes changes a state such as a user clicking on a button or entering text in an input field, the VDOM will reconcile the differences and rerender the components where the state change occurred and all its child components.
 
-**[React Developer Tools](https://react.dev/learn/react-developer-tools)**: You can install this tool as a browser extension to be able to view and track the components state and to optimize the rendering performance of the app.
+**[React Developer Tools](https://react.dev/learn/react-developer-tools)**: You can install this tool as a browser extension to be able to view and track the component's state and to optimize the rendering performance of the app.
 
 - **functions over classes**: On Assemblyline, we prefer to use functional components instead of class components as they seem to have been deprecated or are in legacy support.
 - **Hooks**: Similarly, we use hooks in most use case ever since they became popular.
 - **Components in a single file**: Components that are only used a limited amount of time should be stored in the same file that they are used in to avoid having to search all over the place for them.
-- **Memoize everything**: Performance optimization is a key factor when it comes to developing Assemblyline's frontend where frequent DOM changes occur. As explained before, a component will have to rerender all of its content if one of its props, state or state resulting from hooks has changed. As a good rule of thumb, functional components should be wrapped with `React.memo()`, methods within a component should be implemented with `useCallback()` and use `useMemo()` for state derived variables to avoid unnecessary rerender. Note that React 19 will finaly remove the need to memoize everything.
+- **Memoize everything**: Performance optimization is a key factor when it comes to developing Assemblyline's frontend where frequent DOM changes occur. As explained before, a component will have to rerender all its content if one of its props, state or state resulting from hooks has changed. As a good rule of thumb, functional components should be wrapped with `React.memo()`, methods within a component should be implemented with `useCallback()` and use `useMemo()` for state derived variables to avoid unnecessary rerender. Note that React 19 will finally remove the need to memoize everything.
 
 ### **[React Router](https://reactrouter.com)**
 
-This library handles all of the "client side routing" and provides all the hooks to track the state of the location, its parameters and the need to navigate to another location.
+This library handles all of the "client-side routing" and provides all the hooks to track the state of the location, its parameters and the need to navigate to another location.
 
 - **Code-Splitting and Lazy loading**: In order to reduce the initial bundling size, every page of Assemblyline's frontend is lazy loaded meaning that page's code and all underlying components will only be sent to the user's browser when they first navigate to it.
-- **Vite Chunking**: When building for production, Vite is configured to create chunks or to split the resulting JavaScript code into multiple files in order to reduce their size. In effect, this reduces the initial loading time by only sending the chunk of code needed to display the requested page.
+- **Vite Chunking**: When building for production, Vite is configured to create chunks, or to split the resulting JavaScript code into multiple files in order to reduce their size. In effect, this reduces the initial loading time by only sending the chunk of code needed to display the requested page.
 
 ### **[Typescript](https://www.typescriptlang.org)**
 
-This libary adds additional syntax for types that builds on JavaScript. Well integrated into VSCode, it provides the type inference needed to catch errors during development.
+This library adds additional syntax for types that builds on JavaScript. Well integrated into VSCode, it provides the type inference needed to catch errors during development.
 
 - **Type everything**: To make full use of this library, it is encouraged to add typing to all parameters in order to be able to catch potential issues during development.
 
 ### **[Material UI](https://mui.com/material-ui)**
 
-Most of the React components that are used in Assemblyline come from the Material UI (MUI) libary. It provides all the standard UI element one might expect with minimilistic animation making easy and fast to develop on the frontend.
+Most of the React components that are used in Assemblyline come from the Material UI (MUI) library. It provides all the standard UI element one might expect with minimalistic animation making easy and fast to develop on the frontend.
 
 **[Material Icon](https://mui.com/material-ui/material-icons/)**: Most of Assemblyline's icons and symbols are from Material Icon as they are well integrated with its components.
 
-- **Performance over style**: Note that there's a performance tradeoff with using the MUI components where you get the functionalities and the styling, but lose a lot of performance. In the case of rendering thousands of elements like buttons in a table, it is much faster to use regular HTML and pure CSS since the UI doesn't have to process all the component's parameters. As an example, we rarely use the `<Box />` component from MUI as it doesn't offer anything more than a regular `<div />` doesn't and the rendering time differences is considerable at scale.
+- **Performance over style**: Note that there's a performance trade-off with using the MUI components where you get the functionalities and the styling but lose a lot of performance. In the case of rendering thousands of elements like buttons in a table, it is much faster to use regular HTML and pure CSS since the UI doesn't have to process all the component's parameters. As an example, we rarely use the `<Box />` component from MUI as it doesn't offer anything more than a regular `<div />` doesn't and the rendering time differences is considerable at scale.
 
 ### **[Vite](https://vitejs.dev)**
 
@@ -65,7 +65,7 @@ git clone https://github.com/CybercentreCanada/assemblyline-ui-frontend.git
 
 ### Install Node.js (Ubuntu)
 
-[Node.js](https://nodejs.org/en) is the JavaScript runtime that will execute the frontend's code. Using the [Node Version Manager](https://nodejs.org/en/download/package-manager) (NVM) makes it easy to install and manage your Node.js environement. Use these following commands install the Node.js version 20.
+[Node.js](https://nodejs.org/en) is the JavaScript runtime that will execute the frontend's code. Using the [Node Version Manager](https://nodejs.org/en/download/package-manager) (NVM) makes it easy to install and manage your Node.js environment. Use these following commands install the Node.js version 20.
 
 ``` bash
 # installs nvm (Node Version Manager)
@@ -90,7 +90,7 @@ sudo apt-get install -y nodejs
 
 ### Install Yarn
 
-[Yarn](https://classic.yarnpkg.com/en/) is a package manager that is faster and more reliable than NPM to manage and install node packages. Type the following command to install Yarn globaly.
+[Yarn](https://classic.yarnpkg.com/en/) is a package manager that is faster and more reliable than NPM to manage and install node packages. Type the following command to install Yarn globally.
 
 ``` bash
 # install Yarn
@@ -102,7 +102,7 @@ yarn --version
 
 ### Install NPM dependencies
 
-Still in your `assemblyline-ui-frontend` directory, run the following command to install all of the frontend's dependencies.
+Still in your `assemblyline-ui-frontend` directory, run the following command to install all the frontend's dependencies.
 
 ``` bash title="~/git/assemblyline-ui-frontend"
 # install all dependencies
