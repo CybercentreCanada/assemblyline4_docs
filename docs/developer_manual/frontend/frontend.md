@@ -90,7 +90,7 @@ sudo apt-get install -y nodejs
 
 ### Install Yarn
 
-[Yarn](https://classic.yarnpkg.com/en/) is a package manager that is faster and more reliable than NPM to manage and install node packages. Type the following command to install Yarn globally.
+[Yarn](https://classic.yarnpkg.com/en/) is a package manager that is faster and more reliable than NPM to manage and install Node.js packages. Type the following command to install Yarn globally.
 
 ``` bash
 # install Yarn
