@@ -46,7 +46,7 @@ Vite.js is a build tool which aims to streamline the web development process, ma
 
 ### **[Vitest](https://vitest.dev)**
 
-Because the frontend now uses Vite, it uses Vitest as its testing framework. For the time being, testing components on the frontend is done selectively and mostly on pure functions. Otherwise, having Typescript and ESLint helps in finding issues that might occur during development.
+Because the frontend now uses Vite, it uses Vitest as its testing framework. For the time being, testing components on the frontend is done selectively and mostly on pure functions. Otherwise, having both Typescript and ESLint helps to find issues that might occur during development.
 
 ### **[ESLint](https://eslint.org)**
 
