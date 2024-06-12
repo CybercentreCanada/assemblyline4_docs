@@ -224,6 +224,7 @@ theme:
   custom_dir: override
   favicon: images/crane.png
   features:
+  - content.code.copy
   - navigation.tabs
   - navigation.expand
   - navigation.top
