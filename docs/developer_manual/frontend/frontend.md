@@ -180,7 +180,7 @@ From the `docker` directory, copy the file `classification.yml.template` to `cla
 
 Change the `enforce` value to `true` in the `classification.yml` file to turn on the classification engine.
 
-## Frontend evelopment only
+## Frontend development only
 
 The default `docker-compose` configuration is setup for users who only want to work on Assemblyline's frontend. It will deploy the required docker containers of `nginx`, `minio`, `redis` and `elasticsearch` used for any development environment, but will also deploy the `ui` and `socketio` instances as docker containers and will create some test data.
 
