@@ -10,7 +10,7 @@ First off, Assemblyline's frontend uses the following libraries. Here are some k
 
 The Assemblyline frontend was developed using the React library. It was originally chosen for its popularity and has stood the test of time. Where Angular is a framework because some decisions were made for the developer, React is an unopinionated library allowing the developer to make their own decision for their app. The main advantage of using React is it allows developers to create modular and reusable components throughout the app.
 
-**[ReactDOM](https://react.dev/reference/react-dom)**: React comes with the ReactDOM library that implements the concept of Virtual DOM (VDOM). It works by storing a virtual representation of the DOM tree in memory and whenever an event causes changes a state such as a user clicking on a button or entering text in an input field, the VDOM will reconcile the differences and rerender the components where the state change occurred and all its child components.
+**[ReactDOM](https://react.dev/reference/react-dom)**: React comes with the ReactDOM library that implements the concept of Virtual DOM (VDOM). It works by storing a virtual representation of the DOM tree in memory and whenever an event causes changes of state such as a user clicking on a button or entering text in an input field, the VDOM will reconcile the differences and re-render the components and associated child components where the state change occurred .
 
 **[React Developer Tools](https://react.dev/learn/react-developer-tools)**: You can install this tool as a browser extension to be able to view and track the component's state and to optimize the rendering performance of the app.
 
