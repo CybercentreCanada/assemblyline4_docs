@@ -50,7 +50,7 @@ Because the frontend now uses Vite, it uses Vitest as its testing framework. For
 
 ### **[ESLint](https://eslint.org)**
 
-ESLint is a static code analysis tool for identifying problematic patterns or code that doesn't adhere to certain guidelines or standards in order to maintain code quality and consistency within a codebase. For the most part, the Assemblyline's frontend uses standard rulesets written by the React community.
+ESLint is a static code analysis tool for identifying problematic patterns or code that don't adhere to certain guidelines or standards in order to maintain code quality and consistency within a codebase. For the most part, the Assemblyline's frontend uses standard rulesets written by the React community.
 
 - **Vite integration**: ESLint was not integrated with Vite runtime to preserve its fast response time during development. To view all the warnings and errors on the frontend's code, execute he `yarn eslint .` command.
 
