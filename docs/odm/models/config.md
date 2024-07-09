@@ -134,7 +134,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "api_daily_quota", "api_quota", "classification", "group", "multi_group", "remove_role", "role", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "api_daily_quota", "api_quota", "classification", "group", "multi_group", "remove_role", "role", "submission_async_quota", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
@@ -166,6 +166,8 @@
 | uid_format | Keyword | Format of the user ID based on the captured parts from the regex | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | client_id | Keyword | ID of your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | client_secret | Keyword | Password to your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| auto_no_secret | Boolean | Should we use the client secret for the OAuth? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| client_scope | Keyword | Managed Identity scope to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | redirect_uri | Keyword | URI to redirect to after authentication with OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | request_token_url | Keyword | URL to request token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | request_token_params | Keyword | Parameters to request token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
@@ -212,7 +214,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "api_daily_quota", "api_quota", "classification", "group", "multi_group", "remove_role", "role", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Values:<br>`"access", "api_daily_quota", "api_quota", "classification", "group", "multi_group", "remove_role", "role", "submission_async_quota", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
@@ -1170,8 +1172,9 @@ Reference: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-tol
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| concurrent_api_calls | Integer | Maximum concurrent API Calls can be running for a user. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `10` |
-| concurrent_submissions | Integer | Maximum concurrent Submission can be running for a user. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| concurrent_api_calls | Integer | Maximum concurrent API Calls that can be running for a user. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `10` |
+| concurrent_submissions | Integer | Maximum concurrent Submission that can be running for a user. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `5` |
+| concurrent_async_submissions | Integer | Maximum concurrent asynchroneous Submission that can be running for a user. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 | daily_api_calls | Integer | Maximum daily API calls a user can issue. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 | daily_submissions | Integer | Maximum daily submission a user can do. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 

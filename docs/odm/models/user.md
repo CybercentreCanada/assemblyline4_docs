@@ -19,6 +19,7 @@
 | otp_sk | Keyword | Secret key to generate one time passwords | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | password | Keyword | BCrypt hash of the user's password | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | submission_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| submission_async_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | submission_daily_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | type | List [Enum] | Type of user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['user']` |
 | roles | List [Enum] | Default roles for user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
