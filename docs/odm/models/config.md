@@ -166,8 +166,6 @@
 | uid_format | Keyword | Format of the user ID based on the captured parts from the regex | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | client_id | Keyword | ID of your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | client_secret | Keyword | Password to your application to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| auto_no_secret | Boolean | Should we use the client secret for the OAuth? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| client_scope | Keyword | Managed Identity scope to authenticate to the OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | redirect_uri | Keyword | URI to redirect to after authentication with OAuth provider | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | request_token_url | Keyword | URL to request token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | request_token_params | Keyword | Parameters to request token | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
