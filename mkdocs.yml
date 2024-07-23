@@ -140,11 +140,13 @@ nav:
     - FileScore: odm/models/filescore.md
     - Heuristic: odm/models/heuristic.md
     - Ontology:
+      - File: odm/models/ontology/file.md
       - Filetypes:
         - PE: odm/models/ontology/filetypes/pe.md
       - ResultOntology: odm/models/ontology/ontology.md
       - Results:
         - Antivirus: odm/models/ontology/results/antivirus.md
+        - HTTP: odm/models/ontology/results/http.md
         - MalwareConfig: odm/models/ontology/results/malware_config.md
         - NetworkConnection: odm/models/ontology/results/network.md
         - Process: odm/models/ontology/results/process.md

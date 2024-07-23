@@ -5,10 +5,10 @@
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | objectid | [ObjectID](/assemblyline4_docs/odm/models/ontology/results/process/#objectid) | The object ID of the network object | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| destination_ip | IP | The destination IP of the connection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| destination_port | Integer | The destination port of the connection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| transport_layer_protocol | Enum | The transport layer protocol of the connection<br>Values:<br>`"tcp", "udp"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| direction | Enum | The direction of the network connection<br>Values:<br>`"inbound", "outbound", "unknown"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| destination_ip | IP | The destination IP of the connection | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| destination_port | Integer | The destination port of the connection | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| transport_layer_protocol | Enum | The transport layer protocol of the connection<br>Values:<br>`"tcp", "udp"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| direction | Enum | The direction of the network connection<br>Values:<br>`"inbound", "outbound", "unknown"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | process | [Process](/assemblyline4_docs/odm/models/ontology/results/process/#process) | The process that spawned the network connection | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | source_ip | IP | The source IP of the connection | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | source_port | Integer | The source port of the connection | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
@@ -41,5 +41,7 @@
 | request_body | Text | The body of the request | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | response_status_code | Integer | The status code of the response | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | response_body | Text | The body of the response | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| response_content_fileinfo | [File](/assemblyline4_docs/odm/models/ontology/file/#file) | The file information of the response content | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| response_content_mimetype | Text | The response content mimetype returned by the server | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
