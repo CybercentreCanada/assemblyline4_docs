@@ -48,6 +48,7 @@
 | generate_alert | Boolean | Should this submission generate an alert? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | groups | List [Keyword] | List of groups related to this scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | ignore_cache | Boolean | Ignore the cached service results? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_recursion_prevention | Boolean | Should we ignore recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_dynamic_recursion_prevention | Boolean | Should we ignore dynamic recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_filtering | Boolean | Should we ignore filtering services? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_size | Boolean | Ignore the file size limits? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |

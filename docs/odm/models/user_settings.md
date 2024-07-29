@@ -15,6 +15,7 @@
 | generate_alert | Boolean | Generate an alert? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_cache | Boolean | Ignore service caching? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_dynamic_recursion_prevention | Boolean | Ignore dynamic recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| ignore_recursion_prevention | Boolean | Ignore all service recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_filtering | Boolean | Ignore filtering services? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | malicious | Boolean | Is the file submitted already known to be malicious? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | priority | Integer | Default priority for the submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
