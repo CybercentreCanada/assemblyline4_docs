@@ -66,7 +66,7 @@ To use your newly created [API key](../key_generation) you can simply add the `X
 
     - `json` (optional): This is a JSON dictionary with 3 possible keys
         - `name` (optional): Name of the file, otherwise `bin.filename` is used
-        - `params` (optional): Changes to the default submission parameters for the user
+        - `params` (optional): Changes to the default [submission parameters](../../odm/models/submission/#submissionparams) for the user
         - `metadata` (optional): Metadata to be added to the submission
     - `bin` (required): the actual file to be scanned
 
