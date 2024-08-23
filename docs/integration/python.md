@@ -74,7 +74,7 @@ You can instantiate the client by using the following snippet of Python code:
 ## Examples
 
 ### Submit a file, URL or SHA256 for analysis
-There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: [**Ingest** and **Submit**](./ingestion_method).
+There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: [**Ingest** and **Submit**](../ingestion_method).
 
 !!! attention "In most cases, you want to use the Ingest API via the CLI"
 
