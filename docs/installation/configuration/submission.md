@@ -60,7 +60,7 @@ Since this section is quite simple, we will list the default configuration at th
 
 ## Metadata Validation
 
-You can configure the system to enforce metadata validation and enforcement when performing ingestion and archiving. This is a useful feature if you're looking to harmonize the metadata from different sensors under a common scheme.
+You can configure the system to enforce metadata validation and presence when performing ingestion and archiving. This is a useful feature if you're looking to harmonize the metadata from different sensors under a common scheme.
 
 A lot of the configuration is around the parameters of the [ODM fields](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/base.py) that Assemblyline uses internally for it's own data validation, so an example of configuring a field using a regex pattern would look like:
 
