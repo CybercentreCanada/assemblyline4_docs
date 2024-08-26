@@ -29,7 +29,7 @@ Assemblyline Blog Entry #3 — ⚠️⚠️⚠️ CAUTION ⚠️⚠️⚠️ Thi
 
 ![Can Assemblyline beat HackTheBox Business CTF 2023 Forensic Challenges?](images/blog4.png){ align=right }
 
-Assemblyline Blog Entry #4 — The following is the first part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+Assemblyline Blog Entry #4 — This post is the first part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
 
 ---
 
@@ -37,7 +37,7 @@ Assemblyline Blog Entry #4 — The following is the first part of a write-up det
 
 ![Can HackTheBox Business CTF 2023 Forensic Challenges beat Assemblyline?](images/blog5.png){ align=right }
 
-Assemblyline Blog Entry #5 — The following is the second part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+Assemblyline Blog Entry #5 — This post is the second part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
 
 ---
 
@@ -45,7 +45,7 @@ Assemblyline Blog Entry #5 — The following is the second part of a write-up de
 
 ![One last HackTheBox Business CTF 2023 Forensic Challenge](images/blog6.png){ align=right }
 
-Assemblyline Blog Entry #6 - The following is the third part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
+Assemblyline Blog Entry #6 - This post is the third part of a write-up detailing the solutions for forensic challenges that were part of the HackTheBox Business CTF 2023 competition.
 
 ---
 
@@ -70,3 +70,11 @@ Assemblyline Blog Entry #8 — This article will illustrate another, more recent
 ![What Can Assemblyline Learn From Other Malware Analysis Projects?](images/blog9.png){ align=right }
 
 Assemblyline Blog Entry #9 — I wanted to find what Assemblyline could learn from these tools to improve the Government of Canada’s defences.
+
+---
+
+### [Crack any password-protected InnoSetup installer](https://medium.com/@gdesmar/crack-any-password-protected-innosetup-installer-5daabb52dbfb)
+
+![Crack any password-protected InnoSetup installer](images/blog10.png){ align=right }
+
+Assemblyline Blog Entry #10 — This post takes a look at and offer solutions to analyze password-protected InnoSetup files.
