@@ -57,3 +57,66 @@ Since this section is quite simple, we will list the default configuration at th
 
 !!! tip
     Refer to the [changing the configuration file](../config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
+
+## Metadata Validation
+
+You can configure the system to enforce metadata validation and presence when performing ingestion and archiving. This is a useful feature if you're looking to harmonize the metadata from different sources under a common scheme.
+
+A lot of the configuration is around the parameters of the [ODM fields](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/base.py) that Assemblyline uses internally for it's own data validation, so an example of configuring a field using a regex pattern would look like:
+
+```yaml
+validation_type: regex
+validation_params:
+  validation_regex: ^blee
+```
+
+So if you wanted to enforce the presence of a metadata field named `bloo` on submission and the value has to match that pattern, the configuration would be:
+
+```yaml
+submission:
+  metadata:
+    submit:
+      bloo:  # Field name
+        validation_type: regex
+        validation_params:
+          validation_regex: ^blee
+        required: true # Mandatory field to be set on submission
+```
+
+The configuration also supports applying strict metadata enforcement, which means a submitter can't add new metadata that the system isn't aware of relative to the scheme:
+```yaml
+submission:
+  metadata:
+    ingest:
+      INGEST: # "type" parameter when using Ingest API (default: INGEST)
+        epoch:
+          validation_type: int
+        name:
+          validation_type: text
+    submit:
+      name:
+        validation_type: text
+  strict_schemes: ['INGEST']
+```
+
+In the above example, if you're ingesting files under the `INGEST` type, then you can only set the `epoch` or `name` metadata. If there are any additional fields other than those two then the API will return an error. However, you are able to add additional metadata fields when using the Submit API but the `name` field still has to be a string/text type.
+
+A configuration that's specific to the Ingest API is the use of a `submission.metadata.ingest._default`. This configuration is used to apply baseline validation rules across anyone using the Ingest API, including those who might have their own validation scheme based on ingest type.
+
+For example, in the following:
+```yaml
+submission:
+  metadata:
+    ingest:
+      _default:
+        owner:
+          validation_type: text
+          required: true
+      INGEST: # "type" parameter when using Ingest API (default: INGEST)
+        epoch:
+          validation_type: int
+        name:
+          validation_type: text
+```
+
+Someone who submits with `type: INGEST` has to have an `owner` field in their metadata of type `text` and can optionally provide an `epoch` and `name` meta which needs to be of the specified type. However, someone who submits with `type: TEST` only has to provide an `owner` field in the metadata for the validation to pass and for their submission to proceed to analysis.
