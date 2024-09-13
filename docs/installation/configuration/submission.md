@@ -119,4 +119,4 @@ submission:
           validation_type: text
 ```
 
-Someone who submits with `type: INGEST` has to have an `owner` field in their metadata of by `text` and can optionally provide an `epoch` and `name` meta. However, someone who submits with `type: TEST` only has to provide an `owner` field in the metadata for the validation to pass and for their submission to proceed to analysis.
+Someone who submits with `type: INGEST` has to have an `owner` field in their metadata of type `text` and can optionally provide an `epoch` and `name` meta which needs to be of the specified type. However, someone who submits with `type: TEST` only has to provide an `owner` field in the metadata for the validation to pass and for their submission to proceed to analysis.
