@@ -7,8 +7,8 @@ Managing users effectively is a key aspect of maintaining the security and effic
 To begin managing user accounts in Assemblyline, follow these steps to access the user management interface:
 
 1. Click on the **Administration** topic in your Assemblyline interface.
-2. Under the Administration section, select the **System Safelist** subtopic.
-3. Once in the System Safelist, you will be presented with the user management interface.
+2. Under the Administration section, select the **Users** subtopic.
+3. Once in the Users, you will be presented with the user management interface.
 
 ![User Management Interface](./images/users_bar.png){: .center }
 
