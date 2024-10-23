@@ -14,6 +14,8 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
     The recommended minimum system requirement for this appliance is **4 CPUs** and **8 GB** of RAM.
 
+    **Note:** If you have above the minimum system requirement, you can make performance adjustments such as setting `core.scaler.service_defaults.min_instances: 1` to ensure service readiness by default rather than on-demand scaling.
+
 ### Install pre-requisites
 === "Online"
     === "Ubuntu"
