@@ -42,7 +42,7 @@ On the user detail page, you can take various administrative actions:
 
 - Remove the user account entirely.
 - Enable or disable the user's access to Assemblyline.
-- Adjust the user's role settings as appropriate.
+- Adjust the user's role settings or classification as appropriate.
 - Set or modify the user's API usage quotas.
 - Change the user's password securely.
 
@@ -52,8 +52,7 @@ On the user detail page, you can take various administrative actions:
 
 To change a user's access to the system:
 
-1. Navigate to the *Status* section of the user's detail page.
-2. Click the **Enable** or **Disable** button, depending on the desired action.
+1. Click the **Account Enabled** or **Account Disabled** button, depending on the desired action, located below the avatar in the user's detail page.
 
 #### Modifying User Roles
 
@@ -66,22 +65,23 @@ To update a user's roles:
 
 To set or change usage quotas:
 
-1. Go to the *Quotas* section.
+1. Go to the relevant quota setting in the *Options* section.
 2. Input the new quota values as per your requirements.
 
 #### Updating User Password
 
 To change a user's password:
 
-1. In the *Password* section, click on the **Change Password** button.
+1. In the *Security* section, click on the **Change Password** button.
 2. Follow the prompts to enter and confirm the new password.
 
 ### Removing a User
 
 To permanently remove a user account from the system:
 
-1. Navigate to the in-detail user page.
-2. From the options, select the **Remove** action.
-3. Confirm the removal when prompted.
+1. Select the *Remove* action located above the avatar in the user's detail page
+2. Confirm the removal when prompted.
+
+To apply any changes to the user account, you'll need to select the **Save changes** button located at the bottom of the window.
 
 By following the detailed steps outlined in this guide, you can effectively manage user accounts within Assemblyline to ensure a secure and streamlined operation.
