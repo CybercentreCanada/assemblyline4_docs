@@ -1015,7 +1015,8 @@ UI Configuration
 | debug | Boolean | Enable debugging? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | default_quotas | [Quotas](/assemblyline4_docs/odm/models/config/#quotas) | Default API quotas values | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Quotas](/assemblyline4_docs/odm/models/config/#quotas) for more details. |
 | discover_url | Keyword | Discover URL | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| download_encoding | Enum | Which encoding will be used for downloads?<br>Supported values are:<br>`"cart", "raw"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cart` |
+| download_encoding | Enum | Which encoding will be used for downloads?<br>Supported values are:<br>`"cart", "raw", "zip"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cart` |
+| default_zip_password | Text | Default user-defined password for creating password protected ZIPs when downloading files | <div style="width:100px">:material-minus-box-outline: Optional</div> | `infected` |
 | email | Email | Assemblyline admins email address | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | enforce_quota | Boolean | Enforce the user's quotas? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | external_links | List [[ExternalLinks](/assemblyline4_docs/odm/models/config/#externallinks)] | List of external pivot links | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
