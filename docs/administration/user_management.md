@@ -1,50 +1,87 @@
-# User Management
+# User Management Guide
 
-Assemblyline's user management interface lets you:
+Managing users effectively is a key aspect of maintaining the security and efficiency of Assemblyline. This guide provides you with step-by-step instructions to utilize the user management interface within Assemblyline to manage user accounts with ease.
 
-1. List all the users in the system
-2. Filter and search the current user list
-3. View details about users
-4. Remove users
-5. Enable/disable users
-6. Change the users' roles, quotas, and passwords
+## Accessing the User Management Interface
 
-You can find the user management interface by clicking the *Administration* topic then choose the *System Safelist* subtopic.
+To begin managing user accounts in Assemblyline, follow these steps to access the user management interface:
 
-![User management](./images/users_bar.png){: .center }
+1. Click on the **Administration** topic in your Assemblyline interface.
+2. Under the Administration section, select the **System Safelist** subtopic.
+3. Once in the System Safelist, you will be presented with the user management interface.
 
-## User list
+![User Management Interface](./images/users_bar.png){: .center }
 
-The first page you will be taken to when loading the user management interface will list all the users of the system.
+## Managing User Accounts
 
-![User list](./images/user_list.png)
+### Viewing All Users
 
-From this interface you can:
+The initial screen of the user management interface displays a list of all user accounts currently in the system.
 
-1. Page through the different users of the system
-2. Filter the displayed users with the search bar
-    * Assemblyline users can be searched using a Lucene query. As you start typing in the search box, the system will suggest to you fields that you can search into.
-    * You can also use the quick filter buttons for pre-defined searches. These pre-defined searches will help you get started writing more complex user searches.
-3. Add users to the system using the top right "*Add User*" button
-4. View the detail of a user
+![User List](./images/user_list.png)
 
-## User detail
+Here are various actions you can perform from this interface:
 
-Once you click on a user in the user list, the detail view for that user will be shown.
+- Navigate through the pages of the user list to explore the accounts.
+- Apply filters using the query bar at the top. Begin typing, and the interface will provide suggestions for fields you can refine by. This feature helps you to quickly narrow down the list according to specific criteria.
+- Click on the quick filter buttons for common predefined searches to assist in creating complex queries.
+- Add new users to the system by clicking the **Add User** button located at the top right.
 
-![User detail](./images/user_detail.png)
+### User Account Details
 
-This page will show you the following information:
+To view further details about a particular user, simply click on their username in the user list. This will open the user detail page, which provides comprehensive information about the user, including:
 
-1. Identity of the user (username, avatar, name, groups, email address)
-2. Roles of the user
-3. Allowed quotas for the user
-4. Status of the user
+![User Detail](./images/user_detail.png)
 
-From this page, you will be able to take the following actions on the current user:
+- Profile: Including username, avatar, full name, groups, and email address.
+- Roles: The permissions the user has within the system.
+- Quotas: The usage limits for the user's API calls.
+- Status: Whether the user account is active or disabled.
 
-1. Remove it
-2. Enable/disable access its access to the system
-3. Set its roles
-4. Set its quotas
-5. Change its password
+On the user detail page, you can take various administrative actions:
+
+- Remove the user account entirely.
+- Enable or disable the user's access to Assemblyline.
+- Adjust the user's role settings as appropriate.
+- Set or modify the user's API usage quotas.
+- Change the user's password securely.
+
+### Step-by-Step Actions on User Detail Page
+
+#### Enabling or Disabling a User
+
+To change a user's access to the system:
+
+1. Navigate to the *Status* section of the user's detail page.
+2. Click the **Enable** or **Disable** button, depending on the desired action.
+
+#### Modifying User Roles
+
+To update a user's roles:
+
+1. Locate the *Roles* section within the detail page.
+2. Select or unselect roles as needed.
+
+#### Adjusting User Quotas
+
+To set or change usage quotas:
+
+1. Go to the *Quotas* section.
+2. Input the new quota values as per your requirements.
+
+#### Updating User Password
+
+To change a user's password:
+
+1. In the *Password* section, click on the **Change Password** button.
+2. Follow the prompts to enter and confirm the new password.
+
+### Removing a User
+
+To permanently remove a user account from the system:
+
+1. Navigate to the in-detail user page.
+2. From the options, select the **Remove** action.
+3. Confirm the removal when prompted.
+
+By following the detailed steps outlined in this guide, you can effectively manage user accounts within Assemblyline to ensure a secure and streamlined operation.
