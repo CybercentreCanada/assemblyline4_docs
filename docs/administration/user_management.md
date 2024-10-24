@@ -33,7 +33,7 @@ To view further details about a particular user, simply click on their username 
 
 ![User Detail](./images/user_detail.png)
 
-- Profile: Including username, avatar, full name, groups, and email address.
+- Profile: Including username, avatar, full name, groups, email address, and, if enabled by the administrator, security classification. The user's security classification dictates the level of information the user is permitted to access within the system.
 - Roles: The permissions the user has within the system.
 - Quotas: The usage limits for the user's API calls.
 - Status: Whether the user account is active or disabled.
