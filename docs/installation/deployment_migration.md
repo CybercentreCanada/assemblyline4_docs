@@ -97,29 +97,15 @@ Shell into one of the core containers (ie. scaler) and perform the following:
         have data in every index (ie. alerts).
 
         Performing an `ls /mount/backup` will confirm what you have backed up.
-
     ```bash
-    python -m assemblyline.run.cli
-    restore /mount/backup/al_alert alert force *
-    restore /mount/backup/al_cached_file cached_file force *
-    restore /mount/backup/al_emptyresult emptyresult force *
-    restore /mount/backup/al_error error force *
-    restore /mount/backup/al_file file force *
-    restore /mount/backup/al_filescore filescore force *
-    restore /mount/backup/al_heuristic heuristic force *
-    restore /mount/backup/al_result result force *
-    restore /mount/backup/al_safelist safelist force *
-    restore /mount/backup/al_service_delta service_delta force *
-    restore /mount/backup/al_service service force *
-    restore /mount/backup/al_signature signature force *
-    restore /mount/backup/al_submission submission force *
-    restore /mount/backup/al_submission_summary submission_summary force *
-    restore /mount/backup/al_submission_tree submission_tree force *
-    restore /mount/backup/al_user_avatar user_avatar force *
-    restore /mount/backup/al_user user force *
-    restore /mount/backup/al_user_settings user_settings force *
-    restore /mount/backup/al_workflow workflow force *
-    exit
+    python -c "from assemblyline.run.cli import ALCommandLineInterface
+    import os
+    cli = ALCommandLineInterface()
+    dir = '/mount/backup'
+    for index in os.listdir(dir):
+      if os.path.isdir(f'{dir}/{index}'):
+        cli.do_restore(f'{dir}/{index}')
+    "
     ```
 
 ### Migrating the Filestore
