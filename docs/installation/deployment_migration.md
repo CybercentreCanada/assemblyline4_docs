@@ -46,7 +46,7 @@ Shell into your `backup` container, open the AL CLI tool, and backup the datasto
         `heuristic, service, service_delta, signature, user, user_avatar, user_favorites, user_settings, workflow`
 
     ```bash
-    python -m assemblyline.run.cli <>
+    python -m assemblyline.run.cli
     backup /mount/backup/al_system
     ls /mount/backup/
     ```
@@ -58,7 +58,7 @@ Shell into your `backup` container, open the AL CLI tool, and backup the datasto
     cli = ALCommandLineInterface()
     for index in cli.datastore.ds.get_models().keys():
       # This will each index as a separate directory within the mounted backup
-      cli.do_backup(f'/mount/backup/al_{index} {index} force *')
+      cli.do_backup(f'/mount/backup/al_{index} {index} force *:*')
     "
     ```
 ### Backup Filestore directories
