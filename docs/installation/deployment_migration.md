@@ -57,7 +57,7 @@ Shell into your `backup` container, open the AL CLI tool, and backup the datasto
     python -c "from assemblyline.run.cli import ALCommandLineInterface
     cli = ALCommandLineInterface()
     for index in cli.datastore.ds.get_models().keys():
-      # This will each index as a separate directory within the mounted backup
+      # This will backup each index as a separate directory within the mounted backup folder
       cli.do_backup(f'/mount/backup/al_{index} {index} force *:*')
     "
     ```
