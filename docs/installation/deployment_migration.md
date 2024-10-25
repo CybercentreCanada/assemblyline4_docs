@@ -1,10 +1,10 @@
 # Docker-Compose → Kubernetes System Migration
 
-This guide assumes you're moving from a vanilla Docker-Compose-based deployment to a Kubernetes deployment.
+This guide assumes you're moving from a vanilla Docker-based deployment to a Kubernetes deployment.
 
-!!! caution "No processing on either system should be occurring during this migration process"
+!!! warning "No processing on either system should be occurring during this migration process"
 
-## Docker-Compose System
+## Docker System
 
 ### Create a Docker service for backups
 Create a `backup` container that has access to the datastore's API and the filestore volume.
@@ -54,28 +54,12 @@ Shell into your `backup` container, open the AL CLI tool, and backup the datasto
     !!! info "All indices will be backed up"
 
     ```bash
-    python -m assemblyline.run.cli
-    backup /mount/backup/al_alert alert force *
-    backup /mount/backup/al_cached_file cached_file force *
-    backup /mount/backup/al_emptyresult emptyresult force *
-    backup /mount/backup/al_error error force *
-    backup /mount/backup/al_file file force *
-    backup /mount/backup/al_filescore filescore force *
-    backup /mount/backup/al_heuristic heuristic force *
-    backup /mount/backup/al_result result force *
-    backup /mount/backup/al_safelist safelist force *
-    backup /mount/backup/al_service_delta service_delta force *
-    backup /mount/backup/al_service service force *
-    backup /mount/backup/al_signature signature force *
-    backup /mount/backup/al_submission submission force *
-    backup /mount/backup/al_submission_summary submission_summary force *
-    backup /mount/backup/al_submission_tree submission_tree force *
-    backup /mount/backup/al_user_avatar user_avatar force *
-    backup /mount/backup/al_user user force *
-    backup /mount/backup/al_user_settings user_settings force *
-    backup /mount/backup/al_workflow workflow force *
-    exit
-    ls /mount/backup/
+    python -c "from assemblyline.run.cli import ALCommandLineInterface
+    cli = ALCommandLineInterface()
+    for index in cli.datastore.ds.get_models().keys():
+      # This will backup each index as a separate directory within the mounted backup folder
+      cli.do_backup(f'/mount/backup/al_{index} {index} force *:*')
+    "
     ```
 ### Backup Filestore directories
 Copy `al-cache` and `al-storage` to the backup volume
@@ -113,29 +97,15 @@ Shell into one of the core containers (ie. scaler) and perform the following:
         have data in every index (ie. alerts).
 
         Performing an `ls /mount/backup` will confirm what you have backed up.
-
     ```bash
-    python -m assemblyline.run.cli
-    restore /mount/backup/al_alert alert force *
-    restore /mount/backup/al_cached_file cached_file force *
-    restore /mount/backup/al_emptyresult emptyresult force *
-    restore /mount/backup/al_error error force *
-    restore /mount/backup/al_file file force *
-    restore /mount/backup/al_filescore filescore force *
-    restore /mount/backup/al_heuristic heuristic force *
-    restore /mount/backup/al_result result force *
-    restore /mount/backup/al_safelist safelist force *
-    restore /mount/backup/al_service_delta service_delta force *
-    restore /mount/backup/al_service service force *
-    restore /mount/backup/al_signature signature force *
-    restore /mount/backup/al_submission submission force *
-    restore /mount/backup/al_submission_summary submission_summary force *
-    restore /mount/backup/al_submission_tree submission_tree force *
-    restore /mount/backup/al_user_avatar user_avatar force *
-    restore /mount/backup/al_user user force *
-    restore /mount/backup/al_user_settings user_settings force *
-    restore /mount/backup/al_workflow workflow force *
-    exit
+    python -c "from assemblyline.run.cli import ALCommandLineInterface
+    import os
+    cli = ALCommandLineInterface()
+    dir = '/mount/backup'
+    for index in os.listdir(dir):
+      if os.path.isdir(f'{dir}/{index}'):
+        cli.do_restore(f'{dir}/{index}')
+    "
     ```
 
 ### Migrating the Filestore
