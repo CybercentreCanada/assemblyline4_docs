@@ -10,7 +10,7 @@ The source management interface will list all services that support external sou
 
 Here is where you can add sources for services that consume signatures or the safelist. In the above screenshot, you can see that the Sigma and Suricata services have configured sources where they ingest rules from.
 
-On this page, you can manually pull signatures from sources, add new sources, synchronize signatures on your system based on their source or view all signatures from a source.
+On this page, you can manually pull signatures from sources, add new sources, synchronize signatures on your system based on their source or view all signatures from a source. Synchronize (signatures) with (remote) source allows the system to auto-disable signatures no longer found in source.
 
 ## Modifying sources
 
