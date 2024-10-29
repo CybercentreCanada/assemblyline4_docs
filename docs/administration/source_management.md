@@ -12,7 +12,7 @@ Here is where you can add sources for services that consume signatures or the sa
 
 On this page, you can manually pull signatures from sources, add new sources, synchronize signatures on your system based on their source or view all signatures from a source. 
 
-When signature synchronization is enabled with a remote source, this allows the system to auto-disable signatures no longer found in source (ie. a source may decide to remove a bad signature from their corpus). This feature is intended for services that will contribute to indices in Elasticsearch such as `badlist`, `safelist`, and `signature` but this flag could have meaning to updates that don't use Elasticsearch for persistence depending on it's implementation.
+When signature synchronization is enabled with a remote source, this allows the system to auto-disable signatures no longer found in source (ie. a source may decide to remove a bad signature from their corpus). This feature is intended for services that will contribute to indices in Elasticsearch such as `badlist`, `safelist`, and `signature` but this flag could have meaning to updates that don't use Elasticsearch for persistence depending on its implementation.
 
 ## Modifying sources
 
