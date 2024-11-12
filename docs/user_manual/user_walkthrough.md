@@ -140,18 +140,24 @@ After performing a query, you can further filter the results to hone in on the m
 
 ### Workflow Actions
 
-Workflows allow you to automate specific actions on alerts based on predefined criteria. For example, you might want to label all alerts with a verdict of malicious and containing the word "invoice" as "PHISHING" for further analysis. When you add a new workflow from the Alerts page, it will be prefilled with the current query in use. This makes it easy to create workflows that target specific sets of alerts based on your established search criteria.
+Workflows allow you to automate specific actions on alerts based on predefined criteria. For example, you might want to label all alerts with a verdict of malicious and containing the word "invoice" as "PHISHING" for further analysis.
 
-![Phishing invoice workflow example](./images/phishing_workflow_example.png){: .center }
+From the Alerts page, you can perform two types of workflow actions:
 
-Within a workflow, you can assign various actions to alerts that meet the criteria:
+1. **Create a Persistent New Workflow**: Click the "Create a new workflow" button. This option allows you to add a new named workflow to the system. When creating a new workflow, you can specify if it should be applied to all existing alerts that match the supplied filter. Once created, this workflow is saved and will continuously be applied to any new alerts that match the criteria. The workflow persists in the system and can be managed from the "Manage Workflows" page.
+
+   ![Perform a workflow action on alerts](./images/alert_new_workflow.png){: .center }
+
+2. **Apply an Ephemeral Workflow Action Immediately**: Click the "Workflow actions" button to apply a new workflow action to existing alerts based on the current query filter. Unlike creating a new persistent workflow, this action is not saved as a workflow in the system. Instead, it is a one-time action that is only applied to matching existing alerts.
+
+   ![Phishing invoice workflow example](./images/phishing_workflow_example.png){: .center }
+
+Within a workflow action, you can assign various actions to alerts that meet the criteria:
 - **Assign a Status**: Set the status of an alert (e.g., MALICIOUS, NON-MALICIOUS, ASSESS, TRIAGE).
 - **Assign a Priority**: Set the priority level of the alert (e.g., LOW, MEDIUM, HIGH, CRITICAL).
 - **Assign a Label**: Apply a label to categorize the alert (e.g., PHISHING, FALSE_POSITIVE, etc.).
 
-These workflow actions can be applied to existing alerts in the system, ensuring they are handled consistently and according to your organization's policies.
-
-![Perform a workflow action on alerts](./images/alert_workflow.png){: .center }
+These workflow actions ensure alerts are handled consistently and according to your organization's policies.
 
 ### Viewing Alert Details
 
