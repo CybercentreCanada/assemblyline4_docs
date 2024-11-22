@@ -902,6 +902,7 @@ A file source entry for remote fetching via string
 | :--- | :--- | :--- | :--- | :--- |
 | name | Keyword | Name of the sha256 source | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | auto_select | Boolean | Should we force the source to be auto-selected for the user ? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| download_from_url | Boolean | Should we download from the resulting URL or create an Assemblyline URI file for it ? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | hash_types | List [Keyword] | Method(s) of fetching file from source by string input(ie. ['sha256', 'sha1', 'md5', 'tlsh', 'ssdeep']). This also supports custom types. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['sha256']` |
 | hash_patterns | Mapping [String, Text] | Custom types to regex pattern definition for input detection/validation | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
@@ -912,6 +913,7 @@ A file source entry for remote fetching via string
 | replace_pattern | Keyword | Pattern to replace in the URL with the SHA256 | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | headers | Mapping [String, Keyword] | Headers used to connect to the URL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | proxies | Mapping [String, Keyword] | Proxy used to connect to the URL | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| select_services | List [Keyword] | List of services that will be auto-selected when using this source. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | verify | Boolean | Should the download function Verify SSL connections? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 
 
@@ -1010,6 +1012,7 @@ UI Configuration
 | allow_url_submissions | Boolean | Allow file submissions via url? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | api_proxies | Mapping [String, [APIProxies](/assemblyline4_docs/odm/models/config/#apiproxies)] | Proxy requests to the configured API target and add headers | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [APIProxies](/assemblyline4_docs/odm/models/config/#apiproxies) for more details. |
 | audit | Boolean | Should API calls be audited and saved to a separate log file? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
+| audit_login | Boolean | Should login successes and failures be part of the audit log as well? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | banner | Mapping [String, Keyword] | Banner message display on the main page (format: {<language_code>: message}) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | banner_level | Enum | Banner message level<br>Supported values are:<br>`"error", "info", "success", "warning"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `info` |
 | debug | Boolean | Enable debugging? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
