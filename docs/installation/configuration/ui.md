@@ -12,38 +12,38 @@ Since this section is quite simple, we will list the default configuration at th
       ai:
         # URL to the chat completion API, you can change this to your own if you are not using the default
         #  OpenAI endpoints.
-        chat_url: https://api.openai.com/v1/chat/completions,
+        chat_url: https://api.openai.com/v1/chat/completions
 
         # Configuration of the code analysis feature
         code:
           # System message sent to the OpenAI API describing how OpenAI should interprete the messages received
-          system_message: "...",
+          system_message: "..."
           # Maximum number of tokens returned as a response by the OpenAI API
-          max_tokens: 512,
+          max_tokens: 512
           # Other optional parameters sent to the API
           options:
-            frequency_penalty: 0,
-            presence_penalty: 0,
-            temperature: 1,
+            frequency_penalty: 0
+            presence_penalty: 0
+            temperature: 1
             top_p: 1
 
         # Configuration of the Detailed AL report analysis (used in hybrid reporting)
         #     Same type of configuration block as the code analysis
-        detailed_report: {...},
+        detailed_report: {...}
 
         # Configuration of the Executive Summary analysis (used in sumission and file detail views)
         #     Same type of configuration block as the code analysis
-        executive_summary: {...},
+        executive_summary: {...}
 
         # Enabled/disable AI integration
-        enabled: False,
+        enabled: False
 
         # Headers sent to the OpenAI API
         headers:
             Content-Type: "application/json"
 
         # Model used for the AI Integration
-        model_name: "gpt-3.5-turbo",
+        model_name: "gpt-3.5-turbo"
 
         # Should the SSL cert to the OpenAI API endpoint be verified?
         verify: True
