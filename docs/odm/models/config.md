@@ -935,7 +935,7 @@ Metadata configuration
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| validator_type | Enum | Type of validation to apply to metadata value<br>Supported values are:<br>`"boolean", "date", "domain", "email", "enum", "integer", "ip", "keyword", "list", "regex", "text", "uri"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `str` |
+| validator_type | Enum | Type of validation to apply to metadata value<br>Supported values are:<br>`"boolean", "date", "domain", "email", "enum", "float", "integer", "ip", "keyword", "list", "regex", "text", "uri"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `str` |
 | validator_params | Mapping [String, Any] | Configuration parameters to apply to validator | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | suggestions | List [Keyword] | List of suggestions for this field | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | suggestion_key | Keyword | Key in redis where to get the suggestions from | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

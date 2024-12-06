@@ -33,7 +33,7 @@ Service Task Model
 | ignore_recursion_prevention | Boolean | Whether the service should ignore recursion prevention or not | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_dynamic_recursion_prevention | Boolean | Whether the service should ignore dynamic recursion prevention or not | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_filtering | Boolean | Should the service filter it's output? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| priority | Integer | Priority for processing order | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| priority | Integer | Priority for processing order | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
 | safelist_config | [ServiceSafelist](/assemblyline4_docs/odm/models/config/#servicesafelist) | Safelisting configuration (as defined in global configuration) | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ServiceSafelist](/assemblyline4_docs/odm/models/config/#servicesafelist) for more details. |
 
 
