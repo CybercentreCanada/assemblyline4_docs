@@ -20,6 +20,7 @@ Service Configuration
 | uses_tag_scores | Boolean | Does this service use scores of tags from other services for analysis? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | uses_temp_submission_data | Boolean | Does this service use temp data from other services for analysis? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | uses_metadata | Boolean | Does this service use submission metadata for analysis? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| monitored_keys | List [Keyword] | This service watches these temporary keys for changes when partial results are produced. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | name | Keyword | Name of service | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | version | Keyword | Version of service | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | privileged | Boolean | Should the service be able to talk to core infrastructure or just service-server for tasking? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |

@@ -14,6 +14,7 @@ Result Model
 | type | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | size | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | drop_file | Boolean | Use to not pass to other stages after this run | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| partial | Boolean | Invalidate the current result cache creation | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | from_archive | Boolean | Was loaded from the archive | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 
 

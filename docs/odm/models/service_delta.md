@@ -20,6 +20,7 @@ Service Delta relative to Initial Service Configuration
 | uses_tag_scores | Boolean | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | uses_temp_submission_data | Boolean | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | uses_metadata | Boolean | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| monitored_keys | List [Keyword] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | name | Keyword | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | version | Keyword | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | privileged | Boolean | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
