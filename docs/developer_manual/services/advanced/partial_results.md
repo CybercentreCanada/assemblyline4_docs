@@ -75,7 +75,7 @@ submission:
 
 ### Defaults
 
-By default all systems are configured with some keys active:
+By default all systems are configured with some keys active that will contain at minimum:
  - `passwords`: union, a list of possible passwords related to this submission extracted from different parts of the submitted file.
  - `email_body`: union, a list of words found in email bodies embedded into this submission.
 
