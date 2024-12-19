@@ -2,7 +2,9 @@
 
 Producing a partial result is an optional feature that services can use to delay processing while waiting for other services to provide additional information.
 
-This additional information can come from other files within the same submission, even after the file being processed has already been otherwise completed.
+This additional information can come from other files within the same submission, even after the file being processed has already been otherwise completed. If no additional information is provided that allows the service to create a complete (non-partial) result then the last partial result created will be kept in the submission results. 
+
+Partial results don't participate in caching. If a service is only able to produce partial results then it will always be retried when a new submission processes that file.
 
 ## Service Development
 
