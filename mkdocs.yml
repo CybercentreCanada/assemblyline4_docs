@@ -122,6 +122,7 @@ nav:
       - ResultSection Class: developer_manual/services/advanced/result_section.md
       - Service manifest: developer_manual/services/advanced/service_manifest.md
       - Exceptions: developer_manual/services/advanced/exceptions.md
+      - developer_manual/services/advanced/partial_results.md
   - Infrastructure: developer_manual/core/infrastructure.md
   - Frontend: developer_manual/frontend/frontend.md
   - Documentation: developer_manual/docs/docs.md
