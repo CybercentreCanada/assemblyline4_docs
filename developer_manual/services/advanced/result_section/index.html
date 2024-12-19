@@ -1,0 +1,5642 @@
+<!-- Elements added to main will be displayed on all pages -->
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://cybercentrecanada.github.io/assemblyline4_docs/developer_manual/services/advanced/result_section/">
+      
+      
+        <link rel="prev" href="../result/">
+      
+      
+        <link rel="next" href="../service_manifest/">
+      
+      
+      <link rel="icon" href="../../../../images/crane.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>ResultSection Class - Assemblyline 4</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#resultsection-class" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Assemblyline 4" class="md-header__button md-logo" aria-label="Assemblyline 4" data-md-component="logo">
+      
+  <img src="../../../../images/crane.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Assemblyline 4
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ResultSection Class
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../fr/developer_manual/services/advanced/result_section/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/CybercentreCanada/assemblyline" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../overview/how_it_works/" class="md-tabs__link">
+          
+  
+  Overview
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../user_manual/user_walkthrough/" class="md-tabs__link">
+          
+  
+  User's manual
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../installation/deployment/" class="md-tabs__link">
+          
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../administration/admin_walkthrough/" class="md-tabs__link">
+          
+  
+  Administration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../integration/ingestion_method/" class="md-tabs__link">
+          
+  
+  Integration
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../env/getting_started/" class="md-tabs__link">
+          
+  
+  Developer's guide
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../odm/getting_started/" class="md-tabs__link">
+          
+  
+  Data Ontology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../blog/entries/" class="md-tabs__link">
+          
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Assemblyline 4" class="md-nav__button md-logo" aria-label="Assemblyline 4" data-md-component="logo">
+      
+  <img src="../../../../images/crane.png" alt="logo">
+
+    </a>
+    Assemblyline 4
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/CybercentreCanada/assemblyline" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Overview
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/how_it_works/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How it works
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assemblyline services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/community_services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Community services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User's manual
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User's manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/user_walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface Walkthrough for Users
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/submitting_file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submitting a file for analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/submitting_url/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submitting a URL for analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/submitting_sha256/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submitting a SHA256 for analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assemblyline results
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/searching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Searching
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/verdicts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assemblyline Verdicts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/malware_archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Malware Archive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/retrohunt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Retrohunt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../user_manual/llm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenAI Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choose your deployment type
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Appliance
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Appliance
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/appliance/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/appliance/kubernetes-microk8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroK8s
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cluster
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Cluster
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/cluster/general/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/cluster/microk8s/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MicroK8s
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/cluster/optimizations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    High-Throughput Optimizations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/deployment_migration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Appliance Migration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Configuration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/config_file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuration YAML file
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Core component section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/datasources/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data sources section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Database section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/filestore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File storage section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/logging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Logging section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/malware_archive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Malware Archive section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/retrohunt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Retrohunt section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/services/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Service section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/system/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_14" id="__nav_4_3_14_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes-specific
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_14">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes-specific
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/kubernetes/upgrading_elastic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Upgrading to Elasticsearch 8
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/kubernetes/internal_encryption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Internal Encryption (TLS/SSL)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/configuration/plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UI plugin section
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/classification_engine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classification engine
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring with ELK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/replay/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Syncing Instances (Replay)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Administration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Administration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/admin_walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Interface Walkthrough for Administrators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/submission_actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission (Post-Process) Actions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/service_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Service management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/system_safelist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System safelist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/user_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Management Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/signature_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Signature Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/heuristic_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heuristic Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/source_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Source Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/system_management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../administration/troubleshooting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Troubleshooting / FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Integration
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Integration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/ingestion_method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Choosing your ingestion method
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/key_generation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generating an API key
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/python/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Client
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java Client
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RESTful API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/ontology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ontology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/api_exercise_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Exercise #1: Collecting Network IoCs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/api_exercise_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Exercise #2: Performing Filtered File Collection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/api_exercise_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Exercise #3: Ingest Files With The Ingest API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/api_exercise_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Exercise #4: Alert Monitoring And Identifying IoCs For Blocking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/api_exercise_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Exercise #5: What About Custom Tradecraft?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Developer's guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Developer's guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Setup Environment
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Setup Environment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../env/getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_2" id="__nav_7_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VSCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            VSCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../env/vscode/setup_script/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup script
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../env/vscode/use_vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use VSCode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_3" id="__nav_7_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pycharm
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Pycharm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../env/pycharm/local_development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../env/pycharm/remote_development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Remote development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../env/pycharm/use_pycharm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Use PyCharm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Services
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developing_an_assemblyline_service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Developing a service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adding_a_service_updater/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding a Service Updater
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../run_your_service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run your service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_2_4" id="__nav_7_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced development
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service_base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ServiceBase Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service_updater_base/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ServiceUpdater Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../request/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Request Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../result/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Result Class
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ResultSection Class
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ResultSection Class
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_line()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_lines()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_subsection" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_subsection()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_tag()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_body" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_body()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_heuristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_heuristic()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    <span class="md-ellipsis">
+      TEXT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      MEMORY_DUMP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRAPH_DATA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      KEY_VALUE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      PROCESS_TREE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    <span class="md-ellipsis">
+      TABLE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMAGE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      TIMELINE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi" class="md-nav__link">
+    <span class="md-ellipsis">
+      MULTI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../service_manifest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Service manifest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../partial_results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partial Results
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/infrastructure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Infrastructure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../frontend/frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Frontend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/docs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plugins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Ontology
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Data Ontology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Models
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/actions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostprocessAction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/alert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Alert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/badlist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Badlist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/cached_file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CachedFile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/emptyresult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmptyResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/filescore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FileScore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/heuristic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heuristic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_11" id="__nav_8_2_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ontology
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_8_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            Ontology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/file/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_11_2" id="__nav_8_2_11_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Filetypes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_8_2_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            Filetypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/filetypes/pe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/ontology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResultOntology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2_11_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2_11_4" id="__nav_8_2_11_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Results
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_8_2_11_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2_11_4">
+            <span class="md-nav__icon md-icon"></span>
+            Results
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/antivirus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Antivirus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTTP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/malware_config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MalwareConfig
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NetworkConnection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Process
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/sandbox/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sandbox
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/ontology/results/signature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Signature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/replay/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ReplayConfig
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/result/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Result
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/retrohunt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RetrohuntHit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/safelist/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Safelist
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/service/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/service_delta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ServiceDelta
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/signature/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Signature
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/statistics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Submission
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/submission_summary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SubmissionSummary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/submission_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SubmissionTree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/tagging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tagging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/user_favorites/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UserFavorites
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/user_settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UserSettings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/models/workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Messages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Messages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/alert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlertMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/alerter_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AlerterMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/archive_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ArchiveMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/dispatcher_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DispatcherMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/dispatching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DispatcherCommandMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/elastic_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ElasticMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/expiry_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ExpiryMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/ingest_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IngestMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/metrics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MetricsMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/retrohunt_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RetrohuntMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/scaler_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScalerMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/scaler_status_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ScalerStatusMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/service_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ServiceMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/service_timing_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ServiceTimingMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/submission/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SubmissionMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/task/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TaskMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../odm/messages/vacuum_heartbeat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VacuumMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/entries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blog Entries
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class variables
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Class functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_line" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_line()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_lines()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_subsection" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_subsection()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      add_tag()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_body" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_body()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_heuristic" class="md-nav__link">
+    <span class="md-ellipsis">
+      set_heuristic()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#section-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Section types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    <span class="md-ellipsis">
+      TEXT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory_dump" class="md-nav__link">
+    <span class="md-ellipsis">
+      MEMORY_DUMP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#graph_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      GRAPH_DATA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    <span class="md-ellipsis">
+      URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      KEY_VALUE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process_tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      PROCESS_TREE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    <span class="md-ellipsis">
+      TABLE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    <span class="md-ellipsis">
+      IMAGE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      TIMELINE
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi" class="md-nav__link">
+    <span class="md-ellipsis">
+      MULTI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="resultsection-class"><em>ResultSection</em> class<a class="headerlink" href="#resultsection-class" title="Permanent link">&para;</a></h1>
+<p>A <code>ResultSection</code> is bascally part of a service result that encapsulates a certain type of information that your service needs to convey to the user. For example, if you have a service that extracts networking indicators as well as process lists, you should put network indicators in their own section and then the process list in another.</p>
+<p>Result sections have the following properties:</p>
+<ul>
+<li>They have different <a href="#section-types">types</a> that will display information in different manners</li>
+<li>
+<p>They can attach a single heuristic which will add a maliciousness score to the result section</p>
+<ul>
+<li>Each signature can have an associated score, that will raise the score of the heuristic by overriding the default heuristic score.</li>
+</ul>
+</li>
+<li>
+<p>They can tag important pieces of information about a file, which can be used to easily search in the system</p>
+</li>
+<li>They can contain subsections which are just sections inside of another section</li>
+<li>
+<p>They can have a classification which allows the API to redact partial results from a service depending on the user</p>
+<ul>
+<li>Different classifications would mostly be used if you have external data sources, like signatures. Some may have a higher classification than others</li>
+</ul>
+</li>
+</ul>
+<p>The total score for the heuristic is going to determine the colour and categorization of everything in the <code>ResultSection</code>. The <code>ResultSection</code> is going to show up yellow or red if the score is high enough, as are the tags for that <code>ResultSection</code>.</p>
+<p>For example, if you extract a domain that you know is malicious, you can tag it in the <code>ResultSection</code> that has a heuristic with a high score, so that the tag will easily be seen by the users.</p>
+<p>You can view the source for the class here: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py">ResultSection class source</a></p>
+<h2 id="class-variables">Class variables<a class="headerlink" href="#class-variables" title="Permanent link">&para;</a></h2>
+<p>The <code>ResultSection</code> class includes many instance variables which can be used to shape the way the section will be shown to the user.</p>
+<p>The following table describes all of the variables of the <code>ResultSection</code> class.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">parent</td>
+<td style="text-align: left;">Parent <code>ResultSection</code> object (Only if the section is a child of another)</td>
+</tr>
+<tr>
+<td style="text-align: left;">subsections</td>
+<td style="text-align: left;">List of children <code>ResultSection</code> objects</td>
+</tr>
+<tr>
+<td style="text-align: left;">body</td>
+<td style="text-align: left;">Body of the section. Can take multiple forms depending on the section <a href="#section-types">type</a>: List of strings, string, JSON blob...</td>
+</tr>
+<tr>
+<td style="text-align: left;">classification</td>
+<td style="text-align: left;">The classification level of the current section</td>
+</tr>
+<tr>
+<td style="text-align: left;">body_format</td>
+<td style="text-align: left;">The <a href="#section-types">types of body</a> of the current section (Default: TEXT)</td>
+</tr>
+<tr>
+<td style="text-align: left;">tags</td>
+<td style="text-align: left;">Dictionary containing the different tags that have been added to the section</td>
+</tr>
+<tr>
+<td style="text-align: left;">heuristic</td>
+<td style="text-align: left;">Current heuristic assigned to the section</td>
+</tr>
+<tr>
+<td style="text-align: left;">zeroize_on_tag_safe</td>
+<td style="text-align: left;">Should the section be forced to a score of 0 if all tags found in it are marked as Safelisted? (Default: False)</td>
+</tr>
+<tr>
+<td style="text-align: left;">auto_collapse</td>
+<td style="text-align: left;">Should the section be displayed in collapsed mode when first rendered in the UI? (Default: False)</td>
+</tr>
+<tr>
+<td style="text-align: left;">zeroize_on_sig_safe</td>
+<td style="text-align: left;">Should the section be forced to a score of 0 if all heuristic signatures found in it are marked as Safelisted? (Default: True)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="class-functions">Class functions<a class="headerlink" href="#class-functions" title="Permanent link">&para;</a></h2>
+<h3 id="__init__">__init__()<a class="headerlink" href="#__init__" title="Permanent link">&para;</a></h3>
+<p>The constructor of the <code>ResultSection</code> object allows you to set all variables from the start.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>title_text</code>: (Required) Title of the section</li>
+<li><code>body</code>: Body of the section</li>
+<li><code>classification</code>: Classification of the section</li>
+<li><code>body_format</code>: <a href="#section-types">Type of body</a></li>
+<li><code>heuristic</code>: Heuristic assigned to the section</li>
+<li><code>tags</code>: Dictionary of tags assigned to the section</li>
+<li><code>parent</code>: Parent of the section (either another section or the <a href="../result">Result</a> object)</li>
+<li><code>zeroize_on_tag_safe</code>: Should the section be forced to a score of 0 if all tags found in it are marked as Safelisted?</li>
+<li><code>auto_collapse</code>: Should the section be displayed in collapsed mode when first rendered in the UI?</li>
+<li><code>zeroize_on_sig_safe</code>: Should the section be forced to a score of 0 if all heuristic signatures found in it are marked as Safelisted?</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># The classification of a section can be set to any valid classification for your system</span>
+<span class="n">section_color_map</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s2">&quot;Example of colormap result section&quot;</span><span class="p">,</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">GRAPH_DATA</span><span class="p">,</span>
+                                    <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">color_map_data</span><span class="p">),</span> <span class="n">classification</span><span class="o">=</span><span class="n">cl_engine</span><span class="o">.</span><span class="n">RESTRICTED</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">section_color_map</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="add_line">add_line()<a class="headerlink" href="#add_line" title="Permanent link">&para;</a></h3>
+<p>This function allows the service to add a line to the body of a <a href="../result_section">ResultSection</a> object.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>text</code>: A string containing the line to add to the body</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="n">text_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a default section&#39;</span><span class="p">)</span>
+<span class="c1"># You can add lines to your section one at a time</span>
+<span class="c1">#   Here we will generate a random line</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">get_random_phrase</span><span class="p">())</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="add_lines">add_lines()<a class="headerlink" href="#add_lines" title="Permanent link">&para;</a></h3>
+<p>This function allows the service to add multiple lines to the body of a <a href="../result_section">ResultSection</a> object.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>lines</code>: List of string to add as multiple lines in the body</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="n">text_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a default section&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="c1"># Or your can add them from a list</span>
+<span class="c1">#   Here we will generate random amount of random lines</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">add_lines</span><span class="p">([</span><span class="n">get_random_phrase</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))])</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="add_subsection">add_subsection()<a class="headerlink" href="#add_subsection" title="Permanent link">&para;</a></h3>
+<p>This function allows the service to add a subsection to the current <code>ResultSection</code> object.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>subsection</code>: The <code>ResultSection</code> object to add as a subsection</li>
+<li><code>on_top</code>: (Optional) Boolean value that indicates if the section should be on top of the other sections or not</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="n">url_sub_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a url sub-section with multiple links&#39;</span><span class="p">,</span>
+                                <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">urls</span><span class="p">),</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">URL</span><span class="p">,</span>
+                                <span class="n">heuristic</span><span class="o">=</span><span class="n">url_heuristic</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="n">cl_engine</span><span class="o">.</span><span class="n">RESTRICTED</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">url_sub_sub_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;example of a two level deep sub-section&#39;</span><span class="p">,</span>
+                                    <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">ips</span><span class="p">),</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">URL</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="c1"># Since url_sub_sub_section is a sub-section of url_sub_section</span>
+<span class="c1"># we will add it as a sub-section of url_sub_section not to the main result itself</span>
+<span class="n">url_sub_section</span><span class="o">.</span><span class="n">add_subsection</span><span class="p">(</span><span class="n">url_sub_sub_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="add_tag">add_tag()<a class="headerlink" href="#add_tag" title="Permanent link">&para;</a></h3>
+<p>This function allows the service writer to add a tag to the <code>ResultSection</code></p>
+<p>Parameters:</p>
+<ul>
+<li><code>type</code>: Type of tag</li>
+<li><code>value</code>: Value of the tag</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># You can tag data to a section. Tagging is used to quickly find defining information about a file</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">&quot;attribution.implant&quot;</span><span class="p">,</span> <span class="s2">&quot;ResultSample&quot;</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="set_body">set_body()<a class="headerlink" href="#set_body" title="Permanent link">&para;</a></h3>
+<p>Set the body and the body format of a section</p>
+<p>Parameters:</p>
+<ul>
+<li><code>body</code>: New body value</li>
+<li><code>body_format</code>: (Optional) <a href="#section-types">Type of body</a> - Default: TEXT</li>
+</ul>
+<h3 id="set_heuristic">set_heuristic()<a class="headerlink" href="#set_heuristic" title="Permanent link">&para;</a></h3>
+<p>Set a heuristic for a current section/subsection. A heuristic is required to assign a score to a result section/subsection.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>heur_id</code>: Heuristic ID as set in the service manifest</li>
+<li><code>attack_id</code>: (optional) Attack ID related to the heuristic</li>
+<li><code>signature</code>: (optional) Signature name that triggered the heuristic</li>
+</ul>
+<details class="example">
+<summary>Example</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># If the section needs to affect the score of the file you need to set a heuristic</span>
+<span class="c1">#   Here we will pick one at random</span>
+<span class="c1">#     In addition to adding a heuristic, we will associate a signature to the heuristic.</span>
+<span class="c1">#     We&#39;re doing this by adding the signature name to the heuristic. (Here we use a random name)</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">set_heuristic</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="s2">&quot;sig_one&quot;</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h2 id="section-types">Section types<a class="headerlink" href="#section-types" title="Permanent link">&para;</a></h2>
+<p>These are all result section types that Assemblyline supports. You can see a screenshot of each section as well as the code that was used to generate the actual section.</p>
+<h3 id="text">TEXT<a class="headerlink" href="#text" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/text.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="TEXT" class="center" src="../images/text.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the TEXT section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># Standard text section: BODY_FORMAT.TEXT - DEFAULT</span>
+<span class="c1">#   Text sections basically just dump the text to the screen...</span>
+<span class="c1">#     The scores of all sections will be SUMed in the service result</span>
+<span class="c1">#     The Result classification will be the highest classification found in the sections</span>
+<span class="n">text_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a default section&#39;</span><span class="p">)</span>
+<span class="c1"># You can add lines to your section one at a time</span>
+<span class="c1">#   Here we will generate a random line</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">add_line</span><span class="p">(</span><span class="n">get_random_phrase</span><span class="p">())</span>
+<span class="c1"># Or your can add them from a list</span>
+<span class="c1">#   Here we will generate a random amount of random lines</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">add_lines</span><span class="p">([</span><span class="n">get_random_phrase</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))])</span>
+<span class="c1"># You can tag data to a section. Tagging is used to quickly find defining information about a file</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">&quot;attribution.implant&quot;</span><span class="p">,</span> <span class="s2">&quot;ResultSample&quot;</span><span class="p">)</span>
+<span class="c1"># If the section needs to affect the score of the file you need to set a heuristics</span>
+<span class="c1">#   Here we will pick one at random</span>
+<span class="c1">#     In addition to adding a heuristic, we will associate a signature to the heuristic.</span>
+<span class="c1">#     We&#39;re doing this by adding the signature name to the heuristic. (Here we use a random name)</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">set_heuristic</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="s2">&quot;sig_one&quot;</span><span class="p">)</span>
+<span class="c1"># You can attach ATT&amp;CK IDs to heuristics after they where defined</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_attack_id</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">software_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_attack_id</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">attack_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_attack_id</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">group_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_attack_id</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">revoke_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<span class="c1"># Same thing for the signatures, they can be added to a heuristic after the fact and you can even say how</span>
+<span class="c1">#   many time the signature fired by setting its frequency. If you call add_signature_id twice with the</span>
+<span class="c1">#   same signature, this will also increase the frequency of the signature.</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_signature_id</span><span class="p">(</span><span class="s2">&quot;sig_two&quot;</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_signature_id</span><span class="p">(</span><span class="s2">&quot;sig_two&quot;</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_signature_id</span><span class="p">(</span><span class="s2">&quot;sig_three&quot;</span><span class="p">)</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_signature_id</span><span class="p">(</span><span class="s2">&quot;sig_three&quot;</span><span class="p">)</span>
+<span class="n">text_section</span><span class="o">.</span><span class="n">heuristic</span><span class="o">.</span><span class="n">add_signature_id</span><span class="p">(</span><span class="s2">&quot;sig_four&quot;</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># The heuristic for text_section should have the following properties:</span>
+<span class="c1">#   1. 1 ATT&amp;CK ID: T1066</span>
+<span class="c1">#   2. 4 signatures: sig_one, sig_two, sig_three and sig_four</span>
+<span class="c1">#   3. Signature frequencies are cumulative, therefore they will be as follows:</span>
+<span class="c1">#      - sig_one = 1</span>
+<span class="c1">#      - sig_two = 5</span>
+<span class="c1">#      - sig_three = 2</span>
+<span class="c1">#      - sig_four = 1</span>
+<span class="c1">#   4. The score used by each heuristic is driven by the following rules: signature_score_map is the highest</span>
+<span class="c1">#      priority, then score value for the add_signature_id is in second place and finally the default</span>
+<span class="c1">#      heuristic score is used. The score used to calculate the total score for the text_section is</span>
+<span class="c1">#      as follows:</span>
+<span class="c1">#      - sig_one: 10    -&gt; heuristic default score</span>
+<span class="c1">#      - sig_two: 20    -&gt; score provided by the function add_signature_id</span>
+<span class="c1">#      - sig_three: 30  -&gt; score provided by the heuristic map</span>
+<span class="c1">#      - sig_four: 40   -&gt; score provided by the heuristic map because it&#39;s higher priority than the</span>
+<span class="c1">#                          function score</span>
+<span class="c1">#    5. Total section score is then: 1x10 + 5x20 + 2x30 + 1x40 = 210</span>
+<span class="c1"># Make sure you add your section to the result</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">text_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="memory_dump">MEMORY_DUMP<a class="headerlink" href="#memory_dump" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/memory_dump.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="MEMORY_DUMP" class="center" src="../images/memory_dump.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the MEMORY_DUMP section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">assemblyline.common.hexdump</span> <span class="kn">import</span> <span class="n">hexdump</span>
+<span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># Memory dump section: BODY_FORMAT.MEMORY_DUMP</span>
+<span class="c1">#     Dump whatever string content you have into a &lt;pre/&gt; html tag so you can do your own formatting</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">hexdump</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;This is some random text that we will format as an hexdump and you&#39;ll see &quot;</span>
+               <span class="sa">b</span><span class="s2">&quot;that the hexdump formatting will be preserved by the memory dump section!&quot;</span><span class="p">)</span>
+<span class="n">memdump_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a memory dump section&#39;</span><span class="p">,</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">MEMORY_DUMP</span><span class="p">,</span>
+                                <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">memdump_section</span><span class="o">.</span><span class="n">set_heuristic</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">memdump_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="graph_data">GRAPH_DATA<a class="headerlink" href="#graph_data" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/graph_data.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="GRAPH_DATA" class="center" src="../images/graph_data.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the GRAPH_DATA section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># Color map Section: BODY_FORMAT.GRAPH_DATA</span>
+<span class="c1">#     Creates a color map bar using a minimum and maximum domain</span>
+<span class="c1">#     e.g. We are using this section to display the entropy distribution in some services</span>
+<span class="n">cmap_min</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">cmap_max</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">color_map_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;colormap&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">cmap_min</span><span class="p">,</span> <span class="n">cmap_max</span><span class="p">],</span>
+        <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">*</span> <span class="n">cmap_max</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">)]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1"># The classification of a section can be set to any valid classification for your system</span>
+<span class="n">section_color_map</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s2">&quot;Example of colormap result section&quot;</span><span class="p">,</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">GRAPH_DATA</span><span class="p">,</span>
+                                    <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">color_map_data</span><span class="p">),</span> <span class="n">classification</span><span class="o">=</span><span class="n">cl_engine</span><span class="o">.</span><span class="n">RESTRICTED</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">section_color_map</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="url">URL<a class="headerlink" href="#url" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/url.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="URL" class="center" src="../images/url.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the URL section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># URL section: BODY_FORMAT.URL</span>
+<span class="c1">#   Generate a list of clickable URLs using a JSON encoded format</span>
+<span class="c1">#     As you can see here, the body of the section can be set directly instead of line by line</span>
+<span class="n">random_host</span> <span class="o">=</span> <span class="n">get_random_host</span><span class="p">()</span>
+<span class="n">url_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a simple url section&#39;</span><span class="p">,</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">URL</span><span class="p">,</span>
+                            <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Random url!&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">random_host</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">}))</span>
+
+<span class="c1"># Since URLs are very important features, we can tag those features in the system so that they are easy to find</span>
+<span class="c1">#   Tags are defined by a type and a value</span>
+<span class="n">url_section</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">&quot;network.static.domain&quot;</span><span class="p">,</span> <span class="n">random_host</span><span class="p">)</span>
+
+<span class="c1"># You may also want to provide a list of URLs!</span>
+<span class="c1">#   Also, no need to provide a name, the URL link will be displayed</span>
+<span class="n">host1</span> <span class="o">=</span> <span class="n">get_random_host</span><span class="p">()</span>
+<span class="n">host2</span> <span class="o">=</span> <span class="n">get_random_host</span><span class="p">()</span>
+<span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">host1</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">host2</span><span class="si">}</span><span class="s2">/&quot;</span><span class="p">}]</span>
+
+<span class="c1"># A heuristic can fire more then once without being associated to a signature</span>
+<span class="n">url_heuristic</span> <span class="o">=</span> <span class="n">Heuristic</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">))</span>
+
+<span class="n">url_sub_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a URL sub-section with multiple links&#39;</span><span class="p">,</span>
+                                <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">urls</span><span class="p">),</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">URL</span><span class="p">,</span>
+                                <span class="n">heuristic</span><span class="o">=</span><span class="n">url_heuristic</span><span class="p">,</span> <span class="n">classification</span><span class="o">=</span><span class="n">cl_engine</span><span class="o">.</span><span class="n">RESTRICTED</span><span class="p">)</span>
+<span class="n">url_sub_section</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">&quot;network.static.domain&quot;</span><span class="p">,</span> <span class="n">host1</span><span class="p">)</span>
+<span class="n">url_sub_section</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">&quot;network.dynamic.domain&quot;</span><span class="p">,</span> <span class="n">host2</span><span class="p">)</span>
+
+<span class="c1"># Since url_sub_section is a subsection of url_section</span>
+<span class="c1"># we will add it as a subsection of url_section, not to the main result itself</span>
+<span class="n">url_section</span><span class="o">.</span><span class="n">add_subsection</span><span class="p">(</span><span class="n">url_sub_section</span><span class="p">)</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">url_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="json">JSON<a class="headerlink" href="#json" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/json.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="JSON" class="center" src="../images/json.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the JSON section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># JSON section:</span>
+<span class="c1">#     Re-use the JSON editor we use for administration (https://github.com/josdejong/jsoneditor)</span>
+<span class="c1">#     to display a tree view of JSON results.</span>
+<span class="c1">#     NB: Use this sparingly! As a service developer you should do your best to include important</span>
+<span class="c1">#     results as their own result sections.</span>
+<span class="c1">#     The body argument must be a json dump of a python dictionary</span>
+<span class="n">json_body</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a_list&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
+    <span class="s2">&quot;a_dict&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;list_of_dict&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;d1_key&quot;</span><span class="p">:</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;d1_key2&quot;</span><span class="p">:</span> <span class="s2">&quot;val2&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="s2">&quot;d2_key&quot;</span><span class="p">:</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;d2_key2&quot;</span><span class="p">:</span> <span class="s2">&quot;val2&quot;</span><span class="p">}</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;bool&quot;</span><span class="p">:</span> <span class="kc">True</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">json_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a JSON section&#39;</span><span class="p">,</span> <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span>
+                                <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_body</span><span class="p">))</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">json_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="key_value">KEY_VALUE<a class="headerlink" href="#key_value" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/key_value.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="KEY_VALUE" class="center" src="../images/key_value.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the KEY_VALUE section</summary>
+<p>Excerpt from Assemblyline Result sample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># KEY_VALUE section:</span>
+<span class="c1">#     This section allows the service writer to list a bunch of key/value pairs to be displayed in the UI</span>
+<span class="c1">#     while also providing easy to parse data for auto mated tools.</span>
+<span class="c1">#     NB: You should definitely use this over a JSON body type since this one will be displayed correctly</span>
+<span class="c1">#         in the UI for the user</span>
+<span class="c1">#     The body argument must be a dictionary (only str, int, and booleans are allowed)</span>
+<span class="n">kv_section</span> <span class="o">=</span> <span class="n">ResultKeyValueSection</span><span class="p">(</span><span class="s1">&#39;Example of a KEY_VALUE section&#39;</span><span class="p">)</span>
+<span class="c1"># You can add items individually</span>
+<span class="n">kv_section</span><span class="o">.</span><span class="n">set_item</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+<span class="c1"># Or simply add them in bulk</span>
+<span class="n">kv_section</span><span class="o">.</span><span class="n">update_items</span><span class="p">({</span>
+    <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">kv_section</span><span class="p">)</span>
+
+<span class="c1"># ==================================================================</span>
+<span class="c1"># ORDERED_KEY_VALUE section:</span>
+<span class="c1">#     This section provides the same functionality as the KEY_VALUE section except the order of the fields</span>
+<span class="c1">#     are garanteed to be preserved in the order in which the fields are added to the section. Also with</span>
+<span class="c1">#     this section, you can repeat the same key name multiple times</span>
+<span class="n">oredered_kv_section</span> <span class="o">=</span> <span class="n">ResultOrderedKeyValueSection</span><span class="p">(</span><span class="s1">&#39;Example of an ORDERED_KEY_VALUE section&#39;</span><span class="p">)</span>
+<span class="c1"># You can add items individually</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
+    <span class="n">oredered_kv_section</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;key</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;value</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">oredered_kv_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="process_tree">PROCESS_TREE<a class="headerlink" href="#process_tree" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/process_tree.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="PROCESS_TREE" class="center" src="../images/process_tree.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the section</summary>
+<p>Excerpt from Assemblyline Result sample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># PROCESS_TREE section:</span>
+<span class="c1">#     This section allows the service writer to list a bunch of dictionary objects that have nested lists</span>
+<span class="c1">#     of dictionaries to be displayed in the UI. Each dictionary object represents a process, and therefore</span>
+<span class="c1">#     each dictionary must have be of the following format:</span>
+<span class="c1">#     {</span>
+<span class="c1">#       &quot;process_pid&quot;: int,</span>
+<span class="c1">#       &quot;process_name&quot;: str,</span>
+<span class="c1">#       &quot;command_line&quot;: str,</span>
+<span class="c1">#       &quot;children&quot;: [] NB: This list either is empty or contains more dictionaries that have the same</span>
+<span class="c1">#                          structure</span>
+<span class="c1">#     }</span>
+<span class="n">nc_body</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;process_pid&quot;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+        <span class="s2">&quot;process_name&quot;</span><span class="p">:</span> <span class="s2">&quot;evil.exe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command_line&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">evil.exe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;signatures&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;process_pid&quot;</span><span class="p">:</span> <span class="mi">321</span><span class="p">,</span>
+                <span class="s2">&quot;process_name&quot;</span><span class="p">:</span> <span class="s2">&quot;takeovercomputer.exe&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;command_line&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Temp</span><span class="se">\\</span><span class="s2">takeovercomputer.exe -f do_bad_stuff&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;signatures&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">250</span><span class="p">},</span>
+                <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;process_pid&quot;</span><span class="p">:</span> <span class="mi">456</span><span class="p">,</span>
+                        <span class="s2">&quot;process_name&quot;</span><span class="p">:</span> <span class="s2">&quot;evenworsethanbefore.exe&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;command_line&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Temp</span><span class="se">\\</span><span class="s2">evenworsethanbefore.exe -f change_reg_key_cuz_im_bad&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;signatures&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+                        <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;process_pid&quot;</span><span class="p">:</span> <span class="mi">234</span><span class="p">,</span>
+                        <span class="s2">&quot;process_name&quot;</span><span class="p">:</span> <span class="s2">&quot;badfile.exe&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;command_line&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">badfile.exe -k nothing_to_see_here&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;signatures&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;four&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;five&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">},</span>
+                        <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;process_pid&quot;</span><span class="p">:</span> <span class="mi">345</span><span class="p">,</span>
+                <span class="s2">&quot;process_name&quot;</span><span class="p">:</span> <span class="s2">&quot;benignexe.exe&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;command_line&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">benignexe.exe -f </span><span class="se">\&quot;</span><span class="s2">just kidding, i&#39;m evil</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;signatures&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">},</span>
+                <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;process_pid&quot;</span><span class="p">:</span> <span class="mi">987</span><span class="p">,</span>
+        <span class="s2">&quot;process_name&quot;</span><span class="p">:</span> <span class="s2">&quot;runzeroday.exe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;command_line&quot;</span><span class="p">:</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">runzeroday.exe -f insert_bad_spelling&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;signatures&quot;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s2">&quot;children&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="n">nc_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a PROCESS_TREE section&#39;</span><span class="p">,</span>
+                            <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">PROCESS_TREE</span><span class="p">,</span>
+                            <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">nc_body</span><span class="p">))</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">nc_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="table">TABLE<a class="headerlink" href="#table" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/table.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="TABLE" class="center" src="../images/table.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the TABLE section</summary>
+<p>Excerpt from Assemblyline Result sample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># TABLE section:</span>
+<span class="c1">#     This section allows the service writer to have their content displayed in a table format in the UI</span>
+<span class="c1">#     The body argument must be a list [] of dict {} objects. A dict object can have a key value pair</span>
+<span class="c1">#     where the value is a flat nested dictionary, and this nested dictionary will be displayed as a nested</span>
+<span class="c1">#     table within a cell.</span>
+<span class="n">table_body</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;extra_column_here&quot;</span><span class="p">:</span> <span class="s2">&quot;confirmed&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="mi">102</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1000000000000000000</span><span class="p">,</span>
+        <span class="s2">&quot;extra_column_there&quot;</span><span class="p">:</span> <span class="s2">&quot;confirmed&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;nested_table&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">&quot;nested_table_thats_too_deep&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;a_str&quot;</span><span class="p">:</span> <span class="s2">&quot;Some string3&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;a_bool&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;an_int&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+<span class="n">table_section</span> <span class="o">=</span> <span class="n">ResultSection</span><span class="p">(</span><span class="s1">&#39;Example of a TABLE section&#39;</span><span class="p">,</span>
+                                <span class="n">body_format</span><span class="o">=</span><span class="n">BODY_FORMAT</span><span class="o">.</span><span class="n">TABLE</span><span class="p">,</span>
+                                <span class="n">body</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">table_body</span><span class="p">))</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">table_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="image">IMAGE<a class="headerlink" href="#image" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/image.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="IMAGE" class="center" src="../images/image.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the IMAGE section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># Image Section</span>
+<span class="c1">#     This type of section allows the service writer to display images to the user</span>
+<span class="n">image_section</span> <span class="o">=</span> <span class="n">ResultImageSection</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;Example of Image section&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">image_section</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span>
+                        <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;000</span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">.jpg&#39;</span><span class="p">),</span>
+        <span class="sa">f</span><span class="s1">&#39;000</span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">.jpg&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;ResultSample screenshot 000</span><span class="si">{</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ocr_heuristic_id</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">image_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="timeline">TIMELINE<a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/timeline.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="TIMELINE" class="center" src="../images/timeline.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the TIMELINE section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># Timeline Section</span>
+<span class="c1">#     This type of section allows the service writer to create a visual timeline</span>
+<span class="n">timeline_section</span> <span class="o">=</span> <span class="n">ResultTimelineSection</span><span class="p">(</span><span class="s2">&quot;Timeline&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">timeline_section</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Description: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                                <span class="n">opposite_content</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Value: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">timeline_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+<h3 id="multi">MULTI<a class="headerlink" href="#multi" title="Permanent link">&para;</a></h3>
+<p><a class="glightbox" href="../images/multi.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="MULTI" class="center" src="../images/multi.png" /></a></p>
+<details class="example">
+<summary>Code used to generate the MULTI section</summary>
+<p>Excerpt from the Assemblyline ResultSample service: <a href="https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py">result_sample.py</a></p>
+<div class="highlight"><pre><span></span><code><span class="o">...</span>
+<span class="c1"># ==================================================================</span>
+<span class="c1"># Multi Section</span>
+<span class="c1">#     This type of section allows the service writer to display multiple section types</span>
+<span class="c1">#     in the same result section. Here&#39;s a concrete example of this:</span>
+<span class="n">multi_section</span> <span class="o">=</span> <span class="n">ResultMultiSection</span><span class="p">(</span><span class="s1">&#39;Example of Multi-typed section&#39;</span><span class="p">)</span>
+<span class="n">multi_section</span><span class="o">.</span><span class="n">add_section_part</span><span class="p">(</span><span class="n">TextSectionBody</span><span class="p">(</span><span class="n">body</span><span class="o">=</span><span class="s2">&quot;We have detected very high entropy multiple sections &quot;</span>
+                                                    <span class="s2">&quot;of your file, this section is most-likely packed or &quot;</span>
+                                                    <span class="s2">&quot;encrypted.</span><span class="se">\n\n</span><span class="s2">Here are affected sections:&quot;</span><span class="p">))</span>
+<span class="n">section_count</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">section_count</span><span class="p">):</span>
+    <span class="n">multi_section</span><span class="o">.</span><span class="n">add_section_part</span><span class="p">(</span>
+        <span class="n">KVSectionBody</span><span class="p">(</span><span class="n">section_name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;.UPX</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;0x00</span><span class="si">{</span><span class="mi">8</span><span class="o">+</span><span class="n">x</span><span class="si">}</span><span class="s1">000&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s1">&#39;4196 bytes&#39;</span><span class="p">))</span>
+    <span class="n">graph_part</span> <span class="o">=</span> <span class="n">GraphSectionBody</span><span class="p">()</span>
+    <span class="n">graph_part</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)])</span>
+    <span class="n">multi_section</span><span class="o">.</span><span class="n">add_section_part</span><span class="p">(</span><span class="n">graph_part</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">section_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">multi_section</span><span class="o">.</span><span class="n">add_section_part</span><span class="p">(</span><span class="n">DividerSectionBody</span><span class="p">())</span>
+    <span class="n">multi_section</span><span class="o">.</span><span class="n">add_tag</span><span class="p">(</span><span class="s2">&quot;file.pe.sections.name&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;.UPX</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">multi_section</span><span class="o">.</span><span class="n">set_heuristic</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="n">multi_section</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.tabs", "navigation.expand", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+        <script src="../../../../javascripts/tables.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
