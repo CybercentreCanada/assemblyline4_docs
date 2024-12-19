@@ -58,7 +58,7 @@ monitored_keys:
 
 The set of keys that can be used by services for monitoring must be configured at the system level. New fields can be added by setting them under the `submission.temporary_keys` configuration field.
 
-What aggrigation will be used to combine temporary data from different services must be set for each key. Available options are:
+What aggregation will be used to combine temporary data from different services must be set for each key. Available options are:
  - `union` - Keep this key as a submission wide list merging equal items
  - `overwrite` - Keep this key submission wide on a "last write wins" basis
 
