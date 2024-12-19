@@ -6,7 +6,7 @@ This additional information can come from other files within the same submission
 
 ## Service Development
 
-When a service produces a result it may optionally flag it as 'partial'. This signals to assemblyline that the service may be able to do further processing. A hypothetical service that expects a password to be provided might have sections that looks like this:
+When a service produces a result it may optionally flag it as 'partial'. This signals to Assemblyline that the service may be able to do further processing. A hypothetical service that expects a password to be provided might have sections that looks like this:
 
 ```python
 class IncompleteService(ServiceBase):
