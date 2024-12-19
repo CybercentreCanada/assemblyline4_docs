@@ -62,7 +62,7 @@ What aggregation will be used to combine temporary data from different services 
  - `union` - Keep this key as a submission wide list merging equal items
  - `overwrite` - Keep this key submission wide on a "last write wins" basis
 
-To add the temporary submission data keys 'sample_key_a' and 'sample_key_b' with the union and overwrite aggrigations respectively the following could be used:
+To add the temporary submission data keys 'sample_key_a' and 'sample_key_b' with the union and overwrite aggregations respectively the following could be used:
 
 ```yaml
 submission:
