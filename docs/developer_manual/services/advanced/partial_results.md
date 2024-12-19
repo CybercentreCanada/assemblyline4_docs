@@ -61,6 +61,7 @@ monitored_keys:
 The set of keys that can be used by services for monitoring must be configured at the system level. New fields can be added by setting them under the `submission.temporary_keys` configuration field.
 
 What aggregation will be used to combine temporary data from different services must be set for each key. Available options are:
+
  - `union` - Keep this key as a submission wide list merging equal items
  - `overwrite` - Keep this key submission wide on a "last write wins" basis
 
@@ -76,6 +77,7 @@ submission:
 ### Defaults
 
 By default all systems are configured with some keys active that will contain at minimum:
+
  - `passwords`: union, a list of possible passwords related to this submission extracted from different parts of the submitted file.
  - `email_body`: union, a list of words found in email bodies embedded into this submission.
 
