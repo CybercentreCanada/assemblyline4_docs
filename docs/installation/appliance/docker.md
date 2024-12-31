@@ -21,12 +21,15 @@ This is the documentation for an appliance instance of the Assemblyline platform
     === "Ubuntu"
         Install Docker:
         ```bash
-        sudo install -m 0755 -d /etc/apt/keyrings
+        kr="/etc/apt/keyrings"
+        if [ ! -e "$kr" ]; then
+            # Keyring directory creation is only required for Ubuntu 20.04 (EOL is April 2025)
+            sudo install -m 0755 -d $kr
+        fi
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-        sudo chmod a+r /etc/apt/keyrings/docker.gpg
         echo \
         "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-        "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+        "$(lsb_release -cs)" stable" | \
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
         sudo apt-get update -y
         sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
@@ -66,13 +69,17 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 ### Configure Docker to use larger address pools
 1. Create/Edit `/etc/docker/daemon.json` and add the following lines:
-```
+```json
 {
   "default-address-pools":
   [
     {"base":"10.201.0.0/16","size":24}
   ]
 }
+```
+
+```bash
+echo '{"default-address-pools":[{"base":"10.201.0.0/16","size":24}]}' | jq '.' | sudo tee /etc/docker/daemon.json
 ```
 
 2. Restart Docker to acknowledge configuration: `service docker restart`
@@ -131,13 +138,7 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout ~/deployments/assemblyline/con
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose pull
-# If you see the following error, have no fear, just run the next command (sudo docker-compose build)
-# WARNING: Some service image(s) must be built from source by running:
-#     docker compose build scaler updater
-# 2 errors occurred:
-#         * Error response from daemon: pull access denied for al_scaler, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-#         * Error response from daemon: pull access denied for al_updater, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+sudo docker-compose pull --ignore-buildable
 sudo docker-compose build
 sudo docker-compose -f bootstrap-compose.yaml pull
 ```
