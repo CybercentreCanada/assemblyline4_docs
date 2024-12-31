@@ -133,13 +133,7 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout ~/deployments/assemblyline/con
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose pull
-# If you see the following error, have no fear, just run the next command (sudo docker-compose build)
-# WARNING: Some service image(s) must be built from source by running:
-#     docker compose build scaler updater
-# 2 errors occurred:
-#         * Error response from daemon: pull access denied for al_scaler, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
-#         * Error response from daemon: pull access denied for al_updater, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+sudo docker-compose pull --ignore-buildable
 sudo docker-compose build
 sudo docker-compose -f bootstrap-compose.yaml pull
 ```
