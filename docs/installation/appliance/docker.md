@@ -23,7 +23,10 @@ This is the documentation for an appliance instance of the Assemblyline platform
         ```bash
         sudo apt-get update -y
         sudo apt-get install -y apt-transport-https ca-certificates curl gnupg software-properties-common
-        sudo install -m 0755 -d /etc/apt/keyrings
+        kr="/etc/apt/keyrings"
+        if [ ! -e "$kr" ]; then
+            sudo install -m 0755 -d $kr
+        fi
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
         sudo chmod a+r /etc/apt/keyrings/docker.gpg
         echo \
