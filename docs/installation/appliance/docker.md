@@ -29,7 +29,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
             sudo install -m 0755 -d $kr
         fi
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-        sudo chmod a+r /etc/apt/keyrings/docker.gpg
         echo \
         "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
         "$(lsb_release -cs)" stable" | \
