@@ -68,13 +68,17 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
 ### Configure Docker to use larger address pools
 1. Create/Edit `/etc/docker/daemon.json` and add the following lines:
-```
+```json
 {
   "default-address-pools":
   [
     {"base":"10.201.0.0/16","size":24}
   ]
 }
+```
+
+```bash
+echo '{"default-address-pools":[{"base":"10.201.0.0/16","size":24}]}' | jq '.' | sudo tee /etc/docker/daemon.json
 ```
 
 2. Restart Docker to acknowledge configuration: `service docker restart`
