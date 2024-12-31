@@ -21,8 +21,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
     === "Ubuntu"
         Install Docker:
         ```bash
-        sudo apt-get update -y
-        sudo apt-get install -y apt-transport-https ca-certificates curl gnupg software-properties-common
         kr="/etc/apt/keyrings"
         if [ ! -e "$kr" ]; then
             # Keyring directory creation is only required for Ubuntu 20.04 (EOL is April 2025)
