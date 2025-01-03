@@ -340,6 +340,9 @@ For documentation, we will use ```assemblyline``` as the deployment name.
 sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
 
+!!! tip
+    A helpful command for watching the containers as they become ready and running is `watch -n 1 microk8s kubectl get pods -n al`.
+
 !!! warning
     After you've ran the `helm install` command, the system has a lot of setting up to do (Creating database indexes, loading service, setting up default accounts, loading signatures ...). Don't expect it to be fully operational for at least the next 15 minutes.
 
