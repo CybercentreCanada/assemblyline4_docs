@@ -19,7 +19,9 @@ This is the documentation for an appliance instance of the Assemblyline platform
     ```
     2. Install microk8s addons:
     ```bash
-    sudo microk8s enable dns ingress ha-cluster storage metrics-server
+    for addon in "ingress" "hostpath-storage" "metrics-server"; do
+        sudo microk8s enable "$addon"
+    done
     ```
     3. Install Helm and set it up to use with microk8s:
     ```bash
