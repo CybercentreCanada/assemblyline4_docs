@@ -151,6 +151,9 @@ sudo docker-compose up -d --wait
 sudo docker-compose -f bootstrap-compose.yaml up
 ```
 
+!!! tip
+    A helpful command for watching the containers as they start and enter a healthy state is `watch -n 1 docker ps`.
+
 !!! info
     Once the `docker-compose` command on the bootstrap file complete, your cluster will be ready to use and you can login with the default admin user/password that you've set in your ```.env``` file
 
