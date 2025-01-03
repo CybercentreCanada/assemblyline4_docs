@@ -27,10 +27,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
     sudo mkdir /var/snap/microk8s/current/bin
     sudo ln -s /snap/bin/helm /var/snap/microk8s/current/bin/helm
     ```
-    4. Install git:
-    ```bash
-    sudo apt install git
-    ```
 === "Offline"
 
     1. Download offline packages (On an internet-connected system):
