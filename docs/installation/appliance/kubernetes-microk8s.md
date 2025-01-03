@@ -7,7 +7,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 ## Setup requirements
 
 !!! info "Caveat"
-    The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04. You might have to change the commands a bit if you use other Linux distributions.
+    The documentation provided here assumes that you are installing your appliance on an Ubuntu-based system and was only tested on Ubuntu 20.04, 22.04, and 24.04. You might have to change the commands a bit if you use other Linux distributions.
 
     The recommended minimum system requirement for this appliance is **6 CPU** and **12 GB** of RAM.
 
