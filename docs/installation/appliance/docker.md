@@ -7,7 +7,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 !!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on one of the following systems:
 
-    - Debian: Ubuntu 20.04, Ubuntu 22.04
+    - Debian: Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04
     - RHEL: RHEL 8.5
 
     You might have to change the commands a bit if you use other Linux distributions.
