@@ -299,7 +299,11 @@ cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
 
 ### Setup the charts and secrets
 
-The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking.
+The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking. And if you wish to login to assemblyline from a bare public IP address, the configuration still requires a FQDN. As mentioned in `values.yaml`, `nip.io` can provide an easy FQDN for a bare IP.
+
+```bash
+sed -i "s/fqdn: \"localhost\"/fqdn: \"$(curl -s https:\/\/api.ipify.org).nip.io\"/" ~/git/deployment/values.yaml
+```
 
 The ```secret.yaml``` file in your deployment directory is preconfigured with default passwords, you should change them.
 
