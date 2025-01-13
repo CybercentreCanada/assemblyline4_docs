@@ -14,6 +14,7 @@ Model of User
 | dn | Keyword | User's LDAP DN | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | email | Email | User's email address | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | groups | List [UpperKeyword] | List of groups the user submits to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| identity_id | Keyword | ID of the matching object in your identity provider (used for logging in as another application) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | is_active | Boolean | Is the user active? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | name | Keyword | Full name of the user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | otp_sk | Keyword | Secret key to generate one time passwords | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
