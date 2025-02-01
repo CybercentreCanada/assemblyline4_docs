@@ -88,10 +88,8 @@ echo '{"default-address-pools":[{"base":"10.201.0.0/16","size":24}]}' | jq '.' |
 ### Download the Assemblyline Docker Compose repository
 
 ```bash
-mkdir ~/git
-cd ~/git
-git clone https://github.com/CybercentreCanada/assemblyline-docker-compose.git
-cp -R ~/git/assemblyline-docker-compose ~/deployments/assemblyline
+mkdir -p ~/deployments/assemblyline
+git clone https://github.com/CybercentreCanada/assemblyline-docker-compose.git ~/deployments/assemblyline
 cd ~/deployments/assemblyline
 ```
 
