@@ -105,12 +105,12 @@ The ```.env``` file in your deployment directory is preconfigured with default p
 These following [service profiles](https://docs.docker.com/compose/how-tos/profiles/) can be combined (unless otherwise specified) depending on your deployment requirements:
 
 - `minimal`: This setup includes the bare-minimum components for everything to be able to run. There will be no metrics collected and you will have to tail the log from the docker container logs.
-- `full`: This setup includes every single components and all metrics and logging capabilities. Metrics and logs will be gathered inside the same Elasticsearch instance as the processing data and you will have access kibana to view all of those.
+- `full`: This setup includes every single components and all metrics and logging capabilities. Metrics and logs will be gathered inside the same Elasticsearch instance as the processing data and you will have to access Kibana to view all of those.
 - `archive`: This deploys the Archiver component of Assemblyline but this requires `datastore.archive.enabled: true` in your `config.yml` otherwise the container will terminate.
 
 **Note**: The `minimal` and `full` profiles are mutually exclusive and are not to be used together.
 
-You can specify which profiles to use on the commandline using the `--profile` flag or set `COMPOSE_PROFILES` in your `.env` file (default: `COMPOSE_PROFILES=minimal`)
+You can specify which profiles to use on the commandline using the `--profile` flag or set `COMPOSE_PROFILES` in your `.env` file as a comma separated list (default: `COMPOSE_PROFILES=minimal`)
 
 ## Deploy Assemblyline
 
