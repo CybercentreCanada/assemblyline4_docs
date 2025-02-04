@@ -5,6 +5,7 @@ Service Delta relative to Initial Service Configuration
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | accepts | Keyword | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| auto_update | Boolean | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | rejects | Keyword | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | category | Keyword | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | classification | ClassificationString | Refer to:<br>[Service](../service/#service) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

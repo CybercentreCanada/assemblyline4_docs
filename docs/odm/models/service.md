@@ -5,6 +5,7 @@ Service Configuration
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | accepts | Keyword | Regex to accept files as identified by Assemblyline | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `.*` |
+| auto_update | Boolean | Should the service be auto-updated? | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | rejects | Keyword | Regex to reject files as identified by Assemblyline | <div style="width:100px">:material-minus-box-outline: Optional</div> | `empty|metadata/.*` |
 | category | Keyword | Which category does this service belong to? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `Static Analysis` |
 | classification | ClassificationString | Classification of the service | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |

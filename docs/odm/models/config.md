@@ -835,6 +835,7 @@ Services Configuration
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | categories | List [Keyword] | List of categories a service can be assigned to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['Antivirus', 'Dynamic Analysis', 'External', 'Extraction', 'Filtering', 'Internet Connected', 'Networking', 'Static Analysis']` |
+| default_auto_update | Boolean | Should services be auto-updated? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | default_timeout | Integer | Default service timeout time in seconds | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `60` |
 | stages | List [Keyword] | List of execution stages a service can be assigned to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['FILTER', 'EXTRACT', 'CORE', 'SECONDARY', 'POST', 'REVIEW']` |
 | image_variables | Mapping [String, Keyword] | Substitution variables for image paths (for custom registry support) | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
