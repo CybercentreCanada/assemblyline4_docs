@@ -1,56 +1,75 @@
-# Searching
+# Searching in Assemblyline
 
-Assemblyline leverages the powerful capabilities of [Elasticsearch](https://www.elastic.co/) which make it possible to
-search for almost anything.
+Assemblyline provides robust search capabilities within its user interface, allowing users to search for anything stored in its indices. By using the search widget, users can submit queries following the Lucene query syntax, which are then handled by the search engine. The fields available for searching are determined by several Object Data Models (ODMs) captured via Elasticsearch indices.
 
-## Document store
+## Understanding Indices
 
-One key concept to understand are the "*indices*" of information. These allow Assemblyline to deduplicate most of the results
-in the system which is a major reason Assemblyline can scale so well. Searching indexed fields is also very fast.
+Elasticsearch indices enable Assemblyline to deduplicate most of the results in the system, which significantly enhances its scalability. Searching through indexed fields is also remarkably fast.
 
-- There are 6 primary "*indices*"
-    - Submissions
-    - Files
-    - Results
-    - Alerts
-    - Signatures
-    - Retrohunt
+Assemblyline has six primary indices:
 
-You can view all indices and their indexed fields once you have a working Assemblyline under `Help > Search Help` menu.
+- **[Alert](../odm/models/alert.md)**: Allows users to perform detailed searches on alerts to quickly identify and prioritize security incidents, taking into account various attributes such as threat indicators, classification, and timestamps.
 
-## Searching behaviours and limitations
+- **[File](../odm/models/file.md)**: Allows users to search for specific files within a submission, identify duplicates, and gather context about a file's properties such as its classification, entropy, and observed hash values.
 
-When you search for something in the Search Bar at the top of the UI
+- **[Result](../odm/models/result.md)**: Allows users to search for specific service results, enabling the examination of the analysis performed by various services, including detailed scores, sections, and response data.
 
-![Search bar atop UI](./images/search_bar.png){: .center }
+- **[Retrohunt](../odm/models/retrohunt.md)**: Allows users to search retrospective threat hunt results from Yara rules applied to previously submitted samples. This facilitates the identification and analysis of new threats based on updated threat intelligence.
 
-or on the generic Search page
+- **[Signature](../odm/models/signature.md)**: Allows users to search for service-specific signatures (e.g., YARA rules) and any relevant metadata, including source, statistics, classification, and status.
 
-![Generic Search page](./images/search_view.png)
+- **[Submission](../odm/models/submission.md)**: Allows users to manage and track submissions, viewing the files involved, analysis errors, maximum scores, and the lifecycle status of the submission, which provides a holistic view of the analysis process.
 
-it will run your query in all the indices and return any matching results.
+You can view all indices and their indexed fields from the `Help > Search Help` menu in your Assemblyline installation.
 
-The fact that there are 6 separate indices is obvious when you make a search on one of the search bars mentioned above, as the results appear per index:
+## Using the Search Interface
 
-![Searching across indices](./images/searching_across_indices.png)
+### Search Bar
 
+The search bar, located at the top of the user interface, lets you perform searches across all indices.
 
-!!! tip "You must limit your search criteria to a single index; in other words, you cannot do JOIN queries with information present in two or more indices."
+![A search bar interface, part of the Assemblyline user interface. The search bar is located on a dark background and features a magnifying glass icon on the left side, indicating its function for searching. To the right of the search bar, there are three icons: one for keyboard shortcuts (CTRL+K), another for notifications with a number “12” suggesting there are 12 notifications, and an icon representing the avatar of the logged in user.](./images/search_bar.png){: .center }
 
-This limitation can be worked around by using the [Assemblyline Client](../../integration/python/) by performing queries on one index and then enriching or narrowing your search by searching for elements in another index.
+### Search Page
 
-## Search examples
+Additionally, you can perform searches using the generic Search page.
 
-One quick way to get familiar with search indices is to use the "*Find related results*" item from the tags dropdown menu.
+![A dark-themed search page interface with the word ‘Search’ at the top in white text. Below it, there is a search bar with rounded corners and lighter grey shade. The placeholder text inside the search bar reads ‘Search all indexes…’ in grey. On the right side of the search bar, there is a magnifying glass icon for search and an ‘x’ icon to clear the input field.](./images/search_view.png)
 
-![Searching](./images/magnifier.png){: .center }
+### Search Results
 
-Clicking it on the `av.virus_name` tag (`HEUR/Macro.Downloader.MRAA.Gen`) will build the following query:
+Search results will be displayed across the different indices. The results are categorized by:
+
+- **SUBMISSION**
+- **FILE**
+- **RESULT**
+- **SIGNATURE**
+- **ALERT**
+- **RETROHUNT**
+
+![A screenshot of a search interface with the word ‘blah’ typed into the search bar. Below the search bar are tabs labeled SUBMISSION, FILE, RESULT, SIGNATURE, ALERT, and RETROHUNT representing various indices, all showing (0) entries. A message box below the tabs states ‘No submissions found!’ and another line reads ‘The query that you ran did not return any results.](./images/searching_across_indices.png)
+
+!!! tip "You must limit your search criteria to a single index. Searching across multiple indices simultaneously (i.e., JOIN queries) is not supported."
+
+This limitation can be mitigated by using the [Assemblyline Client](../../integration/python/) to perform queries on one index and then refine or enrich your search by querying another index.
+
+## Search Examples
+
+### Basic Searches
+
+To familiarize yourself with the indices, use the "Find related results" option from the tags dropdown menu, accessible by right-clicking any tag found throughout Assemblyline.
+
+![Screenshot showing a dropdown menu with options including 'Copy to clipboard', 'Find related results', 'Toggle highlight', and 'Add to safelist'. The 'Find related results' option is highlighted. The dropdown menu can be accessed from right-clicking any tag found throughout Assemblyline.](./images/magnifier.png){: .center }
+
+For example, clicking it on the `av.virus_name` tag (`HEUR/Macro.Downloader.MRAA.Gen`) will generate the following query:
 ```ruby
 result.sections.tags.av.virus_name:"HEUR/Macro.Downloader.MRAA.Gen"
 ```
 
-You can also build more complex searches by leveraging the [full Lucene query syntax](https://www.elastic.co/guide/en/kibana/current/lucene-query.html). Here are some other examples:
+### Advanced Searches
+
+Harness the full power of the [Lucene query syntax](https://www.elastic.co/guide/en/kibana/current/lucene-query.html) for more complex searches. Here are a few examples:
+
 ```ruby
 # Find every result where the ViperMonkey service extracted the IP 10.10.10.10
 result.sections.tags.network.static.ip:"10.10.10.10" AND response.service_name:ViperMonkey
@@ -61,15 +80,16 @@ max_score:[2000 TO *] AND times.submitted:[now-2d TO now]
 # Find all anti-virus results with Emotet in the signature name
 result.sections.tags.av.virus_name:*Emotet*
 ```
-The system supports a wide range of search parameter such as wildcards, ranges and regex. The full syntax range can be found under ```Help > Search Help```
+Assemblyline supports various search parameters, including wildcards, ranges, and regex. Refer to `Help > Search Help` for comprehensive syntax.
 
-Search queries can also be used with the [Assemblyline Client](../../integration/python) to build powerful tradecraft which can run automatically as new files get scanned by the system.
+Search queries can also be used with the [Assemblyline Client](../../integration/python) to automate complex tradecraft as new files are processed by the system.
 
-## Autofill
-There are a lot of fields per index that you can query for, so exploring the "autofill" options is helpful. To do so, head to an index-specific search page, like "Result" (`/search/result`), and type something. The available fields that you can query for should pop up:
+## Autofill Feature
 
-![Autofill options on the Result search page](./images/autofill_options.png)
+Given the wide range of searchable fields per index, the "autofill" feature can assist in constructing queries. To use autofill, navigate to an index-specific search page, such as "Result" (`/search/result`), and start typing. Autofill will suggest available fields:
 
-If you want to query all submissions that are TLP:CLEAR and have a service that scored greater than 500, the Result index is where you would want to search because that is where the service result data lives:
+![Screenshot of the autofill feature in the Assemblyline application, displaying a dropdown list of suggested search fields that appear when typing 'a' in the search bar. The suggestions include options like 'archive_ts,' 'classification,' 'created,' 'response.extracted.allow_dynamic_recursion,' 'response.extracted.classification,' 'response.extracted.description,' and 'response.extracted.is_section_image.'](./images/autofill_options.png)
 
-![Example query result](./images/example_query_result.png)
+For instance, if you wish to query all submissions marked as `TLP:CLEAR` and containing a service that scored greater than 500, you should search within the `Result` index:
+
+![Screenshot of the search results page in the Assemblyline application showing a query for classification:TLP:CLEAR AND result.score:>500. The results include a list of matching entries with columns for Created Time, Verdict, SHA256, File Type, Service, and Classification. Two results are displayed, both marked as 'Malicious' with TLP:CLEAR classification. One entry is a 'archive/zip' file type processed by the 'Extract' service, created 4 days ago, and the other is a 'text/plain' file type processed by the 'NetRep' service, created 12 days ago.](./images/example_query_result.png)

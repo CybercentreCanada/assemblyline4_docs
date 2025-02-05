@@ -1,239 +1,275 @@
-# Service management
+# Service Management
 
-Assemblyline's service management interface lets you:
+Assemblyline's service management interface allows users to effectively manage services by performing actions such as listing, updating, adding, removing, and backing up services. This guide provides a step-by-step overview of how to manage services in Assemblyline.
 
-1. List all the services in the system
-3. View details about those services
-4. Add/Modify/Remove services
-5. Download/Restore a backup of the current services configurations
+## Accessing Service Management
 
-You can find the service management interface by clicking the *Administration* topic then choose *Services* subtopic.
+Navigate to the service management interface by selecting the *Administration* topic and choosing the *Services* subtopic.
 
 ![Service management](./images/services_bar.png){: .center }
 
-## Service list
+## Service List
 
-The first page you will be taken to when loading the service management interface will list all the services of the system.
+Upon loading the service management interface, you are presented with a list of all services in the system.
 
 ![Service list](./images/service_list.png)
 
-This page is important so let's talk about everything, starting with the buttons on the top right of the page:
+### Service Management Buttons
+
+The top-right section of the service list page includes several important buttons:
 
 ![Service management buttons](./images/service_mgmt_buttons.png){: .center }
 
+1. **Add Service**: Add new services to the system.
+2. **Update Services**: Perform updates on existing services.
+3. **Install All Services**: Install all available services.
+4. **Download Backup**: Download a backup of the current services configurations.
+5. **Restore Backup**: Restore services configuration from a previously downloaded backup.
 
-These buttons perform the following:
+## Adding a Service
 
-1. Add services to the system
-2. Perform service updates
-3. Install all available services
-4. Download a backup of the current services configurations
-5. Restore services configuration from a backup
-
-## Add a service
-
-You can add a service by clicking the circled green "*(+)*" sign in the top right corner. This will open a popup window with an empty textbox.
+To add a new service:
+1. Click the green "*(+)*" button in the top-right corner.
+2. In the popup window, paste the new YAML-formatted [service manifest](../../developer_manual/services/advanced/service_manifest/) contents.
+3. Click "*Add*" to incorporate the service into the system.
 
 ![Service add](./images/service_add.png)
 
-Simply paste the `service_manifest.yml` content of the service you which to add to the system then hit the "*Add*" button to add it to the system.
-
 !!! tip
-    If your manifest uses the following environment variables, they will be replaced by the right values by the service add API:
+    The "service-add" API will automatically replace certain environment variables in your manifest:
 
-    * **$SERVICE_TAG**: Will de replaced by the latest tag for your current deployment type (dev/stable) found in the docker registry where the service container is hosted
-    * **$REGISTRY**: Will be replaced by your local registry
+    * **$SERVICE_TAG**: Will be replaced by the latest tag for your current deployment type (dev/stable) found in the docker registry where the service container is hosted.
+    * **$REGISTRY**: Will be replaced by your local registry.
 
-### Update services
+## Updating Services
 
-If the system detected that there is a container with a newer version for your current deployment type (dev/stable). The service list will show an update button.
+As malware evolves, so too must the services that analyze and counteract these threats. Assemblyline's rapid development cycle ensures frequent updates for its supported services, enabling timely responses to new and emerging threats.
 
-Development on Assemblyline's supported services is rapid, and releases are cut quite frequently to keep up with malware development. Therefore, this button is helpful to action updating all services that have updates available.
-
-If you want to update a single service, a button will appear on that service card indicating that a newer version is available.
+The system automatically detects if a newer container version is available for your deployment type (dev/stable). An update button will be displayed on the service card for services that require updating.
 
 ![Service update](./images/service_update.png)
 
-Hovering over the button will let you know which new service version is available and clicking the button will kick off the update for the service.
+Hover over the button to see the new version and click to kick off the update.
 
-## Install Available Services
+## Installing Available Services
 
-The next button after that is "Install all services". If you scroll to the bottom of the page, you can see the services that you do not have installed but are available for installation. This button will install all the available services, if any, or you can install each one manually by scrolling down to the section and clicking on each card's button.
+The system tracks which services are installed and highlights additional services that are available for installation. To install all available services, click the "Install all services" button at the top right corner. This will prompt the system to install any services that you do not currently have.
+
+Alternatively, if you prefer to install services individually, scroll to the bottom of the service list page. Here, you will find a section listing all services that are available but not yet installed. Click the install button on the service card for each individual service you wish to add.
 
 ![Services available section](./images/services_available.png)
 
-## Create / Restore Service config backups
+## Creating and Restoring Service Config Backups
 
-At the top right corner of the service management page, you will also find backup and restore buttons for creating and restoring backups for the services configurations.
+Backup and restore functionality allows you to save and recover service configurations.
 
-The backup button which looks like an "*arrow pointing down*" will create a yml with a filename of the following format: `<FQDN>_service_backup.yml`. The file will automatically be downloaded by your browser in your download directory.
-
-Once you want to restore the backup in your system, you can simply click the restore button, "*clock with a counter clockwise arrow*", This will open a modal window with an empty textbox.
+To manage backups:
+1. Click the "*arrow pointing down*" button to download the current services configuration as a YAML file, named `<FQDN>_service_backup.yml`.
+2. To restore a backup, click the "*clock with counter-clockwise arrow*" button. Paste the backup content into the textbox and click "*Restore*" to reinstate the services configurations to their saved state.
 
 ![Service restore](./images/service_restore.png)
 
-Simply paste the content of the backup created earlier in the text box and hit the "*Restore*" button to restore the services configurations to their backed-up values.
-
 ## Service Listing Overview
 
-Let's look at the columns and data in the service table:
+The service listing table provides comprehensive information on each of the services configured in Assemblyline. Below is a detailed explanation of each column and the type of data it represents:
 
 ![Service Management page](./images/service_mgmt_page.png)
 
-The "Name" column contains the service name, and the "Version" column contains the version of the service that is running on Assemblyline. 
+**Name**
 
-The "Category" column refers to a service's category, which is a way of grouping services. Available categories out-of-the-box are Antivirus, Dynamic Analysis, External, Extraction, Filtering, Internet Connected, Networking, and Static Analysis. 
+The **Name** column contains the name of the service. This is the identifier that you will use to refer to this service throughout the system.
 
-The "Stage" column defines when a service should run. Possible stages are FILTER, EXTRACT, CORE, SECONDARY, POST and REVIEW. Stages are executed in the order defined in the list.
+**Version**
 
-"File types" contains a regular expression that dictates which Assemblyline file types a service will accept. If you want all files to be analyzed by a service, then specify the following regular expression .* as seen in the AVClass and Ancestry services above.
+The **Version** column lists the current running version of the service.
 
-The "External" column indicates if a service will send a file or related data somewhere outside of Assemblyline's infrastructure. An example of this is the VirusTotal service, which will send a file to the VirusTotal platform for analysis.
+**Category**
 
-The "Mode" column specifies if a service "runs in privileged mode" or "uses service server". This configuration is explained in the Assemblyline documentation here. 
+The **Category** column categorizes the services into predefined groups. This helps in organizing services and understanding the role each service plays. Available categories out-of-the-box include:
 
-The "Classification" column is the classification level that the service operates at and will label its results as such.
+- **Antivirus**: Services that utilize built-in signatures to scan files for viruses and malware detection.
+- **Dynamic Analysis**: Services that execute the file in a sandbox environment to observe behaviors.
+- **External**: Services that rely on external data sources or submit data to external systems.
+- **Extraction**: Services that extract files from archives or other compound file formats.
+- **Filtering**: Services that eliminate certain files from being processed further.
+- **Internet Connected**: Services that allow executed files to interact with the internet for additional analysis, such as receiving instructions or retrieving supplementary data.
+- **Networking**: Services that analyze network traffic or related data.
+- **Static Analysis**: Services that analyze files without executing them.
 
-Finally, the "Enabled" column indicates if the service is enabled or disabled. If a service is disabled, there will be zero pods running that service, and the service will not accept files.
+**Stage**
+
+The **Stage** column delineates at which point in the analysis pipeline a service will execute. The stages determine the sequence in which services operate, ensuring an organized and efficient workflow. Each service belongs to a single stage, executed in the following order:
+
+- **FILTER**: Initial filtering of files (e.g., Safelist). This stage determines whether subsequent stages will analyze a file.
+- **EXTRACT**: File extraction and unpacking (e.g., Extract, Unpacker). Services in this stage focus on extracting files from archives or other compound formats.
+- **CORE**: Core analysis tasks. This stage is where the majority of services perform their analysis.
+- **SECONDARY**: Additional analysis performed with context from previous stages (e.g., VirusTotal). These services offer further insights based on the initial core analysis.
+- **POST**: Subsequent processing steps (e.g., URLCreator). Services in this stage act upon the results generated by earlier stages.
+- **REVIEW**: This final stage involves services that review the entire context of the analysis before performing their own tasks (e.g., Ancestry).
+
+**File Types**
+
+The **File Types** column specifies the Assemblyline file types that the service will accept for processing. This is defined using regular expressions. For instance:
+
+- `.*` will accept all files for analysis.
+- Specific regex patterns can be used to target certain Assemblyline file types, such as `executable/windows` for Windows executables.
+
+**External**
+
+The **External** column indicates whether the service sends data outside of Assemblyline's infrastructure. This is an important consideration for privacy and data security. An example is the VirusTotal service, which submits files to the VirusTotal platform for analysis.
+
+**Mode**
+
+The **Mode** column specifies how the service operates, providing key information on its interaction with Assemblyline's core infrastructure. Here are the possible modes:
+
+- **Uses Service Server**: These services utilize the [Service Server](../overview/architecture.md#service-server), which isolates them from the core infrastructure. The Service Server provides APIs for task handling, result publishing, file downloading, and accessing the system safelist, ensuring that services have all necessary functionalities while remaining unaware of the underlying infrastructure.
+- **Runs in Privileged Mode**: Services operating in this mode bypass the Service Server, directly pulling tasks from Redis. They can save analysis results into the [Datastore](../overview/architecture.md#datastore) and store embedded and supplementary files directly into the [Filestore](../overview/architecture.md#filestore). This results in faster processing due to the direct access to core components.
+
+For more detailed information, please refer to the [full documentation](../overview/architecture.md#alternate-service-process).
+
+**Classification**
+
+The **Classification** column lists the classification level at which the service operates, which governs how the service handles and labels data.
+
+**Enabled**
+
+The **Enabled** column indicates if the service is currently enabled or disabled. An enabled service will have one or more instances running and actively process files, whereas a disabled service will not operate until re-enabled.
+
 
 ## Service Details
 
-If you wish to modify or remove a service, you can simply click on that service from the service list which will bring you to the service detail page.
+The service details page allows you to visualize and customize various parameters of a service across multiple tabs.
 
-The service detail page header contains two buttons shown all time that will let you:
+### Modifying or Removing a Service
 
-* Delete the service (red "*circled minus*" button)
-* Toggle between enabled/disable state (big square button right on top of the tabs)
+Click on any service from the service list to view its details. The service detail page allows you to:
 
-You will then have a tabbed interface which we will describe each tab bellow.
+- **Delete the service**: Red "circled minus" button.
+- **Toggle Enabled/Disabled state**: Big square button above the tabs.
 
-### General tab
+### General Tab
 
-The "*General*" tab will let you see general information about the service.
+This tab allows you to view and modify general information about the service.
 
 ![Service detail general](./images/service_detail_gen.png)
 
-In this tab, you will be able to modify the service's:
+Here, you can adjust various general settings:
 
-* Version
-* Description
-* Execution Stage
-* Category
-* Accepted/Rejected file types
-* Execution timeout
-* Maximum number of instances
-* Location
-* Result caching
+- **Version**: Change the service version.
+- **Description**: Edit the service description.
+- **Execution Stage**: Specify when the service should run.
+- **Category**: Group the service under a specific category.
+- **Accepted/Rejected File Types**: Define regular expressions for file types.
+- **Execution Timeout**: Modify the time limit for service execution.
+- **Maximum Instances**: Set the maximum number of service instances.
+- **Location**: Configure the service location to be internal of external.
+- **Result Caching**: Enable or disable result caching.
 
 !!! tip
-    You can refer to the [service manifest](../../developer_manual/services/advanced/service_manifest/) documentation for more information about those different fields.
+    Refer to the [service manifest](../../developer_manual/services/advanced/service_manifest/) documentation for more detailed information about these fields.
 
-### Container tab
+### Container Tab
 
-The "*Container*" tab will show information about containers used by the service.
+The *Container* tab provides comprehensive information about the containers your service utilizes.
 
 ![Service detail container](./images/service_detail_container.png)
 
-In this tab, you will be able to:
+Within this tab, you can adjust the following settings:
 
-* Change the update channel (Development/Stable)
-* Change the main service container
-* Add/modify/remove dependency containers
+- **Update Channel**: Select between Development or Stable channels for updates.
+- **Main Service Container**: Modify the primary container that executes the service.
+- **Dependency Containers**: Add, modify, or remove supporting containers.
 
-#### Main service container
+#### Main Service Container
 
-The main service container is the container containing and running the service code. By clicking the main service container, you will be able to modify the parameters used to launch that container.
+The main service container is the container housing and running the service code. By clicking on the main service container, you can modify the parameters used to launch it.
 
 ![Service detail container edit](./images/service_detail_container_edit.png)
 
-The list of parameters you will be able to modify is the following:
+You can adjust the following settings:
 
-* Container image name
-* Type of container registry
-* Resources limits (CPU/RAM)
-* Container registry credentials (username/password)
-* Command executed in the container
-* Allow internet access to the container
-* Environment variables set before loading the container
+- **Container Image Name**: Set the name of the container image.
+- **Container Registry Type**: Specify the type of container registry.
+- **Resource Limits**: Define CPU and RAM limits.
+- **Container Registry Credentials**: Provide registry credentials (username/password).
+- **Command Execution**: Change the command executed within the container.
+- **Internet Access**: Enable or disable internet access for the container.
+- **Environment Variables**: Set necessary environment variables before launching the container.
 
 !!! tip
-    Check the [docker config](../../developer_manual/services/advanced/service_manifest/#docker-config) block from the [service manifest](../../developer_manual/services/advanced/service_manifest/) documentation to know more about the different field you can modify in the docker container configuration.
+    For more details on configuring the Docker block, refer to the [docker config](../../developer_manual/services/advanced/service_manifest/#docker-config) section in the service manifest documentation.
 
-#### Dependency containers
+#### Dependency Containers
 
-Dependency containers are containers use to support the main services in some ways. Either by offering an external place to store data (A database for example) or to perform service updates.
+Dependency containers support the main service by providing external resources (like a database) or facilitating updates. These containers are shared among multiple service instances.
 
-A service can have multiple dependency containers and these containers are shared between the multiple instances of the service that can be loaded in the system i.e., there will only be one instance of each dependency container.
-
-By either click the "*Add Dependency*" button or clicking a dependency container, you will be able to either add or modify container dependencies of the current service.
+To add or modify a dependency container, click "Add Dependency" or select an existing container.
 
 ![Service detail dependency edit](./images/service_detail_dependency_edit.png)
 
-The dependency container configuration window look almost the same and let you modify the same values as the [main service container](#main-service-container) window. There is however an added parameter that you can configure to give the container persistent storage.
+The dependency container configuration window allows you to modify similar settings as the main service container, with an added option for persistent storage.
 
 !!! tip
-    Check the [persistent volume](../../developer_manual/services/advanced/service_manifest/#persistent-volume) block from the [service manifest](../../developer_manual/services/advanced/service_manifest/) documentation to know more about the different fields to configure to get persistent storage in a dependency container.
+    Refer to the [persistent volume](../../developer_manual/services/advanced/service_manifest/#persistent-volume) section in the service manifest documentation to learn more about configuring persistent storage for dependency containers.
 
-### Updates tab
+### Updates Tab
 
-The "*Updates*" tab shows information about how the service updates itself or its signatures.
+The *Updates* tab displays information about the service's self-update mechanism or signature updates.
 
 ![Service detail updates](./images/service_detail_updates.png)
 
 !!! warning
-    This tab is optional and will not be shown for all service. Only services that define and [update config](../../developer_manual/services/advanced/service_manifest/#update-config) block in their [service manifest](../../developer_manual/services/advanced/service_manifest/) will have that tab shown.
+    This tab appears only if the service defines an [update config](../../developer_manual/services/advanced/service_manifest/#update-config) block in its service manifest.
 
-In this tab, you will be able to view/modify the following information:
+In this tab, you can view and modify:
 
-* Interval at which the service updates
-* If the service generates signatures in the system or not
-* If the service needs to wait for a successful update to start instances of itself
-* The various sources where the service pulls its updates from
+- **Update Interval**: Set the frequency of updates.
+- **Signature Generation**: Indicate whether the service generates signatures.
+- **Startup Dependency**: Specify if the service must wait for a successful update before starting instances.
+- **Update Sources**: List the sources from which the service pulls its updates.
 
 !!! tip
-    Checkout the [Modifying sources](../../administration/source_management/#modifying-sources) documentation to know more about the different values you can change in the signature sources.
+    For more information on modifying signature sources, refer to the [Modifying sources](../../administration/source_management/#modifying-sources) documentation.
 
-### Parameters tab
+### Parameters Tab
 
-Finally, the "*Parameters*" tab will let you view and customize the different parameters the service can take in.
+The *Parameters* tab allows customization of various service parameters.
 
 ![Service detail parameters](./images/service_detail_parameters.png)
 
-Service parameters are split into two categories:
+Parameters are divided into two categories:
 
-* User specified parameters
-* Service variables
+- **User-Specified Parameters**
+- **Service Variables**
 
-#### User specified parameters
+#### User-Specified Parameters
 
-User specified parameters are parameters that a user can modify for each specific submission it does in the system.
+These parameters can be adjusted by users for each specific submission in the system. They often include:
 
-They are often but not exclusively used for things like:
-
-* Turning on/off features of a service
-* Specifying a password used during a submission
-* Limit what the service can and cannot do
-* Extract more or less files when a service runs
+- Feature toggles for the service
+- Passwords for specific submissions
+- Limits on the service's actions
+- Extraction sensitivity
 
 !!! tip
-    When these parameters are defined for a service, they will be shown in the [submission options](../../user_manual/submitting_file/#options) available for the user at submission time.
+    When defined, these parameters appear in the [submission options](../../user_manual/submitting_file/#options) available to the user during submission.
 
-#### Service variables
+#### Service Variables
 
-Service variable are configuration parameters only shared between the service and your deployment. They are used to help the service configure itself to run well in your environment.
+Service variables are configuration parameters specific to your deployment, aiding the service in running effectively. They often include:
 
-Service variables are often but not exclusively things like:
-
-* URLs to connect to external services
-* Credentials use to connect to external services
-* List of default values used in a service
-* Configuration parameter that will limit or increase scanning capabilities of a service
+- URLs for external services
+- Credentials for external connections
+- Default values used by the service
+- Scanning capabilities configuration
 
 ##### OCR Configuration
-Some services may perform OCR analysis on images given/generated during analysis. Because of this, you're able to override/customize the default OCR terms from the [service base](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/ocr.py) using the `ocr` key in the `config` block of the service manifest.
+
+Certain services conduct OCR (Optical Character Recognition) analysis on images either found in submissions or generated during the analysis. You can override or customize the default OCR terms defined in the [service base](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/ocr.py) by using the `ocr` key within the `config` block of the service manifest.
 
 ###### Simple Term Override (Legacy)
-Let's say, I want to use a custom set of terms for `ransomware` detection. Then I can set the following:
+
+To use a custom set of terms for `ransomware` detection, you can configure the following in your service manifest:
 
 ```yaml
 config:
@@ -241,10 +277,11 @@ config:
         ransomware: ['bad1', 'bad2', ...]
 ```
 
-This will cause the service to **only** use the terms I've specified when looking for `ransomware` terms. This is still subject to the hit threshold defined in the service base.
+This configuration will instruct the service to **only** use the specified terms for `ransomware` detection, adhering to the default hit threshold as defined in the service base.
 
 ###### Advanced Term Override
-Let's say, I want to use a custom set of terms for `ransomware` detection and I want to set the hit threshold to `1` instead of `2` (default). Then I can set the following:
+
+If you need to use custom terms for `ransomware` detection and set a specific hit threshold, you can configure the following:
 
 ```yaml
 config:
@@ -254,10 +291,11 @@ config:
             threshold: 1
 ```
 
-This will cause the service to **only** use the terms I've specified when looking for `ransomware` terms and is subject to the hit threshold I've defined.
+This setup not only specifies custom terms but also defines a threshold value. The service will use **only** these terms for `ransomware` detection, with the detection threshold you have set.
 
 ###### Term Inclusion/Exclusion
-Let's say, I want to add/remove a set of terms from the default set for `ransomware` detection. Then I can set the following:
+
+To modify the default set of terms by adding or excluding certain terms for `ransomware` detection, use the following configuration:
 
 ```yaml
 config:
@@ -267,4 +305,4 @@ config:
             exclude: ['bank account']
 ```
 
-This will cause the service to add the terms listed in `include` and remove the terms in `exclude` when looking for `ransomware` terms in OCR detection with the default set.
+This configuration allows the service to augment the default terms by including the terms specified in `include` and excluding those in `exclude`. The service will employ this adjusted set for OCR-based `ransomware` detection.
