@@ -102,28 +102,39 @@ By default, Assemblyline uses Minio, which is an Amazon S3-compatible file stora
 
 ## Generating Alerts
 
-On top of analysing files to report on their maliciousness level, Assemblyline can also work as a triage environment. In this scenario, all files are sent to Assemblyline, and analysts only look at the analysis results if an Alert is generated for said files. Using Post-Process actions, you can define the rules of what constitutes an Alert (default: file with a score over 500).
+Assemblyline doesn't just analyze files for malicious content; it can also function as a triage environment. In this mode, all files are sent to Assemblyline, and alerts are generated based on predefined rules, so analysts only focus on files that meet these alert criteria. This section explains the process of generating alerts within Assemblyline.
 
-While the Dispatcher is writing the result for a submission, it will use those rules to determine if an Alert should be written, then write a message to Redis' persistent DB so an Alert can be generated for the submission. Alerter will then receive this submission and write associated Alerts into the Datastore. As a last step, Workflow will check every newly created Alert and will automatically apply labels, priority, and/or status to all new Alerts matching the workflow queries.
+### How Alerts are Generated
 
-![Alerting](./images/alerting.png)
+Alerts are created based on [Post-Process actions](../administration/submission_actions) that define what constitutes an alert (default: a file with a score over 500). Here's how the alert generation process works step by step:
 
-### [Alerter](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/alerter)
+1. **Submission Scoring and Rule Evaluation**:
+    - While the [Dispatcher](#dispatcher) writes results for a submission, it evaluates rules to determine if an alert should be generated.
 
-The Alerter monitors Redis' persistent Alert input queue and transforms the related submission and all its results into an Alert. It then saves the related Alert into the Datastore. An Alert may be derived from another Alert and sent for reprocessing with an alternate list of services if certain criteria are met. These criteria are defined in the Post-Process actions.
+2. **Alert Message Creation**:
+    - If the criteria for an alert are met, the Dispatcher writes a message to Redis' persistent database to generate an alert for the submission.
 
-An Alert is made up of:
+3. **Alerter Component**:
+    - The Alerter component picks up this message from Redis and converts the related submission and its results into an alert, saving the alert in the Datastore.
 
-- The list of specific import tags with their type and verdict
-- The list of all heuristics triggered
-- The ATT&CK matrix categories and patterns associated with the Alert
-- The metadata associated with the submission
-- The file information of the main file (hashes, size, type, name...)
-- Some Alert-specific info (timestamps, verdicts, owner, labels, priority, status)
+4. **Workflow Component**:
+    - The Workflow component processes newly created alerts, applying labels, priority, and status to alerts that match user-defined workflow queries.
 
-### [Workflow](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/workflow)
+![The alerting process](./images/alerting.png)
 
-The Workflow process runs all user-defined workflows on freshly created Alerts. If an Alert matches a specific workflow, all labels, the priority and the status associated with said workflow will be applied to the Alert in the Datastore.
+Below are detailed descriptions of the components involved in generating alerts.
+
+### Alerter Component
+
+- **Function**: The [Alerter](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/alerter) monitors the Redis persistent alert input queue, transforms relevant submissions and results into alerts, and saves these alerts in the Datastore.
+- **Alert Contents**: An alert consists of specific import tags with their type and verdict, heuristic triggers, ATT&CK matrix categories, submission metadata, file information (hashes, size, type, name), and alert-specific information (timestamps, verdicts, owner, labels, priority, status).
+
+In certain scenarios, an alert can originate from another alert and be reprocessed with a different set of services. The criteria for reprocessing are defined in the Post-Process actions.
+
+### Workflow Component
+
+- **Function**: The [Workflow](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/workflow) component applies user-defined workflows to newly created alerts. When an alert matches a specified workflow, it assigns the corresponding labels, priority, and status to the alert in the Datastore.
+- **Usage**: This allows for automatic categorization and prioritization of alerts based on predefined conditions, ensuring that critical alerts get immediate attention.
 
 ## Housekeeping
 
