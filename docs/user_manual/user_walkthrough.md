@@ -18,13 +18,14 @@ Once you click on the classification picker, you get something like this:
 
 ![Classification picker, once clicked](./images/clicked_classification_picker.png)
 
-You can submit a file to the system via file upload or providing a URL ()
+You can submit a file to the system via file upload or providing a URL (this can be a file hash, a web URL, or a custom UUID that the system recognizes).
 
 ![Submission options section](./images/submission_options_section.png)
 
 Select the following links to see the specifics about submitting [a file](../../user_manual/submitting_file/), [a URL](../../user_manual/submitting_url/) or [a SHA256 hash](../../user_manual/submitting_sha256/).
 
 This is the search bar. You can click on it with your mouse or use Control + K to bring focus to it.
+
 ![Search bar](./images/search_bar.png){: .center }
 
 Clicking on the bell icon brings you to the notification panel where you can see system-wide announcements and what's new with the Assemblyline tool, as well as whatever RSS feeds that you have set up to receive:
