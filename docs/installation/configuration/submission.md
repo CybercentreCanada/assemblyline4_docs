@@ -100,6 +100,9 @@ There is exactly one profile specifed for the entire system and only members of 
 
 Within that profile, the members that don't have the `submission_customize` role are only able to configure the submission's classification and provide a password to the Extract service but the service selection is fixed to the services in the "Static Analysis" category along with the Extract service (which enforces `continue_after_extract: false` on all submissions under this profile).
 
+!!! question "What happens with service parameters that are not specified in the profile?"
+    Any service parameters that aren't declared in the profile will default to values set by system administrators. These can be found by navigating to the Services menu and looking at the "User Specified Parameters" within the "Parameters" tab of a service you've selected.
+
 What this would look like in the UI for a limited user is:
 ![Submission profile with limited customization](../images/submission_profile_limited_params.png)
 
