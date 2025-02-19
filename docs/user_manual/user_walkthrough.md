@@ -66,17 +66,19 @@ Assemblyline uses role-based access controls (RBAC) to manage user permissions. 
 
 ### API Quotas
 
-Each user has specific quotas applied to their account, such as the number of processes interacting with the API simultaneously and the number of parallel submissions. These quotas help manage system resources effectively.
+Each user has specific quotas applied to their account, such as the number of processes interacting with the API simultaneously and the number of parallel submissions. These quotas help manage system resources effectively. To view quotas related to your account, select your avatar in the upper right corner and click on the icon labeled "Manage Account".
+
+
 
 ### Account Security
 
 Account security is important in Assemblyline. The "Manage Account" view provides several security options:
 - **Multi-Factor Authentication (MFA)**: Enhance security by enabling MFA.
-- **API Key Management**: Generate and manage API keys, essential for automated interactions with the Assemblyline API via scripts or other tools.
+- **API Key Management**: Generate and manage API keys, essential for automated interactions with the Assemblyline API via scripts or other tools. You can manage your API keys by logging into Assemblyline's user interface, clicking on your avatar in the top-right corner and selecting "Manage Account." Then, scroll down to the "Security" section and select "Manage API Keys." From there, you can add a new API key, specify its name and access privileges, and click the "Add" button. Remember to copy the API key somewhere safe as it will only be displayed once.
 
 ## Account Settings
 
-Navigate to the "Account Settings" view to customize your Assemblyline experience:
+To adjust your account settings, navigate to your avatar in the upper right corner of the screen and select the gear icon that is labelled "Settings". Here, you will find settings related to submission options, interface options, default file sources, default service selection, and default service parameters:
 
 ### Submission Options
 Set default values for frequently used submission settings to streamline your workflow. For example:
@@ -90,7 +92,7 @@ Configure interface preferences, including visual settings and file encoding opt
 
   ![Account Settings View, Interface Options, and Default SHA256 Sources](./images/account_settings_interface_and_sources.png)
 
-- **File Encoding**: This setting is particularly important if you are working in an environment with antivirus software. By setting the encoding of files downloaded from Assemblyline to a format like CaRT or a password-protected ZIP, you can prevent the antivirus software from immediately deleting these files. This ensures that the downloaded files are available for your analysis without interference.
+- **File Encoding**: Assemblyline allows users to download files to their host system without triggering antivirus. Prior to downloading your first file, navigate to the avatar in the upper right corner, select the gear icon labelled "Settings", and locate the section labelled "Interface Options." There, you will be able to choose your preferred file encoding option. This setting is important for environments with antivirus software, as it allows you to set the encoding of files to formats like CaRT or a password-protected ZIP to prevent antivirus software from immediately deleting them
 
   ![File Encoding](./images/file_encoding.png)
 
@@ -116,7 +118,9 @@ Dive into a particular submission by selecting its card in the table, bringing y
 
 ## Alerts
 
-The Alerts section in Assemblyline is dedicated to managing alerts generated when submissions meet certain criteria, often exceeding a score threshold. These alerts can be assigned, triaged, and resolved by analysts.
+An alert in Assemblyline is a notification generated when a submission meets certain criteria, often exceeding a predefined score threshold. Alerts are created based on post-process actions that define what justifies an alert. They can be managed, assigned, triaged, and resolved by analysts. Alerts contain specific information such as import tags, heuristic triggers, MITRE ATT&CK matrix categories, submission metadata, file information (hashes, size, type, name), and alert-specific details like timestamps, verdicts, owner, labels, priority, and status. The alerting process involves components like the Dispatcher, Alerter, and Workflow, which work together to evaluate rules, create alert messages, transform submissions into alerts, and apply user-defined workflows for categorization and prioritization.
+
+To generate alerts for your submissions, navigate to the avatar in the upper right corner, select the gear icon labelled "Settings", and under "Submission Options" click the "Generate alert" button.
 
 ### Alerts Overview
 
@@ -126,7 +130,7 @@ The "Alerts" page provides a comprehensive view of all alerts. You can view, fil
 
 ### Filtering Alerts
 
-Use the filter bar to perform a Lucene query to narrow down specific alerts. The filter bar allows you to specify detailed search criteria to find the alerts relevant to your needs.
+You are able to search and filter for alerts that already exist in Assemblyline. This is possible by using the search bar at the top of the user interface or the generic Search page to perform searches across all indices, including the Alert index. The Alert index allows you to perform detailed searches on alerts to quickly identify and prioritize security incidents based on various attributes such as threat indicators, classification, and timestamps.
 
 ![Alerts filter](./images/alerts_filter.png)
 
@@ -190,7 +194,7 @@ Within the alert details view, triage analysts have several important tools at t
 
   ![Take ownership view](./images/take_ownership.png){: .center }
 
-- **Go to Related Submission**: Navigate to the submission that raised the alert.
+- **Go to Related Submission**: To see any submissions that are related to an alert, select "Alerts" on the menu on the left side of the screen and select a relevant alert. Then, in the upper right corner of the screen, click the "Go to related submissions" icon.
 - **Perform a Workflow Action**: Apply a workflow action to alerts in the same group.
 - **Set Alert Verdict**: Manually set the alert verdict to non-malicious or malicious. This feature provides analysts with the ability to complement the system verdict. It is especially useful in cases where Assemblyline provides a false-positive verdict, allowing the analyst to confirm and mark the alert as a false-positive, and vice versa.
 
