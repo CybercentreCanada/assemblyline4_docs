@@ -6,10 +6,11 @@
 
 - There is a side menu on the left-hand side. It is collapsible.
 - Some menu options expand to show you the sub-options for that topic
-- There is a  breadcrumb section at the top next to the side menu, which is helpful for navigation.
-- The version of Assemblyline that the core is running can be made visible as a configuration option and is seen at the bottom next to the side menu.
+- There is a breadcrumb section at the top-left next to the side menu, which is helpful for navigation.
+- The version of Assemblyline that the core is running can be seen at the bottom next to the side menu.
+    - This can be made visible by setting `system.type: development` in your configuration
 - The main middle area is the "submission" section
-- You can specify the classification that you want for the submission via the classification picker:
+- If the classification engine is enabled (`enforce: true`), you can specify the classification that you want for the submission via the classification picker:
 
 ![Classification picker](./images/classification_picker.png)
 
@@ -17,14 +18,13 @@ Once you click on the classification picker, you get something like this:
 
 ![Classification picker, once clicked](./images/clicked_classification_picker.png)
 
-You can submit a file, a URL, or a SHA256 hash, and specify the options that you want for the submission:
+You can submit a file to the system via file upload or providing a URL ()
 
 ![Submission options section](./images/submission_options_section.png)
 
 Select the following links to see the specifics about submitting [a file](../../user_manual/submitting_file/), [a URL](../../user_manual/submitting_url/) or [a SHA256 hash](../../user_manual/submitting_sha256/).
 
 This is the search bar. You can click on it with your mouse or use Control + K to bring focus to it.
-
 ![Search bar](./images/search_bar.png){: .center }
 
 Clicking on the bell icon brings you to the notification panel where you can see system-wide announcements and what's new with the Assemblyline tool, as well as whatever RSS feeds that you have set up to receive:
