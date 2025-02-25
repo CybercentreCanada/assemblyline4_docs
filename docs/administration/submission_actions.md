@@ -21,6 +21,8 @@ Depending on the context where the submission is being tested for an action diff
 
 ## Action configuration
 
+!!! tip "Actions are disabled by default and must be enabled using `enabled: true` setting"
+
 ### Alert
 
 There are no sub-configuration fields of the `raise_alert` field, it is either true or false.
@@ -38,6 +40,20 @@ The `webhook` action will call a webhook url with a body holding a json object w
  - `submission`: A [Submission](../../odm/models/submission/#submission) object for processed submissions, or a different [Submission](../../odm/messages/submission/#submission) object for cache hit actions.
 
 The `webhook` field must be a [Webhook](../../odm/models/actions/#webhook) object.
+
+!!! example "Here is an example using [Webhook Tester](https://webhook-test.com/)"
+    This webhook is only triggered on submission completion and only sends if the submission belongs to `user`.
+    ```yaml
+    user_webhook:
+      enabled: true
+      run_on_completed: true
+      filter: 'params.submitter:user'
+      webhook:
+        uri: https://webhook-test.com/<UUID>
+        method: POST
+        username: xyz
+        password: xyz
+    ```
 
 ## Default actions
 
