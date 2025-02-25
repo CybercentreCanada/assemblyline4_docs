@@ -13,14 +13,16 @@ This page lists all the services that our members have created and shared with t
 | -------------| ----------- | ------ | ------ |
 | AutoItRipper | AutoIt unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-autoit-ripper) |
 | ClamAV | Assemblyline service which submits a file to ClamAV and displays the result | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-clamav) |
+| HybridAnalysis | Uses the [Hybrid Analysis](https://www.hybrid-analysis.com/) service to provide additional threat intelligence and malware analysis capabilities | [boredchilada](https://github.com/boredchilada) | [link](https://github.com/boredchilada/AL4-HybridAnalysis) |
 | MalwareBazaar | Assemblyline service fetching Malware Bazaar report | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-malware-bazaar) |
 | MsgParser | Simple MSG extractor AssemblyLine service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-msg-extractor) |
-| MetaDefender Sandbox :material-new-box:{ .big_icon } | Submits a file or a URL to MetaDefender Sandbox | [OPSWAT](https://github.com/OPSWAT/) | [link](https://github.com/OPSWAT/assemblyline-service-metadefender-sandbox) |
+| MetaDefender Sandbox | Submits a file or a URL to MetaDefender Sandbox | [OPSWAT](https://github.com/OPSWAT/) | [link](https://github.com/OPSWAT/assemblyline-service-metadefender-sandbox) |
 | PythonExeUnpack | Python exe unpacker service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-python-exe-unpacker) |
+| ReversingLabsSpectraIntelligence | This service uses [ReversingLabs' Spectra Intelligence](https://www.reversinglabs.com/products/spectra-intelligence) service for obtaining detailed and high precision file reputation and analysis information on submitted files. | [ReversingLabs](https://github.com/reversinglabs) | [link](https://github.com/reversinglabs/rl_assemblyline/tree/main/alsvc_spectraintelligence) |
 | StegFinder | AssemblyLine service which scans for embedded data in image using StegExpose | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-steg-finder) |
 | Unfurl | Assemblyline service parsing a submitted URL to unshorten it. | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-unfurl) |
-| UrlScanIo | URLScan.io AL service | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-urlscanio) |
-| WindowsDefender | Windows defender service being adapted from an Assemblyline community [conversation](https://groups.google.com/g/cse-cst-assemblyline/c/LyziWuD8a9I/m/cg_m5eXpAQAJ) | [Adam McHugh](https://github.com/adammchugh) | [link](https://github.com/adammchugh/Assemblyline-WindowsDefender-Service)
+| UrlScanIo | This service fetches the results of a [urlscan.io](https://urlscan.io/) scan. | [NVISO](https://github.com/NVISOsecurity) | [link](https://github.com/NVISOsecurity/assemblyline-service-urlscanio) |
+| WindowsDefender | Windows defender service being adapted from an Assemblyline community [conversation](https://groups.google.com/g/cse-cst-assemblyline/c/LyziWuD8a9I/m/cg_m5eXpAQAJ) | [Adam McHugh](https://github.com/adammchugh) | [link](https://github.com/adammchugh/Assemblyline-WindowsDefender-Service) |
 
 ## Building a Community Service
 1. Obtain the service source code
