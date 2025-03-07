@@ -6,7 +6,7 @@ Let's look at what an Assemblyline submission looks like! But before we do that,
 A record of analysis for a given file and all its children with associated metadata and analysis parameters.
 
 ## Service
-A plugin that performs analysis on specific types of files and returns a detailed result and a score.
+A service in Assemblyline is a configurable component that performs specific tasks within the file triage and malware analysis system. Each service is identified by a unique name and categorized into predefined groups such as Antivirus, Dynamic Analysis, Extraction, etc. Services operate at different stages of the analysis pipeline, such as FILTER, EXTRACT, CORE, SECONDARY, POST, and REVIEW, to ensure an organized and efficient workflow. They process specific file types and can either operate within Assemblyline's infrastructure or interact with external systems. The service's mode of operation, classification level, and enabled status are also key attributes that define how it functions within the system.
 
 ## Heuristic
 A specific feature/behaviour that a service is looking for in a file can generate a score and alert the analyst of potentially malicious intent.
@@ -19,7 +19,7 @@ A specific feature/behaviour that a service is looking for in a file can generat
     - MITRE Att&ck ID
     - Signatures are often raised under a heuristic to provide more context
 
-Heuristics are tracked by the system to provide statistics on the number of hits and scores. Doing so can help with adjusting well-performing and under-performing heuristics.
+Heuristics are tracked by the system to provide statistics on the number of hits and scores. Doing so can help with adjusting well-performing and under-performing heuristics. You can find specific details about a heuristic by selecting one of the heuristic cards in the Heuristic Management interface. This will bring you to a detailed view of the heuristic, where you can see information such as its name, description, score, and MITRE ATT&CK ID. Additionally, you can scroll down to the "Statistics" section to visualize when certain files with the same features come into the system.
 
 ![Heuristic](./images/heuristic.png)
 
@@ -79,7 +79,7 @@ Under this section you will find all the heuristics that were raised for the sub
 
 ### Attribution
 This section will provide attribution from Yara signatures (if the actor tag is provided in your rule's metadata) and anti-virus virus names.
-For best results, follow the [CCCS standard](https://github.com/CybercentreCanada/CCCS-Yara) when writing Yara rules.
+Assemblyline uses the CCCS YARA standard. For best results, follow the [CCCS standard](https://github.com/CybercentreCanada/CCCS-Yara) when writing Yara rules.
 
 ![Attribution](./images/report_attribution.png)
 
@@ -117,8 +117,7 @@ In the top right corner, you will find a series of useful functions
 | ![File Safelist](./images/icon_safelist.png) | Add file to the safelist |
 
 ### File Frequency
-This section will tell you how many times this file has been seen, along with a first and last seen timestamp. These
-values will be affected by the retention period of the file in the system.
+You can find statistics related to file frequency in the individual "File Details" pages within your submissions. This section will tell you how many times the file has been seen, along with a first and last seen timestamp. These values will be affected by the retention period of the file in the system.
 
 ![File frequency](./images/file_freq.png)
 

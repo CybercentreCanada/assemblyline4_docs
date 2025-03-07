@@ -1,144 +1,207 @@
 # User Interface Walkthrough for Users
 
+Welcome to the Assemblyline User Interface Walkthrough, designed to guide users through the essential features and functionalities of the Assemblyline malware analysis tool. This document will cover the main sections of the interface, including the landing page, account management, submissions, alerts, and searching.
+
 ## Landing Page
+
+The landing page is your starting point in Assemblyline, offering a comprehensive overview and quick access to primary features.
 
 ![Landing page, dark mode](./images/landing_page.png)
 
-- There is a side menu on the left-hand side. It is collapsible.
-- Some menu options expand to show you the sub-options for that topic
-- There is a  breadcrumb section at the top next to the side menu, which is helpful for navigation.
-- The version of Assemblyline that the core is running can be made visible as a configuration option and is seen at the bottom next to the side menu.
-- The main middle area is the "submission" section
-- You can specify the classification that you want for the submission via the classification picker:
+### Navigation and Layout
+- **Side Menu**: Located on the left-hand side, the side menu is collapsible and contains expandable options.
+- **Breadcrumb Navigation**: Found next to the side menu on top, aiding in navigation.
+- **Version Information**: Displayed at the bottom next to the side menu if enabled, showing the Assemblyline version.
 
-![Classification picker](./images/classification_picker.png)
+### Submission Section
 
-Once you click on the classification picker, you get something like this:
+At the heart of Assemblyline's functionality is the submission section, where users can submit files, URLs, or hashes for malware analysis. This section is central to the interface, allowing users to initiate the analysis process quickly and efficiently.
 
-![Classification picker, once clicked](./images/clicked_classification_picker.png)
+- **Classification Picker**: Before making a submission, you can use the classification picker to specify the desired classification level for your analysis.
 
-You can submit a file, a URL, or a SHA256 hash, and specify the options that you want for the submission:
+  ![Classification Picker](./images/classification_picker.png)
 
-![Submission options section](./images/submission_options_section.png)
+  Once clicked, the classification picker will expand to display available options.
 
-Select the following links to see the specifics about submitting [a file](../../user_manual/submitting_file/), [a URL](../../user_manual/submitting_url/) or [a SHA256 hash](../../user_manual/submitting_sha256/).
+  ![Classification Picker, Once Clicked](./images/clicked_classification_picker.png)
 
-This is the search bar. You can click on it with your mouse or use Control + K to bring focus to it.
+- **Submission Options**: Here, you can submit a file, a URL, or a SHA256 hash. Additionally, you can specify various options to tailor the submission to your needs.
 
-![Search bar](./images/search_bar.png){: .center }
+  ![Submission Options Section](./images/submission_options_section.png)
 
-Clicking on the bell icon brings you to the notification panel where you can see system-wide announcements and what's new with the Assemblyline tool, as well as whatever RSS feeds that you have set up to receive:
+  For detailed instructions on how to make a submission, refer to the specific guides:
+  - [Submitting a File](../../user_manual/submitting_file/)
+  - [Submitting a URL](../../user_manual/submitting_url/)
+  - [Submitting a SHA256 Hash](../../user_manual/submitting_sha256/)
 
-![Notification panel](./images/notification_feed.png){: .center }
+### Additional Features
 
-Click on the avatar in the top right to view the user settings panel. Out of the box, Assemblyline supports English and French localization. You can also personalize some of the user interface experience here, such as dark mode vs light mode.
+- **Search Bar**: Use the search bar to quickly locate information. Click on it or use `Ctrl+k` to focus on the search bar.
 
-![User menu](./images/user_menu.png){: .center }
+  ![Search Bar](./images/search_bar.png){: .center }
 
-## Account Management and Settings
-From the above menu, you can access the "Manage Account" view. This view has profile information like maximum account classification, groups your user is a part of, and personal details.
+- **Notification Panel**: Click the bell icon to access the notification panel, where you can view system-wide announcements, updates, and RSS feeds.
 
-Assemblyline uses the concept of role-based access controls (RBAC) to perform fine-grained segmentation of certain features and capabilities within the system per user. As you can see from the below screenshot, my user is an administrator, so I can do anything I want with the system.
+  ![Notification Panel](./images/notification_feed.png){: .center }
 
-![Manage Account view, part 1](./images/manage_account_view_1.png)
+- **User Menu**: Click your avatar in the top right corner to access the user configuration panel. Assemblyline supports English and French localization and allows you to personalize your user interface experience, including toggling between dark mode and light mode.
 
-There are also quotas applied per user, such as the number of user processes interacting with the API at the same time and the number of parallel submissions running in the system. 
+  ![User Menu](./images/user_menu.png){: .center }
 
-There are also some standard account security options in this view, like multi-factor authentication settings and API key management. API key management is a significant feature if you plan to interact with the Assemblyline API in an automated fashion, like with a script.
+## Account Management
 
-![Manage Account view, part 2](./images/manage_account_view_2.png)
+From the user menu, you can access the "Manage Account" view. This section contains your profile information, including your maximum account classification, group memberships, and personal details.
 
-From the User Settings view, you can also navigate to the "Account Settings" view. These settings are mainly for if you use Assemblyline all the time and have certain preferences with how to interact with it. If you find yourself always selecting "Generate alert" on the submissions page, you can set a default value for that setting here, along with those of other settings.
+Here is the first part of the "Manage Account" view:
 
-"Days to live" and "Classification" are two settings that users tend to set defaults for since they are usually dictated by their organization.
+![Manage Account View of an Administrator, Part 1](./images/manage_account_view_1.png)
 
-![Account Settings view, Submission Options](./images/account_settings_submission_options.png)
+Scroll down a bit to see the second part of the "Manage Account" view:
 
-Scrolling down in this view to the "Interface Options", you can set some more defaults.
+![Manage Account View of an Administrator, Part 2](./images/manage_account_view_2.png)
 
-![Account Settings view, Interface Options, and Default sha256 sources](./images/account_settings_interface_and_sources.png)
+### Roles and Permissions
 
-The "File encoding" setting is of interest here, because if you are working on a system that has an antivirus product running on it, you will want to set the encoding of all files downloaded from the system to something like CaRT or a password-protected ZIP so that the files you download from Assemblyline are not immediately wiped from your machine.
+Assemblyline uses role-based access controls (RBAC) to manage user permissions. Roles define what actions users can perform in the system, ensuring fine-grained control over functionalities.
 
-![File encoding](./images/file_encoding.png){: .center }
+### API Quotas
 
-Scrolling even further down, you can set a custom set of services as a default if you find yourself always submitting to the same services repeatedly.
+Each user has specific quotas applied to their account, such as the number of processes interacting with the API simultaneously and the number of parallel submissions. These quotas help manage system resources effectively. To view quotas related to your account, select your avatar in the upper right corner and click on the icon labeled "Manage Account".
 
-![Account Settings view, Default Service Selection](./images/default_service_selection.png)
 
-Similar to setting a default service set, if you are always setting a default submission parameter value for a certain service, you can set that in the "Default Service Parameters Value" section.
 
-![Account Settings view, Default Service Parameters](./images/default_service_parameters.png)
+### Account Security
+
+Account security is important in Assemblyline. The "Manage Account" view provides several security options:
+- **Multi-Factor Authentication (MFA)**: Enhance security by enabling MFA.
+- **API Key Management**: Generate and manage API keys, essential for automated interactions with the Assemblyline API via scripts or other tools. You can manage your API keys by logging into Assemblyline's user interface, clicking on your avatar in the top-right corner and selecting "Manage Account." Then, scroll down to the "Security" section and select "Manage API Keys." From there, you can add a new API key, specify its name and access privileges, and click the "Add" button. Remember to copy the API key somewhere safe as it will only be displayed once.
+
+## Account Settings
+
+To adjust your account settings, navigate to your avatar in the upper right corner of the screen and select the gear icon that is labelled "Settings". Here, you will find settings related to submission options, interface options, default file sources, default service selection, and default service parameters:
+
+### Submission Options
+Set default values for frequently used submission settings to streamline your workflow. For example:
+- **Days to Live**: Specify the default number of days that submissions will be retained in the system. This is crucial for managing data lifecycle and compliance with organizational policies.
+- **Classification**: Set a default classification for your submissions, ensuring they adhere to your organization's data handling requirements.
+
+![Account Settings View, Submission Options](./images/account_settings_submission_options.png)
+
+### Interface Options
+Configure interface preferences, including visual settings and file encoding options, to optimize your user experience:
+
+  ![Account Settings View, Interface Options, and Default SHA256 Sources](./images/account_settings_interface_and_sources.png)
+
+- **File Encoding**: Assemblyline allows users to download files to their host system without triggering antivirus. Prior to downloading your first file, navigate to the avatar in the upper right corner, select the gear icon labelled "Settings", and locate the section labelled "Interface Options." There, you will be able to choose your preferred file encoding option. This setting is important for environments with antivirus software, as it allows you to set the encoding of files to formats like CaRT or a password-protected ZIP to prevent antivirus software from immediately deleting them
+
+  ![File Encoding](./images/file_encoding.png)
+
+#### Default Service Selection
+If you often submit to the same services, set a default service set and default service parameters to save time:
+  ![Account Settings View, Default Service Selection](./images/default_service_selection.png)
+  ![Account Settings View, Default Service Parameters](./images/default_service_parameters.png)
 
 ## Submissions
-We use the side menu option "Submissions" to bring us to the view consisting of submissions made to the system.
 
-![Submissions view](./images/submissions.png)
+Use the side menu option "Submissions" to view and manage all submissions made to the system.
 
-You can filter the submissions using the filter bar above the table of submissions. You can also filter on predetermined queries in this view by clicking on the icons on the right, such as all submissions associated with your user, all completed submissions, and all malicious submissions.
+![Submissions View](./images/submissions.png)
 
-We can dive into a particular submission by selecting the submission card in the table. You will be brought to the "Submission Report" view.
+### Filtering and Viewing Submissions
 
-The Report view is preferred if you want a condensed view of the analysis.
+- **Filter Bar**: Use the filter bar above the table to narrow down your submissions.
+- **Preset Queries**: Use icons to filter by user, completed submissions, or malicious submissions.
 
-[Submission Report View](../../user_manual/results#submission-report)
+### Submission Report View
+
+Dive into a particular submission by selecting its card in the table, bringing you to the ["Submission Report" view](../../user_manual/results#submission-report). This view provides a condensed report of the analysis, offering a streamlined summary that is easier to digest.
 
 ## Alerts
 
-An alert is a concept that is used in the Assemblyline malware analysis workflow. An alert is an object that is created when a submission meets a certain set of criteria (in most cases, exceeds a score threshold). These alerts can be assigned, triaged, and completed by analysts.
+An alert in Assemblyline is a notification generated when a submission meets certain criteria, often exceeding a predefined score threshold. Alerts are created based on post-process actions that define what justifies an alert. They can be managed, assigned, triaged, and resolved by analysts. Alerts contain specific information such as import tags, heuristic triggers, MITRE ATT&CK matrix categories, submission metadata, file information (hashes, size, type, name), and alert-specific details like timestamps, verdicts, owner, labels, priority, and status. The alerting process involves components like the Dispatcher, Alerter, and Workflow, which work together to evaluate rules, create alert messages, transform submissions into alerts, and apply user-defined workflows for categorization and prioritization.
 
-The "Alerts" page looks like this:
+To generate alerts for your submissions, navigate to the avatar in the upper right corner, select the gear icon labelled "Settings", and under "Submission Options" click the "Generate alert" button.
+
+### Alerts Overview
+
+The "Alerts" page provides a comprehensive view of all alerts. You can view, filter, and manage alerts effectively using the built-in tools.
 
 ![Alerts view](./images/alerts.png)
 
-You can filter for alerts using a Lucene query:
+### Filtering Alerts
+
+You are able to search and filter for alerts that already exist in Assemblyline. This is possible by using the search bar at the top of the user interface or the generic Search page to perform searches across all indices, including the Alert index. The Alert index allows you to perform detailed searches on alerts to quickly identify and prioritize security incidents based on various attributes such as threat indicators, classification, and timestamps.
 
 ![Alerts filter](./images/alerts_filter.png)
 
-You can set your favourite queries:
+Additionally, you can set your favorite queries for quick access. This makes it easier to run frequently used searches without re-entering the criteria each time.
 
 ![Create a Favourite Alert Query](./images/favourite_alert.png){: .center }
 
-Filter the results after the query was made:
+After performing a query, you can further filter the results to hone in on the most important alerts.
 
 ![Filter the query results](./images/alert_filter.png){: .center }
 
-And apply workflow actions on alerts that already existed in the system:
+### Workflow Actions
 
-![Perform a workflow action on alerts](./images/alert_workflow.png){: .center }
+Workflows allow you to automate specific actions on alerts based on predefined criteria. For example, you might want to label all alerts with a verdict of malicious and containing the word "invoice" as "PHISHING" for further analysis.
 
-An example of a workflow that you may want to perform is if you want all alerts that receive a verdict of malicious and contain the word "invoice" in the file name to be assigned a "PHISHING" label which can then be lumped into a bucket for further analysis.
+From the Alerts page, you can perform two types of workflow actions:
 
-![Phishing invoice workflow example](./images/phishing_workflow_example.png){: .center }
+1. **Create a Persistent New Workflow**: Click the "Create a new workflow" button. This option allows you to add a new named workflow to the system. When creating a new workflow, you can specify if it should be applied to all existing alerts that match the supplied filter. Once created, this workflow is saved and will continuously be applied to any new alerts that match the criteria. The workflow persists in the system and can be managed from the "Manage Workflows" page.
 
-By selecting an alert card on the "Alerts" page, you can view the full alert details:
+   ![Perform a workflow action on alerts](./images/alert_new_workflow.png){: .center }
+
+2. **Apply an Ephemeral Workflow Action Immediately**: Click the "Workflow actions" button to apply a new workflow action to existing alerts based on the current query filter. Unlike creating a new persistent workflow, this action is not saved as a workflow in the system. Instead, it is a one-time action that is only applied to matching existing alerts.
+
+   ![Phishing invoice workflow example](./images/phishing_workflow_example.png){: .center }
+
+Within a workflow action, you can assign various actions to alerts that meet the criteria:
+- **Assign a Status**: Set the status of an alert (e.g., MALICIOUS, NON-MALICIOUS, ASSESS, TRIAGE).
+- **Assign a Priority**: Set the priority level of the alert (e.g., LOW, MEDIUM, HIGH, CRITICAL).
+- **Assign a Label**: Apply a label to categorize the alert (e.g., PHISHING, FALSE_POSITIVE, etc.).
+
+These workflow actions ensure alerts are handled consistently and according to your organization's policies.
+
+### Viewing Alert Details
+
+Select an alert card to view detailed information about the alert:
 
 ![Alert details](./images/alert_details.png)
 
-You have the classification at the top, the alert information at the top left and the verdict and labels on the top right. After that, you have the file details like the name, type, size, and hashes. The metadata of the submission that raised this alert follows that as well as any indicators of compromise or heuristics that were found.
+The alert details include:
+- **Classification**: The classification level of the alert.
+- **Alert Information**: Basic information about the alert.
+- **Verdict and Labels**: The system's verdict and applicable labels.
+- **File Details**: Information about the file, including name, type, size, and hashes.
+- **Metadata and Indicators**: Metadata and any indicators of compromise or heuristics found.
 
-If you have a team of analysts triaging alerts as we do at the Canadian Centre for Cyber Security, these buttons on the top right of the alert details view are very important:
+### Alert Management Tools
+
+Within the alert details view, triage analysts have several important tools at their disposal:
 
 ![Alert Triage Buttons](./images/alert_triage_buttons.png){: .center }
 
-We'll explain them from left to right.
+- **View History**: Check the audit history of an alert, displaying all changes made to the alert. This includes changes related to priority, status, and the addition or removal of labels. Each change is timestamped and indicates whether the change was made by a workflow or a user.
 
-The suitcase icon button is "View History". If you click on that you can see the history of the alert, such as if an analyst has completed this alert or if any labels have been applied:
+  ![Alert History](./images/alert_history.png)
 
-![Alert History](./images/alert_history.png)
+- **Show All Alerts From Group**: Apply a filter to the current query to view all alerts from the same group as the selected alert.
 
-The next button is "Show all alerts from group", which will apply a group filter to the query on the Alerts page to show you all the alerts from the same group as the alert you are viewing:
+  ![Show all alerts from group](./images/alerts_by_group.png){: .center }
 
-![Show all alerts from group](./images/alerts_by_group.png){: .center }
+- **Take Ownership**: Assign the alert to your user account for triage.
 
-Then there is the "Take ownership" option which will allow you to assign the alert to your user account so that a team of analysts can easily assign work:
+  ![Take ownership view](./images/take_ownership.png){: .center }
 
-![Take ownership view](./images/take_ownership.png){: .center }
+- **Go to Related Submission**: To see any submissions that are related to an alert, select "Alerts" on the menu on the left side of the screen and select a relevant alert. Then, in the upper right corner of the screen, click the "Go to related submissions" icon.
+- **Perform a Workflow Action**: Apply a workflow action to alerts in the same group.
+- **Set Alert Verdict**: Manually set the alert verdict to non-malicious or malicious. This feature provides analysts with the ability to complement the system verdict. It is especially useful in cases where Assemblyline provides a false-positive verdict, allowing the analyst to confirm and mark the alert as a false-positive, and vice versa.
 
-The next options are "Go to a related submission" which will bring you to the submission that raised that alert, and "Perform a workflow action", where you can create a workflow action to be applied to all alerts in the system that are part of the same group. 
+### Navigation Arrows
 
-The following options are "Set alert verdict to non-malicious" and "Set alert verdict to malicious", which provide the ability of an analyst to assign a verdict to complement the system verdict. This is useful if Assemblyline provides a false-positive verdict and the analyst confirms that the alert is a false-positive, then the analyst can say "Hey this is a false-positive" by using the corresponding button.
+Navigate through alerts easily with the left and right arrows to cycle through available alerts.
 
-The last two options are arrows for easily navigating through alerts.
+## Searching in Assemblyline
 
-## [Searching in Assemblyline](../../user_manual/searching)
+For detailed information on searching, refer to the [Searching in Assemblyline](../../user_manual/searching) section.

@@ -31,7 +31,6 @@ nav:
 - Home: index.md
 - Overview:
   - overview/how_it_works.md
-  - overview/architecture.md
   - overview/services.md
   - overview/community_services.md
 - User's manual:
@@ -79,6 +78,7 @@ nav:
   - installation/replay.md
 - Administration:
   - administration/admin_walkthrough.md
+  - administration/architecture.md
   - administration/submission_actions.md
   - administration/service_management.md
   - administration/system_safelist.md
