@@ -25,7 +25,7 @@ At the heart of Assemblyline's functionality is the submission section, where us
 
   ![Classification Picker, Once Clicked](./images/clicked_classification_picker.png)
 
-- **Submission Options**: Here, you can submit a file, a URL, or a SHA256 hash. Additionally, you can specify various options to tailor the submission to your needs.
+- **Submission Options**: Afterward, you can select the type of input between files, hashes or URLS to submit. Next, select the file or enter the hash or URL to analyze and type of analysis to perform on your input. Finaly, you can press the Submit button to create a submission. If you want to modify the submission parameters defined by the types of analysis, click on the "Tune" icon button to open the Submission Options panel and customize the parameters given your permissions. If you want to check if your input already exists in the system, press the "Search" icon button to open a dialog to perform a search request and provide a link to the existing file/URL.
 
   ![Submission Options Section](./images/submission_options_section.png)
 
@@ -52,13 +52,7 @@ At the heart of Assemblyline's functionality is the submission section, where us
 
 From the user menu, you can access the "Manage Account" view. This section contains your profile information, including your maximum account classification, group memberships, and personal details.
 
-Here is the first part of the "Manage Account" view:
-
-![Manage Account View of an Administrator, Part 1](./images/manage_account_view_1.png)
-
-Scroll down a bit to see the second part of the "Manage Account" view:
-
-![Manage Account View of an Administrator, Part 2](./images/manage_account_view_2.png)
+![Manage Account View of an Administrator](./images/manage_account_view.png)
 
 ### Roles and Permissions
 
@@ -68,8 +62,6 @@ Assemblyline uses role-based access controls (RBAC) to manage user permissions. 
 
 Each user has specific quotas applied to their account, such as the number of processes interacting with the API simultaneously and the number of parallel submissions. These quotas help manage system resources effectively. To view quotas related to your account, select your avatar in the upper right corner and click on the icon labeled "Manage Account".
 
-
-
 ### Account Security
 
 Account security is important in Assemblyline. The "Manage Account" view provides several security options:
@@ -78,14 +70,7 @@ Account security is important in Assemblyline. The "Manage Account" view provide
 
 ## Account Settings
 
-To adjust your account settings, navigate to your avatar in the upper right corner of the screen and select the gear icon that is labelled "Settings". Here, you will find settings related to submission options, interface options, default file sources, default service selection, and default service parameters:
-
-### Submission Options
-Set default values for frequently used submission settings to streamline your workflow. For example:
-- **Days to Live**: Specify the default number of days that submissions will be retained in the system. This is crucial for managing data lifecycle and compliance with organizational policies.
-- **Classification**: Set a default classification for your submissions, ensuring they adhere to your organization's data handling requirements.
-
-![Account Settings View, Submission Options](./images/account_settings_submission_options.png)
+To adjust your account settings, navigate to your avatar in the upper right corner of the screen and select the gear icon that is labelled "Settings". Here, you will find settings related to submission options, interface options, default file sources, default service selection, and default service parameters. The "Cancel" button will revert any changes to the user's default values. The "Reset" button will reset all parameters to the system's default values. Those last two buttons don't submit any request and you must press The "Save" button submits the request to save the changes to your user settings.
 
 ### Interface Options
 Configure interface preferences, including visual settings and file encoding options, to optimize your user experience:
@@ -96,10 +81,17 @@ Configure interface preferences, including visual settings and file encoding opt
 
   ![File Encoding](./images/file_encoding.png)
 
-#### Default Service Selection
+### Submission Profiles
+The Submission Profiles are the different types of analysis to choose from when creating when creating new submission. The profiles and their default values are defined by the system, which system administrators can modify depending the needs. As such, users cannot create new personal profiles and must use these ones defined by the system. However, they can modify their parameters that will only affect their own user settings. Note that some parameters are deemed restricted by the fact that they will have a critical impact on the system for all users if misused. As such, users with the "Submission Customize" role understand the risks involved and can modify all parameters noted by the "Full Customization" banner. Otherwise, users are expected to see a "Limited Customization" banner.
+
+- **Days to Live**: Specify the default number of days that submissions will be retained in the system. This is crucial for managing data lifecycle and compliance with organizational policies.
+- **Classification**: Set a default classification for your submissions, ensuring they adhere to your organization's data handling requirements.
+
+![Account Settings View, Submission Options](./images/account_settings_submission_options.png)
+
+#### Default Service Selection and Parameters
 If you often submit to the same services, set a default service set and default service parameters to save time:
-  ![Account Settings View, Default Service Selection](./images/default_service_selection.png)
-  ![Account Settings View, Default Service Parameters](./images/default_service_parameters.png)
+  ![Account Settings View, Default Service Selection and Parameters](./images/default_service_selection.png)
 
 ## Submissions
 
