@@ -1,51 +1,54 @@
-# Submitting a file for analysis
+# Submitting a File for Analysis
 
-## Submission
-Submitting a file for analysis is easy; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## Submission Process
+
+Submitting a file for analysis in Assemblyline is straightforward via the WebUI interface. For automated tasks and integration purposes, consider using the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
 
 ![File submission](./images/file_submit.png)
 
-### Sharing and classification
-If your system is configured with a sharing control (TLP) or Classification configuration, the available restriction can be selected by clicking on the Classification Banner.
+### Sharing and Classification
+Select the desired classification level or sharing restrictions by clicking on the Classification Banner, provided your system configuration includes TLP or another classification scheme.
 
-### Selecting a file to scan
-You can click the "Select a file to analyze" or drag and drop a file to the area enclosed by the dashed line to add a file to be analyzed.
+### Selecting a File to be Analyzed
+Upload a file for analysis either by clicking the "Select a file to analyze" button or using drag and drop into the designated dashed area.
 
-### Selecting the type of analysis to perform
-You can clip on the "Type of Analysis" drop down menu and select the type of analysis to perform that is the most appropriate for your file.
+### Choosing Analysis Type
+Select the most suitable analysis type for your file from the "Type of Analysis" dropdown menu.
 
 ## Options
-Additionaly, open the "Adjust" panel to modify the submission and the services parameters by click on the "Tune" icon button. You'll notice at the top of the panel a banner indicating your customization priviledge. Some parameters usage have a severe impact on the system which can cause interruption of service if misused. As such, users who understand the risks and the implications of using those parameters will have the "submission_customize" role have access to modify them. For most users, using the default parameters are enough to get a basic understanding of the malware analysis. Here's an explaination of the parameters in each sections:
+
+Access advanced submission options by clicking the "Tune" icon to open the "Adjust" panel. At the top, a banner indicates the level of customization privileges available to you. Users with the `submission_customize` role have the ability to modify all parameters, given that they understand the severe impact some parameters have on the system if miused.
 
 ### Submission Parameters:
-- **Description**: provide a description of the file being analyzed. Leave blank to let the system define the default description value
-- **Priority**: priority in the queue
-- **Days to live**: Time (in days) before the file is purged from the system
-- **Generate alert**: Submission will trigger an alert on completion of analysis
-- **Ignore filtering services**: Bypass safelisting services
-- **Ignore result cache**: Force re-analysis even if the same file had been scanned recently with the same service versions
-- **Ignore recursion prevention**: Disable iteration limit on a file
-- **Perform deep analysis**: Provide maximum deobfuscation (**Highly recommended for known malicious or highly suspicious files to detect highly obfuscated content**)
+
+- **Description**: Optionally provide a description for the analysis, or leave it blank to accept the default value set by the system.
+- **Priority**: Designate the submission's processing priority.
+- **Days to live**: Specify how long (in days) the file should be retained in the system.
+- **Generate alert**: Decide whether the submission should trigger an alert upon analysis completion.
+- **Ignore filtering services**: Opt to bypass any safelisting services.
+- **Ignore result cache**: Instruct the system to re-analyze the file, disregarding any recent similar analysis.
+- **Ignore recursion prevention**: Remove iteration limits for the submission.
+- **Perform deep analysis**: Engage thorough deobfuscation, recommended for confirmed malicious or highly suspicious files.
 
 ### Submission Data:
-- **Decryption Password**: This is a shortcut to enter a password if an input is password-protected instead of entering it in the corresponding services.
+
+- **Decryption Password**: Quickly input a password for encrypted files, bypassing the need to provide it to individual services.
 
 ### Service Parameters:
-- **Service categories**: You can select set of services by clicking on the service categories
-- **Specific service**: You can select specific services by clicking on the specific services you want the analysis to use
-- **Service parameters**: Services that have a collapsable icon can be clicked to open its list of parameters
+
+- **Service categories**: Choose a preset group of services.
+- **Specific service**: Manually select individual services for the analysis.
+- **Service parameters**: Fine-tune service-specific parameters by expanding their individual menus.
 
 ### Submission Metadata:
--  **System Metadata**: The system's metadata fields can be entered here or must be entered if they are required
--  **Extra Metadata**: If there are extra metadata, users that can fully customize the submission can modify all the metadata fields
 
-![Submit options](./images/file_submit_options.png){: .center }
+- **System Metadata**: Fill in required system-generated metadata fields.
+- **Extra Metadata**: For those with full customization abilities, all additional metadata fields are editable.
 
-## File analysis
-Once a file is submitted to Assemblyline, the system will automatically perform multiple checks to determine how to best
-process the file. One of Assemblyline's most powerful functionalities is its recursive analysis model. Malware and
-malicious documents often use multiple layers of obfuscation; recursive analysis allows the system to remove these
-layers and keep analyzing the file. The result is often a cleartext script or unpacked malware which traditional
-anti-virus are very effective at detecting.
+![Submit options](./images/file_submit_options.png)
 
-![Submit options](./images/processing.png){: .center }
+## Understanding File Analysis
+
+Upon submission, Assemblyline conducts several assessments to determine the optimal analysis path. Its recursive analysis capability is especially effective at peeling layers of obfuscation often found in malware, ultimately revealing underlying scripts or unpacked versions that can be more readily identified by traditional antivirus solutions.
+
+![Processing submission](./images/processing.png)
