@@ -1,35 +1,54 @@
-# Soumettre un fichier aux fins d’analyse
+# Soumettre un Fichier pour Analyse
 
-## Soumission
-Il est facile de soumettre un fichier aux fins d’analyse. On peut le faire directement à partir de l’interface Web d’Assemblyline. En ce qui concerne l’automatisation et l’intégration, vous pouvez utiliser l’[REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## Processus de Soumission
 
-![File submission](./images/submit.png)
+La soumission d'un fichier pour analyse dans Assemblyline est simple via l'interface WebUI. Pour les tâches automatisées et les besoins d'intégration, envisagez d'utiliser l'[API REST](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
 
-### Partage et classification
+![Soumission de fichier](./images/file_submit.fr.png)
 
-Si votre système est configuré de manière à permettre le contrôle partagé (TLP) ou la classification, il est possible de choisir une restriction en cliquant sur la bannière.
+### Partage et Classification
+Sélectionnez le niveau de classification souhaité ou les restrictions de partage en cliquant sur la bannière de classification, à condition que votre configuration système comprenne TLP ou un autre schéma de classification.
 
-### Sélection d’un fichier à analyser
+### Sélection d'un Fichier à Analyser
+Chargez un fichier à analyser soit en cliquant sur le bouton "Sélectionnez un fichier à analyser", soit en utilisant le glisser-déposer dans la zone délimitée par des pointillés.
 
-Vous pouvez cliquer sur **Select a file to scan** [Sélectionner un fichier à analyser] ou glissez-déposez un fichier dans la zone pour l’ajouter à l’analyse.
+### Choix du Type d'Analyse
+Sélectionnez le type d'analyse le plus approprié pour votre fichier dans le menu déroulant "Type d'Analyse".
 
 ## Options
-D’autres options de soumission sont offertes et permettent de faire ce qui suit :
 
-- sélectionner les catégories de services ou les services particuliers à utiliser aux fins d’analyse;
-- préciser les options de configuration des services (p. ex. fournir un mot de passe ou l’expiration d’une analyse dynamique).
+Accédez aux options avancées de soumission en cliquant sur l'icône "Ajuster" pour ouvrir le panneau "Réglages". En haut, une bannière indique le niveau de privilèges de personnalisation disponibles. Les utilisateurs ayant le rôle `submission_customize` ont la capacité de modifier tous les paramètres, sachant qu'ils comprennent l'impact sévère que certains paramètres peuvent avoir sur le système s'ils sont mal utilisés.
 
-| Ignore filtering services | [Ignorer les services de filtrage] Contourne les services de mises en liste blanche |
-| Ignore result cache | [Ignorer le cache des résultats] Force une nouvelle analyse même si le fichier a déjà été analysé récemment par la même version des services |
-| Ignore dynamic recursion prevention | [Ignorer la prévention de la récursivité dynamique] Désactive la limite d’itération d'un fichier |
-| Profile current scan | [Profiler l’analyse actuelle]|
-| Perform deep analysis | [Effectuer une analyse en profondeur] Fournit un désobscurcissement maximal - **Fortement recommandé pour les fichiers malveillants connus ou hautement suspects afin de détecter le contenu considérablement obscurci** |
-| Time to live | [Durée de vie] Durée (en jours) avant que le fichier soit supprimé du système |
+### Paramètres de Soumission :
 
-![Submit options](./images/submit_options.png){: .center }
+- **Description** : Fournissez éventuellement une description pour l'analyse, ou laissez-la vide pour accepter la valeur par défaut définie par le système.
+- **Priorité** : Désignez la priorité de traitement de la soumission.
+- **Durée de vie (jours)** : Spécifiez combien de temps (en jours) le fichier doit être conservé dans le système.
+- **Génération d'alerte** : Décidez si la soumission doit déclencher une alerte à l'achèvement de l'analyse.
+- **Ignorer les services de filtrage** : Choisissez de contourner tous les services de liste blanche.
+- **Ignorer le cache de résultats** : Demandez au système de réanalyser le fichier, indépendamment de toute analyse similaire récente.
+- **Ignorer la prévention de récursion** : Supprimez les limites d'itération pour la soumission.
+- **Effectuer une analyse approfondie** : Engagez un débogage approfondi, recommandé pour des fichiers confirmés malveillants ou hautement suspicieux.
 
-## Analyse de fichiers
+### Données de Soumission :
 
-Une fois le fichier soumis dans Assemblyline, le système procédera automatiquement à plusieurs vérifications afin de déterminer la meilleure façon de le traiter. Le modèle d’analyse récursive est l’une des fonctionnalités les plus puissantes d’Assemblyline. Les maliciels et les documents malveillants utilisent souvent plusieurs couches d’obscurcissement. L’analyse récursive permet au système de supprimer ces couches et de poursuivre l’analyse du fichier. Il en résulte souvent un script en texte clair ou un maliciel non condensé qu’un antivirus conventionnel pourra détecter très facilement.
+- **Mot de passe de déchiffrement** : Entrez rapidement un mot de passe pour les fichiers chiffrés, éliminant le besoin de le fournir à chaque service individuel.
 
-![Submit options](./images/processing.png){: .center }
+### Paramètres de Service :
+
+- **Catégories de service** : Choisissez un groupe prédéfini de services.
+- **Service spécifique** : Sélectionnez manuellement des services individuels pour l'analyse.
+- **Paramètres de service** : Ajustez les paramètres spécifiques à chaque service en déployant leurs menus individuels.
+
+### Métadonnées de Soumission :
+
+- **Métadonnées système** : Remplissez les champs de métadonnées générés par le système requis.
+- **Métadonnées supplémentaires** : Pour ceux ayant des capacités de personnalisation totales, tous les champs de métadonnées supplémentaires sont modifiables.
+
+![Options de soumission](./images/file_submit_options.fr.png)
+
+## Comprendre l'Analyse de Fichiers
+
+Une fois soumis, Assemblyline effectue plusieurs évaluations pour déterminer le chemin d'analyse optimal. Sa capacité d'analyse récursive est particulièrement efficace pour décortiquer les couches d'obscurcissement souvent trouvées dans les logiciels malveillants, révélant finalement des scripts en clair ou des versions décompressées qui peuvent être plus facilement identifiées par les solutions antivirus traditionnelles.
+
+![Traitement de la soumission](./images/processing.png)
