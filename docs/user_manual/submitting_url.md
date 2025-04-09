@@ -1,22 +1,27 @@
-# Submitting a URL for analysis
+# Submitting a URL for Analysis
 
-## Submission
-Submitting a URL for analysis is very similar to submitting a file; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## How to Submit a URL
+
+Submitting a URL to Assemblyline for analysis can be performed directly through the WebUI, just like submitting a file. For automation and integration with other systems, make use of the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
 
 ![URL/SHA256 submission](./images/submit_url.png)
 
+### Share Level and Classification
 
-### Sharing and classification
-If your system is configured with a sharing control (TLP) or Classification configuration, the available restriction can be selected by clicking on the Classification Banner.
+If TLP or a similar classification system is configured on your system, you can select the appropriate sharing restrictions using the Classification Banner.
 
-### Choosing a URL to scan
-Rather than dragging and dropping a file or selecting a file from your local drive, you input the URL that you want to scan by typing/pasting it into the "URL/SHA256 To Scan" text box and clicking "SCAN"!
+### URL Submission Details
 
-### An important thing to note about URL submissions in Assemblyline
-Submitting a URL through the interface, or through the client, will generate a URI file that will be the start of your submission. It is also possible to generate this file beforehand and send it directly to Assemblyline like any other file type. The goal of the dynamic URI file type is to be able to interact with outside resources. The current main use for it is handling of http/https links that we could get out of malicious file that would be important to fetch, for example to get a second stage payload. When submitting a URI file, you will need to have the right services selected. In the case of an http(s) file, we recommend using the URLDownloader service.
+Input the URL you want to analyze into the "URL/SHA256 To Scan" text box and click "SCAN".
 
-### URI file type
-The URI file type has the following minimal structure:
+### Important Information About URL Submissions
+
+Submitting a URL creates a URI file that acts as the entry point for analysis. Assemblyline can also interact with external resources like fetching a second stage payload from an HTTP/HTTPS link found in a malicious file. For successful fetching of a URI, relevant services such as the URLDownloader service should be selected.
+
+### URI File Structure
+
+A URI file is a YAML file with a basic structure like this:
+
 ```yaml
 # Assemblyline URI file
 uri: <scheme>://<host>

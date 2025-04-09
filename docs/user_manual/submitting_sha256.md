@@ -1,18 +1,24 @@
-# Submitting a SHA256 for analysis
+# Submitting a SHA256 for Analysis
 
-## Submission
-Submitting a SHA256 for analysis is very similar to submitting a URL; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis). Just click on the "URL/SHA256" tab.
+## How to Submit a SHA256
+
+The process to submit a SHA256 hash is very similar to submitting a URL and can be accomplished directly through the Assemblyline WebUI. For those looking to automate the process or integrate with other systems, the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis) is available. Simply navigate to the "URL/SHA256" tab to begin.
 
 ![URL/SHA256 submission](./images/submit_hash.png)
 
-### Sharing and Classification
-Select the desired classification level or sharing restrictions by clicking on the Classification Banner, provided your system configuration includes TLP or another classification scheme.
+### Share Level and Classification
 
-### Choosing a SHA256 to scan
-Rather than dragging and dropping a file or selecting a file from your local drive, you input the SHA256 that you want to scan by typing/pasting it into the "URL/SHA256 To Scan" text box and clicking "SCAN"!
+Use the Classification Banner to assign the appropriate sharing level, such as Traffic Light Protocol (TLP) or another classification scheme, to your submission.
 
-### An important thing to note about SHA256 submissions in Assemblyline
-As a default, submitting a SHA256 hash to Assemblyline for analysis will prompt Assemblyline to check its file store to see if the SHA256 exists for any file that Assemblyline has previously seen. If the file exists, then Assemblyline will resubmit that file for analysis. If the file does not exist, then the submission will either fail or Assemblyline will use an external source (if configured) to query the existence of the hash. If the SHA256 is present on an external source like Malware Bazaar, then Assemblyline will download the file from that source and submit that file for analysis. You can set this up in your deployment configuration under the section[`submission.sha256_sources`](../../odm/models/config/#sha256source).
+### Submitting a SHA256 Hash
+
+Enter the SHA256 hash you want to analyze into the "URL/SHA256 To Scan" textbox and click "SCAN" to start the submission process.
+
+### Important Notes on SHA256 Submissions
+
+When you submit a SHA256 hash, Assemblyline checks if the hash matches any file previously encountered. If a match is found, it resubmits the file for further analysis. Alternatively, if the file isn't found in the local store, Assemblyline will attempt to locate it on an external source, such as Malware Bazaar, and submit it for analysis if found.
+
+This behavior depends on your deployment configuration—see [`submission.sha256_sources`](../../odm/models/config/#sha256source) for setup details.
 
 ## Options
 
