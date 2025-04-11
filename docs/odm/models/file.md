@@ -26,7 +26,7 @@ Utilize this schema as a reference to enhance your search capabilities within th
 | seen | [Seen](/assemblyline4_docs/odm/models/file/#seen) | Records the frequency and timestamps of when the file was encountered. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Seen](/assemblyline4_docs/odm/models/file/#seen) for more details. |
 | sha1 | SHA1 | The SHA1 hash of the file, providing a more secure alternative to MD5 for integrity checks. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sha256 | SHA256 | The SHA256 hash of the file, offering a high level of security for integrity verification. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| size | Integer | Size of the file in bytes. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| size | Long | Size of the file in bytes. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | ssdeep | SSDeepHash | The fuzzy hash of the file using SSDEEP, which is useful for identifying similar files. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | type | Keyword | The file type as determined by the AssemblyLine file type identification service. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | tlsh | Keyword | A locality-sensitive hash (TLSH) of the file's content, useful for similarity comparisons. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

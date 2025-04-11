@@ -786,6 +786,7 @@ Technique Tag Model
 | comms_routine | List [Keyword] | Communication Routine | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | config | List [Keyword] | Configuration | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | crypto | List [Keyword] | Cryptography | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| exploit | List [Keyword] | Exploit | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | keylogger | List [Keyword] | Keylogger | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | macro | List [Keyword] | Macro | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | masking_algo | List [Keyword] | Masking Algorithm | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

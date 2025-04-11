@@ -132,6 +132,7 @@ nav:
   - Models:
     - PostprocessAction: odm/models/actions.md
     - Alert: odm/models/alert.md
+    - Apikey: odm/models/apikey.md
     - Badlist: odm/models/badlist.md
     - CachedFile: odm/models/cached_file.md
     - Config: odm/models/config.md

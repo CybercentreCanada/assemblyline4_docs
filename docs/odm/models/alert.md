@@ -20,7 +20,7 @@ This schema serves as a technical blueprint for cybersecurity professionals to n
 | filtered | Boolean | Indicates whether portions of the submission's analysis results have been omitted due to the user's classification level not meeting the required threshold for viewing certain data. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | heuristic | [Heuristic](/assemblyline4_docs/odm/models/alert/#heuristic) | Data regarding the heuristics that triggered the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | label | List [Keyword] | Labels assigned to the alert for categorization and filtering. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| metadata | FlattenedObject | Additional metadata provided with the file at the time of submission. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| metadata | FlatMapping | Additional metadata provided with the file at the time of submission. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | owner | Keyword | Specifies the user or system component that has taken ownership of the alert. If no user has claimed the alert, it remains under system ownership with no specific user associated, indicated by a value of `None`. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | priority | Enum | Indicates the importance level assigned to the alert.<br>Supported values are:<br>`"CRITICAL", "HIGH", "LOW", "MEDIUM", None` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | reporting_ts | Date | Timestamp when the alert was created. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
@@ -129,7 +129,7 @@ Captures comprehensive metadata and unique identifiers for the original file sub
 | name | Keyword | The original name of the file as submitted. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sha1 | SHA1 | The SHA1 hash of the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sha256 | SHA256 | The SHA256 hash of the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| size | Integer | The size of the file in bytes. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| size | Long | The size of the file in bytes. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | type | Keyword | 	The file type as identified by Assemblyline's analysis. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | screenshots | List [[Screenshot](/assemblyline4_docs/odm/models/alert/#screenshot)] | Screenshots taken of the file during analysis, if applicable. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 

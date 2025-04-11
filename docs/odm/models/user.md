@@ -7,7 +7,7 @@ Model of User
 | agrees_with_tos | Date | Date the user agree with terms of service | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | api_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | api_daily_quota | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | Mapping of API keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
+| apikeys | Mapping [String, [ApiKey](/assemblyline4_docs/odm/models/user/#apikey)] | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ApiKey](/assemblyline4_docs/odm/models/user/#apikey) for more details. |
 | apps | Mapping [String, [Apps](/assemblyline4_docs/odm/models/user/#apps)] | Applications with access to the account | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Apps](/assemblyline4_docs/odm/models/user/#apps) for more details. |
 | can_impersonate | Boolean | Allowed to query on behalf of others? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | classification | Classification | Maximum classification for the user | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |

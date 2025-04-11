@@ -13,9 +13,9 @@ Model of Submission
 | file_count | Integer | Total number of files in the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | files | List [[File](/assemblyline4_docs/odm/models/submission/#file)] | List of files that were originally submitted | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | max_score | Integer | Maximum score of all the files in the scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| metadata | FlattenedObject | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| metadata | FlatMapping | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | params | [SubmissionParams](/assemblyline4_docs/odm/models/submission/#submissionparams) | Submission parameter details | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| results | List [Keyword] | List of result keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| results | List [Wildcard] | List of result keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sid | UUID | Submission ID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | state | Enum | Status of the submission<br>Supported values are:<br>`"completed", "failed", "submitted"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | to_be_deleted | Boolean | This document is going to be deleted as soon as it finishes | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
@@ -32,7 +32,7 @@ File Model of Submission
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | name | Keyword | Name of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| size | Integer | Size of the file in bytes | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size | Long | Size of the file in bytes | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | sha256 | SHA256 | SHA256 hash of the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
@@ -49,7 +49,6 @@ Submission Parameters
 | groups | List [Keyword] | List of groups related to this scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | ignore_cache | Boolean | Ignore the cached service results? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_recursion_prevention | Boolean | Should we ignore recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| ignore_dynamic_recursion_prevention | Boolean | Should we ignore dynamic recursion prevention? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_filtering | Boolean | Should we ignore filtering services? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | ignore_size | Boolean | Ignore the file size limits? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | never_drop | Boolean | Exempt from being dropped by ingester? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
@@ -57,7 +56,6 @@ Submission Parameters
 | max_extracted | Integer | Max number of extracted files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
 | max_supplementary | Integer | Max number of supplementary files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
 | priority | Integer | Priority of the scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
-| profile | Boolean | Should the submission do extra profiling? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | psid | UUID | Parent submission ID | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | quota_item | Boolean | Does this submission count against quota? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Service selection | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
@@ -81,7 +79,6 @@ Service Selection Scheme
 | excluded | List [Keyword] | List of excluded services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | rescan | List [Keyword] | List of services to rescan when initial run scores as malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | resubmit | List [Keyword] | Add to service selection when resubmitting | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| runtime_excluded | List [Keyword] | List of runtime excluded services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)

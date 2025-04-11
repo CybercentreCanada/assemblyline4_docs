@@ -24,7 +24,7 @@ File Details
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | name | List [Keyword] | List of names seen for that file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| size | Integer | Size of the file in bytes | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| size | Long | Size of the file in bytes | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | type | Keyword | Type of file as identified by Assemblyline | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
