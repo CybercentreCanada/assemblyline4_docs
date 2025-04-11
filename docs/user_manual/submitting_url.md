@@ -1,25 +1,27 @@
-# Submitting a URL for analysis
+# Submitting a URL for Analysis
 
-## Submission
-Submitting a URL for analysis is very similar to submitting a file; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## How to Submit a URL
 
-![File submission](./images/submit.png)
-
-Just click on the "URL/SHA256" tab.
+Submitting a URL to Assemblyline for analysis can be performed directly through the WebUI, just like submitting a file. For automation and integration with other systems, make use of the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
 
 ![URL/SHA256 submission](./images/submit_url.png)
 
-### Sharing and classification
-If your system is configured with a sharing control (TLP) or Classification configuration, the available restriction can be selected by clicking on the Classification Banner.
+### Share Level and Classification
 
-### Choosing a URL to scan
-Rather than dragging and dropping a file or selecting a file from your local drive, you input the URL that you want to scan by typing/pasting it into the "URL/SHA256 To Scan" text box and clicking "SCAN"!
+If TLP or a similar classification system is configured on your system, you can select the appropriate sharing restrictions using the Classification Banner.
 
-### An important thing to note about URL submissions in Assemblyline
-Submitting a URL through the interface, or through the client, will generate a URI file that will be the start of your submission. It is also possible to generate this file beforehand and send it directly to Assemblyline like any other file type. The goal of the dynamic URI file type is to be able to interact with outside resources. The current main use for it is handling of http/https links that we could get out of malicious file that would be important to fetch, for example to get a second stage payload. When submitting a URI file, you will need to have the right services selected. In the case of an http(s) file, we recommend using the URLDownloader service.
+### URL Submission Details
 
-### URI file type
-The URI file type has the following minimal structure:
+Input the URL you want to analyze into the "URL/SHA256 To Scan" text box and click "SCAN".
+
+### Important Information About URL Submissions
+
+Submitting a URL creates a URI file that acts as the entry point for analysis. Assemblyline can also interact with external resources like fetching a second stage payload from an HTTP/HTTPS link found in a malicious file. For successful fetching of a URI, relevant services such as the URLDownloader service should be selected.
+
+### URI File Structure
+
+A URI file is a YAML file with a basic structure like this:
+
 ```yaml
 # Assemblyline URI file
 uri: <scheme>://<host>
@@ -52,15 +54,33 @@ At the current time, each service that needs to go through a proxy will need an 
 This is important because if you have a URL hosting malware and you do not want to expose your Assemblyline system to that server that the URL is pointing to, then we recommend you set up a proxy server to act as a middleman between your Assemblyline infrastructure and the server hosting malware. You can set this up in your deployment configuration under the [`ui` component](../..//odm/models/config/#ui). The item you are looking for is `url_submission_proxies`.
 
 ## Options
-Additional submission options are available to:
 
-- Select which service categories or specific services to use for the analysis
-- Specify service configuration options (such as providing a password, or dynamic analysis timeout)
-- Ignore filtering services: Bypass safelisting services
-- Ignore result cache: Force re-analysis even if the same file had been scanned recently with the same service versions
-- Ignore dynamic recursion prevention: Disable iteration limit on a file
-- Profile current scan
-- Perform deep analysis: Provide maximum deobfuscation (**Highly recommended for known malicious or highly suspicious files to detect highly obfuscated content**)
-- Time to live: Time (in days) before the file is purged from the system
+Access advanced submission options by clicking the "Tune" icon to open the "Adjust" panel. At the top, a banner indicates the level of customization privileges available to you. Users with the `submission_customize` role have the ability to modify all parameters, given that they understand the severe impact some parameters have on the system if miused.
 
-![Submit options](./images/submit_options.png){: .center }
+### Submission Parameters:
+
+- **Description**: Optionally provide a description for the analysis, or leave it blank to accept the default value set by the system.
+- **Priority**: Designate the submission's processing priority.
+- **Days to live**: Specify how long (in days) the file should be retained in the system.
+- **Generate alert**: Decide whether the submission should trigger an alert upon analysis completion.
+- **Ignore filtering services**: Opt to bypass any safelisting services.
+- **Ignore result cache**: Instruct the system to re-analyze the file, disregarding any recent similar analysis.
+- **Ignore recursion prevention**: Remove iteration limits for the submission.
+- **Perform deep analysis**: Engage thorough deobfuscation, recommended for confirmed malicious or highly suspicious files.
+
+### Submission Data:
+
+- **Decryption Password**: Quickly input a password for encrypted files, bypassing the need to provide it to individual services.
+
+### Service Parameters:
+
+- **Service categories**: Choose a preset group of services.
+- **Specific service**: Manually select individual services for the analysis.
+- **Service parameters**: Fine-tune service-specific parameters by expanding their individual menus.
+
+### Submission Metadata:
+
+- **System Metadata**: Fill in required system-generated metadata fields.
+- **Extra Metadata**: For those with full customization abilities, all additional metadata fields are editable.
+
+![Submit options](./images/url_submit_options.png){: .center }

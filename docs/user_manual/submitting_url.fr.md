@@ -1,66 +1,86 @@
-# Soumission d'un lien URL pour l'analyse
+# Soumission d'une URL pour Analyse
 
-## Soumission
-Soumettre un lien URL pour analyse est très similaire à la soumission de fichier; cela peut être fait directement dans l'interface graphique web d'Assemblyline. Pour l'automatisation et l'intégration il est possible d'utiliser l'API [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## Comment Soumettre une URL
 
-![Soumission de fichier](./images/submit.fr.png)
-
-Cliquer sur l'onglet "URL/SHA256".
+La soumission d'une URL à Assemblyline pour une analyse peut être effectuée directement par le biais de l'interface WebUI, tout comme la soumission d'un fichier. Pour l'automatisation et l'intégration avec d'autres systèmes, utilisez l'[API REST](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
 
 ![Soumission d'URL/SHA256](./images/submit_url.fr.png)
 
-### Partage et classification
-Si votre systême est configuré avec le contrôle de partage(TLP) ou la classification  de configuration, les restrictions disponibles peuvent être selectionné en cliquant sur la bannière de classification.
+### Niveau de Partage et de Classification
 
-### Choisir un URL pour analyse
-Contrairement à la soumission par fichier où un fichier est glisser ou selectionné du disque, il suffit d'entrer dans la zone de texte d'entrée le lien URL que vous voulez analyser en le copiant/collant, puis cliquer sur "ANALYSER"!
+Si un système de classification tel que le Protocole TLP (Traffic Light Protocol) ou un système similaire est configuré sur votre plateforme, vous pouvez sélectionner les restrictions de partage appropriées à l'aide de la bannière de Classification.
 
-### Note important par rapport aux soumissions d'URL dans Assemblyline
-Soumetter une URL à travers l'interface web ou le client crée un fichier URI qui sera utilisé comme fichier initial dans une nouvelle soumission. Il est aussi possible de manuellement créer ce fichier afin de le soumettre à votre instance comme n'importe quel autre fichier. Le but d'un type de fichier URI dynamique est d'ouvrir la possibilité à des utiliser des services allant chercher de l'information sur des resources externe au système. L'utilisation principale est faite à travers des liens http et https qui peuvent héberger du contenu malicieux tel que la second phase d'une chaine d'exploitation. Lorsqu'un fichier URI est soumis, les bon services doivent être sélectionnés pour maximiser l'efficacité d'Assemblyline. Dans le cas d'un fichier http ou https, nous recommandons le module nommé URLDownloader.
+### Détails de la Soumission d'URL
 
-### Le type de fichier URI
-Un fichier URI doit au minimum suivre la structure suivante:
+Entrez l'URL que vous souhaitez analyser dans la zone de texte "URL/SHA256 à scanner" et cliquez sur "SCAN".
+
+### Informations Importantes Concernant les Soumissions d'URL
+
+La soumission d'une URL crée un fichier URI qui sert de point d'entrée pour l'analyse. Assemblyline peut également interagir avec des ressources externes, comme récupérer une charge utile de seconde phase à partir d'un lien HTTP/HTTPS trouvé dans un fichier malveillant. Pour réussir la récupération d'un URI, des services pertinents tels que le service URLDownloader doivent être sélectionnés.
+
+### Structure de Fichier URI
+
+Un fichier URI est un fichier YAML avec une structure de base comme celle-ci :
+
 ```yaml
-# Assemblyline URI file
-uri: <schéma>://<hôte>
+# Fichier URI Assemblyline
+uri: <scheme>://<host>
 ```
-Un fichier URI est un fichier yaml qui peut contenir plusieurs éléments supplémentaires afin de donner plus de détails aux modules pouvant les utiliser. Les deux portions les plus importantes sont la clé "uri", qui doit contenir un uri valide avec un schéma et un hôte, ainsi que le commentaire sur la première ligne, pour aider avec l'identification du fichier. Le schéma sera utilisé dans l'identification pour créer le type de fichier. Si le fichier contient `uri: http://site.com`, il sera identifié comme `uri/http` et s'il contient `uri: ftp://site.com`, il sera alors identifié comme `uri/ftp`. Cette distinction entre les fichiers URI permettent d'envoyer facilement les bons fichiers aux modules selon ce qu'ils peuvent faire. Dans le cas d'un fichier `uri/ftp`, il serait possible d'utiliser les éléments supplémentaire pour passer des informations importantes tel que le mode du server, en utilisant `passive: True`.
+C'est un fichier YAML qui peut contenir plus d'éléments pour des cas d'utilisation où les services peuvent les exploiter. Les parties les plus importantes sont la clé "uri" dans le fichier YAML, qui doit être une URI valide avec un schéma et un hôte, et le commentaire en haut, pour aider à l'identification. Le schéma sera utilisé pour créer le type de fichier ; donc, si vous utilisez `uri: http://site.com`, cela sera un fichier de type `uri/http` et si vous utilisez `uri: ftp://site.com`, alors vous aurez un `uri/ftp`. Cela permettra de diriger vers différents services en fonction du schéma. Dans le cas de `uri/ftp`, vous aurez probablement besoin de plus d'informations, telles que des clés YAML comme `passif:True`.
 
-Voici un autre example plus complet pour un fichier d'URI:
+Voici un exemple plus complet et complexe d'un fichier URI :
 ```yaml
-# Assemblyline URI file
+# Fichier URI Assemblyline
 uri: https://mb-api.abuse.ch/api/v1/
 data: query=get_info&hash=52307f9ce784496218f2165be83c2486ad809da98026166b871dc279d40a4d1f
 headers:
   Content-Type: application/x-www-form-urlencoded
 method: POST
 ```
-Ce fichier serait identifié comme fichier `uri/https` et les autres clés seront ignorées lors de l'identification. Les clés supplémentaires seront utilisés par URLDownloader pour effectuer les actions avec le plus de précision quant aux demande de l'utilisateur, ou du service ayant créé le fichier URI. Il serait possible d'y spécifier un user-agent, un referer ou un autre en-tête afin de respecter certains requis pour obtenir le fichier suivant d'un serveur qui filtre ses requêtes. À travers ces clés supplémentaires, il est possible de spécifier des méthodes tel que POST. Dans l'exemple précédent, il suffit de changer `query=get_info` à `query=get_file` afin de télécharger le fichier de MalwareBazaar!
+Le type de fichier serait `uri/https` et les autres clés YAML seront ignorées lors de l'identification. Les clés supplémentaires dans le fichier YAML peuvent être utilisées par le service qui traite ce fichier spécifique pour fournir un comportement plus personnalisé, plus proche de ce que l'utilisateur demande. Un user-agent spécifique, un referer ou d'autres en-têtes pourraient être utilisés pour récupérer une seconde étape d'un serveur qui nécessiterait des valeurs spécifiques. Grâce à ces valeurs supplémentaires, URLDownloader prend désormais en charge des méthodes plus variées comme POST. Un changement simple de `query=get_info` à `query=get_file` dans les données et le service devrait être en train de télécharger ce fichier depuis MalwareBazaar !
 
-Étant donné que les fichiers d'URI sont spécifiques à Assemblyline, chaque fichier est ré-écrit lorsqu'il est envoyé à l'instance afin de s'assurer d'avoir le commentaire sur la première ligne, puis la clé `uri`, pour ensuite avoir toutes les clés supplémentaires dans l'ordre alphabetique. Cette ré-écriture est faite pour dé-dupliquer les fichiers qui peuvent être considérés identiques et optimiser la cache de résultats. Une clé telle que `extra_key: ["first", "second", "third", "fourth"]` garder le même ordre, mais sera convertie comme suit:
+Étant donné que les fichiers URI sont très spécifiques à Assemblyline, nous prenons le temps de réécrire tout fichier entrant pour que le commentaire `# Fichier URI Assemblyline` soit sur la première ligne, suivi de la clé uri, puis de toutes les autres clés dans l'ordre alphabétique. Ceci est fait pour dédupliquer les fichiers "identiques" et utiliser la mise en cache. Une clé comme `extra_key: ["premier", "deuxième", "troisième", "quatrième"]` conservera son ordre et sera convertie comme suit :
 ```yaml
 extra_key:
-- first
-- second
-- third
-- fourth
+- premier
+- deuxième
+- troisième
+- quatrième
 ```
 
-### Fichiers URI et proxies
-Pour le moment, chaque module a besoin d'être configuré individuellement lorsqu'il est nécessaire de passer au travers d'un proxy. Le service URLDownloader peut être configuré pour supporter plusieurs proxies, ce qui donne le choix du proxy à l'utilisateur lors de la soumission. Dans le futur, il est planifié de normaliser la gestion des proxies dans Assemblyline afin d'avoir une configuration générale qui sera utilisée par tous les modules ayant besoin d'y accéder.
+### Fichiers URI et Proxies
+Actuellement, chaque service qui nécessite de passer par un proxy doit être configuré par un administrateur. URLDownloader prend en charge les proxies et peut même être configuré pour permettre à un utilisateur de choisir parmi plusieurs proxies configurés. À l'avenir, nous envisagerons de normaliser cette fonctionnalité afin que tous les services puissent utiliser une sélection centrale de proxy.
 
-Ceci est important car si vous avez un URL qui héberge un fichier malveillant et que vous ne voulez pas exposer votre système Assemblyline au serveur auquel le URL pointe, il est recommandé de configurer un serveur proxy qui agira comme intermédiaire entre l'architecture d'Assemblyline et le serveur qui héberge un fichier malveillant. Vous pouvez configurer ce paramètre dans votre déploiement k8s sous la section `ui`: https://cybercentrecanada.github.io/assemblyline4_docs/odm/models/config/#ui. Le paramètre en question est `url_submission_proxies`.
+Cela est important car si vous avez une URL hébergeant un logiciel malveillant et que vous ne souhaitez pas exposer votre système Assemblyline à ce serveur, alors nous vous recommandons de configurer un serveur proxy pour agir comme intermédiaire entre votre infrastructure Assemblyline et le serveur hébergeant le logiciel malveillant. Vous pouvez configurer cela dans la configuration de votre déploiement sous le composant [`ui`](../..//odm/models/config/#ui). L'élément que vous recherchez est `url_submission_proxies`.
 
 ## Options
-Options de soumission additionels non limité à:
 
-- Choisir quelle(s) catégorie(s) de services ou quel(s) service(s) spécifique(s) à utiliser pour l'analyse
-- Spécifier les paramètres de soumission des services (example: indiquer un mot de passe à utiliser, ou encore un temps limite pour l'analyse dynamique)
-- Ignorer la filtration des services: Ne pas prendre compte des services de la liste sûre
-- Ignoner les résultats en cache: Forcer la re-soumission même si le même fichier a été analyser récemment avec les mêmes versions de service
-- Ignorer la prévention de la récurssion dynamique: Déactiver l'itération limite sur un fichier
-- Profiler l'analyse courante
-- Effectuer une analyse approfondie: Permet un decortiquate maximal (**Grandement recommendé pour les fichiers connus malveillants ou très suspicieux afin de détection le contenu camouflé**)
-- Temps de vie: Temps (en jours) avant que le fichier soit effacé du système.
+Accédez à des options avancées de soumission en cliquant sur l'icône "Ajuster" pour ouvrir le panneau "Réglages". En haut, une bannière indique le niveau de privilèges de personnalisation disponibles pour vous. Les utilisateurs avec le rôle `submission_customize` ont la capacité de modifier tous les paramètres, à condition qu'ils comprennent l'impact sévère que certains paramètres peuvent avoir sur le système s'ils sont mal utilisés.
 
-![Options de soumission](./images/submit_options.fr.png)
+### Paramètres de Soumission :
+
+- **Description** : Fournissez éventuellement une description pour l'analyse, ou laissez-la vide pour accepter la valeur par défaut définie par le système.
+- **Priorité** : Désignez la priorité de traitement de la soumission.
+- **Durée de vie (jours)** : Spécifiez combien de temps (en jours) le fichier doit être conservé dans le système.
+- **Générer une alerte** : Décidez si la soumission doit déclencher une alerte à la fin de l'analyse.
+- **Ignorer les services de filtrage** : Choisissez de passer outre les services de liste blanche.
+- **Ignorer le cache de résultats** : Demandez au système de réanalyser le fichier, en ignorant toute analyse similaire récente.
+- **Ignorer la prévention de récursion** : Supprimez les limites d'itération pour la soumission.
+- **Effectuer une analyse approfondie** : Engagez une désobfuscation complète, recommandée pour des fichiers confirmés malveillants ou hautement suspects.
+
+### Données de Soumission :
+
+- **Mot de passe de déchiffrement** : Entrez rapidement un mot de passe pour les fichiers chiffrés, évitant la nécessité de le fournir à chaque service individuellement.
+
+### Paramètres des Services :
+
+- **Catégories de services** : Choisissez un groupe prédéfini de services.
+- **Service spécifique** : Sélectionnez manuellement des services individuels pour l'analyse.
+- **Paramètres des services** : Ajustez précisément les paramètres spécifiques à chaque service en développant leurs menus individuels.
+
+### Métadonnées de Soumission :
+
+- **Métadonnées système** : Remplissez les champs métadonnées générés par le système comme requis.
+- **Métadonnées supplémentaires** : Pour ceux possédant des capacités de personnalisation totales, tous les champs de métadonnées supplémentaires sont modifiables.
+
+![Options de soumission](./images/url_submit_options.fr.png)

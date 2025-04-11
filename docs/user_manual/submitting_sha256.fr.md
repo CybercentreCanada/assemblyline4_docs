@@ -1,35 +1,53 @@
-# Soummission d'un hash SHA256 pour l'analyse
+# Soumission d'un SHA256 pour Analyse
 
-## Soumission
-Soumettre un SHA256 pour analyse est très similaire à la soummision d'un URL; cela peut être fait directement dans l'interface graphique web d'Assemblyline. Pour l'automatisation et l'intégration vous pouvez utiliser l'API. [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## Comment Soumettre un SHA256
 
-![Soumission de fichier](./images/submit.fr.png)
+Le processus de soumission d'un hash SHA256 est très similaire à celui d'une URL et peut être réalisé directement via l'interface utilisateur Web d'Assemblyline. Pour ceux qui souhaitent automatiser le processus ou l'intégrer à d'autres systèmes, l'[API REST](../../integration/python/#submit-a-file-url-or-sha256-for-analysis) est disponible. Il suffit de naviguer jusqu'à l'onglet "URL/SHA256" pour commencer.
 
-Cliquez sur l'onglet "URL/SHA256".
+![Soumission d'URL/SHA256](./images/submit_hash.fr.png)
 
-![Soumission URL/SHA256](./images/submission.fr.png)
+### Niveau de Partage et Classification
 
-### Partage et classification
-Si votre systême est configuré avec le contrôle de partage(TLP) ou la classification  de configuration, les restrictions disponibles peuvent être selectionné en cliquant sur la bannière de classification.
+Utilisez la bannière de Classification pour attribuer le niveau de partage approprié, tel que le Protocole de Feux de Circulation (TLP) ou un autre schéma de classification, à votre soumission.
 
-### Choisir un SHA256 pour analyse
-Contrairement à la soumission par fichier où un fichier est glisser ou selectionné du disque, il suffit d'entrer dans la zone de texte d'entrée le SHA256 que vous voulez analyser en le copiant/collant, puis cliquer sur "ANALYSER"!
+### Soumettre un Hash SHA256
 
-### Note important par rapport aux soumissions SHA256 avec Assemblyline
-Par défault, soumettre un hash SHA256 dans Assemblyline pour analyse mandatera Assemblyline de chercher dans le storage de fichier pour un fichier existant soumis précédement ayant ce hash. Si le fichier en question existe, Assemblyline resoumettra ce fichier pour l'analyse. Si ce fichier n'existe pas dans le storage, alors la soumission échouera ou Assemblyline tentera d'utiliser une source externe (si configuré) en cherchant l'existance de ce hash. Si le hash existe via la source externe comme Malware Bazaar, alors Assemblyline téléchargera le fichier via cette source et soumettra ce fichier pour analyse. Vous pouvez configurer ce paramètre dans votre déploiement k8s sous la section [`submission.sha256_sources`](../../odm/models/config/#sha256source).
+Entrez le hash SHA256 que vous souhaitez analyser dans la zone de texte "URL/SHA256 à scanner" et cliquez sur "SCAN" pour lancer le processus de soumission.
 
-![Soumission de hash](./images/submit_hash.fr.png)
+### Notes Importantes sur les Soumissions de SHA256
+
+Lorsque vous soumettez un hash SHA256, Assemblyline vérifie si le hash correspond à un fichier précédemment rencontré. Si un fichier correspondant est trouvé, il est resoumis pour une analyse plus approfondie. Dans le cas contraire, si le fichier n'est pas trouvé dans le stockage local, Assemblyline tentera de le localiser sur une source externe, telle que Malware Bazaar, et le soumettra pour analyse s'il est trouvé.
+
+Ce comportement dépend de votre configuration de déploiement — consultez [`submission.sha256_sources`](../../odm/models/config/#sha256source) pour les détails de configuration.
 
 ## Options
-Options de soumission additionels non limité à:
 
-- Choisir quelle(s) catégorie(s) de services ou quel(s) service(s) spécifique(s) à utiliser pour l'analyse
-- Spécifier les paramètres de soumission des services (example: indiquer un mot de passe à utiliser, ou encore un temps limite pour l'analyse dynamique)
-- Ignorer la filtration des services: Ne pas prendre compte des services de sûreté
-- Ignoner les résultats en cache: Forcer la re-soumission même si le même fichier a été analyser récemment avec les mêmes versions de service
-- Ignorer la prévention de la récurssion dynamique: Déactiver l'itération limite sur un fichier
-- Profiler l'analyse courante
-- Effectuer une analyse approfondie: Permet un decortiquate maximal (**Grandement recommendé pour les fichiers connus malveillants ou très suspicieux afin de détection le contenu camouflé**)
-- Temps de vie: Temps (en jours) avant que le fichier soit effacé du système.
+Accédez à des options de soumission avancées en cliquant sur l'icône "Ajuster" pour ouvrir le panneau "Options". En haut, une bannière indique le niveau de privilèges de personnalisation disponibles. Les utilisateurs ayant le rôle `submission_customize` ont la capacité de modifier tous les paramètres, à condition qu'ils comprennent l'impact sévère que certains paramètres peuvent avoir sur le système s'ils sont mal utilisés.
 
-![Options de soumission](./images/submit_options.fr.png)
+### Paramètres de Soumission :
+
+- **Description** : Fournissez éventuellement une description pour l'analyse, ou laissez-la vide pour accepter la valeur par défaut définie par le système.
+- **Priorité** : Désignez la priorité de traitement de la soumission.
+- **Durée de vie (jours)** : Spécifiez combien de temps (en jours) le fichier doit être conservé dans le système.
+- **Générer une alerte** : Décidez si la soumission doit déclencher une alerte à la fin de l'analyse.
+- **Ignorer les services de filtrage** : Choisissez de contourner tous les services de liste blanche.
+- **Ignorer le cache des résultats** : Demandez au système de réanalyser le fichier, sans tenir compte d'une analyse similaire récente.
+- **Ignorer la prévention de récursion** : Supprimez les limites d'itération pour la soumission.
+- **Effectuer une analyse approfondie** : Procédez à une désobfuscation poussée, recommandée pour des fichiers confirmés malveillants ou hautement suspects.
+
+### Données de Soumission :
+
+- **Mot de passe de déchiffrement** : Entrez rapidement un mot de passe pour les fichiers chiffrés, éliminant le besoin de le fournir à chaque service individuel.
+
+### Paramètres des Services :
+
+- **Catégories de service** : Choisissez un groupe prédéfini de services.
+- **Service spécifique** : Sélectionnez manuellement des services individuels pour l'analyse.
+- **Paramètres des services** : Ajustez précisément les paramètres spécifiques à chaque service en développant leurs menus individuels.
+
+### Métadonnées de Soumission :
+
+- **Métadonnées système** : Remplissez les champs de métadonnées générés par le système requis.
+- **Métadonnées supplémentaires** : Pour ceux ayant des capacités de personnalisation complètes, tous les champs de métadonnées supplémentaires sont modifiables.
+
+![Options de soumission](./images/hash_submit_options.fr.png)

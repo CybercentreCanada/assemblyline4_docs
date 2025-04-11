@@ -1,35 +1,53 @@
-# Submitting a SHA256 for analysis
+# Submitting a SHA256 for Analysis
 
-## Submission
-Submitting a SHA256 for analysis is very similar to submitting a URL; it can be done directly using the Assemblyline WebUI. For automation and integration you can use the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis).
+## How to Submit a SHA256
 
-![File submission](./images/submit.png)
+The process to submit a SHA256 hash is very similar to submitting a URL and can be accomplished directly through the Assemblyline WebUI. For those looking to automate the process or integrate with other systems, the [REST API](../../integration/python/#submit-a-file-url-or-sha256-for-analysis) is available. Simply navigate to the "URL/SHA256" tab to begin.
 
-Just click on the "URL/SHA256" tab.
+![URL/SHA256 submission](./images/submit_hash.png)
 
-![URL/SHA256 submission](./images/submit_url.png)
+### Share Level and Classification
 
-### Sharing and classification
-If your system is configured with a sharing control (TLP) or Classification configuration, the available restriction can be selected by clicking on the Classification Banner.
+Use the Classification Banner to assign the appropriate sharing level, such as Traffic Light Protocol (TLP) or another classification scheme, to your submission.
 
-### Choosing a SHA256 to scan
-Rather than dragging and dropping a file or selecting a file from your local drive, you input the SHA256 that you want to scan by typing/pasting it into the "URL/SHA256 To Scan" text box and clicking "SCAN"!
+### Submitting a SHA256 Hash
 
-### An important thing to note about SHA256 submissions in Assemblyline
-As a default, submitting a SHA256 hash to Assemblyline for analysis will prompt Assemblyline to check its file store to see if the SHA256 exists for any file that Assemblyline has previously seen. If the file exists, then Assemblyline will resubmit that file for analysis. If the file does not exist, then the submission will either fail or Assemblyline will use an external source (if configured) to query the existence of the hash. If the SHA256 is present on an external source like Malware Bazaar, then Assemblyline will download the file from that source and submit that file for analysis. You can set this up in your deployment configuration under the section[`submission.sha256_sources`](../../odm/models/config/#sha256source).
+Enter the SHA256 hash you want to analyze into the "URL/SHA256 To Scan" textbox and click "SCAN" to start the submission process.
 
-![Submit hash](./images/submit_hash.png)
+### Important Notes on SHA256 Submissions
+
+When you submit a SHA256 hash, Assemblyline checks if the hash matches any file previously encountered. If a match is found, it resubmits the file for further analysis. Alternatively, if the file isn't found in the local store, Assemblyline will attempt to locate it on an external source, such as Malware Bazaar, and submit it for analysis if found.
+
+This behavior depends on your deployment configuration—see [`submission.sha256_sources`](../../odm/models/config/#sha256source) for setup details.
 
 ## Options
-Additional submission options are available to:
 
-- Select which service categories or specific services to use for the analysis
-- Specify service configuration options (such as providing a password, or dynamic analysis timeout)
-- Ignore filtering services: Bypass safelisting services
-- Ignore result cache: Force re-analysis even if the same file had been scanned recently with the same service versions
-- Ignore dynamic recursion prevention: Disable iteration limit on a file
-- Profile current scan
-- Perform deep analysis: Provide maximum deobfuscation (**Highly recommended for known malicious or highly suspicious files to detect highly obfuscated content**)
-- Time to live: Time (in days) before the file is purged from the system
+Access advanced submission options by clicking the "Tune" icon to open the "Adjust" panel. At the top, a banner indicates the level of customization privileges available to you. Users with the `submission_customize` role have the ability to modify all parameters, given that they understand the severe impact some parameters have on the system if miused.
 
-![Submit options](./images/submit_options.png){: .center }
+### Submission Parameters:
+
+- **Description**: Optionally provide a description for the analysis, or leave it blank to accept the default value set by the system.
+- **Priority**: Designate the submission's processing priority.
+- **Days to live**: Specify how long (in days) the file should be retained in the system.
+- **Generate alert**: Decide whether the submission should trigger an alert upon analysis completion.
+- **Ignore filtering services**: Opt to bypass any safelisting services.
+- **Ignore result cache**: Instruct the system to re-analyze the file, disregarding any recent similar analysis.
+- **Ignore recursion prevention**: Remove iteration limits for the submission.
+- **Perform deep analysis**: Engage thorough deobfuscation, recommended for confirmed malicious or highly suspicious files.
+
+### Submission Data:
+
+- **Decryption Password**: Quickly input a password for encrypted files, bypassing the need to provide it to individual services.
+
+### Service Parameters:
+
+- **Service categories**: Choose a preset group of services.
+- **Specific service**: Manually select individual services for the analysis.
+- **Service parameters**: Fine-tune service-specific parameters by expanding their individual menus.
+
+### Submission Metadata:
+
+- **System Metadata**: Fill in required system-generated metadata fields.
+- **Extra Metadata**: For those with full customization abilities, all additional metadata fields are editable.
+
+![Submit options](./images/hash_submit_options.png)

@@ -4,6 +4,18 @@ In the user interface, there is a menu on the left-hand side. We will be walking
 
 ![Administration topic and subtopic menu](./images/admin_topic_menu.png){: .center }
 
+## API keys
+
+![API Keys page](./images/api_keys_page.png)
+
+The "API Keys" page allows system administrators to effectively manage all user API keys through this search interface. Features like search, filters, and sorting options enable quick location and organization of keys. This comprehensive view facilitates the tracking and auditing of API key of all users across the entire system with minimal effort.
+
+![API Keys page](./images/api_keys_detail_page.png)
+
+Using the detail page above, administrators can modify or delete existing API keys.
+
+On the API Key detail page, administrators access detailed information about a specific API key, with options to edit or delete it as necessary. This streamlined approach ensures each key is up-to-date and secure, and that it adheres to the organization's access requirements and security standards.
+
 ## Error Viewer
 
 ![Error Viewer page](./images/error_viewer_page.png)
