@@ -88,14 +88,15 @@ submission:
       classification: "TLP:CLEAR//REL TO GROUPA"
       restricted_params:
         submission: ["classification"]
-        Extract: ["password"]
+        Extract: ["continue_after_extract"]
       params:
         services:
           selected: ["Static Analysis", "Extract"]
+          excluded: ["Dynamic Analysis"]
         service_spec:
           Extract:
-            continue_after_extract: false
-````
+            password: infected
+```
 
 There is exactly one profile specified for the entire system and only members of `GROUPA` should have access to that profile.
 
@@ -105,9 +106,12 @@ Within that profile, the members that don't have the `submission_customize` role
 Any service parameters that aren't declared in the profile will default to values set by system administrators. These can be found by navigating to the Services menu and looking at the "User Specified Parameters" within the "Parameters" tab of a service you've selected.
 
 What this would look like in the UI for a limited user is:
+!!! note "The following is based on the above example configuration"
+    - The "Dynamic Analysis" category is omitted from Service Selection
+    - `continue_after_extract` parameter for the Extract service has been removed
+    - `password` parameter for the Extract service has a custom default set for the profile
+    - The classification picker is disabled because it's explicitly a restricted parameter that the user can't change within that profile.
 ![Submission profile with limited customization](../images/submission_profile_limited_params.png)
-
-Note that the service selection is disabled and isn't allowed to be changed, and is largely truncated to only show parameters that can be changed by the user like Extract's `password` field.
 
 ## Metadata Validation
 

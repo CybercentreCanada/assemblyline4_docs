@@ -28,7 +28,7 @@ The submission section is where you can take action and submit files, URLs, or h
 
 - **Submission Options**: Choose your input type—file, hash, or URL. Select the file or input the hash or URL you wish to analyze, then choose the type of analysis. Submit your entry by clicking the 'Submit' button. To adjust the predefined submission settings, select the "Tune" icon to customize the parameters as permitted. If you're checking for pre-existing entries in the system, use the "Search" icon to perform a search and link to any existing data.
 
-  ![Submission Options Section](./images/submission_options_section.png)
+  ![Submission Options Section](./images/file_submit_options.png)
 
   For step-by-step submission instructions, please refer to the following guides:
   - [Submitting a File](../../user_manual/submitting_file/)
