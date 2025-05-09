@@ -52,7 +52,7 @@ Because the frontend now uses Vite, it uses Vitest as its testing framework. For
 
 ESLint is a static code analysis tool for identifying problematic patterns or code that don't adhere to certain guidelines or standards in order to maintain code quality and consistency within a codebase. For the most part, the Assemblyline's frontend uses standard rulesets written by the React community.
 
-- **Vite integration**: ESLint was not integrated with Vite runtime to preserve its fast response time during development. To view all the warnings and errors on the frontend's code, execute the `yarn eslint .` command.
+- **Vite integration**: ESLint was not integrated with Vite runtime to preserve its fast response time during development. To view all the warnings and errors on the frontend's code, execute the `pnpm eslint .` command.
 
 ## Install the development environment prerequisites
 
@@ -72,13 +72,13 @@ git clone https://github.com/CybercentreCanada/assemblyline-ui-frontend.git
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh |
 
 # download and install Node.js (you may need to restart the terminal)
-nvm install 20
+nvm install 22
 
 # verifies the right Node.js version is in the environment
-node -v # should print `v20.14.0`
+node -v # should print `v22.14.0`
 
 # verifies the right NPM version is in the environment
-npm -v # should print `10.7.0`
+npm -v # should print `10.9.2`
 ```
 
 Otherwise, you can follow these simple commands to install Node.js
@@ -88,16 +88,16 @@ curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-### Install Yarn
+### Install PNPM
 
-[Yarn](https://classic.yarnpkg.com/en/) is a package manager that is faster and more reliable than NPM to manage and install Node.js packages. Type the following command to install Yarn globally.
+[PNPM](https://pnpm.io/) (short for "performant npm") is a fast, disk space-efficient package manager for JavaScript and TypeScript projects. It serves as an alternative to package managers like npm and Yarn, with a unique approach to managing dependencies that significantly improves speed and reduces disk usage.
 
 ``` bash
-# install Yarn
-npm install --global yarn
+# install pnpm
+npm install --global pnpm
 
-# check that Yarn is installed by running:
-yarn --version
+# check that pnpm is installed by running:
+pnpm --version
 ```
 
 ### Install NPM dependencies
@@ -106,7 +106,7 @@ Still in your `assemblyline-ui-frontend` directory, run the following command to
 
 ``` bash title="~/git/assemblyline-ui-frontend"
 # install all dependencies
-yarn install
+pnpm install
 ```
 
 ### Install Docker (Ubuntu)
@@ -194,11 +194,11 @@ docker-compose up -d
 
 ### Frontend
 
-Use the `yarn run start` command to launch the frontend.
+Use the `pnpm run start` command to launch the frontend.
 
 ``` bash title="~/git/assemblyline-ui-frontend"
 # start the development instance
-yarn run start
+pnpm run start
 ```
 
 Access the dev frontend at the following link: `https://<YOUR_IP>.nip.io`
@@ -225,7 +225,7 @@ Just like before, run the following command to start the frontend's instance.
 
 ``` bash title="~/git/assemblyline-ui-frontend"
 # start the development instance
-yarn run start
+pnpm run start
 ```
 
 Access the dev frontend at the following link: `https://<YOUR_IP>.nip.io`
