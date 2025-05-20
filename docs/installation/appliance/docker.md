@@ -120,7 +120,7 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout ~/deployments/assemblyline/con
 ```bash
 cd ~/deployments/assemblyline
 sudo docker-compose pull --ignore-buildable
-sudo docker-compose build
+sudo env COMPOSE_BAKE=true docker-compose build
 sudo docker-compose -f bootstrap-compose.yaml pull
 ```
 
