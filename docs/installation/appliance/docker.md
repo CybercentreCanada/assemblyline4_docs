@@ -31,7 +31,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
     ```
 === "RHEL 8.5"
     !!! warning
-        Many of the instructions below have been set to force yes and allowerasing for quick implementation.
+        Many of the instructions below have been set to force yes and allow erasing for quick implementation.
 
         It is recommended that these flags be removed for production environments to avoid impacting production environments by missing key messages and warnings.
         Step 4 contains a firewall configuration, we strongly advise firewall settings should be managed and reviewed by your organization before deployment.
