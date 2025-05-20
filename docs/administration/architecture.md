@@ -200,7 +200,7 @@ Each service that updates the signatures or safelist has its own updater. Only o
 
 When the services launch, they pull their signature set from the service updater which in turn asks the internal UI for the signatures committed to the database.
 
-![Updater](./images/updater.png)
+![Updater](./images/updater1.png)
 
 ## Keeping files forever (Malware Archive)
 
