@@ -7,7 +7,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 !!! info "Caveat"
     The documentation provided here assumes that you are installing your appliance on one of the following systems:
 
-    - Debian: Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04
+    - Debian: Ubuntu 22.04, Ubuntu 24.04
     - RHEL: RHEL 8.5
 
     You might have to change the commands a bit if you use other Linux distributions.
@@ -20,11 +20,6 @@ This is the documentation for an appliance instance of the Assemblyline platform
 === "Ubuntu"
     Install Docker:
     ```bash
-    kr="/etc/apt/keyrings"
-    if [ ! -e "$kr" ]; then
-        # Keyring directory creation is only required for Ubuntu 20.04 (EOL is April 2025)
-        sudo install -m 0755 -d $kr
-    fi
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     echo \
     "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
@@ -36,7 +31,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
     ```
 === "RHEL 8.5"
     !!! warning
-        Many of the instructions below have been set to force yes and allowerasing for quick implementation.
+        Many of the instructions below have been set to force yes and allow erasing for quick implementation.
 
         It is recommended that these flags be removed for production environments to avoid impacting production environments by missing key messages and warnings.
         Step 4 contains a firewall configuration, we strongly advise firewall settings should be managed and reviewed by your organization before deployment.
@@ -125,7 +120,7 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout ~/deployments/assemblyline/con
 ```bash
 cd ~/deployments/assemblyline
 sudo docker-compose pull --ignore-buildable
-sudo docker-compose build
+sudo env COMPOSE_BAKE=true docker-compose build
 sudo docker-compose -f bootstrap-compose.yaml pull
 ```
 
