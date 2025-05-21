@@ -167,6 +167,7 @@ None
 | username | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `` |
 | headers | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service_delta/#environmentvariable)] | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | default_classification | Classification | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| use_managed_identity | Boolean | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `False` |
 | git_branch | Keyword | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `` |
 | sync | Boolean | Refer to:<br>[Service - UpdateSource](../service/#updatesource) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `False` |
 | fetch_method | Enum | Refer to:<br>[Service - UpdateSource](../service/#updatesource)<br>Supported values are:<br>`"GET", "GIT", "POST"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `GET` |

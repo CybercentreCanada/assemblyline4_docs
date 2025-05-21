@@ -4,23 +4,13 @@ Model of User Settings
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | Default submission classification<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
-| deep_scan | Boolean | Should a deep scan be performed?<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | download_encoding | Enum | Default download encoding when downloading files<br>Supported values are:<br>`"cart", "raw", "zip"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cart` |
 | default_external_sources | List [Keyword] | List of sha256 sources to check by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | default_zip_password | Text | Default user-defined password for creating password protected ZIPs when downloading files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `infected` |
 | executive_summary | Boolean | Should executive summary sections be shown? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | expand_min_score | Integer | Auto-expand section when score bigger then this | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
-| generate_alert | Boolean | Generate an alert?<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| ignore_cache | Boolean | Ignore service caching?<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| ignore_recursion_prevention | Boolean | Ignore all service recursion prevention?<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| ignore_filtering | Boolean | Ignore filtering services?<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
-| priority | Integer | Default priority for the submissions<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1000` |
 | preferred_submission_profile | Text | Preferred submission profile | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | submission_profiles | Mapping [String, [SubmissionProfileParams](/assemblyline4_docs/odm/models/config/#submissionprofileparams)] | Default submission profile settings | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [SubmissionProfileParams](/assemblyline4_docs/odm/models/config/#submissionprofileparams) for more details. |
-| service_spec | Mapping [String, Mapping [String, Any]] | Default service specific settings<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
-| services | [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) | Default service selection<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [ServiceSelection](/assemblyline4_docs/odm/models/submission/#serviceselection) for more details. |
 | submission_view | Enum | Default view for completed submissions<br>Supported values are:<br>`"details", "report"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `report` |
-| ttl | Integer | Default submission TTL, in days<br>:material-alert-outline: This will be moved to the "default" submission profile | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `30` |
 
 

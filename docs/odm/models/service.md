@@ -167,6 +167,7 @@ Update Source Configuration
 | username | Keyword | Username used to authenticate with source | <div style="width:100px">:material-minus-box-outline: Optional</div> | `` |
 | headers | List [[EnvironmentVariable](/assemblyline4_docs/odm/models/service/#environmentvariable)] | Headers | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | default_classification | Classification | Default classification used in absence of one defined in files from source | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| use_managed_identity | Boolean | Use managed identity for authentication with Azure DevOps | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | git_branch | Keyword | Branch to checkout from Git repository. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `` |
 | sync | Boolean | Synchronize signatures with remote source. Allows system to auto-disable signatures no longer found in source. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | fetch_method | Enum | Fetch method to be used with source<br>Supported values are:<br>`"GET", "GIT", "POST"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `GET` |
