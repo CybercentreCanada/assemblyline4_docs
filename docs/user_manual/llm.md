@@ -70,10 +70,11 @@ The AI integration can easily be turned on by editing the AI configuration secti
     ...
 
     ui:
-      ai:
+      ai_backends:
         enabled: True
-        headers:
-          Authorization: Bearer <OPENAI_APIKEY>
+        api_connections:
+          - headers:
+              Authorization: Bearer <OPENAI_APIKEY>
 
     ...
     ```
@@ -85,45 +86,55 @@ The `ai` configuration block will also let you specify the other parameters sent
     ...
 
     ui:
-      ai:
-        # URL to the chat completion API, you can change this to your own if you are not using the default
-        #  OpenAI endpoints.
-        chat_url: https://api.openai.com/v1/chat/completions,
-
-        # Configuration of the code analysis feature
-        code:
-          # System message sent to the OpenAI API describing how OpenAI should interpret the messages received
-          system_message: "...",
-          # Maximum number of tokens returned as a response by the OpenAI API
-          max_tokens: 512,
-          # Other optional parameters sent to the API
-          options:
-            frequency_penalty: 0,
-            presence_penalty: 0,
-            temperature: 1,
-            top_p: 1
-
-        # Configuration of the Detailed AL report analysis (used in hybrid reporting)
-        #     Same type of configuration block as the code analysis
-        detailed_report: {...},
-
-        # Configuration of the Executive Summary analysis (used in submission and file detail views)
-        #     Same type of configuration block as the code analysis
-        executive_summary: {...},
-
+      ai_backends:
         # Enabled/disabled AI integration
-        enabled: False,
+        enabled: true
 
-        # Headers sent to the OpenAI API
-        headers:
-          Authorization: Bearer <OPENAI_APIKEY>
-          Content-Type: "application/json"
+        # List of API definitions use in the API Pool. Multiple connections can be specified in list order (e.g. main connection, fallback connection)
+        api_connections:
+        
+          # URL to the chat completion OpenAI API, you can change this to your own if you are not using the default OpenAI endpoints.
+          - chat_url: "https://api.openai.com/v1/chat/completions"
+            # Type of chat API we are communicating with (e.g. openai, cohere)
+            api_type: "openai"
+            # Headers sent to the API
+            headers:
+              Authorization: Bearer <OPENAI_APIKEY>
+              Content-Type: "application/json"
+            # Model used for the AI Integration
+            model_name: "gpt-3.5-turbo"
+            # Should the SSL cert to the API endpoint be verified?
+            verify: true
 
-        # Model used for the AI Integration
-        model_name: "gpt-3.5-turbo",
+        # Definition of each parameters used in the different AI functions
+        function_params:
+          
+          # Configuration of the assemblyline assistant feature
+          assistant:
+            # System message sent to the AI API describing how the AI should interpret the messages received
+            system_message: "...",
+            # Task description sent to the AI API
+            task: "..."
+            # Maximum number of tokens returned as a response by the AI API
+            max_tokens: 512,
+            # Other optional parameters sent to the API
+            options:
+              frequency_penalty: 0,
+              presence_penalty: 0,
+              temperature: 0,
+              top_p: 1
 
-        # Should the SSL cert to the OpenAI API endpoint be verified?
-        verify: True
+          # Configuration of the code analysis feature
+          #     Same type of configuration block as the assistant
+          code: 
+
+          # Configuration of the Detailed AL report analysis (used in hybrid reporting)
+          #     Same type of configuration block as the assistant
+          detailed_report:
+
+          # Configuration of the Executive Summary analysis (used in submission and file detail views)
+          #     Same type of configuration block as the assistant
+          executive_summary:
 
     ...
     ```
