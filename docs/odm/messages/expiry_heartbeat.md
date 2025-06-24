@@ -35,6 +35,7 @@ Expiry Stats
 | file | Integer | Number of files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | filescore | Integer | Number of filscores | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | result | Integer | Number of results | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| retrohunt_hit | Integer | Number of retrohunt hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | safelist | Integer | Number of safelisted items | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | submission | Integer | Number of submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | submission_tree | Integer | Number of submission trees | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
