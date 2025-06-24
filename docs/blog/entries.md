@@ -97,5 +97,8 @@ That's right, we have videos too! Check out videos made by the community that sh
 ### Automating Malware Triage ([Invoke RE](https://www.youtube.com/@InvokeReversing))
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8aWnFld4qgc?si=6SZ5Tt1S0CTJZc2R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+### Technical session CyberShock ([CERT.LV](https://cert.lv/lv/))
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-70Mlkmtdds?si=7RgN3HWcdeQwa92q&amp;start=11094" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### Introducing CSE’s open source AssemblyLine ([Hackfest](https://hackfest.ca/))
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bsOlDOHAL8Y?si=s66_7nt0l5c2WZHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
