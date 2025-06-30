@@ -273,12 +273,16 @@ Here is an example configuration block to add to your configuration file that wi
 
 The configuration block at `auth.oauth` allows you to add OAuth authentication to your system. Assemblyline OAuth module is configurable enough to allow you to use almost any OAuth provider.
 
+
 It has been thoroughly tested with:
 
 * [Microsoft Accounts](https://account.microsoft.com/account)
 * [Google Accounts](https://www.google.com/account/about/)
 * [Auth0](https://auth0.com/)
 * [Microsoft Azure Active Directory Accounts](https://docs.microsoft.com/azure/active-directory/)
+
+
+
 
 Here is an exhaustive configuration block that explains every single parameter from the OAuth configuration block:
 
@@ -327,6 +331,9 @@ Here is an exhaustive configuration block that explains every single parameter f
                           type: role
                           value: admin
 
+                    # Assemblyline will auto configure other endpoints using this URL
+                    openid_connect_discovery_url: null
+
                     # URL used to get the access token
                     access_token_url: https://oauth2.localhost/token
 
@@ -365,7 +372,7 @@ Here is an exhaustive configuration block that explains every single parameter f
                     # What is the delimiter used by the random name generator?
                     uid_randomize_delimiter: "-"
 
-                    # Reged used to parse and email address and capture parts
+                    # Regex used to parse and email address and capture parts
                     #  to create a user ID out of it
                     uid_regex: ^(.*)@(\w*).*$
 
@@ -388,7 +395,21 @@ Here is an exhaustive configuration block that explains every single parameter f
                     # Name of the field in the list of groups that contains the
                     #  name of the group
                     user_groups_name_field: null
+
+                    # Field name that maps the group membership field in id token
+                    groups_id_token_field: null
     ```
+
+
+
+OpenID Connect (OIDC) Providers have a [configuration endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest) that can be used to automatically configure `api_base_url`, `jwks_url`, `access_token_url`, and `authorize_url`.
+You can set the value of `openid_connect_discovery_url` to this configuration endpoint and Assemblyline will automatically configure the other URLs.
+
+For OIDC Providers with ID tokens, Assemblyline will parse user and group information when available.
+To get group information, Assemblyline will look for the `groups` key in the ID token by default.
+You can also configure Assemblyline to parse group information using another key by setting the `groups_id_token_field`.
+If Assemblyline is able to parse user/group information from an ID token, it will skip using the user_get/group_get endpoint.
+
 
 
 Here is an example configuration block that would let you use Auth0 if you would change your `client_id` and `client_secret` and that you would change the `tenant_name` to yours:
@@ -426,6 +447,36 @@ Here is an example configuration block that would let you use Auth0 if you would
 
                     user_get: userinfo
     ```
+
+
+
+
+Here is an example configuration block for using Keycloak with OIDC configuration endpoint and ID tokens.
+You need to configure a group membership mapper with token claim name `groups` to the client scope.
+You also need to provide the client ID, client secret and the Keycloak configuration URL that corresponds to your realm and client.
+
+???+ example "Keycloak configuration example"
+    ```yaml
+        auth:
+          oauth:
+            enabled: true
+            providers:
+                # Name of the provider displayed in the UI
+                local_provider:
+                  # Assemblyline will auto configure other endpoints using this URL
+                  openid_connect_discovery_url: <KEYCLOAK_URL>/.well-known/openid-configuration
+
+                  # Put your client ID and secret here
+                  client_id: <CLIENT_ID>
+                  client_secret: <CLIENT_SECRET>
+
+                  client_kwargs:
+                    scope: openid email profile
+
+                  # Field name that maps the group membership field in id token
+                  groups_id_token_field: groups
+    ```
+
 
 ### SAML Authentication
 The configuration block at `auth.saml` allows you to add authentication with your SAML server.
