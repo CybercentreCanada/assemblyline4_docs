@@ -273,16 +273,12 @@ Here is an example configuration block to add to your configuration file that wi
 
 The configuration block at `auth.oauth` allows you to add OAuth authentication to your system. Assemblyline OAuth module is configurable enough to allow you to use almost any OAuth provider.
 
-
 It has been thoroughly tested with:
 
 * [Microsoft Accounts](https://account.microsoft.com/account)
 * [Google Accounts](https://www.google.com/account/about/)
 * [Auth0](https://auth0.com/)
 * [Microsoft Azure Active Directory Accounts](https://docs.microsoft.com/azure/active-directory/)
-
-
-
 
 Here is an exhaustive configuration block that explains every single parameter from the OAuth configuration block:
 
@@ -410,8 +406,6 @@ To get group information, Assemblyline will look for the `groups` key in the ID 
 You can also configure Assemblyline to parse group information using another key by setting the `groups_id_token_field`.
 If Assemblyline is able to parse user/group information from an ID token, it will skip using the user_get/group_get endpoint.
 
-
-
 Here is an example configuration block that would let you use Auth0 if you would change your `client_id` and `client_secret` and that you would change the `tenant_name` to yours:
 
 ???+ example "Auth0 configuration example"
@@ -447,9 +441,6 @@ Here is an example configuration block that would let you use Auth0 if you would
 
                     user_get: userinfo
     ```
-
-
-
 
 Here is an example configuration block for using Keycloak with OIDC configuration endpoint and ID tokens.
 You need to configure a group membership mapper with token claim name `groups` to the client scope.
