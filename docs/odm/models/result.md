@@ -83,7 +83,7 @@ Result Section
 | depth | Integer | Depth of the section | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | heuristic | [Heuristic](/assemblyline4_docs/odm/models/result/#heuristic) | Heuristic used to score result section | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | tags | [Tagging](/assemblyline4_docs/odm/models/tagging/#tagging) | List of tags associated to this section | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Tagging](/assemblyline4_docs/odm/models/tagging/#tagging) for more details. |
-| safelisted_tags | FlattenedListObject | List of safelisted tags | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| safelisted_tags | FlatMapping | List of safelisted tags | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | title_text | Text | Title of the section | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | promote_to | Enum | None<br>Supported values are:<br>`"ENTROPY", "SCREENSHOT", "URI_PARAMS"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 

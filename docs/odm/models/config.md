@@ -1168,7 +1168,8 @@ External links that specific metadata and tags can pivot to
 | :--- | :--- | :--- | :--- | :--- |
 | allow_bypass | Boolean | If the classification of the item is higher than the max_classificaiton, can we let the user bypass the check and still query the external link? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | name | Keyword | Name of the link | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| double_encode | Boolean | Should the replaced value be double encoded? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
+| encoding | Enum | How should the target value be encoded (used when `double_encode: true`)<br>Supported values are:<br>`"sha256", "url"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `url` |
+| double_encode | Boolean | Should the replaced value be encoded before url encoding? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | max_classification | ClassificationString | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | replace_pattern | Keyword | Pattern that will be replaced in the URL with the metadata or tag value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |

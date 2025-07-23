@@ -17,7 +17,7 @@ Service Task Model
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | sid | UUID | Submission ID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| metadata | FlattenedObject | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| metadata | FlatMapping | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | min_classification | Classification | Minimum classification of the file being scanned | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | fileinfo | [FileInfo](/assemblyline4_docs/odm/messages/task/#fileinfo) | File info block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | filename | Keyword | File name | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |

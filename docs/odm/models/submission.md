@@ -14,7 +14,7 @@ Model of Submission
 | file_count | Integer | Total number of files in the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | files | List [[File](/assemblyline4_docs/odm/models/submission/#file)] | List of files that were originally submitted | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | max_score | Integer | Maximum score of all the files in the scan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| metadata | FlatMapping | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| metadata | FlatMapping | Metadata associated to the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | params | [SubmissionParams](/assemblyline4_docs/odm/models/submission/#submissionparams) | Submission parameter details | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | results | List [Wildcard] | List of result keys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sid | UUID | Submission ID | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |

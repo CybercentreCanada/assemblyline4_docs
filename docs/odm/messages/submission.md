@@ -19,7 +19,7 @@ Submission Model
 | sid | UUID | Submission ID to use | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | time | Date | Message time | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
 | files | List [[File](/assemblyline4_docs/odm/models/submission/#file)] | File block | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| metadata | FlattenedObject | Metadata submitted with the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
+| metadata | FlatMapping | Metadata submitted with the file | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | notification | [Notification](/assemblyline4_docs/odm/messages/submission/#notification) | Notification queue parameters | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Notification](/assemblyline4_docs/odm/messages/submission/#notification) for more details. |
 | params | [SubmissionParams](/assemblyline4_docs/odm/models/submission/#submissionparams) | Parameters of the submission | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | scan_key | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

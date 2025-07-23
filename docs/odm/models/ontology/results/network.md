@@ -25,7 +25,8 @@ Details for a DNS request
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | domain | Domain | The domain requested | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| resolved_ips | List [IP] | A list of IPs that were resolved | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| resolved_ips | List [IP] | A list of IPs that were resolved | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| resolved_domains | List [Domain] | A list of domains that were resolved | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | lookup_type | Enum | The type of DNS request<br>Supported values are:<br>`"A", "AAAA", "AFSDB", "APL", "CAA", "CDNSKEY", "CDS", "CERT", "CNAME", "CSYNC", "DHCID", "DLV", "DNAME", "DNSKEY", "DS", "EUI48", "EUI64", "HINFO", "HIP", "HTTPS", "IPSECKEY", "KEY", "KX", "LOC", "MX", "NAPTR", "NS", "NSEC", "NSEC3", "NSEC3PARAM", "OPENPGPKEY", "PTR", "RP", "RRSIG", "SIG", "SMIMEA", "SOA", "SRV", "SSHFP", "SVCB", "TA", "TKEY", "TLSA", "TSIG", "TXT", "URI", "ZONEMD"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 
