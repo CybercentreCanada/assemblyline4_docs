@@ -1,7 +1,7 @@
 # MicroK8s
 This is the documentation for a cluster instance of the Assemblyline platform suited for larger deployments (minimum 3 compute nodes).
 
-!!! warning "Take the following into consideration while following the relevant  instructions from the [Kubernetes appliance](../appliance/kubernetes-microk8s)."
+!!! warning "Take the following into consideration while following the relevant  instructions from the [Kubernetes appliance](../../appliance/kubernetes-microk8s)."
 	The changes proposed alter the storage class used in a multi-node cluster setup using OpenEBS instead of the default hostpath-based storage class.
 
 ## Setup Requirements
