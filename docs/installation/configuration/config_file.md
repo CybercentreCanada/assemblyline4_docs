@@ -75,24 +75,24 @@ The full specification of the file [is defined here](https://github.com/Cybercen
             jwks_uri: https://{TENANT}.auth0.com/.well-known/jwks.json
             user_get: userinfo
           azure_ad:
-            access_token_url: https://login.microsoftonline.com/common/oauth2/token
-            api_base_url: https://login.microsoft.com/common/
-            authorize_url: https://login.microsoftonline.com/common/oauth2/authorize
+            access_token_url: <https://login.microsoftonline.com/common/oauth2/token>
+            api_base_url: <https://login.microsoft.com/common/>
+            authorize_url: <https://login.microsoftonline.com/common/oauth2/authorize>
             client_id: null
             client_kwargs:
               scope: openid email profile
             client_secret: null
-            jwks_uri: https://login.microsoftonline.com/common/discovery/v2.0/keys
+            jwks_uri: <https://login.microsoftonline.com/common/discovery/v2.0/keys>
             user_get: openid/userinfo
           google:
-            access_token_url: https://oauth2.googleapis.com/token
-            api_base_url: https://openidconnect.googleapis.com/
-            authorize_url: https://accounts.google.com/o/oauth2/v2/auth
+            access_token_url: <https://oauth2.googleapis.com/token>
+            api_base_url: <https://openidconnect.googleapis.com/>
+            authorize_url: <https://accounts.google.com/o/oauth2/v2/auth>
             client_id: null
             client_kwargs:
               scope: openid email profile
             client_secret: null
-            jwks_uri: https://www.googleapis.com/oauth2/v3/certs
+            jwks_uri: <https://www.googleapis.com/oauth2/v3/certs>
             user_get: v1/userinfo
 
     core:
@@ -356,8 +356,8 @@ If you want to change the `config.yml` file that will be deployed in the contain
 
     Then you would simply deploy that new `values.yaml` file using the `helm upgrade` command specific to your deployment:
 
-    * [Cluster deployment update](../../cluster/#update-your-deployment)
-    * [Appliance deployment update](../../appliance/#updating-the-current-deployment)
+    * [Cluster deployment update](../../cluster/general#update-your-deployment)
+    * [Appliance deployment update](../../appliance/kubernetes-microk8s#updating-the-current-deployment)
 
 ## Exhaustive configuration file documentation
 

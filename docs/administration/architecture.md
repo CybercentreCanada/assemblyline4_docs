@@ -106,7 +106,7 @@ Assemblyline doesn't just analyze files for malicious content; it can also funct
 
 ### How Alerts are Generated
 
-Alerts are created based on [Post-Process actions](../administration/submission_actions) that define what constitutes an alert (default: a file with a score over 500). Here's how the alert generation process works step by step:
+Alerts are created based on [Post-Process actions](../submission_actions) that define what constitutes an alert (default: a file with a score over 500). Here's how the alert generation process works step by step:
 
 1. **Submission Scoring and Rule Evaluation**:
     - While the [Dispatcher](#dispatcher) writes results for a submission, it evaluates rules to determine if an alert should be generated.

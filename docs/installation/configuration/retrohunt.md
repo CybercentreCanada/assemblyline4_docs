@@ -1,10 +1,10 @@
 # Retrohunt section
 
+!!! info "Refer to the [Retrohunt architecture](../../../administration/architecture/#yara-back-in-time-retrohunt) to get an understanding of how this feature works."
+
 This section goes over how to configure the deployment instance to ensure the Retrohunt component is configured properly.
 
 The Retrohunt section (`retrohunt:`) of the configuration file contains all the different parameters that you can change.
-
-Refer to the [Retrohunt architecture](../../overview/architecture.md/#yara-back-in-time-retrohunt) to get an understanding of how this feature works.
 
 ???+ example "Retrohunt configuration example"
     ```yaml

@@ -1,0 +1,18 @@
+name: Test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - name: Install Python testing dependencies
+        run: pip install mkdocs-material mkdocs-static-i18n mkdocs-glightbox linkchecker
+      - name: Startup local instance of documentation
+        run: mkdocs serve
+      - name: Check for broken links
+        run: linkchecker http://localhost:8000 -o failures --no-status --check-extern --ignore-url="http(s)?://(localhost|yourdomain)/.*"

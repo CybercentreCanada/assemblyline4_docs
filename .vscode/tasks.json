@@ -4,7 +4,7 @@
         {
             "label": "Launch Assemblyline Documentation",
             "type": "shell",
-            "command": "${workspaceFolder}/venv/Scripts/mkdocs serve",
+            "command": "mkdocs serve",
             "options": {
                 "cwd": "${workspaceFolder}/",
             },
