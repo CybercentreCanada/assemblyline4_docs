@@ -1,226 +1,227 @@
 extra:
   alternate:
-  - lang: en
-    link: ./
-    name: English
-  - lang: fr
-    link: ./fr/
-    name: Français
-extra_css:
-- stylesheets/extra.css
-extra_javascript:
-- https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
-- javascripts/tables.js
-markdown_extensions:
-- toc:
-    permalink: true
-- attr_list
-- pymdownx.tabbed:
-    alternate_style: true
-- pymdownx.details
-- pymdownx.highlight
-- pymdownx.superfences
-- admonition
-- def_list
-- pymdownx.tasklist:
-    custom_checkbox: true
-- pymdownx.emoji:
-    emoji_generator: !!python/name:materialx.emoji.to_svg ''
-    emoji_index: !!python/name:materialx.emoji.twemoji ''
-nav:
-- Home: index.md
-- Overview:
-  - overview/how_it_works.md
-  - overview/services.md
-  - overview/community_services.md
-- User's manual:
-  - user_manual/user_walkthrough.md
-  - user_manual/submitting_file.md
-  - user_manual/submitting_url.md
-  - user_manual/submitting_sha256.md
-  - user_manual/results.md
-  - user_manual/searching.md
-  - user_manual/verdicts.md
-  - user_manual/malware_archive.md
-  - user_manual/retrohunt.md
-  - user_manual/llm.md
-- Installation:
-  - Getting Started:
-    - installation/deployment.md
-    - Appliance:
-      - Docker: installation/appliance/docker.md
-      - MicroK8s: installation/appliance/kubernetes-microk8s.md
-    - Cluster:
-      - Kubernetes: installation/cluster/general.md
-      - MicroK8s: installation/cluster/microk8s.md
-      - High-Throughput Optimizations: installation/cluster/optimizations.md
-  - Appliance Migration: installation/deployment_migration.md
-  - Configuration:
-    - installation/configuration/config_file.md
-    - installation/configuration/authentication.md
-    - installation/configuration/core.md
-    - installation/configuration/datasources.md
-    - installation/configuration/datastore.md
-    - installation/configuration/filestore.md
-    - installation/configuration/logging.md
-    - installation/configuration/malware_archive.md
-    - installation/configuration/retrohunt.md
-    - installation/configuration/services.md
-    - installation/configuration/submission.md
-    - installation/configuration/system.md
-    - installation/configuration/ui.md
-    - Kubernetes-specific:
-      - Upgrading to Elasticsearch 8: installation/configuration/kubernetes/upgrading_elastic.md
-      - installation/configuration/kubernetes/internal_encryption.md
-      - installation/configuration/plugins.md
-  - installation/classification_engine.md
-  - installation/monitoring.md
-  - installation/replay.md
-- Administration:
-  - administration/admin_walkthrough.md
-  - administration/architecture.md
-  - administration/submission_actions.md
-  - administration/service_management.md
-  - administration/system_safelist.md
-  - administration/user_management.md
-  - administration/signature_management.md
-  - administration/heuristic_management.md
-  - administration/source_management.md
-  - administration/system_management.md
-  - administration/troubleshooting.md
-- Integration:
-  - integration/ingestion_method.md
-  - integration/key_generation.md
-  - integration/python.md
-  - integration/java.md
-  - integration/rest.md
-  - integration/ontology.md
-  - integration/api_exercise_1.md
-  - integration/api_exercise_2.md
-  - integration/api_exercise_3.md
-  - integration/api_exercise_4.md
-  - integration/api_exercise_5.md
-- Developer's guide:
-  - Setup Environment:
-    - developer_manual/env/getting_started.md
-    - VSCode:
-      - developer_manual/env/vscode/setup_script.md
-      - developer_manual/env/vscode/use_vscode.md
-    - Pycharm:
-      - developer_manual/env/pycharm/local_development.md
-      - developer_manual/env/pycharm/remote_development.md
-      - developer_manual/env/pycharm/use_pycharm.md
-  - Services:
-    - Developing a service: developer_manual/services/developing_an_assemblyline_service.md
-    - developer_manual/services/adding_a_service_updater.md
-    - developer_manual/services/run_your_service.md
-    - Advanced development:
-      - ServiceBase Class: developer_manual/services/advanced/service_base.md
-      - ServiceUpdater Class: developer_manual/services/advanced/service_updater_base.md
-      - Request Class: developer_manual/services/advanced/request.md
-      - Result Class: developer_manual/services/advanced/result.md
-      - ResultSection Class: developer_manual/services/advanced/result_section.md
-      - Service manifest: developer_manual/services/advanced/service_manifest.md
-      - Exceptions: developer_manual/services/advanced/exceptions.md
-      - developer_manual/services/advanced/partial_results.md
-  - Infrastructure: developer_manual/core/infrastructure.md
-  - Frontend: developer_manual/frontend/frontend.md
-  - Documentation: developer_manual/docs/docs.md
-  - Plugins: developer_manual/plugins/plugins.md
-- Data Ontology:
-  - Getting Started: odm/getting_started.md
-  - Models:
-    - PostprocessAction: odm/models/actions.md
-    - Alert: odm/models/alert.md
-    - Apikey: odm/models/apikey.md
-    - Badlist: odm/models/badlist.md
-    - CachedFile: odm/models/cached_file.md
-    - Config: odm/models/config.md
-    - EmptyResult: odm/models/emptyresult.md
-    - Error: odm/models/error.md
-    - File: odm/models/file.md
-    - FileScore: odm/models/filescore.md
-    - Heuristic: odm/models/heuristic.md
-    - Ontology:
-      - File: odm/models/ontology/file.md
-      - Filetypes:
-        - PE: odm/models/ontology/filetypes/pe.md
-      - ResultOntology: odm/models/ontology/ontology.md
-      - Results:
-        - Antivirus: odm/models/ontology/results/antivirus.md
-        - HTTP: odm/models/ontology/results/http.md
-        - MalwareConfig: odm/models/ontology/results/malware_config.md
-        - NetworkConnection: odm/models/ontology/results/network.md
-        - Process: odm/models/ontology/results/process.md
-        - Sandbox: odm/models/ontology/results/sandbox.md
-        - Signature: odm/models/ontology/results/signature.md
-    - ReplayConfig: odm/models/replay.md
-    - Result: odm/models/result.md
-    - RetrohuntHit: odm/models/retrohunt.md
-    - Safelist: odm/models/safelist.md
-    - Service: odm/models/service.md
-    - ServiceDelta: odm/models/service_delta.md
-    - Signature: odm/models/signature.md
-    - Statistics: odm/models/statistics.md
-    - Submission: odm/models/submission.md
-    - SubmissionSummary: odm/models/submission_summary.md
-    - SubmissionTree: odm/models/submission_tree.md
-    - Tagging: odm/models/tagging.md
-    - User: odm/models/user.md
-    - UserFavorites: odm/models/user_favorites.md
-    - UserSettings: odm/models/user_settings.md
-    - Workflow: odm/models/workflow.md
-  - Messages:
-    - AlertMessage: odm/messages/alert.md
-    - AlerterMessage: odm/messages/alerter_heartbeat.md
-    - ArchiveMessage: odm/messages/archive_heartbeat.md
-    - DispatcherMessage: odm/messages/dispatcher_heartbeat.md
-    - DispatcherCommandMessage: odm/messages/dispatching.md
-    - ElasticMessage: odm/messages/elastic_heartbeat.md
-    - ExpiryMessage: odm/messages/expiry_heartbeat.md
-    - IngestMessage: odm/messages/ingest_heartbeat.md
-    - MetricsMessage: odm/messages/metrics.md
-    - RetrohuntMessage: odm/messages/retrohunt_heartbeat.md
-    - ScalerMessage: odm/messages/scaler_heartbeat.md
-    - ScalerStatusMessage: odm/messages/scaler_status_heartbeat.md
-    - ServiceMessage: odm/messages/service_heartbeat.md
-    - ServiceTimingMessage: odm/messages/service_timing_heartbeat.md
-    - SubmissionMessage: odm/messages/submission.md
-    - TaskMessage: odm/messages/task.md
-    - VacuumMessage: odm/messages/vacuum_heartbeat.md
-- Blog:
-  - blog/entries.md
-plugins:
-- glightbox:
-    auto_caption: false
-    caption_position: bottom
-    draggable: false
-    effect: zoom
-    height: auto
-    loop: false
-    skip_classes:
-    - no-zoom
-    touchNavigation: true
-    width: 100%
-    zoomable: true
-- search
-- i18n:
-    fallback_to_default: true
-    languages:
-    - build: true
-      default: true
-      locale: en
+    - lang: en
+      link: ./
       name: English
-    - build: true
-      locale: fr
+    - lang: fr
+      link: ./fr/
       name: Français
-      nav_translations:
-        Data Ontology: Ontologie des données
-        Developer's guide: Guide du développeur
-        Home: Accueil
-        Integration: Intégration
-        Overview: Aperçu
-        User's manual: Manuel d'utilisateur
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - javascripts/tables.js
+markdown_extensions:
+  - toc:
+      permalink: true
+  - attr_list
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - admonition
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg ""
+      emoji_index: !!python/name:material.extensions.emoji.twemoji ""
+nav:
+  - Home: index.md
+  - Overview:
+      - overview/how_it_works.md
+      - overview/services.md
+      - overview/community_services.md
+  - User's manual:
+      - user_manual/user_walkthrough.md
+      - user_manual/submitting_file.md
+      - user_manual/submitting_url.md
+      - user_manual/submitting_sha256.md
+      - user_manual/results.md
+      - user_manual/searching.md
+      - user_manual/verdicts.md
+      - user_manual/malware_archive.md
+      - user_manual/retrohunt.md
+      - user_manual/llm.md
+  - Installation:
+      - Getting Started:
+          - installation/deployment.md
+          - Appliance:
+              - Docker: installation/appliance/docker.md
+              - MicroK8s: installation/appliance/kubernetes-microk8s.md
+          - Cluster:
+              - Kubernetes: installation/cluster/general.md
+              - MicroK8s: installation/cluster/microk8s.md
+              - High-Throughput Optimizations: installation/cluster/optimizations.md
+      - Appliance Migration: installation/deployment_migration.md
+      - Configuration:
+          - installation/configuration/config_file.md
+          - installation/configuration/authentication.md
+          - installation/configuration/core.md
+          - installation/configuration/datasources.md
+          - installation/configuration/datastore.md
+          - installation/configuration/filestore.md
+          - installation/configuration/logging.md
+          - installation/configuration/malware_archive.md
+          - installation/configuration/retrohunt.md
+          - installation/configuration/services.md
+          - installation/configuration/submission.md
+          - installation/configuration/system.md
+          - installation/configuration/ui.md
+          - Kubernetes-specific:
+              - Upgrading to Elasticsearch 8: installation/configuration/kubernetes/upgrading_elastic.md
+              - installation/configuration/kubernetes/internal_encryption.md
+              - installation/configuration/plugins.md
+      - installation/classification_engine.md
+      - installation/monitoring.md
+      - installation/replay.md
+  - Administration:
+      - administration/admin_walkthrough.md
+      - administration/architecture.md
+      - administration/submission_actions.md
+      - administration/service_management.md
+      - administration/system_safelist.md
+      - administration/user_management.md
+      - administration/signature_management.md
+      - administration/heuristic_management.md
+      - administration/source_management.md
+      - administration/system_management.md
+      - administration/troubleshooting.md
+  - Integration:
+      - integration/ingestion_method.md
+      - integration/key_generation.md
+      - integration/python.md
+      - integration/java.md
+      - integration/rest.md
+      - integration/ontology.md
+      - Exercises:
+          - integration/api_exercise_1.md
+          - integration/api_exercise_2.md
+          - integration/api_exercise_3.md
+          - integration/api_exercise_4.md
+          - integration/api_exercise_5.md
+  - Developer's guide:
+      - Setup Environment:
+          - developer_manual/env/getting_started.md
+          - VSCode:
+              - developer_manual/env/vscode/setup_script.md
+              - developer_manual/env/vscode/use_vscode.md
+          - Pycharm:
+              - developer_manual/env/pycharm/local_development.md
+              - developer_manual/env/pycharm/remote_development.md
+              - developer_manual/env/pycharm/use_pycharm.md
+      - Services:
+          - Developing a service: developer_manual/services/developing_an_assemblyline_service.md
+          - developer_manual/services/adding_a_service_updater.md
+          - developer_manual/services/run_your_service.md
+          - Advanced development:
+              - ServiceBase Class: developer_manual/services/advanced/service_base.md
+              - ServiceUpdater Class: developer_manual/services/advanced/service_updater_base.md
+              - Request Class: developer_manual/services/advanced/request.md
+              - Result Class: developer_manual/services/advanced/result.md
+              - ResultSection Class: developer_manual/services/advanced/result_section.md
+              - Service manifest: developer_manual/services/advanced/service_manifest.md
+              - Exceptions: developer_manual/services/advanced/exceptions.md
+              - developer_manual/services/advanced/partial_results.md
+      - Infrastructure: developer_manual/core/infrastructure.md
+      - Frontend: developer_manual/frontend/frontend.md
+      - Documentation: developer_manual/docs/docs.md
+      - Plugins: developer_manual/plugins/plugins.md
+  - Data Ontology:
+      - Getting Started: odm/getting_started.md
+      - Models:
+          - PostprocessAction: odm/models/actions.md
+          - Alert: odm/models/alert.md
+          - Apikey: odm/models/apikey.md
+          - Badlist: odm/models/badlist.md
+          - CachedFile: odm/models/cached_file.md
+          - Config: odm/models/config.md
+          - EmptyResult: odm/models/emptyresult.md
+          - Error: odm/models/error.md
+          - File: odm/models/file.md
+          - FileScore: odm/models/filescore.md
+          - Heuristic: odm/models/heuristic.md
+          - Ontology:
+              - File: odm/models/ontology/file.md
+              - Filetypes:
+                  - PE: odm/models/ontology/filetypes/pe.md
+              - ResultOntology: odm/models/ontology/ontology.md
+              - Results:
+                  - Antivirus: odm/models/ontology/results/antivirus.md
+                  - HTTP: odm/models/ontology/results/http.md
+                  - MalwareConfig: odm/models/ontology/results/malware_config.md
+                  - NetworkConnection: odm/models/ontology/results/network.md
+                  - Process: odm/models/ontology/results/process.md
+                  - Sandbox: odm/models/ontology/results/sandbox.md
+                  - Signature: odm/models/ontology/results/signature.md
+          - ReplayConfig: odm/models/replay.md
+          - Result: odm/models/result.md
+          - RetrohuntHit: odm/models/retrohunt.md
+          - Safelist: odm/models/safelist.md
+          - Service: odm/models/service.md
+          - ServiceDelta: odm/models/service_delta.md
+          - Signature: odm/models/signature.md
+          - Statistics: odm/models/statistics.md
+          - Submission: odm/models/submission.md
+          - SubmissionSummary: odm/models/submission_summary.md
+          - SubmissionTree: odm/models/submission_tree.md
+          - Tagging: odm/models/tagging.md
+          - User: odm/models/user.md
+          - UserFavorites: odm/models/user_favorites.md
+          - UserSettings: odm/models/user_settings.md
+          - Workflow: odm/models/workflow.md
+      - Messages:
+          - AlertMessage: odm/messages/alert.md
+          - AlerterMessage: odm/messages/alerter_heartbeat.md
+          - ArchiveMessage: odm/messages/archive_heartbeat.md
+          - DispatcherMessage: odm/messages/dispatcher_heartbeat.md
+          - DispatcherCommandMessage: odm/messages/dispatching.md
+          - ElasticMessage: odm/messages/elastic_heartbeat.md
+          - ExpiryMessage: odm/messages/expiry_heartbeat.md
+          - IngestMessage: odm/messages/ingest_heartbeat.md
+          - MetricsMessage: odm/messages/metrics.md
+          - RetrohuntMessage: odm/messages/retrohunt_heartbeat.md
+          - ScalerMessage: odm/messages/scaler_heartbeat.md
+          - ScalerStatusMessage: odm/messages/scaler_status_heartbeat.md
+          - ServiceMessage: odm/messages/service_heartbeat.md
+          - ServiceTimingMessage: odm/messages/service_timing_heartbeat.md
+          - SubmissionMessage: odm/messages/submission.md
+          - TaskMessage: odm/messages/task.md
+          - VacuumMessage: odm/messages/vacuum_heartbeat.md
+  - Blog:
+      - blog/entries.md
+plugins:
+  - glightbox:
+      auto_caption: false
+      caption_position: bottom
+      draggable: false
+      effect: zoom
+      height: auto
+      loop: false
+      skip_classes:
+        - no-zoom
+      touchNavigation: true
+      width: 100%
+      zoomable: true
+  - search
+  - i18n:
+      fallback_to_default: true
+      languages:
+        - build: true
+          default: true
+          locale: en
+          name: English
+        - build: true
+          locale: fr
+          name: Français
+          nav_translations:
+            Data Ontology: Ontologie des données
+            Developer's guide: Guide du développeur
+            Home: Accueil
+            Integration: Intégration
+            Overview: Aperçu
+            User's manual: Manuel d'utilisateur
 repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
@@ -228,28 +229,28 @@ theme:
   custom_dir: override
   favicon: images/crane.png
   features:
-  - content.code.copy
-  - navigation.tabs
-  - navigation.expand
-  - navigation.top
+    - content.code.copy
+    - navigation.tabs
+    - navigation.expand
+    - navigation.top
   icon:
     repo: fontawesome/brands/github
   language: en
   logo: images/crane.png
   name: material
   palette:
-  - media: '(prefers-color-scheme: dark)'
-    scheme: slate
-    toggle:
-      icon: material/toggle-switch-off-outline
-      name: Switch to light mode
-  - media: '(prefers-color-scheme: light)'
-    scheme: default
-    toggle:
-      icon: material/toggle-switch
-      name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
   static_templates:
-  - 404.html
+    - 404.html
 validation:
   absolute_links: ignore
   unrecognized_links: ignore

@@ -1,4 +1,4 @@
-# API Exercise #4: Alert Monitoring And Identifying IoCs For Blocking
+# Alert Monitoring And Identifying IoCs For Blocking
 
 ## Scenario
 
@@ -15,15 +15,16 @@ IoCs to be blocked are printed to console
 ```
 
 ## APIs Involved
-### Web
-`GET /api/v4/search/<index>/`
-
-### Python
-`Client.search.<index>`
+=== "REST"
+    ```
+    GET /api/v4/search/<index>/
+    ```
+=== "Python"
+    ```python
+    Client.search.<index>
+    ```
 
 ## Solution
-### Python client
-
 ```python
 # Exercise #4: Alert monitoring and identify IOC for blocking
 

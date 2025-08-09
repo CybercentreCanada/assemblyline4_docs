@@ -1,4 +1,4 @@
-# API Exercise #1: Collecting Network IoCs
+# Collecting Network IoCs
 
 ## Scenario
 
@@ -15,163 +15,161 @@
 ```
 
 ## APIs Involved
-### Web
-`GET /api/v4/submission/summary/<sid>/`
-
-`GET /api/v4/ontology/submission/<sid>/`
-
-### Python
-`Client.submission.summary(<sid>)`
-
-`Client.ontology.submission(<sid>)`
+=== "REST"
+    ```
+    GET /api/v4/submission/summary/<sid>/
+    GET /api/v4/ontology/submission/<sid>/
+    ```
+=== "Python"
+    ```python
+    Client.submission.summary(<sid>)
+    Client.ontology.submission(<sid>)
+    ```
 
 ## Solutions
-### Option #1a (using Submission API) with the Python client
 
-```python
-import os
-from pprint import pprint
-from assemblyline_client import get_client
+=== "Using Submission API"
+    === "Python: Using `assemblyline_client`"
+        ```python
+        import os
+        from pprint import pprint
+        from assemblyline_client import get_client
 
-AL_HOST = os.getenv('AL_HOST', '<AL URL>')
-AL_USER = os.getenv('AL_USER', '<AL user>')
-AL_APIKEY = os.getenv('AL_APIKEY', '<AL API key>')
-
-
-# Choose a submission ID that we will use to pull IOCs from
-SID = '<sid>'
-
-# The result of this exercise will be stored in this variable
-COLLECTED_IOCS = dict()
-
-# This is the connection to the Assemblyline client that we will use
-client = get_client(f"https://{AL_HOST}:443", apikey=(AL_USER, AL_APIKEY), verify=False)
-
-# client.submission.summary(<sid>) --> /api/v4/submission/summary/<sid>/
-for tag_name, tag_values in client.submission.summary(SID)['tags']['ioc'].items():
-    for tag_value, tag_verdict, is_tag_safelisted, classification in tag_values:
-        if tag_name.startswith('network'):
-            # Create the tag category if does not exist
-            COLLECTED_IOCS.setdefault(tag_name, [])
-
-            # Add the IOC to our list of collected IOCs
-            COLLECTED_IOCS[tag_name].append(tag_value)
+        AL_HOST = os.getenv('AL_HOST', '<AL URL>')
+        AL_USER = os.getenv('AL_USER', '<AL user>')
+        AL_APIKEY = os.getenv('AL_APIKEY', '<AL API key>')
 
 
-# Now that we have gathered the IOCs, let's print them to the screen
-pprint(COLLECTED_IOCS)
-```
+        # Choose a submission ID that we will use to pull IOCs from
+        SID = '<sid>'
 
-### Option #1b (using Submission API) with the Python Requests library
+        # The result of this exercise will be stored in this variable
+        COLLECTED_IOCS = dict()
 
-```python
-import requests
-import json
-import os
-from pprint import pprint
+        # This is the connection to the Assemblyline client that we will use
+        client = get_client(f"https://{AL_HOST}:443", apikey=(AL_USER, AL_APIKEY), verify=False)
 
-headers = {
-    "x-user": os.getenv('AL_USER', '<AL user>'),
-    "x-apikey": os.getenv('AL_APIKEY', '<AL API key>'),
-    "accept": "application/json"
-}
+        # client.submission.summary(<sid>) --> /api/v4/submission/summary/<sid>/
+        for tag_name, tag_values in client.submission.summary(SID)['tags']['ioc'].items():
+            for tag_value, tag_verdict, is_tag_safelisted, classification in tag_values:
+                if tag_name.startswith('network'):
+                    # Create the tag category if does not exist
+                    COLLECTED_IOCS.setdefault(tag_name, [])
 
-# Choose a submission ID that we will use to pull IOCs from
-SID = '<sid>'
-
-# The result of this exercise will be stored in this variable
-COLLECTED_IOCS = dict()
-
-# This is the connection to the Assemblyline client that we will use
-host = f"https://{os.getenv('AL_HOST', '<AL URL>')}:443"
-
-# client.submission.summary(<sid>) --> /api/v4/submission/summary/<sid>/
-data = requests.get(f"{host}/api/v4/submission/summary/{SID}/", headers=headers, verify=False).content
-summary = json.loads(data)["api_response"]
-for tag_name, tag_values in summary["tags"]["ioc"].items():
-    for tag_value, tag_verdict, is_tag_safelisted, classification in tag_values:
-        if tag_name.startswith('network'):
-            # Create the tag category if does not exist
-            COLLECTED_IOCS.setdefault(tag_name, [])
-
-            # Add the IOC to our list of collected IOCs
-            COLLECTED_IOCS[tag_name].append(tag_value)
-
-# Now that we have gathered the IOCs, let's print them to the screen
-pprint(COLLECTED_IOCS)
-```
-
-### Option #2a (using Ontology API) with the Python client
-
-```python
-import os
-from pprint import pprint
-from assemblyline_client import get_client
-
-AL_HOST = os.getenv('AL_HOST', '<AL URL>')
-AL_USER = os.getenv('AL_USER', '<AL user>')
-AL_APIKEY = os.getenv('AL_APIKEY', '<AL API key>')
+                    # Add the IOC to our list of collected IOCs
+                    COLLECTED_IOCS[tag_name].append(tag_value)
 
 
-# Choose a submission ID that we will use to pull IOCs from
-SID = '<sid>'
+        # Now that we have gathered the IOCs, let's print them to the screen
+        pprint(COLLECTED_IOCS)
+        ```
+    === "Python: Using `requests`"
+        ```python
+        import requests
+        import json
+        import os
+        from pprint import pprint
 
-# The result of this exercise will be stored in this variable
-COLLECTED_IOCS = dict()
+        headers = {
+            "x-user": os.getenv('AL_USER', '<AL user>'),
+            "x-apikey": os.getenv('AL_APIKEY', '<AL API key>'),
+            "accept": "application/json"
+        }
 
-# This is the connection to the Assemblyline client that we will use
-client = get_client(f"https://{AL_HOST}:443", apikey=(AL_USER, AL_APIKEY), verify=False)
+        # Choose a submission ID that we will use to pull IOCs from
+        SID = '<sid>'
 
-# client.ontology.submission(<sid>) --> /api/v4/ontology/submission/<sid>/
-for record in client.ontology.submission(SID):
-    for tag_name, tag_values in record['results']['tags'].items():
-        if tag_name.startswith('network'):
-            # Create the tag category if does not exist
-            COLLECTED_IOCS.setdefault(tag_name, [])
+        # The result of this exercise will be stored in this variable
+        COLLECTED_IOCS = dict()
 
-            # Add the IOC to our list of collected IOCs
-            COLLECTED_IOCS[tag_name].extend(tag_values)
+        # This is the connection to the Assemblyline client that we will use
+        host = f"https://{os.getenv('AL_HOST', '<AL URL>')}:443"
 
-# Now that we have gathered the IOCs, let's print them to the screen
-pprint(COLLECTED_IOCS)
-```
+        # client.submission.summary(<sid>) --> /api/v4/submission/summary/<sid>/
+        data = requests.get(f"{host}/api/v4/submission/summary/{SID}/", headers=headers, verify=False).content
+        summary = json.loads(data)["api_response"]
+        for tag_name, tag_values in summary["tags"]["ioc"].items():
+            for tag_value, tag_verdict, is_tag_safelisted, classification in tag_values:
+                if tag_name.startswith('network'):
+                    # Create the tag category if does not exist
+                    COLLECTED_IOCS.setdefault(tag_name, [])
 
-### Option #2b (using Ontology API) with the Python Requests library
+                    # Add the IOC to our list of collected IOCs
+                    COLLECTED_IOCS[tag_name].append(tag_value)
 
-```python
-import requests
-import json
-import os
-from pprint import pprint
+        # Now that we have gathered the IOCs, let's print them to the screen
+        pprint(COLLECTED_IOCS)
+        ```
 
-headers = {
-    "x-user": os.getenv('AL_USER', '<AL user>'),
-    "x-apikey": os.getenv('AL_APIKEY', '<AL API key>'),
-    "accept": "application/json"
-}
+=== "Using Ontology API"
+    === "Python: Using `assemblyline_client`"
+        ```python
+        import os
+        from pprint import pprint
+        from assemblyline_client import get_client
 
-# Choose a submission ID that we will use to pull IOCs from
-SID = '<sid>'
+        AL_HOST = os.getenv('AL_HOST', '<AL URL>')
+        AL_USER = os.getenv('AL_USER', '<AL user>')
+        AL_APIKEY = os.getenv('AL_APIKEY', '<AL API key>')
 
-# The result of this exercise will be stored in this variable
-COLLECTED_IOCS = dict()
 
-# This is the connection to the Assemblyline client that we will use
-host = f"https://{os.getenv('AL_HOST', '<AL URL>')}:443"
+        # Choose a submission ID that we will use to pull IOCs from
+        SID = '<sid>'
 
-# Option 2: Get IOCs from the ontology API
-# client.ontology.submission(<sid>) --> /api/v4/ontology/submission/<sid>/
-data = requests.get(f"{host}/api/v4/ontology/submission/{SID}/", headers=headers, verify=False).content
-ontology = [json.loads(line) for line in data.splitlines()]
-for record in ontology:
-    for tag_name, tag_values in record['results']['tags'].items():
-        if tag_name.startswith('network'):
-            # Create the tag category if does not exist
-            COLLECTED_IOCS.setdefault(tag_name, [])
+        # The result of this exercise will be stored in this variable
+        COLLECTED_IOCS = dict()
 
-            # Add the IOC to our list of collected IOCs
-            COLLECTED_IOCS[tag_name].extend(tag_values)
+        # This is the connection to the Assemblyline client that we will use
+        client = get_client(f"https://{AL_HOST}:443", apikey=(AL_USER, AL_APIKEY), verify=False)
 
-# Now that we have gathered the IOCs, let's print them to the screen
-pprint(COLLECTED_IOCS)
-```
+        # client.ontology.submission(<sid>) --> /api/v4/ontology/submission/<sid>/
+        for record in client.ontology.submission(SID):
+            for tag_name, tag_values in record['results']['tags'].items():
+                if tag_name.startswith('network'):
+                    # Create the tag category if does not exist
+                    COLLECTED_IOCS.setdefault(tag_name, [])
+
+                    # Add the IOC to our list of collected IOCs
+                    COLLECTED_IOCS[tag_name].extend(tag_values)
+
+        # Now that we have gathered the IOCs, let's print them to the screen
+        pprint(COLLECTED_IOCS)
+        ```
+    === "Python: Using `requests`"
+        ```python
+        import requests
+        import json
+        import os
+        from pprint import pprint
+
+        headers = {
+            "x-user": os.getenv('AL_USER', '<AL user>'),
+            "x-apikey": os.getenv('AL_APIKEY', '<AL API key>'),
+            "accept": "application/json"
+        }
+
+        # Choose a submission ID that we will use to pull IOCs from
+        SID = '<sid>'
+
+        # The result of this exercise will be stored in this variable
+        COLLECTED_IOCS = dict()
+
+        # This is the connection to the Assemblyline client that we will use
+        host = f"https://{os.getenv('AL_HOST', '<AL URL>')}:443"
+
+        # Option 2: Get IOCs from the ontology API
+        # client.ontology.submission(<sid>) --> /api/v4/ontology/submission/<sid>/
+        data = requests.get(f"{host}/api/v4/ontology/submission/{SID}/", headers=headers, verify=False).content
+        ontology = [json.loads(line) for line in data.splitlines()]
+        for record in ontology:
+            for tag_name, tag_values in record['results']['tags'].items():
+                if tag_name.startswith('network'):
+                    # Create the tag category if does not exist
+                    COLLECTED_IOCS.setdefault(tag_name, [])
+
+                    # Add the IOC to our list of collected IOCs
+                    COLLECTED_IOCS[tag_name].extend(tag_values)
+
+        # Now that we have gathered the IOCs, let's print them to the screen
+        pprint(COLLECTED_IOCS)
+        ```
