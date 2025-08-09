@@ -20,6 +20,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.highlight
   - pymdownx.superfences
+  - md_in_html
   - admonition
   - def_list
   - pymdownx.tasklist:
@@ -235,6 +236,7 @@ theme:
     - navigation.top
   icon:
     repo: fontawesome/brands/github
+    annotation: material/arrow-right-circle
   language: en
   logo: images/crane.png
   name: material
