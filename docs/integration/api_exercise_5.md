@@ -39,7 +39,7 @@ POST /api/v4/ingest/
 === "Using Submit API"
     ```bash
     # Send a file for live processing using CURL
-    # ** API to use: /api/v4/submit/
+    # ** API to use: /api/v4/submit/ (POST)
     echo "Send to submit API:"
     curl -s -k -X POST https://$AL_HOST/api/v4/submit/ \
         -H "x-user: ${AL_USER}" \
