@@ -17,4 +17,4 @@ jobs:
       - name: Wait for server to be ready (optional, for robustness)
         run: sleep 15 # Adjust sleep duration as needed
       - name: Check for broken links
-        run: linkchecker http://localhost:8000 -o failures --timeout=1 -r=2 --no-status --no-warnings --check-extern --ignore-url="http(s)?://(localhost|yourdomain|platform.openai.com)/.*"
+        run: linkchecker http://localhost:8000 -o failures --timeout=5 -r=2 --no-status --no-warnings --check-extern --ignore-url="http(s)?://(localhost|yourdomain|platform.openai.com)/.*"
