@@ -236,7 +236,7 @@ theme:
     - navigation.top
   icon:
     repo: fontawesome/brands/github
-    annotation: material/arrow-right-circle
+    annotation: material/information-outline
   language: en
   logo: images/crane.png
   name: material
