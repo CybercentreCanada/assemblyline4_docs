@@ -14,5 +14,7 @@ jobs:
         run: pip install mkdocs-material mkdocs-static-i18n mkdocs-glightbox linkchecker
       - name: Startup local instance of documentation
         run: mkdocs serve &
+      - name: Wait for server to be ready (optional, for robustness)
+        run: sleep 15 # Adjust sleep duration as needed
       - name: Check for broken links
         run: linkchecker http://localhost:8000 -o failures --no-status --check-extern --ignore-url="http(s)?://(localhost|yourdomain)/.*"
