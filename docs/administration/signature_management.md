@@ -8,9 +8,10 @@ Assemblyline's signature management interface lets you:
 4. Set the status of a specific signature
 5. Remove signatures from the system
 
-You can find the signature management interface by clicking *Manage* then the *Signatures* menu from the navigation bar.
+You can find the signature management interface by clicking *Manage* then the *Signatures* menu from the navigation bar. (1)
+{ .annotate}
 
-![Signature management](./images/signature_management.PNG){: .center }
+1. ![Signature management](./images/signature_management.PNG){: .center }
 
 !!! warning
     You cannot add new signatures to the system via this interface. Instead, Assemblyline has a [source management](../source_management) interface which lets you add a variety of external sources to fetch signatures from. The updater of the different services takes care of loading the source URLs and the new signature(s) into the system. It will also sync existing signatures that have changed since the last import.
@@ -23,12 +24,12 @@ The first page you will be taken to when loading the signature management interf
 
 From this interface you can:
 
-1. Page through the different signatures from the list
-2. Filter the displayed signatures with the search bar
+1.  Page through the different signatures from the list
+2.  Filter the displayed signatures with the search bar
     * Assemblyline signatures can be searched using a Lucene query. As you start typing in the search box, the system will suggest fields that you can search into.
     * You can also use the quick filter buttons for pre-defined searches. These pre-defined searches will help you get started with writing more complex signature searches.
-3. Download the currently viewed signature set with the download arrow on the top right
-4. View the detail of a signature by clicking on it
+3.  Download the currently viewed signature set with the download arrow on the top right
+4.  View the detail of a signature by clicking on it
 
 ## Signature detail
 
@@ -46,10 +47,10 @@ This page will show you the following information:
 
 On the top right, it will also show actions on the signature:
 
-1. You can hit the search button to find all instances where that signature hits in the system
-2. Use the red delete button to delete the signature from the system
+1.  You can hit the search button to find all instances where that signature hits in the system
+2.  Use the red delete button to delete the signature from the system
     * If the signature is still present in the source where it was retrieved, it will be re-added on the next update. In this case, you should disable the signature instead.
-3. Change the state of a signature
+3.  Change the state of a signature
 
 ### Changing the signature state
 
@@ -57,13 +58,14 @@ Signature states are synced with the source they are coming from but the state i
 
 There are three different signature states: **Deployed**, **Noisy**, and **Disabled**
 
-* **Deployed**:
+*   **Deployed**:
     * *Deployed* will be used for detection and will generate a score depending on how the service handles these types of signatures
-* **Noisy:**
+*   **Noisy:**
     * *Noisy* will be used for detection but rules with these states will not affect the score of the file
-* **Disabled:**
+*   **Disabled:**
     * *Disabled* signatures are completely ignored in the system and the service will not even realize that these signatures exist
 
-You can change the signatures by clicking the current signature state in the signature detail view. This will bring up the state-changing modal window which will let you pick a new state for the current rule.
+You can change the signatures by clicking the current signature state in the signature detail view. This will bring up the state-changing modal window which will let you pick a new state for the current rule. (1)
+{ .annotate }
 
-![Change signature state](./images/change_state.PNG){: .center }
+1. ![Change signature state](./images/change_state.PNG){: .center }

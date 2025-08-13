@@ -30,12 +30,14 @@ The setup script assumes the following:
 ## Installation instruction
 
 Create your repository directory
+
 ```shell
 mkdir -p ~/git
 cd ~/git
 ```
 
 Clone repository
+
 ```shell
 git clone https://github.com/CybercentreCanada/assemblyline-development-setup alv4
 ```

@@ -14,9 +14,11 @@ This section of the service documentation will show you how to run your service 
     3. Whether you are using VSCode or PyCharm as your IDE, you have a virtual environment dedicated to running services either located at `~/git/services/venv` or `~/venv/services` on the VM where the code runs
 
 ## Standalone mode
+
 To test an Assemblyline service in standalone mode, the `run_service_once` module from the [assemblyline-v4-service](https://pypi.org/project/assemblyline-v4-service/) package can be used to run a single task through the service for testing.
 
 ### Running the Sample service
+
 Load the virtual environment
 
 ```shell
@@ -101,6 +103,7 @@ It will look something like this:
 Using the standalone mode via `run_service_once` is going to help quickly catch any bug, but won't allow you to see the UI elements.
 
 ## Live mode
+
 The following technique is how to hook in a service to an Assemblyline development instance so you can perform live debugging and you can send files to your service using the Assemblyline UI.
 
 The way to run a service in debug mode will differ depending on if you've been using VSCode or PyCharm as your IDE. Follow the appropriate documentation for your current setup:
@@ -120,6 +123,7 @@ The way to run a service in debug mode will differ depending on if you've been u
 If you don't plan on doing any debugging and you just want to run the service live in your development environment, you can just spin up two shells and run `Task Handler` in one and your `Sample service` in the other.
 
 #### Task Handler
+
 ```shell
 # Load your service virtual environment
 source ~/git/services/venv/bin/activate
@@ -146,6 +150,7 @@ SERVICE_PATH=result_sample.Sample python -m assemblyline_v4_service.run_service
 When you are confident your service is stable enough, it is time to test it in its final form: A Docker container.
 
 ### Build the container
+
 Change working directory to root of the service:
 
 ```bash
@@ -159,6 +164,7 @@ docker build -t testing/assemblyline-service-sample .
 ```
 
 ### Run the container LIVE
+
 The way to run a container LIVE in your development environment differs depending on if you've been using VSCode or PyCharm as your IDE. Follow the appropriate documentation for your current setup:
 
 * [Run a single container in VSCode](../../env/vscode/use_vscode/#resultsample)
@@ -171,9 +177,11 @@ The way to run a container LIVE in your development environment differs dependin
     2. The correct container name (`testing/assemblyline-service-sample`)
 
 #### Run container from a shell
+
 If you don't want to use the IDE to test your production container, you can always run it straight from a shell.
 
 Use the following command to run it:
+
 ```shell
 docker run --env SERVICE_API_HOST=http://`ip addr show docker0 | grep "inet " | awk '{print $2}' | cut -f1 -d"/"`:5003 --network=host --name SampleService testing/assemblyline-service-sample
 ```
@@ -201,10 +209,10 @@ docker push --all-tags localhost:32000/testing/assemblyline-service-sample
 
 #### Add the service in the management interface
 
-1. Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace localhost by your VM's IP)
-2. Click the `Add service` button
-3. Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
+1.  Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace localhost by your VM's IP)
+2.  Click the `Add service` button
+3.  Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
     * If you are using the local registry from this documentation, change the `${REGISTRY}` from the content of `service_manifest.yml` to `172.17.0.1:32000/`
-4. Click the `Add` button
+4.  Click the `Add` button
 
 Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.

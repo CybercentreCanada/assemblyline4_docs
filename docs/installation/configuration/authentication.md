@@ -396,8 +396,6 @@ Here is an exhaustive configuration block that explains every single parameter f
                     groups_id_token_field: null
     ```
 
-
-
 OpenID Connect (OIDC) Providers have a [configuration endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest) that can be used to automatically configure `api_base_url`, `jwks_url`, `access_token_url`, and `authorize_url`.
 You can set the value of `openid_connect_discovery_url` to this configuration endpoint and Assemblyline will automatically configure the other URLs.
 
@@ -468,8 +466,8 @@ You also need to provide the client ID, client secret and the Keycloak configura
                   groups_id_token_field: groups
     ```
 
-
 ### SAML Authentication
+
 The configuration block at `auth.saml` allows you to add authentication with your SAML server.
 
 Here is an example configuration block to add to your configuration file that will allow you to connect to the [BoxyHQ's MockSAML](https://github.com/boxyhq/mock-saml) server.

@@ -1,8 +1,9 @@
 # Source Management
 
-You can access the source management interface by selecting "*Update Sources*" in the navigation menu.
+You can access the source management interface by selecting "*Update Sources*" in the navigation menu. (1)
+{ .annotate }
 
-![Source management](./images/bar.png){: .center }
+1. ![Source management](./images/bar.png){: .center }
 
 The source management interface will list all services that support external sources and will show you the various sources currently configured in the system.
 
@@ -10,7 +11,7 @@ The source management interface will list all services that support external sou
 
 Here is where you can add sources for services that consume signatures or the safelist. In the above screenshot, you can see that the Sigma and Suricata services have configured sources where they ingest rules from.
 
-On this page, you can manually pull signatures from sources, add new sources, synchronize signatures on your system based on their source or view all signatures from a source. 
+On this page, you can manually pull signatures from sources, add new sources, synchronize signatures on your system based on their source or view all signatures from a source.
 
 When signature synchronization is enabled with a remote source, this allows the system to auto-disable signatures no longer found in source (ie. a source may decide to remove a bad signature from their corpus). This feature is intended for services that will contribute to indices in Elasticsearch such as `badlist`, `safelist`, and `signature` but this flag could have meaning to updates that don't use Elasticsearch for persistence depending on its implementation.
 
@@ -29,17 +30,17 @@ Both options will bring you to an interface that looks like this:
 
 The following sections are <ins>required</ins> to add/modify a signature source in Assemblyline:
 
--	***URI***
+-   ***URI***
     - This is the path to your sources. In this case, we will use a GitHub repository.
     - The URI section also accepts HTTP URLs as input.
--	***Source Name***
+-   ***Source Name***
     - This can be labeled at the user’s discretion. For this example, we have used REVERSING_LABS_EXAMPLE.
     - Please note that input for "Source Name" <ins>***must not***<ins> have any spaces.
 
 ### Optional input
 
 -   ***Pattern***
-    - The user may add a regex pattern to pull certain file types for a particular service. In this example,
+    -   The user may add a regex pattern to pull certain file types for a particular service. In this example,
     only `.yara` or `.yar` files will be added as signatures.
 -   ***Username / Password***
     - This is the username and password for the URL or git repository that you are targeting.
@@ -52,8 +53,8 @@ The following sections are <ins>required</ins> to add/modify a signature source 
 
 There are alternate ways that the system administrator can use to modify the signatures in the system:
 
--    Before loading the service into Assemblyline
--    Inside the service management interface
+- Before loading the service into Assemblyline
+- Inside the service management interface
 
 ### Option 1 - Before loading the service
 
@@ -84,15 +85,14 @@ The updater can be configured through the `service_manifest.yml`, which is in th
 
 ### Option 2 - Inside the service management interface
 
--   You can find the service management interface by clicking the *Administration* topic then choose *Services* subtopic.
+<div class="annotate" markdown>
+-   You can find the service management interface by clicking the *Administration* topic then choose *Services* subtopic. (1)
+- Click on the relevant service that you wish to update.
+- Navigate to the "*Updates*" tab.
+- You can change any value related to the updates in this section.
+</div>
 
-![Service management](./images/services_bar.png){: .center }
-
--   Click on the relevant service that you wish to update.
--   Navigate to the "*Updates*" tab.
--   You can change any value related to the updates in this section.
-
-![Service updater](./images/updater.PNG)
+1. ![Service updater](./images/updater.PNG)
 
 !!! tip
     The source update interface in this section is like the Source management page although there are a few added options for:

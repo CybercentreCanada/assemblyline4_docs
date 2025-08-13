@@ -67,8 +67,8 @@ Assemblyline uses a bunch of containers running on different hosts that need liv
 
 Assemblyline instantiates connection to two different Redis instances:
 
-- **_Redis persistent_**: Journal file backed-up database on a persistent drive, even if the system crashes or reboots, the content of this Redis version is always available.
-- **_Redis volatile_**: In-memory instance is much faster to interface with but if the Redis volatile container crashes or restarts, all its content is lost.
+- ***Redis persistent***: Journal file backed-up database on a persistent drive, even if the system crashes or reboots, the content of this Redis version is always available.
+- ***Redis volatile***: In-memory instance is much faster to interface with but if the Redis volatile container crashes or restarts, all its content is lost.
 
 We have a wide range of supported data types to account for various scenarios:
 
@@ -108,16 +108,16 @@ Assemblyline doesn't just analyze files for malicious content; it can also funct
 
 Alerts are created based on [Post-Process actions](../submission_actions) that define what constitutes an alert (default: a file with a score over 500). Here's how the alert generation process works step by step:
 
-1. **Submission Scoring and Rule Evaluation**:
+1.  **Submission Scoring and Rule Evaluation**:
     - While the [Dispatcher](#dispatcher) writes results for a submission, it evaluates rules to determine if an alert should be generated.
 
-2. **Alert Message Creation**:
+2.  **Alert Message Creation**:
     - If the criteria for an alert are met, the Dispatcher writes a message to Redis' persistent database to generate an alert for the submission.
 
-3. **Alerter Component**:
+3.  **Alerter Component**:
     - The Alerter component picks up this message from Redis and converts the related submission and its results into an alert, saving the alert in the Datastore.
 
-4. **Workflow Component**:
+4.  **Workflow Component**:
     - The Workflow component processes newly created alerts, applying labels, priority, and status to alerts that match user-defined workflow queries.
 
 ![The alerting process](./images/alerting.png)

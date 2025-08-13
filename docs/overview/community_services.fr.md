@@ -5,7 +5,7 @@ La communauté d'Assemblyline travaille fort pour améliorer cet outil à détec
 Cette page contient la liste de services crée et partagé avec le publique.
 
 !!! warning "Attention"
-Ces services ne sont pas gèrer par l'équipe d'Assemblyline, nous vous invitons à faire une revue de leur code pour vous assurez d'être confortable avec ce qu'ils font avant de les utilisés dans vôtre système.
+    Ces services ne sont pas gèrer par l'équipe d'Assemblyline, nous vous invitons à faire une revue de leur code pour vous assurez d'être confortable avec ce qu'ils font avant de les utilisés dans vôtre système.
 
 ## Liste de services (anglais seulement)
 
@@ -26,35 +26,36 @@ Ces services ne sont pas gèrer par l'équipe d'Assemblyline, nous vous invitons
 
 ## Construire un service de la communauté
 
-1. Obtenir le code source du service
-2. Modifiez le manifeste du service et assurez-vous que les éléments suivants sont définis
+1.  Obtenir le code source du service
+2.  Modifiez le manifeste du service et assurez-vous que les éléments suivants sont définis
 
-```yaml
-version: $SERVICE_TAG
----
-docker_config:
-  image: ${REGISTRY}<service_container_image>:$SERVICE_TAG
-```
+    ```yaml
+    version: $SERVICE_TAG
+    ...
+    docker_config:
+      image: ${REGISTRY}<service_container_image>:$SERVICE_TAG
+    ```
 
-3. Créez une image et transférez-la vers votre registre local:
+3.  Créez une image et transférez-la vers votre registre local:
 
-??? warning "Attention"
-Il est fortement recommandé de baliser les images de service en suivant le format Assemblyline. Sinon, le système désactivera votre service car il le jugera incompatible avec le reste des composants.
+    ??? warning "Attention"
+        Il est fortement recommandé de baliser les images de service en suivant le format Assemblyline. Sinon, le système désactivera votre service car il le jugera incompatible avec le reste des composants.
 
-    Les versions de service doivent suivre le format « A.B.C.(dev|stable).D », où :
+        <!-- markdownlint-disable MD046 -->
+        Les versions de service doivent suivre le format `A.B.C.(dev|stable).D`, où :
 
-    - « A, B » représentent respectivement la version du framework et du système.
-    - « C, D » peuvent être utilisés pour indiquer respectivement le majeur et le mineur d'un service.
-    - La partie « dev » ou « stable » de la balise doit indiquer l'état de la construction du service. Ceci est également pertinent pour fournir des mises à jour de service sous un certain canal.
+        - `A, B` représentent respectivement la version du framework et du système.
+        - `C, D` peuvent être utilisés pour indiquer respectivement le majeur et le mineur d'un service.
+        - La partie `dev` ou `stable` de la balise doit indiquer l'état de la construction du service. Ceci est également pertinent pour fournir des mises à jour de service sous un certain canal.
 
-Voici un exemple de build de service destiné à un déploiement Assemblyline exécutant la version 4.5.x.x :
+    Voici un exemple de build de service destiné à un déploiement Assemblyline exécutant la version 4.5.x.x :
 
-```bash
-docker build . -t <private_registry>/<service_container_image>:4.5.0.stable0 --build-arg version=4.5.0.stable0
-docker push <private_registry>/<service_container_image>:4.5.0.stable0
-```
+    ```bash
+    docker build . -t <private_registry>/<service_container_image>:4.5.0.stable0 --build-arg version=4.5.0.stable0
+    docker push <private_registry>/<service_container_image>:4.5.0.stable0
+    ```
 
-4. Ajoutez le contenu du manifeste de service à l'interface utilisateur ou utilisez l'API REST pour ajouter le service à Assemblyline.
+4.  Ajoutez le contenu du manifeste de service à l'interface utilisateur ou utilisez l'API REST pour ajouter le service à Assemblyline.
 
 ## Faire nous part de vos services
 

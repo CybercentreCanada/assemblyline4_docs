@@ -20,15 +20,16 @@ Client.search.stream.<index>()
 
 ## Expected Results
 
-```
+```text
 A directory containing downloaded files that scored >= 7000
 
 The downloaded files should have cART-encoding so that they do not trigger AV
 ```
 
 ## APIs Involved
+
 === "REST"
-    ```
+    ```text
     GET /api/v4/search/<index>/
     GET /api/v4/submission/full/<sid>/
     GET /api/v4/file/download/<sha256>/
@@ -41,6 +42,7 @@ The downloaded files should have cART-encoding so that they do not trigger AV
     ```
 
 ## Solutions
+
 === "Python: Using `assemblyline_client`"
     ```python
     import os

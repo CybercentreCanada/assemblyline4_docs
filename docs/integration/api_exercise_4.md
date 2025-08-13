@@ -10,13 +10,14 @@ In this exercise, we’re going to look for any alerts containing a network IoC 
 
 ## Expected Results
 
-```
+```text
 IoCs to be blocked are printed to console
 ```
 
 ## APIs Involved
+
 === "REST"
-    ```
+    ```text
     GET /api/v4/search/<index>/
     ```
 === "Python"
@@ -25,6 +26,7 @@ IoCs to be blocked are printed to console
     ```
 
 ## Solution
+
 ```python
 # Exercise #4: Alert monitoring and identify IOC for blocking
 

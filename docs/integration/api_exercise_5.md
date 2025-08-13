@@ -8,12 +8,13 @@ In previous exercises, we’ve shown that you can use the Assemblyline client or
 
 ## Expected Results
 
-```
+```text
 Send files to Assemblyline through Ingest/Submit API using cURL
 ```
 
 ## REST APIs Involved
-```
+
+```text
 POST /api/v4/submit/
 POST /api/v4/ingest/
 ```

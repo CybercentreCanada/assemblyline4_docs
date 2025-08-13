@@ -9,6 +9,7 @@ For this documentation, we will assume that you are working on a fresh installat
 ### Update VM
 
 Make sure Ubuntu is running the latest software
+
 ```shell
 sudo apt update
 sudo apt dist-upgrade
@@ -16,6 +17,7 @@ sudo snap refresh
 ```
 
 Reboot if needed
+
 ```shell
 sudo reboot
 ```
@@ -42,6 +44,7 @@ sudo apt-get install -yy python3-venv python3.9 python3.9-dev python3.9-venv lib
 ### Installing Docker
 
 Follow these simple commands to get Docker running on your machine:
+
 ```shell
 # Add Docker repository
 sudo apt-get update
@@ -56,9 +59,11 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 # Test Docker installation
 sudo docker run hello-world
 ```
+
 ### Installing docker-compose
 
 Installing docker-compose is done the same way on all Linux distros. Follow these simple instructions:
+
 ```shell
 # Install docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -171,6 +176,7 @@ sudo apt install -y git
 ### Clone core repositories
 
 Create the core working directory
+
 ```shell
 mkdir -p ~/git/alv4
 cd ~/git/alv4
@@ -217,11 +223,13 @@ python3.9 -m venv venv
 ```
 
 ## Setting up Services (Optional)
+
 If you plan on doing service development in PyCharm you will need a dedicated directory for services with its own virtual environment.
 
 ### Clone service repositories
 
 Create the service working directory
+
 ```shell
 mkdir -p ~/git/services
 cd ~/git/services
@@ -326,10 +334,10 @@ python3.9 -m venv venv
 
 ## Setup PyCharm for core
 
-1. Load PyCharm
+1.  Load PyCharm
     - Choose whatever configuration option you want until the `Welcome screen`
-2. Click the `Open` button
-3. Choose the `~/git/alv4` directory
+2.  Click the `Open` button
+3.  Choose the `~/git/alv4` directory
 
 !!! info
     Your Python interpreter shows as `No Interpreter` in the bottom right corner of the window, do the following:

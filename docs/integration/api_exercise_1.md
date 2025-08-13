@@ -15,8 +15,9 @@
 ```
 
 ## APIs Involved
+
 === "REST"
-    ```
+    ```text
     GET /api/v4/submission/summary/<sid>/
     GET /api/v4/ontology/submission/<sid>/
     ```

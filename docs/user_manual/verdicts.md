@@ -5,7 +5,7 @@ interpretation of the score that a file received upon analysis by a service.
 
 By default, the following score ranges are applied to certain verdicts:
 
-```
+```text
 -1000: safe
 0 - 299: informative
 300 - 699: suspicious
@@ -73,8 +73,8 @@ Since that is the highest scoring file in the submission, the overall submission
 
 ## How heuristic scores are assigned
 
-Heuristics in a service are assigned an arbitrary score by the service writer. 
-If the score of a heuristic is less than 500 (which would flag the file as suspicious), then the intention of the service writer is for this heuristic score to be compounded with the scores of other heuristics in the service result before the verdict of the file is deemed suspicious or worse. 
+Heuristics in a service are assigned an arbitrary score by the service writer.
+If the score of a heuristic is less than 500 (which would flag the file as suspicious), then the intention of the service writer is for this heuristic score to be compounded with the scores of other heuristics in the service result before the verdict of the file is deemed suspicious or worse.
 
 If the heuristic score is 1000 or above, then this heuristic is a high-confidence heuristic that can be trusted to flag a file as malicious with little to no false positives. Heuristics like these are found in signature-based services like AntiVirus, Intezer, ConfigExtractor, VirusTotal and Yara, to name a few.
 
@@ -86,7 +86,7 @@ Now that we have covered the fundamentals of scoring and where verdicts come fro
 
 > "HELP I HAVE A FILE THAT ASSEMBLYLINE SAYS IS MALICIOUS! I'VE BEEN COMPROMISED! NOOOOOOOOOOOOOO"
 
-1. First things first, stay calm. Assemblyline has been known to give false positive results in the past, and this could be an example of this. 
+1. First things first, stay calm. Assemblyline has been known to give false positive results in the past, and this could be an example of this.
 2. Dive into the details of the submission. Which file is being scored the highest in the "Files" section?
 3. Dive deeper into the analysis results for this file. Which services were scoring the highest? Remember, these scores would then be added together.
 4. Dive even deeper into the services that are scoring the highest. Which heuristics are scoring the highest? Based on their scores and how we know scores are arbitrarily assigned to heuristics by service writers, do we think they are accurate?

@@ -4,15 +4,15 @@ Assemblyline can do record-based access control for submission, files, results, 
 
 Once turned on, the classification engine will do the following changes to the system:
 
-* Users will have to be assigned a maximum classification level that they can see as well as the groups they are members of
-* Each submission to the system will have to have a classification level
-* The User Interface will:
-  * Show the effective classification of each submission, file, result, and result sections
-  * Have a dedicated help section that will explain how classification conflicts are resolved
-  * Let you pick a classification while submitting a file
-  * Automatically hide portions of the result for a user that does not have enough privileges to see them
+*   Users will have to be assigned a maximum classification level that they can see as well as the groups they are members of
+*   Each submission to the system will have to have a classification level
+*   The User Interface will:
+    * Show the effective classification of each submission, file, result, and result sections
+    * Have a dedicated help section that will explain how classification conflicts are resolved
+    * Let you pick a classification while submitting a file
+    * Automatically hide portions of the result for a user that does not have enough privileges to see them
 
-# Configuration
+## Configuration
 
 The classification engine has many parameters that can be customized so you can get record-based access controls that fit your organization.
 
@@ -180,7 +180,7 @@ Here is an exhaustive configuration file of the classification engine that expla
     unrestricted: TLP:C
     ```
 
-# Enabling it in your system
+## Enabling it in your system
 
 By default, the classification engine is disabled in the system, but it can easily be enabled by creating a new config map in Kubernetes.
 

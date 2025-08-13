@@ -3,6 +3,7 @@ As of version 4.3.0 of the Assemblyline helm chart, we'll start using Elasticsea
 To migrate your system to the newest version of the chart and Elasticsearch, take note of the following before performing the upgrade:
 
 ### Elasticsearch (datastore/log-storage)
+
 If you're using an exact copy-and-paste of the `values.yaml` with some modifications, note the following (`datastore` will be used as an example):
 
 !!! note "Upgrading `log-storage` configuration for internal TLS/SSL involves different environment variables (`DATASTORE_*` → `LOGGING_*`)"
@@ -42,11 +43,12 @@ datastore:
       # xpack.security.http.ssl.certificate: ${DATASTORE_SSL_CERTIFICIATE}
 ```
 
-
 ### Kibana
+
 As of Elastic v8, Kibana isn't allowed to use the local superuser to authenticate with the cluster. As a result, we've created a job that will generate a service account token that Kibana will use instead.
 
 This will involve creating a new secret in the Assemblyline namespace:
+
 ```yaml
 # Initalizes secret with a temporary value, will be replaced by job upon helm (install|upgrade)
 apiVersion: v1
@@ -58,11 +60,13 @@ stringData:
 ```
 
 Using the following command:
+
 ```bash
 kubectl create secret generic kibana-service-token --from-literal=token="" -n <al_ns>
 ```
 
 As well as the following changes to the Kibana chart values:
+
 ```yaml
 kibana:
 ...
@@ -83,6 +87,7 @@ kibanaConfig:
 No changes should be required for Beats, Logstash, and APM server
 
 ### Upgrade Checklist
+
 - [x] (Optional) Pause system processing using the toggles on the Ingestion & Dispatch cards in the Dashboard view
 - [x] Update Elasticsearch configuration(s) in `values.yaml`
 - [x] Create a new Secret for Kibana's service token with `""` value

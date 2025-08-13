@@ -7,22 +7,17 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "taskExplorer.enableAnsiconForAnt": false,
-    "taskExplorer.enableAnt": false,
-    "taskExplorer.enableAppPublisher": false,
-    "taskExplorer.enableBash": false,
-    "taskExplorer.enableBatch": false,
-    "taskExplorer.enableExplorerView": true,
-    "taskExplorer.enableGradle": false,
-    "taskExplorer.enableGrunt": false,
-    "taskExplorer.enableGulp": false,
-    "taskExplorer.enableMake": false,
-    "taskExplorer.enableNpm": false,
-    "taskExplorer.enableNsis": false,
-    "taskExplorer.enablePerl": false,
-    "taskExplorer.enablePowershell": false,
-    "taskExplorer.enablePython": false,
-    "taskExplorer.enableRuby": false,
-    "taskExplorer.enableSideBar": true,
-    "taskExplorer.enableTsc": false
+    "markdownlint.configFile": ".markdownlint.yaml",
+    "markdownlint.lintWorkspaceGlobs": [
+        "**/*.{md,mkd,mdwn,mdown,markdown,markdn,mdtxt,mdtext,workbook}",
+        "!**/*.code-search",
+        "!**/bower_components",
+        "!**/node_modules",
+        "!**/.git",
+        "!**/vendor",
+        "!**/odm/**"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.markdownlint": "explicit"
+    }
 }

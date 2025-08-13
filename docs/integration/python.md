@@ -4,7 +4,7 @@ The [Assemblyline Python client](https://pypi.org/project/assemblyline-client/) 
 
 ## Installing the client
 
-```
+```bash
 pip install assemblyline_client
 ```
 
@@ -74,6 +74,7 @@ You can instantiate the client by using the following snippet of Python code:
 ## Examples
 
 ### Submit a file, URL or SHA256 for analysis
+
 There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis: [**Ingest** and **Submit**](../ingestion_method).
 
 !!! attention "In most cases, you want to use the Ingest API via the CLI"
@@ -120,10 +121,11 @@ There are two methods for sending a file/URL/SHA256 to Assemblyline for analysis
 !!! tip "For submitting a SHA256 instead of a file, use the `sha256` argument instead of `path`. You may use external sources with `params={"default_external_sources":["VirusTotal","Malware Bazaar"]}`"
 
 #### Ingest
+
 The Ingest API supports two additional functionalities over the Submit API:
 
-* By passing the argument `alert=True`, the system will generate an alert if the score is over 500
-* By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has been completed
+*   By passing the argument `alert=True`, the system will generate an alert if the score is over 500
+*   By passing the argument `nq='notification_queue_name'`, you can use the client to poll a notification queue for a message indicating if the analysis has been completed
     * If you don't need to know when the analysis completes, then you can omit the `nq` argument and ignore the subsequent code that interacts with the notification queue
 
 ```python
@@ -141,29 +143,36 @@ while True:
 ```
 
 #### Submit
+
 ```python
 submit_results = al_client.submit(path='/pathto/file.txt', fname='fname', params=settings, metadata=my_meta)
 ```
 
 ##### Submission details
+
 To get the details about a submission, you simply need to pass the client a submission ID (sid)
+
 ``` python
 submission_details = al_client.submission("4nxrpBePQDLH427aA8m3TZ")
 ```
 
 ### Using search
+
 !!! tip "More details about [Search](../user_manual/searching.md)"
 
 You can use the search engine in the client by simply passing a Lucene query.
 
 In the following example, we want to retrieve the first page of submissions made by `user`:
+
 ``` python
 search_result = al_client.search.submission("params.submitter:user")
 ```
 
 #### Using search iterator
+
 Instead of using `search` and getting a page of results, you can use the `search` iterator `stream` to go through all the results.
 !!! tip "Streamed results only return indexed fields. If you want the full result, you must go get it via the client"
+
 ``` python
 for submission in al_client.search.stream.submission("params.submitter:user"):
     submission_id = submission["sid"]
@@ -171,19 +180,25 @@ for submission in al_client.search.stream.submission("params.submitter:user"):
 ```
 
 #### Using search parameters
+
 In the following example, we want to retrieve the first page of submissions that were submitted in the last week, and we only want the submission IDs:
+
 ``` python
 submission_results = al_client.search.submission('times.submitted:[now-7d TO now]', fl='sid')
 ```
+
 !!! tip "`fl` defaults to a list of predefined fields that we deemed important; you may use `fl="*"` to get all fields. You can view the fields that we deem important under the 'Search Help' page on your Assemblyline instance. These fields have a `stored` attribute."
 
 #### Using facet searching
+
 In the following example, we want to retrieve the users who have made submissions in the last week, and the number of submissions that they have made:
+
 ``` python
 submission_results = al_client.search.facet.submission('params.submitter', query='times.submitted:[now-7d TO now]')
 ```
 
 ## Using the Command line Tool
+
 By installing the `assemblyline_client` PIP package, a command line tool `al-submit` is installed.
 In case you don't want to use Python code to interface with the Assemblyline client, you can use this tool instead.
 You can view the user options via `al-submit --help`.

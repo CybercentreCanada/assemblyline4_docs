@@ -158,12 +158,12 @@ In your service directory, create a file named `Dockerfile` with the following c
 The Dockerfile is required to build a Docker container. When developing a Docker container for an Assemblyline service,
 the following must be ensured:
 
-- The parent image must be `cccs/assemblyline-v4-service-base:stable` so you are using a stable build of service base.
-- An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
+-   The parent image must be `cccs/assemblyline-v4-service-base:stable` so you are using a stable build of service base.
+-   An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
 class which inherits from the `ServiceBase` class.
-- Any dependency installation must be completed as the `root` user, which is set by default in the parent image. Once all
+-   Any dependency installation must be completed as the `root` user, which is set by default in the parent image. Once all
 dependency installations have been completed, you must change the user to `assemblyline`.
-- The service code and any dependency files must be copied to the `/opt/al_service` directory.
+-   The service code and any dependency files must be copied to the `/opt/al_service` directory.
 
 ## Conclusion
 

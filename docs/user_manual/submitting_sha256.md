@@ -24,7 +24,7 @@ This behavior depends on your deployment configuration—see [`submission.sha256
 
 Access advanced submission options by clicking the "Tune" icon to open the "Adjust" panel. At the top, a banner indicates the level of customization privileges available to you. Users with the `submission_customize` role have the ability to modify all parameters, given that they understand the severe impact some parameters have on the system if miused.
 
-### Submission Parameters:
+### Submission Parameters
 
 - **Description**: Optionally provide a description for the analysis, or leave it blank to accept the default value set by the system.
 - **Priority**: Designate the submission's processing priority.
@@ -35,17 +35,17 @@ Access advanced submission options by clicking the "Tune" icon to open the "Adju
 - **Ignore recursion prevention**: Remove iteration limits for the submission.
 - **Perform deep analysis**: Engage thorough deobfuscation, recommended for confirmed malicious or highly suspicious files.
 
-### Submission Data:
+### Submission Data
 
 - **Decryption Password**: Quickly input a password for encrypted files, bypassing the need to provide it to individual services.
 
-### Service Parameters:
+### Service Parameters
 
 - **Service categories**: Choose a preset group of services.
 - **Specific service**: Manually select individual services for the analysis.
 - **Service parameters**: Fine-tune service-specific parameters by expanding their individual menus.
 
-### Submission Metadata:
+### Submission Metadata
 
 - **System Metadata**: Fill in required system-generated metadata fields.
 - **Extra Metadata**: For those with full customization abilities, all additional metadata fields are editable.

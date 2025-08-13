@@ -20,27 +20,27 @@ The submission section is where you can take action and submit files, URLs, or h
 
 <div class="annotate" markdown>
 
-- **Classification Picker** (1)
+-   **Classification Picker** (1)
     - Start by using the classification picker to set the appropriate classification level for your analysis.
     - Clicking the classification picker reveals the available options. (2)
 
-- **Submission Options** (3)
-    - Select the file or input the hash or URL you wish to analyze, then choose the type of analysis.
+-   **Submission Options** (3)
+    -   Select the file or input the hash or URL you wish to analyze, then choose the type of analysis.
         - To adjust the predefined submission settings, select the "Tune" icon to customize the parameters as permitted.
         - If you're checking for pre-existing entries in the system, use the "Search" icon to perform a search and link to any existing data.
-    - Submit your entry by clicking the 'Submit' button.
+    -   Submit your entry by clicking the 'Submit' button.
 
 </div>
 
-1.  ![Classification Picker](./images/classification_picker.png)
-2.  ![Expanded Classification Picker](./images/clicked_classification_picker.png)
-3.  ![Submission Options Section](./images/file_submit_options.png)
+1. ![Classification Picker](./images/classification_picker.png)
+2. ![Expanded Classification Picker](./images/clicked_classification_picker.png)
+3. ![Submission Options Section](./images/file_submit_options.png)
 
 For step-by-step submission instructions, please refer to the following guides:
 
-  - [Submitting a File](../../user_manual/submitting_file/)
-  - [Submitting a URL](../../user_manual/submitting_url/)
-  - [Submitting a SHA256 Hash](../../user_manual/submitting_sha256/)
+- [Submitting a File](../../user_manual/submitting_file/)
+- [Submitting a URL](../../user_manual/submitting_url/)
+- [Submitting a SHA256 Hash](../../user_manual/submitting_sha256/)
 
 ### Additional Features
 
@@ -48,17 +48,17 @@ Maximize your efficiency with these useful tools integrated into Assemblyline.
 
 <div class="annotate" markdown>
 
-- **Search Bar**: Quickly locate specific items or information using the intuitive search bar. Simply click on the bar or use the shortcut `Ctrl+k` to focus on it. (1)
+-   **Search Bar**: Quickly locate specific items or information using the intuitive search bar. Simply click on the bar or use the shortcut `Ctrl+k` to focus on it. (1)
 
-- **Notification Panel**: Stay up to date with alerts and notifications by clicking the bell icon. Here, you will find system-wide announcements, updates, and even RSS feed integrations. (2)
+-   **Notification Panel**: Stay up to date with alerts and notifications by clicking the bell icon. Here, you will find system-wide announcements, updates, and even RSS feed integrations. (2)
 
-- **User Menu**: Personalize your experience in Assemblyline by clicking your avatar, located in the top-right corner. From here, you can switch between English and French localizations or toggle between dark and light interface themes. (3)
+-   **User Menu**: Personalize your experience in Assemblyline by clicking your avatar, located in the top-right corner. From here, you can switch between English and French localizations or toggle between dark and light interface themes. (3)
 
 </div>
 
-1.  ![Search Bar](./images/search_bar.png)
-2.  ![Notification Panel](./images/notification_feed.png)
-3.  ![User Menu](./images/user_menu.png)
+1. ![Search Bar](./images/search_bar.png)
+2. ![Notification Panel](./images/notification_feed.png)
+3. ![User Menu](./images/user_menu.png)
 
 ## Account Management
 
@@ -78,9 +78,9 @@ Manage your engagement with Assemblyline's resources by understanding the quotas
 
 Security features in the "Manage Account" section help safeguard your presence in Assemblyline:
 
-- **Multi-Factor Authentication (MFA)**: Strengthen your account security by enabling MFA.
+-   **Multi-Factor Authentication (MFA)**: Strengthen your account security by enabling MFA.
 
-- **API Key Management**: Facilitate automated tasks by generating and managing API keys, which are crucial for scripting and tool integration with the Assemblyline API. To manage your keys, sign in, click your avatar, and go to "Manage Account." In the "Security" tab, find "Manage API Keys" to add, modify, or delete keys. For new keys, be sure to copy and securely store them immediately, as they will be shown only once.
+-   **API Key Management**: Facilitate automated tasks by generating and managing API keys, which are crucial for scripting and tool integration with the Assemblyline API. To manage your keys, sign in, click your avatar, and go to "Manage Account." In the "Security" tab, find "Manage API Keys" to add, modify, or delete keys. For new keys, be sure to copy and securely store them immediately, as they will be shown only once.
 
 ## Account Settings
 
@@ -93,6 +93,7 @@ Customize your Assemblyline experience by adjusting your account settings. Click
 Remember, "Cancel" and "Reset" will not submit any changes, whereas "Save" is required to make your changes permanent.
 
 ### Interface Options
+
 Tailor the Assemblyline user interface to suit your needs by configuring visual and file encoding settings:
 
 ![Account Settings Interface Options](./images/account_settings_interface_and_sources.png)
@@ -103,9 +104,10 @@ Tailor the Assemblyline user interface to suit your needs by configuring visual 
 
 </div>
 
-1.  ![File Encoding Settings](./images/file_encoding.png)
+1. ![File Encoding Settings](./images/file_encoding.png)
 
 ### Submission Profiles
+
 Choose from predefined Submission Profiles for your analyses. These profiles are crafted by system administrators to cater to various analysis needs. While personal profiles creation isn't permitted, users may adjust existing profile parameters according to their preferences.
 
 - **Days to Live**: Default retention duration for your submissions within the system.
@@ -114,6 +116,7 @@ Choose from predefined Submission Profiles for your analyses. These profiles are
 ![Submission Profile Settings](./images/account_settings_submission_options.png)
 
 #### Default Service Selection and Parameters
+
 Set your default service preferences if you regularly use specific services for submissions, streamlining your process:
 
 ![Default Service Selection](./images/default_service_selection.png)
@@ -146,18 +149,20 @@ Access a comprehensive view of all alerts on the "Alerts" page. This interface s
 ![Alerts view](./images/alerts.png)
 
 ### Filtering Alerts
+
 <div class="annotate" markdown>
 
-- When looking for specific alerts within Assemblyline, utilize the search bar at the interface's top or the general Search page. You can perform in-depth searches within the Alert index, honing in on security incidents by attributes such as threat indicators, classification, and timestamps. (1)
+-   When looking for specific alerts within Assemblyline, utilize the search bar at the interface's top or the general Search page. You can perform in-depth searches within the Alert index, honing in on security incidents by attributes such as threat indicators, classification, and timestamps. (1)
 
-- Set and access your favorite queries for repeated searches, saving you time and maintaining focus. (2)
+-   Set and access your favorite queries for repeated searches, saving you time and maintaining focus. (2)
 
-- Refine your search further by filtering query results, ensuring you concentrate on the most pressing alerts. (3)
+-   Refine your search further by filtering query results, ensuring you concentrate on the most pressing alerts. (3)
+
 </div>
 
-1.  ![Alerts filter](./images/alerts_filter.png)
-2.  ![Create a Favourite Alert Query](./images/favourite_alert.png)
-3.  ![Filter the query results](./images/alert_filter.png)
+1. ![Alerts filter](./images/alerts_filter.png)
+2. ![Create a Favourite Alert Query](./images/favourite_alert.png)
+3. ![Filter the query results](./images/alert_filter.png)
 
 ### Workflow Actions
 
@@ -167,14 +172,14 @@ There are two approaches on the Alerts page:
 
 <div class="annotate" markdown>
 
-1. **Create a Persistent New Workflow**: Click "Create a new workflow" to save a new named workflow within the system, applying it to future matching alerts. Manage these persistent workflows from the "Manage Workflows" page. (1)
+1.  **Create a Persistent New Workflow**: Click "Create a new workflow" to save a new named workflow within the system, applying it to future matching alerts. Manage these persistent workflows from the "Manage Workflows" page. (1)
 
-2. **Apply an Ephemeral Workflow Action Immediately**: Use "Workflow actions" for a one-time action applied to current alert matches; these are not saved as persistent workflows. (2)
+2.  **Apply an Ephemeral Workflow Action Immediately**: Use "Workflow actions" for a one-time action applied to current alert matches; these are not saved as persistent workflows. (2)
 
 </div>
 
-1.  ![Perform a workflow action on alerts](./images/alert_new_workflow.png)
-2.  ![Phishing invoice workflow example](./images/phishing_workflow_example.png)
+1. ![Perform a workflow action on alerts](./images/alert_new_workflow.png)
+2. ![Phishing invoice workflow example](./images/phishing_workflow_example.png)
 
 Workflows empower you to:
 
@@ -207,11 +212,11 @@ Alert detail view presents essential tools for triage analysts (1)
 - **Take Ownership**: Claim the alert for case management.
 - **Go to Related Submission**: Transition to connected submission details.
 - **Perform a Workflow Action**: Execute predefined actions on group alerts.
-- **Set Alert Verdict**: Overrule or confirm the system's threat assessment for accurate
+- **Set Alert Verdict**: Overrule or confirm the system's threat assessment for accurate reporting
 
 </div>
 
-1.  ![Alert Triage Buttons](./images/alert_triage_buttons.png)
+1. ![Alert Triage Buttons](./images/alert_triage_buttons.png)
 
 ### Navigating Alerts
 

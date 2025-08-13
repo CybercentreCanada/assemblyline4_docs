@@ -6,6 +6,7 @@
 This document will show you how to set up your target virtual machine for remote development which means that you will run your IDE on your desktop and run the Assemblyline containers on the remote target VM.
 
 ## On the target VM
+
 ### Operating system
 
 For this document, we will assume that you are working on a fresh installation of [Ubuntu 20.04 Server](https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-live-server-amd64.iso).
@@ -13,12 +14,14 @@ For this document, we will assume that you are working on a fresh installation o
 #### Update target VM
 
 Make sure Ubuntu is running the latest software
+
 ```shell
 sudo apt update
 sudo apt dist-upgrade
 ```
 
 Reboot if needed
+
 ```shell
 sudo reboot
 ```
@@ -28,6 +31,7 @@ sudo reboot
 #### Install SSH Daemon
 
 We need to make sure the remote target has an SSH daemon installed for remote debugging
+
 ```shell
 sudo apt update
 sudo apt install -y ssh
@@ -53,6 +57,7 @@ sudo apt-get install -yy python3-venv python3.9 python3.9-dev python3.9-venv lib
 #### Installing Docker
 
 Follow these simple commands to get Docker running on your machine:
+
 ```shell
 # Add Docker repository
 sudo apt-get update
@@ -67,9 +72,11 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 # Test Docker installation
 sudo docker run hello-world
 ```
+
 #### Installing docker-compose
 
 Installing `docker-compose` is done the same way on all Linux distributions. Follow these simple instructions:
+
 ```shell
 # Install docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -82,6 +89,7 @@ docker-compose --version
 ##### Securing Docker for remote access
 
 We are going to make your Docker server accessible from the internet. To make it secure, we need to enable TLS authentication in the Docker daemon. Anywhere that you see assemblyline.local, you can change that value to your own DNS name. If you're planning on using an IP, you'll have to set a `static IP` to the remote VM because your certificate (cert) will only allow connections to that IP.
+
 ```shell
 # Create a cert directory
 mkdir ~/certs
@@ -141,6 +149,7 @@ The archive file `~/certs/certs.tgz` will have to be transferred to your desktop
 #### Assemblyline folders
 
 Because Assemblyline uses its own set of folders inside the core, service-server, and UI container, we have to create the same folder structure here so that we can run the components in debug mode.
+
 ```shell
 sudo mkdir -p ~/git
 
@@ -154,9 +163,11 @@ sudo chown $USER /var/cache/assemblyline
 sudo chown $USER /var/lib/assemblyline
 sudo chown $USER /var/log/assemblyline
 ```
+
 #### Assemblyline dev configuration files
 
 Here we will create configuration files that match the default dev `docker-compose` configuration files so that we can swap any of the components to the one that is being debugged.
+
 ```shell
 echo "enforce: true" > /etc/assemblyline/classification.yml
 echo "
@@ -210,8 +221,8 @@ ui:
 
 We will make two Python virtual environments:
 
- - One for the core components
- - One for services
+- One for the core components
+- One for services
 
 That should be enough to cover most cases. If a service has conflicting dependencies with another, I suggest you create a separate virtualenv for it when you try to debug it. The core components should all be fine in the same environment.
 
@@ -277,6 +288,7 @@ sudo snap install --classic pycharm-professional
 ### Install Git
 
 You can get Git directly from [GIT](https://git-scm.com/downloads)'s website but if your desktop is running Ubuntu 20.04 you can just install it with `APT`:
+
 ```shell
 sudo apt install -y git
 ```
@@ -289,6 +301,7 @@ sudo apt install -y git
 #### Core components
 
 Create the core working directory
+
 ```shell
 mkdir -p ~/git/alv4
 cd ~/git/alv4
@@ -321,6 +334,7 @@ Clone Assemblyline's repositories
 #### Services (optional)
 
 Create the service working directory
+
 ```shell
 mkdir -p ~/git/services
 cd ~/git/services

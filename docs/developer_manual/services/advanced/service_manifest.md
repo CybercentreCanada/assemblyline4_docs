@@ -51,7 +51,6 @@ The table below shows all the elements that the manifest file can contain, inclu
 | ports | List\[Keyword\] | No | List of ports to bind from the container. |
 | ram_mb | Integer | No <br> Default: `1024` | Amount of RAM in MB that should be allocated to the container. |
 
-
 ## Environment variable
 
 | Field name | Value type | Required? | Description |
