@@ -9,7 +9,7 @@ Assemblyline's signature management interface lets you:
 5. Remove signatures from the system
 
 You can find the signature management interface by clicking *Manage* then the *Signatures* menu from the navigation bar. (1)
-{ .annotate}
+{ .annotate }
 
 1. ![Signature management](./images/signature_management.PNG){: .center }
 
