@@ -38,7 +38,7 @@ Prenons un fichier .zip comme exemple. Le fichier .zip peut avoir obtenu une not
 Signification de la note (en supposant que vous exécutez la plupart des services, dont certains antivirus et de bonnes signatures Yara) :
 
 ``` text
--1000: sans dangé
+-1000: sans danger
 0 - 299: information
 300 - 699: suspicieux
 700 - 999: très suspicieux

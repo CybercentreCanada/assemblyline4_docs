@@ -8,7 +8,7 @@ Les index d’information sont un des principaux concepts à approfondir. Ils pe
 
 Assemblyline dispose de six indices principaux:
 
--   **[Alerte](../odm/models/alert.md)**: Permet aux utilisateurs d'effectuer des recherches détaillées sur les alertes afin d'identifier et de hiérarchiser rapidement les incidents de sécurité, en tenant compte de divers attributs tels que les indicateurs de menace, la classification et les horodatages.
+-   **[Alerte](../odm/models/alert.md)**: Permet aux utilisateurs d'effectuer des recherches détaillées sur les alertes afin d'identifier et de prioriser rapidement les incidents de sécurité, en tenant compte de divers attributs tels que les indicateurs de menace, la classification et les horodatages.
 
 -   **[Fichier](../odm/models/file.md)**: Permet aux utilisateurs de rechercher des fichiers spécifiques dans une soumission, d'identifier les doublons et de recueillir des informations contextuelles sur les propriétés d'un fichier, telles que sa classification, son entropie et les valeurs de hachage observées.
 
