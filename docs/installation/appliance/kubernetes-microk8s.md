@@ -285,6 +285,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
 ## Get the Assemblyline chart to your administration computer
 
 ### Get the Assemblyline helm charts
+
 ```bash
 mkdir ~/git && cd ~/git
 git clone https://github.com/CybercentreCanada/assemblyline-helm-chart.git
@@ -312,7 +313,7 @@ The ```secret.yaml``` file in your deployment directory is preconfigured with de
 !!! warning
     Be sure to update any values as deemed necessary ie. FQDN
 
-## Deploy Assemblyline via Helm:
+## Deploy Assemblyline via Helm
 
 ### Create a namespace for your Assemblyline install
 
@@ -334,7 +335,7 @@ From this point on, you don't need the secrets.yaml file anymore. You should del
 rm ~/git/deployment/secrets.yaml
 ```
 
-### Finally, let's deploy Assemblyline's chart:
+### Finally, let's deploy Assemblyline's chart
 
 For documentation, we will use ```assemblyline``` as the deployment name.
 
@@ -348,10 +349,10 @@ sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyli
 !!! warning
     After you've ran the `helm install` command, the system has a lot of setting up to do (Creating database indexes, loading service, setting up default accounts, loading signatures ...). Don't expect it to be fully operational for at least the next 15 minutes.
 
-
 ## Updating the current deployment
 
 Once you have your Assemblyline chart deployed through helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
+
 ```bash
 sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
 ```
@@ -364,41 +365,28 @@ sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyli
 
 ## Quality of life improvements
 
-### FreeLens IDE
-If the computer on which your microk8s deployment is installed has a desktop interface, we strongly suggest that you use an IDE like FreeLens to manage the system
-
-#### Install FreeLens
-You'll have to fetch the appropriate installation file from [FreeLens releases](https://github.com/freelensapp/freelens/releases) and use your package manager to install manually:
-```bash
-# Ubuntu
-sudo snap install -y /path/to/FreeLens*.deb
-```
-
-If monitoring from a Windows system, Microsoft's SmartScreen will detect the file as being unrecognized and block execution. This can be resolved by checking 'Unblock' in the file's properties.
-
-#### Configure FreeLens
-After you run FreeLens for the first time, click the "Add cluster" menu/button, select the paste as text tab and paste the output of the following command:
-```bash
-sudo microk8s kubectl config view --raw
-```
+### [Cluster Management Tools](../../cluster/general#6-optional-cluster-management-tools)
 
 ### Sudoless access to MicroK8s
+
 MicroK8s require you to add sudo in front of every command, you can add your user to the microk8s group so you don't have to.
 
-```
+```bash
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 ```
 
 !!! warning "You will need to reboot for these changes to take effect"
     Temporarily, you can add the group to your current shell by running the following:
-    ```
+    ```bash
     newgrp microk8s
     ```
 
 ### Alias to Kubectl
+
 Since all is running inside microk8s you can create an alias to the kubectl command to make your life easier
-```
+
+```bash
 sudo snap alias microk8s.kubectl kubectl
 kubectl config set-context --current --namespace=al
 ```

@@ -2,22 +2,21 @@
 
 Assemblyline can be configured to take a number of actions with completed submissions. This can be because a submission has been processed, or because an ingested submission is completed as a cache hit. The following actions can be taken:
 
- - creating an alert
- - resubmitting the submission to more services
- - calling a webhook
+- creating an alert
+- resubmitting the submission to more services
+- calling a webhook
 
 The configuration of actions is under "Post-process actions" of the administration navigation menu of Assemblyline. The actions configuration is a yaml formatted dictionary with arbitrary keys and values formatted as [PostprocessingAction](../../odm/models/actions/#postprocessaction) objects.
 
-
 ## Selecting submissions for action
 
-Depending on the context where the submission is being tested for an action different terms are available for the Lucene query in the `filter` field. If only `run_on_completed` is set, the `filter` field may use any part of the [Submission](../../odm/models/submission/#submission) or [Tagging](../../odm/models/tagging/#tagging) objects where tag fields are prefixed with "tags.". When `run_on_cache` is set, irrespective of the value of `run_on_completed`, the search in `filter` may _only_ use the following fields:
+Depending on the context where the submission is being tested for an action different terms are available for the Lucene query in the `filter` field. If only `run_on_completed` is set, the `filter` field may use any part of the [Submission](../../odm/models/submission/#submission) or [Tagging](../../odm/models/tagging/#tagging) objects where tag fields are prefixed with "tags.". When `run_on_cache` is set, irrespective of the value of `run_on_completed`, the search in `filter` may *only* use the following fields:
 
- - `sid`
- - `max_score`
- - `files.*`
- - `metadata.*`
- - `params.*`
+- `sid`
+- `max_score`
+- `files.*`
+- `metadata.*`
+- `params.*`
 
 ## Action configuration
 
@@ -29,15 +28,15 @@ There are no sub-configuration fields of the `raise_alert` field, it is either t
 
 ### Resubmit
 
-The `resubmit` action, when not null, must be a [ResubmitOptions](../../odm/models/actions/#resubmitoptions) object. The `additional_services` field is a list of services to resubmit to _in addition to_ the services given by a submission's `params.services.resubmit` parameter provided at submission or ingestion. The `random_below` parameter lets you further filter selected submissions by their max score, only randomly accepting submissions with score between 0 and the given value. The distribution is exponential with low scoring submissions being ignored more often.
+The `resubmit` action, when not null, must be a [ResubmitOptions](../../odm/models/actions/#resubmitoptions) object. The `additional_services` field is a list of services to resubmit to *in addition to* the services given by a submission's `params.services.resubmit` parameter provided at submission or ingestion. The `random_below` parameter lets you further filter selected submissions by their max score, only randomly accepting submissions with score between 0 and the given value. The distribution is exponential with low scoring submissions being ignored more often.
 
 ### Webhook
 
 The `webhook` action will call a webhook url with a body holding a json object with the fields:
 
- - `is_cache`: True if this action is triggered by a submission cache hit in ingester.
- - `score`: The score of the submission.
- - `submission`: A [Submission](../../odm/models/submission/#submission) object for processed submissions, or a different [Submission](../../odm/messages/submission/#submission) object for cache hit actions.
+- `is_cache`: True if this action is triggered by a submission cache hit in ingester.
+- `score`: The score of the submission.
+- `submission`: A [Submission](../../odm/models/submission/#submission) object for processed submissions, or a different [Submission](../../odm/messages/submission/#submission) object for cache hit actions.
 
 The `webhook` field must be a [Webhook](../../odm/models/actions/#webhook) object.
 

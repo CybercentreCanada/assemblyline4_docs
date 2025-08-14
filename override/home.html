@@ -119,6 +119,73 @@
         text-align: center;
         width: 24px;
     }
+
+    .moreinfo {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        max-width: 40rem;
+    }
+
+    .titlecard h1 {
+        font-weight: 600;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .titlecard .icon {
+        width: 48px;
+    }
+
+    .moreinfo .icon {
+        margin-right: 1rem;
+    }
+
+    .moreinfo .icon.grey svg {
+        fill: grey;
+    }
+
+    .moreinfo .icon.yellow svg {
+        fill: yellow;
+    }
+
+    .moreinfo .icon.pink svg {
+        fill: pink;
+    }
+
+    .moreinfo .icon.white svg {
+        fill: white;
+    }
+
+    .moreinfo .icon.teal svg {
+        fill: teal;
+    }
+
+    .moreinfo .icon svg {
+        fill: var(--md-accent-fg-color);
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .features .entry {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        column-gap: 1rem;
+        min-height: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .features .entry .icon {
+        width: 32px;
+    }
+
+    .entry .description {
+        grid-column: 2;
+    }
 </style>
 
 <!-- Main site Entry button descriptions -->
@@ -139,7 +206,7 @@
                         class="md-button md-button--primary">
                         {%if 'fr/' in page.url %}Comment ça fonctionne{%else%}How it works{%endif%}
                     </a>
-                    <a href="https://github.com/search?q=topic%3Aassemblyline+org%3ACybercentreCanada+fork%3Atrue"
+                    <a href="https://github.com/CyberCentreCanada/assemblyline"
                         title="{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}"
                         class="md-button button-icon" target="_blank">
                         <span>{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}</span>
@@ -150,6 +217,91 @@
                             community{%endif%}</span>
                         <span class="icon">{% include ".icons/fontawesome/brands/discord.svg" %}</span>
                     </a>
+                </div>
+            </div>
+        </div>
+        <div class="moreinfo">
+            <div class="titlecard">
+                <h1>
+                    <span class="icon"> ⚡ </span>
+                    {%if 'fr/' in page.url %}Boostez l'analyse des logiciels malveillants!{%else%}
+                    Supercharge Malware Analysis!{%endif%}
+                </h1>
+                <p>
+                    {%if 'fr/' in page.url %}Assemblyline est une plateforme de sécurité de pointe qui automatise la
+                    détection et l'analyse des menaces.{%else%} Assemblyline is a cutting-edge security platform that
+                    automates threat detection and analysis.{%endif%}
+                </p>
+            </div>
+
+            <div class="features">
+                <div class="entry">
+                    <span class="icon grey">
+                        {% include ".icons/material/package-variant.svg" %} </span><strong>{%if 'fr/' in page.url %}
+                        Livré avec plus de 50 outils d'analyse{%else%} Bundled with 50+ analysis tools{%endif%}</strong>
+                    <span class="description">{%if 'fr/' in page.url %} Utilisez divers outils officiels proposés par le
+                        Centre canadien pour la cybersécurité ainsi que des services créés par la communauté.{%else%}
+                        Use a variety of official tools offered by the Canadian Centre for Cyber Security along with
+                        community-authored services.{%endif%}
+                    </span>
+                </div>
+                <div class="entry">
+                    <span class="icon grey">
+                        {% include ".icons/material/resize.svg" %} </span><strong>{%if 'fr/' in page.url %}
+                        Évolutivité "Le ciel est la limite"
+                        {%else%} "Sky's the limit" Scalability {%endif%}</strong>
+                    <span class="description">{%if 'fr/' in page.url %} Déployez votre preuve de concept à grande
+                        échelle dans un environnement de production complet en quelques minutes! {%else%} Scale your
+                        proof-of-concept deployment to a full-scale production environment in minutes!{%endif%}
+                    </span>
+                </div>
+                <div class="entry">
+                    <span class="icon grey">
+                        {% include ".icons/material/file-find.svg" %} </span><strong>{%if 'fr/' in page.url %}
+                        Inspection de fichiers assistée par navigateur!{%else%} Browser-assisted File
+                        Inspection!{%endif%}</strong>
+                    <span class="description">{%if 'fr/' in page.url %} Inspectez facilement le contenu binaire à l'aide
+                        de notre visualiseur hexadécimal intégré, en ligne.{%else%} Inspect binary content with
+                        ease using our built-in, web-based hex viewer.{%endif%}
+                    </span>
+                </div>
+                <div class="entry">
+                    <span class="icon grey">
+                        {% include ".icons/material/tools.svg" %} </span><strong>{%if 'fr/' in page.url %} Intégration
+                        transparente des
+                        outils{%else%} Seamless Tool Integration{%endif%}</strong>
+                    <span class="description">{%if 'fr/' in page.url %} Améliorez votre écosystème de sécurité
+                        grâce à l'intégration sans effort d'outils externes
+                        essentiels.{%else%} Enhance your security ecosystem with effortless
+                        integration of essential external tools.{%endif%}
+                    </span>
+                </div>
+                <div class="entry">
+                    <span class="icon grey">
+                        {% include ".icons/material/github.svg" %}
+                    </span>
+                    <strong>
+                        {%if 'fr/' in page.url %}Gratuit ET Open Source{%else%}Free AND Open Source (FOSS){%endif%}
+                    </strong>
+                    <span class="description">
+                        {%if 'fr/' in page.url %} Tout le code source d'Assemblyline est publié sous licence MIT
+                        permissive et est disponible sur Github. {%else%}
+                        All source code for Assemblyline is released under the permissive MIT license and is available
+                        on Github.{%endif%}
+                    </span>
+                </div>
+                <div class="entry">
+                    <span class="icon grey">
+                        {% include ".icons/material/face-agent.svg" %}
+                    </span>
+                    <strong>
+                        {%if 'fr/' in page.url %} Vous avez un problème ? Nous sommes là pour vous aider! {%else%} Have
+                        a problem? We got your back! {%endif%}</strong>
+                    <span class="description">{%if 'fr/' in page.url %} Nous proposons un canal d'assistance sur Discord
+                        pour obtenir de l'aide auprès des développeurs ou d'autres membres de la communauté afin de
+                        répondre à vos besoins. {%else%} We offer a support channel on Discord to get help from the
+                        developers or other community members to assist your needs.{%endif%}
+                    </span>
                 </div>
             </div>
         </div>

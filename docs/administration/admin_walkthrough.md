@@ -20,9 +20,9 @@ On the API Key detail page, administrators access detailed information about a s
 
 ![Error Viewer page](./images/error_viewer_page.png)
 
-The "Error Viewer" page is an important feature in Assemblyline in terms of service management and development. The errors that you see here are for services only, so you won't see any errors taking place in core components on this page. 
+The "Error Viewer" page is an important feature in Assemblyline in terms of service management and development. The errors that you see here are for services only, so you won't see any errors taking place in core components on this page.
 
-You can see the distribution of errors over a given time range, you can filter for all errors from a specific service by using a Lucene query in the filter bar or by clicking on a service column in the "Service Error Distribution" graph, and you can do the same for a specific error type via the filter bar or the "Error Type Distribution" graph. 
+You can see the distribution of errors over a given time range, you can filter for all errors from a specific service by using a Lucene query in the filter bar or by clicking on a service column in the "Service Error Distribution" graph, and you can do the same for a specific error type via the filter bar or the "Error Type Distribution" graph.
 
 The buttons located on the right of the filter bar can apply pre-defined queries such as unhandled exceptions, canceled tasks, and maximum depth, level, or retries errors.
 When you select an error card, a side-drawer appears with the details for that error:
@@ -32,7 +32,6 @@ When you select an error card, a side-drawer appears with the details for that e
 By the looks of this error message, the NetRep service had difficulty analyzing the related file to the point where the service timed out. All Assemblyline services retry two times on service timeouts, after which a non-recoverable failure is raised with the phrase "Task Pre-empted". A service developer can look at this error and try to reproduce it locally in their development environment, or a service administrator can raise it to the service owners for them to debug.
 
 ## File Identification
-
 
 ![File Identification page](./images/file_identification_page.png)
 
@@ -50,7 +49,7 @@ An example of where file identification lives in Assemblyline is on the "File De
 
 You can see that Assemblyline's file type is present as the "Type": `document/office/onenote`. The MIME type is `application/octect-stream` and the Magic label is a custom value `custom: document/office/onenote`. Custom Magic labels will be explained later.
 
-In most cases, a combination of Magic and MIME is enough to produce an identification for a file. We use a subset of Magic labels and MIME types that are high-confidence and label them as "trusted", which you can see in the "TRUSTED MIMES" and "MAGIC PATTERNS" tabs. 
+In most cases, a combination of Magic and MIME is enough to produce an identification for a file. We use a subset of Magic labels and MIME types that are high-confidence and label them as "trusted", which you can see in the "TRUSTED MIMES" and "MAGIC PATTERNS" tabs.
 
 In the "TRUSTED MIMES" view, you can see the MIME types that are high-confidence and are mapped directly to the Assemblyline file type:
 
@@ -89,6 +88,7 @@ Here is an example of comparing different versions of the APIVector service:
 ![Service review page](./images/service_review_page.png)
 
 ## Site Map
+
 You can find the site map interface by clicking the *Administration* topic then choose the *Site Map* subtopic.
 
 ![Site map bar](./images/site_map_bar.png){: .center }
@@ -129,7 +129,7 @@ This page can be separated into two main sections: Core and Services cards.
 
 ![Services Dashboard cards](./images/services_dashboard_cards.png)
 
-Core cards represent core components described in [Design and Architecture](../../overview/architecture) and Service cards represent services. Let's start by looking at the Ingestion component card.
+Core cards represent core components described in [Design and Architecture](../architecture) and Service cards represent services. Let's start by looking at the Ingestion component card.
 
 ![Ingestion card](./images/ingestion_card.png)
 

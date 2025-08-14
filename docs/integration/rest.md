@@ -98,7 +98,7 @@ To use your newly created [API key](../key_generation) you can simply add the `X
         )
         ```
 
-## API Gotcha!
+## API Gotcha
 
 !!! tip "Here is a list of the most common issues users are facing while using the API"
 

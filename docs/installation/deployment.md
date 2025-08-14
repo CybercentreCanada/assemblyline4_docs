@@ -70,11 +70,13 @@ Number of nodes required on a typical day for our biggest deployment:
 ![Node Count Dashboard](./images/node_count_dashboard.png)
 
 ### Sandbox infrastructure (both Cuckoo and CAPE)
+
 Nest: 16 CPUs / 64 GB RAM, 200 GB storage
 
 Victims: 4 CPUs / 14 GB RAM, 64 GB storage
 
 ### Antivirus infrastructure
+
 - 6 antivirus products
 - ~5 servers per product (~30 servers)
 - 8 CPUs / 16 GB RAM, 32 GB storage

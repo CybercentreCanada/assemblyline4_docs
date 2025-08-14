@@ -10,16 +10,18 @@ Whether you are developing a new service or working on core components, Assembly
 
 There are quite a few containers to run to spin-up the Assemblyline dependencies. For this reason, the development VM should have at least the following specifications:
 
- - 2 cores
- - 8 GB of RAM
- - 40 GB of disk space
+- 2 cores
+- 8 GB of RAM
+- 40 GB of disk space
 
 ### Operating system
 
-We recommend that you use Ubuntu 20.04 for your development VM, because all instructions that we provide in the document has been built with this OS in mind. There are two versions that you can pick from:
+We recommend that you use [Ubuntu](https://releases.ubuntu.com/) for your development VM, because all instructions that we provide in the document has been built with this OS in mind. There are two versions that you can pick from:
 
-* [Ubuntu 20.04 Desktop](https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-desktop-amd64.iso) - For local development where your IDE runs in the same VM as the Assemblyline containers (Definitely the easiest setup)
-* [Ubuntu 20.04 Server](https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-live-server-amd64.iso) - For remote development where your IDE runs on your local computer and the Assemblyline containers run on the VM
+-   \[Recommended\] [Ubuntu 24.04 Desktop](https://releases.ubuntu.com/24.04.3/ubuntu-24.04.3-desktop-amd64.iso)
+    - For local development where your IDE runs in the same VM as the Assemblyline containers
+-   [Ubuntu 24.04 Server](https://releases.ubuntu.com/24.04.3/ubuntu-24.04.3-live-server-amd64.iso)
+    - For remote development where your IDE runs on your local computer and the Assemblyline containers run on the VM
 
 ## Choosing your IDE
 
@@ -37,7 +39,7 @@ This IDE is much more robust in terms Python development but the setup is more c
 
 Here are the installation instructions for the different setups:
 
-* [Local development](../pycharm/local_development) (minimum requirement: PyCharm Community edition)
-* [Remote development](../pycharm/remote_development) (minimum requirement: PyCharm Professional edition)
+- [Local development](../pycharm/local_development) (minimum requirement: PyCharm Community edition)
+- [Remote development](../pycharm/remote_development) (minimum requirement: PyCharm Professional edition)
 
 For instructions on how to use PyCharm, refer to the "[use PyCharm](../pycharm/use_pycharm)" documentation.

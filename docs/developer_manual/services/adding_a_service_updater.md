@@ -1,10 +1,12 @@
 
 # Adding a Service Updater
+
 This documentation builds on [Developing an Assemblyline service](developing_an_assemblyline_service.md) in the event
 where you have a service that's dependent on signatures (ie. YARA/Suricata/Sigma rules) or on a collection of files
 (ie. CSV table, custom parsers) for analysis.
 
 ## Build your updater
+
 You will need to subclass the `ServiceUpdater` and implement/override functions as deemed necessary.
 
 Refer to [*ServiceUpdater* class](advanced/service_updater_base.md) for more details.
@@ -109,7 +111,8 @@ Refer to [*ServiceUpdater* class](advanced/service_updater_base.md) for more det
             server.serve_forever()
     ```
 
-## Add it to the manifest!
+## Add it to the manifest
+
 In addition to your service manifest, you would append the following:
 
 !!! warning

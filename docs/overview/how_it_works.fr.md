@@ -12,6 +12,6 @@ Assemblyline réduit le nombre de fichiers anodins que les praticiens de TI doiv
 
 **D)** Les services sélectionnés par l’utilisateur dans Assemblyline analysent alors les fichiers à la recherche d’indications de malveillance et en extraient les caractéristiques à des fins d’analyse plus poussée.
 
-* Lors de l’analyse, le système génère des alertes concernant un fichier malveillant et lui accorde une note.  
-* Le système peut également lancer l’exécution de systèmes de défense automatisés.   
+* Lors de l’analyse, le système génère des alertes concernant un fichier malveillant et lui accorde une note.
+* Le système peut également lancer l’exécution de systèmes de défense automatisés.
 * Il est d’ailleurs possible de transmettre les indicateurs de malveillance générés par le système aux autres systèmes de défense.

@@ -94,6 +94,7 @@ Here are the typical use cases that user's encounter while using the synchronous
     ![Submit execution flow](./images/flow.svg){: .center }
 
 ## Mass Submission Toolkit
+
 The [Assemblyline Incident Manager](https://github.com/CybercentreCanada/assemblyline-incident-manager) can assist you with submitting a large amount of files, such as every file on a hard drive for example. It utilizes the ingest API that we just talked about.
 
 The Cyber Centre uses this tool when we are in a pinch and need to ingest millions of files to Assemblyline without learning how to use the APIs.

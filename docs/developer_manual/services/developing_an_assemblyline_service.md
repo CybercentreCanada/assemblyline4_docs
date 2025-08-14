@@ -1,21 +1,23 @@
 # Developing an Assemblyline service
 
-This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. You should understand the concepts found [here](../../user_manual/results) though.
+This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. You should understand the concepts found [here](../../../user_manual/results) though.
 
 ## Pre-requisites
+
 Before getting started, ensure you have read through the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
 
 ## Build your first service
+
 This section will guide you through the bare minimum steps required to create a running, but functionally useless service. Each sub-section below outlines the steps required for each of the different files required to create an Assemblyline service. All files created in the following sub-sections must be placed in a common directory.
 
 !!! important
     For this documentation, we will assume that your new service directory is located at `~/git/services/assemblyline-service-sample`
 
-To build a service, we need a minimum of three files. 
+To build a service, we need a minimum of three files.
 
 1. A Python script that has a class implementing `ServiceBase` and the `execute` function
 2. A service manifest
-3. A Dockerfile. 
+3. A Dockerfile.
 
 The Dockerfile is not needed for development but will be required to deploy to your service to an Assemblyline instance.
 
@@ -127,6 +129,7 @@ In your service directory, you will add the YAML configuration file `service_man
     The `service_manifest.yml` has a lot more configurable parameters that you might be required to change depending on the service you are building. You should get familiar with the complete list by reading the [service manifest](../advanced/service_manifest) advanced documentation.
 
 ### Dockerfile
+
 Finally, the last file needed to complete your assemblyline service is the `Dockerfile` that is used to create its Docker container.
 
 In your service directory, create a file named `Dockerfile` with the following content:
@@ -155,14 +158,15 @@ In your service directory, create a file named `Dockerfile` with the following c
 The Dockerfile is required to build a Docker container. When developing a Docker container for an Assemblyline service,
 the following must be ensured:
 
-- The parent image must be `cccs/assemblyline-v4-service-base:stable` so you are using a stable build of service base.
-- An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
+-   The parent image must be `cccs/assemblyline-v4-service-base:stable` so you are using a stable build of service base.
+-   An environment variable named `SERVICE_PATH` must be set whose value defines the Python module path to the main service
 class which inherits from the `ServiceBase` class.
-- Any dependency installation must be completed as the `root` user, which is set by default in the parent image. Once all
+-   Any dependency installation must be completed as the `root` user, which is set by default in the parent image. Once all
 dependency installations have been completed, you must change the user to `assemblyline`.
-- The service code and any dependency files must be copied to the `/opt/al_service` directory.
+-   The service code and any dependency files must be copied to the `/opt/al_service` directory.
 
 ## Conclusion
+
 After you've completed creating your first service, your `~/git/services/assemblyline-service-sample` directory should have the following files at a minimum:
 
 ```text
@@ -175,16 +179,20 @@ After you've completed creating your first service, your `~/git/services/assembl
 ### Good service examples
 
 #### [ElfParser](https://github.com/CybercentreCanada/assemblyline-service-elfparser)
-- Package a compiled executable from https://github.com/jacob-baines/elfparser
+
+- Package a compiled executable from <https://github.com/jacob-baines/elfparser>
 - Parse the output of the executable to fill `ResultSections` for the user
 
 #### [ApiVector](https://github.com/CybercentreCanada/assemblyline-service-apivector)
+
 - Use a public library ([`apiscout`](https://github.com/danielplohmann/apiscout), [`lief`](https://github.com/lief-project/LIEF))
 - Load an external file
 - Use an updater
 
 #### [UrlDownloader](https://github.com/CybercentreCanada/assemblyline-service-urldownloader/)
+
 Unique key-value usage in the service manifest relative to the average service:
+
 - `stage: POST`
 - `file_required: false`
 - `is_external, allow_internet_access: true`

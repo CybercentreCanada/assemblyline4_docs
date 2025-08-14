@@ -24,7 +24,7 @@ Ce comportement dépend de votre configuration de déploiement — consultez [`s
 
 Accédez à des options de soumission avancées en cliquant sur l'icône "Ajuster" pour ouvrir le panneau "Options". En haut, une bannière indique le niveau de privilèges de personnalisation disponibles. Les utilisateurs ayant le rôle `submission_customize` ont la capacité de modifier tous les paramètres, à condition qu'ils comprennent l'impact sévère que certains paramètres peuvent avoir sur le système s'ils sont mal utilisés.
 
-### Paramètres de Soumission :
+### Paramètres de Soumission
 
 - **Description** : Fournissez éventuellement une description pour l'analyse, ou laissez-la vide pour accepter la valeur par défaut définie par le système.
 - **Priorité** : Désignez la priorité de traitement de la soumission.
@@ -35,17 +35,17 @@ Accédez à des options de soumission avancées en cliquant sur l'icône "Ajuste
 - **Ignorer la prévention de récursion** : Supprimez les limites d'itération pour la soumission.
 - **Effectuer une analyse approfondie** : Procédez à une désobfuscation poussée, recommandée pour des fichiers confirmés malveillants ou hautement suspects.
 
-### Données de Soumission :
+### Données de Soumission
 
 - **Mot de passe de déchiffrement** : Entrez rapidement un mot de passe pour les fichiers chiffrés, éliminant le besoin de le fournir à chaque service individuel.
 
-### Paramètres des Services :
+### Paramètres des Services
 
 - **Catégories de service** : Choisissez un groupe prédéfini de services.
 - **Service spécifique** : Sélectionnez manuellement des services individuels pour l'analyse.
 - **Paramètres des services** : Ajustez précisément les paramètres spécifiques à chaque service en développant leurs menus individuels.
 
-### Métadonnées de Soumission :
+### Métadonnées de Soumission
 
 - **Métadonnées système** : Remplissez les champs de métadonnées générés par le système requis.
 - **Métadonnées supplémentaires** : Pour ceux ayant des capacités de personnalisation complètes, tous les champs de métadonnées supplémentaires sont modifiables.

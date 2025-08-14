@@ -1,0 +1,20 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - name: Install Python testing dependencies
+        run: pip install mkdocs-material mkdocs-static-i18n mkdocs-glightbox linkchecker
+      - name: Startup local instance of documentation
+        run: mkdocs serve &
+      - name: Wait for server to be ready (optional, for robustness)
+        run: sleep 15 # Adjust sleep duration as needed
+      - name: Check for broken links
+        run: linkchecker http://localhost:8000 -o failures --timeout=5 -r=2 --no-status --no-warnings --check-extern --ignore-url="http(s)?://(localhost|yourdomain|platform.openai.com)/.*"

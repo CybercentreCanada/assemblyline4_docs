@@ -2,7 +2,7 @@
 
 Producing a partial result is an optional feature that services can use to delay processing while waiting for other services to provide additional information.
 
-This additional information can come from other files within the same submission, even after the file being processed has already been otherwise completed. If no additional information is provided that allows the service to create a complete (non-partial) result then the last partial result created will be kept in the submission results. 
+This additional information can come from other files within the same submission, even after the file being processed has already been otherwise completed. If no additional information is provided that allows the service to create a complete (non-partial) result then the last partial result created will be kept in the submission results.
 
 Partial results don't participate in caching. If a service is only able to produce partial results then it will always be retried when a new submission processes that file.
 
@@ -12,7 +12,7 @@ When a service produces a result it may optionally flag it as 'partial'. This si
 
 ```python
 class IncompleteService(ServiceBase):
-    
+
     def execute(self, request: ServiceRequest):
         # prepare a result
         result = Result()
@@ -24,8 +24,8 @@ class IncompleteService(ServiceBase):
         except PasswordNotFoundError:
             request.partial()
             section = ResultTextSection(
-                "Failed to extract password protected file.", 
-                heuristic=Heuristic(1), 
+                "Failed to extract password protected file.",
+                heuristic=Heuristic(1),
                 parent=request.result
             )
             section.add_tag("file.behavior", "Archive Unknown Password")
@@ -62,8 +62,8 @@ The set of keys that can be used by services for monitoring must be configured a
 
 What aggregation will be used to combine temporary data from different services must be set for each key. Available options are:
 
- - `union` - Keep this key as a submission wide list merging equal items
- - `overwrite` - Keep this key submission wide on a "last write wins" basis
+- `union` - Keep this key as a submission wide list merging equal items
+- `overwrite` - Keep this key submission wide on a "last write wins" basis
 
 To add the temporary submission data keys 'sample_key_a' and 'sample_key_b' with the union and overwrite aggregations respectively the following could be used:
 
@@ -78,8 +78,8 @@ submission:
 
 By default all systems are configured with some keys active that will contain at minimum:
 
- - `passwords`: union, a list of possible passwords related to this submission extracted from different parts of the submitted file.
- - `email_body`: union, a list of words found in email bodies embedded into this submission.
+- `passwords`: union, a list of possible passwords related to this submission extracted from different parts of the submitted file.
+- `email_body`: union, a list of words found in email bodies embedded into this submission.
 
 Adding more values via `submission.temporary_keys` won't overwrite these defaults or prevent future defaults from being added.
 
@@ -89,4 +89,3 @@ If you wish to remove these defaults, or block future changes to them, you can o
 submission:
     default_temporary_keys: {}
 ```
-

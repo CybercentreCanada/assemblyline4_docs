@@ -8,17 +8,17 @@ Elasticsearch indices enable Assemblyline to deduplicate most of the results in 
 
 Assemblyline has six primary indices:
 
-- **[Alert](../odm/models/alert.md)**: Allows users to perform detailed searches on alerts to quickly identify and prioritize security incidents, taking into account various attributes such as threat indicators, classification, and timestamps.
+-   **[Alert](../odm/models/alert.md)**: Allows users to perform detailed searches on alerts to quickly identify and prioritize security incidents, taking into account various attributes such as threat indicators, classification, and timestamps.
 
-- **[File](../odm/models/file.md)**: Allows users to search for specific files within a submission, identify duplicates, and gather context about a file's properties such as its classification, entropy, and observed hash values.
+-   **[File](../odm/models/file.md)**: Allows users to search for specific files within a submission, identify duplicates, and gather context about a file's properties such as its classification, entropy, and observed hash values.
 
-- **[Result](../odm/models/result.md)**: Allows users to search for specific service results, enabling the examination of the analysis performed by various services, including detailed scores, sections, and response data.
+-   **[Result](../odm/models/result.md)**: Allows users to search for specific service results, enabling the examination of the analysis performed by various services, including detailed scores, sections, and response data.
 
-- **[Retrohunt](../odm/models/retrohunt.md)**: Allows users to search retrospective threat hunt results from Yara rules applied to previously submitted samples. This facilitates the identification and analysis of new threats based on updated threat intelligence.
+-   **[Retrohunt](../odm/models/retrohunt.md)**: Allows users to search retrospective threat hunt results from Yara rules applied to previously submitted samples. This facilitates the identification and analysis of new threats based on updated threat intelligence.
 
-- **[Signature](../odm/models/signature.md)**: Allows users to search for service-specific signatures (e.g., YARA rules) and any relevant metadata, including source, statistics, classification, and status.
+-   **[Signature](../odm/models/signature.md)**: Allows users to search for service-specific signatures (e.g., YARA rules) and any relevant metadata, including source, statistics, classification, and status.
 
-- **[Submission](../odm/models/submission.md)**: Allows users to manage and track submissions, viewing the files involved, analysis errors, maximum scores, and the lifecycle status of the submission, which provides a holistic view of the analysis process.
+-   **[Submission](../odm/models/submission.md)**: Allows users to manage and track submissions, viewing the files involved, analysis errors, maximum scores, and the lifecycle status of the submission, which provides a holistic view of the analysis process.
 
 You can view all indices and their indexed fields from the `Help > Search Help` menu in your Assemblyline installation.
 
@@ -62,6 +62,7 @@ To familiarize yourself with the indices, use the "Find related results" option 
 ![Screenshot showing a dropdown menu with options including 'Copy to clipboard', 'Find related results', 'Toggle highlight', and 'Add to safelist'. The 'Find related results' option is highlighted. The dropdown menu can be accessed from right-clicking any tag found throughout Assemblyline.](./images/magnifier.png){: .center }
 
 For example, clicking it on the `av.virus_name` tag (`HEUR/Macro.Downloader.MRAA.Gen`) will generate the following query:
+
 ```ruby
 result.sections.tags.av.virus_name:"HEUR/Macro.Downloader.MRAA.Gen"
 ```
@@ -80,6 +81,7 @@ max_score:[2000 TO *] AND times.submitted:[now-2d TO now]
 # Find all anti-virus results with Emotet in the signature name
 result.sections.tags.av.virus_name:*Emotet*
 ```
+
 Assemblyline supports various search parameters, including wildcards, ranges, and regex. Refer to `Help > Search Help` for comprehensive syntax.
 
 Search queries can also be used with the [Assemblyline Client](../../integration/python) to automate complex tradecraft as new files are processed by the system.

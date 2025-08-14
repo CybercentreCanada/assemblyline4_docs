@@ -6,7 +6,7 @@ The Retrohunt feature allows users to scan the historical collection of files in
 
 To start using Retrohunt, make sure you have the correct [configuration](../installation/configuration/retrohunt.md).
 
-If you want to understand how Retrohunt works, a detailed description can be found in the [System Architecture](../overview/architecture.md#yara-back-in-time-retrohunt)
+If you want to understand how Retrohunt works, a detailed description can be found in the [System Architecture](../../administration/architecture/#yara-back-in-time-retrohunt)
 
 ## Retrohunt Interface
 

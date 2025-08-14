@@ -5,7 +5,8 @@ This documentation is built using the awesome project: [mkdocs-material](https:/
 ## Clone the documentation
 
 The documentation can be cloned from the following repository:
-```
+
+```shell
 git clone git@github.com:CybercentreCanada/assemblyline4_docs.git
 ```
 
@@ -24,6 +25,7 @@ pip install mkdocs-glightbox
 ## Run the documentation locally
 
 You can manually run the documentation from a shell:
+
 ```shell
 cd assemblyline4_docs
 mkdocs serve

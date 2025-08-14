@@ -182,7 +182,6 @@ This includes, but is not limited to:
 - `configuration.datastore.hosts: http → https (for all hosts)`
 - `configuration.filestore.*: use_ssl=False → use_ssl=True (for all hosts)`
 
-
 !!! note "Filestore Configurations"
 
     When enabling `internalEncryption` and if using the self-generated Root CA for verification, you'll need to set the `verify` parameter to point to the location of the CA on disk (`/etc/assemblyline/ssl/al_root-ca.crt`.)
@@ -205,6 +204,7 @@ However, this particular annotation doesn't work for all ingress controllers, so
 `nginx.org/ssl-services: "ui,frontend,kibana,socketio"`.
 
 ## What does this look like in practice?
+
 For example this is what your changes would look like if:
 
 - Enabling internal encryption (`enableInternalEncryption: true`)

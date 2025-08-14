@@ -1,18 +1,18 @@
 # Classification engine
 
-Assemblyline can do record-based access control for submission, files, results, and even up to individual sections and tags of said results. It was built to support the [Government of Canada levels of security](https://www.tpsgc-pwgsc.gc.ca/esc-src/protection-safeguarding/niveaux-levels-eng.html) and the [Traffic Light Protocol](https://www.cisa.gov/tlp) but can also be modified at will.
+Assemblyline can do record-based access control for submission, files, results, and even up to individual sections and tags of said results. It was built to support the [Government of Canada levels of security](https://www.canada.ca/en/public-services-procurement/services/industrial-security/security-requirements-contracting/safeguarding-equipment-sites-assets-information/levels-security.html#s2) and the [Traffic Light Protocol](https://www.cisa.gov/tlp) but can also be modified at will.
 
 Once turned on, the classification engine will do the following changes to the system:
 
-* Users will have to be assigned a maximum classification level that they can see as well as the groups they are members of
-* Each submission to the system will have to have a classification level
-* The User Interface will:
+*   Users will have to be assigned a maximum classification level that they can see as well as the groups they are members of
+*   Each submission to the system will have to have a classification level
+*   The User Interface will:
     * Show the effective classification of each submission, file, result, and result sections
     * Have a dedicated help section that will explain how classification conflicts are resolved
     * Let you pick a classification while submitting a file
     * Automatically hide portions of the result for a user that does not have enough privileges to see them
 
-# Configuration
+## Configuration
 
 The classification engine has many parameters that can be customized so you can get record-based access controls that fit your organization.
 
@@ -180,7 +180,8 @@ Here is an exhaustive configuration file of the classification engine that expla
     unrestricted: TLP:C
     ```
 
-# Enabling it in your system
+## Enabling it in your system
+
 By default, the classification engine is disabled in the system, but it can easily be enabled by creating a new config map in Kubernetes.
 
 !!! info
@@ -298,7 +299,6 @@ You will also need to ensure services have your `classification.yml` file mounte
     ```
 
 Finally update your deployment using `helm upgrade command`:
-
 
 === "Appliance"
 

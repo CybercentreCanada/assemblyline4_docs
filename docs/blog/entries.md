@@ -1,4 +1,5 @@
 ## Blog Entries
+
 That's right, we blog now! Check out our posts on Medium!
 
 ### [Supercharge Your Malware Analysis Workflow](https://medium.com/@kevin.hardy-cooper/supercharge-your-malware-analysis-workflow-b7e2b08c2fc9)
@@ -80,25 +81,33 @@ Assemblyline Blog Entry #9 — I wanted to find what Assemblyline could learn fr
 Assemblyline Blog Entry #10 — This post takes a look at and offer solutions to analyze password-protected InnoSetup files.
 
 ## Video Entries
+
 That's right, we have videos too! Check out videos made by the community that showcase Assemblyline!
 
 ### Supercharging Open Source Malware Analysis ([Bitwarden](https://bitwarden.com/))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/4B4s2J3VW5w?si=iRLjIibx8eR262_d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Supercharge your malware analysis workflow ([VirusBulletin](https://www.virusbulletin.com/))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/urbdca-mOJE?si=hJY5pZS9PYxbCwgF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Beginner Malware Analysis - Emotet Infection Chain ([Invoke RE](https://www.youtube.com/@InvokeReversing))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ROZ5e-5iXpY?si=RuFUhO-CSig8aI28" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Beginner Automated Malware Analysis and LLM Reversing ([Invoke RE](https://www.youtube.com/@InvokeReversing))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JoxlufoAKA0?si=4GLLy9FHrHigo51Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Automating Malware Triage ([Invoke RE](https://www.youtube.com/@InvokeReversing))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8aWnFld4qgc?si=6SZ5Tt1S0CTJZc2R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Technical session CyberShock ([CERT.LV](https://cert.lv/lv/))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-70Mlkmtdds?si=7RgN3HWcdeQwa92q&amp;start=11094" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Introducing CSE’s open source AssemblyLine ([Hackfest](https://hackfest.ca/))
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bsOlDOHAL8Y?si=s66_7nt0l5c2WZHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

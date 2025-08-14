@@ -2,13 +2,13 @@
 
 ## Pre-requisites
 
-1. A **Kubernetes** 1.18+ cluster that has an ingress controller. Assemblyline is known to work with the following Kubernetes providers:
+1.  A **Kubernetes** 1.18+ cluster that has an ingress controller. Assemblyline is known to work with the following Kubernetes providers:
     * Rancher
     * AKS (Azure)
     * EKS (Amazon)
     * GKE (Google)
-2. **kubectl** already configured for your cluster on your machine
-3. **helm** already configured for your cluster on your machine
+2.  **kubectl** already configured for your cluster on your machine
+3.  **helm** already configured for your cluster on your machine
 
 ## Installation
 
@@ -59,6 +59,7 @@ In the `deployment_directory` you've just created, create a `secrets.yaml` file 
     Here is an example of [secrets.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/appliance/secrets.yaml) file used for appliance deployments.
 
 When you're done setting the different passwords in your `secrets.yaml` file, upload it to your namespace:
+
 ```shell
 kubectl apply -f <deployment_directory>/secrets.yaml --namespace=al
 ```
@@ -73,20 +74,19 @@ In your `deployment_directory`, create a `values.yaml` file which will contain t
 !!! tip
     For an exhaustive view of all the possible parameters you can change the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml) file.
 
-
 These are the strict minimum configuration changes you will need to do:
 
-1. Setup the ingress controller by changing the values of:
+1.  Setup the ingress controller by changing the values of:
     * `ingressAnnotations.cert-manager.io/issuer:` (Name of the issuer in K8s. This is for cert validation)
     * `tlsSecretName` (Name of the TLS cert in k8s. This is for cert validation)
     * `configuration.ui.fqdn` (Domain name for your al instance).
-2. Setup the storage classes according to your Kubernetes cluster :
+2.  Setup the storage classes according to your Kubernetes cluster :
     * `redisStorageClass` (Use SSD backed managed disks)
     * `log-storage.volumeClaimTemplate.storageClassName` (Use SSD backed managed disks)
     * `datastore.volumeClaimTemplate.storageClassName` (Use SSD backed managed disks)
     * `persistentStorageClass` (Use standard file sharing disks)
-3. Decide where you want files stored, set the appropriate URI in the `configuration.filestore.*` fields. You should try to avoid using the internal filestore and use something like Azure blob store, Amazon S3...
-4. Enable/disable/configure logging features, (disabled by default).
+3.  Decide where you want files stored, set the appropriate URI in the `configuration.filestore.*` fields. You should try to avoid using the internal filestore and use something like Azure blob store, Amazon S3...
+4.  Enable/disable/configure logging features, (disabled by default).
 
 ???+ example "This is an example values.yaml file to get you started"
     ```yaml
@@ -96,7 +96,6 @@ These are the strict minimum configuration changes you will need to do:
       nginx.ingress.kubernetes.io/proxy-body-size: 100M
       cert-manager.io/issuer: <CHANGE_ME>
     tlsSecretName: <CHANGE_ME>
-
 
     # 2. Setup the storage classes according to your Kubernetes cluster
     redisStorageClass: <CHANGE_ME>
@@ -158,6 +157,39 @@ helm install assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_
 
 !!! warning
     After you've ran the `helm install` command, the system has a lot of setting up to do (Creating database indexes, loading service, setting up default accounts, loading signatures ...). Don't expect it to be fully operational for at least the next 15 minutes.
+
+### 6. (Optional) Cluster management tools
+
+You can manage your deployment in Kubernetes using `kubectl` but it's typically laborious to type the commands to monitor or debug your instance. For that reason, we have a few tools that we recommend using.
+
+#### k9s \[Recommended\]
+
+You can install the k9s CLI using a package manager or installing from [source](https://k9scli.io/)
+
+<script src="https://asciinema.org/a/305944.js" id="asciicast-305944" async="true"></script>
+
+#### FreeLens IDE
+
+If the computer on which your microk8s deployment is installed has a desktop interface, we strongly suggest that you use an IDE like FreeLens to manage the system
+
+##### Install FreeLens
+
+You'll have to fetch the appropriate installation file from [FreeLens releases](https://github.com/freelensapp/freelens/releases) and use your package manager to install manually:
+
+```bash
+# Ubuntu
+sudo snap install -y /path/to/FreeLens*.deb
+```
+
+If monitoring from a Windows system, Microsoft's SmartScreen will detect the file as being unrecognized and block execution. This can be resolved by checking 'Unblock' in the file's properties.
+
+##### Configure FreeLens
+
+After you run FreeLens for the first time, click the "Add cluster" menu/button, select the paste as text tab and paste the output of the following command:
+
+```bash
+sudo kubectl config view --raw
+```
 
 ## Update your deployment
 

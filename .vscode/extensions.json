@@ -1,6 +1,5 @@
 {
-    "recommendations": [
-      "spmeesseman.vscode-taskexplorer",
-    ]
-  }
-  
+  "recommendations": [
+    "DavidAnson.vscode-markdownlint"
+  ]
+}

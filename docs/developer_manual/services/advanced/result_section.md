@@ -1,16 +1,17 @@
 # *ResultSection* class
+
 A `ResultSection` is bascally part of a service result that encapsulates a certain type of information that your service needs to convey to the user. For example, if you have a service that extracts networking indicators as well as process lists, you should put network indicators in their own section and then the process list in another.
 
 Result sections have the following properties:
 
-* They have different [types](#section-types) that will display information in different manners
-* They can attach a single heuristic which will add a maliciousness score to the result section
+*   They have different [types](#section-types) that will display information in different manners
+*   They can attach a single heuristic which will add a maliciousness score to the result section
 
     * Each signature can have an associated score, that will raise the score of the heuristic by overriding the default heuristic score.
 
-* They can tag important pieces of information about a file, which can be used to easily search in the system
-* They can contain subsections which are just sections inside of another section
-* They can have a classification which allows the API to redact partial results from a service depending on the user
+*   They can tag important pieces of information about a file, which can be used to easily search in the system
+*   They can contain subsections which are just sections inside of another section
+*   They can have a classification which allows the API to redact partial results from a service depending on the user
 
     * Different classifications would mostly be used if you have external data sources, like signatures. Some may have a higher classification than others
 
@@ -21,6 +22,7 @@ For example, if you extract a domain that you know is malicious, you can tag it 
 You can view the source for the class here: [ResultSection class source](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
 ## Class variables
+
 The `ResultSection` class includes many instance variables which can be used to shape the way the section will be shown to the user.
 
 The following table describes all of the variables of the `ResultSection` class.
@@ -57,7 +59,6 @@ Parameters:
 * `auto_collapse`: Should the section be displayed in collapsed mode when first rendered in the UI?
 * `zeroize_on_sig_safe`: Should the section be forced to a score of 0 if all heuristic signatures found in it are marked as Safelisted?
 
-
 ??? Example
     Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
 
@@ -71,6 +72,7 @@ Parameters:
     ```
 
 ### add_line()
+
 This function allows the service to add a line to the body of a [ResultSection](../result_section) object.
 
 Parameters:
@@ -90,6 +92,7 @@ Parameters:
     ```
 
 ### add_lines()
+
 This function allows the service to add multiple lines to the body of a [ResultSection](../result_section) object.
 
 Parameters:
@@ -110,6 +113,7 @@ Parameters:
     ```
 
 ### add_subsection()
+
 This function allows the service to add a subsection to the current `ResultSection` object.
 
 Parameters:
@@ -136,6 +140,7 @@ Parameters:
     ```
 
 ### add_tag()
+
 This function allows the service writer to add a tag to the `ResultSection`
 
 Parameters:
@@ -154,6 +159,7 @@ Parameters:
     ```
 
 ### set_body()
+
 Set the body and the body format of a section
 
 Parameters:
@@ -162,6 +168,7 @@ Parameters:
 * `body_format`: (Optional) [Type of body](#section-types) - Default: TEXT
 
 ### set_heuristic()
+
 Set a heuristic for a current section/subsection. A heuristic is required to assign a score to a result section/subsection.
 
 Parameters:
@@ -184,6 +191,7 @@ Parameters:
     ```
 
 ## Section types
+
 These are all result section types that Assemblyline supports. You can see a screenshot of each section as well as the code that was used to generate the actual section.
 
 ### TEXT

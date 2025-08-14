@@ -1,9 +1,11 @@
 # *Result* class
+
 All services in Assemblyline must create a `Result` object containing the different [ResultSections](../result_section) which encapsulate their findings. This `Result` object must then be set as the [Request's](../request) `result` parameter which will then be saved in the database to show to the user.
 
 You can view the source for the class here: [Result class source](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_v4_service/common/result.py)
 
 ## Class variables
+
 Even though the `Result` class is critical for the service, it does not have many variables that should be used by the service.
 
 | Variable Name | Description |
@@ -11,9 +13,11 @@ Even though the `Result` class is critical for the service, it does not have man
 | sections | List of all the `ResultSection` objects that have been added to the `Result` object so far. |
 
 ## Class functions
+
 There is only one function that the service writer should ever use in a `Result` object.
 
 ### add_section()
+
 This function allows the service to add a [ResultSection](../result_section) object to the current `Result` object.
 
 It can take the following parameters:
@@ -37,8 +41,8 @@ It can take the following parameters:
     ...
     ```
 
-
 ## Tips on writing good results
+
 Here's a few tips on writing services:
 
 !!! success "DO's"

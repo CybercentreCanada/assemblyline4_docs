@@ -17,6 +17,7 @@ This is the documentation for an appliance instance of the Assemblyline platform
     **Note:** If you have above the minimum system requirement, you can make performance adjustments such as setting `core.scaler.service_defaults.min_instances: 1` to ensure service readiness by default rather than on-demand scaling.
 
 ### Install pre-requisites
+
 === "Ubuntu"
     Install Docker:
     ```bash
@@ -62,21 +63,23 @@ This is the documentation for an appliance instance of the Assemblyline platform
     ```
 
 ### Configure Docker to use larger address pools
-1. Create/Edit `/etc/docker/daemon.json` and add the following lines:
-```json
-{
-  "default-address-pools":
-  [
-    {"base":"10.201.0.0/16","size":24}
-  ]
-}
-```
 
-```bash
-echo '{"default-address-pools":[{"base":"10.201.0.0/16","size":24}]}' | jq '.' | sudo tee /etc/docker/daemon.json
-```
+1.  Create/Edit `/etc/docker/daemon.json` and add the following lines:
 
-2. Restart Docker to acknowledge configuration: `service docker restart`
+    ```json
+    {
+      "default-address-pools":
+      [
+        {"base":"10.201.0.0/16","size":24}
+      ]
+    }
+    ```
+
+    ```bash
+    echo '{"default-address-pools":[{"base":"10.201.0.0/16","size":24}]}' | jq '.' | sudo tee /etc/docker/daemon.json
+    ```
+
+2.  Restart Docker to acknowledge configuration: `service docker restart`
 
 ## Setup your Assemblyline appliance
 
@@ -94,6 +97,7 @@ The ```config/config.yaml``` file in your deployment directory is already pre-co
 The ```.env``` file in your deployment directory is preconfigured with default passwords, you should definitely change them.
 
 #### Assign profiles depending on your deployment requirements
+
 These following [service profiles](https://docs.docker.com/compose/how-tos/profiles/) can be combined (unless otherwise specified) depending on your deployment requirements:
 
 - `minimal`: This setup includes the bare-minimum components for everything to be able to run. There will be no metrics collected and you will have to tail the log from the docker container logs.
@@ -144,7 +148,6 @@ Certain services need special configurations to run efficiently in a docker-comp
 
 - URLDownloader: The `no_sandbox` option defaults to `False`, but will cause a `TimeoutExpired` in the internal google-chrome. Change this value to `True` if you encounter this [issue](https://github.com/CybercentreCanada/assemblyline/issues/146).
 
-
 ## Docker Compose cheat sheet
 
 ### Updating your appliance
@@ -168,11 +171,14 @@ sudo docker-compose restart
 ### Check core services logs
 
 For core components:
+
 ```bash
 cd ~/deployments/assemblyline
 sudo docker-compose logs
 ```
+
 Or for a specific component:
+
 ```bash
 cd ~/deployments/assemblyline
 sudo docker-compose logs ui
