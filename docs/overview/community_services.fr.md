@@ -24,7 +24,7 @@ Cette page contient la liste de services crée et partagé avec le publique.
 | [UrlScanIo](https://github.com/NVISOsecurity/assemblyline-service-urlscanio)                                             | Ce service récupère les résultats d'une analyse [urlscan.io](https://urlscan.io/).                                                                                                                                                             | [NVISO](https://github.com/NVISOsecurity)         |
 | WindowsDefender                                                                                                          | Service Windows defender adapté d'une communauté Assemblyline [conversation](https://groups.google.com/g/cse-cst-assemblyline/c/LyziWuD8a9I/m/cg_m5eXpAQAJ)                                                                                    | [Adam McHugh](https://github.com/adammchugh)      |
 
-## Construire un service de la communauté
+## Construire un service pour la communauté
 
 1.  Obtenir le code source du service
 2.  Modifiez le manifeste du service et assurez-vous que les éléments suivants sont définis
