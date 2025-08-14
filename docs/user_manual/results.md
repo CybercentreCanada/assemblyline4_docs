@@ -39,7 +39,7 @@ All tag names follow the same naming convention. They are namespaced to improve 
 
 Tags are also all indexed, which allow for blazingly fast results.
 
-`network.static.ip -> All IPs extracted statically will be found with this tag regardless of which service extracted it.`
+`network.static.ip → All IPs extracted statically will be found with this tag regardless of which service extracted it.`
 
 All tags registered with the system will be listed under the Help menu > Current Configuration page > Tags section of your Assemblyline instance.
 
