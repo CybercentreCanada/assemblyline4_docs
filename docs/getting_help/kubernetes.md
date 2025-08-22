@@ -42,3 +42,19 @@ This section contains troubleshooting steps for deploying Assemblyline in a Kube
 ??? question "Ignoring ingress because of error while validating ingress class" ingress="<namespace\>/<release\>-ingress" error="no object matching key "nginx" in local store"
     This error can typically happen if the Assemblyline ingress' class name doesn't match the class name of the ingress controller on the system. You can fix this by
     assigning the name of the class to `ingressClassName` in your values.yaml and re-deploy.
+
+??? question "Service pods aren't getting scheduled because there are labels missing"
+    You can add global labels to service pods by using the `core.scaler.additional_labels` or `core.scaler.privileged_services_additional_labels`:
+    ```yaml
+    core:
+      scaler:
+        additional_labels:
+          - "service_section=normal"
+        privileged_services_additional_labels:
+          - "service_section=privileged"
+    ```
+
+    Alternatively, you can set labels on an individual container basis by using the UI/API (1)
+    { .annotate }
+
+    1.  ![Add a label to service containers](./images/add_container_label.png)
