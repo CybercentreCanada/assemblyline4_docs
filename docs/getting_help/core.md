@@ -23,26 +23,26 @@ This section contains troubleshooting steps for core components of Assemblyline
 ## Updater
 
 ??? question "Failed to establish a new connection: [Errno 110] Connection timed out"
-            Depending on the host mentioned in the error, ensure the deployment has access to the registry and its able to call the associated API.
+    Depending on the host mentioned in the error, ensure the deployment has access to the registry and its able to call the associated API.
 
-            The following modifications will have to be made to your values.yaml:
-            === "External Registry"
-                Let's say the domain of the registry is 'registry.local' and is hosted on port 443
-                ```yaml
-                configuration:
-                services:
-                    image_variables:
-                        REGISTRY: "registry.local/"
-                    allow_insecure_registry: true
-                ```
-            === "Local Registry"
-                Let's say the local registry is hosted on port 32000
-                ```yaml
-                configuration:
-                services:
-                    image_variables:
-                        REGISTRY: "localhost:32000/"
-                    update_image_variables:
-                        REGISTRY: "<HOST_IP>:32000/"
-                    allow_insecure_registry: true
-                ```
+    The following modifications will have to be made to your values.yaml:
+    === "External Registry"
+        Let's say the domain of the registry is 'registry.local' and is hosted on port 443
+        ```yaml
+        configuration:
+        services:
+            image_variables:
+                REGISTRY: "registry.local/"
+            allow_insecure_registry: true
+        ```
+    === "Local Registry"
+        Let's say the local registry is hosted on port 32000
+        ```yaml
+        configuration:
+        services:
+            image_variables:
+                REGISTRY: "localhost:32000/"
+            update_image_variables:
+                REGISTRY: "<HOST_IP>:32000/"
+            allow_insecure_registry: true
+        ```
