@@ -88,7 +88,6 @@ nav:
       - administration/heuristic_management.md
       - administration/source_management.md
       - administration/system_management.md
-      - administration/troubleshooting.md
   - Integration:
       - integration/ingestion_method.md
       - integration/key_generation.md

@@ -147,4 +147,4 @@ The following are useful pages to manage and troubleshoot your Assemblyline depl
 
 ## [System Management](../../administration/system_management)
 
-## [Troubleshooting](../../administration/troubleshooting)
+## [Troubleshooting](../../getting_help/contact_us)
