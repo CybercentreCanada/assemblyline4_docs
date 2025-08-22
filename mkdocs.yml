@@ -192,6 +192,13 @@ nav:
           - VacuumMessage: odm/messages/vacuum_heartbeat.md
   - Blog:
       - blog/entries.md
+  - Getting Help:
+    - Core: getting_help/core.md
+    - Services: getting_help/services.md
+    - Infrastructure:
+      - Docker: getting_help/docker.md
+      - Kubernetes: getting_help/kubernetes.md
+    - Contact Us: getting_help/contact_us.md
 plugins:
   - glightbox:
       auto_caption: false
