@@ -79,7 +79,7 @@ For every transport protocol, there may be a specific set of parameters for Asse
 -   normalize: `boolean`
 
     !!! info "Example"
-        `local://localhost//mnt/al_storage?normalize=`
+        `file://localhost//mnt/al_storage?normalize=`
 
 ### S3
 
