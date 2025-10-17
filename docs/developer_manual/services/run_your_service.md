@@ -212,7 +212,7 @@ docker push --all-tags localhost:32000/testing/assemblyline-service-sample
 1.  Using your web browser, go to the service management page: [https://localhost/admin/services](https://localhost/admin/services) (Replace localhost by your VM's IP)
 2.  Click the `Add service` button
 3.  Paste the entire content of the `service_manifest.yml` file from your service directory in the text box
-    * If you are using the local registry from this documentation, change the `${REGISTRY}` from the content of `service_manifest.yml` to `172.17.0.1:32000/`
+    * If you are using the local registry from this documentation, change the `${REGISTRY}` from the content of `service_manifest.yml` to `host.docker.internal:32000/`
 4.  Click the `Add` button
 
 Your service information has been added to the system. The scaler component should automatically start a container of your newly created service.
