@@ -79,7 +79,7 @@ Service Selection Scheme
 | :--- | :--- | :--- | :--- | :--- |
 | selected | List [Keyword] | List of selected services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `['Filtering', 'Antivirus', 'Static Analysis', 'Extraction', 'Networking']` |
 | excluded | List [Keyword] | List of excluded services | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| rescan | List [Keyword] | List of services to rescan when initial run scores as malicious | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| rescan | List [Keyword] | List of services to rescan | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | resubmit | List [Keyword] | Add to service selection when resubmitting | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 

@@ -7,6 +7,7 @@ Model of User Settings
 | download_encoding | Enum | Default download encoding when downloading files<br>Supported values are:<br>`"cart", "raw", "zip"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `cart` |
 | default_external_sources | List [Keyword] | List of sha256 sources to check by default | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | default_zip_password | Text | Default user-defined password for creating password protected ZIPs when downloading files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `infected` |
+| default_metadata | Mapping [String, Text] | Default metadata to add to submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `{}` |
 | executive_summary | Boolean | Should executive summary sections be shown? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | expand_min_score | Integer | Auto-expand section when score bigger then this | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `500` |
 | preferred_submission_profile | Text | Preferred submission profile | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

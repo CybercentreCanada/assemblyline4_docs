@@ -135,7 +135,7 @@ None
 | :--- | :--- | :--- | :--- | :--- |
 | field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Supported values are:<br>`"access", "api_daily_quota", "api_quota", "classification", "group", "multi_group", "remove_role", "role", "submission_async_quota", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Supported values are:<br>`"access", "api_daily_quota", "api_quota", "classification", "default_metadata", "group", "multi_group", "organization", "remove_role", "role", "submission_async_quota", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
@@ -216,7 +216,7 @@ None
 | :--- | :--- | :--- | :--- | :--- |
 | field | Keyword | Field to apply `pattern` to | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | pattern | Keyword | Regex pattern for auto-prop assignment | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Enum | Type of property assignment on pattern match<br>Supported values are:<br>`"access", "api_daily_quota", "api_quota", "classification", "group", "multi_group", "remove_role", "role", "submission_async_quota", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Enum | Type of property assignment on pattern match<br>Supported values are:<br>`"access", "api_daily_quota", "api_quota", "classification", "default_metadata", "group", "multi_group", "organization", "remove_role", "role", "submission_async_quota", "submission_daily_quota", "submission_quota", "type"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | List [Keyword] | Assigned property value | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
