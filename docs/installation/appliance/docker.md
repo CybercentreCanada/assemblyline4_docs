@@ -92,7 +92,7 @@ cd ~/deployments/assemblyline
 
 ### Setup your appliance
 
-The ```config/config.yaml``` file in your deployment directory is already pre-configured for use with `docker-compose` as a single node appliance. You can review the settings already configured but you should not have anything to change there.
+The ```config/config.yml``` file in your deployment directory is already pre-configured for use with `docker-compose` as a single node appliance. You can review the settings already configured but you should not have anything to change there.
 
 The ```.env``` file in your deployment directory is preconfigured with default passwords, you should definitely change them.
 
