@@ -1,6 +1,8 @@
 # Submission section
 
-The submission configuration section (`submission:`) of the configuration file allows you to modify the parameters off how submissions are handled in the system.
+Assemblyline supports configuration options that control how submissions are handled within the system.
+
+These options are defined under the `submission:` section of your system configuration file.
 
 Since this section is quite simple, we will list the default configuration at the same time as we describe the different values.
 
@@ -57,6 +59,42 @@ Since this section is quite simple, we will list the default configuration at th
 
 !!! tip
     Refer to the [changing the configuration file](../config_file/#changing-the-configuration-file) documentation for more detail on where and how to change the configuration of the system.
+
+## File Sources
+
+File Sources let administrators define reusable ingestion templates that transform a user-provided input (hash, URL, ticket ID, etc.) into a file or URL descriptor for analysis. They support both direct HTTP downloads and deferred URL retrieval through AL-URI files.
+
+### How it works
+
+#### Template expansion
+
+Assemblyline replaces the replace_pattern (for example, `{INPUT}`) inside url and data with the user’s submitted value.
+The system also validates the input type against the source’s hash_types or any custom hash_patterns.
+
+#### Ingestion mode
+
+=== "Direct download (`download_from_url: true`)"
+    The system performs the HTTP request using the configured method, headers, proxies, and verify, saves the result to a temporary file, and optionally checks failure_pattern to catch false-positive success pages.
+=== "AL-URI hand-off (`download_from_url: false`)"
+    Assemblyline creates a lightweight AL-URI descriptor instead of downloading the file. This descriptor is submitted so a URL-capable service (for example, [URLDownloader](https://github.com/CybercentreCanada/assemblyline-service-urldownloader)) can fetch the content during analysis.
+
+    Requires `ui.allow_url_submissions: true` in the UI configuration.
+
+#### Optional passworded ZIP handling
+
+If `password` is defined and the downloaded file is a ZIP, Assemblyline attempts to extract it automatically if the archive contains a single file and is smaller than `submission.max_file_size`.
+If extraction fails or multiple files are present, the normal [Extract](https://github.com/CybercentreCanada/assemblyline-service-extract) service handles it later.
+
+#### Post-processing and policy enforcement
+
+- Elevate the submission’s classification to at least the source’s classification. (`classification`)
+- Merge any source metadata; if none is provided, record original_source in the submission metadata (`metadata`).
+- Append all select_services to the submission’s selected-services list to ensure proper routing. (`select_services`)
+- If the input was a hash and the downloaded file’s computed hash differs, rename the file to match its actual hash.
+
+#### First-match wins
+
+File sources are evaluated sequentially; once one successfully resolves the input, further sources are skipped.
 
 ## Submission Profiles
 
@@ -115,6 +153,8 @@ What this would look like in the UI for a limited user is:
 
 ## Metadata Validation
 
+You can require certain metadata fields to be present in all submissions by defining them under `submission.metadata`.
+
 You can configure the system to enforce metadata validation and presence when performing ingestion and archiving. This is a useful feature if you're looking to harmonize the metadata from different sources under a common scheme.
 
 A lot of the configuration is around the parameters of the [ODM fields](https://github.com/CybercentreCanada/assemblyline-base/blob/master/assemblyline/odm/base.py) that Assemblyline uses internally for it's own data validation, so an example of configuring a field using a regex pattern would look like:
@@ -130,7 +170,7 @@ So if you wanted to enforce the presence of a metadata field named `bloo` on sub
 ```yaml
 submission:
   metadata:
-    submit:
+    submit: # Submission made using Submit API
       bloo: # Field name
         validation_type: regex
         validation_params:
