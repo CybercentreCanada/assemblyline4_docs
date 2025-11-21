@@ -43,21 +43,17 @@ The authentication section (`auth:`) of the configuration files contains all the
           - .*
           - .*@localhost
       ldap:
-        admin_dn: null
         auto_create: true
         auto_sync: true
         base: ou=people,dc=assemblyline,dc=local
         bind_pass: null
         bind_user: null
-        classification_mappings: {}
         email_field: mail
         enabled: false
         group_lookup_query: (&(objectClass=Group)(member=%s))
         image_field: jpegPhoto
         image_format: jpeg
         name_field: cn
-        signature_importer_dn: null
-        signature_manager_dn: null
         uid_field: uid
         uri: ldap://localhost:389
       oauth:
@@ -218,9 +214,6 @@ Here is an example configuration block to add to your configuration file that wi
             # Should LDAP be enabled or not?
             enabled: true
 
-            # DN of the group or the user who will get admin privileges
-            admin_dn: cn=admin_staff,ou=people,dc=planetexpress,dc=com
-
             # Auto-create users if they are missing, this means
             #  that if a user exists in LDAP, Assemblyline will create an
             #  account for it upon the first login
@@ -239,8 +232,6 @@ Here is an example configuration block to add to your configuration file that wi
             # User use to query the LDAP server
             bind_user: null
 
-            classification_mappings: {}
-
             # Name of the field containing the email address
             email_field: mail
 
@@ -255,12 +246,6 @@ Here is an example configuration block to add to your configuration file that wi
 
             # Name of the field containing the user's name
             name_field: cn
-
-            # DN of the group or the user who will get signature_importer role
-            signature_importer_dn: null
-
-            # DN of the group or the user who will get signature_manager role
-            signature_manager_dn: null
 
             # Field name for the UID
             uid_field: uid

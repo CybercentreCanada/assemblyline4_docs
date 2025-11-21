@@ -18,7 +18,7 @@ Entrez le hash SHA256 que vous souhaitez analyser dans la zone de texte "URL/SHA
 
 Lorsque vous soumettez un hash SHA256, Assemblyline vérifie si le hash correspond à un fichier précédemment rencontré. Si un fichier correspondant est trouvé, il est resoumis pour une analyse plus approfondie. Dans le cas contraire, si le fichier n'est pas trouvé dans le stockage local, Assemblyline tentera de le localiser sur une source externe, telle que Malware Bazaar, et le soumettra pour analyse s'il est trouvé.
 
-Ce comportement dépend de votre configuration de déploiement — consultez [`submission.sha256_sources`](../../odm/models/config/#sha256source) pour les détails de configuration.
+Ce comportement dépend de votre configuration de déploiement — consultez [`submission.file_sources`](../../odm/models/config/#filesource) pour les détails de configuration.
 
 ## Options
 
