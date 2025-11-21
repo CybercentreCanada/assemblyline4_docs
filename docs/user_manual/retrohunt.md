@@ -43,7 +43,7 @@ Some rules of thumb to help choose good YARA rules for retrohunting:
 - Where strings are case insensitive or use multiple encodings the effect of the string is slightly weakened.
 - When a string includes a wildcard, it breaks the string into two separate shorter ones for the purposes of filtering quality. So a five character string where the middle one is wildcard contributes no trigrams to the filtering stage.
 - Most rule condition logic is supported but a few features are missing, most notably loops are not supported.
-- Regex _is_ supported, but regexs are deconstructed using the same logic as the conditions and strings of the YARA rule, optional strings in a regex `(abc123)?` contribute no trigrams, but required or alternate strings contribute trigrams as usual. A regex `.*(abc123|xyz456)+.` required in the rule conditions will contribute two alternate sequences of four trigrams and will improve filtering similarly to if those strings were added with an **or** in the rule conditions directly.
+- Regex _is_ supported, but regexes are deconstructed using the same logic as the conditions and strings of the YARA rule, optional strings in a regex `(abc123)?` contribute no trigrams, but required or alternate strings contribute trigrams as usual. A regex `.*(abc123|xyz456)+.` required in the rule conditions will contribute two alternate sequences of four trigrams and will improve filtering similarly to if those strings were added with an **or** in the rule conditions directly.
 
 
 ## Viewing the hits of a Retrohunt search
