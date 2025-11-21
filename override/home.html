@@ -82,7 +82,6 @@
         }
 
         .tx-hero__content {
-            max-width: 22rem;
             margin-top: 3.5rem;
             margin-bottom: 3.5rem;
             margin-left: 1.0rem;
@@ -190,11 +189,11 @@
 
 <!-- Main site Entry button descriptions -->
 <section class="tx-container">
-    <div class="md-grid md-typeset">
+    <div class="tx-hero__image" style="position: fixed;justify-self: center;">
+        <img src="images/splash.png" draggable="false" style="opacity: 10%;">
+    </div>
+    <div class="md-grid md-typeset" style="position: relative;z-index: 1;">
         <div class="tx-hero">
-            <div class="tx-hero__image">
-                <img src="images/splash.png" draggable="false">
-            </div>
             <div class="tx-hero__content">
                 <h1>Assemblyline 4</h1>
                 <p>{%if 'fr/' in page.url %}Plateforme de tri de fichier et d'analyse de « malware » qui intègre les
@@ -206,11 +205,11 @@
                         class="md-button md-button--primary">
                         {%if 'fr/' in page.url %}Comment ça fonctionne{%else%}How it works{%endif%}
                     </a>
-                    <a href="https://github.com/CyberCentreCanada/assemblyline"
-                        title="{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}"
-                        class="md-button button-icon" target="_blank">
-                        <span>{%if 'fr/' in page.url %}Voir le code source{%else%}View source code{%endif%}</span>
-                        <span class="icon">{% include ".icons/fontawesome/brands/github.svg" %}</span>
+                    <a href="https://codesandbox.io/templates/assemblyline" target="_blank"
+                        class="md-button button-icon">
+                        <span>{%if 'fr/' in page.url %}Essayez une démo{%else%}Try a
+                            Demo{%endif%}</span>
+                        <span class="icon">{% include ".icons/fontawesome/solid/flask-vial.svg" %}</span>
                     </a>
                     <a href="https://discord.gg/GUAy9wErNu" target="_blank" class="md-button button-icon">
                         <span>{%if 'fr/' in page.url %}Rejoignez notre communauté{%else%}Join our
