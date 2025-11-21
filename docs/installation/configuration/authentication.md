@@ -223,6 +223,20 @@ Here is an example configuration block to add to your configuration file that wi
             #  email, name... with the LDAP server upon each login?
             auto_sync: true
 
+            # Automatic role and classification assignments
+            auto_properties:
+                # any user with a @localhost.local email will be given
+                #  TLP:Amber classification and any user with a @example.com
+                #  email will be made administrator in the system
+                - field: email
+                  pattern: .*@localhost\.local$
+                  type: classification
+                  value: "TLP:A"
+                - field: email
+                  pattern: .*@example\.com$
+                  type: role
+                  value: "admin"
+
             # Base DN for the users
             base: ou=people,dc=planetexpress,dc=com
 
