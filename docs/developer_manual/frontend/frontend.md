@@ -109,39 +109,20 @@ Still in your `assemblyline-ui-frontend` directory, run the following command to
 pnpm install
 ```
 
-### Install Docker (Ubuntu)
+### Installing Docker and Docker Compose
 
-Follow these simple commands to get Docker running on your machine:
+Installing `docker` and `docker compose` on your machine is necessary for development.
 
-``` bash
-# Add Docker repository
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+1. Follow the install guide provided by the official Docker documentation:
+    * [Install Guide for Ubuntu](https://docs.docker.com/engine/install/ubuntu)
+    * [Install Guide for RHEL](https://docs.docker.com/engine/install/rhel/)
+    * [Install Guide for Other Platforms](https://docs.docker.com/engine/install)
 
-# Install Docker
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
-# Test Docker installation
-sudo docker run hello-world
-```
-
-### Install Docker-Compose
-
-Installing `docker-compose` is done the same way on all Linux distributions. Follow these simple instructions:
-
-``` bash
-# Install docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Test docker-compose installation
-docker-compose --version
-```
-
-For reference, here are the instructions on Docker’s website: <https://docs.docker.com/compose/install/>
+2. Ensure the installation was successful by invoking the commands:
+  ```shell
+  docker version
+  docker compose version
+  ```
 
 ## Configure the development environment
 
@@ -156,7 +137,7 @@ HTTPS=true
 BROWSER=none
 ```
 
-### Setup Docker-Compose environment
+### Setup Docker Compose environment
 
 #### Setup IP routing
 
@@ -189,7 +170,7 @@ The default `docker-compose` configuration is setup for users who only want to w
 Go to the `docker` directory and run the following command to launch the Assemblyline database and user interface.
 
 ``` bash title="~/git/assemblyline-ui-frontend/docker"
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Frontend

@@ -54,37 +54,20 @@ sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt-get install -yy python3-venv python3.9 python3.9-dev python3.9-venv libffi7
 ```
 
-#### Installing Docker
+#### Installing Docker and Docker Compose
 
-Follow these simple commands to get Docker running on your machine:
+Installing `docker` and `docker compose` on your machine is necessary for Assemblyline remote development.
 
-```shell
-# Add Docker repository
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+1. Follow the install guide provided by the official Docker documentation:
+    * [Install Guide for Ubuntu](https://docs.docker.com/engine/install/ubuntu)
+    * [Install Guide for RHEL](https://docs.docker.com/engine/install/rhel/)
+    * [Install Guide for Other Platforms](https://docs.docker.com/engine/install)
 
-# Install Docker
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
-# Test Docker installation
-sudo docker run hello-world
-```
-
-#### Installing docker-compose
-
-Installing `docker-compose` is done the same way on all Linux distributions. Follow these simple instructions:
-
-```shell
-# Install docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
-# Test docker-compose installation
-docker-compose --version
-```
+2. Ensure the installation was successful by invoking the commands:
+  ```shell
+  docker version
+  docker compose version
+  ```
 
 ##### Securing Docker for remote access
 
@@ -166,7 +149,7 @@ sudo chown $USER /var/log/assemblyline
 
 #### Assemblyline dev configuration files
 
-Here we will create configuration files that match the default dev `docker-compose` configuration files so that we can swap any of the components to the one that is being debugged.
+Here we will create configuration files that match the default dev Docker Compose configuration files so that we can swap any of the components to the one that is being debugged.
 
 ```shell
 echo "enforce: true" > /etc/assemblyline/classification.yml

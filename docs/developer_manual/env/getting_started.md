@@ -35,7 +35,7 @@ For instructions on how to use VSCode, refer to the "[use VSCode](../vscode/use_
 
 ### PyCharm
 
-This IDE is much more robust in terms Python development but the setup is more complex. There is both a paid and free version of this IDE. The free Community edition of PyCharm will allow you to do local develpment only and you will have to run the dependencies by hand using `docker-compose`. The paid version, PyCharm Professional, will let you manage Docker dependencies inside the IDE and utilize remote development.
+This IDE is much more robust in terms Python development but the setup is more complex. There is both a paid and free version of this IDE. The free Community edition of PyCharm will allow you to do local develpment only and you will have to run the dependencies by hand using `docker compose`. The paid version, PyCharm Professional, will let you manage Docker dependencies inside the IDE and utilize remote development.
 
 Here are the installation instructions for the different setups:
 

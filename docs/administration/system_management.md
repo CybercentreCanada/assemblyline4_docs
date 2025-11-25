@@ -25,7 +25,7 @@ Depending on the type of deployment (Kubernetes/Docker), the method of upgrading
 -   Docker: Update `SERVICE_VERSION` in .env file if necessary, then:
 
     ```bash
-    docker-compose pull && docker-compose up -d
+    docker compose pull && docker compose up -d
     ```
 
 -   Kubernetes: Update `release` in values.yaml if necessary, then:

@@ -200,7 +200,7 @@ When this is done you can just perform an Helm upgrade to apply the changes to y
 
 ## Alternate Deployment
 
-If you are not using our helm chart to deploy Assemblyline, perhaps you are using a docker-compose deployment, there are alternatives on how to run the different Replay components
+If you are not using our helm chart to deploy Assemblyline, perhaps you are using a Docker Compose deployment, there are alternatives on how to run the different Replay components
 
 === "Virtual Env using API"
 
@@ -359,7 +359,7 @@ If you are not using our helm chart to deploy Assemblyline, perhaps you are usin
 
 === "Docker container direct DB Access"
 
-    This scenario is mainly going to be used if you have a docker-compose appliance of Assemblyline so you can just run a couple extra containers to get Replay going. Since you have direct access to Assemblyline's Database and queues you do not have to create a special container and can just use the core container.
+    This scenario is mainly going to be used if you have a Docker Compose appliance of Assemblyline so you can just run a couple extra containers to get Replay going. Since you have direct access to Assemblyline's Database and queues you do not have to create a special container and can just use the core container.
 
     !!! important
         We will assume that all you are running an appliance out of you home folder (`~/appliance/`). You should adjust the paths correctly to fit your installation.
