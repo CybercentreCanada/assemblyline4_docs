@@ -20,13 +20,13 @@ When dependencies are loaded, you can launch any core components and their depen
     !!! tip
         From now on you can just select that Compose deployment for dependencies from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configuration and give it a proper name.
 
-=== "Docker-compose (PyCharm Community)"
+=== "Docker Compose (PyCharm Community)"
 
     In a new terminal on the VM, run the following commands:
 
     ```shell
     cd ~/git/alv4/assemblyline-base/dev/depends/
-    sudo docker-compose -f docker-compose-minimal.yml up
+    sudo docker compose -f docker-compose-minimal.yml up
     ```
 
     !!! tip
@@ -36,7 +36,7 @@ When dependencies are loaded, you can launch any core components and their depen
 
     ```shell
     cd ~/git/alv4/assemblyline-base/dev/depends/
-    sudo docker-compose -f docker-compose-minimal.yml down
+    sudo docker compose -f docker-compose-minimal.yml down
     ```
 
 ### Core services
@@ -61,12 +61,12 @@ Core services depend on the dependencies in the `docker-compose` file. When the 
     !!! tip
         From now on you can just select that Compose deployment for core components from the dropdown up top and hit the run button to launch it. It is good practice to Edit the configuration and give it a proper name.
 
-=== "Docker-compose (PyCharm Community)"
+=== "Docker Compose (PyCharm Community)"
 
     In a new terminal on the VM, run the following commands:
     ```shell
     cd ~/git/alv4/assemblyline-base/dev/core/
-    sudo docker-compose up
+    sudo docker compose up
     ```
 
     !!! tip
@@ -75,7 +75,7 @@ Core services depend on the dependencies in the `docker-compose` file. When the 
     If you close the terminal and the containers keep running, run the following commands to shut down the containers:
     ```shell
     cd ~/git/alv4/assemblyline-base/dev/core/
-    sudo docker-compose down
+    sudo docker compose down
     ```
 
 ## Load a single container live

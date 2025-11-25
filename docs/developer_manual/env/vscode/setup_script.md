@@ -9,7 +9,7 @@ Assemblyline's VSCode installation is entirely scripted. It will set up the foll
 - Create a virtual Python environment for core component development
 - Create a virtual Python environment for service development (optional)
 - Create Run targets inside VSCode for all core components and other important scripts
-- Create Tasks inside VSCode for development using Docker-Compose
+- Create Tasks inside VSCode for development using Docker Compose
 - Setup our code formatting standards
 - Deploy a local Docker registry on port 32000
 

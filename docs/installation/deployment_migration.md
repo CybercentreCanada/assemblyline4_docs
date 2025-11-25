@@ -1,4 +1,4 @@
-# Docker-Compose → Kubernetes System Migration
+# Docker Compose → Kubernetes System Migration
 
 This guide assumes you're moving from a vanilla Docker-based deployment to a Kubernetes deployment.
 
@@ -158,7 +158,7 @@ Once transfer is complete, you can remove the `volumeMount` and `volume` relatin
 
 You can copy the contents of `config.yml` and place them in the `configuration` key of your `values.yaml`
 
-!!! warning "Some configuration values are oriented towards the Docker-Compose appliance, so change values where applicable."
+!!! warning "Some configuration values are oriented towards the Docker Compose appliance, so change values where applicable."
 
 ### Extra Configurations
 

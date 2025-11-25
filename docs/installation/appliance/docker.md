@@ -19,17 +19,13 @@ This is the documentation for an appliance instance of the Assemblyline platform
 ### Install pre-requisites
 
 === "Ubuntu"
-    Install Docker:
-    ```bash
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    echo \
-    "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-    "$(lsb_release -cs)" stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo apt-get update -y
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    sudo ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose
-    ```
+    1. Follow the [install guide provided by the official Docker documentation.](https://docs.docker.com/engine/install/ubuntu)
+
+    2. Ensure the installation was successful by invoking the commands:
+        ```shell
+        docker version
+        docker compose version
+        ```
 === "RHEL 8.5"
     !!! warning
         Many of the instructions below have been set to force yes and allow erasing for quick implementation.
@@ -37,25 +33,22 @@ This is the documentation for an appliance instance of the Assemblyline platform
         It is recommended that these flags be removed for production environments to avoid impacting production environments by missing key messages and warnings.
         Step 4 contains a firewall configuration, we strongly advise firewall settings should be managed and reviewed by your organization before deployment.
 
-    1. Install Docker:
-    ```bash
-    yum update -y --allowerasing
-    yum install -y yum-utils
-    yum-config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
-    yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin --allowerasing
-    ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/local/bin/docker-compose
-    systemctl start docker
-    systemctl enable docker
-    ```
+    1. Follow the [install guide provided by the official Docker documentation.](https://docs.docker.com/engine/install/rhel/)
 
-    2. Upgrade Python3.9:
+    2. Ensure the installation was successful by invoking the commands:
+        ```shell
+        docker version
+        docker compose version
+        ```
+
+    3. Upgrade Python3.9:
     ```bash
     dnf install -y python39
     alternatives --set python3 /usr/bin/python3.9
     python3 --version
     ```
 
-    3. Configure firewalld for Docker:
+    4. Configure firewalld for Docker:
     ```bash
     sed -i 's/FirewallBackend=nftables/FirewallBackend=iptables/' /etc/firewalld/firewalld.conf
     firewall-cmd --reload
@@ -92,7 +85,7 @@ cd ~/deployments/assemblyline
 
 ### Setup your appliance
 
-The ```config/config.yml``` file in your deployment directory is already pre-configured for use with `docker-compose` as a single node appliance. You can review the settings already configured but you should not have anything to change there.
+The ```config/config.yml``` file in your deployment directory is already pre-configured for use with `docker compose` as a single node appliance. You can review the settings already configured but you should not have anything to change there.
 
 The ```.env``` file in your deployment directory is preconfigured with default passwords, you should definitely change them.
 
@@ -123,28 +116,28 @@ openssl req -nodes -x509 -newkey rsa:4096 -keyout ~/deployments/assemblyline/con
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose pull --ignore-buildable
-sudo env COMPOSE_BAKE=true docker-compose build
-sudo docker-compose -f bootstrap-compose.yaml pull
+sudo docker compose pull --ignore-buildable
+sudo env COMPOSE_BAKE=true docker compose build
+sudo docker compose -f bootstrap-compose.yaml pull
 ```
 
 ### Finally deploy your appliance
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose up -d --wait
-sudo docker-compose -f bootstrap-compose.yaml up
+sudo docker compose up -d --wait
+sudo docker compose -f bootstrap-compose.yaml up
 ```
 
 !!! tip
     A helpful command for watching the containers as they start and enter a healthy state is `watch -n 1 docker ps`.
 
 !!! info
-    Once the `docker-compose` command on the bootstrap file complete, your cluster will be ready to use and you can login with the default admin user/password that you've set in your ```.env``` file
+    Once the `docker compose` command on the bootstrap file complete, your cluster will be ready to use and you can login with the default admin user/password that you've set in your ```.env``` file
 
 ### Service specific configurations
 
-Certain services need special configurations to run efficiently in a docker-compose appliance setup. Refer to the [service management documentation](https://cybercentrecanada.github.io/assemblyline4_docs/administration/service_management/) to configure services through service parameters and service variables.
+Certain services need special configurations to run efficiently in a Docker Compose appliance setup. Refer to the [service management documentation](https://cybercentrecanada.github.io/assemblyline4_docs/administration/service_management/) to configure services through service parameters and service variables.
 
 - URLDownloader: The `no_sandbox` option defaults to `False`, but will cause a `TimeoutExpired` in the internal google-chrome. Change this value to `True` if you encounter this [issue](https://github.com/CybercentreCanada/assemblyline/issues/146).
 
@@ -154,9 +147,9 @@ Certain services need special configurations to run efficiently in a docker-comp
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose pull --ignore-buildable
-sudo docker-compose build
-sudo docker-compose up -d
+sudo docker compose pull --ignore-buildable
+sudo docker compose build
+sudo docker compose up -d
 ```
 
 ### Changing Assemblyline configuration file
@@ -165,7 +158,7 @@ Edit the ```cd ~/deployments/assemblyline/config/config.yml``` then:
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose restart
+sudo docker compose restart
 ```
 
 ### Check core services logs
@@ -174,14 +167,14 @@ For core components:
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose logs
+sudo docker compose logs
 ```
 
 Or for a specific component:
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose logs ui
+sudo docker compose logs ui
 ```
 
 ### Take down your appliance
@@ -191,14 +184,14 @@ sudo docker-compose logs ui
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose stop
+sudo docker compose stop
 sudo docker rm --force $(sudo docker ps -a --filter label=app=assemblyline -q)
-sudo docker-compose down --remove-orphans
+sudo docker compose down --remove-orphans
 ```
 
 ### Bring your appliance back online
 
 ```bash
 cd ~/deployments/assemblyline
-sudo docker-compose up -d
+sudo docker compose up -d
 ```
