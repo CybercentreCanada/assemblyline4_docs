@@ -17,6 +17,11 @@ Create a virtual environment for your documentation in the `/venv/` directory ri
 ```shell
 cd assemblyline4_docs
 python -m venv venv
+
+# Activate the venv.
+# If on Windows, use ".\venv\Scripts\activate.bat" instead
+source ./venv/bin/activate
+
 pip install mkdocs-material
 pip install mkdocs-static-i18n
 pip install mkdocs-glightbox
