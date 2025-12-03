@@ -36,3 +36,17 @@
 .big_icon {
   font-size: large;
 }
+
+.blog_icon {
+  height: 18px;
+  width: 18px;
+}
+
+.blog_image {
+  height: 112px;
+  width: 112px;
+}
+
+.blog_published_date {
+  font-size: small;
+}
