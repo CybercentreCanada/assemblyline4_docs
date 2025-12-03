@@ -4,7 +4,7 @@
         {
             "label": "Launch Assemblyline Documentation",
             "type": "shell",
-            "command": "mkdocs serve",
+            "command": "mkdocs serve --livereload",
             "options": {
                 "cwd": "${workspaceFolder}/",
             },

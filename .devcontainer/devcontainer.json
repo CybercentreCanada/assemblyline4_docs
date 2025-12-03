@@ -5,7 +5,8 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "squidfunk/mkdocs-material:latest",
 	"runArgs": [
-		"--network=host"
+		"--network=host",
+		"-p=8000"
 	],
 	"postCreateCommand": "pip install mkdocs-static-i18n mkdocs-glightbox",
 	// Features to add to the dev container. More info: https://containers.dev/features.
