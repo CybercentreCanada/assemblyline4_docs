@@ -15,7 +15,7 @@ That's right, we blog now! Check out our posts on Medium and articles written by
     *How does Sekoia use Assemblyline to automate extraction of malware configuration data?*
 
     [Page 1](https://blog.sekoia.io/advent-of-configuration-extraction-part-1-pipeline-overview-first-steps-with-kaiji-configuration-unboxing/) |
-    Page 2 |
+    [Page 2](https://blog.sekoia.io/advent-of-configuration-extraction-part-2-unwrapping-quasarrats-configuration/) |
     Page 3 |
     Page 4
 
