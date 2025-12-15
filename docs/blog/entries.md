@@ -16,7 +16,7 @@ That's right, we blog now! Check out our posts on Medium and articles written by
 
     [Page 1](https://blog.sekoia.io/advent-of-configuration-extraction-part-1-pipeline-overview-first-steps-with-kaiji-configuration-unboxing/) |
     [Page 2](https://blog.sekoia.io/advent-of-configuration-extraction-part-2-unwrapping-quasarrats-configuration/) |
-    Page 3 |
+    [Page 3](https://blog.sekoia.io/advent-of-configuration-extraction-part-3-mapping-got-plt-and-disassembling-the-snowlight-loader/) |
     Page 4
 
 -   ![Assemblyline](images/assemblyline.svg){ class="blog_icon" } [Crack any password-protected InnoSetup installer](https://medium.com/@gdesmar/crack-any-password-protected-innosetup-installer-5daabb52dbfb)
