@@ -20,7 +20,7 @@ A search run on stored files.
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
 | indices | Enum | Defines the indices used for this retrohunt job<br>Supported values are:<br>`"archive", "hot", "hot_and_archive"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `hot_and_archive` |
-| classification | Classification | Classification for the retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| classification | Classification | Classification for this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | search_classification | ClassificationString | Maximum classification of results in the search | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | creator | Keyword | User who created this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | description | Text | Human readable description of this retrohunt job | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |

@@ -13,7 +13,7 @@ This schema serves as a technical blueprint for cybersecurity professionals to n
 | al | [ALResults](/assemblyline4_docs/odm/models/alert/#alresults) | Contains the results of the Assemblyline analysis for the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | archive_ts | Date | Timestamp indicating when the alert was archived in the system. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | attack | [Attack](/assemblyline4_docs/odm/models/alert/#attack) | Structured data representing MITRE ATT&CK information associated with the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| classification | Classification | Security classification level of the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| classification | Classification | Security classification assigned to the alert based on its contents and context. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | expiry_ts | Date | Timestamp indicating when the alert is scheduled to expire from the system. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | extended_scan | Enum | Indicates the status of an extended scan, if applicable. Extended scans are additional analyses performed after the initial analysis.<br>Supported values are:<br>`"completed", "incomplete", "skipped", "submitted"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | file | [File](/assemblyline4_docs/odm/models/alert/#file) | Information about the file associated with the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
@@ -66,16 +66,16 @@ Provides a comprehensive breakdown of specific attributes and their associated a
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| attack_pattern | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed information on MITRE ATT&CK® framework patterns identified in the analysis. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| attack_category | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed information on MITRE ATT&CK® framework categories associated with the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| attrib | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed attribution information that provides context by suggesting associations with known malware families, suspected threat actors, or ongoing campaigns. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| av | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed information on antivirus signature matches. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| behavior | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed descriptions of the behaviors exhibited by the analyzed file or artifact that led to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| domain | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed domain information related to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| heuristic | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed heuristic information that triggered the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| ip | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed IP address information related to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| uri | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed URI information related to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| yara | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Detailed information on YARA rule matches that contributed to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| attack_pattern | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | MITRE ATT&CK® framework patterns identified in the analysis. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| attack_category | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | MITRE ATT&CK® framework categories associated with the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| attrib | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Attribution information that provides context by suggesting associations with known malware families, suspected threat actors, or ongoing campaigns. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| av | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Information on antivirus signature matches. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| behavior | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Descriptions of the behaviors exhibited by the analyzed file or artifact that led to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| domain | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Domain information related to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| heuristic | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Heuristic information that triggered the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| ip | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | IP address information related to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| uri | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | URI information related to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| yara | List [[DetailedItem](/assemblyline4_docs/odm/models/alert/#detaileditem)] | Information on YARA rule matches that contributed to the alert. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -87,8 +87,8 @@ Represents a granular element within the detailed analysis results, providing sp
 | :--- | :--- | :--- | :--- | :--- |
 | type | Keyword | Defines the specific attribute or aspect of the analysis that this detailed item pertains to. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | value | Keyword | The specific value or identifier for the detail item. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| verdict | Enum | Represents the security assessment or classification of the detailed item, indicating its potential threat level.<br>Supported values are:<br>`"info", "malicious", "safe", "suspicious"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| subtype | Enum | Adds further specificity to the detailed item, elaborating on its role or nature within the broader type category.  Supported subtypes include configuration blocks (CFG), exploits (EXP), implants (IMP), obfuscation methods (OB), and threat actors (TA).<br>Supported values are:<br>`"CFG", "EXP", "IMP", "OB", "TA"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| verdict | Enum | Security assessment of the detailed item.<br>Supported values are:<br>`"highly suspicious", "info", "malicious", "safe", "suspicious"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| subtype | Enum | Specifies the item's subtype (e.g., CFG, EXP, IMP, OB, TA).<br>Supported values are:<br>`"CFG", "EXP", "IMP", "OB", "TA"` | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -149,7 +149,7 @@ Stores information about screenshots taken during the analysis of the file. Each
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
 ## Heuristic
-Summarizes the heuristic rules triggered during the analysis. These rules are part of the detection logic used by Assemblyline to identify suspicious or malicious behavior in the analyzed file.
+Summarizes the heuristics that were triggered during the analysis. These heuristics are part of the detection logic used by Assemblyline to identify suspicious or malicious behavior in the analyzed file.
 
 
 | Field | Type | Description | Required | Default |
@@ -174,7 +174,7 @@ The Verdict submodel captures the conclusions drawn by users regarding the natur
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| malicious | List [Keyword] | User identifiers of those who have marked the submission as malicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| non_malicious | List [Keyword] | User identifiers of those who have marked the submission as non-malicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| malicious | List [Keyword] | User IDs of those who have marked the alert as malicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| non_malicious | List [Keyword] | User IDs of those who have marked the alert as non-malicious. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 

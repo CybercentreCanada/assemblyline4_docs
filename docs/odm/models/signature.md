@@ -4,18 +4,18 @@ None
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| classification | Classification | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
+| classification | Classification | Security classification assigned to the signature based on its contents and context. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
 | data | Text | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| last_modified | Date | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
-| name | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| order | Integer | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
-| revision | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
-| signature_id | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| source | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| state_change_date | Date | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| state_change_user | Keyword | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
-| status | Enum | None<br>Supported values are:<br>`"DEPLOYED", "DISABLED", "INVALID", "NOISY", "STAGING", "TESTING"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| type | Keyword | None | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| last_modified | Date | Notes the last modification timestamp of the signature. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
+| name | Keyword | Name of the signature. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| order | Integer | :material-alert-outline: no longer used in v4 | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| revision | Keyword |  | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| signature_id | Keyword | ID associated with the signature. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| source | Keyword | Source or author of the signature. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| state_change_date | Date | Date the signature's state was last changed. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| state_change_user | Keyword | User who last changed the signature's state. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| stats | [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) | Stats associated with count, average, min, max, and sum of various signature metrics. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Statistics](/assemblyline4_docs/odm/models/statistics/#statistics) for more details. |
+| status | Enum | The current state of the signature (i.e. NOISY, DISABLED, DEPLOYED, etc.).<br>Supported values are:<br>`"DEPLOYED", "DISABLED", "INVALID", "NOISY", "STAGING", "TESTING"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| type | Keyword | The service type that the signature is associated with. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 
 

@@ -12,8 +12,8 @@ Utilize this schema as a reference to enhance your search capabilities within th
 | archive_ts | Date | Timestamp indicating when the file was archived. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | ascii | Keyword | Provides a dotted ASCII representation of the first 64 bytes of the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | classification | Classification | Security classification assigned to the file based on its contents and context. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| comments | List [[Comment](/assemblyline4_docs/odm/models/file/#comment)] | An array of user-generated comments pertaining to the file. See Comment model for more information. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| entropy | Float | A numerical value representing the file's entropy, which is defined as the level of randomness in the file's content, typically used to detect compression or encryption. High entropy may indicate obfuscation techniques such as encryption, commonly employed by malware to evade detection. This metric is not exclusive to malicious files, as legitimate files can also exhibit high entropy. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| comments | List [[Comment](/assemblyline4_docs/odm/models/file/#comment)] | User comments linked to the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| entropy | Float | Entropy value indicating randomness or potential obfuscation. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | expiry_ts | Date | Timestamp indicating when the file is scheduled to expire from the system. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | is_section_image | Boolean | Indicates if the file is an image safe for web browser display, often part of analysis results. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | is_supplementary | Boolean | Indicates if the file was created by an AssemblyLine service as supplementary data. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
@@ -21,8 +21,8 @@ Utilize this schema as a reference to enhance your search capabilities within th
 | labels | List [Keyword] | Array of descriptive labels applied to the file for categorization and analysis. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | label_categories | [LabelCategories](/assemblyline4_docs/odm/models/file/#labelcategories) | Structured categories for the labels applied to the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [LabelCategories](/assemblyline4_docs/odm/models/file/#labelcategories) for more details. |
 | md5 | MD5 | The MD5 hash of the file, used for identifying duplicates and verifying integrity. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| magic | Keyword | Detailed file format information derived from an analysis using the libmagic library, including text descriptions of the file's content type and encoding. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| mime | Keyword | The Multipurpose Internet Mail Extensions (MIME) type of the file as determined by libmagic, which identifies file types by checking their headers according to a predefined list of file types. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| magic | Keyword | File type info derived from libmagic. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| mime | Keyword | MIME type of the file from libmagic. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | seen | [Seen](/assemblyline4_docs/odm/models/file/#seen) | Records the frequency and timestamps of when the file was encountered. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [Seen](/assemblyline4_docs/odm/models/file/#seen) for more details. |
 | sha1 | SHA1 | The SHA1 hash of the file, providing a more secure alternative to MD5 for integrity checks. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | sha256 | SHA256 | The SHA256 hash of the file, offering a high level of security for integrity verification. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
@@ -72,9 +72,9 @@ LabelCategories provide a systematic approach to classifying the characteristics
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| info | List [Keyword] | Informational labels providing additional context about the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| technique | List [Keyword] | An array of labels identifying the specific tactics, techniques, and procedures (TTPs) as defined by the MITRE ATT&CK® framework that are exhibited by the malware within the file. This field also includes labels for any detection signatures that triggered during analysis, providing insight into the malware's behavior and potential impact. Analysts can use these labels to correlate files with known adversary behavior and to enhance threat hunting and incident response activities. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
-| attribution | List [Keyword] | Labels that relate to the attribution of the file, such as the associated threat actor or campaign. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| info | List [Keyword] | Informational labels providing context. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| technique | List [Keyword] | Labels identifying techniques or triggered detections (e.g., MITRE ATT&CK® TTPs). | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
+| attribution | List [Keyword] | Labels related to threat actors or campaigns. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 
 
 [comment]: # (AUTOGENERATED MARKDOWN CONTENT. UPDATES TO ODM DOCUMENTATION SHOULD BE DONE THROUGH ASSEMBLYLINE-BASE REPO!)
@@ -86,7 +86,7 @@ The Seen model is designed to record and quantify the instances in which a file 
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| count | Integer | The total number of times the file has been observed by the system. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
+| count | Integer | Number of times the file has been observed. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `1` |
 | first | Date | The timestamp of the file's first sighting. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
 | last | Date | The timestamp of the file's most recent sighting. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `NOW` |
 
@@ -102,16 +102,16 @@ Each of these descriptions aims to provide a clearer understanding of the purpos
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| uri | Keyword | The complete Uniform Resource Identifier (URI) of the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| scheme | Keyword | The scheme component of the URI (e.g., "http", "ftp"). | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| netloc | Keyword | The network location part of the URI, including the domain name and port. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| path | Keyword | The path component of the URI, specifying the resource within the host. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| uri | Keyword | Full URI of the file. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| scheme | Keyword | URI scheme (e.g., http, ftp). | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| netloc | Keyword | Network location including domain and port. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| path | Keyword | Path within the host. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | params | Keyword | The parameters component of the URI, often used for session management. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | query | Keyword | The query string of the URI, containing data for server-side processing. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | fragment | Keyword | The fragment identifier of the URI, used to navigate to a specific part of the resource. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| username | Keyword | The username specified in the URI, if any. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| password | Keyword | The password specified in the URI, if any. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
-| hostname | Keyword | The hostname extracted from the netloc, representing the domain of the URI. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| port | Integer | The port number extracted from the netloc, representing the communication endpoint. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| username | Keyword | Username in the URI, if present. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| password | Keyword | Password in the URI, if present. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| hostname | Keyword | Hostname extracted from the URI. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| port | Integer | Port number in the URI. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
