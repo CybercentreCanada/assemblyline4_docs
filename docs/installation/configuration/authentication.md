@@ -280,9 +280,7 @@ It has been thoroughly tested with:
 * [Auth0](https://auth0.com/)
 * [Microsoft Azure Active Directory Accounts](https://docs.microsoft.com/azure/active-directory/)
 
-Here is an exhaustive configuration block that explains every single parameter from the OAuth configuration block:
-
-???+ example "Exhaustive OAuth configuration example"
+??? example "Exhaustive OAuth configuration example"
     ```yaml
     auth:
         internal:
@@ -396,6 +394,8 @@ Here is an exhaustive configuration block that explains every single parameter f
                     groups_id_token_field: null
     ```
 
+#### Using OpenID Connect Providers
+
 OpenID Connect (OIDC) Providers have a [configuration endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfigurationRequest) that can be used to automatically configure `api_base_url`, `jwks_url`, `access_token_url`, and `authorize_url`.
 You can set the value of `openid_connect_discovery_url` to this configuration endpoint and Assemblyline will automatically configure the other URLs.
 
@@ -404,16 +404,15 @@ To get group information, Assemblyline will look for the `groups` key in the ID 
 You can also configure Assemblyline to parse group information using another key by setting the `groups_id_token_field`.
 If Assemblyline is able to parse user/group information from an ID token, it will skip using the user_get/group_get endpoint.
 
-Here is an example configuration block that would let you use Auth0 if you would change your `client_id` and `client_secret` and that you would change the `tenant_name` to yours:
+#### Example Configurations
 
-???+ example "Auth0 configuration example"
+Below are some example configurations for popular OAuth providers.
+
+=== "Auth0"
+
     ```yaml
     auth:
-        internal:
-            # Disable internal login, you could also leave it on if you want
-            enabled: false
         oauth:
-            # Enable oAuth
             enabled: true
 
             # Setup the auto0 provider
@@ -440,30 +439,98 @@ Here is an example configuration block that would let you use Auth0 if you would
                     user_get: userinfo
     ```
 
-Here is an example configuration block for using Keycloak with OIDC configuration endpoint and ID tokens.
-You need to configure a group membership mapper with token claim name `groups` to the client scope.
-You also need to provide the client ID, client secret and the Keycloak configuration URL that corresponds to your realm and client.
+=== "Google"
 
-???+ example "Keycloak configuration example"
     ```yaml
-        auth:
-          oauth:
+    auth:
+        oauth:
             enabled: true
+
+            # Setup the Google provider
             providers:
-                # Name of the provider displayed in the UI
-                local_provider:
-                  # Assemblyline will auto configure other endpoints using this URL
-                  openid_connect_discovery_url: <KEYCLOAK_URL>/.well-known/openid-configuration
+                google:
+                    # It is safe to auto-create users here
+                    # because it is your OAuth tenant
+                    auto_create: true
+                    auto_sync: true
 
-                  # Put your client ID and secret here
-                  client_id: <CLIENT_ID>
-                  client_secret: <CLIENT_SECRET>
+                    # Put your client ID and secret here
+                    client_id: <YOUR_CLIENT_ID>
+                    client_secret: <YOUR_CLIENT_SECRET>
 
-                  client_kwargs:
-                    scope: openid email profile
+                    client_kwargs:
+                        scope: openid email profile
 
-                  # Field name that maps the group membership field in id token
-                  groups_id_token_field: groups
+                    # Point Assemblyline to Google's OIDC configuration endpoint to setup authentication
+                    openid_connect_discovery_url: "https://accounts.google.com/.well-known/openid-configuration"
+
+                    # Or manually configure the endpoints
+                    # access_token_url: https://oauth2.googleapis.com/token
+                    # api_base_url: https://openidconnect.googleapis.com/
+                    # authorize_url: https://accounts.google.com/o/oauth2/v2/auth
+                    # jwks_uri: https://www.googleapis.com/oauth2/v3/certs
+                    # user_get: "v1/userinfo"
+    ```
+
+=== "Keycloak"
+
+    !!! note
+        You need to configure a group membership mapper with token claim name `groups` to the client scope.
+        You also need to provide the client ID, client secret and the Keycloak configuration URL that corresponds to your realm and client.
+
+    ```yaml
+    auth:
+      oauth:
+        enabled: true
+        providers:
+            # Name of the provider displayed in the UI
+            keycloak:
+              # Assemblyline will auto configure other endpoints using this URL
+              openid_connect_discovery_url: https://<KEYCLOAK>/.well-known/openid-configuration
+
+              # Put your client ID and secret here
+              client_id: <CLIENT_ID>
+              client_secret: <CLIENT_SECRET>
+
+              client_kwargs:
+                scope: openid email profile
+
+              # Field name that maps the group membership field in id token
+              groups_id_token_field: groups
+    ```
+
+=== "Microsoft"
+
+    ```yaml
+    auth:
+        oauth:
+            enabled: true
+
+            # Setup the Microsoft provider
+            providers:
+                microsoft:
+                    # It is safe to auto-create users here
+                    # because it is your OAuth tenant
+                    auto_create: true
+                    auto_sync: true
+
+                    # Put your client ID and secret here
+                    client_id: <YOUR_CLIENT_ID>
+                    client_secret: <YOUR_CLIENT_SECRET>
+
+                    client_kwargs:
+                        scope: openid email profile
+
+                    # Point Assemblyline to Microsoft's OIDC configuration endpoint to setup authentication
+                    # If using Azure AD, replace 'common' with your tenant ID
+                    openid_connect_discovery_url: "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration"
+
+                    # Or manually configure the endpoints
+                    # access_token_url: https://login.microsoftonline.com/common/oauth2/v2.0/token
+                    # api_base_url: https://graph.microsoft.com
+                    # authorize_url: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+                    # jwks_uri: https://login.microsoftonline.com/common/discovery/v2.0/keys
+                    # user_get: "oidc/userinfo"
     ```
 
 ### SAML Authentication
