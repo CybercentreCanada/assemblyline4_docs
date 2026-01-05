@@ -4,7 +4,7 @@ That's right, we blog now! Check out our posts on Medium and articles written by
 
 <div class="grid cards" markdown>
 
--   ![One Library to Parse Them All](images/assemblyline.svg){ class="blog_icon" }  [One Library to Parse Them All](https://medium.com/@ryan.samaroo/one-library-to-parse-them-all-introducing-configextractor-1a2b3c4d5e6f)
+-   ![One Library to Parse Them All](images/assemblyline.svg){ class="blog_icon" }  [One Library to Parse Them All](https://medium.com/@ryan.samaroo/one-library-to-parse-them-all-introducing-configextractor-d0741cbe57e4)
 
     <p class="blog_published_date">Published: January 2026</p>
 
