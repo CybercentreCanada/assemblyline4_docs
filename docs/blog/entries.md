@@ -4,6 +4,26 @@ That's right, we blog now! Check out our posts on Medium and articles written by
 
 <div class="grid cards" markdown>
 
+-   ![One Library to Parse Them All](images/assemblyline.svg){ class="blog_icon" }  [One Library to Parse Them All](https://medium.com/@ryan.samaroo/one-library-to-parse-them-all-introducing-configextractor-1a2b3c4d5e6f)
+
+    <p class="blog_published_date">Published: January 2026</p>
+
+    ---
+
+    ![One Library to Parse Them All](https://miro.medium.com/v2/resize:fit:720/format:webp/0*7j7yWAXsA5iBq1-K){ class="blog_image" align=right }
+
+    *Read how the Canadian Cyber Centre came up with a one-stop shop for malware configuration parsing with multi-framework support.*
+
+-   ![Cracking Malware with Maco](images/assemblyline.svg){ class="blog_icon" }  [Cracking Malware with Maco](https://medium.com/@ryan.samaroo/cracking-malware-with-maco-aa9c08e5ceaa)
+
+    <p class="blog_published_date">Published: January 2026</p>
+
+    ---
+
+    ![Cracking Malware with Maco](https://miro.medium.com/v2/resize:fit:720/0*KY82Pu0LSQmeQQan){ class="blog_image" align=right }
+
+    *Learn how Assemblyline streamlines malware configuration parsing using Maco.*
+
 -   ![Advent of Configuration Extraction](images/sekoia.svg){ class="blog_icon" }  Advent of Configuration Extraction
 
     <p class="blog_published_date">Published: December 2025</p>
@@ -17,7 +37,7 @@ That's right, we blog now! Check out our posts on Medium and articles written by
     [Page 1](https://blog.sekoia.io/advent-of-configuration-extraction-part-1-pipeline-overview-first-steps-with-kaiji-configuration-unboxing/) |
     [Page 2](https://blog.sekoia.io/advent-of-configuration-extraction-part-2-unwrapping-quasarrats-configuration/) |
     [Page 3](https://blog.sekoia.io/advent-of-configuration-extraction-part-3-mapping-got-plt-and-disassembling-the-snowlight-loader/) |
-    Page 4
+    [Page 4](https://blog.sekoia.io/advent-of-configuration-extraction-part-4-turning-capa-into-a-configuration-extractor-for-tinyshell-variant/)
 
 -   ![Assemblyline](images/assemblyline.svg){ class="blog_icon" } [Crack any password-protected InnoSetup installer](https://medium.com/@gdesmar/crack-any-password-protected-innosetup-installer-5daabb52dbfb)
 
