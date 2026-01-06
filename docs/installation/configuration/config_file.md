@@ -51,7 +51,6 @@ The full specification of the file [is defined here](https://github.com/Cybercen
         base: ou=people,dc=assemblyline,dc=local
         bind_pass: null
         bind_user: null
-        classification_mappings: {}
         email_field: mail
         enabled: false
         group_lookup_query: (&(objectClass=Group)(member=%s))
@@ -59,8 +58,6 @@ The full specification of the file [is defined here](https://github.com/Cybercen
         image_field: jpegPhoto
         image_format: jpeg
         name_field: cn
-        signature_importer_dn: null
-        signature_manager_dn: null
         uid_field: uid
         uri: ldap://localhost:389
       oauth:
@@ -390,7 +387,6 @@ The full specification of the file [is defined here](https://github.com/Cybercen
             - Networking
             - Internet Connected
             - Dynamic Analysis
-      sha256_sources: []
       tag_types:
         attribution:
         - attribution.actor
