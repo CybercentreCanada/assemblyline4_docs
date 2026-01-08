@@ -635,3 +635,128 @@ These are all result section types that Assemblyline supports. You can see a scr
     result.add_section(multi_section)
     ...
     ```
+
+### SANDBOX
+
+![SANDBOX](./images/sandbox.png){ .center }
+
+??? example "Code used to generate the SANDBOX section"
+    Excerpt from the Assemblyline ResultSample service: [result_sample.py](https://github.com/CybercentreCanada/assemblyline-v4-service/blob/master/assemblyline_result_sample_service/result_sample.py)
+
+    ```python
+    ...
+    # ==================================================================
+    # Sandbox Section
+    #     This section allows a service writer to structure, correlate, and
+    #     enrich sandbox analysis results in a single, unified result section.
+    #
+    #     The SANDBOX section is designed to represent dynamic analysis output
+    #     such as:
+    #        - Analysis and environment metadata
+    #        - Process execution trees
+    #        - Network activity (DNS, HTTP, SMTP, TCP, etc.)
+    #        - Detection signatures and ATT&CK mappings
+    #
+    #     Each data category is modeled using strongly typed items
+    #     (SandboxProcessItem, SandboxNetflowItem, SandboxSignatureItem, etc.),
+    #     allowing the UI to present the data in structured, tabbed views.
+    sandbox_section = ResultSandboxSection("Example of a SANDBOX section")
+
+    # ------------------------------------------------------------------
+    # Sandbox analysis information
+    # ------------------------------------------------------------------
+    sandbox_section.set_analysis_information(
+        sandbox_name="Cuckoo Sandbox",
+        sandbox_version="2.0.7",
+        analysis_metadata=SandboxAnalysisMetadata(
+            task_id=1,
+            start_time="2025-10-14T12:00:00Z",
+            end_time="2025-10-14T12:10:30Z",
+            routing="Internet",
+            window_size="1024x768",
+            machine_metadata=SandboxMachineMetadata(
+                ip="192.168.0.15",
+                hypervisor="KVM",
+                hostname="analysis-vm-01",
+                platform="Windows",
+                version="10.0.19045",
+                architecture="x64",
+            ),
+        ),
+    )
+
+    # ------------------------------------------------------------------
+    # Processes
+    # ------------------------------------------------------------------
+    sandbox_section.add_process(SandboxProcessItem(
+        image="C:\\Windows\\System32\\svchost.exe",
+        start_time="2025-10-14T12:00:02Z",
+        end_time="2025-10-14T12:01:00Z",
+        pid=50,
+        ppid=4,
+        command_line="svchost.exe -k netsvcs",
+        integrity_level="system",
+        image_hash="svchosthash001",
+        original_file_name="svchost.exe",
+        safelisted=True,
+        sources=["capemon"],
+    ))
+
+    sandbox_section.add_process(SandboxProcessItem(
+        image="powershell.exe",
+        start_time="2025-10-14T12:00:10Z",
+        end_time="2025-10-14T12:00:45Z",
+        pid=120,
+        ppid=100,
+        command_line="powershell.exe -enc aQBmACgA",
+        integrity_level="high",
+        image_hash="evilhash789",
+        safelisted=False,
+        sources=["capemon"],
+    ))
+
+    # ------------------------------------------------------------------
+    # Network connections
+    # ------------------------------------------------------------------
+    sandbox_section.add_network_connection(SandboxNetflowItem(
+        destination_ip="45.83.23.19",
+        destination_port=80,
+        source_ip="192.168.0.15",
+        source_port=54321,
+        time_observed="2025-10-14T12:00:10Z",
+        process=120,
+        direction="outbound",
+        transport_layer_protocol="tcp",
+        http_details=SandboxNetworkHTTP(
+            request_uri="http://malicious.example.com/payload.exe",
+            request_method="GET",
+            response_status_code=200,
+            response_content_mimetype="application/octet-stream",
+            request_headers={"User-Agent": "PowerShell"},
+        ),
+        connection_type="http",
+        sources=["capemon"],
+    ))
+
+    # ------------------------------------------------------------------
+    # Signatures
+    # ------------------------------------------------------------------
+    sandbox_section.add_signature(SandboxSignatureItem(
+        name="Suspicious PowerShell Execution",
+        type="CUCKOO",
+        classification=cl_engine.RESTRICTED,
+        description="PowerShell launched with encoded commands",
+        score=1000,
+        pid=[120],
+        attacks=[
+            SandboxAttackItem("T1059.001", "PowerShell execution", ["execution"]),
+        ],
+        sources=["capemon"],
+    ))
+
+    # ------------------------------------------------------------------
+    # Add the SANDBOX section to the result
+    # ------------------------------------------------------------------
+    result.add_section(sandbox_section)
+    ...
+    ```
