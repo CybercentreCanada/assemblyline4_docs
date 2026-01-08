@@ -636,7 +636,7 @@ These are all result section types that Assemblyline supports. You can see a scr
     ...
     ```
 
-### MULTI
+### SANDBOX
 
 ![SANDBOX](./images/sandbox.png){ .center }
 
