@@ -78,7 +78,7 @@ Result Section.
 | auto_collapse | Boolean | Auto-collapse result sections upon loading. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | body | Text | Text body of the result section. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | classification | Classification | Security classification of the individual result section. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| body_format | Enum | Type of body in this section.<br>Supported values are:<br>`"GRAPH_DATA", "IMAGE", "JSON", "KEY_VALUE", "MEMORY_DUMP", "MULTI", "ORDERED_KEY_VALUE", "PROCESS_TREE", "TABLE", "TEXT", "TIMELINE", "URL"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| body_format | Enum | Type of body in this section.<br>Supported values are:<br>`"GRAPH_DATA", "IMAGE", "JSON", "KEY_VALUE", "MEMORY_DUMP", "MULTI", "ORDERED_KEY_VALUE", "PROCESS_TREE", "SANDBOX", "TABLE", "TEXT", "TIMELINE", "URL"` | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | body_config | Mapping [String, Any] | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | depth | Integer | Depth of the section. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
 | heuristic | [Heuristic](/assemblyline4_docs/odm/models/result/#heuristic) | Heuristic triggered in a result section. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
