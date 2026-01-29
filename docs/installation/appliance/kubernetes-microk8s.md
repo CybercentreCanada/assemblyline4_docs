@@ -81,15 +81,15 @@ This is the documentation for an appliance instance of the Assemblyline platform
             docker pull registry:2.7.1 && docker save registry:2.7.1 >> registry.tar
 
 
-            # Assemblyline Core (release: 4.2.stable)
-            for al_image in "core" "ui" "ui-frontend" "service-server" "socketio"
+            # Assemblyline Core (release: 4.7.stable)
+            for al_image in "core" "ui" "ui-frontend" "service-server" "socketio" "rust"
             do
-                docker pull cccs/assemblyline-$al_image:4.2.stable && docker save cccs/assemblyline-$al_image:4.2.stable >> al_$al_image.tar
+                docker pull cccs/assemblyline-$al_image:4.7.stable && docker save cccs/assemblyline-$al_image:4.7.stable >> al_$al_image.tar
             done
 
             # Elastic
             ES_REG=docker.elastic.co
-            ES_VER=7.16.2
+            ES_VER=7.17.3
             for beat in "filebeat" "metricbeat"
             do
                 docker pull $ES_REG/beats/$beat:$ES_VER && docker save $ES_REG/beats/$beat:$ES_VER >> es_$beat.tar
@@ -282,25 +282,17 @@ This is the documentation for an appliance instance of the Assemblyline platform
 
     For more details, see: [Clustering with MicroK8s](https://microk8s.io/docs/clustering)
 
-## Get the Assemblyline chart to your administration computer
+## Configuring your deployment
 
-### Get the Assemblyline helm charts
-
-```bash
-mkdir ~/git && cd ~/git
-git clone https://github.com/CybercentreCanada/assemblyline-helm-chart.git
-```
-
-### Create your personal deployment
+We will assume you are creating a directory named "deployment" where all referenced files are stored.
 
 ```bash
-mkdir ~/git/deployment
-cp ~/git/assemblyline-helm-chart/appliance/*.yaml ~/git/deployment
+mkdir deployment; cd deployment
+wget https://raw.githubusercontent.com/CybercentreCanada/assemblyline-helm-chart/refs/heads/main/appliance/values.yaml
+wget https://raw.githubusercontent.com/CybercentreCanada/assemblyline-helm-chart/refs/heads/main/appliance/secrets.yaml
 ```
 
-### Setup the charts and secrets
-
-The ```values.yaml``` file in your deployment directory ```~/git/deployment``` is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking. And if you wish to login to assemblyline from a bare public IP address, the configuration still requires a FQDN. As mentioned in `values.yaml`, `nip.io` can provide an easy FQDN for a bare IP.
+The ```values.yaml``` file in your deployment directory is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking. And if you wish to login to assemblyline from a bare public IP address, the configuration still requires a FQDN. As mentioned in `values.yaml`, `nip.io` can provide an easy FQDN for a bare IP.
 
 ```bash
 sed -i "s/fqdn: \"localhost\"/fqdn: \"$(curl -s https:\/\/api.ipify.org).nip.io\"/" ~/git/deployment/values.yaml
@@ -315,6 +307,18 @@ The ```secret.yaml``` file in your deployment directory is preconfigured with de
 
 ## Deploy Assemblyline via Helm
 
+### Add the assemblyline chart repository to helm
+
+```bash
+helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
+```
+
+You may need to update the chart repositories to see the latest versions.
+
+```bash
+helm repo update
+```
+
 ### Create a namespace for your Assemblyline install
 
 For this documentation, we will use ```al``` as the namespace.
@@ -326,13 +330,13 @@ sudo microk8s kubectl create namespace al
 ### Deploy the secret to the namespace
 
 ```bash
-sudo microk8s kubectl apply -f ~/git/deployment/secrets.yaml --namespace=al
+sudo microk8s kubectl apply -f secrets.yaml --namespace=al
 ```
 
 From this point on, you don't need the secrets.yaml file anymore. You should delete it so there is no file on disk containing your passwords.
 
 ```bash
-rm ~/git/deployment/secrets.yaml
+rm secrets.yaml
 ```
 
 ### Finally, let's deploy Assemblyline's chart
@@ -340,7 +344,7 @@ rm ~/git/deployment/secrets.yaml
 For documentation, we will use ```assemblyline``` as the deployment name.
 
 ```bash
-sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
+sudo microk8s helm install assemblyline assemblyline/assemblyline -f values.yaml -n al
 ```
 
 !!! tip
@@ -351,17 +355,7 @@ sudo microk8s helm install assemblyline ~/git/assemblyline-helm-chart/assemblyli
 
 ## Updating the current deployment
 
-Once you have your Assemblyline chart deployed through helm, you can change any values in the ```values.yaml``` file and upgrade your deployment with the following command:
-
-```bash
-sudo microk8s helm upgrade assemblyline ~/git/assemblyline-helm-chart/assemblyline -f ~/git/deployment/values.yaml -n al
-```
-
-??? tip "(Optional) Get the latest assemblyline-helm-chart"
-    Before doing your `helm upgrade` command, you can get the latest changes that we did to the chart by pulling them. (This could conflict with the changes you've made so be careful while doing this.)
-    ```bash
-    cd ~/git/assemblyline-helm-chart && git pull
-    ```
+For details on updating your depyloment via helm see the [update instructions in the kubernetes cluster documentation.](../../cluster/general#update-your-deployment)
 
 ## Quality of life improvements
 

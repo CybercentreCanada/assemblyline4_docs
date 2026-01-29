@@ -14,8 +14,14 @@
 
 ### 1. Get Assemblyline Helm chart ready
 
-1. Download the latest [Assemblyline helm chart](https://github.com/CybercentreCanada/assemblyline-helm-chart/archive/refs/heads/master.zip)
-2. Unzip it into a directory of your choice which we will refer to as `assemblyline-helm-chart`
+1. Add the assemblyline chart repository to helm.
+   ```bash
+   helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
+   ```
+2. Make sure the chart repositories are up to date.
+   ```bash
+   helm repo update
+   ```
 3. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
 ### 2. Create the assemblyline namespace
@@ -56,7 +62,7 @@ In the `deployment_directory` you've just created, create a `secrets.yaml` file 
     ```
 
 !!! tip
-    Here is an example of [secrets.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/appliance/secrets.yaml) file used for appliance deployments.
+    Here is an example of [secrets.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/main/appliance/secrets.yaml) file used for appliance deployments.
 
 When you're done setting the different passwords in your `secrets.yaml` file, upload it to your namespace:
 
@@ -72,7 +78,7 @@ kubectl apply -f <deployment_directory>/secrets.yaml --namespace=al
 In your `deployment_directory`, create a `values.yaml` file which will contain the configuration specific to your deployment.
 
 !!! tip
-    For an exhaustive view of all the possible parameters you can change the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/master/assemblyline/values.yaml) file.
+    For an exhaustive view of all the possible parameters you can change the `values.yaml` you've created, refer to the [assemblyline-helm-chart/assemblyline/values.yaml](https://github.com/CybercentreCanada/assemblyline-helm-chart/blob/main/charts/assemblyline/values.yaml) file.
 
 These are the strict minimum configuration changes you will need to do:
 
@@ -152,7 +158,7 @@ These are the strict minimum configuration changes you will need to do:
 Now that you've fully configured your `values.yaml` file, you can simply deploy it via helm by referencing the default assemblyline helm chart.
 
 ```shell
-helm install assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+helm install assemblyline assemblyline/assemblyline -f <deployment_directory>/values.yaml -n al
 ```
 
 !!! warning
@@ -193,8 +199,46 @@ sudo kubectl config view --raw
 
 ## Update your deployment
 
-Once you have your Assemblyline chart deployed through helm, you can change any values in the `values.yaml` file and upgrade your deployment with the following command:
+### Updating your configuration
 
-```shell
-helm upgrade assemblyline <assemblyline-helm-chart>/assemblyline -f <deployment_directory>/values.yaml -n al
+If you wish to apply changes to your `values.yaml` file without changing the version of assemblyline installed you need to run the `helm upgrade` command with the current release version set.
+
+You can see your current release version by running `helm list`.
+
+```bash
+helm list
 ```
+Which produces an output similar to this.
+```
+NAME          NAMESPACE  REVISION  UPDATED                                 STATUS    CHART                    APP VERSION
+assemblyline  al         2727      2026-01-29 11:00:08.07031363 -0500 EST  deployed  assemblyline-7.0.79-dev  4.7.0.dev79
+```
+
+The version we want is the one in the **CHART** column following the chart name. For this sample output that is 7.0.79-dev.
+
+!!! warning
+    Not the **APP VERSION** column.
+
+The corresponding upgrade command would then be:
+```bash
+helm upgrade assemblyline assemblyline/assemblyline -f values.yaml -n al --version 7.0.79-dev
+```
+```bash
+helm upgrade <name of deployment> <chart name> -f <values file to apply> -n <namespace> --version <version to pin>
+```
+
+### Applying minor updates
+
+To apply a minor update run the upgrade command with the corresponding **chart version** for the update you want applied. The chart version is the same as the assemblyline version with the leading `4.` and `stable` or `dev` markers removed. So Assemblyline release `4.7.2.stable2` would be chart version `7.2.2`. Development chart versions will have a `-dev` suffix added after all the version numbers so Assemblyline release `4.7.2.dev2` would be installed with chart version `7.2.2-dev`
+
+If you simply want to upgrade to the most recent safe release for assemblyline get your chart version as above and run the upgrade command with the major version pinned. For the sample system above the upgrade command would be:
+
+```bash
+helm upgrade assemblyline assemblyline/assemblyline -f values.yaml -n al --version "^7"
+```
+
+For the latest release of Assemblyline 4.7.XX.
+
+### Applying major updates
+
+[See the documentation section on that topic.](../../administration/system_management#assemblyline-major-upgrades)

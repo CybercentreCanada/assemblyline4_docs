@@ -22,16 +22,33 @@ At this stage, you're ready to upgrade the core system and you shouldn't have an
 
 Depending on the type of deployment (Kubernetes/Docker), the method of upgrading differs:
 
--   Docker: Update `SERVICE_VERSION` in .env file if necessary, then:
+#### Docker
+
+Update `SERVICE_VERSION` in .env file if necessary, then:
+
+```bash
+docker compose pull && docker compose up -d
+```
+
+#### Kubernetes
+
+From version 4.7 each version of assemblyline is published as a new chart.
+
+1. Make sure your system has the assemblyline helm repo registered and up to date.
 
     ```bash
-    docker compose pull && docker compose up -d
+    helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
+    ```
+    ```bash
+    helm repo update
     ```
 
--   Kubernetes: Update `release` in values.yaml if necessary, then:
+2. Remove any `release:` line from your `values.yaml` if you have it set.
+
+3. Run the `helm upgrade` command with the [chart version](../../installation/cluster/general#applying-minor-updates) corresponding to the assemblyline version you want to upgrade to.
 
     ```bash
-    helm upgrade <deployment_name> /path/to/assemblyline-helm-chart/assemblyline -f /path/to/al_deployment/values.yaml -n <deployment_namespace>
+    helm upgrade <deployment_name> assemblyline/assemblyline -f /path/to/al_deployment/values.yaml -n <deployment_namespace> --version <chart version>
     ```
 
 ### (Optional) Upgrade Services to Compatible Framework
