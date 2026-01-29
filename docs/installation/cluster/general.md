@@ -231,6 +231,8 @@ helm upgrade <name of deployment> <chart name> -f <values file to apply> -n <nam
 
 To apply a minor update run the upgrade command with the corresponding **chart version** for the update you want applied. The chart version is the same as the assemblyline version with the leading `4.` and `stable` or `dev` markers removed. So Assemblyline release `4.7.2.stable2` would be chart version `7.2.2`. Development chart versions will have a `-dev` suffix added after all the version numbers so Assemblyline release `4.7.2.dev2` would be installed with chart version `7.2.2-dev`
 
+Make sure any lines setting the `release` value have been removed from your `values.yaml` file.
+
 If you simply want to upgrade to the most recent safe release for assemblyline get your chart version as above and run the upgrade command with the major version pinned. For the sample system above the upgrade command would be:
 
 ```bash
