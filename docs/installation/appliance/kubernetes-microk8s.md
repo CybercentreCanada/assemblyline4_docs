@@ -292,7 +292,7 @@ wget https://raw.githubusercontent.com/CybercentreCanada/assemblyline-helm-chart
 wget https://raw.githubusercontent.com/CybercentreCanada/assemblyline-helm-chart/refs/heads/main/appliance/secrets.yaml
 ```
 
-The ```values.yaml``` file in your deployment directory is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking. And if you wish to login to assemblyline from a bare public IP address, the configuration still requires a FQDN. As mentioned in `values.yaml`, `nip.io` can provide an easy FQDN for a bare IP.
+The ```values.yaml``` file in your deployment directory is already pre-configured for use with microk8s as a basic one node minimal appliance. Make sure you go through the file to adjust disk sizes and to turn on/off features to your liking. If you wish to login to assemblyline from a bare public IP address, the configuration still requires a FQDN. As mentioned in `values.yaml`, `nip.io` can provide an easy FQDN for a bare IP.
 
 ```bash
 sed -i "s/fqdn: \"localhost\"/fqdn: \"$(curl -s https:\/\/api.ipify.org).nip.io\"/" ~/git/deployment/values.yaml
