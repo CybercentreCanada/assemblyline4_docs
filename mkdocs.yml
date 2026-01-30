@@ -232,10 +232,12 @@ plugins:
 repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
+edit_uri: https://github.com/CybercentreCanada/assemblyline4_docs/edit/master/docs
 theme:
   custom_dir: override
   favicon: images/crane.png
   features:
+  - content.action.edit
   - content.code.copy
   - navigation.tabs
   - navigation.expand
