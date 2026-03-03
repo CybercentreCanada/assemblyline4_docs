@@ -53,8 +53,10 @@ nav:
       - Docker: installation/appliance/docker.md
       - MicroK8s: installation/appliance/kubernetes-microk8s.md
     - Cluster:
-      - Kubernetes: installation/cluster/general.md
-      - MicroK8s: installation/cluster/microk8s.md
+      - Kubernetes:
+        - General: installation/cluster/general.md
+        - Amazon EKS: installation/cluster/amazon_eks.md
+        - MicroK8s: installation/cluster/microk8s.md
       - High-Throughput Optimizations: installation/cluster/optimizations.md
   - Appliance Migration: installation/deployment_migration.md
   - Configuration:
