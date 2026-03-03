@@ -5,7 +5,7 @@
 1.  A **Kubernetes** 1.18+ cluster that has an ingress controller. Assemblyline is known to work with the following Kubernetes providers:
     * Rancher
     * AKS (Azure)
-    * EKS (Amazon)
+    * [EKS (Amazon)](../amazon_eks)
     * GKE (Google)
 2.  **kubectl** already configured for your cluster on your machine
 3.  **helm** already configured for your cluster on your machine
