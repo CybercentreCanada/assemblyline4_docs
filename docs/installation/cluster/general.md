@@ -14,15 +14,19 @@
 
 ### 1. Get Assemblyline Helm chart ready
 
-1. Add the assemblyline chart repository to helm.
+1.  Add the assemblyline chart repository to helm.
+
    ```bash
    helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
    ```
-2. Make sure the chart repositories are up to date.
+
+2.  Make sure the chart repositories are up to date.
+
    ```bash
    helm repo update
    ```
-3. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
+
+3.  Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
 ### 2. Create the assemblyline namespace
 
@@ -208,7 +212,9 @@ You can see your current release version by running `helm list`.
 ```bash
 helm list
 ```
+
 Which produces an output similar to this.
+
 ```
 NAME          NAMESPACE  REVISION  UPDATED                                 STATUS    CHART                    APP VERSION
 assemblyline  al         2727      2026-01-29 11:00:08.07031363 -0500 EST  deployed  assemblyline-7.0.79-dev  4.7.0.dev79
@@ -220,9 +226,11 @@ The version we want is the one in the **CHART** column following the chart name.
     Not the **APP VERSION** column.
 
 The corresponding upgrade command would then be:
+
 ```bash
 helm upgrade assemblyline assemblyline/assemblyline -f values.yaml -n al --version 7.0.79-dev
 ```
+
 ```bash
 helm upgrade <name of deployment> <chart name> -f <values file to apply> -n <namespace> --version <version to pin>
 ```
