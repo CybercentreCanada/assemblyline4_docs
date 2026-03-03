@@ -202,7 +202,6 @@ nav:
     - Kubernetes: getting_help/kubernetes.md
   - Contact Us: getting_help/contact_us.md
 plugins:
-- mermaid2
 - glightbox:
     auto_caption: false
     caption_position: bottom
