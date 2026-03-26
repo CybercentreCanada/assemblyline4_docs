@@ -46,7 +46,7 @@ Submission Parameters
 | classification | Classification | Original classification of the submission. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `TLP:C` |
 | deep_scan | Boolean | Select to perform a deep scan. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | description | Text | User-supplied information applied to Submission Details. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| filetype_override | Text | Override the system's identification of the submitted file | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| filetype_override | Keyword | Override the system's identification of the submitted file | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | generate_alert | Boolean | Generate alert upon completion of analysis. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | groups | List [Keyword] | List relevant group or organization related to this scan. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | ignore_cache | Boolean | Ignore cached service results. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
