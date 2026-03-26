@@ -1039,6 +1039,7 @@ UI Configuration
 | allow_replay | Boolean | Allow users to request replay on another server? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | allow_url_submissions | Boolean | Allow file submissions via url? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | api_proxies | Mapping [String, [APIProxies](/assemblyline4_docs/odm/models/config/#apiproxies)] | Proxy requests to the configured API target and add headers | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | See [APIProxies](/assemblyline4_docs/odm/models/config/#apiproxies) for more details. |
+| apikey_cache_seconds | Integer | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `300` |
 | audit | Boolean | Should API calls be audited and saved to a separate log file? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `True` |
 | audit_login | Boolean | Should login successes and failures be part of the audit log as well? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | banner | Mapping [String, Keyword] | Banner message display on the main page (format: {<language_code>: message}) | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |

@@ -117,6 +117,9 @@ Processes observed during dynamic execution.
 | :--- | :--- | :--- | :--- | :--- |
 | command_line | List [Keyword] | Command-line strings for processes started at runtime. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | file_name | List [Keyword] | Executable or script filenames launched by the sample. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| file_path | List [Keyword] | Executable or script filepaths launched by the sample. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| module_name | List [Keyword] | Loaded module/DLL name | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| module_path | List [Keyword] | Loaded module/DLL path | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | shortcut | List [Keyword] | Shortcut (.lnk) names or targets created or accessed. | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 
 
