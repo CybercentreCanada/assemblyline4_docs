@@ -40,7 +40,7 @@ The `webhook` action will call a webhook url with a body holding a json object w
 
 The `webhook` field must be a [Webhook](../../odm/models/actions/#webhook) object.
 
-!!! example "Here is an example using [Webhook Tester](https://webhook-test.com/)"
+!!! example "Here is an example using a [Webhook Tester](https://webhook.site/)"
     This webhook is only triggered on submission completion and only sends if the submission belongs to `user`.
     ```yaml
     user_webhook:
@@ -48,7 +48,7 @@ The `webhook` field must be a [Webhook](../../odm/models/actions/#webhook) objec
       run_on_completed: true
       filter: 'params.submitter:user'
       webhook:
-        uri: https://webhook-test.com/<UUID>
+        uri: https://webhook.site/<UUID>
         method: POST
         username: xyz
         password: xyz
