@@ -25,21 +25,10 @@ We recommend that you use [Ubuntu](https://releases.ubuntu.com/) for your develo
 
 ## Choosing your IDE
 
-We have two IDEs for you to pick from, both of which support local and remote development:
+Many IDEs will give you the features needed to do development. We have seen setups using a combination of terminal tools, PyCharm, and others. We documented a more complete setup using VSCode which support local and remote development:
 
 ### VSCode
 
 This is our recommended IDE since it is free and very easy to setup. Most of the Assemblyline team has moved to this IDE and we use a mix of local and remote development with it. Once you're done installing your VM, you can follow the instructions to get VSCode up and running using our simple [setup script](../vscode/setup_script).
 
 For instructions on how to use VSCode, refer to the "[use VSCode](../vscode/use_vscode)" documentation.
-
-### PyCharm
-
-This IDE is much more robust in terms Python development but the setup is more complex. There is both a paid and free version of this IDE. The free Community edition of PyCharm will allow you to do local develpment only and you will have to run the dependencies by hand using `docker compose`. The paid version, PyCharm Professional, will let you manage Docker dependencies inside the IDE and utilize remote development.
-
-Here are the installation instructions for the different setups:
-
-- [Local development](../pycharm/local_development) (minimum requirement: PyCharm Community edition)
-- [Remote development](../pycharm/remote_development) (minimum requirement: PyCharm Professional edition)
-
-For instructions on how to use PyCharm, refer to the "[use PyCharm](../pycharm/use_pycharm)" documentation.
