@@ -17,19 +17,19 @@
 
 ### 1. Get Assemblyline Helm chart ready
 
-1. Add the assemblyline chart repository to helm.
+1.  Add the assemblyline chart repository to helm.
 
-   ```bash
-   helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
-   ```
+    ```bash
+    helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
+    ```
 
-1. Make sure the chart repositories are up to date.
+2.  Make sure the chart repositories are up to date.
 
-   ```bash
-   helm repo update
-   ```
+    ```bash
+    helm repo update
+    ```
 
-1. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
+3.  Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
 ### 2. Create the assemblyline namespace
 
