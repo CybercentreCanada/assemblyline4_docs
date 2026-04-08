@@ -9,24 +9,27 @@
     * GKE (Google)
 2.  **kubectl** already configured for your cluster on your machine
 3.  **helm** already configured for your cluster on your machine
+4.  A [network plugin](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/) that supports NetworkPolicy enforcement such as [Calico](https://docs.projectcalico.org/getting-started/kubernetes/).
+
+      The helm chart creates the correct NetworkPolicy objects, but they are only enforced if the cluster has a policy engine configured.
 
 ## Installation
 
 ### 1. Get Assemblyline Helm chart ready
 
-1.  Add the assemblyline chart repository to helm.
+1. Add the assemblyline chart repository to helm.
 
    ```bash
    helm repo add assemblyline https://cybercentrecanada.github.io/assemblyline-helm-chart/
    ```
 
-2.  Make sure the chart repositories are up to date.
+1. Make sure the chart repositories are up to date.
 
    ```bash
    helm repo update
    ```
 
-3.  Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
+1. Create a new directory of your choice which will hold your personal deployment configuration. We will refer to it as `deployment_directory`
 
 ### 2. Create the assemblyline namespace
 
