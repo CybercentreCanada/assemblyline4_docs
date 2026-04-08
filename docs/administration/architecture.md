@@ -173,7 +173,7 @@ The Scaler looks at the busyness level and a service's queue of items to process
 
 Every hour, the Statistics container runs facet queries in the Datastore to find out how many times heuristics/signatures were used and saves those stats to the respective signatures/heuristics in the Datastore.
 
-### [Plumber](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/plumber)
+### [Plumber](https://github.com/CybercentreCanada/assemblyline-rust/tree/main/assemblyline-server/src/plumber)
 
 The Plumber process cleans up tasks from the service queues when a service is disabled/deleted.
 When a service is turned off by the Scaler or deleted by the user, the service task queue needs to be

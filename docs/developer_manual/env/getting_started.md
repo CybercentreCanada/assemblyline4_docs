@@ -18,9 +18,9 @@ There are quite a few containers to run to spin-up the Assemblyline dependencies
 
 We recommend that you use [Ubuntu](https://releases.ubuntu.com/) for your development VM, because all instructions that we provide in the document has been built with this OS in mind. There are two versions that you can pick from:
 
--   \[Recommended\] [Ubuntu 24.04 Desktop](https://releases.ubuntu.com/24.04.3/ubuntu-24.04.3-desktop-amd64.iso)
+-   \[Recommended\] [Ubuntu 24.04 Desktop](https://releases.ubuntu.com/noble/ubuntu-24.04.4-desktop-amd64.iso)
     - For local development where your IDE runs in the same VM as the Assemblyline containers
--   [Ubuntu 24.04 Server](https://releases.ubuntu.com/24.04.3/ubuntu-24.04.3-live-server-amd64.iso)
+-   [Ubuntu 24.04 Server](https://releases.ubuntu.com/noble/ubuntu-24.04.4-live-server-amd64.iso)
     - For remote development where your IDE runs on your local computer and the Assemblyline containers run on the VM
 
 ## Choosing your IDE

@@ -251,4 +251,4 @@ For the latest release of Assemblyline 4.7.XX.
 
 ### Applying major updates
 
-[See the documentation section on that topic.](../../administration/system_management#assemblyline-major-upgrades)
+[See the documentation section on that topic.](../../../administration/system_management#assemblyline-major-upgrades)
