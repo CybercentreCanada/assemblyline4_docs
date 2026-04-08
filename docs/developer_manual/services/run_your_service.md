@@ -11,7 +11,7 @@ This section of the service documentation will show you how to run your service 
 
     1. You have read through the [setup environment](../../env/getting_started/) documentation and created the appropriate development environment to perform service development.
     2. You have completed the [developing an Assemblyline service](../developing_an_assemblyline_service) documentation and your service is in the `~/git/services/assemblyline-service-sample` directory on the machine where your IDE runs.
-    3. Whether you are using VSCode or PyCharm as your IDE, you have a virtual environment dedicated to running services either located at `~/git/services/venv` or `~/venv/services` on the VM where the code runs
+    3. You have a virtual environment dedicated to running services either located at `~/git/services/venv` or `~/venv/services` on the VM where the code runs.
 
 ## Standalone mode
 
@@ -106,10 +106,7 @@ Using the standalone mode via `run_service_once` is going to help quickly catch 
 
 The following technique is how to hook in a service to an Assemblyline development instance so you can perform live debugging and you can send files to your service using the Assemblyline UI.
 
-The way to run a service in debug mode will differ depending on if you've been using VSCode or PyCharm as your IDE. Follow the appropriate documentation for your current setup:
-
 * [Run a service LIVE in VSCode](../../env/vscode/use_vscode/#running-live-services)
-* [Run a service LIVE in PyCharm](../../env/pycharm/use_pycharm/#live-services)
 
 !!! important
     You will need to adjust the documentation according to:
@@ -165,10 +162,7 @@ docker build -t testing/assemblyline-service-sample .
 
 ### Run the container LIVE
 
-The way to run a container LIVE in your development environment differs depending on if you've been using VSCode or PyCharm as your IDE. Follow the appropriate documentation for your current setup:
-
 * [Run a single container in VSCode](../../env/vscode/use_vscode/#resultsample)
-* [Run a single container in PyCharm](../../env/pycharm/use_pycharm/#load-single-container-live)
 
 !!! important
     You will need to adjust the documentation according to:
