@@ -38,13 +38,13 @@ This is the component that, as a user, you will be the most familiar with. This 
 
 Nowadays, the UI component provides the user-facing API server of Assemblyline as well as a [SocketIO Server](https://github.com/CybercentreCanada/assemblyline-ui/tree/master/assemblyline_ui/sio) for live messaging. The API Server is responsible for identifying the user either with an internal list of users or by communicating with your LDAP or OAuth server. It keeps track of the user sessions to make sure users only get access to the APIs they are allowed to. It also does document-level access control to make sure that the data returned by the APIs is data that the user is allowed to see.
 
-#### [Dispatcher](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/dispatching)
+#### [Dispatcher](https://github.com/CybercentreCanada/assemblyline-rust/tree/main/assemblyline-server/src/dispatcher)
 
 The Dispatcher is the core tasking component of the system. It checks the type of each file submitted to the system and routes each file to the appropriate service depending on service availability and file type. It keeps track of children for a given file (ZIP extraction, etc.) and ensures that a submission is not completed until all the children have been processed and all files have been sent to the appropriate services. The Dispatcher keeps track of errors in the system and re-queues jobs if it detects a recoverable failure. It is the Dispatcher’s job to mark a submission as completed when all work is done. The Dispatcher does all its queuing using non-persistent Redis queues. If the Dispatcher is restarted, all inflight submissions are restarted from the beginning. This is usually not a problem because Assemblyline has service-level caching.
 
 The Dispatcher also keeps metrics on how many files are being completed in the system over a given interval. This information can be observed from the Dashboard in the UI.
 
-#### [Ingester](https://github.com/CybercentreCanada/assemblyline-core/tree/master/assemblyline_core/ingester)
+#### [Ingester](https://github.com/CybercentreCanada/assemblyline-rust/tree/main/assemblyline-server/src/ingester)
 
 The Ingester is Assemblyline’s high-volume ingestion component. It takes all submissions created using the
 ingest API and sorts them into different priority queues (Critical, High, Medium, and Low). It then fills half of the Dispatcher's maximum inflight queue with submissions starting with the highest priority queues and continuing until all queues are exhausted.
@@ -57,7 +57,7 @@ The Ingester also ensures that work isn’t duplicated by deduplicating submissi
 
 Metrics are reported on the number of duplicates, ingested, safelisted, and completed files as well as the number of bytes ingested and completed.
 
-#### [Service Server](https://github.com/CybercentreCanada/assemblyline-service-server/)
+#### [Service Server](https://github.com/CybercentreCanada/assemblyline-rust/tree/main/assemblyline-server/src/service_api)
 
 The Service Server has been introduced to Assemblyline 4 to isolate the services from the core infrastructure. It includes APIs that the service "Task Handler" uses to get tasks, publish results, download files for analysis, publish embedded and supplementary files, and get access to the system safelist. This is everything that a service needs to process the file properly without knowing anything about the infrastructure. The Service Server APIs are only accessible by the services and nothing else in the system.
 
