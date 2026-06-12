@@ -35,17 +35,30 @@ nav:
   - overview/how_it_works.md
   - overview/services.md
   - overview/community_services.md
-- User's manual:
-  - user_manual/user_walkthrough.md
-  - user_manual/submitting_file.md
-  - user_manual/submitting_url.md
-  - user_manual/submitting_sha256.md
-  - user_manual/results.md
-  - user_manual/searching.md
-  - user_manual/verdicts.md
-  - user_manual/malware_archive.md
-  - user_manual/retrohunt.md
-  - user_manual/llm.md
+- User's Manual:
+  - Getting Started: user_manual/getting_started.md
+  - The Basics:
+    - Submitting for Analysis:
+      - user_manual/submitting/input.md
+      - user_manual/submitting/parameters.md
+    - Reviewing Analysis:
+      - user_manual/analysis/submission.md
+      - user_manual/analysis/file.md
+    - Pivoting & Searching:
+      - user_manual/pivoting/searching.md
+  # - user_manual/user_walkthrough.md
+  # - user_manual/submitting_file.md
+  # - user_manual/submitting_url.md
+  # - user_manual/submitting_sha256.md
+  # - user_manual/results.md
+  # - user_manual/searching.md
+  # - user_manual/verdicts.md
+
+  - Advanced Features:
+    - "Alerting & Triage"
+    - user_manual/malware_archive.md
+    - user_manual/retrohunt.md
+    - user_manual/llm.md
 - Installation:
   - Getting Started:
     - installation/deployment.md
@@ -104,7 +117,7 @@ nav:
     - integration/api_exercise_3.md
     - integration/api_exercise_4.md
     - integration/api_exercise_5.md
-- Developer's guide:
+- Developer's Guide:
   - Setup Environment:
     - developer_manual/env/getting_started.md
     - VSCode:
