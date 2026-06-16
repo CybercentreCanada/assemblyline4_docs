@@ -2,7 +2,7 @@
 
 When selecting a file for review, the UI will open a drawer containing a detailed view of the analysis results for that file.
 
-<video controls src="./assets/file_detail.mp4" title="File analysis"autoplay loop></video>
+<video controls src="../assets/file_detail.mp4" title="File analysis"autoplay loop></video>
 
 ## File Actions
 
@@ -22,7 +22,7 @@ The UI has a built-in file viewer that supports a wide variety of different form
 
 This allows you to inspect the file contents along with reviewing the analysis results which can help you understand the context of the generated data and make informed decisions based on the analysis results.
 
-<video controls src="./assets/file_viewer.mp4" title="File viewer"autoplay loop></video>
+<video controls src="../assets/file_viewer.mp4" title="File viewer"autoplay loop></video>
 
 ## File Frequency
 

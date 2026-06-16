@@ -32,19 +32,19 @@ This view is only accessible if the analysis has been completed, otherwise the s
 !!! tip "Save as PDF"
     You can print or save the report as a PDF using the printer icon button in the top right corner of the report.
 
-<video controls src="./assets/submission_report_view.mp4" title="Report View"autoplay loop></video>
+<video controls src="../assets/submission_report_view.mp4" title="Report View"autoplay loop></video>
 
 ## Detailed View
 
 For a more in-depth look at the analysis, you can access the detailed view. This view provides comprehensive information about the file, including all the metadata, the results from each service that analyzed the file, and any additional information or context that may be relevant to understanding the analysis results.
 
-<video controls src="./assets/submission_detail_view.mp4" title="Detailed View"autoplay loop></video>
+<video controls src="../assets/submission_detail_view.mp4" title="Detailed View"autoplay loop></video>
 
 ### Submission Information
 
 This section keeps a record of the submission details such as the time of submission, the user who submitted the file, and the parameters used for the analysis.
 
-<video controls src="./assets/submission_submission_information.mp4" title="Submission Information"autoplay loop></video>
+<video controls src="../assets/submission_submission_information.mp4" title="Submission Information"autoplay loop></video>
 
 ### Analysis Information
 
@@ -68,7 +68,7 @@ Heuristics represent patterns or behaviors that a service will raise to draw att
 
 Heuristics can have a score assigned which represents the severity of the heuristic. The higher the score, the more severe the heuristic is considered to be. This can help analysts prioritize which heuristics to investigate first when reviewing the analysis results.
 
-<video controls src="./assets/submission_heuristics.mp4" title="Heuristics"autoplay loop></video>
+<video controls src="../assets/submission_heuristics.mp4" title="Heuristics"autoplay loop></video>
 
 #### Tags / Indicators of Compromise (IOCs)
 
