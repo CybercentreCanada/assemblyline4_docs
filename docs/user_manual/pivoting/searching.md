@@ -8,7 +8,7 @@ Assemblyline indexes the data it generates during analysis, letting you search a
 
 The search bar at the top of the UI lets you run a quick search across all indices at once. Results are grouped by index, so you can select a tab to see matches for that index.
 
-![Search](assets/searching_general.gif)
+<video controls src="assets/searching_general.mp4" title="Search"autoplay loop></video>
 
 ### Index-Specific Search
 
@@ -38,7 +38,7 @@ For instance, let's say I want to find all results where any IP was extracted. I
 result.sections.tags.network.static.ip:*
 ```
 
-![Searching for IPs](assets/searching_specific.gif)
+<video controls src="assets/searching_specific.mp4" title="Searching for IPs"autoplay loop></video>
 
 ## Finding Related Results without Searching
 
@@ -46,7 +46,7 @@ When looking at any tag in the UI, you can right-click on it to access a context
 
 This will automatically generate and run a search query for that specific tag value across the system, allowing you to quickly find all related data without needing to manually construct a search query.
 
-![Find related results](assets/searching_related_results.gif)
+<video controls src="assets/searching_related_results.mp4" title="Find related results"autoplay loop></video>
 
 ## Automating Searches
 

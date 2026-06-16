@@ -20,7 +20,7 @@ The UI supports multiple methods for submitting files for analysis, giving you t
 
     If your deployment has "File Sources" configured, then the UI will attempt to auto-detect the type of file identifier you are submitting and provide you with a list of options that the system can use to retrieve the file for analysis. An example of a file source would be one for VirusTotal or Malaware Bazaar that can leverage the file hashes for fetching.
 
-    ![Hash Submit](../assets/input_file_id.gif)
+    <video controls src="../assets/input_file_id.mp4" title="Hash Submit"autoplay loop></video>
 
 === "From Clipboard"
 
@@ -28,7 +28,7 @@ The UI supports multiple methods for submitting files for analysis, giving you t
 
     More commonly, this feature is used to submit snippets of text or code for analysis. For example, you could paste a snippet of PowerShell code into the "Raw" tab and submit it for analysis. The system will treat the pasted content as a file and analyze it accordingly.
 
-    ![Clipboard Submit](../assets/input_raw.gif)
+    <video controls src="../assets/input_raw.mp4" title="Clipboard Submit"autoplay loop></video>
 
 ## Submitting URLs
 
@@ -44,4 +44,4 @@ Once you provide an input for analysis, you can optionally request the system to
 
 This can be done by clicking on the magnifying glass icon next to the "Submit" button.
 
-![Check existing analysis](../assets/input_check_existing.gif)
+<video controls src="../assets/input_check_existing.mp4" title="Check existing analysis"autoplay loop></video>
