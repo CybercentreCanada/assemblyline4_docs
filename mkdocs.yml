@@ -36,29 +36,15 @@ nav:
   - overview/services.md
   - overview/community_services.md
 - User's Manual:
-  - Getting Started: user_manual/getting_started.md
-  - The Basics:
-    - Submitting for Analysis:
-      - user_manual/submitting/input.md
-      - user_manual/submitting/parameters.md
-    - Reviewing Analysis:
-      - user_manual/analysis/submission.md
-      - user_manual/analysis/file.md
-    - Pivoting & Searching:
-      - user_manual/pivoting/searching.md
-  # - user_manual/user_walkthrough.md
-  # - user_manual/submitting_file.md
-  # - user_manual/submitting_url.md
-  # - user_manual/submitting_sha256.md
-  # - user_manual/results.md
-  # - user_manual/searching.md
-  # - user_manual/verdicts.md
+  - user_manual/getting_started.md
+  - user_manual/submitting.md
+  - user_manual/analysis.md
+  - user_manual/searching.md
+  - user_manual/triage.md
+  - user_manual/malware_archive.md
+  - user_manual/retrohunt.md
+  - user_manual/ai.md
 
-  - Advanced Features:
-    - "Alerting & Triage"
-    - user_manual/malware_archive.md
-    - user_manual/retrohunt.md
-    - user_manual/llm.md
 - Installation:
   - Getting Started:
     - installation/deployment.md
