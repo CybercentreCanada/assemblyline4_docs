@@ -11,7 +11,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Install Python testing dependencies
-        run: pip install mkdocs-material mkdocs-static-i18n mkdocs-glightbox linkchecker
+        run: pip install -r requirements.txt && pip install linkchecker
       - name: Startup local instance of documentation
         run: mkdocs serve &
       - name: Wait for server to be ready (optional, for robustness)

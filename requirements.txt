@@ -1,0 +1,4 @@
+mkdocs-static-i18n
+mkdocs-glightbox
+mkdocs-material
+mkdocs<2

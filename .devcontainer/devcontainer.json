@@ -8,7 +8,7 @@
 		"--network=host",
 		"-p=8000"
 	],
-	"postCreateCommand": "pip install mkdocs-static-i18n mkdocs-glightbox",
+	"postCreateCommand": "pip install -r requirements.txt",
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
