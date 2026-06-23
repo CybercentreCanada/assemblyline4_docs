@@ -222,11 +222,12 @@ plugins:
       name: Français
       nav_translations:
         Data Ontology: Ontologie des données
-        Developer's guide: Guide du développeur
+        Developer's Guide: Guide du développeur
         Home: Accueil
         Integration: Intégration
         Overview: Aperçu
-        User's manual: Manuel d'utilisateur
+        User's Manual: Manuel d'utilisateur
+        Getting Help: Obtenir de l'aide
 repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
