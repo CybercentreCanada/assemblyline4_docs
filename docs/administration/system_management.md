@@ -2,6 +2,10 @@
 
 ## Assemblyline Major Upgrades
 
+### Major release are manditory
+
+Each major upgrade should be applied in turn. For example, system on 4.5 should be upgraded to the last release of 4.6, then 4.7 and onward not skipping any major releases. Each major relase should be run for a period of time to allow background data migrations to be applied. For a small or personal system a few hours should be sufficient, for large production clusters several days should be given between major relases where feasable.
+
 ### Pause Processing
 
 If upgrading the framework version (4.X → 4.Y, where X < Y) starting from [Release 4.2.0.121](https://github.com/CybercentreCanada/assemblyline/releases/tag/v4.2.0.stable121)+ or if performing another major change that affects Assemblyline, it's strongly recommended to pause the Ingester and Dispatcher and allow services to complete what's currently been tasked to them. This can be done by:
