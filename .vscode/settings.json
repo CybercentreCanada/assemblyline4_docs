@@ -19,5 +19,8 @@
     ],
     "editor.codeActionsOnSave": {
         "source.fixAll.markdownlint": "explicit"
+    },
+    "files.associations": {
+        "*.md": "python-markdown"
     }
 }

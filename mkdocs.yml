@@ -35,17 +35,16 @@ nav:
   - overview/how_it_works.md
   - overview/services.md
   - overview/community_services.md
-- User's manual:
-  - user_manual/user_walkthrough.md
-  - user_manual/submitting_file.md
-  - user_manual/submitting_url.md
-  - user_manual/submitting_sha256.md
-  - user_manual/results.md
+- User's Manual:
+  - user_manual/getting_started.md
+  - user_manual/submitting.md
+  - user_manual/analysis.md
   - user_manual/searching.md
-  - user_manual/verdicts.md
+  - user_manual/triage.md
   - user_manual/malware_archive.md
   - user_manual/retrohunt.md
-  - user_manual/llm.md
+  - user_manual/ai.md
+
 - Installation:
   - Getting Started:
     - installation/deployment.md
@@ -104,7 +103,7 @@ nav:
     - integration/api_exercise_3.md
     - integration/api_exercise_4.md
     - integration/api_exercise_5.md
-- Developer's guide:
+- Developer's Guide:
   - Setup Environment:
     - developer_manual/env/getting_started.md
     - VSCode:
@@ -223,11 +222,12 @@ plugins:
       name: Français
       nav_translations:
         Data Ontology: Ontologie des données
-        Developer's guide: Guide du développeur
+        Developer's Guide: Guide du développeur
         Home: Accueil
         Integration: Intégration
         Overview: Aperçu
-        User's manual: Manuel d'utilisateur
+        User's Manual: Manuel d'utilisateur
+        Getting Help: Obtenir de l'aide
 repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
