@@ -112,9 +112,6 @@ Now that we have covered the fundamentals of scoring and where verdicts come fro
 
 After you have performed the steps mentioned above, are you confident that the file is a true positive or a false positive? If the file is a false positive, please raise this to the relevant service writers so that they can adjust the heuristic scores or tweak the service to avoid this.
 
-
-For more details, see [Assemblyline Verdicts](../verdicts.md).
-
 ### Services
 
 Services are the core components of Assemblyline that perform the analysis on the submitted files. Each service is designed to analyze specific aspects of the file, such as its metadata, behavior, or content. Services can be categorized into different types based on their functionality, such as static analysis, dynamic analysis, reputation checks, and more.
