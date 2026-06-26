@@ -44,7 +44,6 @@ nav:
   - user_manual/malware_archive.md
   - user_manual/retrohunt.md
   - user_manual/ai.md
-
 - Installation:
   - Getting Started:
     - installation/deployment.md
@@ -223,11 +222,11 @@ plugins:
       nav_translations:
         Data Ontology: Ontologie des données
         Developer's Guide: Guide du développeur
+        Getting Help: Obtenir de l'aide
         Home: Accueil
         Integration: Intégration
         Overview: Aperçu
         User's Manual: Manuel d'utilisateur
-        Getting Help: Obtenir de l'aide
 repo_url: https://github.com/CybercentreCanada/assemblyline
 site_name: Assemblyline 4
 site_url: https://cybercentrecanada.github.io/assemblyline4_docs/
