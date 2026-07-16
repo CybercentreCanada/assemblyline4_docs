@@ -46,6 +46,7 @@ For every transport protocol, there may be a specific set of parameters for Asse
 
 ### Azure
 
+-   access_key: `string` 
 -   allow_directory_access: `boolean`
 -   client_id: `string`
 -   client_secret: `string`
@@ -53,8 +54,17 @@ For every transport protocol, there may be a specific set of parameters for Asse
 -   tenant_id: `string`
 -   use_default_credentials: `boolean`
 
-    !!! info "Example"
+    !!! info "Example: General"
         `azure://assemblyline.blob.core.windows.net/?allow_directory_access=false&client_id=&client_secret=&connection_attempts=&tenant_id=&use_default_credentials=false`
+
+    !!! info "Example: Workload Identity"
+        `azure://assemblyline.blob.core.windows.net/?use_default_credentials=true`
+    
+    !!! info "Example: Shared Storage Key"
+        `azure://assemblyline.blob.core.windows.net/?access_key=<access_key>`
+    
+    !!! info "Example: Client Credentials"
+        `azure://assemblyline.blob.core.windows.net/?tenant_id=org_tenant&client_id=al_client&client_secret=shhhhh`
 
 ### FTP
 
