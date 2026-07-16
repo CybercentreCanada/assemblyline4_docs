@@ -46,15 +46,30 @@ For every transport protocol, there may be a specific set of parameters for Asse
 
 ### Azure
 
+-   access_key: `string`
 -   allow_directory_access: `boolean`
 -   client_id: `string`
 -   client_secret: `string`
 -   connection_attempts: `integer`
 -   tenant_id: `string`
 -   use_default_credentials: `boolean`
+-   emulator: `boolean`
 
-    !!! info "Example"
-        `azure://assemblyline.blob.core.windows.net/?allow_directory_access=false&client_id=&client_secret=&connection_attempts=&tenant_id=&use_default_credentials=false`
+    !!! info "Examples"
+        === "General"
+            `azure://assemblyline.blob.core.windows.net/?allow_directory_access=false&client_id=&client_secret=&connection_attempts=&tenant_id=&use_default_credentials=false`
+
+        === "Workload Identity"
+            `azure://assemblyline.blob.core.windows.net/?use_default_credentials=true`
+
+        === "Shared Storage Key"
+            `azure://assemblyline.blob.core.windows.net/?access_key=<access_key>`
+
+        === "Client Credentials"
+            `azure://assemblyline.blob.core.windows.net/?tenant_id=org_tenant&client_id=al_client&client_secret=shhhhh`
+
+        === "Using Azurite Emulator (for development)"
+            `azure://localhost/my_storage_account?emulator=true`
 
 ### FTP
 
