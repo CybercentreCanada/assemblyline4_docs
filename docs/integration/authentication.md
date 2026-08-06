@@ -12,12 +12,12 @@ If you're already in possession of an OAuth token in your environment (ie. Jupyt
 sequenceDiagram
   autonumber
   actor Client
-  participant KeyCloak as OAuth Provider
+  participant OAuth Provider
   participant Assemblyline as Assemblyline API
 
-  Client->>KeyCloak: Request access token for "user" (ie. grant_type=password)
-  KeyCloak->>Client: Return access token
-  Client->>Assemblyline: POST /api/v4/auth/login/ (access token from KeyCloak)
+  Client->>OAuth Provider: Request access token for "user" (ie. grant_type=password)
+  OAuth Provider->>Client: Return access token
+  Client->>Assemblyline: POST /api/v4/auth/login/ (access token from OAuth provider)
 ```
 
 ### On-Behalf-Of (OBO)
@@ -32,16 +32,16 @@ sequenceDiagram
   actor Client
   participant Clue as Clue API
   participant Assemblyline as Assemblyline API
-  participant KeyCloak as OAuth Provider
+  participant OAuth Provider
 
   Client->>Clue: POST /api/login/ (client signs into Clue)
-  Clue->>KeyCloak: Request access token for "user"
-  KeyCloak->>Clue: Return access token (token for "user" with audience for Clue is cached for future requests)
+  Clue->>OAuth Provider: Request access token for "user"
+  OAuth Provider->>Clue: Return access token (token for "user" with audience for Clue is cached for future requests)
 
   Client->>Clue: POST /enrich/ (enrichment request for "user")
-  Clue->>KeyCloak: Perform a token exchange to access Assemblyline on behalf of "user"
-  KeyCloak->>Clue: Return OBO access token with the audience for Assemblyline
-  Clue->>Assemblyline: GET /api/v4/search/results (OBO access token from KeyCloak inserted into Authorization header)
+  Clue->>OAuth Provider: Perform a token exchange to access Assemblyline on behalf of "user"
+  OAuth Provider->>Clue: Return OBO access token with the audience for Assemblyline
+  Clue->>Assemblyline: GET /api/v4/search/results (OBO access token from OAuth Provider inserted into Authorization header)
 ```
 
 ## API Keys
