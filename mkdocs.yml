@@ -20,7 +20,11 @@ markdown_extensions:
     alternate_style: true
 - pymdownx.details
 - pymdownx.highlight
-- pymdownx.superfences
+- pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
 - md_in_html
 - admonition
 - def_list
@@ -91,7 +95,7 @@ nav:
   - administration/system_management.md
 - Integration:
   - integration/ingestion_method.md
-  - integration/key_generation.md
+  - integration/authentication.md
   - integration/python.md
   - integration/java.md
   - integration/rest.md
