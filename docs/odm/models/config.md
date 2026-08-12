@@ -159,6 +159,7 @@ OAuth Provider Configuration
 | auto_sync | Boolean | Should we automatically sync with OAuth provider? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | auto_properties | List [[AutoProperty](/assemblyline4_docs/odm/models/config/#autoproperty)] | Automatic role and classification assignments | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | app_provider | [AppProvider](/assemblyline4_docs/odm/models/config/#appprovider) | None | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
+| avatar_allowed_hosts | List [ValidatedKeyword] | Hosts from which user avatars may be downloaded. Entries match the URL hostname exactly, or a subdomain when prefixed with '*.' (e.g. '*.googleusercontent.com'). The host of `api_base_url` is always allowed. | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `[]` |
 | ip_filter | List [ValidatedKeyword] | List of CIDRs allowed to access internal authentication | <div style="width:100px">:material-minus-box-outline: Optional</div> | `None` |
 | uid_randomize | Boolean | Should we generate a random username for the authenticated user? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `False` |
 | uid_randomize_digits | Integer | How many digits should we add at the end of the username? | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
