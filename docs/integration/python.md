@@ -24,6 +24,11 @@ You can instantiate the client by using the following snippet of Python code:
     from assemblyline_client import get_client
     al_client = get_client("https://yourdomain:443", auth=('user', 'password'))
     ```
+=== "OAuth/OBO token"
+    ``` python
+    from assemblyline_client import get_client
+    al_client = get_client("https://yourdomain:443", oauth="ya29.a0AfB_byE_mock_Token_Value_xyz123_ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    ```
 === "Certificate"
 
     ``` python
