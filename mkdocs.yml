@@ -22,9 +22,9 @@ markdown_extensions:
 - pymdownx.highlight
 - pymdownx.superfences:
     custom_fences:
-      - name: mermaid
-        class: mermaid
-        format: !!python/name:pymdownx.superfences.fence_code_format
+    - class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format ''
+      name: mermaid
 - md_in_html
 - admonition
 - def_list
