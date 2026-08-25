@@ -403,6 +403,108 @@ To get group information, Assemblyline will look for the `groups` key in the ID 
 You can also configure Assemblyline to parse group information using another key by setting the `groups_id_token_field`.
 If Assemblyline is able to parse user/group information from an ID token, it will skip using the user_get/group_get endpoint.
 
+#### On-Behalf-Of (OBO) Authentication
+
+The system supports On-Behalf-Of (OBO) authentication, which allows applications to access Assemblyline on behalf of users.
+
+For example, [Clue](https://cybercentrecanada.github.io/clue/) integrates with Assemblyline using OBO authentication to allow users to fetch information from Assemblyline that's scoped to their access.
+
+To accept delegated tokens, the token's `aud` claim must match the `client_id` of the application that is configured in Assemblyline
+and the `iss` claim must match the `issuer_url` of the provider that is configured (or that is derived by the `openid_connect_discovery_url`) in Assemblyline .
+
+The system can be configured to accept delegated tokens intended for different audiences by setting the `external_token_alternate_audiences` parameter to a list of valid audiences.
+
+??? example "Alternate Token Audiences example"
+    This example configuration block will allow Assemblyline to accept delegated tokens from Keycloak with the audiences `account` and `clue`.
+
+    In this example, `assemblyline` and `clue` are two different Clients in the same Keycloak realm.
+    In an Azure context, they would be two different App Registrations in the same Azure AD tenant.
+
+    ```yaml
+      auth:
+      oauth:
+        enabled: true
+        providers:
+          keycloak:
+            auto_create: true
+            allow_external_tokens: true
+            external_token_alternate_audiences:
+              - "account"
+              - "clue"
+            client_id: assemblyline
+            client_secret: assemblyline
+            client_kwargs:
+              scope: openid email profile
+            openid_connect_discovery_url: http://localhost:8080/realms/master/.well-known/openid-configuration
+    ```
+
+#### Incremental Authorization and Fine-Grained Access Control
+
+Incremental authorization is the idea that a client starts with a base set of permissions (least-privileged) and then escalates permissions only when needed.
+Privilege escalation can happen as a product of performing a token exchange with the OAuth provider to get a new token with additional scopes, but this assumes that the additional scopes have meaning to the downstream resource.
+
+In Assemblyline, you can bind custom OAuth scopes to Assemblyline roles to create tokens with fine-grained access control using the `auto_properties` configuration block.
+You'll also need to set the `scope_field` parameter to tell the system where to look for the scopes in the token (ie. Keycloak uses `scope`, but Azure uses `scp`).
+
+To ensure certain integrations don't have too much access (even when a user has granted access), you can impose limits based on the `azp` claim in the token in Assemblyline.
+This is helpful to creating clear boundaries between different applications and what they should/shouldn't be able to do on behalf of a user.
+
+??? example "Authorized Party (azp) Role Limits example"
+    This example configuration block will bind custom OAuth scopes to Assemblyline roles, allowing for fine-grained access control.
+
+    ```yaml
+      auth:
+        oauth:
+          enabled: true
+          gravatar_enabled: false
+          providers:
+            keycloak:
+              auto_create: true
+              allow_external_tokens: true
+              external_token_alternate_audiences:
+                - "account"
+                - "clue"
+              azp_role_limits:
+                # Tokens from `clue` are limited to read-only actions (even if the user has granted more permissions)
+                clue:
+                - submission_view
+                - badlist_view
+                - safelist_view
+                - alert_view
+              scope_field: scope    # This is the field in the token that contains the scopes
+              auto_properties:
+                - field: email
+                  pattern: .*
+                  type: access
+                  value: true
+                # This binds the custom OAuth scopes to Assemblyline roles for fine-grained access control
+                - field: scope
+                  pattern: assemblyline_submission_view
+                  type: role
+                  value: submission_view
+                - field: scope
+                  pattern: assemblyline_badlist_view
+                  type: role
+                  value: badlist_view
+                - field: scope
+                  pattern: assemblyline_safelist_view
+                  type: role
+                  value: safelist_view
+                - field: scope
+                  pattern: assemblyline_alert_view
+                  type: role
+                  value: alert_view
+                - field: scope
+                  pattern: assemblyline_submission_create
+                  type: role
+                  value: submission_create
+              client_id: assemblyline
+              client_secret: assemblyline
+              client_kwargs:
+                scope: openid email profile
+              openid_connect_discovery_url: http://localhost:8080/realms/master/.well-known/openid-configuration
+    ```
+
 #### Example Configurations
 
 Below are some example configurations for popular OAuth providers.
