@@ -10,15 +10,15 @@ Each instance of Assemblyline comes with its internal API documentation which ca
 
 ## Connecting to the API
 
-For easy integration, it is recommended that you generate an [API key](../key_generation) for the user who will perform RESTful queries. Otherwise, you will have to build yourself a library that will handle session cookies and XSRF tokens and you probably want something simpler.
+For easy integration, it is recommended that you generate an [API key](../authentication/#generating-an-api-key) for the user who will perform RESTful queries. Otherwise, you will have to build yourself a library that will handle session cookies and XSRF tokens and you probably want something simpler.
 
 ### Using the API key
 
-To use your newly created [API key](../key_generation) you can simply add the `X-USER` and `X-APIKEY` headers to your request and the system will identify you with that key at each request instead of relying on a session cookie.
+To use your newly created API key you can simply add the `X-USER` and `X-APIKEY` headers to your request and the system will identify you with that key at each request instead of relying on a session cookie.
 
 !!! example "Simple api call"
 
-    Let's use a hypothetical [API key](../key_generation) to ask the system who we are. (Using the `/api/v4/user/whoami/` API)
+    Let's use a hypothetical API key to ask the system who we are. (Using the `/api/v4/user/whoami/` API)
 
 
     === "CURL"
@@ -61,7 +61,7 @@ To use your newly created [API key](../key_generation) you can simply add the `X
 
     !!! tip "Submit API was used here but you can use the ingest API with the same parameters."
 
-    Now if we were to reuse that same [API key](../key_generation) to submit a file to the system, not only you need to pass the
+    Now if we were to reuse that same API key to submit a file to the system, not only you need to pass the
     `X-USER`, `X-APIKEY` and `ACCEPT` headers, you also need to pass at least one of the two multipart sections:
 
     - `json` (optional): This is a JSON dictionary with 3 possible keys

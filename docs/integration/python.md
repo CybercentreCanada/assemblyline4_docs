@@ -13,7 +13,7 @@ pip install assemblyline_client
 You can instantiate the client by using the following snippet of Python code:
 
 === "API Key"
-    You will need an [API key](../key_generation).
+    You will need an [API key](../authentication/#generating-an-api-key).
     ``` python
     from assemblyline_client import get_client
     al_client = get_client("https://yourdomain:443", apikey=('user', 'key'))
