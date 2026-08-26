@@ -14,7 +14,7 @@ This is convenient if you have AI agents or harnesses that you'd like to use to 
 If you're using On-Behalf-Of (OBO) authentication, then you can implement security practices such as incremental authorization, which is not possible with API keys:
 this would involve binding custom OAuth scopes to Assemblyline roles to create tokens with fine-grained access control (See [OAuth Authentication](../../installation/configuration/authentication/#incremental-authorization-and-fine-grained-access-control) for more information).
 
-Incremental authorization is the idea that an agent/client starts with a base set of permissions (ie. read alerts), and then escalates permissions but only when needed (ie. triage alerts).
+Incremental authorization is the idea that an agent/client starts with a limited set of permissions (ie. read alerts), and then escalates permissions but only when needed (ie. triage alerts).
 
 In order to perform an action that requires elevated permissions, the agent/client must request the additional permissions from the user. This allows for a more secure and controlled access to resources,
 as it reduces the risk of over-privileged agents and ensures that users are aware of what actions are being performed on their behalf by enforcing [human-in-the-loop](https://www.ibm.com/think/topics/human-in-the-loop).

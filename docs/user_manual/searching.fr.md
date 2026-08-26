@@ -50,4 +50,4 @@ Cette action génère et exécute automatiquement une requête de recherche pour
 
 ## Automatisation des recherches
 
-Les requêtes peuvent être exécutées automatiquement à l’aide du [client Assemblyline](../../integration/python/). Cette méthode est utile pour automatiser les recherches répétitives ou enrichir les résultats en enchaînant des requêtes sur plusieurs index.
+Les requêtes peuvent être exécutées automatiquement à l’aide du [client d'Assemblyline](../../integration/python/). Cette méthode est utile pour automatiser les recherches répétitives ou enrichir les résultats en enchaînant des requêtes sur plusieurs index.

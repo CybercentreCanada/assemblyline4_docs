@@ -14,7 +14,7 @@ Il est particulièrement utile si vous disposez d’agents ou de systèmes d’o
 Si vous utilisez l’authentification On-Behalf-Of (OBO), vous pouvez mettre en place des pratiques de sécurité telles que l’autorisation incrémentielle, ce qui n’est pas possible avec les clés API :
 cela consiste à associer des portées OAuth personnalisées aux rôles Assemblyline afin de créer des jetons offrant un contrôle d’accès précis (consultez la section [Authentification OAuth](../../installation/configuration/authentication/#incremental-authorization-and-fine-grained-access-control) pour plus d’informations).
 
-L’autorisation incrémentielle signifie qu’un agent ou un client commence avec un ensemble de permissions de base, par exemple la lecture des alertes, puis élève ses permissions uniquement lorsque cela est nécessaire, par exemple pour effectuer le triage des alertes.
+L’autorisation incrémentielle signifie qu’un agent ou un client commence avec un ensemble de permissions limité, par exemple la lecture des alertes, puis élève ses permissions uniquement lorsque cela est nécessaire, par exemple pour effectuer le triage des alertes.
 
 Pour effectuer une action nécessitant des permissions élevées, l’agent ou le client doit demander des permissions supplémentaires à l’utilisateur. Cette approche permet de renforcer la sécurité et le contrôle des ressources,
 car elle réduit les risques liés aux agents disposant de privilèges excessifs et garantit que les utilisateurs sont informés des actions effectuées en leur nom, en imposant une intervention humaine ([human-in-the-loop](https://www.ibm.com/think/topics/human-in-the-loop)).
@@ -24,7 +24,7 @@ car elle réduit les risques liés aux agents disposant de privilèges excessifs
 !!! tip "Recommandé pour le développement et l’utilisation personnelle"
     Cette méthode d’authentification constitue une solution adaptée aux environnements de développement et de test. Elle n’est pas recommandée en production et peut entraîner une exposition des données si elle n’est pas correctement gérée.
 
-Son fonctionnement est similaire à celui de l’API Assemblyline, qui permet d’utiliser une clé API pour s’authentifier et autoriser l’accès au système. Cette méthode est plus simple à mettre en œuvre, mais ses permissions sont fixes et elle ne prend pas en charge l’autorisation incrémentielle.
+Son fonctionnement est similaire à celui de l’API d'Assemblyline, qui permet d’utiliser une clé API pour s’authentifier et autoriser l’accès au système. Cette méthode est plus simple à mettre en œuvre, mais ses permissions sont fixes et elle ne prend pas en charge l’autorisation incrémentielle.
 
 ## Connexion au MCP
 
