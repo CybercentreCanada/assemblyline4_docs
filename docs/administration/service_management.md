@@ -253,7 +253,7 @@ These parameters can be adjusted by users for each specific submission in the sy
 - Extraction sensitivity
 
 !!! tip
-    When defined, these parameters appear in the [submission options](../../user_manual/submitting_file/#options) available to the user during submission.
+    When defined, these parameters appear in the [submission options](../../user_manual/submitting) available to the user during submission.
 
 #### Service Variables
 

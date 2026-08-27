@@ -1,6 +1,6 @@
 # Developing an Assemblyline service
 
-This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. You should understand the concepts found [here](../../../user_manual/results) though.
+This guide has been created for developers who are looking to develop services for Assemblyline. It is aimed at individuals with general software development knowledge and basic Python skills. In-depth knowledge of the Assemblyline framework is not required to develop a service. You should understand the concepts found [here](../../../user_manual/analysis) though.
 
 ## Pre-requisites
 

@@ -99,6 +99,7 @@ nav:
   - integration/python.md
   - integration/java.md
   - integration/rest.md
+  - integration/mcp.md
   - integration/ontology.md
   - Exercises:
     - integration/api_exercise_1.md

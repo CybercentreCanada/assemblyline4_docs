@@ -20,11 +20,11 @@ An index is a collection of related data that can be searched independently. Ass
 
 | Index | What you can search for |
 |---|---|
-| [Alert](../../odm/models/alert.md) | Alerts raised during analysis — useful for triaging and prioritizing security incidents |
-| [File](../../odm/models/file.md) | Files seen across all submissions — search by hash, type, entropy, classification, and more |
-| [Result](../../odm/models/result.md) | Service results — search scores, extracted sections, and response data from individual services |
-| [Signature](../../odm/models/signature.md) | Service signatures such as YARA rules, including their source, status, and statistics |
-| [Submission](../../odm/models/submission.md) | Submission records — track files involved, errors, max scores, and lifecycle status |
+| [Alert](../../odm/models/alert) | Alerts raised during analysis — useful for triaging and prioritizing security incidents |
+| [File](../../odm/models/file) | Files seen across all submissions — search by hash, type, entropy, classification, and more |
+| [Result](../../odm/models/result) | Service results — search scores, extracted sections, and response data from individual services |
+| [Signature](../../odm/models/signature) | Service signatures such as YARA rules, including their source, status, and statistics |
+| [Submission](../../odm/models/submission) | Submission records — track files involved, errors, max scores, and lifecycle status |
 
 Searches are scoped to a single index — cross-index (JOIN) queries are not supported in Elasticsearch.
 
