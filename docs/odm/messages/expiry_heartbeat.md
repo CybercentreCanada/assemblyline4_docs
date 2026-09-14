@@ -27,18 +27,20 @@ Expiry Stats
 
 | Field | Type | Description | Required | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| alert | Integer | Number of alerts | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| badlist | Integer | Number of badlisted items | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| cached_file | Integer | Number of cached files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| emptyresult | Integer | Number of empty results | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| error | Integer | Number of errors | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| file | Integer | Number of files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| filescore | Integer | Number of filscores | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| result | Integer | Number of results | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| retrohunt_hit | Integer | Number of retrohunt hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| safelist | Integer | Number of safelisted items | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| submission | Integer | Number of submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| submission_tree | Integer | Number of submission trees | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
-| submission_summary | Integer | Number of submission summaries | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `None` |
+| alert | Integer | Number of alerts | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| apikey | Integer | Number of apikeys | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| badlist | Integer | Number of badlisted items | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| cached_file | Integer | Number of cached files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| emptyresult | Integer | Number of empty results | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| error | Integer | Number of errors | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| file | Integer | Number of files | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| filescore | Integer | Number of filscores | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| result | Integer | Number of results | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| retrohunt | Integer | Number of retrohunt searches | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| retrohunt_hit | Integer | Number of retrohunt hits | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| safelist | Integer | Number of safelisted items | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| submission | Integer | Number of submissions | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| submission_tree | Integer | Number of submission trees | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
+| submission_summary | Integer | Number of submission summaries | <div style="width:100px">:material-checkbox-marked-outline: Yes</div> | `0` |
 
 
