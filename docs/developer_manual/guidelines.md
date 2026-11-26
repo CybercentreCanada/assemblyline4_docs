@@ -16,7 +16,7 @@ A feature or patch development generally follows this lifecycle:
 - A stable pull request can be considered ready when reviews and integration testing in the staging environment are complete.
 - A stable pull request that is ready can be merged when a release that includes it is being produced.
 
-Triggering and deploying a stable builds should be considered whenever a stable pull request is ready to merge. This is to favour many smaller changes in our production environment rather than larger more complex deployment changes with harder to review change surfaces.
+Triggering and deploying a stable build should be considered whenever a stable pull request is ready to merge. This is to favour many smaller changes in our production environment rather than larger more complex deployment changes with harder to review change surfaces.
 
 Note that branches are forked off of stable, then merged back into both development and stable branches. Stable can always be merged into a feature branch or the development branch and a feature branch can always be rebased on stable, but to maintain this **the development branch may never be merged into a feature branch or the stable branch**. If conflicts cause github to recommend doing this, _do not_. Instead either create a temporary branch merging your feature branch with development to resolve conflicts, or merge the branch into development manually resolving the merge conflicts within the development branch.
 
